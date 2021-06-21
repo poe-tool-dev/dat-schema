@@ -10,18 +10,23 @@ import {
 import { GraphQLError, printError, syntaxError } from 'graphql/error';
 
 // prettier-ignore
-const ScalarType = new Set([
+const ScalarTypes: ReadonlySet<string> = new Set([
   'bool',
   'string',
   'u64', 'u32', 'u16', 'u8',
   'i64', 'i32', 'i16', 'i8',
   'f64', 'f32',
-] as const);
+]);
 
-type ColumnType =
-  | (typeof ScalarType extends Set<infer T> ? T : never)
-  | 'row'
-  | 'foreignrow';
+// prettier-ignore
+type ScalarType =
+  'bool' |
+  'string' |
+  'u64' | 'u32' | 'u16' | 'u8' |
+  'i64' | 'i32' | 'i16' | 'i8' |
+  'f64' | 'f32'
+
+type ColumnType = ScalarType | 'row' | 'foreignrow';
 
 interface TableColumn {
   name: string | null;
@@ -37,10 +42,10 @@ interface TableColumn {
     | null;
 }
 
-// interface SchemaTable {
-//   name: string;
-//   columns: TableColumn[];
-// }
+interface SchemaTable {
+  name: string;
+  columns: TableColumn[];
+}
 
 // interface SchemaEnum {
 //   name: string;
@@ -62,60 +67,83 @@ export function readSpecs(sources: readonly Source[]) {
     }
   }
 
+  const tables: SchemaTable[] = [];
   for (const typeNode of typeDefsMap.values()) {
-    const tableName = typeNode.name.value;
+    const table: SchemaTable = {
+      name: typeNode.name.value,
+      columns: [],
+    };
 
-    for (const fieldNode of typeNode.fields!) {
-      const unique = isUnique(fieldNode);
-      const refFieldName = referencesField(fieldNode);
-      const fieldType = unwrapType(fieldNode);
-      let references: TableColumn['references'] = null;
+    assert.ok(typeNode.fields != null);
+    for (const fieldNode of typeNode.fields) {
+      table.columns.push(parseFieldNode(table.name, fieldNode));
+    }
 
-      if (tableName === fieldType.name) {
-        references = { table: tableName, column: null };
-        fieldType.name = 'row' as ColumnType;
-      } else if (fieldType.name === 'ref') {
-        references = { table: null, column: null };
-        fieldType.name = 'foreignrow' as ColumnType;
-      } else if (!ScalarType.has(fieldType.name as any)) {
-        if (!typeDefsMap.has(fieldType.name)) {
-          throw `Can't find referenced type.\n${printLocation(
-            fieldNode.type.loc!
-          )}`;
-        }
+    tables.push(table);
+  }
+
+  return tables;
+
+  function parseFieldNode(
+    tableName: string,
+    fieldNode: FieldDefinitionNode
+  ): TableColumn {
+    const unique = isUnique(fieldNode);
+    const refFieldName = referencesField(fieldNode);
+    const fieldType = unwrapType(fieldNode);
+    let references: TableColumn['references'] = null;
+
+    if (fieldType.name === tableName) {
+      references = { table: tableName, column: null };
+      fieldType.name = 'row' as ColumnType;
+    } else if (fieldType.name === 'ref') {
+      references = { table: null, column: null };
+      fieldType.name = 'foreignrow' as ColumnType;
+    } else if (!ScalarTypes.has(fieldType.name)) {
+      if (typeDefsMap.has(fieldType.name)) {
         references = { table: fieldType.name, column: null };
         fieldType.name = 'foreignrow' as ColumnType;
+      } else {
+        throw new GraphQLError(
+          `Can't find referenced table "${fieldType.name}".`,
+          fieldNode.type
+        );
       }
-
-      if (refFieldName) {
-        assert.ok(references?.table);
-        references.column = refFieldName;
-        const refDefNode = typeDefsMap.get(references.table);
-        assert.ok(refDefNode);
-        const refFieldType = findReferencedField(refDefNode, refFieldName);
-        assert.ok(refFieldType);
-        fieldType.name = refFieldType;
-      }
-
-      assert.ok(
-        ScalarType.has(fieldType.name as any) ||
-          fieldType.name === 'row' ||
-          fieldType.name === 'foreignrow'
-      );
-
-      const column: TableColumn = {
-        name: fieldNode.name.value === '_' ? null : fieldNode.name.value,
-        description: fieldNode.description?.value ?? null,
-        array: fieldType.array,
-        type: fieldType.name as ColumnType,
-        nullable: fieldType.nullable,
-        unique: unique,
-        references: references,
-        until: null,
-      };
-
-      console.log(print(fieldNode), column);
     }
+
+    if (refFieldName) {
+      assert.ok(references?.table);
+      references.column = refFieldName;
+      const refDefNode = typeDefsMap.get(references.table);
+      assert.ok(refDefNode);
+      const refFieldType = findReferencedField(refDefNode, refFieldName);
+      if (!refFieldType) {
+        throw new GraphQLError(
+          `Can't find column "${refFieldName}" in table "${references.table}".`,
+          fieldNode.directives // TODO find and pass actual node
+        );
+      }
+      fieldType.name = refFieldType;
+    }
+
+    assert.ok(
+      ScalarTypes.has(fieldType.name) ||
+        fieldType.name === 'row' ||
+        fieldType.name === 'foreignrow'
+    );
+
+    const column: TableColumn = {
+      name: fieldNode.name.value === '_' ? null : fieldNode.name.value,
+      description: fieldNode.description?.value ?? null,
+      array: fieldType.array,
+      type: fieldType.name as ColumnType,
+      nullable: fieldType.nullable,
+      unique: unique,
+      references: references,
+      until: null, // TODO
+    };
+
+    return column;
   }
 }
 
@@ -162,7 +190,7 @@ function unwrapType(field: FieldDefinitionNode): {
 
   assert.ok(type.kind === 'NamedType', printLocation(field.type.loc!));
 
-  if (ScalarType.has(type.name.value as any) && type.name.value !== 'string') {
+  if (ScalarTypes.has(type.name.value) && type.name.value !== 'string') {
     nullable = false;
   }
 
@@ -177,15 +205,17 @@ function findReferencedField(
   typeNode: ObjectTypeDefinitionNode,
   name: string
 ): string | undefined {
-  const fieldNode = typeNode.fields!.find((field) => field.name.value === name);
+  assert.ok(typeNode.fields != null);
+  const fieldNode = typeNode.fields.find((field) => field.name.value === name);
 
   if (fieldNode) {
     const typeInfo = unwrapType(fieldNode);
+    // TODO replace assert with throw
     assert.ok(
       isUnique(fieldNode) &&
         !typeInfo.array &&
         !typeInfo.nullable &&
-        ScalarType.has(typeInfo.name as any)
+        ScalarTypes.has(typeInfo.name)
     );
     return typeInfo.name;
   }
