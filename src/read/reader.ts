@@ -1,4 +1,3 @@
-import { readFileSync } from 'fs';
 import * as assert from 'assert';
 import {
   parse,
@@ -7,8 +6,6 @@ import {
   FieldDefinitionNode,
   ObjectTypeDefinitionNode,
 } from 'graphql/language';
-
-const file01 = readFileSync('./src/Harvest.gql', { encoding: 'utf-8' });
 
 // prettier-ignore
 const ScalarType = new Set([
@@ -48,75 +45,77 @@ interface TableColumn {
 //   enum: string[];
 // }
 
-(function () {
+export function readFiles(files: Array<{ name: string; contents: string }>) {
   const typeDefsMap = new Map<string, ObjectTypeDefinitionNode>();
 
-  const doc = parse(file01);
+  for (const file of files) {
+    const doc = parse(file.contents);
 
-  for (const typeNode of doc.definitions) {
-    if (typeNode.kind !== 'ObjectTypeDefinition') {
-      throw printLocation(typeNode.loc!);
-    } else {
-      typeDefsMap.set(typeNode.name.value, typeNode);
+    for (const typeNode of doc.definitions) {
+      if (typeNode.kind !== 'ObjectTypeDefinition') {
+        throw printLocation(typeNode.loc!);
+      } else {
+        typeDefsMap.set(typeNode.name.value, typeNode);
+      }
     }
-  }
 
-  for (const typeNode of typeDefsMap.values()) {
-    const tableName = typeNode.name.value;
+    for (const typeNode of typeDefsMap.values()) {
+      const tableName = typeNode.name.value;
 
-    for (const fieldNode of typeNode.fields!) {
-      const unique = isUnique(fieldNode);
-      const refFieldName = referencesField(fieldNode);
-      const fieldType = unwrapType(fieldNode);
-      let references: TableColumn['references'] = null;
+      for (const fieldNode of typeNode.fields!) {
+        const unique = isUnique(fieldNode);
+        const refFieldName = referencesField(fieldNode);
+        const fieldType = unwrapType(fieldNode);
+        let references: TableColumn['references'] = null;
 
-      if (tableName === fieldType.name) {
-        references = { table: tableName, column: null };
-        fieldType.name = 'row' as ColumnType;
-      } else if (fieldType.name === 'ref') {
-        references = { table: null, column: null };
-        fieldType.name = 'foreignrow' as ColumnType;
-      } else if (!ScalarType.has(fieldType.name as any)) {
-        if (!typeDefsMap.has(fieldType.name)) {
-          throw `Can't find referenced type.\n${printLocation(
-            fieldNode.type.loc!
-          )}`;
+        if (tableName === fieldType.name) {
+          references = { table: tableName, column: null };
+          fieldType.name = 'row' as ColumnType;
+        } else if (fieldType.name === 'ref') {
+          references = { table: null, column: null };
+          fieldType.name = 'foreignrow' as ColumnType;
+        } else if (!ScalarType.has(fieldType.name as any)) {
+          if (!typeDefsMap.has(fieldType.name)) {
+            throw `Can't find referenced type.\n${printLocation(
+              fieldNode.type.loc!
+            )}`;
+          }
+          references = { table: fieldType.name, column: null };
+          fieldType.name = 'foreignrow' as ColumnType;
         }
-        references = { table: fieldType.name, column: null };
-        fieldType.name = 'foreignrow' as ColumnType;
+
+        if (refFieldName) {
+          assert.ok(references?.table);
+          references.column = refFieldName;
+          const refDefNode = typeDefsMap.get(references.table);
+          assert.ok(refDefNode);
+          const refFieldType = findReferencedField(refDefNode, refFieldName);
+          assert.ok(refFieldType);
+          fieldType.name = refFieldType;
+        }
+
+        assert.ok(
+          ScalarType.has(fieldType.name as any) ||
+            fieldType.name === 'row' ||
+            fieldType.name === 'foreignrow'
+        );
+
+        const column: TableColumn = {
+          name: fieldNode.name.value === '_' ? null : fieldNode.name.value,
+          description: fieldNode.description?.value ?? null,
+          array: fieldType.array,
+          type: fieldType.name as ColumnType,
+          nullable: fieldType.nullable,
+          unique: unique,
+          references: references,
+          until: null,
+        };
+
+        console.log(print(fieldNode), column);
       }
-
-      if (refFieldName) {
-        assert.ok(references?.table);
-        references.column = refFieldName;
-        const refDefNode = typeDefsMap.get(references.table);
-        assert.ok(refDefNode);
-        const refFieldType = findReferencedField(refDefNode, refFieldName);
-        assert.ok(refFieldType);
-        fieldType.name = refFieldType;
-      }
-
-      assert.ok(
-        ScalarType.has(fieldType.name as any) ||
-          fieldType.name === 'row' ||
-          fieldType.name === 'foreignrow'
-      );
-
-      const column: TableColumn = {
-        name: fieldNode.name.value === '_' ? null : fieldNode.name.value,
-        description: fieldNode.description?.value ?? null,
-        array: fieldType.array,
-        type: fieldType.name as ColumnType,
-        nullable: fieldType.nullable,
-        unique: unique,
-        references: references,
-        until: null,
-      };
-
-      console.log(print(fieldNode), column);
     }
   }
-})();
+}
 
 function isUnique(field: FieldDefinitionNode) {
   return (field.directives ?? []).some(
