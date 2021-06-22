@@ -87,7 +87,7 @@ function parseFieldNode(
   if (fieldType.name === tableName) {
     references = { table: tableName, column: null };
     fieldType.name = 'row' as ColumnType;
-  } else if (fieldType.name === 'ref') {
+  } else if (fieldType.name === 'rid') {
     references = { table: null, column: null };
     fieldType.name = 'foreignrow' as ColumnType;
   } else if (!ScalarTypes.has(fieldType.name)) {

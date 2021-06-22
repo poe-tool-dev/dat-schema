@@ -19,9 +19,9 @@ The schema is based on GraphQL syntax.
 | u64, u32, u16, u8 | -             | Unsigned Integer      |
 | i64, i32, i16, i8 | -             | Signed Integer        |
 | f64, f32          | -             | Floating Point Number |
-| ref!              | ref           | Index to a Row in a Foreign Table |
+| rid!              | rid           | Index to a Row in a Foreign Table |
 
-NOTE: the `ref` type is intended to be used temporarily until we know the name of foreign table.
+NOTE: the `rid` type is intended to be used temporarily until we know the name of foreign table.
 
 ### Defining relations
 

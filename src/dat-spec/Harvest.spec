@@ -1,5 +1,5 @@
 type HarvestObject {
-  _: ref!
+  _: rid!
   _: i16
   part: [HarvestPart] @ref(column: "name")
   part2: [HarvestPart]
