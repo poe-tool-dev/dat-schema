@@ -1,11 +1,11 @@
 import * as assert from 'assert';
 import {
   parse,
-  print,
   printLocation,
   FieldDefinitionNode,
   ObjectTypeDefinitionNode,
   Source,
+  DirectiveNode,
 } from 'graphql/language';
 import { GraphQLError, printError, syntaxError } from 'graphql/error';
 
@@ -24,9 +24,17 @@ type ScalarType =
   'string' |
   'u64' | 'u32' | 'u16' | 'u8' |
   'i64' | 'i32' | 'i16' | 'i8' |
-  'f64' | 'f32'
+  'f64' | 'f32';
 
 type ColumnType = ScalarType | 'row' | 'foreignrow';
+
+const DIRECTIVE_REF = {
+  NAME: 'ref',
+};
+
+const DIRECTIVE_UNIQUE = {
+  NAME: 'unique',
+};
 
 interface TableColumn {
   name: string | null;
@@ -118,11 +126,25 @@ function parseFieldNode(
     references.column = refFieldName;
     const refDefNode = typeDefsMap.get(references.table);
     assert.ok(refDefNode);
-    const refFieldType = findReferencedField(refDefNode, refFieldName);
+
+    let refFieldType: string | undefined;
+    try {
+      refFieldType = findReferencedField(refDefNode, refFieldName);
+    } catch (e) {
+      throw new GraphQLError(
+        'An error occurred while validating the referenced column.',
+        findDirective(fieldNode, DIRECTIVE_REF.NAME),
+        undefined,
+        undefined,
+        undefined,
+        e
+      );
+    }
+
     if (!refFieldType) {
       throw new GraphQLError(
         `Can't find column "${refFieldName}" in table "${references.table}".`,
-        fieldNode.directives // TODO find and pass actual node
+        findDirective(fieldNode, DIRECTIVE_REF.NAME)
       );
     }
     fieldType.name = refFieldType;
@@ -148,16 +170,12 @@ function parseFieldNode(
   return column;
 }
 
-function isUnique(field: FieldDefinitionNode) {
-  return (field.directives ?? []).some(
-    (directive) => directive.name.value === 'unique'
-  );
+function isUnique(field: FieldDefinitionNode): boolean {
+  return findDirective(field, DIRECTIVE_UNIQUE.NAME) != null;
 }
 
 function referencesField(field: FieldDefinitionNode): string | undefined {
-  const directive = (field.directives ?? []).find(
-    (directive) => directive.name.value === 'ref'
-  );
+  const directive = findDirective(field, DIRECTIVE_REF.NAME);
 
   if (directive) {
     const { arguments: args } = directive;
@@ -211,13 +229,40 @@ function findReferencedField(
 
   if (fieldNode) {
     const typeInfo = unwrapType(fieldNode);
-    // TODO replace assert with throw
-    assert.ok(
-      isUnique(fieldNode) &&
-        !typeInfo.array &&
-        !typeInfo.nullable &&
-        ScalarTypes.has(typeInfo.name)
-    );
+    if (typeInfo.array) {
+      throw new GraphQLError(
+        'Сannot refer to a column with an array type.',
+        fieldNode.type
+      );
+    }
+    if (typeInfo.nullable) {
+      throw new GraphQLError(
+        'Сannot refer to a column with nullable values.',
+        fieldNode.type
+      );
+    }
+    if (!isUnique(fieldNode)) {
+      throw new GraphQLError(
+        'Values in the referenced column must be unique.',
+        fieldNode
+      );
+    }
+    if (!ScalarTypes.has(typeInfo.name)) {
+      throw new GraphQLError(
+        'Сannot refer to a column with a non-scalar type.',
+        fieldNode.type
+      );
+    }
+
     return typeInfo.name;
   }
+}
+
+function findDirective(
+  node: FieldDefinitionNode,
+  name: string
+): DirectiveNode | undefined {
+  return (node.directives ?? []).find(
+    (directive) => directive.name.value === name
+  );
 }

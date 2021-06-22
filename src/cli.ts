@@ -21,6 +21,9 @@ let schema: unknown;
   } catch (e: unknown) {
     if (e instanceof GraphQLError) {
       console.error(printError(e));
+      if (e.originalError instanceof GraphQLError) {
+        console.error('\n-----\n' + printError(e.originalError));
+      }
       process.exit(1);
     } else {
       throw e;
