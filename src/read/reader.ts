@@ -21,6 +21,9 @@ const ScalarTypes: ReadonlySet<string> = new Set([
 
 const DIRECTIVE_REF = {
   NAME: 'ref',
+  ARGS: {
+    COLUMN: 'column',
+  },
 };
 
 const DIRECTIVE_UNIQUE = {
@@ -35,7 +38,7 @@ export function readSpecs(sources: readonly Source[]) {
 
     for (const typeNode of doc.definitions) {
       if (typeNode.kind !== 'ObjectTypeDefinition') {
-        throw new GraphQLError('Unsupported definition', typeNode);
+        throw new GraphQLError('Unsupported definition.', typeNode);
       } else {
         typeDefsMap.set(typeNode.name.value, typeNode);
       }
@@ -75,6 +78,8 @@ function parseFieldNode(
   tableName: string,
   fieldNode: FieldDefinitionNode
 ): TableColumn {
+  validateDirectives(fieldNode);
+
   const unique = isUnique(fieldNode);
   const refFieldName = referencesField(fieldNode);
   const fieldType = unwrapType(fieldNode);
@@ -232,6 +237,50 @@ function findReferencedField(
     }
 
     return typeInfo.name;
+  }
+}
+
+function validateDirectives(node: FieldDefinitionNode): void {
+  for (const directive of node.directives ?? []) {
+    switch (directive.name.value) {
+      case DIRECTIVE_REF.NAME:
+      case DIRECTIVE_UNIQUE.NAME:
+        break;
+      default:
+        throw new GraphQLError(
+          `Unknown directive "${directive.name.value}".`,
+          directive.name
+        );
+    }
+  }
+
+  let directive = findDirective(node, DIRECTIVE_UNIQUE.NAME);
+  if (directive) {
+    if (directive.arguments?.length) {
+      throw new GraphQLError(
+        `Directive doesn't accept arguments.`,
+        directive.arguments
+      );
+    }
+  }
+
+  directive = findDirective(node, DIRECTIVE_REF.NAME);
+  if (directive) {
+    if (!directive.arguments?.length) {
+      throw new GraphQLError('Missing referenced column name.', directive);
+    }
+    for (const arg of directive.arguments) {
+      if (arg.name.value === DIRECTIVE_REF.ARGS.COLUMN) {
+        if (arg.value.kind !== 'StringValue') {
+          throw new GraphQLError(`String expected.`, arg.value);
+        }
+      } else {
+        throw new GraphQLError(
+          `Unknown argument "${arg.name.value}".`,
+          arg.name
+        );
+      }
+    }
   }
 }
 
