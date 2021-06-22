@@ -1,10 +1,9 @@
 import * as assert from 'assert';
 import {
   parse,
-  printLocation,
-  FieldDefinitionNode,
-  ObjectTypeDefinitionNode,
   Source,
+  ObjectTypeDefinitionNode,
+  FieldDefinitionNode,
   DirectiveNode,
 } from 'graphql/language';
 import { GraphQLError } from 'graphql/error';
@@ -163,9 +162,8 @@ function referencesField(field: FieldDefinitionNode): string | undefined {
     const { arguments: args } = directive;
     assert.ok(
       args?.length === 1 &&
-        args[0].name.value === 'column' &&
-        args[0].value.kind === 'StringValue',
-      printLocation(directive.loc!)
+        args[0].name.value === DIRECTIVE_REF.ARGS.COLUMN &&
+        args[0].value.kind === 'StringValue'
     );
     return args[0].value.value;
   }
@@ -185,11 +183,16 @@ function unwrapType(field: FieldDefinitionNode): {
     type = type.type;
   } else if (type.kind === 'ListType') {
     array = true;
-    nullable = false;
     type = type.type;
+    if (type.kind === 'NonNullType') {
+      nullable = false;
+      type = type.type;
+    }
   }
 
-  assert.ok(type.kind === 'NamedType', printLocation(field.type.loc!));
+  if (type.kind !== 'NamedType') {
+    throw new GraphQLError('Valid type expected.', field.type);
+  }
 
   if (ScalarTypes.has(type.name.value) && type.name.value !== 'string') {
     nullable = false;
