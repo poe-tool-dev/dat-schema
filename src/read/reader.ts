@@ -8,6 +8,7 @@ import {
   DirectiveNode,
 } from 'graphql/language';
 import { GraphQLError, printError, syntaxError } from 'graphql/error';
+import { SchemaTable, TableColumn, ColumnType } from '../types';
 
 // prettier-ignore
 const ScalarTypes: ReadonlySet<string> = new Set([
@@ -18,16 +19,6 @@ const ScalarTypes: ReadonlySet<string> = new Set([
   'f64', 'f32',
 ]);
 
-// prettier-ignore
-type ScalarType =
-  'bool' |
-  'string' |
-  'u64' | 'u32' | 'u16' | 'u8' |
-  'i64' | 'i32' | 'i16' | 'i8' |
-  'f64' | 'f32';
-
-type ColumnType = ScalarType | 'row' | 'foreignrow';
-
 const DIRECTIVE_REF = {
   NAME: 'ref',
 };
@@ -35,30 +26,6 @@ const DIRECTIVE_REF = {
 const DIRECTIVE_UNIQUE = {
   NAME: 'unique',
 };
-
-interface TableColumn {
-  name: string | null;
-  description: string | null;
-  array: boolean;
-  type: ColumnType;
-  unique: boolean;
-  nullable: boolean;
-  until: string | null;
-  references:
-    | { table: string | null; column: string | null }
-    | { enum: string }
-    | null;
-}
-
-interface SchemaTable {
-  name: string;
-  columns: TableColumn[];
-}
-
-// interface SchemaEnum {
-//   name: string;
-//   enum: string[];
-// }
 
 export function readSpecs(sources: readonly Source[]) {
   const typeDefsMap = new Map<string, ObjectTypeDefinitionNode>();
