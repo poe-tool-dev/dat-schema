@@ -7,7 +7,7 @@ import {
   Source,
   DirectiveNode,
 } from 'graphql/language';
-import { GraphQLError, printError, syntaxError } from 'graphql/error';
+import { GraphQLError } from 'graphql/error';
 import { SchemaTable, TableColumn, ColumnType } from '../types';
 
 // prettier-ignore
@@ -51,7 +51,17 @@ export function readSpecs(sources: readonly Source[]) {
 
     assert.ok(typeNode.fields != null);
     for (const fieldNode of typeNode.fields) {
-      table.columns.push(parseFieldNode(typeDefsMap, table.name, fieldNode));
+      const column = parseFieldNode(typeDefsMap, table.name, fieldNode);
+      if (
+        column.name != null &&
+        table.columns.some((col) => col.name === column.name)
+      ) {
+        throw new GraphQLError(
+          `Duplicate column name "${column.name}".`,
+          fieldNode.name
+        );
+      }
+      table.columns.push(column);
     }
 
     tables.push(table);
