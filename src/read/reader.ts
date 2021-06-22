@@ -76,75 +76,76 @@ export function readSpecs(sources: readonly Source[]) {
 
     assert.ok(typeNode.fields != null);
     for (const fieldNode of typeNode.fields) {
-      table.columns.push(parseFieldNode(table.name, fieldNode));
+      table.columns.push(parseFieldNode(typeDefsMap, table.name, fieldNode));
     }
 
     tables.push(table);
   }
 
   return tables;
+}
 
-  function parseFieldNode(
-    tableName: string,
-    fieldNode: FieldDefinitionNode
-  ): TableColumn {
-    const unique = isUnique(fieldNode);
-    const refFieldName = referencesField(fieldNode);
-    const fieldType = unwrapType(fieldNode);
-    let references: TableColumn['references'] = null;
+function parseFieldNode(
+  typeDefsMap: ReadonlyMap<string, ObjectTypeDefinitionNode>,
+  tableName: string,
+  fieldNode: FieldDefinitionNode
+): TableColumn {
+  const unique = isUnique(fieldNode);
+  const refFieldName = referencesField(fieldNode);
+  const fieldType = unwrapType(fieldNode);
+  let references: TableColumn['references'] = null;
 
-    if (fieldType.name === tableName) {
-      references = { table: tableName, column: null };
-      fieldType.name = 'row' as ColumnType;
-    } else if (fieldType.name === 'ref') {
-      references = { table: null, column: null };
+  if (fieldType.name === tableName) {
+    references = { table: tableName, column: null };
+    fieldType.name = 'row' as ColumnType;
+  } else if (fieldType.name === 'ref') {
+    references = { table: null, column: null };
+    fieldType.name = 'foreignrow' as ColumnType;
+  } else if (!ScalarTypes.has(fieldType.name)) {
+    if (typeDefsMap.has(fieldType.name)) {
+      references = { table: fieldType.name, column: null };
       fieldType.name = 'foreignrow' as ColumnType;
-    } else if (!ScalarTypes.has(fieldType.name)) {
-      if (typeDefsMap.has(fieldType.name)) {
-        references = { table: fieldType.name, column: null };
-        fieldType.name = 'foreignrow' as ColumnType;
-      } else {
-        throw new GraphQLError(
-          `Can't find referenced table "${fieldType.name}".`,
-          fieldNode.type
-        );
-      }
+    } else {
+      throw new GraphQLError(
+        `Can't find referenced table "${fieldType.name}".`,
+        fieldNode.type
+      );
     }
-
-    if (refFieldName) {
-      assert.ok(references?.table);
-      references.column = refFieldName;
-      const refDefNode = typeDefsMap.get(references.table);
-      assert.ok(refDefNode);
-      const refFieldType = findReferencedField(refDefNode, refFieldName);
-      if (!refFieldType) {
-        throw new GraphQLError(
-          `Can't find column "${refFieldName}" in table "${references.table}".`,
-          fieldNode.directives // TODO find and pass actual node
-        );
-      }
-      fieldType.name = refFieldType;
-    }
-
-    assert.ok(
-      ScalarTypes.has(fieldType.name) ||
-        fieldType.name === 'row' ||
-        fieldType.name === 'foreignrow'
-    );
-
-    const column: TableColumn = {
-      name: fieldNode.name.value === '_' ? null : fieldNode.name.value,
-      description: fieldNode.description?.value ?? null,
-      array: fieldType.array,
-      type: fieldType.name as ColumnType,
-      nullable: fieldType.nullable,
-      unique: unique,
-      references: references,
-      until: null, // TODO
-    };
-
-    return column;
   }
+
+  if (refFieldName) {
+    assert.ok(references?.table);
+    references.column = refFieldName;
+    const refDefNode = typeDefsMap.get(references.table);
+    assert.ok(refDefNode);
+    const refFieldType = findReferencedField(refDefNode, refFieldName);
+    if (!refFieldType) {
+      throw new GraphQLError(
+        `Can't find column "${refFieldName}" in table "${references.table}".`,
+        fieldNode.directives // TODO find and pass actual node
+      );
+    }
+    fieldType.name = refFieldType;
+  }
+
+  assert.ok(
+    ScalarTypes.has(fieldType.name) ||
+      fieldType.name === 'row' ||
+      fieldType.name === 'foreignrow'
+  );
+
+  const column: TableColumn = {
+    name: fieldNode.name.value === '_' ? null : fieldNode.name.value,
+    description: fieldNode.description?.value ?? null,
+    array: fieldType.array,
+    type: fieldType.name as ColumnType,
+    nullable: fieldType.nullable,
+    unique: unique,
+    references: references,
+    until: null, // TODO
+  };
+
+  return column;
 }
 
 function isUnique(field: FieldDefinitionNode) {
@@ -162,7 +163,7 @@ function referencesField(field: FieldDefinitionNode): string | undefined {
     const { arguments: args } = directive;
     assert.ok(
       args?.length === 1 &&
-        args[0].name.value === 'field' &&
+        args[0].name.value === 'column' &&
         args[0].value.kind === 'StringValue',
       printLocation(directive.loc!)
     );
