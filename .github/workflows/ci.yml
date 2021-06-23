@@ -17,7 +17,7 @@ jobs:
     - run: yarn run tsc
     - run: yarn run generate
     - name: Upload schema
-    - uses: ncipollo/release-action@v1
+      uses: ncipollo/release-action@v1
       with:
         artifacts: schema.min.json
         token: ${{ secrets.GITHUB_TOKEN }}
