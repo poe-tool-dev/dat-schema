@@ -6,7 +6,7 @@ import { GraphQLError, printError } from 'graphql/error';
 import { readSpecs } from './reader';
 import { SchemaTable } from './types';
 
-const SPEC_PATH = path.join(__dirname, './dat-spec');
+const SPEC_PATH = path.join(__dirname, '../dat-spec');
 
 function read(): SchemaTable[] {
   const sources = fs.readdirSync(SPEC_PATH).map((entryName) => {
@@ -31,13 +31,11 @@ function read(): SchemaTable[] {
   }
 }
 
-console.log(read());
-
-// fs.writeFileSync(
-//   path.join(process.cwd(), './schema.min.json'),
-//   JSON.stringify({
-//     version: 1,
-//     createdAt: Math.floor(Date.now() / 1000),
-//     tables: read(),
-//   })
-// );
+fs.writeFileSync(
+  path.join(process.cwd(), './schema.min.json'),
+  JSON.stringify({
+    version: 1,
+    createdAt: Math.floor(Date.now() / 1000),
+    tables: read(),
+  })
+);
