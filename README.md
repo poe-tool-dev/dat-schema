@@ -4,7 +4,9 @@ Source of truth schema for dat files.
 
 ## Using
 
-TODO
+Each commit triggers a CI build that exports schema to JSON.
+You can always `curl` latest version at
+https://github.com/.../.../releases/download/latest/schema.min.json
 
 ## Schema
 

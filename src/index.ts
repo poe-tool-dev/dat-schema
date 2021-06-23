@@ -1,3 +1,4 @@
 export * from './types'
 
-export const SCHEMA_URL = 'TODO github'
+// TODO change url
+export const SCHEMA_URL = 'https://github.com/.../.../releases/download/latest/schema.min.json'
