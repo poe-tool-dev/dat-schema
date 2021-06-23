@@ -7,7 +7,7 @@ import {
   DirectiveNode,
 } from 'graphql/language';
 import { GraphQLError } from 'graphql/error';
-import { SchemaTable, TableColumn, ColumnType } from '../types';
+import { SchemaTable, TableColumn, ColumnType } from './types';
 
 // prettier-ignore
 const ScalarTypes: ReadonlySet<string> = new Set([
