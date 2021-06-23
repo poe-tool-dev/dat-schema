@@ -17,9 +17,11 @@ jobs:
     - run: yarn run tsc
     - run: yarn run generate
     - name: Upload schema
-      uses: softprops/action-gh-release@v1
+    - uses: ncipollo/release-action@v1
       with:
-        tag_name: latest
-        files: schema.min.json
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        artifacts: schema.min.json
+        token: ${{ secrets.GITHUB_TOKEN }}
+        tag: latest
+        allowUpdates: true
+        omitBodyDuringUpdate: true
+        omitNameDuringUpdate: true
