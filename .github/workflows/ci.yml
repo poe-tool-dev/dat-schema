@@ -16,3 +16,10 @@ jobs:
     - run: yarn --frozen-lockfile
     - run: yarn run tsc
     - run: yarn run generate
+    - name: Upload schema
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: latest
+        files: schema.min.json
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
