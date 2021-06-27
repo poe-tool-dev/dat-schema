@@ -46,3 +46,9 @@ export interface SchemaTable {
 //   name: string;
 //   enum: string[];
 // }
+
+export interface SchemaFile {
+  version: number;
+  createdAt: number;
+  tables: SchemaTable[];
+}

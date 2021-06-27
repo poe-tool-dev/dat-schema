@@ -4,7 +4,7 @@ import * as fs from 'fs';
 import { Source } from 'graphql/language/source';
 import { GraphQLError, printError } from 'graphql/error';
 import { readSchemaSources } from './reader';
-import { SchemaTable, SCHEMA_VERSION } from './types';
+import { SchemaFile, SchemaTable, SCHEMA_VERSION } from './types';
 
 const SCHEMA_PATH = path.join(__dirname, '../dat-schema');
 
@@ -37,5 +37,5 @@ fs.writeFileSync(
     version: SCHEMA_VERSION,
     createdAt: Math.floor(Date.now() / 1000),
     tables: read(),
-  })
+  } as SchemaFile)
 );
