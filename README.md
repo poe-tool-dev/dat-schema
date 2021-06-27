@@ -6,7 +6,7 @@ Source of truth schema for dat files.
 
 Each commit triggers a CI build that exports schema to JSON.
 You can always `curl` latest version at
-https://github.com/.../.../releases/download/latest/schema.min.json
+[github.com/poe-tool-dev/dat-schema/releases/download/latest/schema.min.json](https://github.com/poe-tool-dev/dat-schema/releases/download/latest/schema.min.json)
 
 ## Schema
 
@@ -31,7 +31,7 @@ NOTE: the `rid` type is intended to be used temporarily until we know the name o
 
   Example `BaseItem: BaseItemTypes`
 
-- Using a matching value (like in relational databases)
+- Using a matching value in column (like in relational databases)
 
   Example `SkillId: ActiveSkills @ref(column: "Id")`
 
