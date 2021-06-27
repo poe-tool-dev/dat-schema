@@ -37,7 +37,8 @@ NOTE: the `rid` type is intended to be used temporarily until we know the name o
 
 ### Supported directives
 
-| Directive | Arguments | Description |
-|-----------|-----------|-------------|
-| @ref      | column: "STRING" - name of referenced column | Defines relation |
-| @unique   | -         | All values in a column are different |
+| Directive  | Arguments | Description |
+|------------|-----------|-------------|
+| @ref       | column: "STRING" - name of referenced column | Defines relation |
+| @unique    | -         | All values in a column are different |
+| @localized | -         | Content of column differs depending on the language |

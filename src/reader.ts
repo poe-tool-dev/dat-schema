@@ -29,6 +29,10 @@ const DIRECTIVE_UNIQUE = {
   NAME: 'unique',
 };
 
+const DIRECTIVE_LOCALIZED = {
+  NAME: 'localized',
+};
+
 interface Context {
   typeDefsMap: ReadonlyMap<string, ObjectTypeDefinitionNode>;
   enumNames: ReadonlySet<string>;
@@ -92,6 +96,7 @@ function parseFieldNode(
   validateDirectives(fieldNode);
 
   const unique = isUnique(fieldNode);
+  const localized = isLocalized(fieldNode);
   const refFieldName = referencesField(fieldNode);
   const fieldType = unwrapType(fieldNode);
   let references: TableColumn['references'] = null;
@@ -157,6 +162,7 @@ function parseFieldNode(
     type: fieldType.name as ColumnType,
     nullable: fieldType.nullable,
     unique: unique,
+    localized: localized,
     references: references,
     until: null, // TODO
   };
@@ -166,6 +172,10 @@ function parseFieldNode(
 
 function isUnique(field: FieldDefinitionNode): boolean {
   return findDirective(field, DIRECTIVE_UNIQUE.NAME) != null;
+}
+
+function isLocalized(field: FieldDefinitionNode): boolean {
+  return findDirective(field, DIRECTIVE_LOCALIZED.NAME) != null;
 }
 
 function referencesField(field: FieldDefinitionNode): string | undefined {
@@ -261,6 +271,7 @@ function validateDirectives(node: FieldDefinitionNode): void {
     switch (directive.name.value) {
       case DIRECTIVE_REF.NAME:
       case DIRECTIVE_UNIQUE.NAME:
+      case DIRECTIVE_LOCALIZED.NAME:
         break;
       default:
         throw new GraphQLError(
@@ -271,6 +282,16 @@ function validateDirectives(node: FieldDefinitionNode): void {
   }
 
   let directive = findDirective(node, DIRECTIVE_UNIQUE.NAME);
+  if (directive) {
+    if (directive.arguments?.length) {
+      throw new GraphQLError(
+        `Directive doesn't accept arguments.`,
+        directive.arguments
+      );
+    }
+  }
+
+  directive = findDirective(node, DIRECTIVE_LOCALIZED.NAME);
   if (directive) {
     if (directive.arguments?.length) {
       throw new GraphQLError(
