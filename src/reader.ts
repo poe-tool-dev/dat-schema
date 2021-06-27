@@ -34,7 +34,7 @@ interface Context {
   enumNames: ReadonlySet<string>;
 }
 
-export function readSpecs(sources: readonly Source[]) {
+export function readSchemaSources(sources: readonly Source[]) {
   const typeDefsMap = new Map<string, ObjectTypeDefinitionNode>();
   const enumNames = new Set<string>();
 
