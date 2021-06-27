@@ -16,6 +16,15 @@ export type ScalarType =
 
 export type ColumnType = ScalarType | 'row' | 'foreignrow';
 
+export interface RefUsingRowIndex {
+  table: string;
+}
+
+export interface RefUsingColumn {
+  table: string;
+  column: string;
+}
+
 export interface TableColumn {
   name: string | null;
   description: string | null;
@@ -24,10 +33,7 @@ export interface TableColumn {
   unique: boolean;
   nullable: boolean;
   until: string | null;
-  references:
-    | { table: string | null; column: string | null }
-    | { enum: string }
-    | null;
+  references: RefUsingRowIndex | RefUsingColumn | null;
 }
 
 export interface SchemaTable {

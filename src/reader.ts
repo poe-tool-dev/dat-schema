@@ -7,7 +7,7 @@ import {
   DirectiveNode,
 } from 'graphql/language';
 import { GraphQLError } from 'graphql/error';
-import { SchemaTable, TableColumn, ColumnType } from './types';
+import { SchemaTable, TableColumn, ColumnType, RefUsingColumn } from './types';
 
 // prettier-ignore
 const ScalarTypes: ReadonlySet<string> = new Set([
@@ -85,14 +85,13 @@ function parseFieldNode(
   let references: TableColumn['references'] = null;
 
   if (fieldType.name === tableName) {
-    references = { table: tableName, column: null };
+    references = { table: tableName };
     fieldType.name = 'row' as ColumnType;
   } else if (fieldType.name === 'rid') {
-    references = { table: null, column: null };
     fieldType.name = 'foreignrow' as ColumnType;
   } else if (!ScalarTypes.has(fieldType.name)) {
     if (typeDefsMap.has(fieldType.name)) {
-      references = { table: fieldType.name, column: null };
+      references = { table: fieldType.name };
       fieldType.name = 'foreignrow' as ColumnType;
     } else {
       throw new GraphQLError(
@@ -104,7 +103,7 @@ function parseFieldNode(
 
   if (refFieldName) {
     assert.ok(references?.table);
-    references.column = refFieldName;
+    (references as RefUsingColumn).column = refFieldName;
     const refDefNode = typeDefsMap.get(references.table);
     assert.ok(refDefNode);
 
