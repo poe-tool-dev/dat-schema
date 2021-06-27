@@ -38,8 +38,7 @@ type AfflictionRewardMapMods {
   ModsKey: Mods
 }
 
-# enum?
-type AfflictionRewardTypes { TODO_REMOVE_THIS: u8 }
+enum AfflictionRewardTypes { _ }
 
 type AfflictionRewardTypeVisuals {
   AfflictionRewardTypes: AfflictionRewardTypes

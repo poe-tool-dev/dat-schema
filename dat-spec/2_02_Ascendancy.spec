@@ -63,8 +63,7 @@ type LabyrinthSecretEffects {
   OTFile: string
 }
 
-# enum?
-type LabyrinthSecretLocations { TODO_REMOVE_THIS: u8 }
+enum LabyrinthSecretLocations { _ }
 
 type LabyrinthSecrets {
   Id: string

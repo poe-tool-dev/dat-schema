@@ -59,8 +59,7 @@ type HeistBalancePerLevel {
   _: i32
 }
 
-# enum?
-type HeistBlueprintWindowTypes { TODO_REMOVE_THIS: u8 }
+enum HeistBlueprintWindowTypes { _ }
 
 type HeistChestRewardTypes {
   Id: string @unique
@@ -83,8 +82,7 @@ type HeistChests {
   HeistChestTypesKey: HeistChestTypes
 }
 
-# enum?
-type HeistChestTypes { TODO_REMOVE_THIS: u8 }
+enum HeistChestTypes { _ }
 
 type HeistChokepointFormation {
   _: rid
@@ -141,8 +139,7 @@ type HeistEquipment {
   RequiredLevel: i32
 }
 
-# enum?
-type HeistFormationMarkerType { TODO_REMOVE_THIS: u8 }
+enum HeistFormationMarkerType { _ }
 
 type HeistGeneration {
   Level: i32
@@ -338,8 +335,7 @@ type HeistRooms {
   _: i8
 }
 
-# enum?
-type HeistRoomTypes { TODO_REMOVE_THIS: u8 }
+enum HeistRoomTypes { _ }
 
 type HeistValueScaling {
   Id: string @unique

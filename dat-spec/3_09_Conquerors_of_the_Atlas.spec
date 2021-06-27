@@ -27,8 +27,7 @@ type AtlasExileInfluenceOutcomes {
   AtlasExileInfluenceOutcomeTypesKey: i32
 }
 
-# enum?
-type AtlasExileInfluenceOutcomeTypes { TODO_REMOVE_THIS: u8 }
+enum AtlasExileInfluenceOutcomeTypes { _ }
 
 type AtlasExileInfluenceSets {
   Id: string @unique

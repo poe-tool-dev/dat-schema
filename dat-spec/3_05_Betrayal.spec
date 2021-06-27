@@ -30,11 +30,9 @@ type BetrayalDialogue {
   _: [i32]
 }
 
-# enum?
-type BetrayalDialogueCue { TODO_REMOVE_THIS: u8 }
+enum BetrayalDialogueCue { _ }
 
-# enum?
-type BetrayalFlags { TODO_REMOVE_THIS: u8 }
+enum BetrayalFlags { _ }
 
 type BetrayalForts {
   Id: string @unique
@@ -69,8 +67,7 @@ type BetrayalRelationshipState {
   Text: string
 }
 
-# enum?
-type BetrayalTargetFlags { TODO_REMOVE_THIS: u8 }
+enum BetrayalTargetFlags { _ }
 
 type BetrayalTargetJobAchievements {
   BetrayalTargetsKey: BetrayalTargets
@@ -124,8 +121,7 @@ type BetrayalUpgrades {
   _: rid
 }
 
-# enum?
-type BetrayalUpgradeSlots { TODO_REMOVE_THIS: u8 }
+enum BetrayalUpgradeSlots { _ }
 
 type BetrayalWallLifeScalingPerLevel {
   Level: i32
@@ -162,5 +158,4 @@ type Scarabs {
   BaseItemTypesKey: BaseItemTypes
 }
 
-# enum?
-type ScarabTypes { TODO_REMOVE_THIS: u8 }
+enum ScarabTypes { _ }

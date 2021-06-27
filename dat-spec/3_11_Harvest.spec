@@ -1,6 +1,5 @@
 
-# enum?
-type HarvestColours { TODO_REMOVE_THIS: u8 }
+enum HarvestColours { _ }
 
 type HarvestCraftOptionIcons {
   Id: string @unique
@@ -54,11 +53,9 @@ type HarvestInfrastructure {
   HarvestInfrastructureKey: HarvestInfrastructure
 }
 
-# enum?
-type HarvestInfrastructureCategories { TODO_REMOVE_THIS: u8 }
+enum HarvestInfrastructureCategories { _ }
 
-# enum?
-type HarvestMetaCraftingOptions { TODO_REMOVE_THIS: u8 }
+enum HarvestMetaCraftingOptions { _ }
 
 type HarvestObjects {
   BaseItemTypesKey: BaseItemTypes @unique
@@ -82,8 +79,7 @@ type HarvestPerLevelValues {
   _: i32
 }
 
-# enum?
-type HarvestPlantBoosterFamilies { TODO_REMOVE_THIS: u8 }
+enum HarvestPlantBoosterFamilies { _ }
 
 type HarvestPlantBoosters {
   HarvestObjectsKey: HarvestObjects @unique

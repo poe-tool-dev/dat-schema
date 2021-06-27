@@ -29,17 +29,25 @@ const DIRECTIVE_UNIQUE = {
   NAME: 'unique',
 };
 
+interface Context {
+  typeDefsMap: ReadonlyMap<string, ObjectTypeDefinitionNode>;
+  enumNames: ReadonlySet<string>;
+}
+
 export function readSpecs(sources: readonly Source[]) {
   const typeDefsMap = new Map<string, ObjectTypeDefinitionNode>();
+  const enumNames = new Set<string>();
 
   for (const source of sources) {
     const doc = parse(source, { noLocation: false });
 
     for (const typeNode of doc.definitions) {
-      if (typeNode.kind !== 'ObjectTypeDefinition') {
-        throw new GraphQLError('Unsupported definition.', typeNode);
-      } else {
+      if (typeNode.kind === 'EnumTypeDefinition') {
+        enumNames.add(typeNode.name.value);
+      } else if (typeNode.kind === 'ObjectTypeDefinition') {
         typeDefsMap.set(typeNode.name.value, typeNode);
+      } else {
+        throw new GraphQLError('Unsupported definition.', typeNode);
       }
     }
   }
@@ -53,7 +61,11 @@ export function readSpecs(sources: readonly Source[]) {
 
     assert.ok(typeNode.fields != null);
     for (const fieldNode of typeNode.fields) {
-      const column = parseFieldNode(typeDefsMap, table.name, fieldNode);
+      const column = parseFieldNode(
+        { typeDefsMap, enumNames },
+        table.name,
+        fieldNode
+      );
       if (
         column.name != null &&
         table.columns.some((col) => col.name === column.name)
@@ -73,7 +85,7 @@ export function readSpecs(sources: readonly Source[]) {
 }
 
 function parseFieldNode(
-  typeDefsMap: ReadonlyMap<string, ObjectTypeDefinitionNode>,
+  ctx: Context,
   tableName: string,
   fieldNode: FieldDefinitionNode
 ): TableColumn {
@@ -90,9 +102,11 @@ function parseFieldNode(
   } else if (fieldType.name === 'rid') {
     fieldType.name = 'foreignrow' as ColumnType;
   } else if (!ScalarTypes.has(fieldType.name)) {
-    if (typeDefsMap.has(fieldType.name)) {
+    if (ctx.typeDefsMap.has(fieldType.name)) {
       references = { table: fieldType.name };
       fieldType.name = 'foreignrow' as ColumnType;
+    } else if (ctx.enumNames.has(fieldType.name)) {
+      fieldType.name = 'i32' as ColumnType;
     } else {
       throw new GraphQLError(
         `Can't find referenced table "${fieldType.name}".`,
@@ -104,7 +118,7 @@ function parseFieldNode(
   if (refFieldName) {
     assert.ok(references?.table);
     (references as RefUsingColumn).column = refFieldName;
-    const refDefNode = typeDefsMap.get(references.table);
+    const refDefNode = ctx.typeDefsMap.get(references.table);
     assert.ok(refDefNode);
 
     let refFieldType: string | undefined;

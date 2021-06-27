@@ -1,6 +1,5 @@
 
-# enum?
-type AccountQuestFlags { TODO_REMOVE_THIS: u8 }
+enum AccountQuestFlags { _ }
 
 type AchievementItemRewards {
   AchievementItemsKey: AchievementItems
@@ -48,8 +47,7 @@ type AchievementSetRewards {
   DDSFile: string
 }
 
-# enum?
-type AchievementSets { TODO_REMOVE_THIS: u8 }
+enum AchievementSets { _ }
 
 type AchievementSetsDisplay {
   Id: i32 @unique
@@ -88,11 +86,9 @@ type ActiveSkills {
   _: bool
 }
 
-# enum?
-type ActiveSkillTargetTypes { TODO_REMOVE_THIS: u8 }
+enum ActiveSkillTargetTypes { _ }
 
-# enum?
-type ActiveSkillType { TODO_REMOVE_THIS: u8 }
+enum ActiveSkillType { _ }
 
 type AddBuffToTargetVarieties {
   _: rid
@@ -111,8 +107,7 @@ type AdditionalLifeScaling {
   DatFile: string
 }
 
-# enum?
-type AdditionalLifeScalingPerLevel { TODO_REMOVE_THIS: u8 }
+enum AdditionalLifeScalingPerLevel { _ }
 
 type AdditionalMonsterPacksFromStats {
   StatsKey: Stats
@@ -125,8 +120,7 @@ type AdditionalMonsterPacksFromStats {
   _: i32
 }
 
-# enum?
-type AdditionalMonsterPacksStatMode { TODO_REMOVE_THIS: u8 }
+enum AdditionalMonsterPacksStatMode { _ }
 
 type AdvancedSkillsTutorial {
   Id: string @unique
@@ -139,8 +133,7 @@ type AdvancedSkillsTutorial {
   CharactersKey: [Characters]
 }
 
-# enum?
-type AlternateBehaviourTypes { TODO_REMOVE_THIS: u8 }
+enum AlternateBehaviourTypes { _ }
 
 type AlternatePassiveAdditions {
   Id: string @unique
@@ -196,8 +189,7 @@ type AlternateSkillTargetingBehaviours {
   _: [i32]
 }
 
-# enum?
-type AlternateTreePassiveSizes { TODO_REMOVE_THIS: u8 }
+enum AlternateTreePassiveSizes { _ }
 
 type AlternateTreeVersions {
   Id: string @unique
@@ -292,14 +284,11 @@ type AreaTransitionInfo {
   _: [rid]
 }
 
-# enum?
-type AreaType { TODO_REMOVE_THIS: u8 }
+enum AreaType { _ }
 
-# enum?
-type ArmourClasses { TODO_REMOVE_THIS: u8 }
+enum ArmourClasses { _ }
 
-# enum?
-type ArmourSurfaceTypes { TODO_REMOVE_THIS: u8 }
+enum ArmourSurfaceTypes { _ }
 
 type ArmourTypes {
   BaseItemTypesKey: BaseItemTypes
@@ -356,8 +345,7 @@ type AtlasMods {
   AtlasModTiers: i32
 }
 
-# enum?
-type AtlasModTiers { TODO_REMOVE_THIS: u8 }
+enum AtlasModTiers { _ }
 
 type AtlasNode {
   WorldAreasKey: WorldAreas
@@ -423,8 +411,7 @@ type AtlasPositions {
   Y: f32
 }
 
-# enum?
-type AtlasQuadrant { TODO_REMOVE_THIS: u8 }
+enum AtlasQuadrant { _ }
 
 type AtlasRegions {
   Id: string @unique
@@ -440,8 +427,7 @@ type AtlasSector {
   SpawnWeight_Values: [i32]
 }
 
-# enum?
-type Attributes { TODO_REMOVE_THIS: u8 }
+enum Attributes { _ }
 
 type AwardDisplay {
   Id: string @unique
@@ -538,8 +524,7 @@ type BloodTypes {
   PETFile9: string
 }
 
-# enum?
-type BuffCategories { TODO_REMOVE_THIS: u8 }
+enum BuffCategories { _ }
 
 type BuffDefinitions {
   Id: string @unique
@@ -586,14 +571,11 @@ type BuffDefinitions {
   _: [rid]
 }
 
-# enum?
-type BuffGroups { TODO_REMOVE_THIS: u8 }
+enum BuffGroups { _ }
 
-# enum?
-type BuffMergeModes { TODO_REMOVE_THIS: u8 }
+enum BuffMergeModes { _ }
 
-# enum?
-type BuffStackUIModes { TODO_REMOVE_THIS: u8 }
+enum BuffStackUIModes { _ }
 
 type BuffVisualOrbArt {
   Id: string @unique
@@ -652,8 +634,7 @@ type BuffVisualSetEntries {
   _: i32
 }
 
-# enum?
-type BuffVisualSets { TODO_REMOVE_THIS: u8 }
+enum BuffVisualSets { _ }
 
 type CharacterAudioEvents {
   Id: string @unique
@@ -679,8 +660,7 @@ type CharacterPanelDescriptionModes {
   FormatString_Negative: string
 }
 
-# enum?
-type CharacterPanelStatContexts { TODO_REMOVE_THIS: u8 }
+enum CharacterPanelStatContexts { _ }
 
 type CharacterPanelStats {
   Id: string @unique
@@ -835,8 +815,7 @@ type ClientStrings {
   PlaystationText: string
 }
 
-# enum?
-type ClientUIScreens { TODO_REMOVE_THIS: u8 }
+enum ClientUIScreens { _ }
 
 type CloneShot {
   Id: string @unique
@@ -876,11 +855,9 @@ type ComponentCharges {
   PerCharge: i32
 }
 
-# enum?
-type CooldownBypassTypes { TODO_REMOVE_THIS: u8 }
+enum CooldownBypassTypes { _ }
 
-# enum?
-type CooldownGroups { TODO_REMOVE_THIS: u8 }
+enum CooldownGroups { _ }
 
 type CostTypes {
   Id: string
@@ -888,8 +865,7 @@ type CostTypes {
   FormatText: string
 }
 
-# enum?
-type CraftingBenchCustomActions { TODO_REMOVE_THIS: u8 }
+enum CraftingBenchCustomActions { _ }
 
 type CraftingBenchOptions {
   HideoutNPCsKey: HideoutNPCs
@@ -978,8 +954,7 @@ type CurrencyStashTabLayout {
   _: bool
 }
 
-# enum?
-type CurrencyUseTypes { TODO_REMOVE_THIS: u8 }
+enum CurrencyUseTypes { _ }
 
 type CustomLeagueMods {
   Id: string @unique
@@ -1013,8 +988,7 @@ type DamageParticleEffects {
   _: i32
 }
 
-# enum?
-type DamageParticleEffectTypes { TODO_REMOVE_THIS: u8 }
+enum DamageParticleEffectTypes { _ }
 
 type Dances {
   BaseItemTypesKey: BaseItemTypes
@@ -1034,8 +1008,7 @@ type DaressoPitFights {
   _: bool
 }
 
-# enum?
-type Default { TODO_REMOVE_THIS: u8 }
+enum Default { _ }
 
 type DefaultMonsterStats {
   DisplayLevel: string
@@ -1118,8 +1091,7 @@ type DialogueEvent {
   Timer: i32
 }
 
-# enum?
-type Directions { TODO_REMOVE_THIS: u8 }
+enum Directions { _ }
 
 type DisplayMinionMonsterType {
   Id: i32 @unique
@@ -1188,8 +1160,7 @@ type EffectDrivenSkill {
   _: i8
 }
 
-# enum?
-type Effectiveness { TODO_REMOVE_THIS: u8 }
+enum Effectiveness { _ }
 
 type EffectivenessCostConstants {
   Id: string @unique
@@ -1278,8 +1249,7 @@ type EvergreenAchievements {
   _: [rid]
 }
 
-# enum?
-type EvergreenAchievementTypes { TODO_REMOVE_THIS: u8 }
+enum EvergreenAchievementTypes { _ }
 
 type ExecuteGEAL {
   _: i32
@@ -1402,8 +1372,7 @@ type Flasks {
   BuffStatValues: [i32]
 }
 
-# enum?
-type FlaskType { TODO_REMOVE_THIS: u8 }
+enum FlaskType { _ }
 
 type FlavourText {
   Id: string @unique
@@ -1411,8 +1380,7 @@ type FlavourText {
   Text: string
 }
 
-# enum?
-type FlavourTextImages { TODO_REMOVE_THIS: u8 }
+enum FlavourTextImages { _ }
 
 type Footprints {
   Id: string @unique
@@ -1455,8 +1423,7 @@ type GemTags {
   _: rid
 }
 
-# enum?
-type GemTypes { TODO_REMOVE_THIS: u8 }
+enum GemTypes { _ }
 
 type GenericBuffAuras {
   Id: string @unique
@@ -1610,8 +1577,7 @@ type Grandmasters {
   _: bool
 }
 
-# enum?
-type GrantedEffectGroups { TODO_REMOVE_THIS: u8 }
+enum GrantedEffectGroups { _ }
 
 type GrantedEffectQualityStats {
   GrantedEffectsKey: GrantedEffects
@@ -1712,8 +1678,7 @@ type GrantedEffectsPerLevel {
   _: i32
 }
 
-# enum?
-type GroundEffectEffectTypes { TODO_REMOVE_THIS: u8 }
+enum GroundEffectEffectTypes { _ }
 
 type GroundEffects {
   GroundEffectTypesKey: GroundEffectTypes
@@ -1849,8 +1814,7 @@ type InfluenceExalts {
   BaseItemTypesKey: BaseItemTypes
 }
 
-# enum?
-type InfluenceTypes { TODO_REMOVE_THIS: u8 }
+enum InfluenceTypes { _ }
 
 type Inventories {
   Id: string
@@ -1863,14 +1827,11 @@ type Inventories {
   _: bool
 }
 
-# enum?
-type InventoryId { TODO_REMOVE_THIS: u8 }
+enum InventoryId { _ }
 
-# enum?
-type InventoryType { TODO_REMOVE_THIS: u8 }
+enum InventoryType { _ }
 
-# enum?
-type ItemClassCategories { TODO_REMOVE_THIS: u8 }
+enum ItemClassCategories { _ }
 
 type ItemClasses {
   Id: string @unique
@@ -1909,8 +1870,7 @@ type ItemCostPerLevel {
   Cost4_Values: [i32]
 }
 
-# enum?
-type ItemCreationTemplateCustomAction { TODO_REMOVE_THIS: u8 }
+enum ItemCreationTemplateCustomAction { _ }
 
 type ItemExperiencePerLevel {
   BaseItemTypesKey: BaseItemTypes
@@ -1939,8 +1899,7 @@ type ItemNoteCode {
   _: bool
 }
 
-# enum?
-type ItemSetNames { TODO_REMOVE_THIS: u8 }
+enum ItemSetNames { _ }
 
 type ItemShopType {
   Id: string @unique
@@ -2061,16 +2020,14 @@ type KillstreakThresholds {
   AchievementItemsKey: AchievementItems
 }
 
-# enum?
-type LeagueCategory { TODO_REMOVE_THIS: u8 }
+enum LeagueCategory { _ }
 
 type LeagueFlag {
   Id: string @unique
   Image: string
 }
 
-# enum?
-type LeagueFlags { TODO_REMOVE_THIS: u8 }
+enum LeagueFlags { _ }
 
 type LeagueInfo {
   Id: string @unique
@@ -2087,11 +2044,9 @@ type LeagueInfo {
   _: bool
 }
 
-# enum?
-type LeagueQuestFlags { TODO_REMOVE_THIS: u8 }
+enum LeagueQuestFlags { _ }
 
-# enum?
-type LeagueTrophy { TODO_REMOVE_THIS: u8 }
+enum LeagueTrophy { _ }
 
 type LevelRelativePlayerScaling {
   PlayerLevel: i32 @unique
@@ -2157,8 +2112,7 @@ type MapDevices {
   Command_Data: [i32]
 }
 
-# enum?
-type MapFragmentFamilies { TODO_REMOVE_THIS: u8 }
+enum MapFragmentFamilies { _ }
 
 type MapFragmentMods {
   BaseItemTypesKey: BaseItemTypes @unique
@@ -2246,8 +2200,7 @@ type MapSeriesTiers {
   HeistTier: i32
 }
 
-# enum?
-type MapStashTabLayout { TODO_REMOVE_THIS: u8 }
+enum MapStashTabLayout { _ }
 
 type MapStatConditions {
   Id: string @unique
@@ -2362,8 +2315,7 @@ type MicrotransactionRarityDisplay {
   ImageFile: string
 }
 
-# enum?
-type MicrotransactionRecycleCategories { TODO_REMOVE_THIS: u8 }
+enum MicrotransactionRecycleCategories { _ }
 
 type MicrotransactionRecycleOutcomes {
   _: rid
@@ -2376,8 +2328,7 @@ type MicrotransactionRecycleSalvageValues {
   _: i32
 }
 
-# enum?
-type MicrotransactionSlotId { TODO_REMOVE_THIS: u8 }
+enum MicrotransactionSlotId { _ }
 
 type MicrotransactionSocialFrameVariations {
   Id: i32 @unique
@@ -2436,8 +2387,7 @@ type MissionFavourPerLevel {
   Favour: i32
 }
 
-# enum?
-type MissionTileMap { TODO_REMOVE_THIS: u8 }
+enum MissionTileMap { _ }
 
 type MissionTimerTypes {
   Id: string
@@ -2453,11 +2403,9 @@ type MissionTransitionTiles {
   _: i32
 }
 
-# enum?
-type ModAuraFlags { TODO_REMOVE_THIS: u8 }
+enum ModAuraFlags { _ }
 
-# enum?
-type ModDomains { TODO_REMOVE_THIS: u8 }
+enum ModDomains { _ }
 
 type ModEffectStats {
   StatsKey: Stats
@@ -2475,11 +2423,9 @@ type ModEquivalencies {
   _: bool
 }
 
-# enum?
-type ModFamily { TODO_REMOVE_THIS: u8 }
+enum ModFamily { _ }
 
-# enum?
-type ModGenerationType { TODO_REMOVE_THIS: u8 }
+enum ModGenerationType { _ }
 
 type Mods {
   Id: string @unique
@@ -2547,8 +2493,7 @@ type ModSellPriceTypes {
   Id: string
 }
 
-# enum?
-type ModSetNames { TODO_REMOVE_THIS: u8 }
+enum ModSetNames { _ }
 
 type ModSets {
   _: string
@@ -2567,8 +2512,7 @@ type MonsterArmours {
   ArtString_SMFile: string
 }
 
-# enum?
-type MonsterBehavior { TODO_REMOVE_THIS: u8 }
+enum MonsterBehavior { _ }
 
 type MonsterBonuses {
   Id: string @unique
@@ -2636,8 +2580,7 @@ type MonsterDeathConditions {
   _: u64
 }
 
-# enum?
-type MonsterFleeConditions { TODO_REMOVE_THIS: u8 }
+enum MonsterFleeConditions { _ }
 
 type MonsterGroupEntries {
   Id: string @unique
@@ -2645,8 +2588,7 @@ type MonsterGroupEntries {
   MonsterGroupNamesId: i32
 }
 
-# enum?
-type MonsterGroupNames { TODO_REMOVE_THIS: u8 }
+enum MonsterGroupNames { _ }
 
 type MonsterHeightBrackets {
   Id: string @unique
@@ -2778,49 +2720,36 @@ type MonsterResistances {
   ChaosMerciless: i32
 }
 
-# enum?
-type MonsterScalingByLevel { TODO_REMOVE_THIS: u8 }
+enum MonsterScalingByLevel { _ }
 
 type MonsterSegments {
   Id: string
   Shapes: string
 }
 
-# enum?
-type MonsterSize { TODO_REMOVE_THIS: u8 }
+enum MonsterSize { _ }
 
-# enum?
-type MonsterSkillsAliveDead { TODO_REMOVE_THIS: u8 }
+enum MonsterSkillsAliveDead { _ }
 
-# enum?
-type MonsterSkillsAttackSpell { TODO_REMOVE_THIS: u8 }
+enum MonsterSkillsAttackSpell { _ }
 
-# enum?
-type MonsterSkillsClientInstance { TODO_REMOVE_THIS: u8 }
+enum MonsterSkillsClientInstance { _ }
 
-# enum?
-type MonsterSkillsHull { TODO_REMOVE_THIS: u8 }
+enum MonsterSkillsHull { _ }
 
-# enum?
-type MonsterSkillsOrientation { TODO_REMOVE_THIS: u8 }
+enum MonsterSkillsOrientation { _ }
 
-# enum?
-type MonsterSkillsPlacement { TODO_REMOVE_THIS: u8 }
+enum MonsterSkillsPlacement { _ }
 
-# enum?
-type MonsterSkillsReference { TODO_REMOVE_THIS: u8 }
+enum MonsterSkillsReference { _ }
 
-# enum?
-type MonsterSkillsSequenceMode { TODO_REMOVE_THIS: u8 }
+enum MonsterSkillsSequenceMode { _ }
 
-# enum?
-type MonsterSkillsShape { TODO_REMOVE_THIS: u8 }
+enum MonsterSkillsShape { _ }
 
-# enum?
-type MonsterSkillsTargets { TODO_REMOVE_THIS: u8 }
+enum MonsterSkillsTargets { _ }
 
-# enum?
-type MonsterSkillsWaveDirection { TODO_REMOVE_THIS: u8 }
+enum MonsterSkillsWaveDirection { _ }
 
 type MonsterSpawnerGroups {
   Id: string
@@ -3201,8 +3130,7 @@ type NPCTalk {
   _: i32
 }
 
-# enum?
-type NPCTalkCategory { TODO_REMOVE_THIS: u8 }
+enum NPCTalkCategory { _ }
 
 type NPCTalkConsoleQuickActions {
   Id: string
@@ -3223,19 +3151,16 @@ type NPCTextAudio {
   _: i32
 }
 
-# enum?
-type NPCTextAudioInterruptRules { TODO_REMOVE_THIS: u8 }
+enum NPCTextAudioInterruptRules { _ }
 
-# enum?
-type OldMapStashTabLayout { TODO_REMOVE_THIS: u8 }
+enum OldMapStashTabLayout { _ }
 
 type OnKillAchievements {
   MonsterVarietiesKey: MonsterVarieties
   _: rid
 }
 
-# enum?
-type Orientations { TODO_REMOVE_THIS: u8 }
+enum Orientations { _ }
 
 type PackFormation {
   Id: string
@@ -3353,8 +3278,7 @@ type PCBangRewardMicros {
   _: i32
 }
 
-# enum?
-type PerLevelValues { TODO_REMOVE_THIS: u8 }
+enum PerLevelValues { _ }
 
 type Pet {
   Id: string @unique
@@ -3382,8 +3306,7 @@ type PreloadGroups {
   Id: string @unique
 }
 
-# enum?
-type PreloadPriorities { TODO_REMOVE_THIS: u8 }
+enum PreloadPriorities { _ }
 
 type Projectiles {
   Id: string @unique
@@ -3424,8 +3347,7 @@ type ProjectileVariations {
   ProjectileKey: Projectiles
 }
 
-# enum?
-type PVPTypes { TODO_REMOVE_THIS: u8 }
+enum PVPTypes { _ }
 
 type Quest {
   Id: string @unique
@@ -3448,8 +3370,7 @@ type QuestAchievements {
   _: [rid]
 }
 
-# enum?
-type QuestFlags { TODO_REMOVE_THIS: u8 }
+enum QuestFlags { _ }
 
 type QuestRewardOffers {
   Id: string
@@ -3459,11 +3380,9 @@ type QuestRewardOffers {
   _: i32
 }
 
-# enum?
-type QuestRewardType { TODO_REMOVE_THIS: u8 }
+enum QuestRewardType { _ }
 
-# enum?
-type QuestStateCalculation { TODO_REMOVE_THIS: u8 }
+enum QuestStateCalculation { _ }
 
 type QuestStates {
   QuestKey: Quest
@@ -3534,8 +3453,7 @@ type RareMonsterLifeScalingPerLevel {
   Life: i32
 }
 
-# enum?
-type Rarity { TODO_REMOVE_THIS: u8 }
+enum Rarity { _ }
 
 type Realms {
   Id: string @unique
@@ -3566,8 +3484,7 @@ type RecipeUnlockObjects {
   RecipeId: i32
 }
 
-# enum?
-type RelativeImportanceConstants { TODO_REMOVE_THIS: u8 }
+enum RelativeImportanceConstants { _ }
 
 type Rulesets {
   Id: string @unique
@@ -3617,11 +3534,9 @@ type ShopCurrency {
   CurrencySign: string
 }
 
-# enum?
-type ShopForumBadge { TODO_REMOVE_THIS: u8 }
+enum ShopForumBadge { _ }
 
-# enum?
-type ShopPackagePlatform { TODO_REMOVE_THIS: u8 }
+enum ShopPackagePlatform { _ }
 
 type ShopPaymentPackage {
   Id: string @unique
@@ -3650,8 +3565,7 @@ type ShopPaymentPackagePrice {
   Price: i32
 }
 
-# enum?
-type ShopPaymentPackageProxy { TODO_REMOVE_THIS: u8 }
+enum ShopPaymentPackageProxy { _ }
 
 type ShopRegion {
   Id: string @unique
@@ -3701,8 +3615,7 @@ type SkillGems {
   _: rid
 }
 
-# enum?
-type SkillMines { TODO_REMOVE_THIS: u8 }
+enum SkillMines { _ }
 
 type SkillMineVariations {
   SkillMinesKey: i32
@@ -3722,11 +3635,9 @@ type SkillMorphDisplay {
   _: bool
 }
 
-# enum?
-type SkillMorphDisplayOverlayCondition { TODO_REMOVE_THIS: u8 }
+enum SkillMorphDisplayOverlayCondition { _ }
 
-# enum?
-type SkillMorphDisplayOverlayStyle { TODO_REMOVE_THIS: u8 }
+enum SkillMorphDisplayOverlayStyle { _ }
 
 type SkillSurgeEffects {
   GrantedEffectsKey: GrantedEffects
@@ -3745,8 +3656,7 @@ type SkillSurgeEffects {
   _: [i32]
 }
 
-# enum?
-type SkillTotems { TODO_REMOVE_THIS: u8 }
+enum SkillTotems { _ }
 
 type SkillTotemVariations {
   SkillTotemsKey: SkillTotems
@@ -3815,8 +3725,7 @@ type StartingPassiveSkills {
   PassiveSkills: [PassiveSkills]
 }
 
-# enum?
-type StashId { TODO_REMOVE_THIS: u8 }
+enum StashId { _ }
 
 type StashType {
   Id: string @unique
@@ -3832,8 +3741,7 @@ type StatDescriptionFunctions {
   TranslationId: string @unique
 }
 
-# enum?
-type StatInterpolationTypes { TODO_REMOVE_THIS: u8 }
+enum StatInterpolationTypes { _ }
 
 type Stats {
   Id: string @unique
@@ -3858,8 +3766,7 @@ type Stats {
   _: i32
 }
 
-# enum?
-type StatSemantics { TODO_REMOVE_THIS: u8 }
+enum StatSemantics { _ }
 
 type StrDexIntMissionExtraRequirement {
   Id: string @unique
@@ -3956,8 +3863,7 @@ type SupporterPackSets {
   _: string
 }
 
-# enum?
-type SurgeCategory { TODO_REMOVE_THIS: u8 }
+enum SurgeCategory { _ }
 
 type SurgeTypes {
   Id: string @unique
@@ -4087,8 +3993,7 @@ type Tutorial {
   _: bool
 }
 
-# enum?
-type UITalkCategories { TODO_REMOVE_THIS: u8 }
+enum UITalkCategories { _ }
 
 type UITalkText {
   Id: string @unique
@@ -4138,8 +4043,7 @@ type UniqueMaps {
   Name: string
 }
 
-# enum?
-type UniqueSetNames { TODO_REMOVE_THIS: u8 }
+enum UniqueSetNames { _ }
 
 type UniqueStashLayout {
   WordsKey: Words
@@ -4181,16 +4085,14 @@ type VoteType {
   _: i32
 }
 
-# enum?
-type WeaponArmourCommon { TODO_REMOVE_THIS: u8 }
+enum WeaponArmourCommon { _ }
 
 type WeaponClasses {
   _: rid
   _: i32
 }
 
-# enum?
-type WeaponDamageScaling { TODO_REMOVE_THIS: u8 }
+enum WeaponDamageScaling { _ }
 
 type WeaponImpactSoundData {
   Id: string @unique
@@ -4201,8 +4103,7 @@ type WeaponImpactSoundData {
   _: i32
 }
 
-# enum?
-type WeaponSoundTypes { TODO_REMOVE_THIS: u8 }
+enum WeaponSoundTypes { _ }
 
 type WeaponTypes {
   BaseItemTypesKey: BaseItemTypes @unique
@@ -4214,8 +4115,7 @@ type WeaponTypes {
   Null6: i32
 }
 
-# enum?
-type Wordlists { TODO_REMOVE_THIS: u8 }
+enum Wordlists { _ }
 
 type Words {
   WordlistsKey: i32

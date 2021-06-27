@@ -177,5 +177,4 @@ type DelveUpgrades {
   _: i32
 }
 
-# enum?
-type DelveUpgradeType { TODO_REMOVE_THIS: u8 }
+enum DelveUpgradeType { _ }

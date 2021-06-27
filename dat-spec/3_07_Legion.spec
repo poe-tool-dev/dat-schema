@@ -71,8 +71,7 @@ type LegionMonsterCounts {
   _: i32
 }
 
-# enum?
-type LegionMonsterTypes { TODO_REMOVE_THIS: u8 }
+enum LegionMonsterTypes { _ }
 
 type LegionMonsterVarieties {
   MonsterVarietiesKey: MonsterVarieties
@@ -105,11 +104,9 @@ type LegionRanks {
   _: i32
 }
 
-# enum?
-type LegionRankTypes { TODO_REMOVE_THIS: u8 }
+enum LegionRankTypes { _ }
 
-# enum?
-type LegionRewardTypes { TODO_REMOVE_THIS: u8 }
+enum LegionRewardTypes { _ }
 
 type LegionRewardTypeVisuals {
   IntId: i32 @unique

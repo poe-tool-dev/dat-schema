@@ -23,8 +23,7 @@ type ProphecyChain {
   _: i32
 }
 
-# enum?
-type ProphecySetNames { TODO_REMOVE_THIS: u8 }
+enum ProphecySetNames { _ }
 
 type ProphecyType {
   Id: string @unique

@@ -1,6 +1,5 @@
 
-# enum?
-type InvasionMonsterGroups { TODO_REMOVE_THIS: u8 }
+enum InvasionMonsterGroups { _ }
 
 type InvasionMonsterRestrictions {
   Id: string @unique
@@ -9,8 +8,7 @@ type InvasionMonsterRestrictions {
   _: [i32]
 }
 
-# enum?
-type InvasionMonsterRoles { TODO_REMOVE_THIS: u8 }
+enum InvasionMonsterRoles { _ }
 
 type InvasionMonstersPerArea {
   WorldAreasKey: WorldAreas
