@@ -4,7 +4,7 @@ import * as fs from 'fs';
 import { Source } from 'graphql/language/source';
 import { GraphQLError, printError } from 'graphql/error';
 import { readSpecs } from './reader';
-import { SchemaTable } from './types';
+import { SchemaTable, SCHEMA_VERSION } from './types';
 
 const SPEC_PATH = path.join(__dirname, '../dat-spec');
 
@@ -34,7 +34,7 @@ function read(): SchemaTable[] {
 fs.writeFileSync(
   path.join(process.cwd(), './schema.min.json'),
   JSON.stringify({
-    version: 1,
+    version: SCHEMA_VERSION,
     createdAt: Math.floor(Date.now() / 1000),
     tables: read(),
   })

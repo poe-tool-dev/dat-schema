@@ -1,0 +1,19 @@
+
+type Bloodlines {
+  Id: string @unique
+  ModsKeys: [Mods]
+  MinZoneLevel: i32
+  MaxZoneLevel: i32
+  SpawnWeight_TagsKeys: [Tags]
+  SpawnWeight_Values: [i32]
+  _: i32
+  BuffDefinitionsKey: BuffDefinitions
+  _: [i32]
+  ItemWeight_TagsKeys: [Tags]
+  ItemWeight_Values: [i32]
+  MonsterVarietiesKey: MonsterVarieties
+  _: i32
+  _: bool
+  _: [rid]
+  _: bool
+}

@@ -1,0 +1,74 @@
+
+type SynthesisAreas {
+  Id: string @unique
+  MinLevel: i32
+  MaxLevel: i32
+  Weight: i32
+  TopologiesKey: Topologies
+  MonsterPacksKeys: [MonsterPacks]
+  ArtFile: string
+  Name: string
+  SynthesisAreaSizeKey: SynthesisAreaSize
+  AchievementItemsKey: AchievementItems
+}
+
+type SynthesisAreaSize {
+  Id: string @unique
+  _: i32
+  _: i32
+  _: i32
+}
+
+type SynthesisBonuses {
+  ModsKey: Mods
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i16
+}
+
+type SynthesisBrackets {
+  _: rid
+  MinLevel: i32
+  MaxLevel: i32
+  _: rid
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}
+
+type SynthesisFragmentDialogue {
+  _: rid
+  NPCTextAudioKey1: NPCTextAudio
+  NPCTextAudioKey2: NPCTextAudio
+  NPCTextAudioKey3: NPCTextAudio
+  NPCTextAudioKey4: NPCTextAudio
+  NPCTextAudioKey5: NPCTextAudio
+  NPCTextAudioKey6: NPCTextAudio
+}
+
+type SynthesisGlobalMods {
+  ModsKey: Mods
+  Weight: i32
+  MinLevel: i32
+  MaxLevel: i32
+}
+
+type SynthesisMonsterExperiencePerLevel {
+  Level: i32
+  ExperienceBonus: i32
+}
+
+type SynthesisRewardCategories {
+  Id: string
+}
+
+type SynthesisRewardTypes {
+  Id: string @unique
+  Description: string
+  ArtFile: string
+  AchievementItemsKey: AchievementItems
+}

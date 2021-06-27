@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-import * as pluralize from 'pluralize'
+import * as pluralize from 'pluralize';
 
 // from PyPoE.poe.file.specification.data import stable
 // from json import dump
@@ -50,11 +50,19 @@ const pairs = Object.entries(pypoe).sort(([aName], [bName]) =>
 
 for (const [filename, { fields }] of pairs) {
   const tableName = filename.split('.')[0];
-  fileContentsMap.set(
-    tableNameToFilename(tableName),
-    fileContentsMap.get(tableNameToFilename(tableName)) +
-      `\ntype ${tableName} {\n${genFields(fields)}\n}\n`
-  );
+  if (!Object.entries(fields).length) {
+    fileContentsMap.set(
+      tableNameToFilename(tableName),
+      fileContentsMap.get(tableNameToFilename(tableName)) +
+        `\n# enum?\ntype ${tableName} { TODO_REMOVE_THIS: u8 }\n`
+    );
+  } else {
+    fileContentsMap.set(
+      tableNameToFilename(tableName),
+      fileContentsMap.get(tableNameToFilename(tableName)) +
+        `\ntype ${tableName} {\n${genFields(fields)}\n}\n`
+    );
+  }
 }
 
 for (const [name, contents] of fileContentsMap) {
@@ -146,6 +154,10 @@ function normalizeName(name: string, field: Record<string, any>): string {
   //     return pluralize.singular(name)
   //   }
   // }
+
+  if (name === '2DArt') {
+    return 'Art2D';
+  }
 
   return name;
 }

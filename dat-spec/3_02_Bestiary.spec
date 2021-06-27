@@ -1,0 +1,95 @@
+
+type BestiaryCapturableMonsters {
+  MonsterVarietiesKey: MonsterVarieties
+  BestiaryGroupsKey: BestiaryGroups
+  Name: string
+  _: rid
+  _: bool
+  IconSmall: string
+  Icon: string
+  Boss_MonsterVarietiesKey: MonsterVarieties
+  BestiaryGenusKey: BestiaryGenus
+  _: bool
+  BestiaryCapturableMonstersKey: BestiaryCapturableMonsters
+  _: bool
+  _: i32
+  _: bool
+}
+
+type BestiaryEncounters {
+  Id: string @unique
+  MinLevel: i32
+  MaxLevel: i32
+  SpawnWeight: i32
+  MonsterPacksKey: MonsterPacks
+  MonsterVarietiesKey: MonsterVarieties
+  MonsterSpawnerId: string
+}
+
+type BestiaryFamilies {
+  Id: string @unique
+  Name: string
+  Icon: string
+  IconSmall: string
+  Illustration: string
+  PageArt: string
+  FlavourText: string
+  _: bool
+  _: rid
+  _: i32
+  ModsKeys: [Mods]
+  _: rid
+}
+
+type BestiaryGenus {
+  Id: string @unique
+  Name: string
+  BestiaryGroupsKey: BestiaryGroups
+  Name2: string
+  Icon: string
+}
+
+type BestiaryGroups {
+  Id: string @unique
+  Description: string
+  Illustraiton: string
+  Name: string
+  Icon: string
+  IconSmall: string
+  BestiaryFamiliesKey: BestiaryFamilies
+  AchievementItemsKeys: [AchievementItems]
+}
+
+type BestiaryNets {
+  BaseItemTypesKey: BaseItemTypes
+  _: i32
+  CaptureMinLevel: i32
+  CaptureMaxLevel: i32
+  DropMinLevel: i32
+  DropMaxLevel: i32
+  _: i32
+  IsEnabled: bool
+}
+
+type BestiaryRecipeComponent {
+  Id: string @unique
+  MinLevel: i32
+  BestiaryFamiliesKey: BestiaryFamilies
+  BestiaryGroupsKey: BestiaryGroups
+  ModsKey: Mods
+  BestiaryCapturableMonstersKey: BestiaryCapturableMonsters
+  RarityKey: i32
+  BestiaryGenusKey: BestiaryGenus
+}
+
+type BestiaryRecipes {
+  Id: string @unique
+  Description: string
+  BestiaryRecipeComponentKeys: [BestiaryRecipeComponent]
+  Notes: string
+  HintText: string
+  _: bool
+  AchievementItemsKeys: [AchievementItems]
+  _: bool
+  _: i32
+}
