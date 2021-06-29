@@ -106,6 +106,8 @@ function parseFieldNode(
     fieldType.name = 'row' as ColumnType;
   } else if (fieldType.name === 'rid') {
     fieldType.name = 'foreignrow' as ColumnType;
+  } else if (fieldType.name === '_' && fieldType.array) {
+    fieldType.name = 'array' as ColumnType;
   } else if (!ScalarTypes.has(fieldType.name)) {
     if (ctx.typeDefsMap.has(fieldType.name)) {
       references = { table: fieldType.name };
@@ -151,6 +153,7 @@ function parseFieldNode(
 
   assert.ok(
     ScalarTypes.has(fieldType.name) ||
+      fieldType.name === 'array' ||
       fieldType.name === 'row' ||
       fieldType.name === 'foreignrow'
   );
@@ -215,6 +218,12 @@ function unwrapType(field: FieldDefinitionNode): {
 
   if (type.kind !== 'NamedType') {
     throw new GraphQLError('Valid type expected.', field.type);
+  }
+  if (type.name.value === '_' && !array) {
+    throw new GraphQLError(
+      'Unknown type is only allowed inside an array.',
+      field.type
+    );
   }
 
   if (ScalarTypes.has(type.name.value) && type.name.value !== 'string') {

@@ -23,7 +23,10 @@ The schema is based on GraphQL syntax.
 | f64, f32          | -             | Floating Point Number |
 | rid!              | rid           | Index to a Row in a Foreign Table |
 
-NOTE: the `rid` type is intended to be used temporarily until we know the name of foreign table.
+The `rid` type is intended to be used temporarily until we know the name of foreign table.
+
+The other type for temporary use is `_`, which is only allowed inside array `[_]`.
+You will find it useful if you know that a column is an array but don't know of which type (because they are all zero-length).
 
 ### Defining relations
 

@@ -1,4 +1,4 @@
-export const SCHEMA_VERSION = 1;
+export const SCHEMA_VERSION = 2;
 
 export type ScalarType =
   | 'bool'
@@ -14,7 +14,14 @@ export type ScalarType =
   | 'f64'
   | 'f32';
 
-export type ColumnType = ScalarType | 'row' | 'foreignrow';
+export type ColumnType =
+  | ScalarType
+  // column is an array of unknown type
+  | 'array'
+  // row index (references column in same table)
+  | 'row'
+  // row index (references column in foreign table)
+  | 'foreignrow';
 
 export interface RefUsingRowIndex {
   table: string;
