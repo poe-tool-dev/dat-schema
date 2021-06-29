@@ -47,7 +47,7 @@ type BlightCraftingTypes {
 }
 
 type BlightCraftingUniques {
-  _: u64
+  _: rid
 }
 
 type BlightedSporeAuras {
@@ -66,12 +66,12 @@ type BlightEncounterTypes {
 }
 
 type BlightEncounterWaves {
-  MonsterSpawnerId: string
-  _: rid
+  MonsterSpawnerId: string!
+  EncounterType: BlightEncounterTypes!
   _: i32
   _: i32
   _: i32
-  _: i32
+  Wave: i32
 }
 
 type BlightRewardTypes {
@@ -112,16 +112,16 @@ type BlightTowerAuras {
 }
 
 type BlightTowers {
-  Id: string @unique
-  Name: string
-  Description: string
-  Icon: string
-  _: [i32]
-  _: i32
+  Id: string! @unique
+  Name: string!
+  Description: string!
+  Icon: string!
+  NextUpgradeOptions: [BlightTowers!]
+  _: u32
   Tier: string
   Radius: i32
   _: i32
-  SpendResourceAchievementItemsKey: AchievementItems
+  SpendResourceAchievement: AchievementItems
   StatsKey: Stats
   StatsKeys: [Stats]
   _: [rid]

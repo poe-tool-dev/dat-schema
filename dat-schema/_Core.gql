@@ -20,38 +20,39 @@ type AchievementItems {
 }
 
 type Achievements {
-  Id: string @unique
+  Id: string! @unique
   Description: string
-  AchievementSetsDisplayKey: AchievementSetsDisplay @ref(column: "Id")
+  SetId: AchievementSetsDisplay @ref(column: "Id")
   Objective: string
-  _: i32 @unique
+  _: u32 @unique
   _: bool
+  HideAchievementItems: bool
   _: bool
-  _: bool
-  _: i32
-  _: bool
-  _: bool
+  MinCompletedItems: i32
+  TwoColumnLayout: bool
+  ShowItemCompletionsAsOne: bool
   _: string
-  _: bool
-  _: bool
+  SoftcoreOnly: bool
+  HardcoreOnly: bool
   _: bool
   _: string
 }
 
 type AchievementSetRewards {
-  AchievementSetsDisplayKey: AchievementSetsDisplay @ref(column: "Id")
-  _: i32
-  BaseItemTypesKeys: [BaseItemTypes]
-  _: i32
+  SetId: AchievementSetsDisplay @ref(column: "Id")
+  AchievementsRequired: i32
+  Rewards: [BaseItemTypes!]
+  TotemPieceEveryNAchievements: i32
   Message: string
-  DDSFile: string
+  NotificationIcon: string
+  HideoutName: string
 }
 
 enum AchievementSets { _ }
 
 type AchievementSetsDisplay {
   Id: i32 @unique
-  Title: string
+  Title: string!
 }
 
 type ActiveSkills {
@@ -334,8 +335,8 @@ type AtlasInfluenceOutcomes {
   Id: string @unique
   _: i32
   _: i32
-  _: i32
-  _: i32
+  MinTier: i32
+  MaxTier: i32
   _: rid
   ModsKeys: [Mods]
 }
@@ -466,7 +467,7 @@ type BaseItemTypes {
   MagicPurchase_Costs: [i32]
   TagsKeys: [Tags]
   ModDomainsKey: i32
-  _: bool
+  IsDropDisabled: bool
   ItemVisualIdentityKey: ItemVisualIdentity
   _: u32 @unique
   VendorRecipe_AchievementItemsKeys: [AchievementItems]
@@ -481,8 +482,8 @@ type BaseItemTypes {
   ItemThemesKey: ItemThemes
   IdentifyMagic_AchievementItemsKeys: [AchievementItems]
   FragmentBaseItemTypesKey: BaseItemTypes
-  IsBlessing: bool
-  _: rid
+  _: bool
+  ItemShopType: ItemShopType
   _: rid
   _: rid
 }
@@ -829,7 +830,7 @@ type Commands {
   Id: string @unique
   Command: string
   _: bool
-  Command2: string
+  EnglishCommand: string
   Description: string
   _: bool
 }
@@ -1804,9 +1805,9 @@ type ImpactSoundData {
 }
 
 type IndexableSupportGems {
-  _: i32
-  BaseItemTypesKey: BaseItemTypes
-  Name: string
+  Index: i32 @unique
+  SupportGem: SkillGems!
+  Name: string!
 }
 
 type InfluenceExalts {
@@ -2524,6 +2525,15 @@ type MonsterBonuses {
   StatValues: [i32]
 }
 
+type MonsterConditionalEffectPacks {
+  Id: string @unique
+  _: [rid]
+  _: [rid]
+  _: [rid]
+  _: [rid]
+  _: i32
+}
+
 type MonsterConditions {
   Id: string
   _: i32
@@ -2795,8 +2805,8 @@ type MonsterVarieties {
   BaseMonsterTypeIndex: string
   ModsKeys: [Mods]
   _: i32
-  _: i32
-  _: i32
+  _: string
+  _: string
   ModelSizeMultiplier: i32
   _: i32
   _: i32
@@ -2839,8 +2849,8 @@ type MonsterVarieties {
   _: i32
   _: i32
   _: i32
-  _: i8
-  _: i32
+  _: bool
+  _: string
   KillWhileOnslaughtIsActive_AchievementItemsKey: AchievementItems
   MonsterSegmentsKey: MonsterSegments
   MonsterArmoursKey: MonsterArmours
@@ -2855,18 +2865,18 @@ type MonsterVarieties {
   _: [rid]
   _: i32
   SinkAnimation_AOFile: string
-  _: i8
+  _: bool
   _: [rid]
-  _: i8
-  _: i8
-  _: i8
+  _: bool
+  _: bool
+  _: bool
   _: i32
   _: i32
-  _: i32
+  _: f32
   _: i32
   EPKFile: string
   _: i32
-  MonsterConditionalEffectPacksKey: u64
+  MonsterConditionalEffectPacksKey: MonsterConditionalEffectPacks
   _: bool
   _: bool
   _: i32
@@ -3145,7 +3155,7 @@ type NPCTextAudio {
   Stereo_AudioFile: string
   HasStereo: bool
   _: bool
-  Inflection: string
+  Video: string
   _: i32
   _: i32
   _: i32
@@ -3222,7 +3232,7 @@ type PassiveSkills {
   _: bool
   _: i32
   _: i8
-  IsProxyPassive: i8
+  IsProxyPassive: bool
   _: i32
 }
 
@@ -3453,7 +3463,12 @@ type RareMonsterLifeScalingPerLevel {
   Life: i32
 }
 
-enum Rarity { _ }
+enum Rarity {
+  NORMAL
+  MAGIC
+  RARE
+  UNIQUE
+}
 
 type Realms {
   Id: string @unique
@@ -3608,11 +3623,12 @@ type SkillGems {
   Description: string
   Consumed_ModsKey: Mods
   GrantedEffectsKey2: GrantedEffects
-  MinionGlobalSkillLevelStatsKey: u64
+  MinionGlobalSkillLevelStat: Stats
   SupportSkillName: string
   _: bool
   _: bool
-  _: rid
+  AwakenedVariant: SkillGems
+  RegularVariant: SkillGems
 }
 
 enum SkillMines { _ }
@@ -3748,11 +3764,11 @@ type Stats {
   _: bool
   IsLocal: bool
   IsWeaponLocal: bool
-  _: i32
+  Semantics: StatSemantics
   _: bool
   Text: string
   _: bool
-  _: bool
+  IsVirtual: bool
   MainHandAlias_StatsKey: Stats
   OffHandAlias_StatsKey: Stats
   _: bool
@@ -3762,11 +3778,18 @@ type Stats {
   _: bool
   _: bool
   IsValueUsed: bool
-  _: i32
-  _: i32
+  _: [rid]
 }
 
-enum StatSemantics { _ }
+enum StatSemantics {
+  PERCENT
+  OVERRIDE_VALUE
+  VALUE
+  FLAG
+  OVERRIDE_PERCENT
+  PERMYRIAD
+  OVERRIDE_PERMYRIAD
+}
 
 type StrDexIntMissionExtraRequirement {
   Id: string @unique

@@ -11,7 +11,7 @@ type BestiaryCapturableMonsters {
   BestiaryGenusKey: BestiaryGenus
   _: bool
   BestiaryCapturableMonstersKey: BestiaryCapturableMonsters
-  _: bool
+  IsDisabled: bool
   _: i32
   _: bool
 }

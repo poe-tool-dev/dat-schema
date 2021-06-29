@@ -1,0 +1,5 @@
+
+type InfluenceModUpgrades {
+  InfluenceMod: Mods!
+  UpgradedMod: Mods!
+}

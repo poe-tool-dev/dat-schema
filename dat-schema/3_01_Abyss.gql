@@ -1,25 +1,26 @@
 
 type AbyssObjects {
-  Id: string
+  Id: string! @unique
+  MinLevel: i32
+  MaxLevel: i32
+  SpawnWeight: i32
+  _: i32
+  MetadataFile: string!
+  _: i32
+  DaemonSpawners: [MonsterVarieties!]
+  _: i32
+  _: i32
+  AbyssalDepths: WorldAreas
   _: i32
   _: i32
   _: i32
   _: i32
-  MetadataFile: string
-  _: i32
-  _: [rid]
-  _: i32
-  _: i32
-  _: rid
   _: i32
   _: i32
   _: i32
   _: i32
   _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
+  _: bool
 }
 
 enum AbyssRegions { _ }

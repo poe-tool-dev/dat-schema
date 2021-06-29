@@ -23,8 +23,8 @@ type DelveBiomes {
 }
 
 type DelveCatchupDepths {
-  _: i32
-  _: i32
+  Level: i32
+  Depth: i32
 }
 
 type DelveCraftingModifierDescriptions {
