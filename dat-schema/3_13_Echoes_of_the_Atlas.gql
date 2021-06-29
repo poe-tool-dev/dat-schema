@@ -3,3 +3,32 @@ type InfluenceModUpgrades {
   InfluenceMod: Mods
   UpgradedMod: Mods
 }
+
+type MavenDialog {
+  Id: string @unique
+  TextAudioT1: NPCTextAudio
+  TextAudioT2: NPCTextAudio
+  TextAudioT3: NPCTextAudio
+  TextAudioT4: NPCTextAudio
+  TextAudioT5: NPCTextAudio
+  _: bool
+}
+
+type MavenFights {
+  Id: string @unique
+  _: rid
+  _: i32
+  Level: i32
+  _: i32
+  _: i32
+  _: i32
+  _: rid
+  _: rid
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: [rid]
+  _: i32
+  _: i32
+}
