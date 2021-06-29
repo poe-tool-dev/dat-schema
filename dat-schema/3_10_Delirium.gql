@@ -26,7 +26,7 @@ type AfflictionEndgameWaveMods {
 
 type AfflictionFixedMods {
   Rarity: Rarity
-  Mod: Mods!
+  Mod: Mods
 }
 
 type AfflictionRandomModCategories {

@@ -1,13 +1,13 @@
 
 type AbyssObjects {
-  Id: string! @unique
+  Id: string @unique
   MinLevel: i32
   MaxLevel: i32
   SpawnWeight: i32
   _: i32
-  MetadataFile: string!
+  MetadataFile: string
   _: i32
-  DaemonSpawners: [MonsterVarieties!]
+  DaemonSpawners: [MonsterVarieties]
   _: i32
   _: i32
   AbyssalDepths: WorldAreas

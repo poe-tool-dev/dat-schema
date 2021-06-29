@@ -66,8 +66,8 @@ type BlightEncounterTypes {
 }
 
 type BlightEncounterWaves {
-  MonsterSpawnerId: string!
-  EncounterType: BlightEncounterTypes!
+  MonsterSpawnerId: string
+  EncounterType: BlightEncounterTypes
   _: i32
   _: i32
   _: i32
@@ -112,11 +112,11 @@ type BlightTowerAuras {
 }
 
 type BlightTowers {
-  Id: string! @unique
-  Name: string!
-  Description: string!
-  Icon: string!
-  NextUpgradeOptions: [BlightTowers!]
+  Id: string @unique
+  Name: string
+  Description: string
+  Icon: string
+  NextUpgradeOptions: [BlightTowers]
   _: u32
   Tier: string
   Radius: i32

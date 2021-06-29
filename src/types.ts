@@ -39,7 +39,6 @@ export interface TableColumn {
   type: ColumnType;
   unique: boolean;
   localized: boolean;
-  nullable: boolean;
   until: string | null;
   references: RefUsingRowIndex | RefUsingColumn | null;
 }

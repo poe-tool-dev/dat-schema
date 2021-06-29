@@ -163,7 +163,6 @@ function parseFieldNode(
     description: fieldNode.description?.value ?? null,
     array: fieldType.array,
     type: fieldType.name as ColumnType,
-    nullable: fieldType.nullable,
     unique: unique,
     localized: localized,
     references: references,
@@ -197,23 +196,14 @@ function referencesField(field: FieldDefinitionNode): string | undefined {
 
 function unwrapType(field: FieldDefinitionNode): {
   array: boolean;
-  nullable: boolean;
   name: string;
 } {
-  let nullable = true;
   let array = false;
 
   let { type } = field;
-  if (type.kind === 'NonNullType') {
-    nullable = false;
-    type = type.type;
-  } else if (type.kind === 'ListType') {
+  if (type.kind === 'ListType') {
     array = true;
     type = type.type;
-    if (type.kind === 'NonNullType') {
-      nullable = false;
-      type = type.type;
-    }
   }
 
   if (type.kind !== 'NamedType') {
@@ -226,13 +216,8 @@ function unwrapType(field: FieldDefinitionNode): {
     );
   }
 
-  if (ScalarTypes.has(type.name.value) && type.name.value !== 'string') {
-    nullable = false;
-  }
-
   return {
     array,
-    nullable,
     name: type.name.value,
   };
 }
@@ -249,12 +234,6 @@ function findReferencedField(
     if (typeInfo.array) {
       throw new GraphQLError(
         'Сannot refer to a column with an array type.',
-        fieldNode.type
-      );
-    }
-    if (typeInfo.nullable) {
-      throw new GraphQLError(
-        'Сannot refer to a column with nullable values.',
         fieldNode.type
       );
     }

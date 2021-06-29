@@ -1,23 +1,23 @@
 
 type UltimatumEncounters {
-  Id: string! @unique
-  Description: string!
-  ModTypes: [UltimatumModifierTypes!]
+  Id: string @unique
+  Description: string
+  ModTypes: [UltimatumModifierTypes]
   BossARMFile: string
-  Type: UltimatumEncounterTypes!
-  Icon: string!
+  Type: UltimatumEncounterTypes
+  Icon: string
   HASH16: u32
   _: bool
   _: i32
 }
 
 type UltimatumEncounterTypes {
-  Id: string! @unique
-  Name: string!
+  Id: string @unique
+  Name: string
   ProgressBarText: string
   _: bool
   _: bool
-  NormalAchievements: [AchievementItems!]
+  NormalAchievements: [AchievementItems]
   InscribedAchievement: AchievementItems
 }
 
@@ -31,46 +31,46 @@ type UltimatumItemisedRewards {
   SacrificeAmount: i32
   SacrificeText: string
   _: bool
-  TrialMods: [Mods!]
+  TrialMods: [Mods]
 }
 
 type UltimatumModifiers {
-  Id: string! @unique
-  Types: [UltimatumModifierTypes!]
-  ExtraMods: [Mods!]
-  TypesFiltered: [UltimatumModifierTypes!]
+  Id: string @unique
+  Types: [UltimatumModifierTypes]
+  ExtraMods: [Mods]
+  TypesFiltered: [UltimatumModifierTypes]
   _: rid
-  PreviousTiers: [UltimatumModifiers!]
+  PreviousTiers: [UltimatumModifiers]
   _: bool
-  Bosses: [MonsterVarieties!]
+  Bosses: [MonsterVarieties]
   Radius: i32
   Name: string
   Icon: string
   HASH16: u32
-  TypesExtra: [UltimatumModifierTypes!]
+  TypesExtra: [UltimatumModifierTypes]
   MonsterTypesApplyingRuin: i32
   _: rid
   _: [rid]
   Tier: i32
   _: i32
   Description: string
-  MonsterSpawners: [string!]
+  MonsterSpawners: [string]
   _: bool
-  Achievements: [AchievementItems!]
+  Achievements: [AchievementItems]
   TextAudio: NPCTextAudio
 }
 
 type UltimatumModifierTypes {
-  Id: string! @unique
+  Id: string @unique
   _: bool
 }
 
 type UltimatumTrialMasterAudio {
-  Id: string!
+  Id: string
   Variant: i32
   _: i32
   _: i32
-  TextAudio: NPCTextAudio!
+  TextAudio: NPCTextAudio
   RoundsMin: i32
   RoundsMax: i32
 }

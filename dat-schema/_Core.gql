@@ -20,7 +20,7 @@ type AchievementItems {
 }
 
 type Achievements {
-  Id: string! @unique
+  Id: string @unique
   Description: string
   SetId: AchievementSetsDisplay @ref(column: "Id")
   Objective: string
@@ -41,7 +41,7 @@ type Achievements {
 type AchievementSetRewards {
   SetId: AchievementSetsDisplay @ref(column: "Id")
   AchievementsRequired: i32
-  Rewards: [BaseItemTypes!]
+  Rewards: [BaseItemTypes]
   TotemPieceEveryNAchievements: i32
   Message: string
   NotificationIcon: string
@@ -52,11 +52,11 @@ enum AchievementSets { _ }
 
 type AchievementSetsDisplay {
   Id: i32 @unique
-  Title: string!
+  Title: string
 }
 
 type ActiveSkills {
-  Id: string! @unique
+  Id: string @unique
   DisplayedName: string
   Description: string
   _: string
@@ -206,7 +206,7 @@ type AlternateTreeVersions {
 }
 
 type Animation {
-  Id: string! @unique
+  Id: string @unique
   _: bool
   _: bool
   IntId: i32 @unique
@@ -450,7 +450,7 @@ type BackendErrors {
 }
 
 type BaseItemTypes {
-  Id: string! @unique
+  Id: string @unique
   ItemClassesKey: ItemClasses
   Width: i32
   Height: i32
@@ -1806,8 +1806,8 @@ type ImpactSoundData {
 
 type IndexableSupportGems {
   Index: i32 @unique
-  SupportGem: SkillGems!
-  Name: string!
+  SupportGem: SkillGems
+  Name: string
 }
 
 type InfluenceExalts {
@@ -3073,7 +3073,7 @@ type NPCMaster {
 }
 
 type NPCs {
-  Id: string! @unique
+  Id: string @unique
   Name: string
   Metadata: string
   _: i32

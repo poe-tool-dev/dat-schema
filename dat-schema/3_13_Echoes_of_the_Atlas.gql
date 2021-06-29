@@ -1,5 +1,5 @@
 
 type InfluenceModUpgrades {
-  InfluenceMod: Mods!
-  UpgradedMod: Mods!
+  InfluenceMod: Mods
+  UpgradedMod: Mods
 }
