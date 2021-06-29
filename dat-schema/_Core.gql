@@ -315,6 +315,12 @@ type AtlasAwakeningStats {
   _: i32
 }
 
+type AtlasAwakeningStats {
+  AwakeningLevel: i32
+  Stats: [Stats]
+  Values: [i32]
+}
+
 type AtlasBaseTypeDrops {
   Id: string @unique
   AtlasRegionsKey: AtlasRegions
@@ -351,9 +357,8 @@ enum AtlasModTiers { _ }
 type AtlasNode {
   WorldAreasKey: WorldAreas
   ItemVisualIdentityKey: ItemVisualIdentity
-  _: i8
+  _: bool
   MapsKey: Maps
-  _: i32
   FlavourTextKey: FlavourText
   AtlasRegionsKey: AtlasRegions
   AtlasNodeKeys0: [AtlasNode]
@@ -391,8 +396,6 @@ type AtlasNode {
   _: i32
   _: i32
   _: i32
-  X: f32
-  Y: f32
   DDSFile: string
 }
 
@@ -3361,7 +3364,7 @@ enum PVPTypes { _ }
 type Quest {
   Id: string @unique
   Act: i32
-  Name: string
+  Name: string @localized
   Icon_DDSFile: string
   QuestId: i32
   _: bool
@@ -3369,6 +3372,19 @@ type Quest {
   _: i32
   _: [i32]
   _: i32
+}
+
+type Quest {
+  Id: string @unique
+  Act: i32
+  Name: string @localized
+  Icon_DDSFile: string
+  QuestId: i32
+  _: bool
+  _: rid
+  _: [i32]
+  _: i32
+  TrackerGroup: QuestTrackerGroup
 }
 
 type QuestAchievements {
@@ -3380,6 +3396,18 @@ type QuestAchievements {
 }
 
 enum QuestFlags { _ }
+
+type QuestItems {
+  Item: BaseItemTypes
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: [_]
+  _: bool
+  _: bool
+  _: rid
+}
 
 type QuestRewardOffers {
   Id: string
@@ -3423,6 +3451,12 @@ type QuestStaticRewards {
   _: i32
   ClientStringsKey: ClientStrings
   _: i32
+}
+
+type QuestTrackerGroup {
+  Id: string @unique
+  Name: string @localized
+  _: rid
 }
 
 type QuestType {
@@ -3742,12 +3776,18 @@ type StartingPassiveSkills {
 
 enum StashId { _ }
 
+type StashTabAffinities {
+  SpecializedStash: StashId
+  Name: string @localized
+  ShowInStashes: [StashId]
+}
+
 type StashType {
   Id: string @unique
   IntId: i32 @unique
   Id2: string
-  _: i32
-  _: i32
+  Width: i32
+  Height: i32
   _: i32
 }
 
@@ -3777,7 +3817,7 @@ type Stats {
   _: bool
   _: bool
   IsValueUsed: bool
-  _: [rid]
+  ContextFlags: [VirtualStatContextFlags]
 }
 
 enum StatSemantics {
@@ -4091,6 +4131,11 @@ type UniqueStashTypes {
   Name: string
   _: i32
   Image: string
+  _: i32
+}
+
+type VirtualStatContextFlags {
+  Id: string @unique
   _: i32
 }
 
