@@ -2839,7 +2839,6 @@ type MonsterVarieties {
   Helmet_ItemVisualIdentityKey: ItemVisualIdentity
   _: i32
   KillSpecificMonsterCount_AchievementItemsKeys: [AchievementItems]
-  Special_ModsKeys: [Mods]
   KillRare_AchievementItemsKeys: [AchievementItems]
   _: bool
   _: i32
