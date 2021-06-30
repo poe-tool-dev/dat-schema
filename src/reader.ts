@@ -47,8 +47,20 @@ export function readSchemaSources(sources: readonly Source[]) {
 
     for (const typeNode of doc.definitions) {
       if (typeNode.kind === 'EnumTypeDefinition') {
+        if (enumNames.has(typeNode.name.value)) {
+          throw new GraphQLError(
+            'Enum with this name has already been defined.',
+            typeNode.name
+          );
+        }
         enumNames.add(typeNode.name.value);
       } else if (typeNode.kind === 'ObjectTypeDefinition') {
+        if (typeDefsMap.has(typeNode.name.value)) {
+          throw new GraphQLError(
+            'Table with this name has already been defined.',
+            typeNode.name
+          );
+        }
         typeDefsMap.set(typeNode.name.value, typeNode);
       } else {
         throw new GraphQLError('Unsupported definition.', typeNode);

@@ -308,14 +308,6 @@ type Ascendancy {
 }
 
 type AtlasAwakeningStats {
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-}
-
-type AtlasAwakeningStats {
   AwakeningLevel: i32
   Stats: [Stats]
   Values: [i32]
@@ -3360,19 +3352,6 @@ type ProjectileVariations {
 }
 
 enum PVPTypes { _ }
-
-type Quest {
-  Id: string @unique
-  Act: i32
-  Name: string @localized
-  Icon_DDSFile: string
-  QuestId: i32
-  _: bool
-  _: i32
-  _: i32
-  _: [i32]
-  _: i32
-}
 
 type Quest {
   Id: string @unique
