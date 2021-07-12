@@ -3795,7 +3795,11 @@ type Stats {
   _: rid
   _: bool
   _: bool
-  IsValueUsed: bool
+
+  """
+  If not, displayed in advanced mod description as " — Unscalable Value"
+  """
+  IsScalable: bool
   ContextFlags: [VirtualStatContextFlags]
 }
 
