@@ -2450,9 +2450,8 @@ type Mods {
   _: [rid]
   _: [_]
   MonsterMetadata: string
-  _: [i32]
-  _: [i32]
-  BuffVisualsKey: BuffVisuals
+  _: [rid]
+  _: [rid]
   Stat5Min: i32
   Stat5Max: i32
   StatsKey5: Stats
@@ -2460,7 +2459,7 @@ type Mods {
   AchievementItemsKey: [AchievementItems]
   GenerationWeight_TagsKeys: [Tags]
   GenerationWeight_Values: [i32]
-  _: [i32]
+  _: [_]
   IsEssenceOnlyModifier: bool
   Stat6Min: i32
   Stat6Max: i32
