@@ -2469,16 +2469,33 @@ type Mods {
   _: [rid]
   MonsterOnDeath: string
   _: i32
-  _: [i32]
-  _: [GrantedEffectsPerLevel]
-  Heist_SubStatValue1: i32
-  Heist_SubStatValue2: i32
-  Heist_StatsKey0: Stats
-  Heist_StatsKey1: Stats
-  Heist_AddStatValue1: i32
-  Heist_AddStatValue2: i32
-  InfluenceTypes: i32
-  ImplicitTagsKeys: [Tags]
+  _: [rid]
+  _: i32
+  _: i32
+  _: rid
+  _: rid
+  _: i32
+  _: i32
+  _: i32
+  _: [rid]
+  _: i32
+  _: bool
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: rid
 }
 
 type ModSellPriceTypes {
