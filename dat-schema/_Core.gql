@@ -481,6 +481,7 @@ type BaseItemTypes {
   ItemShopType: ItemShopType
   _: rid
   _: rid
+  _: bool
 }
 
 type BindableVirtualKeys {
@@ -896,7 +897,7 @@ type CraftingBenchOptions {
   _: i32
   _: i32
   _: bool
-  _: u64
+  _: rid
 }
 
 type CraftingBenchUnlockCategories {
@@ -1833,7 +1834,7 @@ type ItemClasses {
   Id: string @unique
   Name: string
   Category: string
-  _: i32
+  _: rid
   RemovedIfLeavesArea: bool
   _: [rid]
   _: [rid]
@@ -1850,7 +1851,6 @@ type ItemClasses {
   _: bool
   _: bool
   _: rid
-  _: bool
 }
 
 type ItemCostPerLevel {
@@ -1991,6 +1991,7 @@ type ItemVisualIdentity {
   _: [i32]
   _: bool
   _: [u64]
+  _: i32
 }
 
 type JobAssassinationSpawnerGroups {
