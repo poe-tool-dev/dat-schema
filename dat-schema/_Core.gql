@@ -2446,12 +2446,9 @@ type Mods {
   Stat4Max: i32
   SpawnWeight_TagsKeys: [Tags]
   SpawnWeight_Values: [u32]
-  BuffDefinitionsKey: BuffDefinitions
-  BuffValue: i32
-  TagsKeys: [Tags]
-  GrantedEffectsPerLevelKeys: [GrantedEffectsPerLevel]
-  _: [u32]
-  _: [u32]
+  _: [rid]
+  _: [rid]
+  _: [_]
   MonsterMetadata: string
   _: [i32]
   _: [i32]
