@@ -1,0 +1,119 @@
+
+type ExpeditionAreas {
+  Area: WorldAreas
+  PosX: i32
+  PosY: i32
+  _: [rid]
+  _: [i32]
+  _: bool
+  TextAudio: NPCTextAudio
+  CompletionAchievements: [AchievementItems]
+}
+
+type ExpeditionBalancePerLevel {
+  Level: i32
+  _: bool
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}
+
+type ExpeditionCurrency {
+  BaseItemType: BaseItemTypes
+  _: i32
+  NPC: ExpeditionNPCs
+}
+
+type ExpeditionFactions {
+  Id: string @unique
+  Name: string
+  FactionFlag: string
+  _: i32
+  FactionIcon: string
+  _: rid
+  Progress1: NPCTextAudio
+  Progress2Vaal: NPCTextAudio
+  Progress3Final: NPCTextAudio
+  _: rid
+}
+
+type ExpeditionMarkersCommon {
+  Id: string @unique
+  AOFile: string
+}
+
+type ExpeditionNPCs {
+  Id: string @unique
+  NPCs: [NPCs]
+  _: rid
+  _: i32
+  _: i32
+  _: i32
+  _: rid
+  Reroll: NPCTextAudio
+  AllBombsPlaced: NPCTextAudio
+  BombPlacedRemnant: NPCTextAudio
+  BombPlacedTreasure: NPCTextAudio
+  BombPlacedMonsters: NPCTextAudio
+  BombPlacedGeneric: NPCTextAudio
+  EncounterComplete: NPCTextAudio
+}
+
+enum ExpeditionRelicModCategories {
+  GENERIC
+  RUNIC
+  REWARD_CHEST
+  REWARD_PACK_SIZE
+}
+
+type ExpeditionRelicMods {
+  Mod: Mods
+  Categories: [ExpeditionRelicModCategories]
+  DestroyAchievements: [AchievementItems]
+}
+
+type ExpeditionRelics {
+  Id: string @unique
+  Name: string
+  _: rid
+  AOFile: string
+  MinLevel: i32
+  MaxLevel: i32
+}
+
+type ExpeditionStorageLayout {
+  Id: string
+  BaseItemType: BaseItemTypes
+  PosX: i32
+  PosY: i32
+  _: i32
+  _: i32
+  Width: i32
+  Height: i32
+  _: i32
+  _: bool
+}
+
+type ExpeditionTerrainFeatures {
+  Id: string @unique
+  ExtraFeature: ExtraTerrainFeatures
+  _: rid
+  MinLevel: i32
+  MaxLevel: i32
+  _: i32
+  Area: WorldAreas
+  _: [rid]
+  _: i32
+  _: bool
+  UnearthAchievements: [AchievementItems]
+}
