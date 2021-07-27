@@ -481,6 +481,7 @@ type BaseItemTypes {
   ItemShopType: ItemShopType
   _: rid
   _: rid
+  _: bool
 }
 
 type BindableVirtualKeys {
@@ -896,7 +897,7 @@ type CraftingBenchOptions {
   _: i32
   _: i32
   _: bool
-  _: u64
+  _: rid
 }
 
 type CraftingBenchUnlockCategories {
@@ -1833,7 +1834,7 @@ type ItemClasses {
   Id: string @unique
   Name: string
   Category: string
-  _: i32
+  _: rid
   RemovedIfLeavesArea: bool
   _: [rid]
   _: [rid]
@@ -1850,7 +1851,6 @@ type ItemClasses {
   _: bool
   _: bool
   _: rid
-  _: bool
 }
 
 type ItemCostPerLevel {
@@ -1991,6 +1991,7 @@ type ItemVisualIdentity {
   _: [i32]
   _: bool
   _: [u64]
+  _: i32
 }
 
 type JobAssassinationSpawnerGroups {
@@ -2446,16 +2447,12 @@ type Mods {
   Stat4Max: i32
   SpawnWeight_TagsKeys: [Tags]
   SpawnWeight_Values: [u32]
-  BuffDefinitionsKey: BuffDefinitions
-  BuffValue: i32
-  TagsKeys: [Tags]
-  GrantedEffectsPerLevelKeys: [GrantedEffectsPerLevel]
-  _: [u32]
-  _: [u32]
+  _: [rid]
+  _: [rid]
+  _: [_]
   MonsterMetadata: string
-  _: [i32]
-  _: [i32]
-  BuffVisualsKey: BuffVisuals
+  _: [rid]
+  _: [rid]
   Stat5Min: i32
   Stat5Max: i32
   StatsKey5: Stats
@@ -2463,7 +2460,7 @@ type Mods {
   AchievementItemsKey: [AchievementItems]
   GenerationWeight_TagsKeys: [Tags]
   GenerationWeight_Values: [i32]
-  _: [i32]
+  _: [_]
   IsEssenceOnlyModifier: bool
   Stat6Min: i32
   Stat6Max: i32
@@ -2473,16 +2470,33 @@ type Mods {
   _: [rid]
   MonsterOnDeath: string
   _: i32
-  _: [i32]
-  _: [GrantedEffectsPerLevel]
-  Heist_SubStatValue1: i32
-  Heist_SubStatValue2: i32
-  Heist_StatsKey0: Stats
-  Heist_StatsKey1: Stats
-  Heist_AddStatValue1: i32
-  Heist_AddStatValue2: i32
-  InfluenceTypes: i32
-  ImplicitTagsKeys: [Tags]
+  _: [rid]
+  _: i32
+  _: i32
+  _: rid
+  _: rid
+  _: i32
+  _: i32
+  _: i32
+  _: [rid]
+  _: i32
+  _: bool
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: rid
 }
 
 type ModSellPriceTypes {
@@ -3795,7 +3809,11 @@ type Stats {
   _: rid
   _: bool
   _: bool
-  IsValueUsed: bool
+
+  """
+  If not, displayed in advanced mod description as " — Unscalable Value"
+  """
+  IsScalable: bool
   ContextFlags: [VirtualStatContextFlags]
 }
 
