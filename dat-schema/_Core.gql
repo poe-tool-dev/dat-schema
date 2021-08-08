@@ -2847,8 +2847,8 @@ type MonsterVarieties {
   MainHand_ItemClassesKey: ItemClasses
   OffHand_ItemClassesKey: ItemClasses
   _: rid
-  Helmet_ItemVisualIdentityKey: ItemVisualIdentity
   _: i32
+  _: [rid]
   KillSpecificMonsterCount_AchievementItemsKeys: [AchievementItems]
   KillRare_AchievementItemsKeys: [AchievementItems]
   _: bool
