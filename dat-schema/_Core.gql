@@ -85,6 +85,7 @@ type ActiveSkills {
   _: i32
   _: bool
   _: bool
+  _: bool
 }
 
 enum ActiveSkillTargetTypes { _ }
@@ -293,7 +294,12 @@ enum ArmourSurfaceTypes { _ }
 
 type ArmourTypes {
   BaseItemTypesKey: BaseItemTypes
+  Armour: i32
+  Evasion: i32
+  EnergyShield: i32
   IncreasedMovementSpeed: i32
+  Ward: i32
+  _: i32
 }
 
 type Ascendancy {
@@ -477,7 +483,7 @@ type BaseItemTypes {
   ItemThemesKey: ItemThemes
   IdentifyMagic_AchievementItemsKeys: [AchievementItems]
   FragmentBaseItemTypesKey: BaseItemTypes
-  _: bool
+  IsBlessing: bool
   ItemShopType: ItemShopType
   _: rid
   _: rid
@@ -566,6 +572,8 @@ type BuffDefinitions {
   _: [rid]
   _: [rid]
   _: [rid]
+  _: i32
+  _: bool
 }
 
 enum BuffGroups { _ }
