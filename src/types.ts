@@ -1,3 +1,4 @@
+// incremented only when breaking changes are made
 export const SCHEMA_VERSION = 2;
 
 export type ScalarType =
@@ -32,6 +33,8 @@ export interface RefUsingColumn {
   column: string;
 }
 
+export type FileExtension = string;
+
 export interface TableColumn {
   name: string | null;
   description: string | null;
@@ -41,6 +44,8 @@ export interface TableColumn {
   localized: boolean;
   until: string | null;
   references: RefUsingRowIndex | RefUsingColumn | null;
+  file: FileExtension | null;
+  files: FileExtension[] | null;
 }
 
 export interface SchemaTable {

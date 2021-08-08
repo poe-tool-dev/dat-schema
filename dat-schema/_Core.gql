@@ -4073,7 +4073,7 @@ type UniqueChests {
   ModsKeys: [Mods]
   SpawnWeight: i32
   _: [i32]
-  AOFile: string
+  AOFile: string @file(ext: ".ao")
   _: bool
   _: [u32]
   AppearanceChestsKey: Chests

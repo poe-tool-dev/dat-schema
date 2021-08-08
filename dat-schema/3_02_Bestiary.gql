@@ -23,7 +23,7 @@ type BestiaryEncounters {
   SpawnWeight: i32
   MonsterPacksKey: MonsterPacks
   MonsterVarietiesKey: MonsterVarieties
-  MonsterSpawnerId: string
+  MonsterSpawnerId: string @files(ext: [".ot", ".otc"])
 }
 
 type BestiaryFamilies {

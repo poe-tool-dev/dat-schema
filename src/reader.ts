@@ -33,6 +33,20 @@ const DIRECTIVE_LOCALIZED = {
   NAME: 'localized',
 };
 
+const DIRECTIVE_FILE = {
+  NAME: 'file',
+  ARGS: {
+    EXTENSION: 'ext',
+  },
+};
+
+const DIRECTIVE_FILES_GROUP = {
+  NAME: 'files',
+  ARGS: {
+    EXTENSION: 'ext',
+  },
+};
+
 interface Context {
   typeDefsMap: ReadonlyMap<string, ObjectTypeDefinitionNode>;
   enumNames: ReadonlySet<string>;
@@ -179,6 +193,8 @@ function parseFieldNode(
     localized: localized,
     references: references,
     until: null, // TODO
+    file: getFileExtension(fieldNode),
+    files: getFileGroupExtensions(fieldNode),
   };
 
   return column;
@@ -234,6 +250,41 @@ function unwrapType(field: FieldDefinitionNode): {
   };
 }
 
+function getFileExtension(field: FieldDefinitionNode): string | null {
+  const directive = findDirective(field, DIRECTIVE_FILE.NAME);
+
+  if (directive) {
+    const { arguments: args } = directive;
+    assert.ok(
+      args?.length === 1 &&
+        args[0].name.value === DIRECTIVE_FILE.ARGS.EXTENSION &&
+        args[0].value.kind === 'StringValue'
+    );
+    return args[0].value.value;
+  }
+
+  return null;
+}
+
+function getFileGroupExtensions(field: FieldDefinitionNode): string[] | null {
+  const directive = findDirective(field, DIRECTIVE_FILES_GROUP.NAME);
+
+  if (directive) {
+    const { arguments: args } = directive;
+    assert.ok(
+      args?.length === 1 &&
+        args[0].name.value === DIRECTIVE_FILES_GROUP.ARGS.EXTENSION &&
+        args[0].value.kind === 'ListValue'
+    );
+    return args[0].value.values.map((listValue) => {
+      assert.ok(listValue.kind === 'StringValue');
+      return listValue.value;
+    });
+  }
+
+  return null;
+}
+
 function findReferencedField(
   typeNode: ObjectTypeDefinitionNode,
   name: string
@@ -272,6 +323,8 @@ function validateDirectives(node: FieldDefinitionNode): void {
       case DIRECTIVE_REF.NAME:
       case DIRECTIVE_UNIQUE.NAME:
       case DIRECTIVE_LOCALIZED.NAME:
+      case DIRECTIVE_FILE.NAME:
+      case DIRECTIVE_FILES_GROUP.NAME:
         break;
       default:
         throw new GraphQLError(
@@ -310,6 +363,53 @@ function validateDirectives(node: FieldDefinitionNode): void {
       if (arg.name.value === DIRECTIVE_REF.ARGS.COLUMN) {
         if (arg.value.kind !== 'StringValue') {
           throw new GraphQLError(`String expected.`, arg.value);
+        }
+      } else {
+        throw new GraphQLError(
+          `Unknown argument "${arg.name.value}".`,
+          arg.name
+        );
+      }
+    }
+  }
+
+  directive = findDirective(node, DIRECTIVE_FILE.NAME);
+  if (directive) {
+    if (!directive.arguments?.length) {
+      throw new GraphQLError('Missing file extension.', directive);
+    }
+    for (const arg of directive.arguments) {
+      if (arg.name.value === DIRECTIVE_FILE.ARGS.EXTENSION) {
+        if (arg.value.kind !== 'StringValue') {
+          throw new GraphQLError(`String expected.`, arg.value);
+        }
+      } else {
+        throw new GraphQLError(
+          `Unknown argument "${arg.name.value}".`,
+          arg.name
+        );
+      }
+    }
+  }
+
+  directive = findDirective(node, DIRECTIVE_FILES_GROUP.NAME);
+  if (directive) {
+    if (!directive.arguments?.length) {
+      throw new GraphQLError('Missing file extensions.', directive);
+    }
+    for (const arg of directive.arguments) {
+      if (arg.name.value === DIRECTIVE_FILES_GROUP.ARGS.EXTENSION) {
+        if (arg.value.kind !== 'ListValue') {
+          throw new GraphQLError(`List of extensions expected.`, arg.value);
+        }
+        // NOTE allow empty list
+        // if (!arg.value.values.length) {
+        //   throw new GraphQLError(`List of extensions cannot be empty.`, arg.value);
+        // }
+        for (const listValue of arg.value.values) {
+          if (listValue.kind !== 'StringValue') {
+            throw new GraphQLError(`String expected.`, listValue);
+          }
         }
       } else {
         throw new GraphQLError(
