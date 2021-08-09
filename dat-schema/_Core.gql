@@ -630,6 +630,8 @@ type BuffVisuals {
   _: [i32]
   EPKFiles: [string]
   _: [rid]
+  _: i32
+  _: i32
 }
 
 type BuffVisualSetEntries {
@@ -837,14 +839,6 @@ type Commands {
   EnglishCommand: string
   Description: string
   _: bool
-}
-
-type ComponentArmour {
-  BaseItemTypesKey: BaseItemTypes @ref(column: "Id") @unique
-  Armour: i32
-  Evasion: i32
-  EnergyShield: i32
-  IncreasedMovementSpeed: i32
 }
 
 type ComponentAttributeRequirements {
@@ -1125,7 +1119,7 @@ type DropPool {
 }
 
 type EclipseMods {
-  _: string @unique
+  Key: string @unique
   SpawnWeight_TagsKeys: [Tags]
   SpawnWeight_Values: [i32]
   ModsKey: Mods
@@ -1772,11 +1766,13 @@ type HideoutNPCs {
   Hideout_NPCsKey: NPCs
   Regular_NPCsKeys: [NPCs]
   HideoutDoodadsKey: HideoutDoodads
-  NPCMasterKey: NPCMaster
+  NPCMasterKey: i32
   _: i32
   _: i32
   _: i32
   _: rid
+  _: i32
+  _: bool
 }
 
 type HideoutRarity {
@@ -2179,7 +2175,9 @@ type Maps {
   UpgradedFrom_MapsKey: Maps
   MapsKey2: Maps
   MapsKey3: Maps
-  MapSeriesKey: MapSeries
+  
+  "References MapSeries as an enum: i32, 1-based indexing"
+  MapSeriesKey: i32
   _: bool
   _: bool
 }
@@ -2457,9 +2455,9 @@ type Mods {
   Stat4Max: i32
   SpawnWeight_TagsKeys: [Tags]
   SpawnWeight_Values: [u32]
-  _: [rid]
-  _: [rid]
-  _: [_]
+  TagsKeys: [Tags]
+  GrantedEffectsPerLevelKeys: [GrantedEffectsPerLevel]
+  AuraFlags: [u64]
   MonsterMetadata: string
   _: [rid]
   _: [rid]
@@ -2477,18 +2475,18 @@ type Mods {
   StatsKey6: Stats
   MaxLevel: i32
   _: i8
-  _: [rid]
+  _: [ItemClasses]
   MonsterOnDeath: string
   _: i32
-  _: [rid]
-  _: i32
-  _: i32
-  _: rid
-  _: rid
-  _: i32
-  _: i32
-  _: i32
-  _: [rid]
+  _: [GrantedEffectsPerLevel]
+  Heist_SubStatValue1: i32
+  Heist_SubStatValue2: i32
+  Heist_StatsKey0: Stats
+  Heist_StatsKey1: Stats
+  Heist_AddStatValue1: i32
+  Heist_AddStatValue2: i32
+  InfluenceTypes: i32
+  ImplicitTagsKeys: [Tags]
   _: i32
   _: bool
   _: i32
@@ -2712,6 +2710,7 @@ type MonsterPacks {
   _: i32
   _: rid
   _: i32
+  _: bool
 }
 
 type MonsterProjectileAttack {
@@ -2806,10 +2805,10 @@ type MonsterTypes {
   Evasion: i32
   EnergyShieldFromLife: i32
   DamageSpread: i32
-  TagsKeys: [Tags]
   MonsterResistancesKey: MonsterResistances
   IsLargeAbyssMonster: bool
   IsSmallAbyssMonster: bool
+  _: bool
 }
 
 type MonsterVarieties {
@@ -2856,8 +2855,8 @@ type MonsterVarieties {
   OffHand_ItemClassesKey: ItemClasses
   Helmet_ItemVisualIdentityKey: ItemVisualIdentity
   _: i32
-  _: [rid]
   KillSpecificMonsterCount_AchievementItemsKeys: [AchievementItems]
+  Special_ModsKeys: [Mods]
   KillRare_AchievementItemsKeys: [AchievementItems]
   _: bool
   _: i32
@@ -3122,6 +3121,7 @@ type NPCShop {
   _: [i32]
   _: i32
   _: i32
+  _: i32
 }
 
 type NPCTalk {
@@ -3174,6 +3174,10 @@ type NPCTextAudio {
   HasStereo: bool
   _: bool
   Video: string
+  _: i32
+  _: i32
+  _: i32
+  _: i32
   _: i32
   _: i32
   _: i32
@@ -4227,7 +4231,7 @@ type WorldAreas {
   SpawnWeight_Values: [u32]
   IsMapArea: bool
   FullClear_AchievementItemsKeys: [AchievementItems]
-  _: i32
+  _: u64
   _: i32
   AchievementItemsKey: AchievementItems
   ModsKeys: [Mods]
@@ -4310,6 +4314,10 @@ type WorldAreas {
   DeliriumChance: i32
   HarvestChance: i32
   HeistChance: i32
+  RitualChance: i32
+  _: [i32]
+  UltimatumChance: i32
+  ExpeditionChance: i32
 }
 
 type WorldPopupIconTypes {
