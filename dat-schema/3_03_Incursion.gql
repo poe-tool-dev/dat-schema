@@ -21,7 +21,7 @@ type IncursionBrackets {
 type IncursionChestRewards {
   IncursionRoomsKey: IncursionRooms
   IncursionChestsKeys: [IncursionChests]
-  _: string
+  ChestMarkerMetadata: string @files(ext: [".ot", ".otc"])
   _: u32
   _: i32
   _: i32

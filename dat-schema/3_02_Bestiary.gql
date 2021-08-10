@@ -52,7 +52,7 @@ type BestiaryGenus {
 type BestiaryGroups {
   Id: string @unique
   Description: string
-  Illustraiton: string
+  Illustration: string
   Name: string
   Icon: string
   IconSmall: string

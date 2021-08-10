@@ -456,7 +456,7 @@ type BaseItemTypes {
   Width: i32
   Height: i32
   Name: string
-  InheritsFrom: string
+  InheritsFrom: string @files(ext: [".ot", ".otc"])
   DropLevel: i32
   FlavourTextKey: FlavourText
   Implicit_ModsKeys: [Mods]
@@ -809,7 +809,7 @@ type Chests {
   CurrencyUse_AchievementItemsKey: AchievementItems
   Encounter_AchievementItemsKeys: [AchievementItems]
   _: rid
-  InheritsFrom: string
+  InheritsFrom: string @files(ext: [".ot", ".otc"])
   _: bool
   _: rid
 }
@@ -1191,7 +1191,7 @@ type ElderBossArenas {
 type ElderMapBossOverride {
   WorldAreasKey: WorldAreas @unique
   MonsterVarietiesKeys: [MonsterVarieties]
-  TerrainMetadata: string
+  TerrainMetadata: string @files(ext: [".ot", ".otc"])
 }
 
 type EndlessLedgeChests {
@@ -1280,7 +1280,7 @@ type ExecuteGEAL {
   _: i32
   _: bool
   _: i32
-  MetadataIDs: [string]
+  MetadataIDs: [string] @files(ext: [".ot", ".otc"])
   ScriptCommand: string
   _: i32
   _: i32
@@ -1401,6 +1401,8 @@ type FragmentStashTabLayout {
   SizeX: i32
   SizeY: i32
   _: i8
+  _: i32
+  _: i32
 }
 
 type GameConstants {
@@ -1757,7 +1759,7 @@ type HideoutDoodads {
   _: i32
   _: i32
   _: i32
-  InheritsFrom: string
+  InheritsFrom: string @files(ext: [".ot", ".otc"])
   IsCraftingBench: bool
   _: bool
 }
@@ -2110,7 +2112,7 @@ type MapDevices {
   _: rid
   _: i32
   _: i8
-  InheritsFrom: string
+  InheritsFrom: string @files(ext: [".ot", ".otc"])
   Command: string
   Command_Data: [i32]
 }
@@ -2381,7 +2383,7 @@ type MiscEffectPacks {
 
 type MiscObjects {
   Id: string @unique
-  EffectVirtualPath: string
+  EffectVirtualPath: string @files(ext: [".ot", ".otc"])
   PreloadGroupsKeys: [PreloadGroups]
   _: i32
   _: i32
@@ -2780,7 +2782,7 @@ enum MonsterSkillsTargets { _ }
 enum MonsterSkillsWaveDirection { _ }
 
 type MonsterSpawnerGroups {
-  Id: string
+  Id: string @files(ext: [".ot", ".otc"])
 }
 
 type MonsterSpawnerGroupsPerLevel {
@@ -2820,7 +2822,7 @@ type MonsterVarieties {
   MaximumAttackDistance: i32
   ACTFiles: [string] @file(ext: ".act")
   AOFiles: [string] @file(ext: ".ao")
-  BaseMonsterTypeIndex: string
+  BaseMonsterTypeIndex: string @files(ext: [".ot", ".otc"])
   ModsKeys: [Mods]
   _: i32
   _: string
@@ -3093,7 +3095,7 @@ type NPCMaster {
 type NPCs {
   Id: string @unique
   Name: string
-  Metadata: string
+  Metadata: string @files(ext: [".ot", ".otc"])
   _: i32
   NPCMasterKey: NPCMaster
   ShortName: string
@@ -3313,7 +3315,7 @@ type PCBangRewardMicros {
 enum PerLevelValues { _ }
 
 type Pet {
-  Id: string @unique
+  Id: string @unique @files(ext: [".ot", ".otc"])
   BaseItemTypesKey: BaseItemTypes
   _: i32
   _: i32
@@ -3341,7 +3343,7 @@ type PreloadGroups {
 enum PreloadPriorities { _ }
 
 type Projectiles {
-  Id: string @unique
+  Id: string @unique @files(ext: [".ot", ".otc"])
   AOFiles: [string] @file(ext: ".ao")
   LoopAnimationIds: [string]
   ImpactAnimationIds: [string]
@@ -3350,7 +3352,7 @@ type Projectiles {
   _: i32
   _: bool
   _: bool
-  InheritsFrom: string
+  InheritsFrom: string @files(ext: [".ot", ".otc"])
   _: i32
   _: rid
   _: i32
@@ -3535,7 +3537,7 @@ type RecipeUnlockDisplay {
 
 type RecipeUnlockObjects {
   WorldAreasKey: WorldAreas
-  InheritsFrom: string
+  InheritsFrom: string @files(ext: [".ot", ".otc"])
   RecipeId: i32
 }
 
