@@ -483,7 +483,7 @@ type BaseItemTypes {
   ItemThemesKey: ItemThemes
   IdentifyMagic_AchievementItemsKeys: [AchievementItems]
   FragmentBaseItemTypesKey: BaseItemTypes
-  IsBlessing: bool
+  _: bool
   ItemShopType: ItemShopType
   _: rid
   _: rid
