@@ -163,7 +163,7 @@ type DelveResourcePerLevel {
 type DelveRooms {
   DelveBiomesKey: DelveBiomes
   DelveFeaturesKey: DelveFeatures
-  ARMFile: string
+  ARMFile: string @file(ext: ".arm")
 }
 
 type DelveUpgrades {

@@ -60,7 +60,7 @@ type LabyrinthSecretEffects {
   MonsterVarietiesKey: MonsterVarieties
   Buff_BuffDefinitionsKey: BuffDefinitions
   Buff_StatValues: [i32]
-  OTFile: string
+  OTFile: string @file(ext: ".ot")
 }
 
 enum LabyrinthSecretLocations { _ }

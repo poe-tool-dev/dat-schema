@@ -3,7 +3,7 @@ enum HarvestColours { _ }
 
 type HarvestCraftOptionIcons {
   Id: string @unique
-  DDSFile: string
+  DDSFile: string @file(ext: ".dds")
 }
 
 type HarvestCraftOptions {
@@ -59,7 +59,7 @@ enum HarvestMetaCraftingOptions { _ }
 
 type HarvestObjects {
   BaseItemTypesKey: BaseItemTypes @unique
-  AOFile: string
+  AOFile: string @file(ext: ".ao")
   ObjectType: i32
 }
 
@@ -95,7 +95,7 @@ type HarvestSeedTypes {
   HarvestObjectsKey: HarvestObjects @unique
   _: rid
   GrowthCycles: i32
-  AOFiles: [string]
+  AOFiles: [string] @file(ext: ".ao")
   _: [i32]
   _: i32
   Tier: i32

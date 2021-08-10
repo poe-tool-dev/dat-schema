@@ -54,11 +54,11 @@ type IncursionRooms {
   MinLevel: i32
   RoomUpgrade_IncursionRoomsKey: IncursionRooms
   ModsKey: Mods
-  PresentARMFile: string
+  PresentARMFile: string @file(ext: ".arm")
   IntId: i32 @unique
   IncursionArchitectKey: IncursionArchitect
-  PastARMFile: string
-  TSIFile: string
+  PastARMFile: string @file(ext: ".arm")
+  TSIFile: string @file(ext: ".tsi")
   UIIcon: string
   FlavourText: string
   Description: string

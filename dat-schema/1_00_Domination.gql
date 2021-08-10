@@ -30,6 +30,6 @@ type Shrines {
 
 type ShrineSounds {
   Id: string @unique
-  StereoSoundFile: string
-  MonoSoundFile: string
+  StereoSoundFile: string @file(ext: ".ogg")
+  MonoSoundFile: string @file(ext: ".ogg")
 }

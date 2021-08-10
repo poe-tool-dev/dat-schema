@@ -24,12 +24,12 @@ type HeistAreas {
   HeistJobsKeys: [HeistJobs]
   Contract_BaseItemTypesKey: BaseItemTypes
   Blueprint_BaseItemTypesKey: BaseItemTypes
-  DGRFile: string
+  DGRFile: string @file(ext: ".dgr")
   _: i32
   _: i32
   _: bool
   _: bool
-  Blueprint_DDSFile: string
+  Blueprint_DDSFile: string @file(ext: ".dds")
   AchievementItemsKeys: [AchievementItems]
   AchievementItemsKeys2: [AchievementItems]
   ClientStringsKey: ClientStrings
@@ -116,7 +116,7 @@ type HeistDoodadNPCs {
   _: i32
   _: i32
   _: i32
-  AOFile: string
+  AOFile: string @file(ext: ".ao")
   Stance: string
   _: rid
 }
@@ -170,7 +170,7 @@ type HeistIntroAreas {
   _: rid
   _: i32
   _: i32
-  DGRFile: string
+  DGRFile: string @file(ext: ".dgr")
   _: i32
   _: i32
   _: i8
@@ -246,7 +246,7 @@ type HeistNPCs {
   ActiveNPCIcon: string
   HeistJobsKey: HeistJobs
   Equip_AchievementItemsKeys: [AchievementItems]
-  AOFile: string
+  AOFile: string @file(ext: ".ao")
 }
 
 type HeistNPCStats {
@@ -323,7 +323,7 @@ type HeistRevealingNPCs {
 type HeistRooms {
   HeistJobsKey: HeistJobs
   Id: i32
-  ARMFile: string
+  ARMFile: string @file(ext: ".arm")
   _: rid
   _: rid
   _: i32
