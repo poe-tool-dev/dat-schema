@@ -61,19 +61,19 @@ type ActiveSkills {
   Description: string
   _: string
   Icon_DDSFile: string @file(ext: ".dds")
-  ActiveSkillTargetTypes: [u32]
-  ActiveSkillTypes: [u32]
+  ActiveSkillTargetTypes: [ActiveSkillTargetTypes]
+  ActiveSkillTypes: [ActiveSkillType]
   WeaponRestriction_ItemClassesKeys: [ItemClasses]
   WebsiteDescription: string
   WebsiteImage: string
   _: bool
   _: string
   _: bool
-  SkillTotemId: i32
+  SkillTotemId: SkillTotems
   IsManuallyCasted: bool
   Input_StatKeys: [Stats]
   Output_StatKeys: [Stats]
-  MinionActiveSkillTypes: [i32]
+  MinionActiveSkillTypes: [ActiveSkillType]
   _: bool
   _: bool
   _: [rid]
@@ -306,6 +306,7 @@ type Ascendancy {
   Id: string @unique
   ClassNo: i32
   CharactersKey: Characters
+  "Coordinates in 'x1, y1, x2, y2' format"
   CoordinateRect: string
   RGBFlavourTextColour: string
   Name: string
@@ -476,12 +477,14 @@ type BaseItemTypes {
   RarePurchase_Costs: [i32]
   UniquePurchase_BaseItemTypesKeys: [BaseItemTypes]
   UniquePurchase_Costs: [i32]
+  "the inflection identifier used for i18n in related fields"
   Inflection: string
   Equip_AchievementItemsKey: AchievementItems
   IsCorrupted: bool
   Identify_AchievementItemsKeys: [AchievementItems]
   ItemThemesKey: ItemThemes
   IdentifyMagic_AchievementItemsKeys: [AchievementItems]
+  "the item which represents this item in the fragment stash tab"
   FragmentBaseItemTypesKey: BaseItemTypes
   _: bool
   ItemShopType: ItemShopType
@@ -655,7 +658,9 @@ type CharacterAudioEvents {
   Shadow_CharacterTextAudioKeys: [CharacterTextAudio]
   Templar_CharacterTextAudioKeys: [CharacterTextAudio]
   Scion_CharacterTextAudioKeys: [CharacterTextAudio]
+  "For the Goddess Bound/Scorned/Unleashed unique"
   Goddess_CharacterTextAudioKeys: [CharacterTextAudio]
+  "For Jack the Axe unique"
   JackTheAxe_CharacterTextAudioKeys: [CharacterTextAudio]
   _: bool
 }
@@ -694,6 +699,7 @@ type Characters {
   ACTFile: string @file(ext: ".act")
   BaseMaxLife: i32
   BaseMaxMana: i32
+  "Attack Speed in milliseconds"
   WeaponSpeed: i32
   MinDamage: i32
   MaxDamage: i32
@@ -924,6 +930,7 @@ type CurrencyItems {
   CurrencyUseType: i32
   Action: string
   Directions: string
+  "Full stack transforms into this item"
   FullStack_BaseItemTypesKey: BaseItemTypes
   Description: string
   Usage_AchievementItemsKeys: [AchievementItems]
@@ -1366,6 +1373,7 @@ type Flasks {
   Group: i32
   LifePerUse: i32
   ManaPerUse: i32
+  "in 1/10 s"
   RecoveryTime: i32
   BuffDefinitionsKey: BuffDefinitions
   BuffStatValues: [i32]
@@ -1599,13 +1607,17 @@ type GrantedEffectQualityTypes {
 type GrantedEffects {
   Id: string @unique
   IsSupport: bool
+  "This support gem only supports active skills with at least one of these types"
   AllowedActiveSkillTypes: [u32]
   BaseEffectiveness: f32
   IncrementalEffectiveness: f32
   SupportGemLetter: string
   _: i32
+  "This support gem adds these types to supported active skills"
   AddedActiveSkillTypes: [u32]
+  "This support gem does not support active skills with one of these types"
   ExcludedActiveSkillTypes: [u32]
+  "This support gem only supports active skills that come from gem items"
   SupportsGemsOnly: bool
   _: u32
   _: [i32]
@@ -1651,21 +1663,25 @@ type GrantedEffectsPerLevel {
   LevelRequirement2: i32
   LevelRequirement3: i32
   CriticalStrikeChance: i32
+  "Damage effectiveness based on 0 = 100%"
   DamageEffectiveness: i32
   StoredUses: i32
   Cooldown: i32
-  CooldownBypassType: i32
+  CooldownBypassType: CooldownBypassTypes
+  "Used with a value of one"
   StatsKeys2: [Stats]
   _: bool
   VaalSouls: i32
   VaalStoredUses: i32
   CooldownGroup: i32
   _: i32
+  "Damage multiplier in 1/10000 for attack skills"
   DamageMultiplier: i32
   _: i32
   ArtVariation: i32
   StatInterpolationTypesKeys: [i32]
   _: i32
+  "Time in milliseconds"
   VaalSoulGainPreventionTime: i32
   BaseDuration: i32
   AttackSpeedMultiplier: i32
@@ -1801,6 +1817,7 @@ type Hideouts {
 
 type ImpactSoundData {
   Id: string @unique
+  "Located in Audio/SoundEffects. Format has SG removed and $(#) replaced with the number"
   Sound: string
   _: i32
   _: i32
@@ -1954,7 +1971,7 @@ type ItemVisualIdentity {
   Id: string @unique
   DDSFile: string @file(ext: ".dds")
   AOFile: string @file(ext: ".ao")
-  SoundEffectsKey: SoundEffects
+  InventorySoundEffect: SoundEffects
   _: i32 @unique
   AOFile2: string @file(ext: ".ao")
   MarauderSMFiles: [string] @file(ext: ".sm")
@@ -2021,6 +2038,7 @@ type JobRaidBrackets {
 
 type KillstreakThresholds {
   Kills: i32
+  "Monster that plays the effect, i.e. the 'nova' etc."
   MonsterVarietiesKey: MonsterVarieties
   AchievementItemsKey: AchievementItems
 }
@@ -2137,7 +2155,9 @@ type MapInhabitants {
 
 type MapPins {
   Id: string @unique
+  "X starts at left side of image, can be negative"
   PositionX: i32
+  "Y starts at top side of image, can be negative"
   PositionY: i32
   Waypoint_WorldAreasKey: WorldAreas
   WorldAreasKeys: [WorldAreas]
@@ -2177,7 +2197,6 @@ type Maps {
   UpgradedFrom_MapsKey: Maps
   MapsKey2: Maps
   MapsKey3: Maps
-  
   "References MapSeries as an enum: i32, 1-based indexing"
   MapSeriesKey: i32
   _: bool
@@ -2827,6 +2846,7 @@ type MonsterVarieties {
   _: i32
   _: string
   _: string
+  "in percent"
   ModelSizeMultiplier: i32
   _: i32
   _: i32
@@ -2834,6 +2854,7 @@ type MonsterVarieties {
   _: i32
   _: i32
   TagsKeys: [Tags]
+  "in percent"
   ExperienceMultiplier: i32
   _: [i32]
   _: i32
@@ -2847,8 +2868,11 @@ type MonsterVarieties {
   Stance: string
   _: rid
   Name: string
+  "in percent"
   DamageMultiplier: i32
+  "in percent"
   LifeMultiplier: i32
+  "in ms"
   AttackSpeed: i32
   Weapon1_ItemVisualIdentityKeys: [ItemVisualIdentity]
   Weapon2_ItemVisualIdentityKeys: [ItemVisualIdentity]
@@ -3235,6 +3259,7 @@ type PassiveSkills {
   Stat2Value: i32
   Stat3Value: i32
   Stat4Value: i32
+  "Id used by PassiveSkillGraph.psg"
   PassiveSkillGraphId: i32 @unique
   Name: string
   CharactersKeys: [Characters]
@@ -3610,6 +3635,7 @@ type ShopPaymentPackage {
   _: string
   _: bool
   Upgrade_ShopPaymentPackageKey: ShopPaymentPackage
+  "Number of points the user gets back if they opt-out of physical items"
   PhysicalItemPoints: i32
   _: i32
   ShopPackagePlatformKeys: [i32]
@@ -3848,11 +3874,13 @@ type StrDexIntMissionExtraRequirement {
   SpawnWeight: i32
   MinLevel: i32
   MaxLevel: i32
+  "in milliseconds"
   TimeLimit: i32
   HasTimeBonusPerKill: bool
   HasTimeBonusPerObjectTagged: bool
   HasLimitedPortals: bool
   NPCTalkKey: NPCTalk
+  "in milliseconds"
   TimeLimitBonusFromObjective: i32
   ObjectCount: i32
   _: [i32]
@@ -4188,6 +4216,7 @@ enum WeaponSoundTypes { _ }
 type WeaponTypes {
   BaseItemTypesKey: BaseItemTypes @unique
   Critical: i32
+  "1000 / speed -> attacks per second"
   Speed: i32
   DamageMin: i32
   DamageMax: i32
@@ -4204,6 +4233,7 @@ type Words {
   SpawnWeight_Values: [u32]
   _: i32
   Text2: string
+  "the inflection identifier used for i18n in related fields"
   Inflection: string
 }
 
@@ -4243,6 +4273,7 @@ type WorldAreas {
   VaalArea_SpawnChance: i32
   Strongbox_SpawnChance: i32
   Strongbox_MaxCount: i32
+  "Normal/Magic/Rare/Unique spawn distribution"
   Strongbox_RarityWeight: [i32]
   _: i8
   _: i32

@@ -18,6 +18,7 @@ type HarvestCraftOptions {
   _: bool
   _: i32
   HarvestCraftOptionIconsKeys: [HarvestCraftOptionIcons]
+  "Text without any tags for formatting"
   PlainText: string
 }
 
