@@ -2733,7 +2733,7 @@ type MonsterPacks {
   TagsKeys: [Tags]
   MinLevel: i32
   MaxLevel: i32
-  WorldAreas2: [WorldAreas]
+  WorldAreas2: [Tags]
   _: i32
   PackFormation: PackFormation
   _: i32
@@ -3967,13 +3967,10 @@ enum SurgeCategory { _ }
 
 type SurgeEffects {
   Id: string
-  MiscAnimated: MiscAnimated
-  _: SurgeEffects
-  _: string
-  _: i64
-  _: i64
-  _: i64
-  _: string
+  _: MiscAnimated
+  _: [f32]
+  _: [MiscAnimated]
+  _: [string]
 }
 
 type SurgeTypes {
