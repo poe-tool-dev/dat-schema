@@ -1,9 +1,8 @@
-
 type ExpeditionAreas {
   Area: WorldAreas
   PosX: i32
   PosY: i32
-  _: [rid]
+  Tags: [Tags]
   _: [i32]
   _: bool
   TextAudio: NPCTextAudio
@@ -40,11 +39,11 @@ type ExpeditionFactions {
   FactionFlag: string
   _: i32
   FactionIcon: string
-  _: rid
+  MonsterVarieties: MonsterVarieties
   Progress1: NPCTextAudio
   Progress2Vaal: NPCTextAudio
   Progress3Final: NPCTextAudio
-  _: rid
+  Tags: Tags
 }
 
 type ExpeditionMarkersCommon {
@@ -55,11 +54,11 @@ type ExpeditionMarkersCommon {
 type ExpeditionNPCs {
   Id: string @unique
   NPCs: [NPCs]
-  _: rid
+  RerollItem: BaseItemTypes
   _: i32
   _: i32
   _: i32
-  _: rid
+  Faction: ExpeditionFactions
   Reroll: NPCTextAudio
   AllBombsPlaced: NPCTextAudio
   BombPlacedRemnant: NPCTextAudio
@@ -85,7 +84,7 @@ type ExpeditionRelicMods {
 type ExpeditionRelics {
   Id: string @unique
   Name: string
-  _: rid
+  ItemTag: Tags
   AOFile: string
   MinLevel: i32
   MaxLevel: i32
@@ -107,12 +106,12 @@ type ExpeditionStorageLayout {
 type ExpeditionTerrainFeatures {
   Id: string @unique
   ExtraFeature: ExtraTerrainFeatures
-  _: rid
+  ExpeditionFaction: ExpeditionFactions
   MinLevel: i32
   MaxLevel: i32
   _: i32
   Area: WorldAreas
-  _: [rid]
+  ExpeditionAreas: [ExpeditionAreas]
   _: i32
   _: bool
   UnearthAchievements: [AchievementItems]

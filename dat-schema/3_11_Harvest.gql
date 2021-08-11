@@ -1,5 +1,6 @@
-
-enum HarvestColours { _ }
+enum HarvestColours {
+  _
+}
 
 type HarvestCraftOptionIcons {
   Id: string @unique
@@ -40,22 +41,18 @@ type HarvestEncounterScaling {
 }
 
 type HarvestInfrastructure {
-  HarvestObjectsKey: HarvestObjects @unique
+  Object: string
   _: i32
-  _: i32
-  _: i32
-  _: rid
-  _: rid
-  _: i32
-  _: rid
-  _: [rid]
-  _: i32
-  HarvestInfrastructureKey: HarvestInfrastructure
+  ClientStringsKey: ClientStrings
 }
 
-enum HarvestInfrastructureCategories { _ }
+enum HarvestInfrastructureCategories {
+  _
+}
 
-enum HarvestMetaCraftingOptions { _ }
+enum HarvestMetaCraftingOptions {
+  _
+}
 
 type HarvestObjects {
   BaseItemTypesKey: BaseItemTypes @unique
@@ -79,7 +76,9 @@ type HarvestPerLevelValues {
   _: i32
 }
 
-enum HarvestPlantBoosterFamilies { _ }
+enum HarvestPlantBoosterFamilies {
+  _
+}
 
 type HarvestPlantBoosters {
   HarvestObjectsKey: HarvestObjects @unique

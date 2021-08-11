@@ -1,6 +1,5 @@
-
 type HeistAreaFormationLayout {
-  _: rid
+  HeistAreasKey: HeistAreas
   _: i32
   _: i32
   _: i32
@@ -43,23 +42,25 @@ type HeistBalancePerLevel {
   _: i32
   _: f32
   _: f32
-  _: rid
-  _: rid
-  _: rid
-  _: rid
-  _: rid
+  HeistValueScalingKey1: HeistValueScaling
+  HeistValueScalingKey2: HeistValueScaling
+  HeistValueScalingKey3: HeistValueScaling
+  HeistValueScalingKey4: HeistValueScaling
+  HeistValueScalingKey5: HeistValueScaling
   _: f32
   _: f32
   _: f32
   _: f32
-  _: rid
-  _: rid
+  HeistValueScalingKey6: HeistValueScaling
+  HeistValueScalingKey7: HeistValueScaling
   _: f32
   _: f32
   _: i32
 }
 
-enum HeistBlueprintWindowTypes { _ }
+enum HeistBlueprintWindowTypes {
+  _
+}
 
 type HeistChestRewardTypes {
   Id: string @unique
@@ -71,18 +72,20 @@ type HeistChestRewardTypes {
   MaxLevel: i32
   Weight: i32
   RewardRoomName2: string
-  _: [rid]
+  HeistJobsKey: [HeistJobs]
   _: i32
 }
 
 type HeistChests {
   ChestsKey: Chests
   Weight: i32
-  _: [rid]
+  HeistAreasKey: [HeistAreas]
   HeistChestTypesKey: HeistChestTypes
 }
 
-enum HeistChestTypes { _ }
+enum HeistChestTypes {
+  _
+}
 
 type HeistChokepointFormation {
   _: rid
@@ -110,7 +113,7 @@ type HeistContracts {
 }
 
 type HeistDoodadNPCs {
-  _: rid
+  NPCsKey: NPCs
   _: i32
   _: i32
   _: i32
@@ -118,19 +121,19 @@ type HeistDoodadNPCs {
   _: i32
   AOFile: string
   Stance: string
-  _: rid
+  BetrayalTargetsKey: BetrayalTargets
 }
 
 type HeistDoors {
   Id: string @unique
   _: string
-  _: rid
-  _: rid
+  HeistJobsKey1: HeistJobs
+  HeistJobsKey2: HeistJobs
   _: string
   _: [string]
   _: [string]
   _: i32
-  _: rid
+  HeistAreasKey: HeistAreas
 }
 
 type HeistEquipment {
@@ -139,7 +142,9 @@ type HeistEquipment {
   RequiredLevel: i32
 }
 
-enum HeistFormationMarkerType { _ }
+enum HeistFormationMarkerType {
+  _
+}
 
 type HeistGeneration {
   Level: i32
@@ -167,7 +172,7 @@ type HeistGeneration {
 
 type HeistIntroAreas {
   Id: string @unique
-  _: rid
+  HeistAreasKey: HeistAreas
   _: i32
   _: i32
   DGRFile: string
@@ -199,7 +204,7 @@ type HeistJobsExperiencePerLevel {
   Tier: i32
   Experience: i32
   MinLevel: i32
-  _: [rid]
+  AchievementItemsKey: [AchievementItems]
 }
 
 type HeistLockType {
@@ -214,15 +219,15 @@ type HeistNPCAuras {
 }
 
 type HeistNPCBlueprintTypes {
-  _: rid
+  NPCsKey: NPCs
   _: i32
 }
 
 type HeistNPCDialogue {
-  _: rid
-  _: rid
-  _: [rid]
-  _: [rid]
+  DialogueEventKey: DialogueEvent
+  HeistNPCsKey: HeistNPCs
+  AudioNormal: [NPCTextAudio]
+  AudioLoud: [NPCTextAudio]
   _: i32
 }
 
@@ -280,16 +285,16 @@ type HeistPatrolPacks {
 }
 
 type HeistQuestContracts {
-  _: rid
-  _: rid
-  _: [rid]
-  _: rid
+  HeistContractsKey: HeistContracts
+  HeistObjectivesKey: HeistObjectives
+  HeistNPCsKey: [HeistNPCs]
+  HeistJobsKey: HeistJobs
   _: i32
   _: i32
   _: i32
   _: i8
-  _: rid
-  _: rid
+  HeistRoomsKey1: HeistRooms
+  WorldAreasKey: WorldAreas
   _: i8
   _: i8
   _: i32
@@ -305,18 +310,18 @@ type HeistQuestContracts {
   _: i8
   Objective: string
   _: i8
-  _: rid
+  BaseItemTypesKey: BaseItemTypes
   _: i8
-  _: rid
+  HeistIntroAreasKey: HeistIntroAreas
   _: i32
-  _: rid
+  HeistRoomsKey2: HeistRooms
   _: string
 }
 
 type HeistRevealingNPCs {
   NPCsKey: NPCs
   PortraitFile: string
-  _: [rid]
+  NPCAudioKey: [NPCAudio]
   _: i32
 }
 
@@ -324,8 +329,8 @@ type HeistRooms {
   HeistJobsKey: HeistJobs
   Id: i32
   ARMFile: string
-  _: rid
-  _: rid
+  HeistAreas1: HeistAreas
+  HeistAreas2: HeistAreas
   _: i32
   _: i32
   _: i32
@@ -335,7 +340,9 @@ type HeistRooms {
   _: i8
 }
 
-enum HeistRoomTypes { _ }
+enum HeistRoomTypes {
+  _
+}
 
 type HeistValueScaling {
   Id: string @unique

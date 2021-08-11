@@ -1,9 +1,8 @@
-
 type ShrineBuffs {
   Id: string @unique
   BuffStatValues: [i32]
   BuffDefinitionsKey: BuffDefinitions
-  _: rid
+  BuffVisual: BuffVisuals
 }
 
 type Shrines {
