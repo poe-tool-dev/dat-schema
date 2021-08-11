@@ -320,11 +320,11 @@ type HeistRevealingNPCs {
 }
 
 type HeistRooms {
-  HeistJobsKey: HeistJobs
+  HeistAreasKey: HeistAreas
   Id: i32
   ARMFile: string
-  HeistAreas1: HeistAreas
-  HeistAreas2: HeistAreas
+  HeistJobsKey1: HeistJobs
+  HeistJobsKey2: HeistJobs
   _: i32
   _: i32
   _: i32

@@ -645,6 +645,7 @@ type BuffVisuals {
   _: [i32]
   EPKFiles: [string]
   BuffVisualOrbs: [BuffVisualOrbs]
+  MiscAnimated3: MiscAnimated
 }
 
 type BuffVisualSetEntries {
