@@ -72,9 +72,7 @@ type LegionMonsterCounts {
   _: i32
 }
 
-enum LegionMonsterTypes {
-  _
-}
+enum LegionMonsterTypes { _ }
 
 type LegionMonsterVarieties {
   MonsterVarietiesKey: MonsterVarieties
@@ -107,13 +105,9 @@ type LegionRanks {
   _: i32
 }
 
-enum LegionRankTypes {
-  _
-}
+enum LegionRankTypes { _ }
 
-enum LegionRewardTypes {
-  _
-}
+enum LegionRewardTypes { _ }
 
 type LegionRewardTypeVisuals {
   IntId: i32 @unique

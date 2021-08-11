@@ -58,9 +58,7 @@ type HeistBalancePerLevel {
   _: i32
 }
 
-enum HeistBlueprintWindowTypes {
-  _
-}
+enum HeistBlueprintWindowTypes { _ }
 
 type HeistChestRewardTypes {
   Id: string @unique
@@ -83,9 +81,7 @@ type HeistChests {
   HeistChestTypesKey: HeistChestTypes
 }
 
-enum HeistChestTypes {
-  _
-}
+enum HeistChestTypes { _ }
 
 type HeistChokepointFormation {
   _: rid
@@ -142,9 +138,7 @@ type HeistEquipment {
   RequiredLevel: i32
 }
 
-enum HeistFormationMarkerType {
-  _
-}
+enum HeistFormationMarkerType { _ }
 
 type HeistGeneration {
   Level: i32
@@ -340,9 +334,7 @@ type HeistRooms {
   _: i8
 }
 
-enum HeistRoomTypes {
-  _
-}
+enum HeistRoomTypes { _ }
 
 type HeistValueScaling {
   Id: string @unique

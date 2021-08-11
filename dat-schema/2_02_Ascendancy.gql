@@ -62,9 +62,7 @@ type LabyrinthSecretEffects {
   OTFile: string
 }
 
-enum LabyrinthSecretLocations {
-  _
-}
+enum LabyrinthSecretLocations { _ }
 
 type LabyrinthSecrets {
   Id: string

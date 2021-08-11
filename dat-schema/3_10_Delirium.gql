@@ -37,9 +37,7 @@ type AfflictionRewardMapMods {
   ModsKey: Mods
 }
 
-enum AfflictionRewardTypes {
-  _
-}
+enum AfflictionRewardTypes { _ }
 
 type AfflictionRewardTypeVisuals {
   AfflictionRewardTypes: AfflictionRewardTypes

@@ -26,9 +26,7 @@ type AtlasExileInfluenceOutcomes {
   AtlasExileInfluenceOutcomeTypesKey: i32
 }
 
-enum AtlasExileInfluenceOutcomeTypes {
-  _
-}
+enum AtlasExileInfluenceOutcomeTypes { _ }
 
 type AtlasExileInfluenceSets {
   Id: string @unique
