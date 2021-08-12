@@ -88,7 +88,7 @@ type BetrayalTargets {
   _: i8
   ItemClasses: ItemClasses
   FullName: string
-  Safehouse_ARMFile: string
+  Safehouse_ARMFile: string @file(ext: ".arm")
   ShortName: string
   _: i32
   SafehouseLeader_AcheivementItemsKey: AchievementItems

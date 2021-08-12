@@ -15,7 +15,7 @@ type DelveBiomes {
   SpawnWeight_Values: [i32]
   _: [i32]
   _: [i32]
-  Art2D: string
+  Art2D: string @files(ext: [".dds"])
   AchievementItemsKeys: [AchievementItems]
   _: bool
   _: [i32]
@@ -162,7 +162,7 @@ type DelveResourcePerLevel {
 type DelveRooms {
   DelveBiomesKey: DelveBiomes
   DelveFeaturesKey: DelveFeatures
-  ARMFile: string
+  ARMFile: string @file(ext: ".arm")
 }
 
 type DelveUpgrades {

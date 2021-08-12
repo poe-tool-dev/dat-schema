@@ -6,7 +6,7 @@ type Prophecies {
   Name: string
   FlavourText: string
   QuestTracker_ClientStringsKeys: [ClientStrings]
-  OGGFile: string
+  OGGFile: string @file(ext: ".ogg")
   ProphecyChainKey: ProphecyChain
   ProphecyChainPosition: i32
   IsEnabled: bool

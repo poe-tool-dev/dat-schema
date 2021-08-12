@@ -43,7 +43,7 @@ type AchievementSetRewards {
   Rewards: [BaseItemTypes]
   TotemPieceEveryNAchievements: i32
   Message: string
-  NotificationIcon: string
+  NotificationIcon: string @file(ext: ".dds")
   HideoutName: string
 }
 
@@ -59,27 +59,27 @@ type ActiveSkills {
   DisplayedName: string
   Description: string
   _: string
-  Icon_DDSFile: string
-  ActiveSkillTargetTypes: [u32]
-  ActiveSkillTypes: [u32]
+  Icon_DDSFile: string @file(ext: ".dds")
+  ActiveSkillTargetTypes: [ActiveSkillTargetTypes]
+  ActiveSkillTypes: [ActiveSkillType]
   WeaponRestriction_ItemClassesKeys: [ItemClasses]
   WebsiteDescription: string
   WebsiteImage: string
   _: bool
   _: string
   _: bool
-  SkillTotemId: i32
+  SkillTotemId: SkillTotems
   IsManuallyCasted: bool
   Input_StatKeys: [Stats]
   Output_StatKeys: [Stats]
-  MinionActiveSkillTypes: [i32]
+  MinionActiveSkillTypes: [ActiveSkillType]
   _: bool
   _: bool
   _: [rid]
   _: i32
   AlternateSkillTargetingBehavioursKey: AlternateSkillTargetingBehaviours
   _: bool
-  AIFile: string
+  AIFile: string @file(ext: ".ai")
   _: i32
   _: i32
   _: bool
@@ -105,7 +105,7 @@ type AddBuffToTargetVarieties {
 type AdditionalLifeScaling {
   IntId: i32
   ID: string
-  DatFile: string
+  DatFile: string @file(ext: ".dat")
 }
 
 enum AdditionalLifeScalingPerLevel { _ }
@@ -128,9 +128,9 @@ type AdvancedSkillsTutorial {
   SkillGemInfoKey1: [SkillGemInfo]
   SkillGemInfoKey2: [SkillGemInfo]
   Description: string
-  International_BK2File: string
+  International_BK2File: string @file(ext: ".bk2")
   SkillGemsKey: SkillGems
-  China_BK2File: string
+  China_BK2File: string @file(ext: ".bk2")
   CharactersKey: [Characters]
 }
 
@@ -174,7 +174,7 @@ type AlternatePassiveSkills {
   RandomMin: i32
   RandomMax: i32
   FlavourText: string
-  DDSIcon: string
+  DDSIcon: string @file(ext: ".dds")
   AchievementItemsKeys: [AchievementItems]
   _: i32
   _: i32
@@ -226,7 +226,7 @@ type ArchetypeRewards {
   _: rid
   _: [rid]
   _: rid
-  BK2File: string
+  BK2File: string @file(ext: ".bk2")
 }
 
 type Archetypes {
@@ -236,7 +236,7 @@ type Archetypes {
   AscendancyClassName: string
   Description: string
   UIImageFile: string
-  TutorialVideo_BKFile: string
+  TutorialVideo_BKFile: string @file(ext: ".bk")
   _: i32
   _: f32
   _: f32
@@ -252,7 +252,7 @@ type AreaInfluenceDoodads {
   StatsKey: Stats
   StatValue: i32
   _: f32
-  AOFiles: [string]
+  AOFiles: [string] @file(ext: ".ao")
   _: i32
   _: i8
 }
@@ -305,11 +305,12 @@ type Ascendancy {
   Id: string @unique
   ClassNo: i32
   CharactersKey: Characters
+  "Coordinates in 'x1, y1, x2, y2' format"
   CoordinateRect: string
   RGBFlavourTextColour: string
   Name: string
   FlavourText: string
-  OGGFile: string
+  OGGFile: string @file(ext: ".ogg")
 }
 
 type AtlasAwakeningStats {
@@ -393,7 +394,7 @@ type AtlasNode {
   _: i32
   _: i32
   _: i32
-  DDSFile: string
+  DDSFile: string @file(ext: ".dds")
 }
 
 type AtlasNodeDefinition {
@@ -440,7 +441,7 @@ type AwardDisplay {
   _: string
   _: string
   ForegroundImage: string
-  OGGFile: string
+  OGGFile: string @file(ext: ".ogg")
   _: i32
 }
 
@@ -455,7 +456,7 @@ type BaseItemTypes {
   Width: i32
   Height: i32
   Name: string
-  InheritsFrom: string
+  InheritsFrom: string @files(ext: [".ot", ".otc"])
   DropLevel: i32
   FlavourTextKey: FlavourText
   Implicit_ModsKeys: [Mods]
@@ -475,12 +476,14 @@ type BaseItemTypes {
   RarePurchase_Costs: [i32]
   UniquePurchase_BaseItemTypesKeys: [BaseItemTypes]
   UniquePurchase_Costs: [i32]
+  "the inflection identifier used for i18n in related fields"
   Inflection: string
   Equip_AchievementItemsKey: AchievementItems
   IsCorrupted: bool
   Identify_AchievementItemsKeys: [AchievementItems]
   ItemThemesKey: ItemThemes
   IdentifyMagic_AchievementItemsKeys: [AchievementItems]
+  "the item which represents this item in the fragment stash tab"
   FragmentBaseItemTypesKey: BaseItemTypes
   _: bool
   ItemShopType: ItemShopType
@@ -511,19 +514,19 @@ type BlightStashTabLayout {
 
 type BloodTypes {
   Id: string @unique
-  PETFile1: string
-  PETFile2: string
-  PETFile3: string
+  PETFile1: string @file(ext: ".pet")
+  PETFile2: string @file(ext: ".pet")
+  PETFile3: string @file(ext: ".pet")
   _: rid
-  PETFile4: string
-  PETFile5: string
-  PETFile6: string
+  PETFile4: string @file(ext: ".pet")
+  PETFile5: string @file(ext: ".pet")
+  PETFile6: string @file(ext: ".pet")
   _: rid
   _: [rid]
   _: rid
-  PETFile7: string
-  PETFile8: string
-  PETFile9: string
+  PETFile7: string @file(ext: ".pet")
+  PETFile8: string @file(ext: ".pet")
+  PETFile9: string @file(ext: ".pet")
 }
 
 enum BuffCategories { _ }
@@ -630,20 +633,20 @@ type BuffVisualOrbTypes {
 
 type BuffVisuals {
   Id: string @unique
-  BuffDDSFile: string
-  EPKFiles1: [string]
-  EPKFiles2: [string]
+  BuffDDSFile: string @file(ext: ".dds")
+  EPKFiles1: [string] @file(ext: ".epk")
+  EPKFiles2: [string] @file(ext: ".epk")
   PreloadGroups: [PreloadGroups]
   _: bool
   BuffName: string
   MiscAnimated1: MiscAnimated
   MiscAnimated2: MiscAnimated
   BuffDescription: string
-  EPKFile: string
+  EPKFile: string @file(ext: ".epk")
   HasExtraArt: bool
   ExtraArt: string
   _: [i32]
-  EPKFiles: [string]
+  EPKFiles: [string] @file(ext: ".epk")
   BuffVisualOrbs: [BuffVisualOrbs]
   MiscAnimated3: MiscAnimated
 }
@@ -669,7 +672,9 @@ type CharacterAudioEvents {
   Shadow_CharacterTextAudioKeys: [CharacterTextAudio]
   Templar_CharacterTextAudioKeys: [CharacterTextAudio]
   Scion_CharacterTextAudioKeys: [CharacterTextAudio]
+  "For the Goddess Bound/Scorned/Unleashed unique"
   Goddess_CharacterTextAudioKeys: [CharacterTextAudio]
+  "For Jack the Axe unique"
   JackTheAxe_CharacterTextAudioKeys: [CharacterTextAudio]
   _: bool
 }
@@ -704,10 +709,11 @@ type CharacterPanelTabs {
 type Characters {
   Id: string @unique
   Name: string @unique
-  AOFile: string
-  ACTFile: string
+  AOFile: string @file(ext: ".ao")
+  ACTFile: string @file(ext: ".act")
   BaseMaxLife: i32
   BaseMaxMana: i32
+  "Attack Speed in milliseconds"
   WeaponSpeed: i32
   MinDamage: i32
   MaxDamage: i32
@@ -725,7 +731,7 @@ type Characters {
   _: i32
   _: i32
   CharacterSize: i32
-  IntroSoundFile: string
+  IntroSoundFile: string @file(ext: ".ogg")
   StartWeapon_BaseItemTypesKey: BaseItemTypes
   _: i32
   TraitDescription: string
@@ -769,7 +775,7 @@ type CharacterStartStateSet {
 type CharacterTextAudio {
   Id: string @unique
   Text: string
-  SoundFile: string
+  SoundFile: string @file(ext: ".ogg")
 }
 
 type ChestClusters {
@@ -783,18 +789,18 @@ type ChestClusters {
 
 type ChestEffects {
   Id: string @unique
-  Normal_EPKFile: string
-  Normal_Closed_AOFile: string
-  Normal_Open_AOFile: string
-  Magic_EPKFile: string
-  Unique_EPKFile: string
-  Rare_EPKFile: string
-  Magic_Closed_AOFile: string
-  Unique_Closed_AOFile: string
-  Rare_Closed_AOFile: string
-  Magic_Open_AOFile: string
-  Unique_Open_AOFile: string
-  Rare_Open_AOFile: string
+  Normal_EPKFile: string @file(ext: ".epk")
+  Normal_Closed_AOFile: string @file(ext: ".ao")
+  Normal_Open_AOFile: string @file(ext: ".ao")
+  Magic_EPKFile: string @file(ext: ".epk")
+  Unique_EPKFile: string @file(ext: ".epk")
+  Rare_EPKFile: string @file(ext: ".epk")
+  Magic_Closed_AOFile: string @file(ext: ".ao")
+  Unique_Closed_AOFile: string @file(ext: ".ao")
+  Rare_Closed_AOFile: string @file(ext: ".ao")
+  Magic_Open_AOFile: string @file(ext: ".ao")
+  Unique_Open_AOFile: string @file(ext: ".ao")
+  Rare_Open_AOFile: string @file(ext: ".ao")
 }
 
 type Chests {
@@ -802,7 +808,7 @@ type Chests {
   _: bool
   _: i32
   Name: string
-  AOFiles: [string]
+  AOFiles: [string] @file(ext: ".ao")
   _: bool
   _: bool
   _: i32
@@ -823,7 +829,7 @@ type Chests {
   CurrencyUse_AchievementItemsKey: AchievementItems
   Encounter_AchievementItemsKeys: [AchievementItems]
   _: rid
-  InheritsFrom: string
+  InheritsFrom: string @files(ext: [".ot", ".otc"])
   _: bool
   _: rid
 }
@@ -938,6 +944,7 @@ type CurrencyItems {
   CurrencyUseType: i32
   Action: string
   Directions: string
+  "Full stack transforms into this item"
   FullStack_BaseItemTypesKey: BaseItemTypes
   Description: string
   Usage_AchievementItemsKeys: [AchievementItems]
@@ -1006,7 +1013,7 @@ type DamageHitEffects {
 type DamageParticleEffects {
   DamageParticleEffectTypes: DamageParticleEffectTypes
   Variation: i32
-  PETFile: string
+  PETFile: string @file(ext: ".pet")
   ImpactSoundData1: ImpactSoundData
   ImpactSoundData2: ImpactSoundData
   _: i32
@@ -1134,7 +1141,7 @@ type Doors {
 
 type DropEffects {
   Id: string @unique
-  AOFile: string
+  AOFile: string @file(ext: ".ao")
 }
 
 type DropPool {
@@ -1216,7 +1223,7 @@ type ElderBossArenas {
 type ElderMapBossOverride {
   WorldAreasKey: WorldAreas @unique
   MonsterVarietiesKeys: [MonsterVarieties]
-  TerrainMetadata: string
+  TerrainMetadata: string @files(ext: [".ot", ".otc"])
 }
 
 type EndlessLedgeChests {
@@ -1228,8 +1235,8 @@ type EndlessLedgeChests {
 
 type Environments {
   Id: string @unique
-  Base_ENVFile: string
-  Corrupted_ENVFile: string
+  Base_ENVFile: string @file(ext: ".env")
+  Corrupted_ENVFile: string @file(ext: ".env")
   _: i32
   _: i32
   _: i32
@@ -1240,7 +1247,7 @@ type Environments {
 
 type EnvironmentTransitions {
   Id: string
-  OTFiles: [string]
+  OTFiles: [string] @file(ext: ".ot")
   _: [string]
 }
 
@@ -1305,7 +1312,7 @@ type ExecuteGEAL {
   _: i32
   _: bool
   _: i32
-  MetadataIDs: [string]
+  MetadataIDs: [string] @files(ext: [".ot", ".otc"])
   ScriptCommand: string
   _: i32
   _: i32
@@ -1391,6 +1398,7 @@ type Flasks {
   Group: i32
   LifePerUse: i32
   ManaPerUse: i32
+  "in 1/10 s"
   RecoveryTime: i32
   BuffDefinitionsKey: BuffDefinitions
   BuffStatValues: [i32]
@@ -1408,8 +1416,8 @@ enum FlavourTextImages { _ }
 
 type Footprints {
   Id: string @unique
-  Active_AOFiles: [string]
-  Idle_AOFiles: [string]
+  Active_AOFiles: [string] @file(ext: ".ao")
+  Idle_AOFiles: [string] @file(ext: ".ao")
 }
 
 type FootstepAudio {
@@ -1426,6 +1434,8 @@ type FragmentStashTabLayout {
   SizeX: i32
   SizeY: i32
   _: i8
+  _: i32
+  _: i32
 }
 
 type GameConstants {
@@ -1512,7 +1522,7 @@ type GeometryChannel {
   _: bool
   _: rid
   _: rid
-  EPKFile: string
+  EPKFile: string @file(ext: ".epk")
   _: i32
   _: i32
 }
@@ -1594,8 +1604,8 @@ type GlobalAudioConfig {
 
 type Grandmasters {
   Id: string
-  GMFile: string
-  AISFile: string
+  GMFile: string @file(ext: ".gm")
+  AISFile: string @file(ext: ".ais")
   ModsKeys: [Mods]
   CharacterLevel: i32
   _: bool
@@ -1622,13 +1632,17 @@ type GrantedEffectQualityTypes {
 type GrantedEffects {
   Id: string @unique
   IsSupport: bool
+  "This support gem only supports active skills with at least one of these types"
   AllowedActiveSkillTypes: [u32]
   BaseEffectiveness: f32
   IncrementalEffectiveness: f32
   SupportGemLetter: string
   _: i32
+  "This support gem adds these types to supported active skills"
   AddedActiveSkillTypes: [u32]
+  "This support gem does not support active skills with one of these types"
   ExcludedActiveSkillTypes: [u32]
+  "This support gem only supports active skills that come from gem items"
   SupportsGemsOnly: bool
   _: u32
   _: [i32]
@@ -1674,21 +1688,25 @@ type GrantedEffectsPerLevel {
   LevelRequirement2: i32
   LevelRequirement3: i32
   CriticalStrikeChance: i32
+  "Damage effectiveness based on 0 = 100%"
   DamageEffectiveness: i32
   StoredUses: i32
   Cooldown: i32
-  CooldownBypassType: i32
+  CooldownBypassType: CooldownBypassTypes
+  "Used with a value of one"
   StatsKeys2: [Stats]
   _: bool
   VaalSouls: i32
   VaalStoredUses: i32
   CooldownGroup: i32
   _: i32
+  "Damage multiplier in 1/10000 for attack skills"
   DamageMultiplier: i32
   _: i32
   ArtVariation: i32
   StatInterpolationTypesKeys: [i32]
   _: i32
+  "Time in milliseconds"
   VaalSoulGainPreventionTime: i32
   BaseDuration: i32
   AttackSpeedMultiplier: i32
@@ -1716,7 +1734,7 @@ type GroundEffects {
   _: i32
   _: bool
   _: bool
-  AOFile: string
+  AOFile: string @file(ext: ".ao")
   _: bool
   _: [i32]
   _: [i32]
@@ -1774,7 +1792,7 @@ type HeistStorageLayout {
 
 type HideoutDoodads {
   BaseItemTypesKey: BaseItemTypes @unique
-  Variation_AOFiles: [string]
+  Variation_AOFiles: [string] @file(ext: ".ao")
   FavourCost: i32
   MasterLevel: i32
   HideoutNPCsKey: HideoutNPCs
@@ -1782,7 +1800,7 @@ type HideoutDoodads {
   _: i32
   _: i32
   _: i32
-  InheritsFrom: string
+  InheritsFrom: string @files(ext: [".ot", ".otc"])
   IsCraftingBench: bool
   _: bool
 }
@@ -1809,7 +1827,7 @@ type Hideouts {
   Id: string @unique
   SmallWorldAreasKey: WorldAreas
   _: i32
-  HideoutFile: string
+  HideoutFile: string @file(ext: ".hideout")
   _: [rid]
   LargeWorldAreasKey: WorldAreas
   HideoutImage: string
@@ -1824,6 +1842,7 @@ type Hideouts {
 
 type ImpactSoundData {
   Id: string @unique
+  "Located in Audio/SoundEffects. Format has SG removed and $(#) replaced with the number"
   Sound: string
   _: i32
   _: i32
@@ -1942,19 +1961,19 @@ type ItemThemes {
 
 type ItemVisualEffect {
   Id: string @unique
-  DaggerEPKFile: string
-  BowEPKFile: string
-  OneHandedMaceEPKFile: string
-  OneHandedSwordEPKFile: string
+  DaggerEPKFile: string @file(ext: ".epk")
+  BowEPKFile: string @file(ext: ".epk")
+  OneHandedMaceEPKFile: string @file(ext: ".epk")
+  OneHandedSwordEPKFile: string @file(ext: ".epk")
   _: string
-  TwoHandedSwordEPKFile: string
-  TwoHandedStaffEPKFile: string
+  TwoHandedSwordEPKFile: string @file(ext: ".epk")
+  TwoHandedStaffEPKFile: string @file(ext: ".epk")
   _: i32 @unique
-  TwoHandedMaceEPKFile: string
-  OneHandedAxeEPKFile: string
-  TwoHandedAxeEPKFile: string
-  ClawEPKFile: string
-  PETFile: string
+  TwoHandedMaceEPKFile: string @file(ext: ".epk")
+  OneHandedAxeEPKFile: string @file(ext: ".epk")
+  TwoHandedAxeEPKFile: string @file(ext: ".epk")
+  ClawEPKFile: string @file(ext: ".epk")
+  PETFile: string @file(ext: ".pet")
 }
 
 type ItemVisualHeldBodyModel {
@@ -1977,18 +1996,18 @@ type ItemVisualHeldBodyModel {
 
 type ItemVisualIdentity {
   Id: string @unique
-  DDSFile: string
-  AOFile: string
-  SoundEffectsKey: SoundEffects
+  DDSFile: string @file(ext: ".dds")
+  AOFile: string @file(ext: ".ao")
+  InventorySoundEffect: SoundEffects
   _: i32 @unique
-  AOFile2: string
-  MarauderSMFiles: [string]
-  RangerSMFiles: [string]
-  WitchSMFiles: [string]
-  DuelistDexSMFiles: [string]
-  TemplarSMFiles: [string]
-  ShadowSMFiles: [string]
-  ScionSMFiles: [string]
+  AOFile2: string @file(ext: ".ao")
+  MarauderSMFiles: [string] @file(ext: ".sm")
+  RangerSMFiles: [string] @file(ext: ".sm")
+  WitchSMFiles: [string] @file(ext: ".sm")
+  DuelistDexSMFiles: [string] @file(ext: ".sm")
+  TemplarSMFiles: [string] @file(ext: ".sm")
+  ShadowSMFiles: [string] @file(ext: ".sm")
+  ScionSMFiles: [string] @file(ext: ".sm")
   MarauderShape: string
   RangerShape: string
   WitchShape: string
@@ -1999,9 +2018,9 @@ type ItemVisualIdentity {
   _: i32
   _: i32
   Pickup_AchievementItemsKeys: [AchievementItems]
-  SMFiles: [string]
+  SMFiles: [string] @file(ext: ".sm")
   Identify_AchievementItemsKeys: [AchievementItems]
-  EPKFile: string
+  EPKFile: string @file(ext: ".epk")
   Corrupt_AchievementItemsKeys: [AchievementItems]
   IsAlternateArt: bool
   _: bool
@@ -2046,6 +2065,7 @@ type JobRaidBrackets {
 
 type KillstreakThresholds {
   Kills: i32
+  "Monster that plays the effect, i.e. the 'nova' etc."
   MonsterVarietiesKey: MonsterVarieties
   AchievementItemsKey: AchievementItems
 }
@@ -2137,7 +2157,7 @@ type MapDevices {
   MiscObject: MiscObjects
   _: i32
   _: i8
-  InheritsFrom: string
+  InheritsFrom: string @files(ext: [".ot", ".otc"])
   Command: string
   Command_Data: [i32]
 }
@@ -2162,7 +2182,9 @@ type MapInhabitants {
 
 type MapPins {
   Id: string @unique
+  "X starts at left side of image, can be negative"
   PositionX: i32
+  "Y starts at top side of image, can be negative"
   PositionY: i32
   Waypoint_WorldAreasKey: WorldAreas
   WorldAreasKeys: [WorldAreas]
@@ -2202,7 +2224,6 @@ type Maps {
   UpgradedFrom_MapsKey: Maps
   MapsKey2: Maps
   MapsKey3: Maps
-
   "References MapSeries as an enum: i32, 1-based indexing"
   MapSeriesKey: i32
   _: bool
@@ -2212,11 +2233,11 @@ type Maps {
 type MapSeries {
   Id: string @unique
   Name: string
-  BaseIcon_DDSFile: string
-  Infected_DDSFile: string
-  Shaper_DDSFile: string
-  Elder_DDSFile: string
-  Drawn_DDSFile: string
+  BaseIcon_DDSFile: string @file(ext: ".dds")
+  Infected_DDSFile: string @file(ext: ".dds")
+  Shaper_DDSFile: string @file(ext: ".dds")
+  Elder_DDSFile: string @file(ext: ".dds")
+  Drawn_DDSFile: string @file(ext: ".dds")
 }
 
 type MapSeriesTiers {
@@ -2272,19 +2293,19 @@ type Melee {
   MeleeTrailsKey6: MeleeTrails
   MeleeTrailsKey7: MeleeTrails
   _: i8
-  SurgeEffect_EPKFile: string
+  SurgeEffect_EPKFile: string @file(ext: ".epk")
   _: string
   _: string
 }
 
 type MeleeTrails {
-  EPKFile1: string
-  EPKFile2: string
+  EPKFile1: string @file(ext: ".epk")
+  EPKFile2: string @file(ext: ".epk")
   _: i32
   _: i32
   _: i32
   _: bool
-  AOFile: string
+  AOFile: string @file(ext: ".ao")
   _: bool
 }
 
@@ -2316,7 +2337,7 @@ type MicrotransactionCombineFormula {
   Id: string
   Result_BaseItemTypesKey: BaseItemTypes
   Ingredients_BaseItemTypesKeys: [BaseItemTypes]
-  BK2File: string
+  BK2File: string @file(ext: ".bk2")
   _: [i32]
   _: i32
   _: i8
@@ -2324,20 +2345,20 @@ type MicrotransactionCombineFormula {
 
 type MicrotransactionFireworksVariations {
   BaseItemTypesKey: BaseItemTypes
-  AOFile: string
+  AOFile: string @file(ext: ".ao")
   _: bool
 }
 
 type MicrotransactionPeriodicCharacterEffectVariations {
   Id: string @unique
-  AOFile: string
+  AOFile: string @file(ext: ".ao")
   MiscObject: MiscObjects
 }
 
 type MicrotransactionPortalVariations {
   BaseItemTypesKey: BaseItemTypes
-  AOFile: string
-  MapAOFile: string
+  AOFile: string @file(ext: ".ao")
+  MapAOFile: string @file(ext: ".ao")
   _: f32
   MiscObject: MiscObjects
 }
@@ -2365,7 +2386,7 @@ enum MicrotransactionSlotId { _ }
 type MicrotransactionSocialFrameVariations {
   Id: i32 @unique
   BaseItemTypesKey: BaseItemTypes
-  BK2File: string
+  BK2File: string @file(ext: ".bk2")
 }
 
 type MinimapIcons {
@@ -2381,7 +2402,7 @@ type MinimapIcons {
 
 type MiscAnimated {
   Id: string @unique
-  AOFile: string
+  AOFile: string @file(ext: ".ao")
   PreloadGroupsKeys: [PreloadGroups]
   _: i32
   _: i32
@@ -2397,18 +2418,18 @@ type MiscBeams {
 
 type MiscEffectPacks {
   Id: string @unique
-  EPKFile: string
+  EPKFile: string @file(ext: ".epk")
   _: i32
   _: i32
   _: i32
   PreloadGroups: [PreloadGroups]
   _: i8
-  PlayerOnly_EPKFile: string
+  PlayerOnly_EPKFile: string @file(ext: ".epk")
 }
 
 type MiscObjects {
   Id: string @unique
-  EffectVirtualPath: string
+  EffectVirtualPath: string @files(ext: [".ot", ".otc"])
   PreloadGroupsKeys: [PreloadGroups]
   _: i32
   _: i32
@@ -2429,7 +2450,7 @@ type MissionTimerTypes {
 
 type MissionTransitionTiles {
   Id: string @unique
-  TDTFile: string
+  TDTFile: string @file(ext: ".tdt")
   _: i32
   _: i32
   _: i32
@@ -2554,7 +2575,7 @@ type ModType {
 
 type MonsterArmours {
   Id: string
-  ArtString_SMFile: string
+  ArtString_SMFile: string @file(ext: ".sm")
 }
 
 enum MonsterBehavior { _ }
@@ -2807,7 +2828,7 @@ enum MonsterSkillsTargets { _ }
 enum MonsterSkillsWaveDirection { _ }
 
 type MonsterSpawnerGroups {
-  Id: string
+  Id: string @files(ext: [".ot", ".otc"])
 }
 
 type MonsterSpawnerGroupsPerLevel {
@@ -2845,13 +2866,14 @@ type MonsterVarieties {
   ObjectSize: i32
   MinimumAttackDistance: i32
   MaximumAttackDistance: i32
-  ACTFiles: [string]
-  AOFiles: [string]
-  BaseMonsterTypeIndex: string
+  ACTFiles: [string] @file(ext: ".act")
+  AOFiles: [string] @file(ext: ".ao")
+  BaseMonsterTypeIndex: string @files(ext: [".ot", ".otc"])
   ModsKeys: [Mods]
   _: i32
   _: string
   _: string
+  "in percent"
   ModelSizeMultiplier: i32
   _: i32
   _: i32
@@ -2859,6 +2881,7 @@ type MonsterVarieties {
   _: i32
   _: i32
   TagsKeys: [Tags]
+  "in percent"
   ExperienceMultiplier: i32
   _: [i32]
   _: i32
@@ -2867,13 +2890,16 @@ type MonsterVarieties {
   CriticalStrikeChance: i32
   _: i32
   GrantedEffectsKeys: [GrantedEffects]
-  AISFile: string
+  AISFile: string @file(ext: ".ais")
   ModsKeys2: [Mods]
   Stance: string
   _: rid
   Name: string
+  "in percent"
   DamageMultiplier: i32
+  "in percent"
   LifeMultiplier: i32
+  "in ms"
   AttackSpeed: i32
   Weapon1_ItemVisualIdentityKeys: [ItemVisualIdentity]
   Weapon2_ItemVisualIdentityKeys: [ItemVisualIdentity]
@@ -2908,7 +2934,7 @@ type MonsterVarieties {
   _: [rid]
   _: [rid]
   _: i32
-  SinkAnimation_AOFile: string
+  SinkAnimation_AOFile: string @file(ext: ".ao")
   _: bool
   _: [rid]
   _: bool
@@ -2991,8 +3017,8 @@ type MultiPartAchievements {
 
 type Music {
   Id: string @unique
-  SoundFile: string
-  BankFile: string
+  SoundFile: string @file(ext: ".ogg")
+  BankFile: string @file(ext: ".bank")
   _: i32
   IsAvailableInHideout: i8
   Name: string
@@ -3009,7 +3035,7 @@ type MusicCategories {
 
 type MysteryBoxes {
   BaseItemTypesKey: BaseItemTypes
-  BK2File: string
+  BK2File: string @file(ext: ".bk2")
   BoxId: string
   BundleId: string
 }
@@ -3120,7 +3146,7 @@ type NPCMaster {
 type NPCs {
   Id: string @unique
   Name: string
-  Metadata: string
+  Metadata: string @files(ext: [".ot", ".otc"])
   _: i32
   NPCMasterKey: NPCMaster
   ShortName: string
@@ -3196,8 +3222,8 @@ type NPCTextAudio {
   Id: string @unique
   CharactersKey: Characters
   Text: string
-  Mono_AudioFile: string
-  Stereo_AudioFile: string
+  Mono_AudioFile: string @file(ext: ".ogg")
+  Stereo_AudioFile: string @file(ext: ".ogg")
   HasStereo: bool
   _: bool
   Video: string
@@ -3254,12 +3280,13 @@ type PassiveSkillFilterOptions {
 
 type PassiveSkills {
   Id: string @unique
-  Icon_DDSFile: string
+  Icon_DDSFile: string @file(ext: ".dds")
   StatsKeys: [Stats]
   Stat1Value: i32
   Stat2Value: i32
   Stat3Value: i32
   Stat4Value: i32
+  "Id used by PassiveSkillGraph.psg"
   PassiveSkillGraphId: i32 @unique
   Name: string
   CharactersKeys: [Characters]
@@ -3340,7 +3367,7 @@ type PCBangRewardMicros {
 enum PerLevelValues { _ }
 
 type Pet {
-  Id: string @unique
+  Id: string @unique @files(ext: [".ot", ".otc"])
   BaseItemTypesKey: BaseItemTypes
   _: i32
   _: i32
@@ -3368,8 +3395,8 @@ type PreloadGroups {
 enum PreloadPriorities { _ }
 
 type Projectiles {
-  Id: string @unique
-  AOFiles: [string]
+  Id: string @unique @files(ext: [".ot", ".otc"])
+  AOFiles: [string] @file(ext: ".ao")
   LoopAnimationIds: [string]
   ImpactAnimationIds: [string]
   ProjectileSpeed: i32
@@ -3377,14 +3404,14 @@ type Projectiles {
   _: i32
   _: bool
   _: bool
-  InheritsFrom: string
+  InheritsFrom: string @files(ext: [".ot", ".otc"])
   _: i32
   _: rid
   _: i32
   _: bool
   _: bool
-  Stuck_AOFile: string
-  Bounce_AOFile: string
+  Stuck_AOFile: string @file(ext: ".ao")
+  Bounce_AOFile: string @file(ext: ".ao")
   _: i32
   _: i32
   _: i32
@@ -3412,7 +3439,7 @@ type Quest {
   Id: string @unique
   Act: i32
   Name: string @localized
-  Icon_DDSFile: string
+  Icon_DDSFile: string @file(ext: ".dds")
   QuestId: i32
   _: bool
   Type: QuestType
@@ -3562,7 +3589,7 @@ type RecipeUnlockDisplay {
 
 type RecipeUnlockObjects {
   WorldAreasKey: WorldAreas
-  InheritsFrom: string
+  InheritsFrom: string @files(ext: [".ot", ".otc"])
   RecipeId: i32
 }
 
@@ -3598,7 +3625,7 @@ type ShieldTypes {
 type ShopCategory {
   Id: string @unique
   ClientText: string
-  ClientJPGFile: string
+  ClientJPGFile: string @file(ext: ".jpg")
   WebsiteText: string
   WebsiteJPGFile: string
   _: i32
@@ -3635,6 +3662,7 @@ type ShopPaymentPackage {
   _: string
   _: bool
   Upgrade_ShopPaymentPackageKey: ShopPaymentPackage
+  "Number of points the user gets back if they opt-out of physical items"
   PhysicalItemPoints: i32
   _: i32
   ShopPackagePlatformKeys: [i32]
@@ -3663,7 +3691,7 @@ type SigilDisplay {
   Id: string @unique
   Active_StatsKey: Stats
   Inactive_StatsKey: Stats
-  DDSFile: string
+  DDSFile: string @file(ext: ".dds")
   Inactive_ArtFile: string
   Active_ArtFile: string
   Frame_ArtFile: string
@@ -3709,7 +3737,7 @@ type SkillMineVariations {
 type SkillMorphDisplay {
   _: rid
   _: [rid]
-  DDSFiles: [string]
+  DDSFiles: [string] @file(ext: ".dds")
   _: i32
   _: [i32]
   _: i32
@@ -3755,8 +3783,8 @@ type SkillTrapVariations {
 
 type SoundEffects {
   Id: string @unique
-  SoundFile: string
-  SoundFile_2D: string
+  SoundFile: string @file(ext: ".ogg")
+  SoundFile_2D: string @file(ext: ".ogg")
   _: bool
 }
 
@@ -3789,12 +3817,12 @@ type SpawnObject {
 
 type SpecialRooms {
   Id: string @unique
-  ARMFile: string
+  ARMFile: string @file(ext: ".arm")
 }
 
 type SpecialTiles {
   Id: string @unique
-  TDTFile: string
+  TDTFile: string @file(ext: ".tdt")
 }
 
 type SpectreOverrides {
@@ -3873,11 +3901,13 @@ type StrDexIntMissionExtraRequirement {
   SpawnWeight: i32
   MinLevel: i32
   MaxLevel: i32
+  "in milliseconds"
   TimeLimit: i32
   HasTimeBonusPerKill: bool
   HasTimeBonusPerObjectTagged: bool
   HasLimitedPortals: bool
   NPCTalkKey: NPCTalk
+  "in milliseconds"
   TimeLimitBonusFromObjective: i32
   ObjectCount: i32
   _: [i32]
@@ -4040,7 +4070,7 @@ type Tips {
 
 type Topologies {
   Id: string @unique
-  DGRFile: string
+  DGRFile: string @file(ext: ".dgr")
   _: i32
   _: i32
   _: i32
@@ -4089,7 +4119,7 @@ type TriggerSpawners {
 
 type Tutorial {
   Id: string @unique
-  UIFile: string
+  UIFile: string @file(ext: ".ui")
   ClientString: ClientStrings
   IsEnabled: bool
   _: i32
@@ -4106,7 +4136,7 @@ enum UITalkCategories { _ }
 type UITalkText {
   Id: string @unique
   UITalkCategoriesKey: UITalkCategories
-  OGGFile: string
+  OGGFile: string @file(ext: ".ogg")
   Text: string
   _: i8
   NPCTextAudio: NPCTextAudio
@@ -4221,6 +4251,7 @@ enum WeaponSoundTypes { _ }
 type WeaponTypes {
   BaseItemTypesKey: BaseItemTypes @unique
   Critical: i32
+  "1000 / speed -> attacks per second"
   Speed: i32
   DamageMin: i32
   DamageMax: i32
@@ -4237,6 +4268,7 @@ type Words {
   SpawnWeight_Values: [u32]
   _: i32
   Text2: string
+  "the inflection identifier used for i18n in related fields"
   Inflection: string
 }
 
@@ -4251,7 +4283,7 @@ type WorldAreas {
   _: i32
   _: i32
   _: i32
-  LoadingScreen_DDSFile: string
+  LoadingScreen_DDSFile: string @file(ext: ".dds")
   _: i32
   _: [i32]
   _: i32
@@ -4276,6 +4308,7 @@ type WorldAreas {
   VaalArea_SpawnChance: i32
   Strongbox_SpawnChance: i32
   Strongbox_MaxCount: i32
+  "Normal/Magic/Rare/Unique spawn distribution"
   Strongbox_RarityWeight: [i32]
   _: i8
   _: i32
@@ -4304,7 +4337,7 @@ type WorldAreas {
   _: i32
   _: i32
   _: i32
-  TSIFile: string
+  TSIFile: string @file(ext: ".tsi")
   _: rid
   _: i32
   _: i32

@@ -18,7 +18,7 @@ type LabyrinthExclusionGroups {
 }
 
 type LabyrinthIzaroChests {
-  Id: string @unique
+  Id: string @unique @files(ext: [".ot", ".otc"])
   ChestsKey: Chests
   SpawnWeight: i32
   MinLabyrinthTier: i32
@@ -34,7 +34,7 @@ type LabyrinthNodeOverrides {
 
 type LabyrinthRewardTypes {
   Id: string @unique
-  ObjectPath: string
+  ObjectPath: string @files(ext: [".ot", ".otc"])
 }
 
 type Labyrinths {
@@ -59,7 +59,7 @@ type LabyrinthSecretEffects {
   MonsterVarietiesKey: MonsterVarieties
   Buff_BuffDefinitionsKey: BuffDefinitions
   Buff_StatValues: [i32]
-  OTFile: string
+  OTFile: string @file(ext: ".ot")
 }
 
 enum LabyrinthSecretLocations { _ }
