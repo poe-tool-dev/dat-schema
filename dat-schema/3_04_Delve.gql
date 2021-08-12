@@ -16,8 +16,7 @@ type DelveBiomes {
   SpawnWeight_Values: [i32]
   _: [i32]
   _: [i32]
-  Art2D: string @files(ext: ["1.dds", "2.dds", "3.dds", "4.dds", "5.dds", "6.dds", "7.dds", "8.dds", "9.dds",
-    "1.dds.header", "2.dds.header", "3.dds.header", "4.dds.header", "5.dds.header", "6.dds.header", "7.dds.header", "8.dds.header", "9.dds.header"])
+  Art2D: string @files(ext: [".dds"])
   AchievementItemsKeys: [AchievementItems]
   _: bool
   _: [i32]
