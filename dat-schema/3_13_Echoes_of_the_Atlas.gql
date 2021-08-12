@@ -1,4 +1,3 @@
-
 type InfluenceModUpgrades {
   InfluenceMod: Mods
   UpgradedMod: Mods
@@ -14,21 +13,28 @@ type MavenDialog {
   _: bool
 }
 
+type AtlasSkillGraphs {
+  Id: string
+  SkillGraph: string
+  RegionName: string
+  Achievements: [AchievementItems]
+}
+
 type MavenFights {
   Id: string @unique
-  _: rid
+  AtlasRegionsKey: AtlasRegions
   _: i32
   Level: i32
   _: i32
   _: i32
   _: i32
-  _: rid
-  _: rid
+  BaseItemTypesKey: BaseItemTypes
+  AtlasSkillGraphKey: AtlasSkillGraphs
   _: i32
   _: i32
   _: i32
   _: i32
-  _: [rid]
+  WorldAreasKey: [WorldAreas]
   _: i32
   _: i32
 }
