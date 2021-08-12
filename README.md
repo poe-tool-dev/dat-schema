@@ -46,4 +46,4 @@ You will find it useful if you know that a column is an array but don't know of 
 | @unique    | -         | All values in a column are different |
 | @localized | -         | Content of column differs depending on the language |
 | @file      | ext: "STRING" | Value in a column is a file path |
-| @files     | ext: list of "STRING" | Value in a column is a common prefix for several files with different extensions |
+| @files     | ext: list of "STRING" | Value in a column is a common prefix for several files (often with different extensions) |
