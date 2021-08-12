@@ -1,4 +1,3 @@
-
 type AfflictionBalancePerLevel {
   _: i32
   _: f32
@@ -53,7 +52,7 @@ type AfflictionSplitDemons {
 }
 
 type AfflictionStartDialogue {
-  _: rid
+  WorldAreasKey: WorldAreas
   NPCTextAudioKey: NPCTextAudio
   _: [u64]
 }

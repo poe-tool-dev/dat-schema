@@ -1,9 +1,8 @@
-
 type BestiaryCapturableMonsters {
   MonsterVarietiesKey: MonsterVarieties
   BestiaryGroupsKey: BestiaryGroups
   Name: string
-  _: rid
+  BestiaryEncountersKey: BestiaryEncounters
   _: bool
   IconSmall: string
   Icon: string
@@ -35,10 +34,10 @@ type BestiaryFamilies {
   PageArt: string
   FlavourText: string
   _: bool
-  _: rid
+  TagsKey: Tags
   _: i32
   ModsKeys: [Mods]
-  _: rid
+  CurrencyItemsKey: CurrencyItems
 }
 
 type BestiaryGenus {

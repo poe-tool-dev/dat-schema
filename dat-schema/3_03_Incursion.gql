@@ -1,4 +1,3 @@
-
 type ArchitectLifeScalingPerLevel {
   Level: i32
   MoreLife: i32
@@ -30,7 +29,7 @@ type IncursionChestRewards {
 type IncursionChests {
   Id: string @unique
   ChestsKey: Chests
-  _: rid
+  UniqueChestsKey: UniqueChests
   MinLevel: i32
   MaxLevel: i32
   Weight: i32

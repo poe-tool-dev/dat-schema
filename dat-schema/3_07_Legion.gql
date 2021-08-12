@@ -1,4 +1,3 @@
-
 type Incubators {
   BaseItemTypesKey: BaseItemTypes @unique
   _: i32
@@ -38,26 +37,28 @@ type LegionChests {
   ChestsKey: Chests
   LegionFactionsKey: LegionFactions
   LegionRanksKey: LegionRanks
-  _: rid
+  MonsterVarietiesKey: MonsterVarieties
   _: i32
 }
 
 type LegionFactions {
   Id: string @unique
   _: i32
-  _: rid
+  LegionBalancePerLevelKey: LegionBalancePerLevel
   _: f32
   _: f32
-  _: rid
-  _: rid
-  _: rid
-  _: rid
+  BuffVisualsKey: BuffVisuals
+  MiscAnimatedKey1: MiscAnimated
+  MiscAnimatedKey2: MiscAnimated
+  MiscAnimatedKey3: MiscAnimated
   AchievementItemsKeys1: [AchievementItems]
-  _: rid
-  _: rid
+  MiscAnimatedKey4: MiscAnimated
+  MiscAnimatedKey5: MiscAnimated
   _: f32
   _: f32
   AchievementItemsKeys2: [AchievementItems]
+  StatsKey: Stats
+  Shard: string
 }
 
 type LegionMonsterCounts {
@@ -76,21 +77,21 @@ enum LegionMonsterTypes { _ }
 type LegionMonsterVarieties {
   MonsterVarietiesKey: MonsterVarieties
   LegionFactionsKey: LegionFactions
-  _: rid
+  LegionRanksKey: LegionRanks
+  _: i32
+  MiscAnimatedKey: [MiscAnimated]
+  _: i32
+  _: i32
+  _: [i32]
+  _: [i32]
+  _: [i32]
+  _: [i32]
+  _: [i32]
+  _: [i32]
+  _: i32
   _: i32
   _: [rid]
-  _: i32
-  _: i32
-  _: [i32]
-  _: [i32]
-  _: [i32]
-  _: [i32]
-  _: [i32]
-  _: [i32]
-  _: i32
-  _: i32
-  _: [rid]
-  _: rid
+  MonsterVarietiesKey2: MonsterVarieties
 }
 
 type LegionRanks {
@@ -99,7 +100,7 @@ type LegionRanks {
   _: i32
   _: i32
   _: i32
-  _: rid
+  LegionBalancePerLevelKey: LegionBalancePerLevel
   _: i32
   _: i32
 }
@@ -110,7 +111,7 @@ enum LegionRewardTypes { _ }
 
 type LegionRewardTypeVisuals {
   IntId: i32 @unique
-  _: rid
+  MinimapIconsKey: MinimapIcons
   _: string
   MiscAnimatedKey: MiscAnimated
   _: f32

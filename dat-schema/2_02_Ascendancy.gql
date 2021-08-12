@@ -1,4 +1,3 @@
-
 type LabyrinthAreas {
   Id: string
   Normal_WorldAreasKeys: [WorldAreas]
@@ -9,13 +8,13 @@ type LabyrinthAreas {
 }
 
 type LabyrinthBonusItems {
-  _: rid
-  _: i32
-  _: string
+  BaseItemType: BaseItemTypes
+  AreaLevel: i32
+  LabyrinthName: string
 }
 
 type LabyrinthExclusionGroups {
-  _: i32
+  Id: string
 }
 
 type LabyrinthIzaroChests {
@@ -41,18 +40,18 @@ type LabyrinthRewardTypes {
 type Labyrinths {
   Tier: i32 @unique
   Name: string
-  _: rid
+  OfferingItem: BaseItemTypes
   QuestState: i32
-  _: [rid]
+  RequiredTrials: [LabyrinthTrials]
   AreaLevel: i32
   _: i32
-  _: rid
+  JewelReward: Words
   _: [i32]
   _: [i32]
   MinLevel: i32
   _: i32
   _: i32
-  _: rid
+  CraftingFontDescription: ClientStrings
 }
 
 type LabyrinthSecretEffects {
@@ -91,7 +90,7 @@ type LabyrinthSecrets {
 
 type LabyrinthSection {
   Id: string
-  _: rid
+  ExclusionGroup: LabyrinthExclusionGroups
   _: i32
   _: i32
   _: i32

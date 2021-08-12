@@ -1,8 +1,6 @@
-
 type TalismanMonsterMods {
-  _: i32
-  _: i32
-  _: rid
+  ModTypeKey: ModType
+  ModsKey: Mods
 }
 
 type TalismanPacks {

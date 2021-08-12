@@ -1,4 +1,3 @@
-
 type AtlasExileBossArenas {
   AtlasExilesKey: AtlasExiles
   _: i32
@@ -38,7 +37,7 @@ type AtlasExileRegionQuestFlags {
   AtlasExilesKey: AtlasExiles
   AtlasRegionsKey: AtlasRegions
   _: i32
-  _: rid
+  BaseItemTypesKey: BaseItemTypes
   QuestState: i32
 }
 
@@ -51,7 +50,7 @@ type AtlasExiles {
   _: i32
   _: i32
   _: i32
-  _: rid
+  QuestKey: Quest
   _: i32
   _: i32
   _: i32
@@ -59,4 +58,8 @@ type AtlasExiles {
   _: i32
   _: i32
   _: i32
+  _: i32
+  _: i32
+  StatsKey: Stats
+  InventoriesKey: Inventories
 }
