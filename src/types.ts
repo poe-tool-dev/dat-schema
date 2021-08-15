@@ -4,7 +4,6 @@ export const SCHEMA_VERSION = 2;
 export type ScalarType =
   | 'bool'
   | 'string'
-  | 'u32'
   | 'i32'
   | 'f32';
 

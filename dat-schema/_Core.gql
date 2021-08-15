@@ -23,7 +23,7 @@ type Achievements {
   Description: string
   SetId: AchievementSetsDisplay @ref(column: "Id")
   Objective: string
-  _: u32 @unique
+  _: i32 @unique
   _: bool
   HideAchievementItems: bool
   _: bool
@@ -470,7 +470,7 @@ type BaseItemTypes {
   ModDomainsKey: i32
   IsDropDisabled: bool
   ItemVisualIdentityKey: ItemVisualIdentity
-  _: u32 @unique
+  _: i32 @unique
   VendorRecipe_AchievementItemsKeys: [AchievementItems]
   RarePurchase_BaseItemTypesKeys: [BaseItemTypes]
   RarePurchase_Costs: [i32]
@@ -697,7 +697,7 @@ type CharacterPanelStats {
   StatsKeys3: [Stats]
   CharacterPanelTabsKey: CharacterPanelTabs
   _: bool
-  _: [u32]
+  _: [i32]
 }
 
 type CharacterPanelTabs {
@@ -781,7 +781,7 @@ type CharacterTextAudio {
 type ChestClusters {
   Id: string @unique
   ChestsKeys: [Chests]
-  _: [u32]
+  _: [i32]
   _: i32
   _: i32
   _: i32
@@ -891,7 +891,7 @@ type CraftingBenchOptions {
   Order: i32
   ModsKey: Mods
   Cost_BaseItemTypesKeys: [BaseItemTypes]
-  Cost_Values: [u32]
+  Cost_Values: [i32]
   RequiredLevel: i32
   Name: string
   CraftingBenchCustomAction: i32
@@ -1338,7 +1338,7 @@ type ExpandingPulse {
 type ExperienceLevels {
   _: string
   Level: i32
-  Experience: u32
+  Experience: i32
 }
 
 type ExplodingStormBuffs {
@@ -1633,18 +1633,18 @@ type GrantedEffects {
   Id: string @unique
   IsSupport: bool
   "This support gem only supports active skills with at least one of these types"
-  AllowedActiveSkillTypes: [u32]
+  AllowedActiveSkillTypes: [i32]
   BaseEffectiveness: f32
   IncrementalEffectiveness: f32
   SupportGemLetter: string
   _: i32
   "This support gem adds these types to supported active skills"
-  AddedActiveSkillTypes: [u32]
+  AddedActiveSkillTypes: [i32]
   "This support gem does not support active skills with one of these types"
-  ExcludedActiveSkillTypes: [u32]
+  ExcludedActiveSkillTypes: [i32]
   "This support gem only supports active skills that come from gem items"
   SupportsGemsOnly: bool
-  _: u32
+  _: i32
   _: [i32]
   _: bool
   _: i32
@@ -1937,7 +1937,7 @@ type ItemisedVisualEffect {
   ItemClasses: [ItemClasses]
   _: [rid]
   _: bool
-  _: [u32]
+  _: [i32]
   _: [i32]
   _: bool
 }
@@ -2196,7 +2196,7 @@ type MapPins {
   WorldAreasKeys: [WorldAreas]
   Name: string
   FlavourText: string
-  _: [u32]
+  _: [i32]
   Act: i32
   _: string
   _: [i32]
@@ -2508,7 +2508,7 @@ type Mods {
   Stat4Min: i32
   Stat4Max: i32
   SpawnWeight_TagsKeys: [Tags]
-  SpawnWeight_Values: [u32]
+  SpawnWeight_Values: [i32]
   TagsKeys: [Tags]
   GrantedEffectsPerLevelKeys: [GrantedEffectsPerLevel]
   _: [i32]
@@ -3170,9 +3170,9 @@ type NPCShop {
   Id: string @unique
   _: i32
   SoldItem_TagsKeys: [Tags]
-  SoldItem_Weights: [u32]
+  SoldItem_Weights: [i32]
   _: [rid]
-  _: [u32]
+  _: [i32]
   _: i32
   _: [rid]
   _: [i32]
@@ -3185,9 +3185,9 @@ type NPCTalk {
   NPCKey: NPCs
   _: i32
   DialogueOption: string
-  _: [u32]
-  _: [u32]
-  _: [u32]
+  _: [i32]
+  _: [i32]
+  _: [i32]
   Script: string
   _: i32
   _: i32
@@ -3484,8 +3484,8 @@ enum QuestStateCalculation { _ }
 type QuestStates {
   QuestKey: Quest
   _: i32
-  QuestStates: [u32]
-  _: [u32]
+  QuestStates: [i32]
+  _: [i32]
   Text: string
   _: bool
   Message: string
@@ -4043,7 +4043,7 @@ type TableMonsterSpawners {
 
 type Tags {
   Id: string @unique
-  _: u32
+  _: i32
   DisplayString: string
   Name: string
 }
@@ -4153,7 +4153,7 @@ type UniqueChests {
   _: [i32]
   AOFile: string @file(ext: ".ao")
   _: bool
-  _: [u32]
+  _: [i32]
   AppearanceChestsKey: Chests
   ChestsKey: Chests
   _: [rid]
@@ -4267,7 +4267,7 @@ type Words {
   WordlistsKey: i32
   Text: string
   SpawnWeight_TagsKeys: [Tags]
-  SpawnWeight_Values: [u32]
+  SpawnWeight_Values: [i32]
   _: i32
   Text2: string
   "the inflection identifier used for i18n in related fields"
@@ -4297,7 +4297,7 @@ type WorldAreas {
   Bosses_MonsterVarietiesKeys: [MonsterVarieties]
   Monsters_MonsterVarietiesKeys: [MonsterVarieties]
   SpawnWeight_TagsKeys: [Tags]
-  SpawnWeight_Values: [u32]
+  SpawnWeight_Values: [i32]
   IsMapArea: bool
   FullClear_AchievementItemsKeys: [AchievementItems]
   _: rid

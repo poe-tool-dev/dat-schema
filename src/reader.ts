@@ -13,7 +13,6 @@ import { SchemaTable, TableColumn, ColumnType, RefUsingColumn } from './types';
 const ScalarTypes: ReadonlySet<string> = new Set([
   'bool',
   'string',
-  'u32',
   'i32',
   'f32',
 ]);

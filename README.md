@@ -18,7 +18,6 @@ The schema is based on GraphQL syntax.
 |--------|-----------------------------------|
 | bool   | Boolean                           |
 | string | String                            |
-| u32    | Unsigned Integer                  |
 | i32    | Signed Integer                    |
 | f32    | Floating Point Number             |
 | rid    | Index to a Row in a Foreign Table |
