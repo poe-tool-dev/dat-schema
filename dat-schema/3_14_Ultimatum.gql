@@ -5,7 +5,7 @@ type UltimatumEncounters {
   BossARMFile: string
   Type: UltimatumEncounterTypes
   Icon: string
-  HASH16: u32
+  HASH16: i32
   _: bool
   _: i32
 }
@@ -22,7 +22,7 @@ type UltimatumEncounterTypes {
 
 type UltimatumItemisedRewards {
   Id: string @unique
-  HASH16: u32
+  HASH16: i32
   RewardText: string
   ItemVisualIdentityKey: ItemVisualIdentity
   RewardType: i32
@@ -45,7 +45,7 @@ type UltimatumModifiers {
   Radius: i32
   Name: string
   Icon: string
-  HASH16: u32
+  HASH16: i32
   TypesExtra: [UltimatumModifierTypes]
   MonsterTypesApplyingRuin: i32
   MiscAnimated: MiscAnimated

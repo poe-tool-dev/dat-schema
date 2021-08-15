@@ -60,7 +60,7 @@ type BlightedSporeAuras {
 type BlightEncounterTypes {
   Id: string @unique
   Icon: string
-  IsGeneric: i8
+  IsGeneric: bool
   Weight: i32
 }
 
@@ -116,7 +116,7 @@ type BlightTowers {
   Description: string
   Icon: string
   NextUpgradeOptions: [BlightTowers]
-  _: u32
+  _: i32
   Tier: string
   Radius: i32
   _: i32

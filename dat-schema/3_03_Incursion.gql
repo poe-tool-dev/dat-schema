@@ -21,7 +21,7 @@ type IncursionChestRewards {
   IncursionRoomsKey: IncursionRooms
   IncursionChestsKeys: [IncursionChests]
   ChestMarkerMetadata: string @files(ext: [".ot", ".otc"])
-  _: u32
+  _: i32
   _: i32
   _: i32
 }

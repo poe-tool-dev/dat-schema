@@ -75,12 +75,12 @@ type LabyrinthSecrets {
   LabyrinthSecretEffectsKeys2: [LabyrinthSecretEffects]
   _: i32
   LabyrinthSecretEffectsKeys3: [LabyrinthSecretEffects]
-  _: i8
-  _: i8
+  _: bool
+  _: bool
   _: i32
-  _: i8
-  _: i8
-  _: i8
+  _: bool
+  _: bool
+  _: bool
   Name: string
   AchievementItemsKey: AchievementItems
   LabyrinthTierMinimum: i32

@@ -13,9 +13,8 @@ import { SchemaTable, TableColumn, ColumnType, RefUsingColumn } from './types';
 const ScalarTypes: ReadonlySet<string> = new Set([
   'bool',
   'string',
-  'u64', 'u32', 'u16', 'u8',
-  'i64', 'i32', 'i16', 'i8',
-  'f64', 'f32',
+  'i32',
+  'f32',
 ]);
 
 const DIRECTIVE_REF = {

@@ -32,6 +32,6 @@ type PerandusGuards {
   MaxLevel: i32
   MonsterPacksKeys: [MonsterPacks]
   _: i32
-  _: [u32]
+  _: [i32]
   _: i32
 }

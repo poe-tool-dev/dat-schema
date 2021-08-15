@@ -30,7 +30,7 @@ type AfflictionFixedMods {
 
 type AfflictionRandomModCategories {
   Id: string @unique
-  _: i8
+  _: bool
 }
 
 type AfflictionRewardMapMods {
