@@ -90,7 +90,7 @@ type HeistChokepointFormation {
   _: [rid]
   _: rid
   _: i32
-  _: i8
+  _: bool
   _: i32
   _: i32
   _: i32
@@ -172,7 +172,7 @@ type HeistIntroAreas {
   DGRFile: string @file(ext: ".dgr")
   _: i32
   _: i32
-  _: i8
+  _: bool
   _: i32
   _: i32
   _: i32
@@ -275,7 +275,7 @@ type HeistPatrolPacks {
   _: i32
   _: i32
   _: i32
-  _: i8
+  _: bool
 }
 
 type HeistQuestContracts {
@@ -286,26 +286,26 @@ type HeistQuestContracts {
   _: i32
   _: i32
   _: i32
-  _: i8
+  _: bool
   HeistRoomsKey1: HeistRooms
   WorldAreasKey: WorldAreas
-  _: i8
-  _: i8
+  _: bool
+  _: bool
   _: i32
   _: i32
-  _: i8
-  _: i8
+  _: bool
+  _: bool
   _: i32
-  _: i8
+  _: bool
   _: i32
   _: i32
   _: i32
-  _: i8
-  _: i8
+  _: bool
+  _: bool
   Objective: string
-  _: i8
+  _: bool
   BaseItemTypesKey: BaseItemTypes
-  _: i8
+  _: bool
   HeistIntroAreasKey: HeistIntroAreas
   _: i32
   HeistRoomsKey2: HeistRooms
@@ -330,8 +330,8 @@ type HeistRooms {
   _: i32
   _: i32
   _: f32
-  _: i8
-  _: i8
+  _: bool
+  _: bool
 }
 
 enum HeistRoomTypes { _ }

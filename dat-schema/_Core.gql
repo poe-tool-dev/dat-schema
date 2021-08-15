@@ -194,8 +194,8 @@ enum AlternateTreePassiveSizes { _ }
 
 type AlternateTreeVersions {
   Id: string @unique
-  _: i8
-  _: i8
+  _: bool
+  _: bool
   _: i32
   _: i32
   _: i32
@@ -254,7 +254,7 @@ type AreaInfluenceDoodads {
   _: f32
   AOFiles: [string] @file(ext: ".ao")
   _: i32
-  _: i8
+  _: bool
 }
 
 type AreaTransitionAnimations {
@@ -507,9 +507,9 @@ type BlightStashTabLayout {
   _: i32
   _: i32
   _: i32
-  _: i8
-  _: i8
-  _: i8
+  _: bool
+  _: bool
+  _: bool
 }
 
 type BloodTypes {
@@ -560,10 +560,10 @@ type BuffDefinitions {
   _: bool
   _: bool
   _: rid
-  _: i8
+  _: bool
   _: i32
-  _: i8
-  _: i8
+  _: bool
+  _: bool
   _: i32
   _: [i32]
   _: bool
@@ -763,7 +763,7 @@ type CharacterStartStates {
   CharacterStartStateSetKey: CharacterStartStateSet
   _: rid
   CharacterStartQuestStateKeys: [CharacterStartQuestState]
-  Bool0: i8
+  _: bool
   InfoText: string
   _: rid
 }
@@ -1136,7 +1136,7 @@ type DivinationCardStashTabLayout {
 
 type Doors {
   Id: string @unique
-  _: i8
+  _: bool
 }
 
 type DropEffects {
@@ -1167,28 +1167,28 @@ type EffectDrivenSkill {
   _: i32
   _: i32
   _: i32
-  _: i8
-  _: i8
+  _: bool
+  _: bool
   _: i32
-  _: i8
-  _: i32
-  _: i32
+  _: bool
   _: i32
   _: i32
   _: i32
   _: i32
-  _: i8
-  _: i32
-  _: i8
-  _: i8
   _: i32
   _: i32
-  _: i8
-  _: i8
-  _: i8
+  _: bool
   _: i32
-  _: i8
-  _: i8
+  _: bool
+  _: bool
+  _: i32
+  _: i32
+  _: bool
+  _: bool
+  _: bool
+  _: i32
+  _: bool
+  _: bool
 }
 
 enum Effectiveness { _ }
@@ -1367,12 +1367,12 @@ type ExtraTerrainFeatures {
   Id: string @unique
   _: [i32]
   _: [i32]
-  _: i8
+  _: bool
   _: [i32]
   _: [i32]
   _: i32
   WorldAreasKey: WorldAreas
-  _: i8
+  _: bool
 }
 
 type FixedHideoutDoodadTypes {
@@ -1433,7 +1433,7 @@ type FragmentStashTabLayout {
   Order: i32
   SizeX: i32
   SizeY: i32
-  _: i8
+  _: bool
   _: i32
   _: i32
 }
@@ -1498,16 +1498,16 @@ type GeometryAttack {
   _: bool
   _: bool
   _: rid
-  _: i8
-  _: i8
-  _: i8
-  _: i8
-  _: i8
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+  _: bool
   _: i32
-  _: i8
-  _: i8
+  _: bool
+  _: bool
   _: rid
-  _: i8
+  _: bool
 }
 
 type GeometryChannel {
@@ -1543,9 +1543,9 @@ type GeometryProjectiles {
   _: i32
   _: i32
   _: i32
-  _: i8
-  _: i8
-  _: i8
+  _: bool
+  _: bool
+  _: bool
   _: rid
 }
 
@@ -1568,32 +1568,32 @@ type GeometryTrigger {
   _: i32
   _: i32
   _: i32
-  _: i8
+  _: bool
   _: i32
-  _: i8
+  _: bool
   _: i32
-  _: i8
+  _: bool
   _: i32
   _: i32
   _: [rid]
   _: i32
-  _: i8
+  _: bool
   _: i32
-  _: i8
-  _: i8
+  _: bool
+  _: bool
   _: i32
-  _: i8
-  _: i8
+  _: bool
+  _: bool
   _: rid
-  _: i8
+  _: bool
   _: i32
   _: i32
   _: i32
   _: i32
   _: i32
   _: i32
-  _: i8
-  _: i8
+  _: bool
+  _: bool
 }
 
 type GlobalAudioConfig {
@@ -1831,7 +1831,7 @@ type Hideouts {
   _: [rid]
   LargeWorldAreasKey: WorldAreas
   HideoutImage: string
-  IsEnabled: i8
+  IsEnabled: bool
   Weight: i32
   _: HideoutRarity
   _: bool
@@ -2126,7 +2126,7 @@ type MapCompletionAchievements {
   StatsKeys: [Stats]
   AchievementItemsKeys: [AchievementItems]
   MapTierAchievementsKeys: [MapTierAchievements]
-  _: i8
+  _: bool
   WorldAreasKeys: [WorldAreas]
 }
 
@@ -2162,7 +2162,7 @@ type MapDevices {
   Id: string
   MiscObject: MiscObjects
   _: i32
-  _: i8
+  _: bool
   InheritsFrom: string @files(ext: [".ot", ".otc"])
   Command: string
   Command_Data: [i32]
@@ -2264,7 +2264,7 @@ enum MapStashTabLayout { _ }
 type MapStatConditions {
   Id: string @unique
   StatsKey: Stats
-  _: i8
+  _: bool
   StatMin: i32
   StatMax: i32
 }
@@ -2298,7 +2298,7 @@ type Melee {
   MeleeTrailsKey5: MeleeTrails
   MeleeTrailsKey6: MeleeTrails
   MeleeTrailsKey7: MeleeTrails
-  _: i8
+  _: bool
   SurgeEffect_EPKFile: string @file(ext: ".epk")
   _: string
   _: string
@@ -2346,7 +2346,7 @@ type MicrotransactionCombineFormula {
   BK2File: string @file(ext: ".bk2")
   _: [i32]
   _: i32
-  _: i8
+  _: bool
 }
 
 type MicrotransactionFireworksVariations {
@@ -2429,7 +2429,7 @@ type MiscEffectPacks {
   _: i32
   _: i32
   PreloadGroups: [PreloadGroups]
-  _: i8
+  _: bool
   PlayerOnly_EPKFile: string @file(ext: ".epk")
 }
 
@@ -2528,7 +2528,7 @@ type Mods {
   Stat6Max: i32
   StatsKey6: Stats
   MaxLevel: i32
-  _: i8
+  _: bool
   _: [ItemClasses]
   MonsterOnDeath: string
   _: i32
@@ -2611,8 +2611,8 @@ type MonsterConditions {
   _: rid
   _: i32
   _: [rid]
-  _: i8
-  _: i8
+  _: bool
+  _: bool
   _: [rid]
   _: [i32]
   _: i32
@@ -2717,7 +2717,7 @@ type MonsterMortar {
   _: rid
   _: rid
   _: i32
-  _: i8
+  _: bool
   _: bool
   _: bool
   _: bool
@@ -2735,7 +2735,7 @@ type MonsterPackCounts {
   _: rid
   _: i32
   _: [rid]
-  _: i8
+  _: bool
   _: [i32]
 }
 
@@ -2977,9 +2977,9 @@ type MoveDaemon {
   _: i32
   _: i32
   _: i32
-  _: i8
-  _: i8
-  _: i8
+  _: bool
+  _: bool
+  _: bool
   _: i32
   _: i32
   _: i32
@@ -2988,9 +2988,9 @@ type MoveDaemon {
   _: i32
   _: i32
   _: i32
-  _: i8
-  _: i8
-  _: i8
+  _: bool
+  _: bool
+  _: bool
 }
 
 type MTXSetBonus {
@@ -3027,7 +3027,7 @@ type Music {
   SoundFile: string @file(ext: ".ogg")
   BankFile: string @file(ext: ".bank")
   _: i32
-  IsAvailableInHideout: i8
+  IsAvailableInHideout: bool
   Name: string
   _: i32
   MusicCategories: [MusicCategories]
@@ -3037,7 +3037,7 @@ type MusicCategories {
   Id: string @unique
   Name: string
   Order: i32
-  _: i8
+  _: bool
 }
 
 type MysteryBoxes {
@@ -3310,7 +3310,7 @@ type PassiveSkills {
   GrantedEffectsPerLevelKey: GrantedEffectsPerLevel
   _: bool
   _: i32
-  _: i8
+  _: bool
   IsProxyPassive: bool
   _: i32
 }
@@ -3914,9 +3914,9 @@ type StrDexIntMissions {
   _: rid
   _: rid
   Extra_ModsKeys: [Mods]
-  _: i8
-  _: i8
-  _: i8
+  _: bool
+  _: bool
+  _: bool
   _: rid
   _: i32
   _: i32
@@ -3925,7 +3925,7 @@ type StrDexIntMissions {
   _: rid
   _: rid
   _: rid
-  _: i8
+  _: bool
   _: rid
   _: bool
 }
@@ -3958,7 +3958,7 @@ type SummonedSpecificMonsters {
   _: bool
   _: i32
   _: i32
-  _: i8
+  _: bool
   _: rid
   _: rid
   _: i32
@@ -3972,7 +3972,7 @@ type SummonedSpecificMonstersOnDeath {
   _: i32
   _: rid
   _: i32
-  _: i8
+  _: bool
 }
 
 type SupporterPackSets {
@@ -4050,7 +4050,7 @@ type Tags {
 
 type TencentAutoLootPetCurrencies {
   BaseItemTypesKey: BaseItemTypes
-  _: i8
+  _: bool
 }
 
 type TencentAutoLootPetCurrenciesExcludable {
@@ -4139,7 +4139,7 @@ type UITalkText {
   UITalkCategoriesKey: UITalkCategories
   OGGFile: string @file(ext: ".ogg")
   Text: string
-  _: i8
+  _: bool
   NPCTextAudio: NPCTextAudio
 }
 
@@ -4169,7 +4169,7 @@ type UniqueMapInfo {
   Word: Words
   FlavourTextKey: FlavourText
   ItemVisualIdentityKey: ItemVisualIdentity
-  _: i8
+  _: bool
 }
 
 type UniqueMaps {

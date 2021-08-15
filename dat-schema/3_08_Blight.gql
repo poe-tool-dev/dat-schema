@@ -60,7 +60,7 @@ type BlightedSporeAuras {
 type BlightEncounterTypes {
   Id: string @unique
   Icon: string
-  IsGeneric: i8
+  IsGeneric: bool
   Weight: i32
 }
 
