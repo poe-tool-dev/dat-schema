@@ -815,8 +815,7 @@ type Chests {
   _: bool
   _: bool
   _: i32
-  _: [u64]
-  _: [u32]
+  _: [rid]
   BaseItemTypesKey: BaseItemTypes
   _: bool
   ModsKeys: [Mods]
@@ -832,6 +831,7 @@ type Chests {
   InheritsFrom: string @files(ext: [".ot", ".otc"])
   _: bool
   _: rid
+  _: [i32]
 }
 
 type ClientStrings {
@@ -1162,7 +1162,7 @@ type EclipseMods {
 
 type EffectDrivenSkill {
   _: i32
-  _: [u64]
+  _: [rid]
   _: i32
   _: i32
   _: i32
@@ -2048,7 +2048,7 @@ type ItemVisualIdentity {
   IsTier16Icon: bool
   _: [i32]
   _: bool
-  _: [u64]
+  _: [rid]
   _: i32
 }
 
@@ -2511,7 +2511,7 @@ type Mods {
   SpawnWeight_Values: [u32]
   TagsKeys: [Tags]
   GrantedEffectsPerLevelKeys: [GrantedEffectsPerLevel]
-  AuraFlags: [u64]
+  _: [i32]
   MonsterMetadata: string
   _: [rid]
   _: [rid]
@@ -2622,43 +2622,44 @@ type MonsterDeathAchievements {
   Id: string @unique
   MonsterVarietiesKeys: [MonsterVarieties]
   AchievementItemsKeys: [AchievementItems]
-  _: i8
+  _: bool
   PlayerConditionsKeys: [PlayerConditions]
   MonsterDeathConditionsKeys: [MonsterDeathConditions]
-  _: [u64]
+  _: [rid]
   _: i32
   _: i32
-  _: i8
-  _: i8
-  _: u64
-  _: [u64]
-  _: [u64]
-  _: [u64]
-  _: u64
+  _: bool
+  _: bool
+  _: rid
+  _: [rid]
+  _: [rid]
+  _: [rid]
+  _: rid
   _: i32
   NearbyMonsterConditionsKeys: [NearbyMonsterConditions]
-  _: i8
+  _: bool
   MultiPartAchievementConditionsKeys: [MultiPartAchievementConditions]
   _: i32
+  _: bool
 }
 
 type MonsterDeathConditions {
   _: string
-  _: [u64]
-  _: i8
+  _: [rid]
+  _: bool
   _: i32
-  _: [u64]
-  _: i8
+  _: [rid]
+  _: bool
   _: i32
+  _: rid
+  _: bool
+  _: rid
   _: i32
-  _: i8
-  _: u64
+  _: bool
+  _: [rid]
   _: i32
-  _: i8
-  _: [u64]
-  _: i32
-  _: u64
-  _: u64
+  _: rid
+  _: rid
 }
 
 enum MonsterFleeConditions { _ }
@@ -3087,11 +3088,8 @@ type NPCAudio {
 
 type NPCConversations {
   Id: string
-  _: u64
-  NPCsKey: NPCs
-  NPCsKeys: [NPCs]
+  _: rid
   NPCTextAudioKeys: [NPCTextAudio]
-  _: [i32]
   _: [i32]
   _: i32
 }
@@ -3130,9 +3128,10 @@ type NPCFollowerVariations {
 
 type NPCMaster {
   Id: string
-  _: i16
+  _: bool
+  _: bool
   Signature_ModsKey: Mods
-  _: i8
+  _: bool
   SpawnWeight_TagsKeys: [Tags]
   SpawnWeight_Values: [i32]
   _: [i32]
@@ -3145,8 +3144,7 @@ type NPCMaster {
   AreaDescription: string
   _: rid
   _: i32
-  _: i32
-  _: i32
+  _: rid
 }
 
 type NPCs {
@@ -3173,7 +3171,7 @@ type NPCShop {
   _: i32
   SoldItem_TagsKeys: [Tags]
   SoldItem_Weights: [u32]
-  _: [u64]
+  _: [rid]
   _: [u32]
   _: i32
   _: [rid]
@@ -3267,9 +3265,8 @@ type PassiveJewelSlots {
   PassiveTreeExpansionJewelSize: PassiveTreeExpansionJewelSizes
   _: i32
   PassiveJewelSlotsKey: PassiveJewelSlots
-  _: u64
-  _: i32
-  _: i32
+  _: rid
+  _: [i32]
 }
 
 type PassiveSkillFilterCatagories {
@@ -3309,7 +3306,7 @@ type PassiveSkills {
   IsMultipleChoice: bool
   IsMultipleChoiceOption: bool
   Stat5Value: i32
-  PassiveSkillBuffsKeys: [u64]
+  PassiveSkillBuffsKeys: [BuffTemplates]
   GrantedEffectsPerLevelKey: GrantedEffectsPerLevel
   _: bool
   _: i32
@@ -3365,20 +3362,16 @@ type PassiveTreeExpansionSpecialSkills {
   StatsKey: Stats
 }
 
-type PCBangRewardMicros {
-  BaseItemTypesKey: u64
-  _: i32
-}
-
 enum PerLevelValues { _ }
 
 type Pet {
   Id: string @unique @files(ext: [".ot", ".otc"])
   BaseItemTypesKey: BaseItemTypes
+  HASH16: i32
+  HASH32: i32
   _: i32
-  _: i32
-  _: i32
-  _: i16
+  _: bool
+  _: bool
 }
 
 type PlayerConditions {
@@ -3458,8 +3451,8 @@ type QuestAchievements {
   Id: string @unique
   QuestStates: [i32]
   _: [i32]
-  AchievementItemsKeys: [u64]
-  _: [rid]
+  AchievementItems: [AchievementItems]
+  NPCs: [NPCs]
 }
 
 enum QuestFlags { _ }
@@ -3533,15 +3526,14 @@ type QuestType {
 
 type Races {
   Id: string @unique
-  _: [u64]
-  _: [i32]
+  _: [rid]
+  _: [_]
+  _: string
+  _: string
   _: i32
+  _: i32
+  _: [rid]
   _: bool
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
   _: i32
   _: i32
 }
@@ -3551,11 +3543,6 @@ type RaceTimes {
   Index: i32
   StartUNIXTime: i32
   EndUNIXTime: i32
-}
-
-type RandomUniqueMonsters {
-  _: i64
-  _: [i64]
 }
 
 type RareMonsterLifeScalingPerLevel {
@@ -3802,6 +3789,8 @@ type SpawnAdditionalChestsOrClusters {
 
 type SpawnObject {
   _: i32
+  _: [rid]
+  _: [_]
   _: i32
   _: i32
   _: i32
@@ -3810,15 +3799,12 @@ type SpawnObject {
   _: i32
   _: i32
   _: i32
+  _: bool
+  _: string
+  _: i32
+  _: bool
   _: i32
   _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i16
 }
 
 type SpecialRooms {
@@ -4017,7 +4003,7 @@ type SurgeTypes {
 type TableMonsterSpawners {
   Metadata: string
   _: i32
-  _: [u64]
+  _: [rid]
   _: i32
   _: i32
   _: i32
@@ -4026,23 +4012,31 @@ type TableMonsterSpawners {
   _: i32
   _: i32
   _: i32
-  _: i8
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+  _: bool
   _: i32
   _: i32
-  _: i8
   _: i32
   _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i8
-  _: i8
+  _: rid
+  _: bool
+  _: bool
   _: i32
   Script1: string
-  _: i8
-  _: i8
+  _: bool
+  _: bool
   Script2: string
   _: [i32]
+  _: i32
+  _: i32
   _: i32
   _: i32
 }
@@ -4083,36 +4077,37 @@ type Topologies {
 }
 
 type TreasureHunterMissions {
+  Id: string @unique
+  _: rid
+  _: rid
+  _: [rid]
+  _: [rid]
+  _: [rid]
+  _: i32
+  _: i32
+  _: i32
   _: string
-  _: u64
-  _: u64
-  _: [u64]
-  _: [u64]
-  _: [u64]
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i8
-  _: i32
+  _: string
+  OTFile: string @file(ext: ".ot")
+  _: bool
   _: i32
   _: i32
 }
 
 type TriggerBeam {
   _: i32
-  _: [u64]
-  _: [u64]
+  _: [MiscBeams]
+  _: [MiscBeams]
   _: [i32]
-  _: i8
+  _: bool
   _: i32
   _: i32
   _: i32
   _: i32
-  _: i8
+  _: bool
   _: [i32]
-  _: i8
+  _: bool
+  _: i32
 }
 
 type TriggerSpawners {
@@ -4165,7 +4160,7 @@ type UniqueChests {
 }
 
 type UniqueJewelLimits {
-  UniqueItemsKey: u64
+  _: rid
   Limit: i32
 }
 
@@ -4193,13 +4188,14 @@ type UniqueStashLayout {
   WordsKey: Words
   ItemVisualIdentityKey: ItemVisualIdentity
   UniqueStashTypesKey: UniqueStashTypes
-  _: rid
+  _: i32
+  _: i32
   _: i32
   _: i32
   _: bool
   _: bool
-  UniqueStashLayoutKey: UniqueStashLayout
-  UniqueStashLayoutKey2: UniqueStashLayout
+  RenamedVersion: UniqueStashLayout
+  BaseVersion: UniqueStashLayout
   _: bool
 }
 
@@ -4286,7 +4282,7 @@ type WorldAreas {
   HasWaypoint: bool
   Connections_WorldAreasKeys: [WorldAreas]
   AreaLevel: i32
-  _: i32
+  HASH16: i32
   _: i32
   _: i32
   LoadingScreen_DDSFile: string @file(ext: ".dds")
@@ -4304,7 +4300,7 @@ type WorldAreas {
   SpawnWeight_Values: [u32]
   IsMapArea: bool
   FullClear_AchievementItemsKeys: [AchievementItems]
-  _: u64
+  _: rid
   _: i32
   AchievementItemsKey: AchievementItems
   ModsKeys: [Mods]
@@ -4316,7 +4312,7 @@ type WorldAreas {
   Strongbox_MaxCount: i32
   "Normal/Magic/Rare/Unique spawn distribution"
   Strongbox_RarityWeight: [i32]
-  _: i8
+  _: bool
   _: i32
   MaxLevel: i32
   AreaType_TagsKeys: [Tags]
@@ -4327,7 +4323,7 @@ type WorldAreas {
   _: i32
   _: i32
   _: i32
-  _: i32
+  Inflection: string
   _: i32
   _: i32
   _: i32
@@ -4368,8 +4364,7 @@ type WorldAreas {
   _: i32
   _: i32
   _: i32
-  _: i32
-  _: i32
+  _: rid
   _: i32
   _: i32
   _: i32
@@ -4377,8 +4372,8 @@ type WorldAreas {
   _: i32
   _: bool
   _: i32
+  _: bool
   _: i32
-  _: i8
   _: i32
   _: i32
   _: i32
@@ -4389,7 +4384,7 @@ type WorldAreas {
   HarvestChance: i32
   HeistChance: i32
   RitualChance: i32
-  _: [i32]
+  _: [_]
   UltimatumChance: i32
   ExpeditionChance: i32
 }

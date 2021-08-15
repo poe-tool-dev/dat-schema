@@ -11,16 +11,20 @@ type WarbandsMapGraph {
 
 type WarbandsPackMonsters {
   Id: string @unique
-  _: i64
+  _: i32
+  _: bool
+  _: bool
+  _: bool
+  _: bool
   _: i32
   Tier4_MonsterVarietiesKeys: [MonsterVarieties]
   Tier3_MonsterVarietiesKeys: [MonsterVarieties]
   Tier2_MonsterVarietiesKeys: [MonsterVarieties]
   Tier1_MonsterVarietiesKeys: [MonsterVarieties]
-  Tier1Name: string
-  Tier2Name: string
-  Tier3Name: string
-  Tier4Name: string
+  Tier1Name: string @localized
+  Tier2Name: string @localized
+  Tier3Name: string @localized
+  Tier4Name: string @localized
   Tier1Art: string
   Tier2Art: string
   Tier3Art: string

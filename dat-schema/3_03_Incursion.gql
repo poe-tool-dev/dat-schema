@@ -68,6 +68,6 @@ type IncursionRooms {
 }
 
 type IncursionUniqueUpgradeComponents {
-  UniqueItemsKey: u64
-  BaseItemTypesKey: BaseItemTypes
+  _: rid
+  BaseItemType: BaseItemTypes
 }

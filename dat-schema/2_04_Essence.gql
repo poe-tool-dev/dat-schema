@@ -1,17 +1,17 @@
 
 type Essences {
   BaseItemTypesKey: BaseItemTypes @unique
-  _: u64
-  _: u64
-  _: u64
-  _: u64
-  _: u64
-  _: u64
-  _: u64
-  _: u64
-  _: u64
-  _: u64
-  _: u64
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: rid
   Display_Wand_ModsKey: Mods
   Display_Bow_ModsKey: Mods
   Display_Quiver_ModsKey: Mods

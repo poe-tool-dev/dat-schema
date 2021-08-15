@@ -35,7 +35,7 @@ type HarvestDurability {
 type HarvestEncounterScaling {
   Level: i32
   Multiplier: f32
-  StatsKeys: [u64]
+  StatsKeys: [Stats]
   StatsValues: [i32]
 }
 
