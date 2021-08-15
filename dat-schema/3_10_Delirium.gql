@@ -54,5 +54,5 @@ type AfflictionSplitDemons {
 type AfflictionStartDialogue {
   WorldAreasKey: WorldAreas
   NPCTextAudioKey: NPCTextAudio
-  _: [u64]
+  _: [rid]
 }

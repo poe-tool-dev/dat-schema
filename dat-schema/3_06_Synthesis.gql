@@ -25,7 +25,8 @@ type SynthesisBonuses {
   _: i32
   _: i32
   _: i32
-  _: i16
+  _: bool
+  _: bool
 }
 
 type SynthesisBrackets {

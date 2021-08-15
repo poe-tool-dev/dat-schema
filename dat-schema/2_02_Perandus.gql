@@ -20,9 +20,9 @@ type PerandusDaemons {
   _: i32
   _: i32
   _: i32
-  _: [u64]
+  _: [rid]
   _: bool
-  _: [u64]
+  _: [rid]
 }
 
 type PerandusGuards {

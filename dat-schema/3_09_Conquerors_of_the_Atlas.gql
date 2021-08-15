@@ -11,10 +11,10 @@ type AtlasExileInfluence {
 }
 
 type AtlasExileInfluenceData {
-  AtlasExileInfluenceOutcomeTypesKey: AtlasExileInfluenceOutcomeTypes
-  _: [u64]
-  _: u64
-  _: [u64]
+  InfluenceOutcome: AtlasExileInfluenceOutcomes
+  _: [rid]
+  _: rid
+  _: [Stats]
   _: i32
   _: [i32]
   _: [i32]
@@ -23,14 +23,19 @@ type AtlasExileInfluenceData {
 type AtlasExileInfluenceOutcomes {
   Id: string @unique
   _: i32
-  AtlasExileInfluenceOutcomeTypesKey: i32
+  OutcomeType: AtlasExileInfluenceOutcomeTypes
 }
 
-enum AtlasExileInfluenceOutcomeTypes { _ }
+enum AtlasExileInfluenceOutcomeTypes {
+  MONSTER_PACKS
+  EMPOWERED_BOSS
+  ON_KILL
+  AWAKENER
+}
 
 type AtlasExileInfluenceSets {
   Id: string @unique
-  AtlasExileInfluencePacksKey: [u64]
+  InfluencePacks: [AtlasExileInfluenceOutcomes]
 }
 
 type AtlasExileRegionQuestFlags {

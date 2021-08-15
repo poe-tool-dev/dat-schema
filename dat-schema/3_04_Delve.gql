@@ -123,7 +123,7 @@ type DelveLevelScaling {
 type DelveMonsterSpawners {
   BaseMetadata: string
   _: i32
-  _: [u64]
+  _: [rid]
   _: i32
   _: i32
   _: i32
@@ -132,26 +132,26 @@ type DelveMonsterSpawners {
   _: i32
   _: i32
   _: i32
-  _: i8
-  _: i8
-  _: i8
-  _: i8
-  _: i8
-  _: i8
-  _: i8
-  _: i8
-  _: i8
-  _: i8
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+  _: bool
   _: i32
   _: i32
   _: i32
   _: i32
-  _: i32
-  _: i8
-  _: i8
+  _: rid
+  _: bool
+  _: bool
   _: i32
   Script: string
-  _: i8
+  _: bool
 }
 
 type DelveResourcePerLevel {

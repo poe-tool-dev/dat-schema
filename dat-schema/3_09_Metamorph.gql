@@ -18,54 +18,53 @@ type MetamorphLifeScalingPerLevel {
 
 type MetamorphosisMetaMonsters {
   MonsterVarietiesKey: MonsterVarieties
-  _: [u64]
+  _: [rid]
   _: [i32]
   Name: string
 }
 
 type MetamorphosisMetaSkills {
-  _: u64
-  _: u64
-  _: u64
-  _: [u64]
+  Monster: MonsterVarieties
+  SkillType: MetamorphosisMetaSkillTypes
+  _: rid
+  _: [rid]
   _: [i32]
-  _: u64
-  _: u64
-  _: [u64]
+  _: rid
+  Animation: Animation
+  Stats: [Stats]
+  StatsValues: [i32]
+  _: i32
+  _: rid
+  GrantedEffects: [GrantedEffects]
+  _: i32
+  _: rid
+  Script1: string
+  Script2: string
+  Mods: [Mods]
+  _: i32
+  _: [rid]
+  _: i32
+  _: i32
   _: [i32]
-  _: i32
-  _: u64
-  _: [i32]
-  _: i32
-  _: u64
-  _: i32
-  _: string
-  _: [u64]
-  _: string
-  _: i32
-  _: [u64]
-  _: i32
-  _: i32
-  _: [i32]
-  _: [u64]
-  _: [i32]
-  _: [u64]
-  _: [u64]
+  _: [rid]
+  _: [_]
+  _: [_]
+  MiscAnimations: [MiscAnimated]
   _: bool
 }
 
 type MetamorphosisMetaSkillTypes {
   Id: string @unique
-  Name: string
-  Description: string
+  Name: string @localized
+  Description: string @localized
   UnavailableArt: string
   _: string
   AvailableArt: string
-  BaseItemTypesKey: u64
-  BodypartName: string
+  ItemisedSample: BaseItemTypes
+  BodypartName: string @localized
   _: i32
   AchievementItemsKeys: [AchievementItems]
-  BodypartNamePlural: string
+  BodypartNamePlural: string @localized
   _: i32
 }
 

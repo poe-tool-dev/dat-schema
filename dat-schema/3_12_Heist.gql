@@ -209,7 +209,7 @@ type HeistLockType {
 
 type HeistNPCAuras {
   StatsKey: Stats
-  _: u64
+  _: rid
 }
 
 type HeistNPCBlueprintTypes {
@@ -257,9 +257,9 @@ type HeistNPCStats {
 }
 
 type HeistObjectives {
-  key0: u64
-  _: f32
-  Name: string
+  BaseItemType: BaseItemTypes @unique
+  Scaling: f32
+  Name: string @localized
 }
 
 type HeistObjectiveValueDescriptions {
