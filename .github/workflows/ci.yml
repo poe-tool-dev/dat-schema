@@ -5,7 +5,7 @@ on:
     branches:
       - '**'
     branches-ignore:
-      - 'master'
+      - 'main'
   pull_request:
     branches:
       - '**'
