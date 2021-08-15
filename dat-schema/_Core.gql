@@ -460,7 +460,7 @@ type BaseItemTypes {
   DropLevel: i32
   FlavourTextKey: FlavourText
   Implicit_ModsKeys: [Mods]
-  _: i32
+  SizeOnGround: i32
   SoundEffectsKey: SoundEffects
   NormalPurchase_BaseItemTypesKeys: [BaseItemTypes]
   NormalPurchase_Costs: [i32]
@@ -1892,18 +1892,18 @@ type ItemClasses {
   RemovedIfLeavesArea: bool
   _: [rid]
   _: [rid]
-  _: bool
-  _: bool
-  _: bool
+  AllocateToMapOwner: bool
+  AlwaysAllocate: bool
+  CanHaveVeiledMods: bool
   _: i32
   _: i32
-  _: bool
-  _: bool
-  _: bool
-  _: bool
-  _: bool
-  _: bool
-  _: bool
+  AlwaysShow: bool
+  CanBeCorrupted: bool
+  CanHaveIncubators: bool
+  CanHaveInfluence: bool
+  CanBeDoubleCorrupted: bool
+  CanHaveAspects: bool
+  CanTransferSkin: bool
   ItemStance: ItemStances
 }
 
@@ -1980,6 +1980,7 @@ type ItemVisualEffect {
   TwoHandedAxeEPKFile: string @file(ext: ".epk")
   ClawEPKFile: string @file(ext: ".epk")
   PETFile: string @file(ext: ".pet")
+  Shield: string @file(ext: ".epk")
 }
 
 type ItemVisualHeldBodyModel {
