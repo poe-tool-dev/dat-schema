@@ -1878,9 +1878,11 @@ enum InventoryId { _ }
 
 enum InventoryType { _ }
 
-enum ItemClassCategories { _ }
-
-enum ItemStances { _ }
+type ItemClassCategories {
+  Id: string @unique
+  Text: string
+  _: rid
+}
 
 type ItemClasses {
   Id: string @unique
@@ -1952,6 +1954,10 @@ enum ItemSetNames { _ }
 type ItemShopType {
   Id: string @unique
   Name: string
+}
+
+type ItemStances {
+  Id: string @unique
 }
 
 type ItemThemes {
