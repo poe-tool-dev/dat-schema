@@ -33,6 +33,42 @@ type ExpeditionCurrency {
   NPC: ExpeditionNPCs
 }
 
+enum ExpeditionDealFamilies {
+  REROLL_PREFIXES_BEST
+  REROLL_SUFFIXES_BEST
+  VALUES_AFFIXES_LUCKY
+  VALUES_PREFIXES_LUCKY
+  VALUES_SUFFIXES_LUCKY
+  VALUES_IMPLICITS_LUCKY
+  UPGRADE_HIGHEST_TIER
+  UPGRADE_ONE_TIER
+  REMOVE_LOWEST_LEVEL
+  ADD_PREFIX_BEST
+  ADD_SUFFIX_BEST
+  FILL_EMPTY_MODS
+  REFORGE_SOCKETS
+  REFORGE_LINKS
+  APPLY_INCUBATOR
+  APPLY_RANDOM_QUALITY
+  SET_QUALITY
+  APPLY_ANOINTMENT
+  CORRUPT
+  ADD_INFLUENCE
+  REMOVE_ALL_PREFIXES
+  REMOVE_ALL_SUFFIXES
+}
+
+type ExpeditionDeals {
+  Id: i32 @unique
+  Function: string
+  Arguments: string
+  TextAudio: NPCTextAudio
+  Description: string @localized
+  BuyAchievements: [AchievementItems]
+  _: rid
+  DealFamily: ExpeditionDealFamilies
+}
+
 type ExpeditionFactions {
   Id: string @unique
   Name: string
