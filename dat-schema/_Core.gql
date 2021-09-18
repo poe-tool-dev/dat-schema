@@ -585,15 +585,12 @@ enum BuffMergeModes { _ }
 enum BuffStackUIModes { _ }
 
 type BuffTemplates {
-  Id: string
+  Id: string @unique
   BuffDefinitionsKey: BuffDefinitions
+  _: []i32
   _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
+  _: []i32
+  _: []i32
   BuffVisualsKey: BuffVisuals
   _: f32
   _: bool
@@ -2559,7 +2556,7 @@ type Mods {
   _: i32
   _: i32
   _: i32
-  _: rid
+  BuffTemplatesKey: BuffTemplates
 }
 
 type ModSellPriceTypes {
