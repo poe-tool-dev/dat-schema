@@ -587,10 +587,10 @@ enum BuffStackUIModes { _ }
 type BuffTemplates {
   Id: string @unique
   BuffDefinitionsKey: BuffDefinitions
-  _: []i32
+  _: [i32]
   _: i32
-  _: []i32
-  _: []i32
+  _: [i32]
+  _: [i32]
   BuffVisualsKey: BuffVisuals
   _: f32
   _: bool
