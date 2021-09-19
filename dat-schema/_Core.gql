@@ -4193,7 +4193,7 @@ type UniqueStashLayout {
   _: bool
   RenamedVersion: UniqueStashLayout
   BaseVersion: UniqueStashLayout
-  IsAltArt: bool
+  IsAlternateArt: bool
 }
 
 type UniqueStashTypes {
