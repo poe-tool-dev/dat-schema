@@ -2556,7 +2556,7 @@ type Mods {
   _: i32
   _: i32
   _: i32
-  BuffTemplatesKey: BuffTemplates
+  BuffTemplate: BuffTemplates
 }
 
 type ModSellPriceTypes {
