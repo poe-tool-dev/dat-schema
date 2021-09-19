@@ -80,8 +80,7 @@ type ActiveSkills {
   AlternateSkillTargetingBehavioursKey: AlternateSkillTargetingBehaviours
   _: bool
   AIFile: string @file(ext: ".ai")
-  _: i32
-  _: i32
+  _: [rid]
   _: bool
   _: bool
   _: bool
@@ -588,7 +587,7 @@ type BuffTemplates {
   Id: string @unique
   BuffDefinitionsKey: BuffDefinitions
   _: [i32]
-  _: i32
+  AuraRadius: i32
   _: [i32]
   _: [i32]
   BuffVisualsKey: BuffVisuals
@@ -600,7 +599,7 @@ type BuffTemplates {
 type BuffVisualOrbArt {
   Id: string @unique
   MiscAnimated: MiscAnimated
-  _: [string]
+  _: [i32]
   _: [string]
   _: string
   _: string
@@ -4190,11 +4189,11 @@ type UniqueStashLayout {
   _: i32
   _: i32
   _: i32
-  _: bool
+  ShowIfEmpty: bool
   _: bool
   RenamedVersion: UniqueStashLayout
   BaseVersion: UniqueStashLayout
-  _: bool
+  IsAltArt: bool
 }
 
 type UniqueStashTypes {
