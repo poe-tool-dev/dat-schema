@@ -904,25 +904,25 @@ type CraftingBenchOptions {
   Tier: i32
   CraftingItemClassCategories: [CraftingItemClassCategories]
   _: i32
-  CraftingBenchUnlockCategory: CraftingBenchUnlockCategories
+  UnlockCategory: CraftingBenchUnlockCategories
   UnveilsRequired: i32
   UnveilsRequired2: i32
   _: [rid]
   Tags: [Tags]
-  AchievementItems: [AchievementItems]
+  Achievements: [AchievementItems]
   _: i32
   _: i32
   _: bool
   _: rid
   _: rid
-  _: CraftingBenchSortCategories
+  SortCategory: CraftingBenchSortCategories
   _: rid
 }
 
 type CraftingBenchSortCategories {
-  Name: string @unique
+  Id: string @unique
   _: rid
-  Visable: bool
+  IsVisible: bool
 }
 
 type CraftingBenchUnlockCategories {
@@ -3183,8 +3183,8 @@ type NPCs {
   NPCAudios2: [NPCAudio]
   _: i32
   _: NPCs
-  _: NPCPortraits
-  _: NPCDialogueStyles
+  Portrait: NPCPortraits
+  DialogueStyle: NPCDialogueStyles
 }
 
 type NPCShop {
