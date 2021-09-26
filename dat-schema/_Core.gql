@@ -725,7 +725,6 @@ type Characters {
   _: rid
   _: i32
   _: i32
-  _: i32
   CharacterSize: i32
   IntroSoundFile: string @file(ext: ".ogg")
   StartWeapon: BaseItemTypes
