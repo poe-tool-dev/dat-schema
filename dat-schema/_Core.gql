@@ -3297,18 +3297,23 @@ type PassiveSkills {
   IsJewelSocket: bool
   AscendancyKey: Ascendancy
   IsAscendancyStartingNode: bool
-  Reminder_ClientStrings: [ClientStrings]
+  ReminderStrings: [ClientStrings]
   SkillPointsGranted: i32
   IsMultipleChoice: bool
   IsMultipleChoiceOption: bool
   Stat5Value: i32
   PassiveSkillBuffs: [BuffTemplates]
   GrantedEffectsPerLevel: GrantedEffectsPerLevel
-  IsBlighted: bool
+  IsAnointmentOnly: bool
   _: i32
   IsExpansion: bool
   IsProxyPassive: bool
-  IsAtlas: i32
+  SkillType: PassiveSkillTypes
+}
+
+enum PassiveSkillTypes {
+  PASSIVE_TREE
+  ATLAS_TREE
 }
 
 type PassiveSkillStatCategories {
