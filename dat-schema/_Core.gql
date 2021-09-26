@@ -722,7 +722,7 @@ type Characters {
   _: [rid]
   Description: string @localized
   StartSkillGem: SkillGems
-  _: i32
+  _: rid
   _: i32
   _: i32
   _: i32
