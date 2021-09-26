@@ -886,12 +886,12 @@ type CraftingBenchOptions {
   HideoutNPCsKey: HideoutNPCs
   Order: i32
   ModsKey: Mods
-  Cost_BaseItemTypesKeys: [BaseItemTypes]
+  Cost_BaseItemTypes: [BaseItemTypes]
   Cost_Values: [i32]
   RequiredLevel: i32
   Name: string
   CraftingBenchCustomAction: i32
-  ItemClassesKeys: [ItemClasses]
+  ItemClasses: [ItemClasses]
   Links: i32
   SocketColours: string
   Sockets: i32
@@ -902,34 +902,41 @@ type CraftingBenchOptions {
   IsAreaOption: bool
   RecipeIds: [RecipeUnlockDisplay] @ref(column: "RecipeId")
   Tier: i32
-  ModFamily: string
-  CraftingItemClassCategoriesKeys: [CraftingItemClassCategories]
-  MaximumMapTier: i32
-  CraftingBenchUnlockCategoriesKey: CraftingBenchUnlockCategories
+  CraftingItemClassCategories: [CraftingItemClassCategories]
+  _: i32
+  CraftingBenchUnlockCategory: CraftingBenchUnlockCategories
   UnveilsRequired: i32
   UnveilsRequired2: i32
-  AffixType: string
   _: [rid]
   Tags: [Tags]
-  AchievementItemsKeys: [AchievementItems]
+  AchievementItems: [AchievementItems]
   _: i32
   _: i32
   _: bool
   _: rid
+  _: rid
+  _: CraftingBenchSortCategories
+  _: rid
+}
+
+type CraftingBenchSortCategories {
+  Name: string @unique
+  _: rid
+  Visable: bool
 }
 
 type CraftingBenchUnlockCategories {
-  Id: string
+  Id: string @unique
   _: i32
   _: [i32]
   UnlockType: string
-  CraftingItemClassCategoriesKeys: [CraftingItemClassCategories]
+  CraftingItemClassCategories: [CraftingItemClassCategories]
   ObtainingDescription: string
 }
 
 type CraftingItemClassCategories {
-  Id: string
-  ItemClassesKeys: [ItemClasses]
+  Id: string @unique
+  ItemClasses: [ItemClasses]
   _: string
   Text: string
 }
@@ -3102,6 +3109,18 @@ type NPCDialogueStyles {
   _: i32
   _: i32
   _: i32
+  _: NPCDialogueStyles
+  _: rid
+  _: string
+  _: [i32]
+  _: [i32]
+  _: i32
+  _: i32
+  _: f32
+  _: string
+  _: string
+  _: i32
+  _: i32
 }
 
 type NPCFollowerVariations {
@@ -3144,6 +3163,13 @@ type NPCMaster {
   _: rid
 }
 
+type NPCPortraits {
+  Name: string @unique
+  PortraitFile: string
+  _: i32
+  _: i32
+}
+
 type NPCs {
   Id: string @unique
   Name: string
@@ -3152,15 +3178,13 @@ type NPCs {
   NPCMasterKey: NPCMaster
   ShortName: string
   _: i32
-  NPCShopKey: NPCShop
-  NPCAudioKeys1: [NPCAudio]
-  NPCAudioKeys2: [NPCAudio]
+  NPCShop: NPCShop
+  NPCAudios1: [NPCAudio]
+  NPCAudios2: [NPCAudio]
   _: i32
-  _: i32
-  PortraitFile: string
-  _: i32
-  _: i32
-  _: i32
+  _: NPCs
+  _: NPCPortraits
+  _: NPCDialogueStyles
 }
 
 type NPCShop {
