@@ -704,7 +704,7 @@ type CharacterPanelTabs {
 
 type Characters {
   Id: string @unique
-  Name: string @unique
+  Name: string @unique @localized
   AOFile: string @file(ext: ".ao")
   ACTFile: string @file(ext: ".act")
   BaseMaxLife: i32
@@ -720,17 +720,16 @@ type Characters {
   BaseDexterity: i32
   BaseIntelligence: i32
   _: [rid]
-  Description: string
-  StartSkillGem_SkillGemsKey: SkillGems
-  _: i32
-  _: i32
+  Description: string @localized
+  StartSkillGem: SkillGems
+  _: rid
   _: i32
   _: i32
   CharacterSize: i32
   IntroSoundFile: string @file(ext: ".ogg")
-  StartWeapon_BaseItemTypesKey: BaseItemTypes
-  _: i32
-  TraitDescription: string
+  StartWeapon: BaseItemTypes
+  Gender: string
+  TraitDescription: string @localized
   _: rid
   _: rid
   _: rid
