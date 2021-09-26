@@ -3304,7 +3304,7 @@ type PassiveSkillFilterOptions {
 type PassiveSkills {
   Id: string @unique
   Icon_DDSFile: string @file(ext: ".dds")
-  StatsKeys: [Stats]
+  Stats: [Stats]
   Stat1Value: i32
   Stat2Value: i32
   Stat3Value: i32
@@ -3312,27 +3312,32 @@ type PassiveSkills {
   "Id used by PassiveSkillGraph.psg"
   PassiveSkillGraphId: i32 @unique
   Name: string
-  CharactersKeys: [Characters]
+  Characters: [Characters]
   IsKeystone: bool
   IsNotable: bool
   FlavourText: string
   IsJustIcon: bool
-  AchievementItemsKey: AchievementItems
+  AchievementItem: AchievementItems
   IsJewelSocket: bool
   AscendancyKey: Ascendancy
   IsAscendancyStartingNode: bool
-  Reminder_ClientStringsKeys: [ClientStrings]
+  ReminderStrings: [ClientStrings]
   SkillPointsGranted: i32
   IsMultipleChoice: bool
   IsMultipleChoiceOption: bool
   Stat5Value: i32
-  PassiveSkillBuffsKeys: [BuffTemplates]
-  GrantedEffectsPerLevelKey: GrantedEffectsPerLevel
-  _: bool
+  PassiveSkillBuffs: [BuffTemplates]
+  GrantedEffectsPerLevel: GrantedEffectsPerLevel
+  IsAnointmentOnly: bool
   _: i32
-  _: bool
+  IsExpansion: bool
   IsProxyPassive: bool
-  _: i32
+  SkillType: PassiveSkillTypes
+}
+
+enum PassiveSkillTypes {
+  PASSIVE_TREE
+  ATLAS_TREE
 }
 
 type PassiveSkillStatCategories {
