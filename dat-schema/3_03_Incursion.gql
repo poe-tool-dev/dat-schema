@@ -54,7 +54,7 @@ type IncursionRooms {
   RoomUpgrade_IncursionRoomsKey: IncursionRooms
   ModsKey: Mods
   PresentARMFile: string @file(ext: ".arm")
-  IntId: i32 @unique
+  HASH16: i32 @unique
   IncursionArchitectKey: IncursionArchitect
   PastARMFile: string @file(ext: ".arm")
   TSIFile: string @file(ext: ".tsi")
