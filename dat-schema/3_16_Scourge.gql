@@ -1,0 +1,87 @@
+
+type HellscapeAOReplacements {
+  _: string
+  HASH32: i32
+  _: string
+}
+
+type HellscapeAreaPacks {
+  _: rid
+  _: [rid]
+  _: i32
+  _: i32
+}
+
+type HellscapeExperienceLevels {
+  Level: i32
+  Experience: i32
+}
+
+type HellscapeFactions {
+  Id: string
+  _: rid
+  _: rid
+  _: [rid]
+  _: i32
+  _: [rid]
+  _: string
+  _: rid
+}
+
+type HellscapeImmuneMonsters {
+  _: rid
+}
+
+type HellscapeItemModificationTiers {
+  _: i32
+  _: bool
+  _: i32
+  _: i32
+}
+
+type HellscapeLifeScalingPerLevel {
+  Level: i32
+  Scale: i32
+}
+
+type HellscapeModificationInventoryLayout {
+  Id: string
+  _: i32
+  _: i32
+  _: bool
+  _: i32
+  _: i32
+  _: i32
+  _: rid
+  _: i32
+  _: rid
+  _: rid
+}
+
+type HellscapeMods {
+  _: rid
+  _: [i32]
+  _: rid
+}
+
+type HellscapeMonsterPacks {
+  _: string
+  _: rid
+  _: rid
+  _: bool
+  _: bool
+  _: i32
+  _: i32
+}
+
+type HellscapePassiveTree {
+  Id: string
+  _: i32
+  _: [rid]
+}
+
+type HellscapePassiveTree {
+  Id: string
+  _: i32
+  _: [rid]
+}
