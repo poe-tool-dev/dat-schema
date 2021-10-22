@@ -74,10 +74,18 @@ type HellscapeMonsterPacks {
   _: i32
 }
 
-type HellscapePassiveTree {
+type HellscapePassives {
   Id: string
-  _: i32
+  _: string
   _: [rid]
+  _: [i32]
+  _: i32
+  HASH16: i32
+  _: string
+  _: string
+  _: rid
+  _: i32
+  _: rid
 }
 
 type HellscapePassiveTree {
