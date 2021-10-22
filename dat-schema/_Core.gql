@@ -467,10 +467,6 @@ type BaseItemTypes {
   ItemVisualIdentityKey: ItemVisualIdentity
   HASH: i32 @unique
   VendorRecipe_AchievementItemsKeys: [AchievementItems]
-  RarePurchase_BaseItemTypesKeys: [BaseItemTypes]
-  RarePurchase_Costs: [i32]
-  UniquePurchase_BaseItemTypesKeys: [BaseItemTypes]
-  UniquePurchase_Costs: [i32]
   "the inflection identifier used for i18n in related fields"
   Inflection: string
   Equip_AchievementItemsKey: AchievementItems
