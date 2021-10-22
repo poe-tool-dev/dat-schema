@@ -461,15 +461,11 @@ type BaseItemTypes {
   Implicit_ModsKeys: [Mods]
   SizeOnGround: i32
   SoundEffectsKey: SoundEffects
-  NormalPurchase_BaseItemTypesKeys: [BaseItemTypes]
-  NormalPurchase_Costs: [i32]
-  MagicPurchase_BaseItemTypesKeys: [BaseItemTypes]
-  MagicPurchase_Costs: [i32]
   TagsKeys: [Tags]
   ModDomainsKey: i32
   IsDropDisabled: bool
   ItemVisualIdentityKey: ItemVisualIdentity
-  _: i32 @unique
+  HASH: i32 @unique
   VendorRecipe_AchievementItemsKeys: [AchievementItems]
   RarePurchase_BaseItemTypesKeys: [BaseItemTypes]
   RarePurchase_Costs: [i32]
@@ -833,7 +829,8 @@ type ClientStrings {
   Id: string @unique
   Text: string
   XBoxText: string
-  _: i32
+  XBoxText2: string
+  HASH32: i32
   PlaystationText: string
 }
 
@@ -908,7 +905,6 @@ type CraftingBenchOptions {
   UnveilsRequired2: i32
   _: [rid]
   Tags: [Tags]
-  Achievements: [AchievementItems]
   _: i32
   _: i32
   _: bool
@@ -916,6 +912,7 @@ type CraftingBenchOptions {
   _: rid
   SortCategory: CraftingBenchSortCategories
   _: rid
+  _: bool
 }
 
 type CraftingBenchSortCategories {
@@ -1907,6 +1904,8 @@ type ItemClasses {
   CanHaveAspects: bool
   CanTransferSkin: bool
   ItemStance: ItemStances
+  CanScourge: bool
+  _: bool
 }
 
 type ItemCostPerLevel {
@@ -2052,6 +2051,7 @@ type ItemVisualIdentity {
   _: [i32]
   _: bool
   _: [rid]
+  _: string
   _: i32
 }
 
@@ -2961,6 +2961,15 @@ type MonsterVarieties {
   _: bool
   _: i32
   _: bool
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: [_]
+  _: i32
+  _: i32
 }
 
 type MoveDaemon {
@@ -3333,6 +3342,7 @@ type PassiveSkills {
   IsExpansion: bool
   IsProxyPassive: bool
   SkillType: PassiveSkillTypes
+  _: rid
 }
 
 enum PassiveSkillTypes {

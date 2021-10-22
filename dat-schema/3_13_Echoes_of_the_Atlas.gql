@@ -1,6 +1,7 @@
 type InfluenceModUpgrades {
   InfluenceMod: Mods
   UpgradedMod: Mods
+  _: bool
 }
 
 type MavenDialog {
