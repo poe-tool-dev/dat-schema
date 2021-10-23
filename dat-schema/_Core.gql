@@ -89,7 +89,10 @@ type ActiveSkills {
 
 enum ActiveSkillTargetTypes { _ }
 
-enum ActiveSkillType { _ }
+type ActiveSkillType {
+  Id: string @unique
+  _: rid
+}
 
 type AddBuffToTargetVarieties {
   BuffDefinitions: BuffDefinitions
@@ -894,7 +897,7 @@ enum CraftingBenchCustomActions { _ }
 type CraftingBenchOptions {
   HideoutNPCsKey: HideoutNPCs
   Order: i32
-  ModsKey: Mods
+  AddMod: Mods
   Cost_BaseItemTypes: [BaseItemTypes]
   Cost_Values: [i32]
   RequiredLevel: i32
@@ -922,7 +925,7 @@ type CraftingBenchOptions {
   _: i32
   _: bool
   _: rid
-  _: rid
+  AddEnchantment: Mods
   SortCategory: CraftingBenchSortCategories
   _: rid
   _: bool
@@ -1647,15 +1650,15 @@ type GrantedEffects {
   Id: string @unique
   IsSupport: bool
   "This support gem only supports active skills with at least one of these types"
-  AllowedActiveSkillTypes: [i32]
+  AllowedActiveSkillTypes: [ActiveSkillType]
   BaseEffectiveness: f32
   IncrementalEffectiveness: f32
   SupportGemLetter: string
   _: i32
   "This support gem adds these types to supported active skills"
-  AddedActiveSkillTypes: [i32]
+  AddedActiveSkillTypes: [ActiveSkillType]
   "This support gem does not support active skills with one of these types"
-  ExcludedActiveSkillTypes: [i32]
+  ExcludedActiveSkillTypes: [ActiveSkillType]
   "This support gem only supports active skills that come from gem items"
   SupportsGemsOnly: bool
   _: i32
@@ -3491,6 +3494,7 @@ type Projectiles {
   _: [rid]
   _: rid
   _: bool
+  _: i32
 }
 
 type ProjectileVariations {
