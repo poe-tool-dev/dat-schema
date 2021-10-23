@@ -16,6 +16,7 @@ type AchievementItems {
   _: bool
   _: bool
   _: bool
+  _: bool
 }
 
 type Achievements {
@@ -292,11 +293,16 @@ enum ArmourSurfaceTypes { _ }
 
 type ArmourTypes {
   BaseItemTypesKey: BaseItemTypes
-  Armour: i32
-  Evasion: i32
-  EnergyShield: i32
+  ArmourMin: i32
+  ArmourMax: i32
+  EvasionMin: i32
+  EvasionMax: i32
+  EnergyShieldMin: i32
+  EnergyShieldMax: i32
   IncreasedMovementSpeed: i32
-  Ward: i32
+  WardMin: i32
+  WardMax: i32
+  _: i32
   _: i32
 }
 
@@ -310,6 +316,9 @@ type Ascendancy {
   Name: string
   FlavourText: string
   OGGFile: string @file(ext: ".ogg")
+  PassiveTreeImage: string @file(ext: ".dds")
+  _: s32
+  _: s32
 }
 
 type AtlasAwakeningStats {
@@ -567,6 +576,7 @@ type BuffDefinitions {
   _: [rid]
   _: i32
   _: bool
+  _: rid
 }
 
 enum BuffGroups { _ }
@@ -586,6 +596,7 @@ type BuffTemplates {
   _: f32
   _: bool
   StatsKey: [Stats]
+  _: i32
 }
 
 type BuffVisualOrbArt {
@@ -728,6 +739,9 @@ type Characters {
   _: rid
   _: i32
   _: [rid]
+  PassiveTreeImage: string @file(ext: ".dds")
+  _: s32
+  _: s32
 }
 
 type CharacterStartQuestState {
@@ -860,6 +874,8 @@ type ComponentCharges {
   BaseItemTypesKey: BaseItemTypes @ref(column: "Id") @unique
   MaxCharges: i32
   PerCharge: i32
+  MaxCharges2: i32
+  PerCharge2: i32
 }
 
 enum CooldownBypassTypes { _ }
@@ -870,6 +886,7 @@ type CostTypes {
   Id: string
   StatsKey: Stats
   FormatText: string
+  _: i32
 }
 
 enum CraftingBenchCustomActions { _ }
@@ -900,7 +917,7 @@ type CraftingBenchOptions {
   UnveilsRequired: i32
   UnveilsRequired2: i32
   _: [rid]
-  Tags: [Tags]
+  _: [rid]
   _: i32
   _: i32
   _: bool
@@ -1397,6 +1414,8 @@ type Flasks {
   RecoveryTime: i32
   BuffDefinitionsKey: BuffDefinitions
   BuffStatValues: [i32]
+  RecoveryTime2: i32
+  BuffStatValues2: [i32]
 }
 
 enum FlaskType { _ }
@@ -1788,16 +1807,16 @@ type HeistStorageLayout {
 type HideoutDoodads {
   BaseItemTypesKey: BaseItemTypes @unique
   Variation_AOFiles: [string] @file(ext: ".ao")
-  FavourCost: i32
-  MasterLevel: i32
-  HideoutNPCsKey: HideoutNPCs
   IsNonMasterDoodad: bool
   _: i32
   _: i32
   _: i32
   InheritsFrom: string @files(ext: [".ot", ".otc"])
-  IsCraftingBench: bool
   _: bool
+  IsCraftingBench: bool
+  _: [rid]
+  _: bool
+  _: rid
 }
 
 type HideoutNPCs {
@@ -3157,9 +3176,6 @@ type NPCMaster {
   _: [i32]
   _: [i32]
   _: rid
-  HelpText: string
-  HelpTextForNextLevel: string
-  _: rid
   _: i32
   AreaDescription: string
   _: rid
@@ -3306,6 +3322,25 @@ type PassiveSkillFilterOptions {
   _: string
 }
 
+type PassiveSkillMasteryGroups {
+  ID: string
+  MasteryEffects: [PassiveSkillMasteryEffects]
+  InactiveIcon: string
+  ActiveIcon: string
+  ActiveEffectImage: string
+  _: bool
+  _: rid
+}
+
+type PassiveSkillMasteryEffects {
+  ID: string
+  hash: i32
+  Stats: [Stats]
+  Stat1Value: i32
+  Stat2Value: i32
+  Stat3Value: i32
+}
+
 type PassiveSkills {
   Id: string @unique
   Icon_DDSFile: string @file(ext: ".dds")
@@ -3338,7 +3373,7 @@ type PassiveSkills {
   IsExpansion: bool
   IsProxyPassive: bool
   SkillType: PassiveSkillTypes
-  _: rid
+  MasteryGroup: PassiveSkillMasteryGroups
 }
 
 enum PassiveSkillTypes {
