@@ -50,6 +50,8 @@ type DelveCraftingModifiers {
   Weight_Values: [i32]
   DelveCraftingModifierDescriptionsKeys: [DelveCraftingModifierDescriptions]
   BlockedDelveCraftingModifierDescriptionsKeys: [DelveCraftingModifierDescriptions]
+  _: bool
+  _: bool
 }
 
 type DelveCraftingTags {

@@ -59,7 +59,7 @@ type HellscapeModificationInventoryLayout {
 }
 
 type HellscapeMods {
-  _: rid
+  _: Mods
   _: [i32]
   _: rid
 }
