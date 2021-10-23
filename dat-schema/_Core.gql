@@ -317,8 +317,8 @@ type Ascendancy {
   FlavourText: string
   OGGFile: string @file(ext: ".ogg")
   PassiveTreeImage: string @file(ext: ".dds")
-  _: s32
-  _: s32
+  _: i32
+  _: i32
 }
 
 type AtlasAwakeningStats {
@@ -740,8 +740,8 @@ type Characters {
   _: i32
   _: [rid]
   PassiveTreeImage: string @file(ext: ".dds")
-  _: s32
-  _: s32
+  _: i32
+  _: i32
 }
 
 type CharacterStartQuestState {
