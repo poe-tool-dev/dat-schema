@@ -1,13 +1,13 @@
 
 type HellscapeAOReplacements {
-  _: string
+  Original: string @file(ext: ".ao")
   HASH32: i32
-  _: string
+  Replacement: string @file(ext: ".ao")
 }
 
 type HellscapeAreaPacks {
-  _: rid
-  _: [rid]
+  WorldArea: WorldAreas
+  MonsterPacks: [MonsterPacks]
   _: i32
   _: i32
 }
@@ -18,13 +18,13 @@ type HellscapeExperienceLevels {
 }
 
 type HellscapeFactions {
-  Id: string
+  Id: string @unique
   _: rid
   _: rid
   _: [rid]
   _: i32
   _: [rid]
-  _: string
+  _: string @file(ext: ".ao")
   _: rid
 }
 
@@ -33,63 +33,63 @@ type HellscapeImmuneMonsters {
 }
 
 type HellscapeItemModificationTiers {
+  Tier: i32
+  IsMap: bool
   _: i32
-  _: bool
-  _: i32
-  _: i32
+  MinItemLvl: i32
 }
 
 type HellscapeLifeScalingPerLevel {
-  Level: i32
+  AreaLevel: i32
   Scale: i32
 }
 
 type HellscapeModificationInventoryLayout {
-  Id: string
+  Id: string @unique
   _: i32
   _: i32
-  _: bool
+  IsMapSlot: bool
   _: i32
-  _: i32
-  _: i32
-  _: rid
-  _: i32
+  Width: i32
+  Height: i32
+  Stat: Stats
+  StatValue: i32
   _: rid
   _: rid
 }
 
 type HellscapeMods {
-  _: Mods
+  Mod: Mods
   _: [i32]
-  _: rid
+  TransformAchievement: AchievementItems
 }
 
 type HellscapeMonsterPacks {
-  _: string
-  _: rid
-  _: rid
-  _: bool
-  _: bool
-  _: i32
-  _: i32
+  Id: string @unique
+  MonsterPack: MonsterPacks
+  Faction: HellscapeFactions
+  IsDonutPack: bool
+  IsElite: bool
+  MinLevel: i32
+  MaxLevel: i32
 }
 
 type HellscapePassives {
-  Id: string
-  _: string
-  _: [rid]
-  _: [i32]
-  _: i32
+  Id: string @unique
+  Name: string @localized
+  Stats: [Stats]
+  StatsValues: [i32]
+  Points: i32
   HASH16: i32
-  _: string
-  _: string
+  Icon: string
+  IconMaxed: string
   _: rid
   _: i32
   _: rid
 }
 
 type HellscapePassiveTree {
-  Id: string
-  _: i32
-  _: [rid]
+  Id: string @unique
+  AllocationsRequired: i32
+  Passives: [HellscapePassives]
 }
