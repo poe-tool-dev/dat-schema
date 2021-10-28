@@ -4371,68 +4371,36 @@ type WorldAreas {
   IsMapArea: bool
   FullClear_AchievementItemsKeys: [AchievementItems]
   _: rid
-  _: i32
   AchievementItemsKey: AchievementItems
   ModsKeys: [Mods]
   _: i32
-  _: i32
   VaalArea_WorldAreasKeys: [WorldAreas]
   VaalArea_SpawnChance: i32
-  Strongbox_SpawnChance: i32
-  Strongbox_MaxCount: i32
-  "Normal/Magic/Rare/Unique spawn distribution"
-  Strongbox_RarityWeight: [i32]
   _: bool
-  _: i32
   MaxLevel: i32
   AreaType_TagsKeys: [Tags]
   _: i32
-  _: i32
   IsHideout: bool
-  _: i32
-  _: i32
-  _: i32
-  _: i32
   Inflection: string
-  _: i32
   _: i32
   _: i32
   TagsKeys: [Tags]
   IsVaalArea: bool
-  _: i32
-  _: i32
-  _: i32
   IsLabyrinthAirlock: bool
   IsLabyrinthArea: bool
   TwinnedFullClear_AchievementItemsKey: AchievementItems
   Enter_AchievementItemsKey: AchievementItems
-  _: i32
-  _: i32
-  _: i32
   TSIFile: string @file(ext: ".tsi")
   _: rid
-  _: i32
-  _: i32
   _: i32
   WaypointActivation_AchievementItemsKeys: [AchievementItems]
   IsUniqueMapArea: bool
   IsLabyrinthBossArea: bool
-  _: i32
-  _: i32
   FirstEntry_NPCTextAudioKey: NPCTextAudio
   FirstEntry_SoundEffectsKey: SoundEffects
   FirstEntry_NPCsKey: NPCs @ref(column: "Id")
   _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
   EnvironmentsKey: Environments
-  _: i32
-  _: i32
-  _: i32
-  _: i32
   _: i32
   _: rid
   _: i32
@@ -4441,22 +4409,11 @@ type WorldAreas {
   _: i32
   _: i32
   _: bool
-  _: i32
   _: bool
   _: i32
   _: i32
   _: i32
-  _: i32
-  _: i32
-  _: i32
-  MetamorphChance: i32
-  DeliriumChance: i32
-  HarvestChance: i32
-  HeistChance: i32
-  RitualChance: i32
   _: [_]
-  UltimatumChance: i32
-  ExpeditionChance: i32
 }
 
 type WorldPopupIconTypes {
