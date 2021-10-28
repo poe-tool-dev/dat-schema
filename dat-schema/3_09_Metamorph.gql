@@ -41,6 +41,7 @@ type MetamorphosisMetaSkills {
   Script1: string
   Script2: string
   Mods: [Mods]
+  Name: string
   _: i32
   _: [rid]
   _: i32
@@ -87,4 +88,5 @@ type MetamorphosisScaling {
   Scaling_StatsKeys: [Stats]
   Scaling_Values: [i32]
   _: i32
+  _: [i32]
 }

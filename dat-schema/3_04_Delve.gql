@@ -82,8 +82,7 @@ type DelveFeatures {
   WorldAreasKey: WorldAreas
   Image: string
   AchievementItemsKeys: [AchievementItems]
-  MinTier: i32
-  Type: string
+  _: [i32]
   MinDepth: [i32]
   Description: string
   _: i32
@@ -94,13 +93,10 @@ type DelveFeatures {
 
 type DelveFlares {
   _: i32
+  _: rid
+  _: rid
   _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
+  _: rid
   _: i32
   _: i32
 }
@@ -115,6 +111,7 @@ type DelveLevelScaling {
   MoreMonsterDamage: i32
   DarknessResistance: i32
   LightRadius: i32
+  _: i32
   _: i32
   _: i32
   _: i32
@@ -159,6 +156,14 @@ type DelveMonsterSpawners {
 type DelveResourcePerLevel {
   AreaLevel: i32
   Sulphite: i32
+}
+
+type DelveRewardTierConstants {
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
 }
 
 type DelveRooms {

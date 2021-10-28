@@ -1,8 +1,7 @@
 type BlightBalancePerLevel {
   Level: i32
   _: i32
-  _: i32
-  _: i32
+  _: [i32]
   _: i32
   _: i32
   _: i32
@@ -24,6 +23,7 @@ type BlightCraftingItems {
   BaseItemTypesKey: BaseItemTypes @unique
   Tier: i32
   AchievementItemsKeys: [AchievementItems]
+  CanUseOnCorrupted: bool
 }
 
 type BlightCraftingRecipes {
@@ -94,13 +94,14 @@ type BlightTopologyNodes {
   Id: string @unique
   _: [i32]
   Size: i32
-  Type: string
+  Angle: i32
   _: [i32]
   _: [i32]
   _: [i32]
   _: [i32]
   _: [i32]
   _: [i32]
+  _: i32
 }
 
 type BlightTowerAuras {

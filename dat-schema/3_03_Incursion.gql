@@ -37,8 +37,8 @@ type IncursionChests {
 }
 
 type IncursionRoomBossFightEvents {
-  _: i32
-  _: [i32]
+  Room: IncursionRooms
+  _: string
   _: string
   _: string
   _: string
@@ -65,6 +65,7 @@ type IncursionRooms {
   _: i32
   _: i32
   RoomUpgradeFrom_IncursionRoomsKey: IncursionRooms
+  _: rid
 }
 
 type IncursionUniqueUpgradeComponents {

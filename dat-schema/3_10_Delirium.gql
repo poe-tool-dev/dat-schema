@@ -24,8 +24,9 @@ type AfflictionEndgameWaveMods {
 }
 
 type AfflictionFixedMods {
-  Rarity: Rarity
+  Rarity: i32
   Mod: Mods
+  _: rid
 }
 
 type AfflictionRandomModCategories {
@@ -35,13 +36,14 @@ type AfflictionRandomModCategories {
 
 type AfflictionRewardMapMods {
   ModsKey: Mods
+  _: bool
 }
 
 enum AfflictionRewardTypes { _ }
 
 type AfflictionRewardTypeVisuals {
   AfflictionRewardTypes: AfflictionRewardTypes
-  Id: string @unique
+  Id: string
   Name: string
 }
 
