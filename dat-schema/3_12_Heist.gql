@@ -64,7 +64,7 @@ type HeistChestRewardTypes {
   Id: string @unique
   Art: string
   RewardTypeName: string
-  _: i32
+  _: HeistChestRewardTypes
   RewardRoomName: string
   MinLevel: i32
   MaxLevel: i32
@@ -121,7 +121,7 @@ type HeistDoodadNPCs {
 }
 
 type HeistDoors {
-  Id: string @unique
+  Id: string
   _: string
   HeistJobsKey1: HeistJobs
   HeistJobsKey2: HeistJobs
@@ -191,6 +191,8 @@ type HeistJobs {
   Alarm_StatsKey: Stats
   Cost_StatsKey: Stats
   ExperienceGain_StatsKey: Stats
+  ConsoleBlueprintLegend: string
+  Description: string
 }
 
 type HeistJobsExperiencePerLevel {
@@ -235,7 +237,6 @@ type HeistNPCs {
   _: f32
   SkillLevel_Values: [i32]
   Name: string
-  _: i32
   SilhouetteFile: string
   _: i32
   _: i32
@@ -246,6 +247,7 @@ type HeistNPCs {
   HeistJobsKey: HeistJobs
   Equip_AchievementItemsKeys: [AchievementItems]
   AOFile: string @file(ext: ".ao")
+  _: rid
 }
 
 type HeistNPCStats {
@@ -265,7 +267,7 @@ type HeistObjectives {
 type HeistObjectiveValueDescriptions {
   _: i32
   _: i32
-  _: i32
+  Description: string
 }
 
 type HeistPatrolPacks {
@@ -328,7 +330,7 @@ type HeistRooms {
   _: i32
   _: i32
   _: i32
-  _: i32
+  _: string
   _: f32
   _: bool
   _: bool

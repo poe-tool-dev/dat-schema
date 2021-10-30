@@ -4,9 +4,17 @@ type BreachBossLifeScalingPerLevel {
   LifeMultiplier: i32
 }
 
+type BreachElement {
+  Element: string
+  _: rid
+  BaseBreachstone: BaseItemTypes
+  BossMapMod: Stats
+}
+
 type BreachstoneUpgrades {
   BaseItemTypesKey0: BaseItemTypes
   BaseItemTypesKey1: BaseItemTypes
   BaseItemTypesKey2: BaseItemTypes
   BaseItemTypesKey3: BaseItemTypes
+  _: rid
 }

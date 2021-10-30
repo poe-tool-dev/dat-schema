@@ -8,17 +8,17 @@ type HarvestCraftOptionIcons {
 type HarvestCraftOptions {
   Id: string @unique
   Text: string
-  _: i32
-  HarvestObjectsKey: HarvestObjects
-  HarvestCraftTiersKey: HarvestCraftTiers
+  _: rid
   Command: string
   Parameters: string
   AchievementItemsKeys: [AchievementItems]
   _: bool
   _: i32
   HarvestCraftOptionIconsKeys: [HarvestCraftOptionIcons]
-  "Text without any tags for formatting"
-  PlainText: string
+  Description: string
+  DDSFile: string @file(ext: ".dds")
+  _: bool
+  _: bool
 }
 
 type HarvestCraftTiers {
@@ -62,13 +62,6 @@ type HarvestPerLevelValues {
   _: i32
   _: i32
   _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
 }
 
 enum HarvestPlantBoosterFamilies { _ }
@@ -81,6 +74,22 @@ type HarvestPlantBoosters {
   AdditionalCraftingOptionsChance: i32
   RareExtraChances: i32
   HarvestPlantBoosterFamilies: i32
+}
+
+type HarvestSeeds {
+  Id: string
+  Monster: MonsterVarieties
+  Tier: i32
+  Description: string
+  _: [rid]
+  _: i32
+  _: [i32]
+  _: [i32]
+  _: i32
+  SeedAnimation: string @file(ext: ".ao")
+  _: i32
+  HatchAnimation: string @file(ext: ".ao")
+  SeedType: i32
 }
 
 type HarvestSeedTypes {

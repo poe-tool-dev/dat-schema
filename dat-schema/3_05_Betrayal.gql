@@ -11,7 +11,7 @@ type BetrayalChoices {
 }
 
 type BetrayalDialogue {
-  BetrayalDialogueCueKey: BetrayalDialogueCue
+  _: rid
   _: i32
   _: i32
   _: [i32]
@@ -131,7 +131,7 @@ type BetrayalWallLifeScalingPerLevel {
 type SafehouseBYOCrafting {
   BetrayalJobsKey: BetrayalJobs
   BetrayalTargetsKey: BetrayalTargets
-  BetrayalRanksKey: BetrayalRanks
+  Rank: i32
   Description: string
   ServerCommand: string
   _: [rid]
@@ -139,11 +139,11 @@ type SafehouseBYOCrafting {
 
 type SafehouseCraftingSpree {
   BetrayalJobsKey: BetrayalJobs
-  BetrayalRanksKey: BetrayalRanks
-  Currency_Values: [i32]
+  Rank: i32
+  CurrencyCount: [i32]
   Chance: i32
   Currency_SafehouseCraftingSpreeCurrenciesKeys: [SafehouseCraftingSpreeCurrencies]
-  _: [i32]
+  _: [rid]
 }
 
 type SafehouseCraftingSpreeCurrencies {

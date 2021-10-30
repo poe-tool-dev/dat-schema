@@ -9,7 +9,7 @@ type TalismanPacks {
   _: i32
   _: i32
   MonsterVarietiesKey: MonsterVarieties
-  _: i32
+  _: rid
   _: i32
   _: i32
   _: i32
