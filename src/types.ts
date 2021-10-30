@@ -14,7 +14,9 @@ export type ColumnType =
   // row index (references column in same table)
   | 'row'
   // row index (references column in foreign table)
-  | 'foreignrow';
+  | 'foreignrow'
+  // enum table row index (references column in foreign table)
+  | 'enumrow';
 
 export interface RefUsingRowIndex {
   table: string;

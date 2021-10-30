@@ -138,7 +138,8 @@ function parseFieldNode(
       references = { table: fieldType.name };
       fieldType.name = 'foreignrow' as ColumnType;
     } else if (ctx.enumNames.has(fieldType.name)) {
-      fieldType.name = 'i32' as ColumnType;
+      references = { table: fieldType.name };
+      fieldType.name = 'enumrow' as ColumnType;
     } else {
       throw new GraphQLError(
         `Can't find referenced table "${fieldType.name}".`,
@@ -180,7 +181,8 @@ function parseFieldNode(
     ScalarTypes.has(fieldType.name) ||
       fieldType.name === 'array' ||
       fieldType.name === 'row' ||
-      fieldType.name === 'foreignrow'
+      fieldType.name === 'foreignrow' || 
+	  fieldType.name === 'enumrow'
   );
 
   const column: TableColumn = {
