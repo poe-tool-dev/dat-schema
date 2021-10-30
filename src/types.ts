@@ -47,13 +47,14 @@ export interface SchemaTable {
   columns: TableColumn[];
 }
 
-// interface SchemaEnum {
-//   name: string;
-//   enum: string[];
-// }
+export interface SchemaEnum {
+  name: string;
+  enum: (string|null)[];
+}
 
 export interface SchemaFile {
   version: number;
   createdAt: number;
   tables: SchemaTable[];
+  enums: SchemaEnum[];
 }

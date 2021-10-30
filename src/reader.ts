@@ -5,9 +5,10 @@ import {
   ObjectTypeDefinitionNode,
   FieldDefinitionNode,
   DirectiveNode,
+  EnumTypeDefinitionNode,
 } from 'graphql/language';
 import { GraphQLError } from 'graphql/error';
-import { SchemaTable, TableColumn, ColumnType, RefUsingColumn } from './types';
+import { SchemaTable, TableColumn, ColumnType, RefUsingColumn, SchemaEnum } from './types';
 
 // prettier-ignore
 const ScalarTypes: ReadonlySet<string> = new Set([
@@ -48,25 +49,30 @@ const DIRECTIVE_FILES_GROUP = {
 
 interface Context {
   typeDefsMap: ReadonlyMap<string, ObjectTypeDefinitionNode>;
-  enumNames: ReadonlySet<string>;
+  enumNamesMap: ReadonlyMap<string, EnumTypeDefinitionNode>;
 }
 
-export function readSchemaSources(sources: readonly Source[]) {
+export interface ReadSchemaResult {
+	tables: SchemaTable[];
+	enums: SchemaEnum[];
+}
+
+export function readSchemaSources(sources: readonly Source[]) : ReadSchemaResult {
   const typeDefsMap = new Map<string, ObjectTypeDefinitionNode>();
-  const enumNames = new Set<string>();
+  const enumNamesMap = new Map<string, EnumTypeDefinitionNode>();
 
   for (const source of sources) {
     const doc = parse(source, { noLocation: false });
 
     for (const typeNode of doc.definitions) {
       if (typeNode.kind === 'EnumTypeDefinition') {
-        if (enumNames.has(typeNode.name.value)) {
+        if (enumNamesMap.has(typeNode.name.value)) {
           throw new GraphQLError(
             'Enum with this name has already been defined.',
             typeNode.name
           );
         }
-        enumNames.add(typeNode.name.value);
+        enumNamesMap.set(typeNode.name.value, typeNode);
       } else if (typeNode.kind === 'ObjectTypeDefinition') {
         if (typeDefsMap.has(typeNode.name.value)) {
           throw new GraphQLError(
@@ -91,7 +97,7 @@ export function readSchemaSources(sources: readonly Source[]) {
     assert.ok(typeNode.fields != null);
     for (const fieldNode of typeNode.fields) {
       const column = parseFieldNode(
-        { typeDefsMap, enumNames },
+        { typeDefsMap, enumNamesMap },
         table.name,
         fieldNode
       );
@@ -110,7 +116,31 @@ export function readSchemaSources(sources: readonly Source[]) {
     tables.push(table);
   }
 
-  return tables;
+  const enums: SchemaEnum[] = [];
+  for (const enumNode of enumNamesMap.values()) {
+    enums.push(parseEnumNode(enumNode));
+  }
+
+  return {tables, enums} as ReadSchemaResult;
+}
+
+function parseEnumNode(enumNode: EnumTypeDefinitionNode) {
+  const schemaEnum: SchemaEnum = {
+    name: enumNode.name.value,
+    enum: [],
+  };
+  if (enumNode.values != null ){
+    if (enumNode.values.length != 1 || enumNode.values[0].name.value != "_"){
+      for (const value of enumNode.values) {
+        if(value.name.value == "_"){
+          schemaEnum.enum.push(null);
+        }else{
+          schemaEnum.enum.push(value.name.value);
+        }
+      }
+    }
+  }
+  return schemaEnum;
 }
 
 function parseFieldNode(
@@ -137,7 +167,7 @@ function parseFieldNode(
     if (ctx.typeDefsMap.has(fieldType.name)) {
       references = { table: fieldType.name };
       fieldType.name = 'foreignrow' as ColumnType;
-    } else if (ctx.enumNames.has(fieldType.name)) {
+    } else if (ctx.enumNamesMap.has(fieldType.name)) {
       references = { table: fieldType.name };
       fieldType.name = 'enumrow' as ColumnType;
     } else {
