@@ -2006,9 +2006,9 @@ type InfluenceExalts {
 }
 
 type InfluenceTags {
-  _: rid
-  _: InfluenceTypes
-  _: rid
+  ItemClass: ItemClasses
+  Influence: InfluenceTypes
+  Tag: Tags
 }
 
 enum InfluenceTypes { _ }
