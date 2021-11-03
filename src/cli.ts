@@ -3,12 +3,12 @@ import * as process from 'process';
 import * as fs from 'fs';
 import { Source } from 'graphql/language/source';
 import { GraphQLError, printError } from 'graphql/error';
-import { ReadSchemaResult, readSchemaSources } from './reader';
+import { readSchemaSources } from './reader';
 import { SchemaFile, SCHEMA_VERSION } from './types';
 
 const SCHEMA_PATH = path.join(__dirname, '../dat-schema');
 
-function read(): ReadSchemaResult {
+function read() {
   const sources = fs.readdirSync(SCHEMA_PATH).map((entryName) => {
     const contents = fs.readFileSync(path.join(SCHEMA_PATH, entryName), {
       encoding: 'utf-8',
@@ -31,13 +31,11 @@ function read(): ReadSchemaResult {
   }
 }
 
-const result = read();
 fs.writeFileSync(
   path.join(process.cwd(), './schema.min.json'),
   JSON.stringify({
     version: SCHEMA_VERSION,
     createdAt: Math.floor(Date.now() / 1000),
-    tables: result.tables,
-	enums: result.enums,
+    ...read(),
   } as SchemaFile)
 );

@@ -23,7 +23,7 @@ type ProphecyChain {
   _: i32
 }
 
-enum ProphecySetNames { _ }
+enum ProphecySetNames @indexing(first: 0) { _ }
 
 type ProphecyType {
   Id: string @unique

@@ -34,7 +34,7 @@ type ExpeditionCurrency {
   _: rid
 }
 
-enum ExpeditionDealFamilies {
+enum ExpeditionDealFamilies @indexing(first: 0) {
   REROLL_PREFIXES_BEST
   REROLL_SUFFIXES_BEST
   VALUES_AFFIXES_LUCKY
@@ -105,7 +105,7 @@ type ExpeditionNPCs {
   EncounterComplete: NPCTextAudio
 }
 
-enum ExpeditionRelicModCategories {
+enum ExpeditionRelicModCategories @indexing(first: 0) {
   GENERIC
   RUNIC
   REWARD_CHEST

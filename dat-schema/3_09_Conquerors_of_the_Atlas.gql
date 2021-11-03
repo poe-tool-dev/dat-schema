@@ -26,7 +26,7 @@ type AtlasExileInfluenceOutcomes {
   OutcomeType: AtlasExileInfluenceOutcomeTypes
 }
 
-enum AtlasExileInfluenceOutcomeTypes {
+enum AtlasExileInfluenceOutcomeTypes @indexing(first: 0) {
   MONSTER_PACKS
   EMPOWERED_BOSS
   ON_KILL

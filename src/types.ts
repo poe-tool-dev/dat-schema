@@ -1,5 +1,5 @@
 // incremented only when breaking changes are made
-export const SCHEMA_VERSION = 2;
+export const SCHEMA_VERSION = 3;
 
 export type ScalarType =
   | 'bool'
@@ -15,7 +15,7 @@ export type ColumnType =
   | 'row'
   // row index (references column in foreign table)
   | 'foreignrow'
-  // enum table row index (references column in foreign table)
+  // row index (references foreign table with no columns)
   | 'enumrow';
 
 export interface RefUsingRowIndex {
@@ -47,14 +47,15 @@ export interface SchemaTable {
   columns: TableColumn[];
 }
 
-export interface SchemaEnum {
+export interface SchemaEnumeration {
   name: string;
-  enum: (string|null)[];
+  indexing: 0 | 1;
+  enumerators: Array<string | null>;
 }
 
 export interface SchemaFile {
   version: number;
   createdAt: number;
   tables: SchemaTable[];
-  enums: SchemaEnum[];
+  enumerations: SchemaEnumeration[];
 }
