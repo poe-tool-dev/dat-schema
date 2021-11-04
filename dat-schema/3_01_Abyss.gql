@@ -23,6 +23,6 @@ type AbyssObjects {
   _: bool
 }
 
-enum AbyssRegions { _ }
+enum AbyssRegions @indexing(first: 0) { _ }
 
-enum AbyssTheme { _ }
+enum AbyssTheme @indexing(first: 0) { _ }

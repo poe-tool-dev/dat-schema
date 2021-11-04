@@ -5,9 +5,17 @@ import {
   ObjectTypeDefinitionNode,
   FieldDefinitionNode,
   DirectiveNode,
+  EnumTypeDefinitionNode,
 } from 'graphql/language';
 import { GraphQLError } from 'graphql/error';
-import { SchemaTable, TableColumn, ColumnType, RefUsingColumn } from './types';
+import type {
+  SchemaTable,
+  TableColumn,
+  ColumnType,
+  RefUsingColumn,
+  SchemaEnumeration,
+  SchemaFile,
+} from './types';
 
 // prettier-ignore
 const ScalarTypes: ReadonlySet<string> = new Set([
@@ -22,20 +30,70 @@ const DIRECTIVE_REF = {
   ARGS: {
     COLUMN: 'column',
   },
+  validate(directive: DirectiveNode) {
+    if (!directive.arguments?.length) {
+      throw new GraphQLError('Missing referenced column name.', directive);
+    }
+    for (const arg of directive.arguments) {
+      if (arg.name.value === DIRECTIVE_REF.ARGS.COLUMN) {
+        if (arg.value.kind !== 'StringValue') {
+          throw new GraphQLError(`String expected.`, arg.value);
+        }
+      } else {
+        throw new GraphQLError(
+          `Unknown argument "${arg.name.value}".`,
+          arg.name
+        );
+      }
+    }
+  },
 };
 
 const DIRECTIVE_UNIQUE = {
   NAME: 'unique',
+  validate(directive: DirectiveNode) {
+    if (directive.arguments?.length) {
+      throw new GraphQLError(
+        `Directive doesn't accept arguments.`,
+        directive.arguments
+      );
+    }
+  },
 };
 
 const DIRECTIVE_LOCALIZED = {
   NAME: 'localized',
+  validate(directive: DirectiveNode) {
+    if (directive.arguments?.length) {
+      throw new GraphQLError(
+        `Directive doesn't accept arguments.`,
+        directive.arguments
+      );
+    }
+  },
 };
 
 const DIRECTIVE_FILE = {
   NAME: 'file',
   ARGS: {
     EXTENSION: 'ext',
+  },
+  validate(directive: DirectiveNode) {
+    if (!directive.arguments?.length) {
+      throw new GraphQLError('Missing file extension.', directive);
+    }
+    for (const arg of directive.arguments) {
+      if (arg.name.value === DIRECTIVE_FILE.ARGS.EXTENSION) {
+        if (arg.value.kind !== 'StringValue') {
+          throw new GraphQLError(`String expected.`, arg.value);
+        }
+      } else {
+        throw new GraphQLError(
+          `Unknown argument "${arg.name.value}".`,
+          arg.name
+        );
+      }
+    }
   },
 };
 
@@ -44,29 +102,84 @@ const DIRECTIVE_FILES_GROUP = {
   ARGS: {
     EXTENSION: 'ext',
   },
+  validate(directive: DirectiveNode) {
+    if (!directive.arguments?.length) {
+      throw new GraphQLError('Missing file extensions.', directive);
+    }
+    for (const arg of directive.arguments) {
+      if (arg.name.value === DIRECTIVE_FILES_GROUP.ARGS.EXTENSION) {
+        if (arg.value.kind !== 'ListValue') {
+          throw new GraphQLError(`List of extensions expected.`, arg.value);
+        }
+        // NOTE allow empty list
+        // if (!arg.value.values.length) {
+        //   throw new GraphQLError(`List of extensions cannot be empty.`, arg.value);
+        // }
+        for (const listValue of arg.value.values) {
+          if (listValue.kind !== 'StringValue') {
+            throw new GraphQLError(`String expected.`, listValue);
+          }
+        }
+      } else {
+        throw new GraphQLError(
+          `Unknown argument "${arg.name.value}".`,
+          arg.name
+        );
+      }
+    }
+  },
+};
+
+const DIRECTIVE_ENUM_INDEXING = {
+  NAME: 'indexing',
+  ARGS: {
+    FIRST: 'first',
+  },
+  validate(directive: DirectiveNode) {
+    if (!directive.arguments?.length) {
+      throw new GraphQLError('Missing first enumerator index.', directive);
+    }
+    for (const arg of directive.arguments) {
+      if (arg.name.value === DIRECTIVE_ENUM_INDEXING.ARGS.FIRST) {
+        if (
+          arg.value.kind !== 'IntValue' ||
+          (Number(arg.value.value) !== 0 && Number(arg.value.value) !== 1)
+        ) {
+          throw new GraphQLError(`Integer 0 or 1 expected.`, arg.value);
+        }
+      } else {
+        throw new GraphQLError(
+          `Unknown argument "${arg.name.value}".`,
+          arg.name
+        );
+      }
+    }
+  },
 };
 
 interface Context {
   typeDefsMap: ReadonlyMap<string, ObjectTypeDefinitionNode>;
-  enumNames: ReadonlySet<string>;
+  enumDefsMap: ReadonlyMap<string, EnumTypeDefinitionNode>;
 }
 
-export function readSchemaSources(sources: readonly Source[]) {
+export function readSchemaSources(
+  sources: readonly Source[]
+): Pick<SchemaFile, 'tables' | 'enumerations'> {
   const typeDefsMap = new Map<string, ObjectTypeDefinitionNode>();
-  const enumNames = new Set<string>();
+  const enumDefsMap = new Map<string, EnumTypeDefinitionNode>();
 
   for (const source of sources) {
     const doc = parse(source, { noLocation: false });
 
     for (const typeNode of doc.definitions) {
       if (typeNode.kind === 'EnumTypeDefinition') {
-        if (enumNames.has(typeNode.name.value)) {
+        if (enumDefsMap.has(typeNode.name.value)) {
           throw new GraphQLError(
             'Enum with this name has already been defined.',
             typeNode.name
           );
         }
-        enumNames.add(typeNode.name.value);
+        enumDefsMap.set(typeNode.name.value, typeNode);
       } else if (typeNode.kind === 'ObjectTypeDefinition') {
         if (typeDefsMap.has(typeNode.name.value)) {
           throw new GraphQLError(
@@ -91,7 +204,7 @@ export function readSchemaSources(sources: readonly Source[]) {
     assert.ok(typeNode.fields != null);
     for (const fieldNode of typeNode.fields) {
       const column = parseFieldNode(
-        { typeDefsMap, enumNames },
+        { typeDefsMap, enumDefsMap },
         table.name,
         fieldNode
       );
@@ -110,7 +223,59 @@ export function readSchemaSources(sources: readonly Source[]) {
     tables.push(table);
   }
 
-  return tables;
+  const enumerations: SchemaEnumeration[] = [];
+  for (const enumNode of enumDefsMap.values()) {
+    enumerations.push(parseEnumNode(enumNode));
+  }
+
+  return { tables, enumerations };
+}
+
+function parseEnumNode(enumNode: EnumTypeDefinitionNode) {
+  const schemaEnum: SchemaEnumeration = {
+    name: enumNode.name.value,
+    indexing: 0,
+    enumerators: [],
+  };
+
+  validateDirectives(enumNode, [DIRECTIVE_ENUM_INDEXING]);
+  {
+    const indexingDirective = findDirective(
+      enumNode,
+      DIRECTIVE_ENUM_INDEXING.NAME
+    );
+    if (!indexingDirective) {
+      throw new GraphQLError(
+        '`indexing` directive is required for enums.',
+        enumNode
+      );
+    }
+    schemaEnum.indexing = getIndexingBase(enumNode);
+  }
+
+  assert.ok(enumNode.values != null);
+  for (const valueNode of enumNode.values) {
+    if (valueNode.name.value === '_') {
+      schemaEnum.enumerators.push(null);
+    } else {
+      if (schemaEnum.enumerators.includes(valueNode.name.value)) {
+        throw new GraphQLError(
+          `Duplicate enumerator "${valueNode.name.value}".`,
+          valueNode.name
+        );
+      }
+      schemaEnum.enumerators.push(valueNode.name.value);
+    }
+  }
+
+  if (
+    schemaEnum.enumerators.length === 1 &&
+    schemaEnum.enumerators[0] === null
+  ) {
+    schemaEnum.enumerators = [];
+  }
+
+  return schemaEnum;
 }
 
 function parseFieldNode(
@@ -118,7 +283,13 @@ function parseFieldNode(
   tableName: string,
   fieldNode: FieldDefinitionNode
 ): TableColumn {
-  validateDirectives(fieldNode);
+  validateDirectives(fieldNode, [
+    DIRECTIVE_REF,
+    DIRECTIVE_UNIQUE,
+    DIRECTIVE_LOCALIZED,
+    DIRECTIVE_FILE,
+    DIRECTIVE_FILES_GROUP,
+  ]);
 
   const unique = isUnique(fieldNode);
   const localized = isLocalized(fieldNode);
@@ -137,11 +308,12 @@ function parseFieldNode(
     if (ctx.typeDefsMap.has(fieldType.name)) {
       references = { table: fieldType.name };
       fieldType.name = 'foreignrow' as ColumnType;
-    } else if (ctx.enumNames.has(fieldType.name)) {
-      fieldType.name = 'i32' as ColumnType;
+    } else if (ctx.enumDefsMap.has(fieldType.name)) {
+      references = { table: fieldType.name };
+      fieldType.name = 'enumrow' as ColumnType;
     } else {
       throw new GraphQLError(
-        `Can't find referenced table "${fieldType.name}".`,
+        `Can't find referenced table/enum "${fieldType.name}".`,
         fieldNode.type
       );
     }
@@ -180,7 +352,8 @@ function parseFieldNode(
     ScalarTypes.has(fieldType.name) ||
       fieldType.name === 'array' ||
       fieldType.name === 'row' ||
-      fieldType.name === 'foreignrow'
+      fieldType.name === 'foreignrow' ||
+      fieldType.name === 'enumrow'
   );
 
   const column: TableColumn = {
@@ -205,6 +378,24 @@ function isUnique(field: FieldDefinitionNode): boolean {
 
 function isLocalized(field: FieldDefinitionNode): boolean {
   return findDirective(field, DIRECTIVE_LOCALIZED.NAME) != null;
+}
+
+function getIndexingBase(
+  node: EnumTypeDefinitionNode
+): SchemaEnumeration['indexing'] {
+  const directive = findDirective(node, DIRECTIVE_ENUM_INDEXING.NAME);
+  assert.ok(directive);
+
+  const { arguments: args } = directive;
+  assert.ok(
+    args?.length === 1 &&
+      args[0].name.value === DIRECTIVE_ENUM_INDEXING.ARGS.FIRST &&
+      args[0].value.kind === 'IntValue'
+  );
+  const first = Number(args[0].value.value);
+  assert(first === 0 || first === 1);
+
+  return first;
 }
 
 function referencesField(field: FieldDefinitionNode): string | undefined {
@@ -316,112 +507,25 @@ function findReferencedField(
   }
 }
 
-function validateDirectives(node: FieldDefinitionNode): void {
+function validateDirectives(
+  node: FieldDefinitionNode | EnumTypeDefinitionNode | ObjectTypeDefinitionNode,
+  specs: Array<{ NAME: string; validate: (directive: DirectiveNode) => void }>
+): void {
   for (const directive of node.directives ?? []) {
-    switch (directive.name.value) {
-      case DIRECTIVE_REF.NAME:
-      case DIRECTIVE_UNIQUE.NAME:
-      case DIRECTIVE_LOCALIZED.NAME:
-      case DIRECTIVE_FILE.NAME:
-      case DIRECTIVE_FILES_GROUP.NAME:
-        break;
-      default:
-        throw new GraphQLError(
-          `Unknown directive "${directive.name.value}".`,
-          directive.name
-        );
-    }
-  }
-
-  let directive = findDirective(node, DIRECTIVE_UNIQUE.NAME);
-  if (directive) {
-    if (directive.arguments?.length) {
+    const spec = specs.find((spec) => spec.NAME === directive.name.value);
+    if (spec) {
+      spec.validate(directive);
+    } else {
       throw new GraphQLError(
-        `Directive doesn't accept arguments.`,
-        directive.arguments
+        `Unknown directive "${directive.name.value}".`,
+        directive.name
       );
-    }
-  }
-
-  directive = findDirective(node, DIRECTIVE_LOCALIZED.NAME);
-  if (directive) {
-    if (directive.arguments?.length) {
-      throw new GraphQLError(
-        `Directive doesn't accept arguments.`,
-        directive.arguments
-      );
-    }
-  }
-
-  directive = findDirective(node, DIRECTIVE_REF.NAME);
-  if (directive) {
-    if (!directive.arguments?.length) {
-      throw new GraphQLError('Missing referenced column name.', directive);
-    }
-    for (const arg of directive.arguments) {
-      if (arg.name.value === DIRECTIVE_REF.ARGS.COLUMN) {
-        if (arg.value.kind !== 'StringValue') {
-          throw new GraphQLError(`String expected.`, arg.value);
-        }
-      } else {
-        throw new GraphQLError(
-          `Unknown argument "${arg.name.value}".`,
-          arg.name
-        );
-      }
-    }
-  }
-
-  directive = findDirective(node, DIRECTIVE_FILE.NAME);
-  if (directive) {
-    if (!directive.arguments?.length) {
-      throw new GraphQLError('Missing file extension.', directive);
-    }
-    for (const arg of directive.arguments) {
-      if (arg.name.value === DIRECTIVE_FILE.ARGS.EXTENSION) {
-        if (arg.value.kind !== 'StringValue') {
-          throw new GraphQLError(`String expected.`, arg.value);
-        }
-      } else {
-        throw new GraphQLError(
-          `Unknown argument "${arg.name.value}".`,
-          arg.name
-        );
-      }
-    }
-  }
-
-  directive = findDirective(node, DIRECTIVE_FILES_GROUP.NAME);
-  if (directive) {
-    if (!directive.arguments?.length) {
-      throw new GraphQLError('Missing file extensions.', directive);
-    }
-    for (const arg of directive.arguments) {
-      if (arg.name.value === DIRECTIVE_FILES_GROUP.ARGS.EXTENSION) {
-        if (arg.value.kind !== 'ListValue') {
-          throw new GraphQLError(`List of extensions expected.`, arg.value);
-        }
-        // NOTE allow empty list
-        // if (!arg.value.values.length) {
-        //   throw new GraphQLError(`List of extensions cannot be empty.`, arg.value);
-        // }
-        for (const listValue of arg.value.values) {
-          if (listValue.kind !== 'StringValue') {
-            throw new GraphQLError(`String expected.`, listValue);
-          }
-        }
-      } else {
-        throw new GraphQLError(
-          `Unknown argument "${arg.name.value}".`,
-          arg.name
-        );
-      }
     }
   }
 }
 
 function findDirective(
-  node: FieldDefinitionNode,
+  node: FieldDefinitionNode | EnumTypeDefinitionNode | ObjectTypeDefinitionNode,
   name: string
 ): DirectiveNode | undefined {
   return (node.directives ?? []).find(

@@ -1,4 +1,4 @@
-enum AccountQuestFlags { _ }
+enum AccountQuestFlags @indexing(first: 0) { _ }
 
 type AchievementItemRewards {
   AchievementItemsKey: AchievementItems
@@ -50,7 +50,7 @@ type AchievementSetRewards {
   Id: string
 }
 
-enum AchievementSets { _ }
+enum AchievementSets @indexing(first: 0) { _ }
 
 type AchievementSetsDisplay {
   Id: i32 @unique
@@ -89,7 +89,7 @@ type ActiveSkills {
   _: bool
 }
 
-enum ActiveSkillTargetTypes { _ }
+enum ActiveSkillTargetTypes @indexing(first: 0) { _ }
 
 type ActiveSkillType {
   Id: string @unique
@@ -127,7 +127,7 @@ type AdditionalLifeScaling {
   DatFile: string @file(ext: ".dat")
 }
 
-enum AdditionalLifeScalingPerLevel { _ }
+enum AdditionalLifeScalingPerLevel @indexing(first: 0) { _ }
 
 type AdditionalMonsterPacksFromStats {
   StatsKey: Stats
@@ -140,7 +140,7 @@ type AdditionalMonsterPacksFromStats {
   _: i32
 }
 
-enum AdditionalMonsterPacksStatMode { _ }
+enum AdditionalMonsterPacksStatMode @indexing(first: 0) { _ }
 
 type AdvancedSkillsTutorial {
   Id: string @unique
@@ -166,7 +166,7 @@ type AegisVariations {
   _: rid
 }
 
-enum AlternateBehaviourTypes { _ }
+enum AlternateBehaviourTypes @indexing(first: 0) { _ }
 
 type AlternatePassiveAdditions {
   Id: string @unique
@@ -222,7 +222,7 @@ type AlternateSkillTargetingBehaviours {
   _: [i32]
 }
 
-enum AlternateTreePassiveSizes { _ }
+enum AlternateTreePassiveSizes @indexing(first: 0) { _ }
 
 type AlternateTreeVersions {
   Id: string @unique
@@ -323,11 +323,11 @@ type AreaTransitionInfo {
   _: [rid]
 }
 
-enum AreaType { _ }
+enum AreaType @indexing(first: 0) { _ }
 
-enum ArmourClasses { _ }
+enum ArmourClasses @indexing(first: 0) { _ }
 
-enum ArmourSurfaceTypes { _ }
+enum ArmourSurfaceTypes @indexing(first: 0) { _ }
 
 type ArmourTypes {
   BaseItemTypesKey: BaseItemTypes
@@ -396,7 +396,7 @@ type AtlasMods {
   AtlasModTiers: i32
 }
 
-enum AtlasModTiers { _ }
+enum AtlasModTiers @indexing(first: 0) { _ }
 
 type AtlasNode {
   WorldAreasKey: WorldAreas
@@ -459,7 +459,7 @@ type AtlasPositions {
   Y: f32
 }
 
-enum AtlasQuadrant { _ }
+enum AtlasQuadrant @indexing(first: 0) { _ }
 
 type AtlasRegions {
   Id: string @unique
@@ -497,7 +497,7 @@ type AtlasSector {
   SpawnWeight_Values: [i32]
 }
 
-enum Attributes { _ }
+enum Attributes @indexing(first: 0) { _ }
 
 type AwardDisplay {
   Id: string @unique
@@ -592,7 +592,7 @@ type BloodTypes {
   _: rid
 }
 
-enum BuffCategories { _ }
+enum BuffCategories @indexing(first: 0) { _ }
 
 type BuffDefinitions {
   Id: string @unique
@@ -642,11 +642,11 @@ type BuffDefinitions {
   _: rid
 }
 
-enum BuffGroups { _ }
+enum BuffGroups @indexing(first: 0) { _ }
 
-enum BuffMergeModes { _ }
+enum BuffMergeModes @indexing(first: 0) { _ }
 
-enum BuffStackUIModes { _ }
+enum BuffStackUIModes @indexing(first: 0) { _ }
 
 type BuffTemplates {
   Id: string @unique
@@ -726,7 +726,7 @@ type BuffVisualSetEntries {
   _: i32
 }
 
-enum BuffVisualSets { _ }
+enum BuffVisualSets @indexing(first: 0) { _ }
 
 type CharacterAudioEvents {
   Id: string @unique
@@ -755,7 +755,7 @@ type CharacterPanelDescriptionModes {
   FormatString_Negative: string
 }
 
-enum CharacterPanelStatContexts { _ }
+enum CharacterPanelStatContexts @indexing(first: 0) { _ }
 
 type CharacterPanelStats {
   Id: string @unique
@@ -924,7 +924,7 @@ type ClientStrings {
   PlaystationText: string
 }
 
-enum ClientUIScreens { _ }
+enum ClientUIScreens @indexing(first: 0) { _ }
 
 type CloneShot {
   Id: i32 @unique
@@ -966,9 +966,9 @@ type ComponentCharges {
   PerCharge2: i32
 }
 
-enum CooldownBypassTypes { _ }
+enum CooldownBypassTypes @indexing(first: 0) { _ }
 
-enum CooldownGroups { _ }
+enum CooldownGroups @indexing(first: 0) { _ }
 
 type CostTypes {
   Id: string
@@ -977,7 +977,7 @@ type CostTypes {
   _: i32
 }
 
-enum CraftingBenchCustomActions { _ }
+enum CraftingBenchCustomActions @indexing(first: 0) { _ }
 
 type CraftingBenchOptions {
   HideoutNPCsKey: HideoutNPCs
@@ -1074,7 +1074,7 @@ type CurrencyStashTabLayout {
   _: bool
 }
 
-enum CurrencyUseTypes { _ }
+enum CurrencyUseTypes @indexing(first: 0) { _ }
 
 type CustomLeagueMods {
   Id: string @unique
@@ -1123,7 +1123,7 @@ type DamageParticleEffects {
   _: i32
 }
 
-enum DamageParticleEffectTypes { _ }
+enum DamageParticleEffectTypes @indexing(first: 0) { _ }
 
 type Dances {
   BaseItemTypesKey: BaseItemTypes
@@ -1143,7 +1143,7 @@ type DaressoPitFights {
   _: bool
 }
 
-enum Default { _ }
+enum Default @indexing(first: 0) { _ }
 
 type DefaultMonsterStats {
   DisplayLevel: string
@@ -1229,7 +1229,7 @@ type DialogueEvent {
   Timer: i32
 }
 
-enum Directions { _ }
+enum Directions @indexing(first: 0) { _ }
 
 type DisplayMinionMonsterType {
   Id: i32 @unique
@@ -1299,7 +1299,7 @@ type EffectDrivenSkill {
   _: i32
 }
 
-enum Effectiveness { _ }
+enum Effectiveness @indexing(first: 0) { _ }
 
 type EffectivenessCostConstants {
   Id: string @unique
@@ -1387,7 +1387,7 @@ type EvergreenAchievements {
   _: [rid]
 }
 
-enum EvergreenAchievementTypes { _ }
+enum EvergreenAchievementTypes @indexing(first: 0) { _ }
 
 type ExecuteGEAL {
   _: i32
@@ -1513,7 +1513,7 @@ type Flasks {
   BuffStatValues2: [i32]
 }
 
-enum FlaskType { _ }
+enum FlaskType @indexing(first: 0) { _ }
 
 type FlavourText {
   Id: string @unique
@@ -1521,7 +1521,7 @@ type FlavourText {
   Text: string
 }
 
-enum FlavourTextImages { _ }
+enum FlavourTextImages @indexing(first: 0) { _ }
 
 type Footprints {
   Id: string @unique
@@ -1580,7 +1580,7 @@ type GemTags {
   Stat4: Stats
 }
 
-enum GemTypes { _ }
+enum GemTypes @indexing(first: 0) { _ }
 
 type GenericBuffAuras {
   Id: string @unique
@@ -1747,7 +1747,7 @@ type Grandmasters {
   _: bool
 }
 
-enum GrantedEffectGroups { _ }
+enum GrantedEffectGroups @indexing(first: 0) { _ }
 
 type GrantedEffectQualityStats {
   GrantedEffectsKey: GrantedEffects
@@ -1858,7 +1858,7 @@ type GrantedEffectsPerLevel {
   AttackTime: i32
 }
 
-enum GroundEffectEffectTypes { _ }
+enum GroundEffectEffectTypes @indexing(first: 0) { _ }
 
 type GroundEffects {
   GroundEffectTypesKey: GroundEffectTypes
@@ -2011,7 +2011,7 @@ type InfluenceTags {
   Tag: Tags
 }
 
-enum InfluenceTypes { _ }
+enum InfluenceTypes @indexing(first: 0) { _ }
 
 type Inventories {
   Id: string
@@ -2023,9 +2023,9 @@ type Inventories {
   _: bool
 }
 
-enum InventoryId { _ }
+enum InventoryId @indexing(first: 0) { _ }
 
-enum InventoryType { _ }
+enum InventoryType @indexing(first: 0) { _ }
 
 type ItemClassCategories {
   Id: string @unique
@@ -2077,7 +2077,7 @@ type ItemCosts {
   Cost4Values: [i32]
 }
 
-enum ItemCreationTemplateCustomAction { _ }
+enum ItemCreationTemplateCustomAction @indexing(first: 0) { _ }
 
 type ItemExperiencePerLevel {
   BaseItemTypesKey: BaseItemTypes
@@ -2106,7 +2106,7 @@ type ItemNoteCode {
   _: bool
 }
 
-enum ItemSetNames { _ }
+enum ItemSetNames @indexing(first: 0) { _ }
 
 type ItemShopType {
   Id: string @unique
@@ -2233,7 +2233,7 @@ type KillstreakThresholds {
   AchievementItemsKey: AchievementItems
 }
 
-enum LeagueCategory { _ }
+enum LeagueCategory @indexing(first: 0) { _ }
 
 type LeagueFlag {
   Id: string @unique
@@ -2242,7 +2242,7 @@ type LeagueFlag {
   IsSSF: bool
 }
 
-enum LeagueFlags { _ }
+enum LeagueFlags @indexing(first: 0) { _ }
 
 type LeagueInfo {
   Id: string @unique
@@ -2260,9 +2260,9 @@ type LeagueInfo {
   _: bool
 }
 
-enum LeagueQuestFlags { _ }
+enum LeagueQuestFlags @indexing(first: 0) { _ }
 
-enum LeagueTrophy { _ }
+enum LeagueTrophy @indexing(first: 0) { _ }
 
 type LevelRelativePlayerScaling {
   PlayerLevel: i32 @unique
@@ -2334,7 +2334,7 @@ type MapDevices {
   _: bool
 }
 
-enum MapFragmentFamilies { _ }
+enum MapFragmentFamilies @indexing(first: 0) { _ }
 
 type MapFragmentMods {
   BaseItemTypesKey: BaseItemTypes @unique
@@ -2427,7 +2427,7 @@ type MapSeriesTiers {
   _: i32
 }
 
-enum MapStashTabLayout { _ }
+enum MapStashTabLayout @indexing(first: 0) { _ }
 
 type MapStatConditions {
   Id: string @unique
@@ -2562,7 +2562,7 @@ type MicrotransactionRarityDisplay {
   ImageFile: string
 }
 
-enum MicrotransactionRecycleCategories { _ }
+enum MicrotransactionRecycleCategories @indexing(first: 0) { _ }
 
 type MicrotransactionRecycleOutcomes {
   _: rid
@@ -2575,7 +2575,7 @@ type MicrotransactionRecycleSalvageValues {
   _: i32
 }
 
-enum MicrotransactionSlotId { _ }
+enum MicrotransactionSlotId @indexing(first: 0) { _ }
 
 type MicrotransactionSocialFrameVariations {
   Id: i32 @unique
@@ -2670,7 +2670,7 @@ type MissionFavourPerLevel {
   Favour: i32
 }
 
-enum MissionTileMap { _ }
+enum MissionTileMap @indexing(first: 0) { _ }
 
 type MissionTimerTypes {
   Id: string
@@ -2690,9 +2690,9 @@ type MissionTransitionTiles {
   _: i32
 }
 
-enum ModAuraFlags { _ }
+enum ModAuraFlags @indexing(first: 0) { _ }
 
-enum ModDomains { _ }
+enum ModDomains @indexing(first: 0) { _ }
 
 type ModEffectStats {
   StatsKey: Stats
@@ -2710,9 +2710,9 @@ type ModEquivalencies {
   _: bool
 }
 
-enum ModFamily { _ }
+enum ModFamily @indexing(first: 0) { _ }
 
-enum ModGenerationType { _ }
+enum ModGenerationType @indexing(first: 0) { _ }
 
 type Mods {
   Id: string @unique
@@ -2793,7 +2793,7 @@ type ModSellPriceTypes {
   Id: string
 }
 
-enum ModSetNames { _ }
+enum ModSetNames @indexing(first: 0) { _ }
 
 type ModSets {
   _: string
@@ -2812,7 +2812,7 @@ type MonsterArmours {
   ArtString_SMFile: string @file(ext: ".sm")
 }
 
-enum MonsterBehavior { _ }
+enum MonsterBehavior @indexing(first: 0) { _ }
 
 type MonsterBonuses {
   Id: string @unique
@@ -2892,7 +2892,7 @@ type MonsterDeathConditions {
   _: rid
 }
 
-enum MonsterFleeConditions { _ }
+enum MonsterFleeConditions @indexing(first: 0) { _ }
 
 type MonsterGroupEntries {
   Id: string @unique
@@ -2900,7 +2900,7 @@ type MonsterGroupEntries {
   MonsterGroupNamesId: i32
 }
 
-enum MonsterGroupNames { _ }
+enum MonsterGroupNames @indexing(first: 0) { _ }
 
 type MonsterHeightBrackets {
   Id: string @unique
@@ -3037,36 +3037,36 @@ type MonsterResistances {
   ChaosMerciless: i32
 }
 
-enum MonsterScalingByLevel { _ }
+enum MonsterScalingByLevel @indexing(first: 0) { _ }
 
 type MonsterSegments {
   Id: string
   Shapes: string
 }
 
-enum MonsterSize { _ }
+enum MonsterSize @indexing(first: 0) { _ }
 
-enum MonsterSkillsAliveDead { _ }
+enum MonsterSkillsAliveDead @indexing(first: 0) { _ }
 
-enum MonsterSkillsAttackSpell { _ }
+enum MonsterSkillsAttackSpell @indexing(first: 0) { _ }
 
-enum MonsterSkillsClientInstance { _ }
+enum MonsterSkillsClientInstance @indexing(first: 0) { _ }
 
-enum MonsterSkillsHull { _ }
+enum MonsterSkillsHull @indexing(first: 0) { _ }
 
-enum MonsterSkillsOrientation { _ }
+enum MonsterSkillsOrientation @indexing(first: 0) { _ }
 
-enum MonsterSkillsPlacement { _ }
+enum MonsterSkillsPlacement @indexing(first: 0) { _ }
 
-enum MonsterSkillsReference { _ }
+enum MonsterSkillsReference @indexing(first: 0) { _ }
 
-enum MonsterSkillsSequenceMode { _ }
+enum MonsterSkillsSequenceMode @indexing(first: 0) { _ }
 
-enum MonsterSkillsShape { _ }
+enum MonsterSkillsShape @indexing(first: 0) { _ }
 
-enum MonsterSkillsTargets { _ }
+enum MonsterSkillsTargets @indexing(first: 0) { _ }
 
-enum MonsterSkillsWaveDirection { _ }
+enum MonsterSkillsWaveDirection @indexing(first: 0) { _ }
 
 type MonsterSpawnerGroups {
   Id: string @files(ext: [".ot", ".otc"])
@@ -3516,16 +3516,16 @@ type NPCTextAudio {
   _: rid
 }
 
-enum NPCTextAudioInterruptRules { _ }
+enum NPCTextAudioInterruptRules @indexing(first: 0) { _ }
 
-enum OldMapStashTabLayout { _ }
+enum OldMapStashTabLayout @indexing(first: 0) { _ }
 
 type OnKillAchievements {
   MonsterVarietiesKey: MonsterVarieties
   GameStat: GameStats
 }
 
-enum Orientations { _ }
+enum Orientations @indexing(first: 0) { _ }
 
 type PackFormation {
   Id: string
@@ -3618,7 +3618,7 @@ type PassiveSkills {
   MasteryGroup: PassiveSkillMasteryGroups
 }
 
-enum PassiveSkillTypes {
+enum PassiveSkillTypes @indexing(first: 0) {
   PASSIVE_TREE
   ATLAS_TREE
 }
@@ -3694,7 +3694,7 @@ type PCBangRewardMicros {
   _: i32
 }
 
-enum PerLevelValues { _ }
+enum PerLevelValues @indexing(first: 0) { _ }
 
 type Pet {
   Id: string @unique @files(ext: [".ot", ".otc"])
@@ -3724,7 +3724,7 @@ type PreloadGroups {
   Id: string @unique
 }
 
-enum PreloadPriorities { _ }
+enum PreloadPriorities @indexing(first: 0) { _ }
 
 type Projectiles {
   Id: string @unique @files(ext: [".ot", ".otc"])
@@ -3799,7 +3799,7 @@ type QuestAchievements {
   NPCs: [NPCs]
 }
 
-enum QuestFlags { _ }
+enum QuestFlags @indexing(first: 0) { _ }
 
 type QuestItems {
   Item: BaseItemTypes
@@ -3844,9 +3844,9 @@ type QuestRewards {
   _: i32
 }
 
-enum QuestRewardType { _ }
+enum QuestRewardType @indexing(first: 0) { _ }
 
-enum QuestStateCalculation { _ }
+enum QuestStateCalculation @indexing(first: 0) { _ }
 
 type QuestStates {
   QuestKey: Quest
@@ -3956,7 +3956,7 @@ type RecipeUnlockObjects {
   RecipeId: i32
 }
 
-enum RelativeImportanceConstants { _ }
+enum RelativeImportanceConstants @indexing(first: 0) { _ }
 
 type Rulesets {
   Id: string @unique
@@ -4006,9 +4006,9 @@ type ShopCurrency {
   CurrencySign: string
 }
 
-enum ShopForumBadge { _ }
+enum ShopForumBadge @indexing(first: 0) { _ }
 
-enum ShopPackagePlatform { _ }
+enum ShopPackagePlatform @indexing(first: 0) { _ }
 
 type ShopPaymentPackage {
   Id: string @unique
@@ -4038,7 +4038,7 @@ type ShopPaymentPackagePrice {
   Price: i32
 }
 
-enum ShopPaymentPackageProxy { _ }
+enum ShopPaymentPackageProxy @indexing(first: 0) { _ }
 
 type ShopRegion {
   Id: string @unique
@@ -4118,7 +4118,7 @@ type SkillGems {
   RegularVariant: SkillGems
 }
 
-enum SkillMines { _ }
+enum SkillMines @indexing(first: 0) { _ }
 
 type SkillMineVariations {
   SkillMinesKey: i32
@@ -4138,9 +4138,9 @@ type SkillMorphDisplay {
   _: bool
 }
 
-enum SkillMorphDisplayOverlayCondition { _ }
+enum SkillMorphDisplayOverlayCondition @indexing(first: 0) { _ }
 
-enum SkillMorphDisplayOverlayStyle { _ }
+enum SkillMorphDisplayOverlayStyle @indexing(first: 0) { _ }
 
 type SkillSurgeEffects {
   GrantedEffectsKey: GrantedEffects
@@ -4158,7 +4158,7 @@ type SkillSurgeEffects {
   _: bool
 }
 
-enum SkillTotems { _ }
+enum SkillTotems @indexing(first: 0) { _ }
 
 type SkillTotemVariations {
   SkillTotemsKey: SkillTotems
@@ -4234,7 +4234,7 @@ type StartingPassiveSkills {
   PassiveSkills: [PassiveSkills]
 }
 
-enum StashId { _ }
+enum StashId @indexing(first: 0) { _ }
 
 type StashTabAffinities {
   SpecializedStash: StashId
@@ -4256,7 +4256,7 @@ type StatDescriptionFunctions {
   TranslationId: string @unique
 }
 
-enum StatInterpolationTypes { _ }
+enum StatInterpolationTypes @indexing(first: 0) { _ }
 
 type Stats {
   Id: string @unique
@@ -4284,7 +4284,7 @@ type Stats {
   ContextFlags: [VirtualStatContextFlags]
 }
 
-enum StatSemantics {
+enum StatSemantics @indexing(first: 1) {
   PERCENT
   OVERRIDE_VALUE
   VALUE
@@ -4397,7 +4397,7 @@ type SupporterPackSets {
   _: string
 }
 
-enum SurgeCategory { _ }
+enum SurgeCategory @indexing(first: 0) { _ }
 
 type SurgeEffects {
   Id: string
@@ -4568,7 +4568,7 @@ type Tutorial {
   _: bool
 }
 
-enum UITalkCategories { _ }
+enum UITalkCategories @indexing(first: 0) { _ }
 
 type UITalkText {
   Id: string @unique
@@ -4619,7 +4619,7 @@ type UniqueMaps {
   IsDropDisabled: bool
 }
 
-enum UniqueSetNames { _ }
+enum UniqueSetNames @indexing(first: 0) { _ }
 
 type UniqueStashLayout {
   WordsKey: Words
@@ -4667,14 +4667,14 @@ type VoteType {
   _: i32
 }
 
-enum WeaponArmourCommon { _ }
+enum WeaponArmourCommon @indexing(first: 0) { _ }
 
 type WeaponClasses {
   _: rid
   _: i32
 }
 
-enum WeaponDamageScaling { _ }
+enum WeaponDamageScaling @indexing(first: 0) { _ }
 
 type WeaponImpactSoundData {
   Id: string @unique
@@ -4685,7 +4685,7 @@ type WeaponImpactSoundData {
   _: i32
 }
 
-enum WeaponSoundTypes { _ }
+enum WeaponSoundTypes @indexing(first: 0) { _ }
 
 type WeaponTypes {
   BaseItemTypesKey: BaseItemTypes @unique
@@ -4710,7 +4710,7 @@ type WindowCursors {
   _: i32
 }
 
-enum Wordlists { _ }
+enum Wordlists @indexing(first: 0) { _ }
 
 type Words {
   WordlistsKey: i32

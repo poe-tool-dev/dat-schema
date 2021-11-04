@@ -183,4 +183,4 @@ type DelveUpgrades {
   _: i32
 }
 
-enum DelveUpgradeType { _ }
+enum DelveUpgradeType @indexing(first: 0) { _ }

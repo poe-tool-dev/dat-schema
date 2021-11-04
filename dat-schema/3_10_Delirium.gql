@@ -39,7 +39,7 @@ type AfflictionRewardMapMods {
   _: bool
 }
 
-enum AfflictionRewardTypes { _ }
+enum AfflictionRewardTypes @indexing(first: 0) { _ }
 
 type AfflictionRewardTypeVisuals {
   AfflictionRewardTypes: AfflictionRewardTypes
