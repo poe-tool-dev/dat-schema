@@ -1,6 +1,6 @@
 {
   "name": "pathofexile-dat-schema",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
