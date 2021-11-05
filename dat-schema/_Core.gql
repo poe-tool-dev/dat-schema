@@ -3823,7 +3823,7 @@ type QuestRewardOffers {
 }
 
 type QuestRewards {
-  Quest: Quest
+  RewardOffer: QuestRewardOffers
   _: i32
   Character: Characters
   Reward: BaseItemTypes
