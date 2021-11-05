@@ -3823,16 +3823,16 @@ type QuestRewardOffers {
 }
 
 type QuestRewards {
+  Quest: Quest
+  _: i32
+  Character: Characters
+  Reward: BaseItemTypes
+  RewardLevel: i32
   _: rid
   _: i32
-  _: rid
-  _: rid
-  _: i32
-  _: rid
-  _: i32
-  _: QuestRewards
+  _: string
   _: [_]
-  _: i32
+  RewardStack: i32
   _: bool
   _: bool
   _: [_]
