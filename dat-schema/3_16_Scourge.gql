@@ -19,17 +19,17 @@ type HellscapeExperienceLevels {
 
 type HellscapeFactions {
   Id: string @unique
-  _: rid
-  _: rid
-  _: [rid]
+  _: Environments
+  _: Environments
+  _: [Environments]
   _: i32
-  _: [rid]
+  _: [MonsterVarieties]
   _: string @file(ext: ".ao")
-  _: rid
+  Boss: MonsterVarieties
 }
 
 type HellscapeImmuneMonsters {
-  _: rid
+  Monster: MonsterVarieties
 }
 
 type HellscapeItemModificationTiers {
@@ -46,21 +46,21 @@ type HellscapeLifeScalingPerLevel {
 
 type HellscapeModificationInventoryLayout {
   Id: string @unique
-  _: i32
-  _: i32
+  Column: i32
+  Row: i32
   IsMapSlot: bool
   _: i32
   Width: i32
   Height: i32
   Stat: Stats
   StatValue: i32
-  _: rid
-  _: rid
+  UnlockedWith: HellscapePassives
+  Quest: Quest
 }
 
 type HellscapeMods {
   Mod: Mods
-  _: [i32]
+  TiersWhitelist: [i32]
   TransformAchievement: AchievementItems
   CorrectGroups: [string]
 }
@@ -84,9 +84,9 @@ type HellscapePassives {
   HASH16: i32
   Icon: string
   IconMaxed: string
-  _: rid
+  SoundEffect: SoundEffects
   _: i32
-  _: rid
+  Quest: Quest
 }
 
 type HellscapePassiveTree {

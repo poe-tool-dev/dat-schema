@@ -1058,9 +1058,9 @@ type CurrencyItems {
   _: i32
   _: rid
   _: rid
-  AchievementItemsKeys: [AchievementItems]
-  _: [rid]
-  _: rid
+  ModifyMapsAchievements: [AchievementItems]
+  ModifyContractsAchievements: [AchievementItems]
+  CombineAchievements: [AchievementItems]
 }
 
 type CurrencyStashTabLayout {
