@@ -4620,10 +4620,10 @@ type UniqueStashLayout {
   UniqueStashTypesKey: UniqueStashTypes
   _: i32
   _: i32
-  _: i32
-  _: i32
-  ShowIfEmpty: bool
+  OverrideWidth: i32
+  OverrideHeight: i32
   _: bool
+  ShowIfEmpty: bool
   RenamedVersion: UniqueStashLayout
   BaseVersion: UniqueStashLayout
   IsAlternateArt: bool
