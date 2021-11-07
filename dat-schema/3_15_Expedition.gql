@@ -29,12 +29,12 @@ type ExpeditionBalancePerLevel {
 
 type ExpeditionCurrency {
   BaseItemType: BaseItemTypes
-  _: i32
+  Tier: i32
   NPC: ExpeditionNPCs
-  _: rid
+  LootSound: SoundEffects
 }
 
-enum ExpeditionDealFamilies @indexing(first: 0) {
+enum ExpeditionDealFamilies @indexing(first: 1) {
   REROLL_PREFIXES_BEST
   REROLL_SUFFIXES_BEST
   VALUES_AFFIXES_LUCKY

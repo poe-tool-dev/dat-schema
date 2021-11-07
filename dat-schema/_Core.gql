@@ -78,7 +78,7 @@ type ActiveSkills {
   MinionActiveSkillTypes: [ActiveSkillType]
   _: bool
   _: bool
-  _: [rid]
+  _: [Stats]
   _: i32
   AlternateSkillTargetingBehavioursKey: AlternateSkillTargetingBehaviours
   _: bool
@@ -93,7 +93,7 @@ enum ActiveSkillTargetTypes @indexing(first: 0) { _ }
 
 type ActiveSkillType {
   Id: string @unique
-  _: rid
+  FlagStat: Stats
 }
 
 type Acts {
@@ -466,16 +466,16 @@ type AtlasRegions {
   Name: string
   _: i32
   _: rid
-  _: i32
-  _: i32
+  _: f32
+  _: f32
   _: rid
   CitadelName: string
   _: i32
   BK2File: string @file(ext: ".bk2")
   _: i32
+  AdviceAudio: NPCTextAudio
   _: rid
-  _: rid
-  _: rid
+  Quest: Quest
 }
 
 type AtlasRegionUpgradesInventoryLayout {
@@ -633,13 +633,13 @@ type BuffDefinitions {
   _: bool
   _: rid
   _: bool
-  _: [rid]
-  _: [rid]
-  _: [rid]
-  _: [rid]
+  _: [Stats]
+  _: [Stats]
+  _: [Stats]
+  _: [Stats]
   _: i32
   _: bool
-  _: rid
+  _: Stats
 }
 
 enum BuffGroups @indexing(first: 0) { _ }
@@ -1018,7 +1018,7 @@ type CraftingBenchOptions {
 
 type CraftingBenchSortCategories {
   Id: string @unique
-  _: rid
+  Name: ClientStrings
   IsVisible: bool
 }
 
@@ -2741,8 +2741,8 @@ type Mods {
   GrantedEffectsPerLevelKeys: [GrantedEffectsPerLevel]
   _: [i32]
   MonsterMetadata: string
-  _: [rid]
-  _: [rid]
+  MonsterKillAchievements: [AchievementItems]
+  ChestModType: [ModType]
   Stat5Min: i32
   Stat5Max: i32
   StatsKey5: Stats
@@ -2750,7 +2750,7 @@ type Mods {
   AchievementItemsKey: [AchievementItems]
   GenerationWeight_TagsKeys: [Tags]
   GenerationWeight_Values: [i32]
-  _: [_]
+  ModifyMapsAchievements: [AchievementItems]
   IsEssenceOnlyModifier: bool
   Stat6Min: i32
   Stat6Max: i32
@@ -2794,13 +2794,6 @@ type ModSellPriceTypes {
 }
 
 enum ModSetNames @indexing(first: 0) { _ }
-
-type ModSets {
-  _: string
-  _: i32
-  _: rid
-  _: i32
-}
 
 type ModType {
   Name: string @unique
@@ -3348,7 +3341,7 @@ type NPCAudio {
 
 type NPCConversations {
   Id: string
-  _: rid
+  DialogueEvent: DialogueEvent
   NPCTextAudioKeys: [NPCTextAudio]
   _: [i32]
   _: i32
@@ -3413,7 +3406,7 @@ type NPCMaster {
   AreaDescription: string
   _: rid
   _: i32
-  _: rid
+  _: Stats
 }
 
 type NPCPortraits {
@@ -3544,11 +3537,11 @@ type PassiveJewelRadii {
 }
 
 type PassiveJewelSlots {
-  PassiveSkillsKey: PassiveSkills
-  PassiveTreeExpansionJewelSize: PassiveTreeExpansionJewelSizes
+  Slot: PassiveSkills
+  ClusterJewelSize: PassiveTreeExpansionJewelSizes
   _: i32
-  PassiveJewelSlotsKey: PassiveJewelSlots
-  _: rid
+  ReplacesSlot: PassiveJewelSlots
+  ProxySlot: PassiveSkills
   _: [i32]
 }
 
@@ -3565,18 +3558,18 @@ type PassiveSkillFilterOptions {
 }
 
 type PassiveSkillMasteryGroups {
-  ID: string
+  Id: string
   MasteryEffects: [PassiveSkillMasteryEffects]
-  InactiveIcon: string
-  ActiveIcon: string
+  InactiveIcon: string @file(ext: ".dds")
+  ActiveIcon: string @file(ext: ".dds")
   ActiveEffectImage: string
   _: bool
-  _: rid
+  SoundEffect: SoundEffects
 }
 
 type PassiveSkillMasteryEffects {
-  ID: string
-  hash: i32
+  Id: string
+  HASH16: i32
   Stats: [Stats]
   Stat1Value: i32
   Stat2Value: i32
@@ -3863,9 +3856,9 @@ type QuestStates {
   _: [rid]
   _: bool
   _: [i32]
-  QuestStateCalcuationKey: [QuestStates]
+  _: [i32]
   _: i32
-  _: rid
+  SoundEffect: SoundEffects
 }
 
 type QuestStaticRewards {
@@ -3947,7 +3940,7 @@ type RecipeUnlockDisplay {
   CraftingItemClassCategoriesKeys: [CraftingItemClassCategories]
   UnlockDescription: string
   Rank: i32
-  _: rid
+  UnlockArea: WorldAreas
 }
 
 type RecipeUnlockObjects {
@@ -4224,8 +4217,8 @@ type SpecialTiles {
 }
 
 type SpectreOverrides {
-  _: rid
-  _: rid
+  Monster: MonsterVarieties
+  Spectre: MonsterVarieties
   _: [rid]
 }
 
@@ -4271,9 +4264,9 @@ type Stats {
   MainHandAlias_StatsKey: Stats
   OffHandAlias_StatsKey: Stats
   _: bool
-  _: i32
+  HASH32: i32
   BelongsActiveSkillsKey: [ActiveSkills] @ref(column: "Id")
-  _: rid
+  Category: PassiveSkillStatCategories
   _: bool
   _: bool
 
@@ -4596,7 +4589,7 @@ type UniqueChests {
 }
 
 type UniqueJewelLimits {
-  _: rid
+  JewelName: Words
   Limit: i32
 }
 
@@ -4670,7 +4663,7 @@ type VoteType {
 enum WeaponArmourCommon @indexing(first: 0) { _ }
 
 type WeaponClasses {
-  _: rid
+  ItemClass: ItemClasses
   _: i32
 }
 
@@ -4796,7 +4789,7 @@ type WorldAreas {
 }
 
 type WorldAreaLeagueChances {
-  _: rid
+  Area: WorldAreas
   _: i32
   _: i32
   _: i32

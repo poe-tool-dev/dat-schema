@@ -84,11 +84,11 @@ type HeistChests {
 enum HeistChestTypes @indexing(first: 0) { _ }
 
 type HeistChokepointFormation {
-  _: rid
+  _: MonsterVarieties
   _: i32
   _: [i32]
-  _: [rid]
-  _: rid
+  _: [GrantedEffects]
+  _: GrantedEffects
   _: i32
   _: bool
   _: i32
@@ -210,8 +210,8 @@ type HeistLockType {
 }
 
 type HeistNPCAuras {
-  StatsKey: Stats
-  _: rid
+  Stat: Stats
+  GrantedEffect: GrantedEffects
 }
 
 type HeistNPCBlueprintTypes {
@@ -265,8 +265,8 @@ type HeistObjectives {
 }
 
 type HeistObjectiveValueDescriptions {
-  _: i32
-  _: i32
+  Tier: i32
+  MarkersMultiply: f32
   Description: string
 }
 
