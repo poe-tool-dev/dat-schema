@@ -89,7 +89,19 @@ type ActiveSkills {
   _: bool
 }
 
-enum ActiveSkillTargetTypes @indexing(first: 0) { _ }
+enum ActiveSkillTargetTypes @indexing(first: 1) {
+  TARGETABLE_GROUND
+  ENEMY
+  WALKABLE_GROUND
+  ANYWHERE_SELF_TARGET
+  ITEM
+  CORPSE
+  UNUSED1
+  NO_LINE_OF_SIGHT
+  BEHIND_MONSTER
+  SELF_ORIGIN
+  ROTATE_TO_TARGET
+}
 
 type ActiveSkillType {
   Id: string @unique
@@ -529,20 +541,20 @@ type BaseItemTypes {
   FlavourTextKey: FlavourText
   Implicit_ModsKeys: [Mods]
   SizeOnGround: i32
-  SoundEffectsKey: SoundEffects
+  SoundEffect: SoundEffects
   TagsKeys: [Tags]
-  ModDomainsKey: i32
+  ModDomain: ModDomains
   IsDropDisabled: bool
-  ItemVisualIdentityKey: ItemVisualIdentity
+  ItemVisualIdentity: ItemVisualIdentity
   HASH: i32 @unique
-  VendorRecipe_AchievementItemsKeys: [AchievementItems]
+  VendorRecipe_AchievementItems: [AchievementItems]
   "the inflection identifier used for i18n in related fields"
   Inflection: string
   Equip_AchievementItemsKey: AchievementItems
   IsCorrupted: bool
-  Identify_AchievementItemsKeys: [AchievementItems]
+  Identify_AchievementItems: [AchievementItems]
   ItemThemesKey: ItemThemes
-  IdentifyMagic_AchievementItemsKeys: [AchievementItems]
+  IdentifyMagic_AchievementItems: [AchievementItems]
   "the item which represents this item in the fragment stash tab"
   FragmentBaseItemTypesKey: BaseItemTypes
   _: bool
@@ -971,13 +983,16 @@ enum CooldownBypassTypes @indexing(first: 0) { _ }
 enum CooldownGroups @indexing(first: 0) { _ }
 
 type CostTypes {
-  Id: string
+  Id: string @unique
   StatsKey: Stats
   FormatText: string
   _: i32
 }
 
-enum CraftingBenchCustomActions @indexing(first: 0) { _ }
+enum CraftingBenchCustomActions @indexing(first: 0) {
+  REMOVE_CRAFTED_MODS
+	REMOVE_ENCHANT_MODS
+}
 
 type CraftingBenchOptions {
   HideoutNPCsKey: HideoutNPCs
@@ -987,7 +1002,7 @@ type CraftingBenchOptions {
   Cost_Values: [i32]
   RequiredLevel: i32
   Name: string
-  CraftingBenchCustomAction: i32
+  CraftingBenchCustomAction: CraftingBenchCustomActions
   ItemClasses: [ItemClasses]
   Links: i32
   SocketColours: string
@@ -1785,15 +1800,15 @@ type GrantedEffects {
   _: bool
   _: i32
   CastTime: i32
-  ActiveSkillsKey: ActiveSkills
+  ActiveSkill: ActiveSkills
   _: bool
   _: bool
   _: [i32]
   _: rid
   MultiPartAchievement: MultiPartAchievements
   _: bool
-  ItemClasses: [ItemClasses]
-  GrantedEffectsKey: GrantedEffects
+  SupportWeaponRestrictions: [ItemClasses]
+  GrantedEffect: GrantedEffects
 }
 
 type GrantedEffectsPerLevel {
@@ -1820,7 +1835,7 @@ type GrantedEffectsPerLevel {
   Stat8Value: i32
   Stat9Value: i32
   LevelRequirement: i32
-  ManaMultiplier: i32
+  CostMultiplier: i32
   LevelRequirement2: i32
   LevelRequirement3: i32
   CriticalStrikeChance: i32
@@ -2011,7 +2026,15 @@ type InfluenceTags {
   Tag: Tags
 }
 
-enum InfluenceTypes @indexing(first: 0) { _ }
+enum InfluenceTypes @indexing(first: 0) { 
+  SHAPER
+  ELDER
+  CRUSADER
+  EYRIE
+  BASILISK
+  ADJUDICATOR
+  NONE
+ }
 
 type Inventories {
   Id: string
@@ -2692,7 +2715,36 @@ type MissionTransitionTiles {
 
 enum ModAuraFlags @indexing(first: 0) { _ }
 
-enum ModDomains @indexing(first: 0) { _ }
+enum ModDomains @indexing(first: 1) { 
+  ITE
+  FLASK
+  MONSTER
+  CHEST
+  AREA
+  UNKNOWN1
+  UNKNOWN2
+  UNKNOWN3
+  CRAFTED
+  MISC
+  ATLAS
+  LEAGUESTONE
+  ABYSS_JEWEL
+  MAP_DEVICE
+  DUMMY
+  DELVE
+  DELVE_AREA
+  SYNTHESIS_A
+  SYNTHESIS_GLOBALS
+  SYNTHESIS_BONUS
+  AFFLICTION_JEWEL
+  HEIST_AREA
+  HEIST_NPC
+  HEIST_TRINKET
+  WATCHSTONE
+  VEILED
+  EXPEDITION_RELIC
+  UNVEILED
+}
 
 type ModEffectStats {
   StatsKey: Stats
@@ -2712,7 +2764,34 @@ type ModEquivalencies {
 
 enum ModFamily @indexing(first: 0) { _ }
 
-enum ModGenerationType @indexing(first: 0) { _ }
+enum ModGenerationType @indexing(first: 1) {
+  PREFIX
+  SUFFIX
+  UNIQUE
+  NEMESIS
+  CORRUPTED
+  BLOODLINES
+  TORMENT
+  TEMPEST
+  TALISMAN
+  ENCHANTMENT
+  ESSENCE
+  UNKNOWN_12
+  BESTIARY
+  DELVE_AREA
+  SYNTHESIS_A
+  SYNTHESIS_GLOBALS
+  SYNTHESIS_BONUS
+  BLIGHT
+  BLIGHT_TOWER
+  MONSTER_AFFLICTION
+  FLASK_ENCHANTMENT_ENKINDLING
+  FLASK_ENCHANTMENT_INSTILLING
+  EXPEDITION_LOGBOOK
+  SCOURGE_UPSIDE
+  SCOURGE_DOWNSIDE
+  SCOURGE_MAP
+}
 
 type Mods {
   Id: string @unique
@@ -2723,9 +2802,9 @@ type Mods {
   StatsKey2: Stats
   StatsKey3: Stats
   StatsKey4: Stats
-  Domain: i32
+  Domain: ModDomains
   Name: string
-  GenerationType: i32
+  GenerationType: ModGenerationType
   CorrectGroup: string
   Stat1Min: i32
   Stat1Max: i32
@@ -2757,7 +2836,7 @@ type Mods {
   StatsKey6: Stats
   MaxLevel: i32
   _: bool
-  _: [ItemClasses]
+  CraftingItemClassRestrictions: [ItemClasses]
   MonsterOnDeath: string
   _: i32
   _: [GrantedEffectsPerLevel]
@@ -2767,7 +2846,7 @@ type Mods {
   Heist_StatsKey1: Stats
   Heist_AddStatValue1: i32
   Heist_AddStatValue2: i32
-  InfluenceTypes: i32
+  InfluenceTypes: InfluenceTypes
   ImplicitTagsKeys: [Tags]
   _: i32
   _: bool
@@ -2790,7 +2869,7 @@ type Mods {
 }
 
 type ModSellPriceTypes {
-  Id: string
+  Id: string @unique
 }
 
 enum ModSetNames @indexing(first: 0) { _ }
@@ -3667,7 +3746,7 @@ type PassiveTreeExpansionJewels {
 }
 
 type PassiveTreeExpansionJewelSizes {
-  Name: string
+  Name: string @unique
 }
 
 type PassiveTreeExpansionSkills {
@@ -4001,7 +4080,11 @@ type ShopCurrency {
 
 enum ShopForumBadge @indexing(first: 0) { _ }
 
-enum ShopPackagePlatform @indexing(first: 0) { _ }
+enum ShopPackagePlatform @indexing(first: 1) { 
+  PC
+  XBOX
+  SONY
+}
 
 type ShopPaymentPackage {
   Id: string @unique
@@ -4021,7 +4104,7 @@ type ShopPaymentPackage {
   "Number of points the user gets back if they opt-out of physical items"
   PhysicalItemPoints: i32
   _: i32
-  ShopPackagePlatformKeys: [i32]
+  ShopPackagePlatform: [ShopPackagePlatform]
   _: string
 }
 
@@ -4386,7 +4469,7 @@ type SupporterPackSets {
   Background: string
   Time0: string
   Time1: string
-  ShopPackagePlatformKey: [i32]
+  ShopPackagePlatform: [ShopPackagePlatform]
   _: string
 }
 
@@ -4703,12 +4786,22 @@ type WindowCursors {
   _: i32
 }
 
-enum Wordlists @indexing(first: 0) { _ }
+enum Wordlists @indexing(first: 1) {
+  ITEM_PREFIX
+  ITEM_SUFFIX
+  MONSTER_PREFIX
+  MONSTER_SUFFIX
+  MONSTER_TITLE
+  UNIQUE_ITEM
+  STRONGBOX_PREFIX
+  STRONGBOX_SUFFIX
+  ESSENCE
+}
 
 type Words {
-  WordlistsKey: i32
+  Wordlist: Wordlists
   Text: string
-  SpawnWeight_TagsKeys: [Tags]
+  SpawnWeight_Tags: [Tags]
   SpawnWeight_Values: [i32]
   _: i32
   Text2: string
