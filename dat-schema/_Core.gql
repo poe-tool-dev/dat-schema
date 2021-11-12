@@ -96,7 +96,7 @@ enum ActiveSkillTargetTypes @indexing(first: 1) {
   ANYWHERE_SELF_TARGET
   ITEM
   CORPSE
-  UNUSED1
+  _
   NO_LINE_OF_SIGHT
   BEHIND_MONSTER
   SELF_ORIGIN
@@ -2716,14 +2716,14 @@ type MissionTransitionTiles {
 enum ModAuraFlags @indexing(first: 0) { _ }
 
 enum ModDomains @indexing(first: 1) { 
-  ITE
+  ITEM
   FLASK
   MONSTER
   CHEST
   AREA
-  UNKNOWN1
-  UNKNOWN2
-  UNKNOWN3
+  _
+  _
+  _
   CRAFTED
   MISC
   ATLAS
@@ -2776,7 +2776,7 @@ enum ModGenerationType @indexing(first: 1) {
   TALISMAN
   ENCHANTMENT
   ESSENCE
-  UNKNOWN_12
+  _
   BESTIARY
   DELVE_AREA
   SYNTHESIS_A
