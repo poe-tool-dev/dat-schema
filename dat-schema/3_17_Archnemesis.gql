@@ -1,4 +1,47 @@
 
+type ArchnemesisMetaRewards {
+  Id: string
+  RewardText: string @localized
+  RewardGroup: i32
+  ScriptArgument: string
+  MinLevel: i32
+  MaxLevel: i32
+}
+
+type ArchnemesisModComboAchievements {
+  Achievement: AchievementItems
+  Mods: [ArchnemesisMods]
+}
+
+type ArchnemesisMods {
+  Mod: Mods
+  _: [rid]
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  Name: string @localized
+  Icon: string @file(ext: ".dds")
+  _: bool
+  _: bool
+  _: rid
+  _: [rid]
+  Description: string @localized
+  DefeatAchievement: AchievementItems
+  _: i32
+}
+
+type ArchnemesisModVisuals {
+  Id: string
+  _: MiscAnimated
+  _: rid
+  _: rid
+  _: [BuffVisuals]
+  _: [MonsterVarieties]
+  _: [MiscAnimated]
+  _: [rid]
+}
+
 type ArchnemesisRecipes {
   _: rid
   _: [rid]
