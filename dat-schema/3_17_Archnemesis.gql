@@ -1,1 +1,6 @@
-# 3.17
+
+type ArchnemesisRecipes {
+  _: rid
+  _: [rid]
+  _: i32
+}
