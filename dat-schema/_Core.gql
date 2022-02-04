@@ -553,15 +553,14 @@ type BaseItemTypes {
   Equip_AchievementItemsKey: AchievementItems
   IsCorrupted: bool
   Identify_AchievementItems: [AchievementItems]
-  ItemThemesKey: ItemThemes
   IdentifyMagic_AchievementItems: [AchievementItems]
   "the item which represents this item in the fragment stash tab"
   FragmentBaseItemTypesKey: BaseItemTypes
   _: bool
-  ItemShopType: ItemShopType
   _: rid
   _: rid
   _: bool
+  _: rid
 }
 
 type BindableVirtualKeys {
@@ -1023,12 +1022,12 @@ type CraftingBenchOptions {
   _: [rid]
   _: i32
   _: i32
-  _: bool
   _: rid
   AddEnchantment: Mods
   SortCategory: CraftingBenchSortCategories
   _: rid
   _: bool
+  _: i32
 }
 
 type CraftingBenchSortCategories {
@@ -1254,6 +1253,7 @@ type DisplayMinionMonsterType {
 type DivinationCardStashTabLayout {
   BaseItemTypesKey: BaseItemTypes @unique
   IsEnabled: bool
+  _: bool
 }
 
 type Doors {
@@ -2026,7 +2026,7 @@ type InfluenceTags {
   Tag: Tags
 }
 
-enum InfluenceTypes @indexing(first: 0) { 
+enum InfluenceTypes @indexing(first: 0) {
   SHAPER
   ELDER
   CRUSADER
@@ -2059,7 +2059,7 @@ type ItemClassCategories {
 type ItemClasses {
   Id: string @unique
   Name: string
-  Category: string
+  _: rid
   ItemClassCategory: ItemClassCategories
   RemovedIfLeavesArea: bool
   _: [rid]
@@ -2078,7 +2078,8 @@ type ItemClasses {
   CanTransferSkin: bool
   ItemStance: ItemStances
   CanScourge: bool
-  _: bool
+  _: bool # CanScourge2
+  _: bool # 3.17
 }
 
 type ItemCostPerLevel {
@@ -2715,7 +2716,7 @@ type MissionTransitionTiles {
 
 enum ModAuraFlags @indexing(first: 0) { _ }
 
-enum ModDomains @indexing(first: 1) { 
+enum ModDomains @indexing(first: 1) {
   ITEM
   FLASK
   MONSTER
@@ -2795,7 +2796,7 @@ enum ModGenerationType @indexing(first: 1) {
 
 type Mods {
   Id: string @unique
-  Hash: i32
+  HASH16: i32
   ModTypeKey: ModType
   Level: i32
   StatsKey1: Stats
@@ -2866,6 +2867,8 @@ type Mods {
   _: i32
   _: i32
   BuffTemplate: BuffTemplates
+  ArchnemesisMinionMod: Mods
+  HASH32: i32
 }
 
 type ModSellPriceTypes {
@@ -3688,6 +3691,7 @@ type PassiveSkills {
   IsProxyPassive: bool
   SkillType: PassiveSkillTypes
   MasteryGroup: PassiveSkillMasteryGroups
+  _: rid
 }
 
 enum PassiveSkillTypes @indexing(first: 0) {
@@ -4080,7 +4084,7 @@ type ShopCurrency {
 
 enum ShopForumBadge @indexing(first: 0) { _ }
 
-enum ShopPackagePlatform @indexing(first: 1) { 
+enum ShopPackagePlatform @indexing(first: 1) {
   PC
   XBOX
   SONY

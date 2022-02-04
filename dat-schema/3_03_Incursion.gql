@@ -52,7 +52,7 @@ type IncursionRooms {
   Tier: i32
   MinLevel: i32
   RoomUpgrade_IncursionRoomsKey: IncursionRooms
-  ModsKey: Mods
+  Mods: [Mods]
   PresentARMFile: string @file(ext: ".arm")
   HASH16: i32 @unique
   IncursionArchitectKey: IncursionArchitect
