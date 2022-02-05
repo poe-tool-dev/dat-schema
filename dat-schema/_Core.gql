@@ -671,6 +671,8 @@ type BuffTemplates {
   _: bool
   StatsKey: [Stats]
   _: i32
+  _: i32
+  _: bool
 }
 
 type BuffVisualOrbArt {
@@ -702,6 +704,7 @@ type BuffVisualOrbTypes {
   _: rid
   _: i32
   _: bool
+  _: f32
 }
 
 type BuffVisuals {
@@ -1953,6 +1956,7 @@ type HideoutDoodads {
   _: [rid]
   _: bool
   _: rid
+  _: rid
 }
 
 type HideoutDoodadTags {
@@ -1972,6 +1976,7 @@ type HideoutNPCs {
   _: rid
   _: i32
   _: bool
+  _: rid
 }
 
 type HideoutRarity {
@@ -2745,6 +2750,7 @@ enum ModDomains @indexing(first: 1) {
   VEILED
   EXPEDITION_RELIC
   UNVEILED
+  ARCHNEMESIS_ALTAR
 }
 
 type ModEffectStats {
@@ -2792,6 +2798,10 @@ enum ModGenerationType @indexing(first: 1) {
   SCOURGE_UPSIDE
   SCOURGE_DOWNSIDE
   SCOURGE_MAP
+  _
+  ARCHNEMESIS_MONSTER
+  EATER_OF_WORLDS
+  SEARING_EXARCH
 }
 
 type Mods {
@@ -2880,6 +2890,7 @@ enum ModSetNames @indexing(first: 0) { _ }
 type ModType {
   Name: string @unique
   ModSellPriceTypesKeys: [ModSellPriceTypes]
+  _: bool
 }
 
 type MonsterArmours {
