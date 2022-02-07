@@ -2859,8 +2859,8 @@ enum ModGenerationType @indexing(first: 1) {
   SCOURGE_MAP
   _
   ARCHNEMESIS_MONSTER
-  EATER_OF_WORLDS
-  SEARING_EXARCH
+  EXARCH_IMPLICIT
+  EATER_IMPLICIT
 }
 
 type Mods {
