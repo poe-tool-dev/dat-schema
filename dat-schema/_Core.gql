@@ -2809,7 +2809,7 @@ enum ModDomains @indexing(first: 1) {
   VEILED
   EXPEDITION_RELIC
   UNVEILED
-  ARCHNEMESIS_ALTAR
+  ELDRITCH_ALTAR
 }
 
 type ModEffectStats {
