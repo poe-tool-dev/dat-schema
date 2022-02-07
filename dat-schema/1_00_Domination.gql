@@ -8,12 +8,10 @@ type ShrineBuffs {
 type Shrines {
   Id: string @unique
   TimeoutInSeconds: i32
-  Name: string
   ChargesShared: bool
   Player_ShrineBuffsKey: ShrineBuffs
   _: i32
   _: i32
-  Description: string
   Monster_ShrineBuffsKey: ShrineBuffs
   SummonMonster_MonsterVarietiesKey: MonsterVarieties
   SummonPlayer_MonsterVarietiesKey: MonsterVarieties
@@ -25,6 +23,9 @@ type Shrines {
   IsPVPOnly: bool
   _: bool
   IsLesserShrine: bool
+  Description: ClientStrings
+  Name: ClientStrings
+  _: bool
 }
 
 type ShrineSounds {

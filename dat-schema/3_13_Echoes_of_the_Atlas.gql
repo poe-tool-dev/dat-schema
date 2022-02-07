@@ -5,13 +5,14 @@ type InfluenceModUpgrades {
 }
 
 type MavenDialog {
-  Id: string @unique
+  Id: string
   TextAudioT1: NPCTextAudio
   TextAudioT2: NPCTextAudio
   TextAudioT3: NPCTextAudio
   TextAudioT4: NPCTextAudio
   TextAudioT5: NPCTextAudio
   _: bool
+  TextAudioT6: NPCTextAudio
 }
 
 type AtlasSkillGraphs {
@@ -22,20 +23,19 @@ type AtlasSkillGraphs {
 }
 
 type MavenFights {
-  Id: string @unique
-  AtlasRegionsKey: AtlasRegions
-  _: i32
-  Level: i32
-  _: i32
+  Id: string
+  WitnessesRequired: i32
+  AreaLevel: i32
   _: i32
   _: i32
-  BaseItemTypesKey: BaseItemTypes
-  AtlasSkillGraphKey: AtlasSkillGraphs
+  BaseItemType: BaseItemTypes
+  _: i32
+  MinMapTier: i32
   _: i32
   _: i32
+  WitnessAreas: [WorldAreas]
   _: i32
   _: i32
-  WorldAreasKey: [WorldAreas]
-  _: i32
-  _: i32
+  _: bool
+  _: [_]
 }

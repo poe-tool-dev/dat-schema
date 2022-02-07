@@ -49,9 +49,9 @@ type BetrayalJobs {
   _: i32
   _: i32
   WorldAreasKey: WorldAreas
-  Completion_AchievementItemsKey: AchievementItems
-  OpenChests_AchievementItemsKey: AchievementItems
-  MissionCompletion_AcheivementItemsKey: AchievementItems
+  Completion_AchievementItemsKey: [AchievementItems]
+  OpenChests_AchievementItemsKey: [AchievementItems]
+  MissionCompletion_AcheivementItemsKey: [AchievementItems]
 }
 
 type BetrayalRanks {
@@ -97,6 +97,7 @@ type BetrayalTargets {
   _: i32
   _: i32
   _: rid
+  ScriptArgument: string
 }
 
 type BetrayalTraitorRewards {

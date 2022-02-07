@@ -24,7 +24,7 @@ type ArchnemesisMods {
   Icon: string @file(ext: ".dds")
   _: bool
   _: bool
-  _: rid
+  Visual: ArchnemesisModVisuals
   _: [rid]
   Description: string @localized
   DefeatAchievement: AchievementItems
@@ -43,7 +43,7 @@ type ArchnemesisModVisuals {
 }
 
 type ArchnemesisRecipes {
-  _: rid
-  _: [rid]
+  Result: ArchnemesisMods
+  Recipe: [ArchnemesisMods]
   _: i32
 }

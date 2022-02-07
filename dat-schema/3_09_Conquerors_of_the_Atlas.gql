@@ -1,70 +1,17 @@
 type AtlasExileBossArenas {
-  AtlasExilesKey: AtlasExiles
-  _: i32
-  WorldAreasKey: WorldAreas
+  Conqueror: AtlasExiles
+  WorldArea: WorldAreas
 }
 
 type AtlasExileInfluence {
-  AtlasExilesKey: AtlasExiles
-  _: i32
-  AtlasExileInfluenceSetsKeys: [AtlasExileInfluenceSets]
-}
-
-type AtlasExileInfluenceData {
-  InfluenceOutcome: AtlasExileInfluenceOutcomes
-  _: [rid]
-  _: rid
-  _: [Stats]
-  _: i32
-  _: [i32]
-  _: [i32]
-}
-
-type AtlasExileInfluenceOutcomes {
-  Id: string @unique
-  _: i32
-  OutcomeType: AtlasExileInfluenceOutcomeTypes
-}
-
-enum AtlasExileInfluenceOutcomeTypes @indexing(first: 0) {
-  MONSTER_PACKS
-  EMPOWERED_BOSS
-  ON_KILL
-  AWAKENER
-}
-
-type AtlasExileInfluenceSets {
-  Id: string @unique
-  InfluencePacks: [AtlasExileInfluenceOutcomes]
-}
-
-type AtlasExileRegionQuestFlags {
-  AtlasExilesKey: AtlasExiles
-  AtlasRegionsKey: AtlasRegions
-  _: i32
-  BaseItemTypesKey: BaseItemTypes
-  QuestState: i32
+  Conqueror: AtlasExiles
+  Sets: [AtlasInfluenceSets]
 }
 
 type AtlasExiles {
-  Id: string @unique
-  MonsterVarietiesKey: MonsterVarieties
-  Art: string
+  Id: string
   _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  QuestKey: Quest
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  StatsKey: Stats
-  InventoriesKey: Inventories
+  InfluencedItemIncrStat: Stats
+  MapIcon: string @file(ext: ".dds")
+  MapIcon2: string @file(ext: ".dds")
 }
