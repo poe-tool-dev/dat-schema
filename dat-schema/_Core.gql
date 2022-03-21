@@ -3694,7 +3694,7 @@ type PassiveJewelSlots {
   _: i32
   ReplacesSlot: PassiveJewelSlots
   ProxySlot: PassiveSkills
-  _: [i32]
+  StartIndices: [i32]
 }
 
 type PassiveSkillFilterCatagories {
