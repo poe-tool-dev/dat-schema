@@ -1982,6 +1982,7 @@ type HideoutDoodads {
   _: bool
   _: rid
   Category: HideoutDoodadCategory
+  _: i32
 }
 
 type HideoutDoodadCategory {
@@ -2271,6 +2272,10 @@ type ItemVisualIdentity {
   _: [rid]
   _: string
   _: i32
+  _: rid
+  _: rid
+  _: rid
+  _: rid
 }
 
 type JobAssassinationSpawnerGroups {
