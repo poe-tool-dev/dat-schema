@@ -28,7 +28,7 @@ type PantheonPanelLayout {
 type PantheonSouls {
   WorldAreasKey: WorldAreas
   BaseItemTypesKey: BaseItemTypes
-  _: i32
+  QuestState: i32
   MonsterVarietiesKey: MonsterVarieties
   PantheonPanelLayoutKey: PantheonPanelLayout
 }
