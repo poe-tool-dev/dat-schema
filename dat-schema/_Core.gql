@@ -360,7 +360,7 @@ type ArmourTypes {
 type Ascendancy {
   Id: string @unique
   ClassNo: i32
-  CharactersKey: Characters
+  Characters: [Characters]
   "Coordinates in 'x1, y1, x2, y2' format"
   CoordinateRect: string
   RGBFlavourTextColour: string
@@ -370,6 +370,7 @@ type Ascendancy {
   PassiveTreeImage: string @file(ext: ".dds")
   _: i32
   _: i32
+  Background: string
 }
 
 type AtlasAwakeningStats {
@@ -652,15 +653,19 @@ type BuffDefinitions {
   _: [i32]
   _: bool
   _: bool
-  _: rid
+  _: [rid]
   _: bool
   _: [Stats]
   _: [Stats]
   _: [Stats]
   _: [Stats]
-  _: i32
+  _: bool
+  _: bool
+  _: bool
+  _: bool
   _: bool
   _: Stats
+  _: [i32]
 }
 
 enum BuffGroups @indexing(first: 0) { _ }
@@ -683,6 +688,7 @@ type BuffTemplates {
   _: i32
   _: i32
   _: bool
+  _: Stats
 }
 
 type BuffVisualOrbArt {
@@ -2123,7 +2129,12 @@ type ItemClasses {
   CanScourge: bool
   _: bool # CanScourge2
   _: bool # 3.17
+  _: bool # 3.18
+  _: [i32]
+  Flags: [ItemClassFlags]
 }
+
+enum ItemClassFlags @indexing(first: 0) { _ }
 
 type ItemCostPerLevel {
   Contract_BaseItemTypesKey: BaseItemTypes
@@ -2498,6 +2509,7 @@ type MapSeriesTiers {
   ExpeditionTier: i32
   ScourgeTier: i32
   ArchnemesisTier: i32
+  SentinelTier: i32
 }
 
 enum MapStashTabLayout @indexing(first: 0) { _ }
@@ -3490,6 +3502,7 @@ type Notifications {
   _: i32
   _: bool
   _: bool
+  _: i32
 }
 
 type NPCAudio {
@@ -3773,6 +3786,7 @@ type PassiveSkills {
   SkillType: PassiveSkillTypes
   MasteryGroup: PassiveSkillMasteryGroups
   _: rid
+  SoundEffect: SoundEffects
 }
 
 enum PassiveSkillTypes @indexing(first: 0) {
@@ -5024,6 +5038,8 @@ type WorldAreas {
   _: i32
   _: i32
   _: [_]
+  _: rid
+  _: i32
 }
 
 type WorldAreaLeagueChances {

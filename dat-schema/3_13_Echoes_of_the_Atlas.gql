@@ -38,4 +38,9 @@ type MavenFights {
   _: i32
   _: bool
   _: [_]
+  CompletionAchievements: [AchievementItems]
+}
+
+type MavenJewelRadiusKeystones {
+  Keystone: PassiveSkills
 }
