@@ -2837,6 +2837,7 @@ enum ModDomains @indexing(first: 1) {
   EXPEDITION_RELIC
   UNVEILED
   ELDRITCH_ALTAR
+  SENTINEL
 }
 
 type ModEffectStats {
@@ -2885,7 +2886,6 @@ enum ModGenerationType @indexing(first: 1) {
   SCOURGE_DOWNSIDE
   SCOURGE_MAP
   _
-  ARCHNEMESIS_MONSTER
   EXARCH_IMPLICIT
   EATER_IMPLICIT
 }
@@ -3589,6 +3589,7 @@ type NPCMaster {
   _: rid
   _: i32
   _: Stats
+  HasAreaMissions: bool
 }
 
 type NPCPortraits {
