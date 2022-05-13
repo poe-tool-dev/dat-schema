@@ -1,0 +1,92 @@
+type DroneBaseTypes {
+  BaseType: BaseItemTypes
+  Type: DroneTypes
+  _: i32
+  _: i32
+  _: i32
+  Visual: BuffVisuals
+  _: i32
+  UseAchievement: AchievementItems
+  _: bool
+}
+
+type DroneTypes {
+  Id: string
+  _: i32
+  _: MonsterVarieties
+  DeployText: string
+  _: string
+  UnlockedStat: Stats
+  SocketableText: string
+  NotPoweredText: string
+}
+
+type SentinelCraftingCurrency {
+  Currency: BaseItemTypes
+  Type: i32
+}
+
+type SentinelDroneInventoryLayout {
+  DroneType: DroneTypes
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}
+
+type SentinelPassives {
+  Id: string
+  HASH16: i32
+  _: string
+  _: [rid]
+  _: [i32]
+  _: i32
+  _: i32
+  _: rid
+  _: i32
+  _: i32
+  _: i32
+}
+
+type SentinelPassiveStats {
+  _: Stats
+  _: Stats
+  _: i32
+}
+
+type SentinelPassiveTypes {
+  Id: string
+  DefaultIcon: string
+  ActiveIcon: string
+  DroneType: DroneTypes
+  _: i32
+}
+
+type SentinelPowerExpLevels {
+  _: i32
+  _: i32
+}
+
+type SentinelStorageLayout {
+  Id: string
+  _: BaseItemTypes
+  DroneType: DroneTypes
+  _: bool
+  _: string
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: ItemClasses
+}
+
+type SentinelTaggedMonsterStats {
+  TaggedStat: Stats
+  _: Stats
+  _: [rid]
+  _: rid
+  _: rid
+}
