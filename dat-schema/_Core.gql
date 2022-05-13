@@ -360,7 +360,7 @@ type ArmourTypes {
 type Ascendancy {
   Id: string @unique
   ClassNo: i32
-  CharactersKey: Characters
+  Characters: [Characters]
   "Coordinates in 'x1, y1, x2, y2' format"
   CoordinateRect: string
   RGBFlavourTextColour: string
@@ -370,6 +370,7 @@ type Ascendancy {
   PassiveTreeImage: string @file(ext: ".dds")
   _: i32
   _: i32
+  BackgroundImage: string
 }
 
 type AtlasAwakeningStats {
@@ -652,7 +653,7 @@ type BuffDefinitions {
   _: [i32]
   _: bool
   _: bool
-  _: rid
+  _: [rid]
   _: bool
   _: [Stats]
   _: [Stats]
@@ -661,6 +662,7 @@ type BuffDefinitions {
   _: i32
   _: bool
   _: Stats
+  _: [i32]
 }
 
 enum BuffGroups @indexing(first: 0) { _ }
@@ -683,6 +685,7 @@ type BuffTemplates {
   _: i32
   _: i32
   _: bool
+  _: rid
 }
 
 type BuffVisualOrbArt {
@@ -1842,6 +1845,10 @@ type GrantedEffects {
   _: bool
   SupportWeaponRestrictions: [ItemClasses]
   GrantedEffect: GrantedEffects
+  _: i32
+  _: i32
+  _: i32
+  _: bool
 }
 
 type GrantedEffectsPerLevel {
@@ -2123,6 +2130,9 @@ type ItemClasses {
   CanScourge: bool
   _: bool # CanScourge2
   _: bool # 3.17
+  _: bool
+  _: [i32]
+  _: [i32]
 }
 
 type ItemCostPerLevel {
@@ -2949,6 +2959,7 @@ type Mods {
   BuffTemplate: BuffTemplates
   ArchnemesisMinionMod: Mods
   HASH32: i32
+  _: [i32]
 }
 
 type ModSellPriceTypes {
@@ -3772,6 +3783,7 @@ type PassiveSkills {
   IsProxyPassive: bool
   SkillType: PassiveSkillTypes
   MasteryGroup: PassiveSkillMasteryGroups
+  _: rid
   _: rid
 }
 
