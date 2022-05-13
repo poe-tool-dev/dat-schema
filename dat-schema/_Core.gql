@@ -370,7 +370,7 @@ type Ascendancy {
   PassiveTreeImage: string @file(ext: ".dds")
   _: i32
   _: i32
-  Background: string
+  BackgroundImage: string
 }
 
 type AtlasAwakeningStats {
@@ -1848,6 +1848,10 @@ type GrantedEffects {
   _: bool
   SupportWeaponRestrictions: [ItemClasses]
   GrantedEffect: GrantedEffects
+  _: i32
+  _: i32
+  _: i32
+  _: bool
 }
 
 type GrantedEffectsPerLevel {
@@ -2961,6 +2965,7 @@ type Mods {
   BuffTemplate: BuffTemplates
   ArchnemesisMinionMod: Mods
   HASH32: i32
+  _: [i32]
 }
 
 type ModSellPriceTypes {
