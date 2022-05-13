@@ -548,7 +548,7 @@ type BaseItemTypes {
   SoundEffect: SoundEffects
   TagsKeys: [Tags]
   ModDomain: ModDomains
-  IsDropDisabled: bool
+  SiteVisibility: BaseItemTypeVisibility
   ItemVisualIdentity: ItemVisualIdentity
   HASH: i32 @unique
   VendorRecipe_AchievementItems: [AchievementItems]
@@ -565,6 +565,12 @@ type BaseItemTypes {
   _: rid
   _: bool
   _: rid
+}
+
+enum BaseItemTypeVisibility @indexing(first: 0) {
+  HIDDEN
+  VISIBLE
+  _
 }
 
 type BindableVirtualKeys {
