@@ -458,6 +458,7 @@ type AtlasNode {
   _: f32
   DDSFile: string @file(ext: ".dds")
   _: bool
+  NotOnAtlas: bool
 }
 
 type AtlasNodeDefinition {
@@ -528,6 +529,7 @@ type AwardDisplay {
   ForegroundImage: string
   OGGFile: string @file(ext: ".ogg")
   _: i32
+  _: i32
 }
 
 type BackendErrors {
@@ -596,20 +598,20 @@ type BlightStashTabLayout {
 }
 
 type BloodTypes {
-  Id: string @unique
-  PETFile1: string @file(ext: ".pet")
-  PETFile2: string @file(ext: ".pet")
-  PETFile3: string @file(ext: ".pet")
+  Id: string
   _: rid
-  PETFile4: string @file(ext: ".pet")
-  PETFile5: string @file(ext: ".pet")
-  PETFile6: string @file(ext: ".pet")
   _: rid
   _: [rid]
   _: rid
-  PETFile7: string @file(ext: ".pet")
-  PETFile8: string @file(ext: ".pet")
-  PETFile9: string @file(ext: ".pet")
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: rid
   _: rid
   _: rid
 }
@@ -797,12 +799,14 @@ type CharacterPanelStats {
   CharacterPanelTabsKey: CharacterPanelTabs
   _: bool
   _: [i32]
+  _: i32
 }
 
 type CharacterPanelTabs {
   Id: string @unique
   _: i32
   Text: string
+  _: i32
 }
 
 type Characters {
@@ -1148,16 +1152,11 @@ type DaemonSpawningData {
 }
 
 type DamageHitEffects {
+  Id: i32
   _: i32
   _: i32
-  _: [rid]
-  _: i32
-  _: i32
-  _: [string]
-  _: [string]
   _: rid
-  _: i32
-  _: [i32]
+  _: rid
 }
 
 type DamageParticleEffects {
@@ -1568,22 +1567,23 @@ type Footprints {
 }
 
 type FootstepAudio {
-  _: i32
-  Id: string @unique
+  Id: string
+  Index: i32
 }
 
 type FragmentStashTabLayout {
-  Id: string @unique
-  BaseItemTypesKey: BaseItemTypes
+  Id: string
   PosX: i32
   PosY: i32
   Order: i32
   SizeX: i32
   SizeY: i32
   _: bool
+  Tab: i32
   _: i32
-  _: i32
-  _: bool
+  IsDisabled: bool
+  Subtab: i32
+  FragmentItems: [BaseItemTypes]
 }
 
 type GameConstants {
@@ -1777,6 +1777,7 @@ type GeometryTrigger {
   _: i32
   _: i32
   _: i32
+  _: bool
 }
 
 type GiftWrapArtVariations {
@@ -1826,7 +1827,6 @@ type GrantedEffects {
   AllowedActiveSkillTypes: [ActiveSkillType]
   BaseEffectiveness: f32
   IncrementalEffectiveness: f32
-  SupportGemLetter: string
   _: i32
   "This support gem adds these types to supported active skills"
   AddedActiveSkillTypes: [ActiveSkillType]
@@ -1842,7 +1842,7 @@ type GrantedEffects {
   ActiveSkill: ActiveSkills
   _: bool
   _: bool
-  _: [i32]
+  _: [rid]
   _: rid
   MultiPartAchievement: MultiPartAchievements
   _: bool
@@ -1852,6 +1852,8 @@ type GrantedEffects {
   _: i32
   _: i32
   _: bool
+  StatSet: GrantedEffectStatSets
+  _: [Stats]
 }
 
 type GrantedEffectsPerLevel {
@@ -1914,6 +1916,34 @@ type GrantedEffectsPerLevel {
   _: i32
   AttackCritChance: i32
   AttackTime: i32
+}
+
+type GrantedEffectStatSets {
+  Id: string
+  Tags: [Stats]
+  Stats: [Stats]
+  StatsValues: [i32]
+  BaseEffectiveness: f32
+  IncrementalEffectiveness: f32
+}
+
+type GrantedEffectStatSetsPerLevel {
+  StatSet: GrantedEffectStatSets
+  GemLevel: i32
+  PlayerLevelReq: i32
+  CritChance: i32
+  AttackTime: i32
+  BaseMultiplier: i32
+  DamageEffectiveness: i32
+  AdditionalFlags: [Stats]
+  FloatStats: [Stats]
+  _: [rid]
+  AdditionalStats: [Stats]
+  StatInterpolations: [i32]
+  FloatStatsValues: [f32]
+  BaseResolvedValues: [i32]
+  AdditionalStatsValues: [i32]
+  _: [Stats]
 }
 
 enum GroundEffectEffectTypes @indexing(first: 0) { _ }
@@ -2350,6 +2380,14 @@ type LeagueInfo {
 
 enum LeagueQuestFlags @indexing(first: 0) { _ }
 
+type LeagueStaticRewards {
+  _: i32
+  _: i32
+  _: i32
+  _: rid
+  _: rid
+}
+
 enum LeagueTrophy @indexing(first: 0) { _ }
 
 type LevelRelativePlayerScaling {
@@ -2530,6 +2568,11 @@ type MapStashSpecialTypeEntries {
   IsElderGuardian: bool
 }
 
+type MapStashUniqueMapInfo {
+  UniqueMap: UniqueMaps
+  BaseItem: BaseItemTypes
+}
+
 type MapStatConditions {
   Id: string @unique
   StatsKey: Stats
@@ -2548,6 +2591,7 @@ type MapTierAchievements {
 type MapTiers {
   Tier: i32
   Level: i32
+  Level2: i32 # 3.18.1
 }
 
 type MasterHideoutLevels {
@@ -2693,8 +2737,8 @@ type MicrotransactionSlot {
 }
 
 type MicrotransactionSocialFrameVariations {
-  Id: i32 @unique
   BaseItemTypesKey: BaseItemTypes
+  Id: i32 @unique
   BK2File: string @file(ext: ".bk2")
 }
 
@@ -2713,6 +2757,7 @@ type MiniQuestStates {
   _: i32
   _: [_]
   _: [_]
+  _: i32
 }
 
 type MiscAnimated {
@@ -3056,13 +3101,15 @@ type MonsterDeathConditions {
   _: i32
   _: rid
   _: bool
-  _: rid
+  _: [rid]
   _: i32
   _: bool
   _: [rid]
   _: i32
   _: rid
   _: rid
+  _: i32
+  _: i32
 }
 
 enum MonsterFleeConditions @indexing(first: 0) { _ }
@@ -3084,6 +3131,7 @@ type MonsterHeightBrackets {
   _: f32
   _: f32
   Tag: Tags
+  _: i32
 }
 
 type MonsterHeights {
@@ -3121,7 +3169,7 @@ type MonsterMapDifficulty {
 }
 
 type MonsterMortar {
-  Id: i32 @unique
+  Id: i32
   _: rid
   _: rid
   _: rid
@@ -3137,6 +3185,14 @@ type MonsterMortar {
   _: i32
   _: bool
   _: bool
+  _: rid
+  _: i32
+  _: f32
+  _: f32
+  _: f32
+  _: bool
+  _: rid
+  _: string
 }
 
 type MonsterPackCounts {
@@ -3571,6 +3627,7 @@ type NPCFollowerVariations {
   _: [i32]
   _: i32
   _: bool
+  _: bool
 }
 
 type NPCMaster {
@@ -3856,6 +3913,9 @@ type PassiveSkillTreeUIArt {
   NotableFrameCanAllocate: string
   KeystoneCanAllocate: string
   Ornament: string
+  GroupBackgroundSmallBlank: string
+  GroupBackgroundMediumBlank: string
+  GroupBackgroundLargeBlank: string
 }
 
 type PassiveTreeExpansionJewels {
@@ -4012,6 +4072,8 @@ type QuestItems {
   _: bool
   _: rid
   _: i32
+  _: rid
+  _: string
 }
 
 type QuestRewardOffers {
@@ -4594,6 +4656,7 @@ type SummonedSpecificMonsters {
   _: string
   _: bool
   _: bool
+  _: i32
 }
 
 type SummonedSpecificMonstersOnDeath {
@@ -4631,22 +4694,49 @@ type SurgeTypes {
   IntId: i32
 }
 
+type TableCharge {
+  _: i32
+  _: f32
+  _: f32
+  _: bool
+  _: rid
+  _: bool
+  _: [rid]
+  _: rid
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+  _: bool
+  _: rid
+  _: rid
+  _: i32
+  _: bool
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+  _: bool
+  _: i32
+}
+
 type TableMonsterSpawners {
   Metadata: string
-  _: i32
-  _: [rid]
-  _: i32
-  _: i32
+  AreaLevel: i32
+  SpawnsMonsters: [MonsterVarieties]
   _: i32
   _: i32
   _: i32
   _: i32
   _: i32
   _: i32
-  _: bool
-  _: bool
-  _: bool
-  _: bool
+  _: i32
+  _: i32
   _: bool
   _: bool
   _: bool
@@ -4660,12 +4750,15 @@ type TableMonsterSpawners {
   _: rid
   _: bool
   _: bool
-  _: i32
   Script1: string
   _: bool
   _: bool
   Script2: string
   _: [i32]
+  _: i32
+  _: i32
+  _: i32
+  _: i32
   _: i32
   _: i32
   _: i32
