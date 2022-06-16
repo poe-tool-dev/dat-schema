@@ -515,7 +515,12 @@ type AtlasSector {
   SpawnWeight_Values: [i32]
 }
 
-enum Attributes @indexing(first: 0) { _ }
+enum Attributes @indexing(first: 1) { 
+  STRENGTH
+  DEXTERITY
+  INTELLIGENCE
+  NONE
+ }
 
 type AwardDisplay {
   Id: string @unique
@@ -1826,7 +1831,7 @@ type GrantedEffects {
   "This support gem only supports active skills with at least one of these types"
   AllowedActiveSkillTypes: [ActiveSkillType]
   SupportGemLetter: string
-  _: i32
+  Attribute: Attributes
   "This support gem adds these types to supported active skills"
   AddedActiveSkillTypes: [ActiveSkillType]
   "This support gem does not support active skills with one of these types"
@@ -1835,24 +1840,24 @@ type GrantedEffects {
   SupportsGemsOnly: bool
   _: i32
   _: [i32]
-  _: bool
+  CannotBeSupported: bool
   _: i32
   CastTime: i32
   ActiveSkill: ActiveSkills
+  IgnoreMinionTypes: bool
   _: bool
-  _: bool
-  _: [rid]
-  _: rid
+  AddedMinionActiveSkillTypes: [ActiveSkillType]
+  Animation: Animation
   MultiPartAchievement: MultiPartAchievements
   _: bool
   SupportWeaponRestrictions: [ItemClasses]
-  GrantedEffect: GrantedEffects
+  RegularVariant: GrantedEffects
   _: i32
   _: i32
   _: i32
   _: bool
   StatSet: GrantedEffectStatSets
-  _: [Stats]
+  _: [rid]
 }
 
 type GrantedEffectsPerLevel {
@@ -1880,7 +1885,7 @@ type GrantedEffectsPerLevel {
 }
 
 type GrantedEffectStatSets {
-  Id: string
+  Id: string @unique
   ImplicitStats: [Stats]
   ConstantStats: [Stats]
   ConstantStatsValues: [i32]
