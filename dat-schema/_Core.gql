@@ -520,7 +520,7 @@ enum Attributes @indexing(first: 1) {
   DEXTERITY
   INTELLIGENCE
   NONE
- }
+}
 
 type AwardDisplay {
   Id: string @unique
