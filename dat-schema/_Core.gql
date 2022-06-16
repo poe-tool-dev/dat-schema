@@ -1009,7 +1009,7 @@ type ComponentCharges {
   PerCharge2: i32
 }
 
-enum CooldownBypassTypes @indexing(first: 0) { _ }
+enum CooldownBypassTypes @indexing(first: 1) { _ }
 
 enum CooldownGroups @indexing(first: 0) { _ }
 
@@ -1825,8 +1825,7 @@ type GrantedEffects {
   IsSupport: bool
   "This support gem only supports active skills with at least one of these types"
   AllowedActiveSkillTypes: [ActiveSkillType]
-  BaseEffectiveness: f32
-  IncrementalEffectiveness: f32
+  SupportGemLetter: string
   _: i32
   "This support gem adds these types to supported active skills"
   AddedActiveSkillTypes: [ActiveSkillType]
@@ -1857,72 +1856,34 @@ type GrantedEffects {
 }
 
 type GrantedEffectsPerLevel {
-  GrantedEffectsKey: GrantedEffects
+  GrantedEffect: GrantedEffects
   Level: i32
-  StatsKeys: [Stats]
-  Stat1Float: f32
-  Stat2Float: f32
-  Stat3Float: f32
-  Stat4Float: f32
-  Stat5Float: f32
-  Stat6Float: f32
-  Stat7Float: f32
-  Stat8Float: f32
-  Stat9Float: f32
-  EffectivenessCostConstantsKeys: [EffectivenessCostConstants]
-  Stat1Value: i32
-  Stat2Value: i32
-  Stat3Value: i32
-  Stat4Value: i32
-  Stat5Value: i32
-  Stat6Value: i32
-  Stat7Value: i32
-  Stat8Value: i32
-  Stat9Value: i32
-  LevelRequirement: i32
+  PlayerLevelReq: i32
   CostMultiplier: i32
-  LevelRequirement2: i32
-  LevelRequirement3: i32
-  CriticalStrikeChance: i32
-  "Damage effectiveness based on 0 = 100%"
-  DamageEffectiveness: i32
   StoredUses: i32
   Cooldown: i32
   CooldownBypassType: CooldownBypassTypes
-  "Used with a value of one"
-  StatsKeys2: [Stats]
-  _: bool
   VaalSouls: i32
   VaalStoredUses: i32
   CooldownGroup: i32
   _: i32
-  "Damage multiplier in 1/10000 for attack skills"
-  DamageMultiplier: i32
-  _: i32
-  ArtVariation: i32
-  StatInterpolationTypesKeys: [i32]
-  _: i32
-  "Time in milliseconds"
-  VaalSoulGainPreventionTime: i32
-  BaseDuration: i32
+  SoulGainPreventionDuration: i32
   AttackSpeedMultiplier: i32
   _: i32
   CostAmounts: [i32]
-  CostTypesKeys: [CostTypes]
+  CostTypes: [CostTypes]
   ManaReservationFlat: i32
   ManaReservationPercent: i32
   LifeReservationFlat: i32
   LifeReservationPercent: i32
-  _: i32
-  AttackCritChance: i32
   AttackTime: i32
 }
 
 type GrantedEffectStatSets {
   Id: string
-  Tags: [Stats]
-  Stats: [Stats]
-  StatsValues: [i32]
+  ImplicitStats: [Stats]
+  ConstantStats: [Stats]
+  ConstantStatsValues: [i32]
   BaseEffectiveness: f32
   IncrementalEffectiveness: f32
 }
@@ -1931,19 +1892,19 @@ type GrantedEffectStatSetsPerLevel {
   StatSet: GrantedEffectStatSets
   GemLevel: i32
   PlayerLevelReq: i32
-  CritChance: i32
+  AttackCritChance: i32
   AttackTime: i32
   BaseMultiplier: i32
   DamageEffectiveness: i32
   AdditionalFlags: [Stats]
   FloatStats: [Stats]
-  _: [rid]
+  InterpolationBases: [Stats]
   AdditionalStats: [Stats]
   StatInterpolations: [i32]
   FloatStatsValues: [f32]
   BaseResolvedValues: [i32]
   AdditionalStatsValues: [i32]
-  _: [Stats]
+  GrantedEffects: [GrantedEffects]
 }
 
 enum GroundEffectEffectTypes @indexing(first: 0) { _ }
