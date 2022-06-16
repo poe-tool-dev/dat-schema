@@ -1905,7 +1905,7 @@ type GrantedEffectStatSetsPerLevel {
   FloatStats: [Stats]
   InterpolationBases: [Stats]
   AdditionalStats: [Stats]
-  StatInterpolations: [i32]
+  StatInterpolations: [StatInterpolationTypes]
   FloatStatsValues: [f32]
   BaseResolvedValues: [i32]
   AdditionalStatsValues: [i32]
@@ -4501,7 +4501,11 @@ type StatDescriptionFunctions {
   TranslationId: string @unique
 }
 
-enum StatInterpolationTypes @indexing(first: 0) { _ }
+enum StatInterpolationTypes @indexing(first: 1) { 
+  CONSTANT
+  LINEAR
+  EXPONENTIAL
+}
 
 type Stats {
   Id: string @unique
