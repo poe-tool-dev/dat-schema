@@ -1897,8 +1897,8 @@ type GrantedEffectStatSetsPerLevel {
   StatSet: GrantedEffectStatSets
   GemLevel: i32
   PlayerLevelReq: i32
+  SpellCritChance: i32
   AttackCritChance: i32
-  AttackTime: i32
   BaseMultiplier: i32
   DamageEffectiveness: i32
   AdditionalFlags: [Stats]
