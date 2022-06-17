@@ -264,6 +264,7 @@ type Animation {
   Mainhand_AnimationKey: Animation @ref(column: "Id")
   Offhand_AnimationKey: Animation @ref(column: "Id")
   _: bool
+  _: rid
 }
 
 type ApplyDamageFunctions {
@@ -1995,6 +1996,7 @@ type HideoutDoodads {
   _: rid
   Category: HideoutDoodadCategory
   _: i32
+  _: bool
 }
 
 type HideoutDoodadCategory {
