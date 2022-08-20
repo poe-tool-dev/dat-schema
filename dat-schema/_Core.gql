@@ -516,7 +516,7 @@ type AtlasSector {
   SpawnWeight_Values: [i32]
 }
 
-enum Attributes @indexing(first: 1) { 
+enum Attributes @indexing(first: 1) {
   STRENGTH
   DEXTERITY
   INTELLIGENCE
@@ -840,7 +840,7 @@ type Characters {
   _: i32
   CharacterSize: i32
   IntroSoundFile: string @file(ext: ".ogg")
-  StartWeapon: BaseItemTypes
+  StartWeapons: [BaseItemTypes]
   Gender: string
   TraitDescription: string @localized
   _: rid
@@ -1385,8 +1385,8 @@ type Environments {
   Id: string @unique
   Base_ENVFile: string @file(ext: ".env")
   Corrupted_ENVFile: string @file(ext: ".env")
-  _: i32
-  _: i32
+  _: rid
+  _: rid
   _: [_]
   EnvironmentTransitionsKey: EnvironmentTransitions
   PreloadGroup: PreloadGroups
@@ -2118,7 +2118,7 @@ type ItemClasses {
   AllocateToMapOwner: bool
   AlwaysAllocate: bool
   CanHaveVeiledMods: bool
-  _: i32
+  _: rid
   _: i32
   AlwaysShow: bool
   CanBeCorrupted: bool
@@ -2134,6 +2134,9 @@ type ItemClasses {
   _: bool # 3.18
   _: [i32]
   Flags: [ItemClassFlags]
+  _: bool
+  _: bool # 3.19
+  EquipAchievements: AchievementItems
 }
 
 enum ItemClassFlags @indexing(first: 0) { _ }
@@ -2387,11 +2390,11 @@ type MapCompletionAchievements {
 type MapConnections {
   MapPinsKey0: MapPins
   MapPinsKey1: MapPins
-  _: i32
+  _: rid
   RestrictedAreaText: string
-  _: i32
-  _: i32
-  _: i32
+  _: rid
+  _: rid
+  _: rid
   _: [_]
 }
 
@@ -2869,7 +2872,9 @@ type ModEquivalencies {
   _: bool
 }
 
-enum ModFamily @indexing(first: 0) { _ }
+type ModFamily {
+  Id: string
+}
 
 enum ModGenerationType @indexing(first: 1) {
   PREFIX
@@ -2915,7 +2920,7 @@ type Mods {
   Domain: ModDomains
   Name: string
   GenerationType: ModGenerationType
-  CorrectGroup: string
+  Families: [ModFamily]
   Stat1Min: i32
   Stat1Max: i32
   Stat2Min: i32
@@ -3628,7 +3633,7 @@ type NPCs {
   Id: string @unique
   Name: string
   Metadata: string @files(ext: [".ot", ".otc"])
-  _: i32
+  _: rid
   NPCMasterKey: NPCMaster
   ShortName: string
   _: i32
@@ -3894,9 +3899,7 @@ type PassiveTreeExpansionJewels {
   SmallIndices: [i32]
   NotableIndices: [i32]
   SocketIndices: [i32]
-  Art: string
   TotalIndices: i32
-  SoundEffectsKey: SoundEffects
 }
 
 type PassiveTreeExpansionJewelSizes {
@@ -3945,6 +3948,13 @@ type PlayerConditions {
   StatValue: i32
   _: [rid]
   _: bool
+}
+
+type PlayerTradeWhisperFormats {
+  Id: string
+  Whisper: string
+  InStash: bool
+  IsPriced: bool
 }
 
 type PreloadGroups {
@@ -4031,23 +4041,23 @@ enum QuestFlags @indexing(first: 0) { _ }
 
 type QuestItems {
   Item: BaseItemTypes
+  _: rid
+  _: rid
   _: i32
-  _: i32
-  _: i32
-  _: i32
+  _: rid
   _: [_]
   _: bool
   _: bool
   _: rid
   _: i32
   _: rid
-  _: string
+  Script: string
 }
 
 type QuestRewardOffers {
   Id: string
   QuestKey: Quest
-  QuestState: i32
+  _: rid
   _: i32
   RewardWindowTake: ClientStrings
   _: bool
@@ -4058,7 +4068,7 @@ type QuestRewardOffers {
 type QuestRewards {
   RewardOffer: QuestRewardOffers
   _: i32
-  Character: Characters
+  Characters: [Characters]
   Reward: BaseItemTypes
   RewardLevel: i32
   _: rid
@@ -4102,7 +4112,7 @@ type QuestStates {
 }
 
 type QuestStaticRewards {
-  _: i32
+  _: rid
   _: i32
   StatsKeys: [Stats]
   StatValues: [i32]
@@ -4503,7 +4513,7 @@ type StatDescriptionFunctions {
   TranslationId: string @unique
 }
 
-enum StatInterpolationTypes @indexing(first: 1) { 
+enum StatInterpolationTypes @indexing(first: 1) {
   CONSTANT
   LINEAR
   EXPONENTIAL
@@ -4866,7 +4876,7 @@ type Tutorial {
   IsEnabled: bool
   _: i32
   _: [i32]
-  _: i32
+  _: rid
   _: i32
   _: [i32]
   _: bool
@@ -5051,8 +5061,8 @@ type WorldAreas {
   _: i32
   _: i32
   LoadingScreen_DDSFile: string @file(ext: ".dds")
-  _: i32
-  _: [i32]
+  _: rid
+  _: [rid]
   _: i32
   TopologiesKeys: [Topologies]
   ParentTown_WorldAreasKey: WorldAreas

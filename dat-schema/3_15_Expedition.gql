@@ -89,12 +89,12 @@ type ExpeditionMarkersCommon {
 }
 
 type ExpeditionNPCs {
-  Id: string @unique
+  Id: string
   NPCs: [NPCs]
   RerollItem: BaseItemTypes
   _: i32
   _: i32
-  _: i32
+  _: rid
   Faction: ExpeditionFactions
   Reroll: NPCTextAudio
   AllBombsPlaced: NPCTextAudio

@@ -26,9 +26,9 @@ type PantheonPanelLayout {
 }
 
 type PantheonSouls {
-  WorldAreasKey: WorldAreas
-  BaseItemTypesKey: BaseItemTypes
-  QuestState: i32
-  MonsterVarietiesKey: MonsterVarieties
-  PantheonPanelLayoutKey: PantheonPanelLayout
+  WorldArea: WorldAreas
+  CapturedVessel: BaseItemTypes
+  _: rid
+  CapturedMonster: MonsterVarieties
+  PanelLayout: PantheonPanelLayout
 }

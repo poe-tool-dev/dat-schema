@@ -20,10 +20,10 @@ type BlightChestTypes {
 }
 
 type BlightCraftingItems {
-  BaseItemTypesKey: BaseItemTypes @unique
+  Oil: BaseItemTypes
   Tier: i32
-  AchievementItemsKeys: [AchievementItems]
-  CanUseOnCorrupted: bool
+  Achievements: [AchievementItems]
+  UseType: i32
 }
 
 type BlightCraftingRecipes {
