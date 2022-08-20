@@ -31,11 +31,11 @@ type MavenFights {
   BaseItemType: BaseItemTypes
   _: i32
   MinMapTier: i32
-  _: rid
+  _: QuestFlags
   _: i32
   WitnessAreas: [WorldAreas]
   _: i32
-  _: i32
+  _: QuestFlags
   _: bool
   _: [_]
   CompletionAchievements: [AchievementItems]

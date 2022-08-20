@@ -94,7 +94,7 @@ type ExpeditionNPCs {
   RerollItem: BaseItemTypes
   _: i32
   _: i32
-  _: rid
+  _: QuestFlags
   Faction: ExpeditionFactions
   Reroll: NPCTextAudio
   AllBombsPlaced: NPCTextAudio

@@ -41,7 +41,7 @@ type Labyrinths {
   Tier: i32
   Name: string
   OfferingItem: BaseItemTypes
-  _: rid
+  QuestFlag: QuestFlags
   RequiredTrials: [LabyrinthTrials]
   AreaLevel: i32
   _: i32

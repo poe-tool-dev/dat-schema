@@ -297,14 +297,14 @@ type HeistQuestContracts {
   _: i32
   _: bool
   _: bool
-  _: rid
+  HaveObjective: QuestFlags
   _: bool
-  _: rid
-  _: rid
-  _: rid
+  QuestActive: QuestFlags
+  HaveQuest: QuestFlags
+  HaveObjective2: QuestFlags
   _: bool
   _: bool
-  Objective: string
+  Objective: string @localized
   _: bool
   BaseItemTypesKey: BaseItemTypes
   _: bool

@@ -2108,17 +2108,17 @@ type ItemClassCategories {
 }
 
 type ItemClasses {
-  Id: string @unique
+  Id: string
   Name: string
-  _: rid
+  TradeMarketCategory: TradeMarketCategory
   ItemClassCategory: ItemClassCategories
   RemovedIfLeavesArea: bool
-  _: [rid]
-  _: [rid]
+  _: [_]
+  IdentifyAchievements: [AchievementItems]
   AllocateToMapOwner: bool
   AlwaysAllocate: bool
   CanHaveVeiledMods: bool
-  _: rid
+  PickedUpQuest: QuestFlags
   _: i32
   AlwaysShow: bool
   CanBeCorrupted: bool
@@ -2347,6 +2347,13 @@ type LeagueInfo {
   _: bool
   _: bool
   PanelItems: [string]
+}
+
+type LeagueProgressQuestFlags {
+  QuestFlag: QuestFlags
+  CompletionString: ClientStrings
+  Boss: string
+  _: bool
 }
 
 enum LeagueQuestFlags @indexing(first: 0) { _ }
@@ -4220,7 +4227,7 @@ type SalvageBoxes {
 }
 
 type SessionQuestFlags {
-  QuestFlag: i32
+  QuestFlag: QuestFlags
 }
 
 type ShieldTypes {

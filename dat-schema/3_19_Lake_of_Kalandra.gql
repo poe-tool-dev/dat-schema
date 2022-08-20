@@ -1,0 +1,53 @@
+type ClientLakeDifficulty {
+  Id: i32
+  Scaling: f32
+  _: i32
+  _: i32
+}
+
+type LakeBossLifeScalingPerLevel {
+  Level: i32
+  Scaling: i32
+}
+
+type LakeMetaOptions {
+  Id: string
+  _: [i32]
+}
+
+type LakeMetaOptionsUnlockText {
+  Id: i32
+  Text: string @localized
+}
+
+type LakeRoomCompletion {
+  Room: LakeRooms
+  _: i32
+  _: i32
+  Achievements: [AchievementItems]
+  _: [i32]
+  _: [_]
+  _: i32
+}
+
+type LakeRooms {
+  Id: string
+  ARMFiles: [string] @file(ext: ".arm")
+  Script: string
+  _: [_]
+  Stats: [Stats]
+  StatsValues: [i32]
+  Description: string @localized
+  Name: string @localized
+  Type: i32
+  WorldArea: WorldAreas
+  Icon: string
+  _: i32
+  MinLevel: i32
+  _: rid
+  _: bool
+  ExtraStats: [Stats]
+  ExtraStatsValues: [i32]
+  ReminderText: string @localized
+  TextAudio: NPCTextAudio
+}

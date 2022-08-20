@@ -28,7 +28,7 @@ type PantheonPanelLayout {
 type PantheonSouls {
   WorldArea: WorldAreas
   CapturedVessel: BaseItemTypes
-  _: rid
+  QuestFlag: QuestFlags
   CapturedMonster: MonsterVarieties
   PanelLayout: PantheonPanelLayout
 }
