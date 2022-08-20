@@ -38,10 +38,10 @@ type LabyrinthRewardTypes {
 }
 
 type Labyrinths {
-  Tier: i32 @unique
+  Tier: i32
   Name: string
   OfferingItem: BaseItemTypes
-  QuestState: i32
+  _: rid
   RequiredTrials: [LabyrinthTrials]
   AreaLevel: i32
   _: i32

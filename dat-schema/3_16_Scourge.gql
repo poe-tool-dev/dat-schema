@@ -62,7 +62,7 @@ type HellscapeMods {
   Mod: Mods
   TiersWhitelist: [i32]
   TransformAchievement: AchievementItems
-  CorrectGroups: [string]
+  ModFamilies: [ModFamily]
 }
 
 type HellscapeMonsterPacks {

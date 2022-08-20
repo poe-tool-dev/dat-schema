@@ -15,20 +15,12 @@ type ArchnemesisModComboAchievements {
 
 type ArchnemesisMods {
   Mod: Mods
-  _: [rid]
-  _: i32
-  _: i32
-  _: i32
   _: i32
   Name: string @localized
-  Icon: string @file(ext: ".dds")
-  _: bool
-  _: bool
   Visual: ArchnemesisModVisuals
-  _: [rid]
-  Description: string @localized
-  DefeatAchievement: AchievementItems
-  _: i32
+  TextStyles: [string]
+  _: bool
+  _: bool
 }
 
 type ArchnemesisModVisuals {

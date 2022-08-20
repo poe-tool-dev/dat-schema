@@ -297,11 +297,11 @@ type HeistQuestContracts {
   _: i32
   _: bool
   _: bool
-  _: i32
+  _: rid
   _: bool
-  _: i32
-  _: i32
-  _: i32
+  _: rid
+  _: rid
+  _: rid
   _: bool
   _: bool
   Objective: string

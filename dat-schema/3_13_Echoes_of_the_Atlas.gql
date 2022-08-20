@@ -31,7 +31,7 @@ type MavenFights {
   BaseItemType: BaseItemTypes
   _: i32
   MinMapTier: i32
-  _: i32
+  _: rid
   _: i32
   WitnessAreas: [WorldAreas]
   _: i32

@@ -2016,8 +2016,8 @@ type HideoutNPCs {
   Regular_NPCsKeys: [NPCs]
   HideoutDoodadsKey: HideoutDoodads
   NPCMasterKey: i32
-  _: i32
-  _: i32
+  _: rid
+  _: rid
   _: i32
   _: rid
   _: i32
@@ -2404,17 +2404,17 @@ type MapCreationInformation {
 }
 
 type MapDeviceRecipes {
-  Id: string @unique
-  BaseItemTypesKeys: [BaseItemTypes]
-  WorldAreasKey: WorldAreas
+  Id: string
+  RecipeItems: [BaseItemTypes]
+  WorldArea: WorldAreas
   MicrotransactionPortalVariation: MicrotransactionPortalVariations
   AreaLevel: i32
+  _: rid
   _: i32
-  _: i32
   _: bool
   _: bool
   _: bool
-  _: [_]
+  OpenAchievemnts: [AchievementItems]
 }
 
 type MapDevices {
@@ -2426,7 +2426,6 @@ type MapDevices {
   _: [i32]
   _: bool
   _: i32
-  _: bool
   _: bool
 }
 
@@ -3669,7 +3668,7 @@ type NPCTalk {
   _: [i32]
   _: [i32]
   Script: string
-  _: i32
+  _: rid
   _: NPCTalkCategory
   QuestKey: Quest
   _: i32
@@ -4037,7 +4036,10 @@ type QuestAchievements {
   _: bool
 }
 
-enum QuestFlags @indexing(first: 0) { _ }
+type QuestFlags {
+  Id: string
+  HASH32: i32
+}
 
 type QuestItems {
   Item: BaseItemTypes
@@ -5067,8 +5069,8 @@ type WorldAreas {
   TopologiesKeys: [Topologies]
   ParentTown_WorldAreasKey: WorldAreas
   _: i32
-  _: i32
-  _: i32
+  _: rid
+  _: rid
   Bosses_MonsterVarietiesKeys: [MonsterVarieties]
   Monsters_MonsterVarietiesKeys: [MonsterVarieties]
   SpawnWeight_TagsKeys: [Tags]
@@ -5124,7 +5126,7 @@ type WorldAreas {
 }
 
 type WorldAreaLeagueChances {
-  Area: WorldAreas
+  Id: string
   _: i32
   _: i32
   _: i32
