@@ -548,7 +548,7 @@ type BaseItemTypes {
   ItemClassesKey: ItemClasses
   Width: i32
   Height: i32
-  Name: string
+  Name: string @localized
   InheritsFrom: string @files(ext: [".ot", ".otc"])
   DropLevel: i32
   FlavourTextKey: FlavourText
@@ -559,7 +559,7 @@ type BaseItemTypes {
   ModDomain: ModDomains
   SiteVisibility: BaseItemTypeVisibility
   ItemVisualIdentity: ItemVisualIdentity
-  HASH: i32 @unique
+  HASH32: i32 @unique
   VendorRecipe_AchievementItems: [AchievementItems]
   "the inflection identifier used for i18n in related fields"
   Inflection: string
@@ -573,7 +573,7 @@ type BaseItemTypes {
   _: rid
   _: rid
   _: bool
-  _: rid
+  TradeMarketCategory: TradeMarketCategory
 }
 
 enum BaseItemTypeVisibility @indexing(first: 0) {
@@ -852,6 +852,20 @@ type Characters {
   PassiveTreeImage: string @file(ext: ".dds")
   _: i32
   _: i32
+  TencentVideo: string @file(ext: ".bk2")
+  AttrsAsId: string
+  LoginScreen: string @file(ext: ".ao")
+  PlayerCritter: string
+  PlayerEffect: string
+  AfterImage: string
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: f32
+  _: f32
+  SkillTreeBackground: string
+  _: rid
 }
 
 type CharacterStartQuestState {
@@ -2860,6 +2874,7 @@ enum ModDomains @indexing(first: 1) {
   UNVEILED
   ELDRITCH_ALTAR
   SENTINEL
+  MEMORY_LINE
 }
 
 type ModEffectStats {
