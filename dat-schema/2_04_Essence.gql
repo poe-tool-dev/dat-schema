@@ -63,6 +63,7 @@ type Essences {
   Shield_ModsKey: Mods
   Display_Items_ModsKey: Mods
   IsScreamingEssence: bool
+  _: [rid]
 }
 
 type EssenceType {
