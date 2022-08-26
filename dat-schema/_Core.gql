@@ -1999,9 +1999,6 @@ type HideoutDoodads {
   BaseItemTypesKey: BaseItemTypes @unique
   Variation_AOFiles: [string] @file(ext: ".ao")
   IsNonMasterDoodad: bool
-  _: i32
-  _: i32
-  _: i32
   InheritsFrom: string @files(ext: [".ot", ".otc"])
   _: bool
   IsCraftingBench: bool
@@ -2011,6 +2008,7 @@ type HideoutDoodads {
   Category: HideoutDoodadCategory
   _: i32
   _: bool
+  _: rid
 }
 
 type HideoutDoodadCategory {
@@ -2122,7 +2120,7 @@ type ItemClassCategories {
 }
 
 type ItemClasses {
-  Id: string
+  Id: string @unique
   Name: string
   TradeMarketCategory: TradeMarketCategory
   ItemClassCategory: ItemClassCategories
@@ -2894,7 +2892,7 @@ type ModEquivalencies {
 }
 
 type ModFamily {
-  Id: string
+  Id: string @unique
 }
 
 enum ModGenerationType @indexing(first: 1) {
@@ -2927,6 +2925,7 @@ enum ModGenerationType @indexing(first: 1) {
   _
   EXARCH_IMPLICIT
   EATER_IMPLICIT
+  _
 }
 
 type Mods {
@@ -3569,6 +3568,9 @@ type NPCAudio {
   _: i32
   _: i32
   _: i32
+  _: rid
+  _: i32
+  _: i32
 }
 
 type NPCConversations {
@@ -3798,6 +3800,7 @@ type PassiveSkillMasteryGroups {
   ActiveEffectImage: string
   _: bool
   SoundEffect: SoundEffects
+  MasteryCountStat: Stats
 }
 
 type PassiveSkillMasteryEffects {
@@ -3807,6 +3810,7 @@ type PassiveSkillMasteryEffects {
   Stat1Value: i32
   Stat2Value: i32
   Stat3Value: i32
+  AchievementItem: AchievementItems
 }
 
 type PassiveSkills {
@@ -4466,6 +4470,7 @@ type SoundEffects {
   SoundFile: string @file(ext: ".ogg")
   SoundFile_2D: string @file(ext: ".ogg")
   _: bool
+  _: string
 }
 
 type SpawnAdditionalChestsOrClusters {
