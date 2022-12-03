@@ -8,6 +8,8 @@ Each commit triggers a CI build that exports schema to JSON.
 You can always `curl` latest version at
 [github.com/poe-tool-dev/dat-schema/releases/download/latest/schema.min.json](https://github.com/poe-tool-dev/dat-schema/releases/download/latest/schema.min.json)
 
+Structure of JSON file is described in [src/types.ts](https://github.com/poe-tool-dev/dat-schema/blob/main/src/types.ts)
+
 ## Schema
 
 The schema is based on GraphQL syntax.
