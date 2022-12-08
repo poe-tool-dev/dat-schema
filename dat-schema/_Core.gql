@@ -2045,7 +2045,7 @@ type HideoutRarity {
 type Hideouts {
   Id: string @unique
   SmallWorldAreasKey: WorldAreas
-  _: i32
+  HASH16: i32
   HideoutFile: string @file(ext: ".hideout")
   _: [rid]
   LargeWorldAreasKey: WorldAreas
@@ -3509,7 +3509,7 @@ type Music {
   Id: string @unique
   SoundFile: string @file(ext: ".ogg")
   BankFile: string @file(ext: ".bank")
-  _: i32
+  HASH16: i32
   IsAvailableInHideout: bool
   Name: string
   _: string
