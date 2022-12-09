@@ -64,6 +64,9 @@ type Essences {
   Display_Items_ModsKey: Mods
   IsScreamingEssence: bool
   _: [rid]
+  _: i32
+  _: i32
+  _: i32
 }
 
 type EssenceType {
