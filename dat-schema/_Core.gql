@@ -2983,7 +2983,6 @@ type Mods {
   Heist_AddStatValue2: i32
   InfluenceTypes: InfluenceTypes
   ImplicitTagsKeys: [Tags]
-  _: i32
   _: bool
   _: i32
   _: i32
@@ -3000,10 +2999,13 @@ type Mods {
   _: i32
   _: i32
   _: i32
-  BuffTemplate: BuffTemplates
+  _: i32
+  ArchnemesisBuff: BuffTemplates
   ArchnemesisMinionMod: Mods
   HASH32: i32
-  _: [i32]
+  _: [rid]
+  _: i32
+  _: [GrantedEffectsPerLevel]
 }
 
 type ModSellPriceTypes {
@@ -4397,10 +4399,17 @@ type SkillGems {
   GrantedEffectsKey2: GrantedEffects
   MinionGlobalSkillLevelStat: Stats
   SupportSkillName: string
+  IsSupport: bool
+  _: bool
+  _: bool
+  _: bool
   _: bool
   _: bool
   AwakenedVariant: SkillGems
   RegularVariant: SkillGems
+  GrantedEffectHardMode: GrantedEffects
+  _: rid
+  _: i32
 }
 
 enum SkillMines @indexing(first: 0) { _ }
@@ -5108,17 +5117,16 @@ type WorldAreas {
   AchievementItemsKey: AchievementItems
   ModsKeys: [Mods]
   _: i32
-  VaalArea_WorldAreasKeys: [WorldAreas]
-  VaalArea_SpawnChance: i32
+  VaalArea: [WorldAreas]
   _: bool
   MaxLevel: i32
-  AreaType_TagsKeys: [Tags]
+  AreaTypeTags: [Tags]
   _: i32
   IsHideout: bool
   Inflection: string
   _: i32
   _: i32
-  TagsKeys: [Tags]
+  Tags: [Tags]
   IsVaalArea: bool
   IsLabyrinthAirlock: bool
   IsLabyrinthArea: bool
@@ -5126,7 +5134,6 @@ type WorldAreas {
   Enter_AchievementItemsKey: AchievementItems
   TSIFile: string @file(ext: ".tsi")
   _: rid
-  _: i32
   WaypointActivation_AchievementItemsKeys: [AchievementItems]
   IsUniqueMapArea: bool
   IsLabyrinthBossArea: bool
@@ -5150,6 +5157,8 @@ type WorldAreas {
   _: [_]
   _: rid
   _: i32
+  _: rid
+  _: rid
 }
 
 type WorldAreaLeagueChances {
