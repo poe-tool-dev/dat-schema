@@ -674,6 +674,7 @@ type BuffDefinitions {
   _: bool
   _: Stats
   _: [i32]
+  _: string
 }
 
 enum BuffGroups @indexing(first: 0) { _ }
@@ -749,6 +750,7 @@ type BuffVisuals {
   EPKFiles: [string] @file(ext: ".epk")
   BuffVisualOrbs: [BuffVisualOrbs]
   MiscAnimated3: MiscAnimated
+  _: rid
 }
 
 type BuffVisualsArtVariations {
@@ -2031,6 +2033,7 @@ type HideoutDoodads {
   _: i32
   _: bool
   _: rid
+  _: bool
 }
 
 type HideoutDoodadCategory {
@@ -2777,6 +2780,7 @@ type MiscAnimated {
   PreloadGroupsKeys: [PreloadGroups]
   _: i32
   _: i32
+  HASH32: i32
 }
 
 type MiscAnimatedArtVariations {
@@ -3023,7 +3027,7 @@ type Mods {
   _: i32
   _: i32
   _: i32
-  ArchnemesisBuff: BuffTemplates
+  BuffTemplate: BuffTemplates
   ArchnemesisMinionMod: Mods
   HASH32: i32
   _: [rid]
@@ -3668,6 +3672,9 @@ type NPCMaster {
   _: i32
   _: Stats
   HasAreaMissions: bool
+  _: [rid]
+  _: [rid]
+  _: rid
 }
 
 type NPCPortraits {
@@ -3692,6 +3699,8 @@ type NPCs {
   _: NPCs
   Portrait: NPCPortraits
   DialogueStyle: NPCDialogueStyles
+  _: rid
+  _: bool
 }
 
 type NPCShop {
@@ -3873,6 +3882,15 @@ type PassiveSkills {
   MasteryGroup: PassiveSkillMasteryGroups
   _: rid
   SoundEffect: SoundEffects
+  _: string
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+  _: [rid]
+  _: i32
 }
 
 enum PassiveSkillTypes @indexing(first: 0) {
