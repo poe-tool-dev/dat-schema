@@ -119,7 +119,7 @@ type Acts {
   _: i32
   IsPostGame: bool
   _: i32
-  _: i32
+  _: [QuestFlags]
 }
 
 type AddBuffToTargetVarieties {
@@ -1033,6 +1033,27 @@ enum CooldownBypassTypes @indexing(first: 1) { _ }
 
 enum CooldownGroups @indexing(first: 0) { _ }
 
+type CoreLeagues {
+  Id: string
+  _: bool
+  _: bool
+  _: Stats
+  _: [Stats]
+  _: Stats
+  _: Stats
+  _: Stats
+  _: [Stats]
+  _: Stats
+  _: rid
+  _: i32
+  _: bool
+  _: Stats
+  _: [Stats]
+  _: bool
+  _: bool
+  _: [Stats]
+}
+
 type CostTypes {
   Id: string @unique
   StatsKey: Stats
@@ -1321,6 +1342,7 @@ type DropPool {
   Group: string @unique
   Weight: i32
   _: [i32]
+  WeightHardmode: i32
 }
 
 type EclipseMods {
@@ -2848,7 +2870,7 @@ enum ModDomains @indexing(first: 1) {
   CHEST
   AREA
   _
-  _
+  SANCTUM_RELIC
   _
   CRAFTED
   MISC
@@ -2873,6 +2895,7 @@ enum ModDomains @indexing(first: 1) {
   ELDRITCH_ALTAR
   SENTINEL
   MEMORY_LINE
+  SANCTUM_SPECIAL
 }
 
 type ModEffectStats {
@@ -4227,6 +4250,12 @@ type RecipeUnlockObjects {
   RecipeId: i32
 }
 
+type ReminderText {
+  Id: string
+  Text: string @localized
+  TextHardmode: string @localized
+}
+
 enum RelativeImportanceConstants @indexing(first: 0) { _ }
 
 type Rulesets {
@@ -4919,6 +4948,7 @@ type Tutorial {
   _: [i32]
   _: bool
   _: bool
+  _: i32
 }
 
 enum UITalkCategories @indexing(first: 0) { _ }
