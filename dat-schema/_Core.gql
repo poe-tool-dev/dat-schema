@@ -2166,13 +2166,13 @@ type ItemClasses {
   CanTransferSkin: bool
   ItemStance: ItemStances
   CanScourge: bool
-  UpgradeRarityWhenScourged: bool
+  CanUpgradeRarity: bool # by using Tainted Mythic Orb
   _: bool # 3.17
   _: bool # 3.18
   MaxInventoryDimensions: [i32]
   Flags: [ItemClassFlags]
   IsUnmodifiable: bool
-  CanBeFractured: bool # 3.19
+  CanBeFractured: bool
   EquipAchievements: AchievementItems
 }
 
