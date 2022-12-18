@@ -2182,7 +2182,7 @@ enum ItemClassFlags @indexing(first: 0) {
   MELEE
   OFF_HAND
   FLASK
-  ARMOR
+  ARMOUR
   JEWELLERY
   CURRENCY
 }
