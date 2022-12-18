@@ -2166,17 +2166,26 @@ type ItemClasses {
   CanTransferSkin: bool
   ItemStance: ItemStances
   CanScourge: bool
-  _: bool # CanScourge2
+  CanUpgradeRarity: bool # by using Tainted Mythic Orb
   _: bool # 3.17
   _: bool # 3.18
-  _: [i32]
+  MaxInventoryDimensions: [i32]
   Flags: [ItemClassFlags]
-  _: bool
-  _: bool # 3.19
+  IsUnmodifiable: bool
+  CanBeFractured: bool
   EquipAchievements: AchievementItems
 }
 
-enum ItemClassFlags @indexing(first: 0) { _ }
+enum ItemClassFlags @indexing(first: 0) {
+  WEAPON
+  ONE_HAND
+  MELEE
+  OFF_HAND
+  FLASK
+  ARMOUR
+  JEWELLERY
+  CURRENCY
+}
 
 type ItemCostPerLevel {
   Contract_BaseItemTypesKey: BaseItemTypes
