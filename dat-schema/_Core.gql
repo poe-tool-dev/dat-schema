@@ -2191,7 +2191,7 @@ type ItemCostPerLevel {
   Contract_BaseItemTypesKey: BaseItemTypes
   Level: i32
   Cost: ItemCosts
-  _: rid
+  CostHardmode: ItemCosts
 }
 
 type ItemCosts {
