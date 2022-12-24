@@ -1103,6 +1103,9 @@ type CraftingBenchOptions {
   _: rid
   _: bool
   _: i32
+  _: Stats #"stat granted by kirac mod"
+  _: Stats #"stat granted by kirac mod"
+  _: Stats #"stat granted by kirac mod"
 }
 
 type CraftingBenchSortCategories {
