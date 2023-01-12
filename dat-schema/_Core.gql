@@ -3466,6 +3466,7 @@ type MonsterVarieties {
   _: [_]
   _: i32
   _: i32
+  _: i32
 }
 
 type MonsterVarietiesArtVariations {
