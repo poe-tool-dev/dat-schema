@@ -103,6 +103,8 @@ type ExpeditionNPCs {
   BombPlacedMonsters: NPCTextAudio
   BombPlacedGeneric: NPCTextAudio
   EncounterComplete: NPCTextAudio
+  _: i32
+  _: i32
 }
 
 enum ExpeditionRelicModCategories @indexing(first: 0) {

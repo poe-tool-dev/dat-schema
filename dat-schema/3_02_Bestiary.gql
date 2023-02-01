@@ -81,15 +81,22 @@ type BestiaryRecipeComponent {
   BestiaryGenusKey: BestiaryGenus
 }
 
+type BestiaryRecipeCategories {
+  Id: string
+  Text: string
+}
+
 type BestiaryRecipes {
   Id: string @unique
   Description: string
   BestiaryRecipeComponentKeys: [BestiaryRecipeComponent]
   Notes: string
-  HintText: string
+  Category: BestiaryRecipeCategories
   _: bool
-  AchievementItemsKeys: [AchievementItems]
+  Achievements: [AchievementItems]
   _: bool
   _: i32
-  RedBeastsRequired: i32
+  _: i32
+  _: i32
+  FlaskMod: Mods
 }

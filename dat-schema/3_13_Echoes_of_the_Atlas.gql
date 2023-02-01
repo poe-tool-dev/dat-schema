@@ -38,7 +38,8 @@ type MavenFights {
   _: QuestFlags
   _: bool
   _: [_]
-  CompletionAchievements: [AchievementItems]
+  Achievements1: [AchievementItems]
+  Achievements2: [AchievementItems]
 }
 
 type MavenJewelRadiusKeystones {

@@ -29,9 +29,11 @@ type HeistAreas {
   _: bool
   _: bool
   Blueprint_DDSFile: string @file(ext: ".dds")
-  AchievementItemsKeys: [AchievementItems]
-  AchievementItemsKeys2: [AchievementItems]
-  ClientStringsKey: ClientStrings
+  Achievements1: [AchievementItems]
+  Achievements2: [AchievementItems]
+  Reward: ClientStrings
+  Achievements3: [AchievementItems]
+  RewardHardmode: ClientStrings
 }
 
 type HeistBalancePerLevel {

@@ -6,4 +6,5 @@ type Strongboxes {
   IsCartographerBox: bool
   _: bool
   SpawnWeightIncrease: Stats
+  SpawnWeightHardmode: i32
 }

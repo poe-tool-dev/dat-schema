@@ -85,8 +85,9 @@ type MetamorphosisRewardTypes {
 type MetamorphosisScaling {
   Level: i32
   StatValueMultiplier: f32
-  Scaling_StatsKeys: [Stats]
-  Scaling_Values: [i32]
-  _: i32
-  _: [i32]
+  ScalingStats: [Stats]
+  ScalingValues: [i32]
+  ScalingValues2: [i32]
+  ScalingValuesHardmode: [i32]
+  ScalingValuesHardmode2: [i32]
 }

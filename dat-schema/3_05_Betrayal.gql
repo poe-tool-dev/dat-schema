@@ -8,6 +8,7 @@ type BetrayalChoices {
   Id: string
   Text: string
   _: i32
+  Achievements: [AchievementItems]
 }
 
 type BetrayalDialogue {

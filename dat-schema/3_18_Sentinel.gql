@@ -12,7 +12,7 @@ type DroneBaseTypes {
 
 type DroneTypes {
   Id: string
-  _: i32
+  _: QuestFlags
   _: MonsterVarieties
   DeployText: string
   _: string

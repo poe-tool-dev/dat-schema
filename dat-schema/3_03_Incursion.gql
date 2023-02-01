@@ -65,7 +65,9 @@ type IncursionRooms {
   _: i32
   _: i32
   RoomUpgradeFrom_IncursionRoomsKey: IncursionRooms
-  _: rid
+  ItemisedFlavourText: FlavourText
+  _: string
+  _: [Mods]
 }
 
 type IncursionUniqueUpgradeComponents {

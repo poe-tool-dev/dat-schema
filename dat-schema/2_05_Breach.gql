@@ -9,6 +9,7 @@ type BreachElement {
   _: rid
   BaseBreachstone: BaseItemTypes
   BossMapMod: Stats
+  DuplicateBoss: Stats
 }
 
 type BreachstoneUpgrades {

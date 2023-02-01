@@ -33,6 +33,11 @@ type UltimatumItemisedRewards {
   TrialMods: [Mods]
 }
 
+type UltimatumMapModifiers {
+  Stat: Stats
+  Mods: [UltimatumModifiers]
+}
+
 type UltimatumModifiers {
   Id: string @unique
   Types: [UltimatumModifierTypes]
@@ -57,6 +62,7 @@ type UltimatumModifiers {
   _: bool
   Achievements: [AchievementItems]
   TextAudio: NPCTextAudio
+  UniqueMapMod: Mods
 }
 
 type UltimatumModifierTypes {

@@ -15,7 +15,6 @@ type ArchnemesisModComboAchievements {
 
 type ArchnemesisMods {
   Mod: Mods
-  _: i32
   Name: string @localized
   Visual: ArchnemesisModVisuals
   TextStyles: [string]
