@@ -1106,6 +1106,9 @@ type CraftingBenchOptions {
   _: rid
   _: bool
   _: i32
+  _: Stats #"stat granted by kirac mod"
+  _: Stats #"stat granted by kirac mod"
+  _: Stats #"stat granted by kirac mod"
 }
 
 type CraftingBenchSortCategories {
@@ -2177,23 +2180,32 @@ type ItemClasses {
   CanTransferSkin: bool
   ItemStance: ItemStances
   CanScourge: bool
-  _: bool # CanScourge2
+  CanUpgradeRarity: bool # by using Tainted Mythic Orb
   _: bool # 3.17
   _: bool # 3.18
-  _: [i32]
+  MaxInventoryDimensions: [i32]
   Flags: [ItemClassFlags]
-  _: bool
-  _: bool # 3.19
+  IsUnmodifiable: bool
+  CanBeFractured: bool
   EquipAchievements: AchievementItems
 }
 
-enum ItemClassFlags @indexing(first: 0) { _ }
+enum ItemClassFlags @indexing(first: 0) {
+  WEAPON
+  ONE_HAND
+  MELEE
+  OFF_HAND
+  FLASK
+  ARMOUR
+  JEWELLERY
+  CURRENCY
+}
 
 type ItemCostPerLevel {
   Contract_BaseItemTypesKey: BaseItemTypes
   Level: i32
   Cost: ItemCosts
-  _: rid
+  CostHardmode: ItemCosts
 }
 
 type ItemCosts {
@@ -2378,6 +2390,7 @@ type LeagueFlag {
   IsHC: bool
   IsSSF: bool
   Banner: string
+  IsRuthless: bool
 }
 
 enum LeagueFlags @indexing(first: 0) { _ }
@@ -3468,6 +3481,7 @@ type MonsterVarieties {
   _: i32
   _: i32
   _: [_]
+  _: i32
   _: i32
   _: i32
 }

@@ -17,10 +17,10 @@ type PantheonPanelLayout {
   Effect4_Values: [i32]
   GodName1: string
   Effect2_Values: [i32]
-  QuestState1: i32
-  QuestState2: i32
-  QuestState3: i32
-  QuestState4: i32
+  QuestState1: QuestStates
+  QuestState2: QuestStates
+  QuestState3: QuestStates
+  QuestState4: QuestStates
   IsDisabled: bool
   AchievementItems: [AchievementItems]
 }
