@@ -2086,13 +2086,13 @@ type Hideouts {
   SmallWorldAreasKey: WorldAreas
   HASH16: i32
   HideoutFile: string @file(ext: ".hideout")
-  _: [rid]
+  SpawnWorldAreasKeys: [WorldAreas]
   LargeWorldAreasKey: WorldAreas
   HideoutImage: string
   IsEnabled: bool
   Weight: i32
   _: HideoutRarity
-  _: bool
+  NotActsArea: bool
   Name: string
   _: [i32]
   _: bool
