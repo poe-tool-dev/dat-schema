@@ -2083,15 +2083,15 @@ type HideoutRarity {
 
 type Hideouts {
   Id: string @unique
-  SmallWorldAreasKey: WorldAreas
+  HideoutArea: WorldAreas
   HASH16: i32
   HideoutFile: string @file(ext: ".hideout")
-  SpawnWorldAreasKeys: [WorldAreas]
-  LargeWorldAreasKey: WorldAreas
+  SpawnAreas: [WorldAreas]
+  ClaimSideArea: WorldAreas
   HideoutImage: string
   IsEnabled: bool
   Weight: i32
-  _: HideoutRarity
+  Rarity: HideoutRarity
   NotActsArea: bool
   Name: string
   _: [i32]
