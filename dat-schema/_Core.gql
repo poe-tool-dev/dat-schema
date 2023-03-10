@@ -773,19 +773,18 @@ type CharacterAudioEvents {
   Event: QuestFlags
   _: i32
   _: i32
-  Marauder_CharacterTextAudioKeys: [CharacterTextAudio]
-  Ranger_CharacterTextAudioKeys: [CharacterTextAudio]
-  Witch_CharacterTextAudioKeys: [CharacterTextAudio]
-  Duelist_CharacterTextAudioKeys: [CharacterTextAudio]
-  Shadow_CharacterTextAudioKeys: [CharacterTextAudio]
-  Templar_CharacterTextAudioKeys: [CharacterTextAudio]
-  Scion_CharacterTextAudioKeys: [CharacterTextAudio]
   "For the Goddess Bound/Scorned/Unleashed unique"
   Goddess_CharacterTextAudioKeys: [CharacterTextAudio]
   "For Jack the Axe unique"
   JackTheAxe_CharacterTextAudioKeys: [CharacterTextAudio]
   _: bool
   _: bool
+}
+
+type CharacterEventTextAudio {
+  Event: CharacterAudioEvents
+  Character: Characters
+  TextAudio: [CharacterTextAudio]
 }
 
 type CharacterPanelDescriptionModes {
@@ -3742,12 +3741,21 @@ type NPCShop {
   SoldItem_Weights: [i32]
   _: [rid]
   _: [i32]
-  _: i32
   _: [rid]
   _: [i32]
   _: i32
   _: i32
   _: i32
+  _: [_]
+  _: i32
+  _: i32
+}
+
+type NPCShops {
+  Id: string
+  _: i32
+  Shop: NPCShop
+  ShopHardmode: NPCShop
 }
 
 type NPCTalk {
@@ -4140,6 +4148,7 @@ type QuestAchievements {
 type QuestFlags {
   Id: string
   HASH32: i32
+  _: [QuestFlags]
 }
 
 type QuestItems {

@@ -139,13 +139,13 @@ type SafehouseBYOCrafting {
   _: [rid]
 }
 
-type SafehouseCraftingSpree {
-  BetrayalJobsKey: BetrayalJobs
-  Rank: i32
+type SafehouseCraftingSpreeType {
+  Id: string
+  Currencies: [SafehouseCraftingSpreeCurrencies]
   CurrencyCount: [i32]
-  Chance: i32
-  Currency_SafehouseCraftingSpreeCurrenciesKeys: [SafehouseCraftingSpreeCurrencies]
   _: [rid]
+  Disabled: bool
+  ItemClassText: string
 }
 
 type SafehouseCraftingSpreeCurrencies {

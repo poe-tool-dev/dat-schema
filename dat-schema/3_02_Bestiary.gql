@@ -17,9 +17,6 @@ type BestiaryCapturableMonsters {
 
 type BestiaryEncounters {
   Id: string @unique
-  MinLevel: i32
-  MaxLevel: i32
-  SpawnWeight: i32
   MonsterPacksKey: MonsterPacks
   MonsterVarietiesKey: MonsterVarieties
   MonsterSpawnerId: string @files(ext: [".ot", ".otc"])
