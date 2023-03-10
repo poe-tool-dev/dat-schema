@@ -3725,15 +3725,14 @@ type NPCs {
   NPCMasterKey: NPCMaster
   ShortName: string
   _: i32
-  NPCShop: NPCShop
   NPCAudios1: [NPCAudio]
   NPCAudios2: [NPCAudio]
   _: i32
   _: NPCs
   Portrait: NPCPortraits
   DialogueStyle: NPCDialogueStyles
-  _: rid
   _: bool
+  _: rid
 }
 
 type NPCShop {
