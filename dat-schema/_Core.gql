@@ -3766,8 +3766,8 @@ type NPCTalk {
   _: [i32]
   _: [i32]
   Script: string
-  _: rid
-  _: NPCTalkCategory
+  TextAudio: NPCTextAudio
+  Category: NPCTalkCategory
   QuestRewardOffersKey: QuestRewardOffers
   QuestFlag: QuestFlags
   NPCTextAudioKeys: [NPCTextAudio]
@@ -3792,7 +3792,7 @@ type NPCTalk {
 }
 
 type NPCTalkCategory {
-  _: string
+  Id: string
   _: bool
 }
 
