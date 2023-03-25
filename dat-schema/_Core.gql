@@ -3768,7 +3768,7 @@ type NPCTalk {
   Script: string
   _: rid
   _: NPCTalkCategory
-  QuestKey: Quest
+  QuestRewardOffersKey: QuestRewardOffers
   QuestFlag: QuestFlags
   NPCTextAudioKeys: [NPCTextAudio]
   Script2: string
