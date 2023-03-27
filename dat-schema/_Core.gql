@@ -2221,6 +2221,22 @@ type ItemCosts {
 
 enum ItemCreationTemplateCustomAction @indexing(first: 0) { _ }
 
+type ItemFrameType {
+  Id: string
+  _: bool
+  DoubleLine: bool
+  HeaderSingle: string
+  HeaderDouble: string
+  HardmodeHeaderSingle: string
+  HardmodeHeaderDouble: string
+  Color: [i32]
+  Separator: string
+  _: bool
+  Rarity: Rarity
+  DisplayString: ClientStrings
+  ColorMarkup: string
+}
+
 type ItemExperiencePerLevel {
   BaseItemTypesKey: BaseItemTypes
   ItemCurrentLevel: i32
@@ -4275,13 +4291,13 @@ type RareMonsterLifeScalingPerLevel {
 
 type Rarity {
   Id: string
+  MinMods: i32
+  MaxMods: i32
   _: i32
+  MaxPrefix: i32
   _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: string
+  MaxSuffix: i32
+  Color: string
 }
 
 type Realms {
