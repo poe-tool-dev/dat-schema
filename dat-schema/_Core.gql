@@ -1160,6 +1160,7 @@ type CurrencyItems {
   ShopTag: ShopTag
   IsHardmode: bool
   DescriptionHardmode: string
+  IsGold: bool
 }
 
 type CurrencyStashTabLayout {
@@ -3748,6 +3749,7 @@ type NPCs {
   DialogueStyle: NPCDialogueStyles
   _: bool
   _: rid
+  Gender: string
 }
 
 type NPCShop {
