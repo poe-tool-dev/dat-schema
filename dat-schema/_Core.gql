@@ -5103,8 +5103,8 @@ type UniqueStashLayout {
   _: i32
   OverrideWidth: i32
   OverrideHeight: i32
-  _: bool
-  ShowIfEmpty: bool
+  ShowIfEmptyChallengeLeague: bool
+  ShowIfEmptyStandard: bool
   RenamedVersion: UniqueStashLayout
   BaseVersion: UniqueStashLayout
   IsAlternateArt: bool
@@ -5118,9 +5118,9 @@ type UniqueStashTypes {
   _: i32
   _: i32
   Name: string @localized
-  _: i32
+  StandardCount: i32
   Image: string
-  _: i32
+  ChallengeLeagueCount: i32
   IsDisabled: bool
 }
 
