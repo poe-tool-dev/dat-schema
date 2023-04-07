@@ -574,6 +574,7 @@ type BaseItemTypes {
   _: rid
   _: bool
   TradeMarketCategory: TradeMarketCategory
+  _: bool
   Achievement: [AchievementItems]
 }
 
@@ -708,6 +709,8 @@ type BuffVisualOrbArt {
   _: [string]
   _: string
   _: string
+  _: string
+  _: string
 }
 
 type BuffVisualOrbs {
@@ -729,6 +732,10 @@ type BuffVisualOrbTypes {
   _: rid
   _: rid
   _: i32
+  _: bool
+  _: f32
+  _: i32
+  _: f32
   _: bool
   _: f32
 }
@@ -1960,6 +1967,7 @@ type GrantedEffectStatSets {
   ConstantStatsValues: [i32]
   BaseEffectiveness: f32
   IncrementalEffectiveness: f32
+  _: i32
 }
 
 type GrantedEffectStatSetsPerLevel {
@@ -2064,6 +2072,7 @@ type HideoutDoodads {
   _: bool
   _: rid
   _: bool
+  _: rid
 }
 
 type HideoutDoodadCategory {
@@ -2879,6 +2888,7 @@ type MiscEffectPacks {
   PreloadGroups: [PreloadGroups]
   _: bool
   PlayerOnly_EPKFile: string @file(ext: ".epk")
+  _: bool
 }
 
 type MiscEffectPacksArtVariations {
@@ -3521,6 +3531,9 @@ type MonsterVarieties {
   _: i32
   _: i32
   _: i32
+  _: i32
+  _: i32
+  _: bool
 }
 
 type MonsterVarietiesArtVariations {
@@ -3970,6 +3983,8 @@ type PassiveSkills {
   _: bool
   _: [rid]
   _: i32
+  _: [rid]
+  _: bool
 }
 
 enum PassiveSkillTypes @indexing(first: 0) {
