@@ -24,6 +24,7 @@ type BlightCraftingItems {
   Tier: i32
   Achievements: [AchievementItems]
   UseType: i32
+  NameShort: string
 }
 
 type BlightCraftingRecipes {
