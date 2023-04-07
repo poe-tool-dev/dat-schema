@@ -2963,6 +2963,7 @@ enum ModDomains @indexing(first: 1) {
   SENTINEL
   MEMORY_LINE
   SANCTUM_SPECIAL
+  CRUCIBLE_MAP
 }
 
 type ModEffectStats {
@@ -3016,6 +3017,8 @@ enum ModGenerationType @indexing(first: 1) {
   EXARCH_IMPLICIT
   EATER_IMPLICIT
   _
+  WEAPON_TREE
+  WEAPON_TREE_RECOMBINED
 }
 
 type Mods {
