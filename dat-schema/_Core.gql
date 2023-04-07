@@ -651,7 +651,6 @@ type BuffDefinitions {
   Id2: string
   IsRecovery: bool
   _: bool
-  _: bool
   _: rid
   _: bool
   _: i32
@@ -4166,7 +4165,6 @@ type QuestAchievements {
 type QuestFlags {
   Id: string
   HASH32: i32
-  _: [QuestFlags]
 }
 
 type QuestItems {
@@ -4678,7 +4676,6 @@ type Stats {
   IsLocal: bool
   IsWeaponLocal: bool
   Semantics: StatSemantics
-  _: bool
   Text: string
   _: bool
   IsVirtual: bool
