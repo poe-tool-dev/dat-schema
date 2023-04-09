@@ -1939,7 +1939,7 @@ type GrantedEffects {
 type GrantedEffectsPerLevel {
   GrantedEffect: GrantedEffects
   Level: i32
-  PlayerLevelReq: i32
+  PlayerLevelReq: f32
   CostMultiplier: i32
   StoredUses: i32
   Cooldown: i32
@@ -1973,7 +1973,7 @@ type GrantedEffectStatSets {
 type GrantedEffectStatSetsPerLevel {
   StatSet: GrantedEffectStatSets
   GemLevel: i32
-  PlayerLevelReq: i32
+  PlayerLevelReq: f32
   SpellCritChance: i32
   AttackCritChance: i32
   BaseMultiplier: i32
@@ -2264,8 +2264,12 @@ type ItemFrameType {
   ColorMarkup: string
 }
 
+type ItemExperienceTypes {
+  Id: string
+}
+
 type ItemExperiencePerLevel {
-  BaseItemTypesKey: BaseItemTypes
+  ItemExperienceType: ItemExperienceTypes
   ItemCurrentLevel: i32
   Experience: i32
 }
@@ -4555,7 +4559,7 @@ type SkillGems {
   GrantedEffectHardMode: GrantedEffects
   _: rid
   _: i32
-  _: rid
+  ItemExperienceType: ItemExperienceTypes
 }
 
 enum SkillMines @indexing(first: 0) { _ }
