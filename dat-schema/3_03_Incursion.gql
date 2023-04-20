@@ -71,6 +71,6 @@ type IncursionRooms {
 }
 
 type IncursionUniqueUpgradeComponents {
-  _: rid
-  BaseItemType: BaseItemTypes
+  BaseUnique: Words
+  UpgradeCurrency: BaseItemTypes
 }
