@@ -74,6 +74,7 @@ type HeistChestRewardTypes {
   RewardRoomName2: string
   HeistJobsKey: [HeistJobs]
   _: i32
+  _: i32
 }
 
 type HeistChests {
