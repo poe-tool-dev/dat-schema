@@ -109,8 +109,8 @@ type DelveLevelScaling {
   _: i32
   SulphiteCost: i32
   MonsterLevel2: i32
-  MoreMonsterLife: i32
   MoreMonsterDamage: i32
+  MoreMonsterLife: i32
   DarknessResistance: i32
   LightRadius: i32
   _: i32
