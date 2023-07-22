@@ -2642,6 +2642,7 @@ type MapSeriesTiers {
   SentinelTier: i32
   KalandraTier: i32
   SanctumTier: i32
+  CrucibleTier: i32
 }
 
 enum MapStashTabLayout @indexing(first: 0) { _ }
