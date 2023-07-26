@@ -48,3 +48,4 @@ You will find it useful if you know that a column is an array but don't know of 
 | @localized | -         | Content of column differs depending on the language |
 | @file      | ext: "STRING" | Value in a column is a file path |
 | @files     | ext: list of "STRING" | Value in a column is a common prefix for several files (often with different extensions) |
+| @tags      | list: list of "STRING" | Add tags to the table as metadata that can be used by tools |

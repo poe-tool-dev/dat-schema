@@ -45,6 +45,7 @@ export interface TableColumn {
 export interface SchemaTable {
   name: string;
   columns: TableColumn[];
+  tags: string[];
 }
 
 export interface SchemaEnumeration {

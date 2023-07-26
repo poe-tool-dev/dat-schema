@@ -157,6 +157,41 @@ const DIRECTIVE_ENUM_INDEXING = {
   },
 };
 
+const DIRECTIVE_TABLE_TAGS = {
+  NAME: 'tags',
+  ARGS: {
+    LIST: 'list',
+  },
+  validate(directive: DirectiveNode) {
+    if (!directive.arguments?.length) {
+      throw new GraphQLError('Missing list of tags.', directive);
+    }
+    for (const arg of directive.arguments) {
+      if (arg.name.value === DIRECTIVE_TABLE_TAGS.ARGS.LIST) {
+        if (arg.value.kind !== 'ListValue') {
+          throw new GraphQLError(`List of tags expected.`, arg.value);
+        }
+        if (!arg.value.values.length) {
+          throw new GraphQLError(
+            `At least one tag should be in the list.`,
+            arg.value
+          );
+        }
+        for (const listValue of arg.value.values) {
+          if (listValue.kind !== 'StringValue') {
+            throw new GraphQLError(`String expected.`, listValue);
+          }
+        }
+      } else {
+        throw new GraphQLError(
+          `Unknown argument "${arg.name.value}".`,
+          arg.name
+        );
+      }
+    }
+  },
+};
+
 interface Context {
   typeDefsMap: ReadonlyMap<string, ObjectTypeDefinitionNode>;
   enumDefsMap: ReadonlyMap<string, EnumTypeDefinitionNode>;
@@ -199,7 +234,11 @@ export function readSchemaSources(
     const table: SchemaTable = {
       name: typeNode.name.value,
       columns: [],
+      tags: [],
     };
+
+    validateDirectives(typeNode, [DIRECTIVE_TABLE_TAGS]);
+    table.tags = getTags(typeNode);
 
     assert.ok(typeNode.fields != null);
     for (const fieldNode of typeNode.fields) {
@@ -393,9 +432,25 @@ function getIndexingBase(
       args[0].value.kind === 'IntValue'
   );
   const first = Number(args[0].value.value);
-  assert(first === 0 || first === 1);
+  assert.ok(first === 0 || first === 1);
 
   return first;
+}
+
+function getTags(node: ObjectTypeDefinitionNode): SchemaTable['tags'] {
+  const directive = findDirective(node, DIRECTIVE_TABLE_TAGS.NAME);
+  if (!directive) return [];
+
+  const { arguments: args } = directive;
+  assert.ok(
+    args?.length === 1 &&
+      args[0].name.value === DIRECTIVE_TABLE_TAGS.ARGS.LIST &&
+      args[0].value.kind === 'ListValue'
+  );
+  return args[0].value.values.map((listValue) => {
+    assert.ok(listValue.kind === 'StringValue');
+    return listValue.value;
+  });
 }
 
 function referencesField(field: FieldDefinitionNode): string | undefined {
