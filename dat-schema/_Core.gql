@@ -2443,8 +2443,8 @@ type LeagueFlag {
 enum LeagueFlags @indexing(first: 0) { _ }
 
 type LeagueInfo {
-  LeagueNumber: rid
-  InfoClass: string
+  PanelVersion: LeagueInfoPanelVersions
+  PanelId: string
   PanelImage: string
   HeaderImage: string
   Screenshots: [string]
@@ -2455,6 +2455,10 @@ type LeagueInfo {
   _: bool
   _: bool
   PanelItems: [string]
+}
+
+type LeagueInfoPanelVersions {
+  Id: string
 }
 
 type LeagueProgressQuestFlags {
