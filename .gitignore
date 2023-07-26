@@ -1,5 +1,6 @@
 dist/
 schema.min.json
+schema.jsonl
 
 # Logs
 logs

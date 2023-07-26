@@ -19,7 +19,7 @@ jobs:
     - name: Upload schema
       uses: ncipollo/release-action@v1
       with:
-        artifacts: schema.min.json
+        artifacts: "schema.min.json,schema.jsonl"
         token: ${{ secrets.GITHUB_TOKEN }}
         tag: latest
         allowUpdates: true
