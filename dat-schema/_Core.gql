@@ -2443,18 +2443,22 @@ type LeagueFlag {
 enum LeagueFlags @indexing(first: 0) { _ }
 
 type LeagueInfo {
-  Id: string @unique
+  PanelVersion: LeagueInfoPanelVersions
+  PanelId: string
   PanelImage: string
   HeaderImage: string
   Screenshots: [string]
   Description: string
-  League: string
   _: bool
   TrailerVideoLink: string
   BackgroundImage: string
   _: bool
   _: bool
   PanelItems: [string]
+}
+
+type LeagueInfoPanelVersions {
+  Id: string
 }
 
 type LeagueProgressQuestFlags {
