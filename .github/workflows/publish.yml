@@ -9,13 +9,12 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
-      with:
-        node-version: '14'
-    - run: yarn --frozen-lockfile
-    - run: yarn run tsc
-    - run: yarn run generate
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+    - uses: pnpm/action-setup@v2
+    - run: pnpm i --frozen-lockfile
+    - run: pnpm exec tsc
+    - run: pnpm run generate
     - name: Upload schema
       uses: ncipollo/release-action@v1
       with:

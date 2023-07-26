@@ -1,15 +1,17 @@
-import * as path from 'path';
-import * as process from 'process';
-import * as fs from 'fs';
-import { Source } from 'graphql/language/source';
-import { GraphQLError, printError } from 'graphql/error';
-import { readSchemaSources } from './reader';
+import * as path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import * as process from 'node:process';
+import * as fs from 'node:fs';
+import { Source, GraphQLError } from 'graphql';
+import { readSchemaSources } from './reader.js';
 import {
   SchemaFile,
   SchemaLine,
   SchemaMetadata,
   SCHEMA_VERSION,
-} from './types';
+} from './types.js';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const SCHEMA_PATH = path.join(__dirname, '../dat-schema');
 
@@ -23,11 +25,11 @@ function read() {
 
   try {
     return readSchemaSources(sources);
-  } catch (e: unknown) {
+  } catch (e) {
     if (e instanceof GraphQLError) {
-      console.error(printError(e));
+      console.error(e.toString());
       if (e.originalError instanceof GraphQLError) {
-        console.error('\n-----\n' + printError(e.originalError));
+        console.error('\n-----\n' + e.originalError.toString());
       }
       process.exit(1);
     } else {
