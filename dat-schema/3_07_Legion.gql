@@ -1,4 +1,4 @@
-type Incubators {
+type Incubators @tags(list: ["item:def"]) {
   BaseItemTypesKey: BaseItemTypes @unique
   _: i32
   Description: string

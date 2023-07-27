@@ -1,4 +1,4 @@
-type BestiaryCapturableMonsters {
+type BestiaryCapturableMonsters @tags(list: ["item:itemized"]) {
   MonsterVarietiesKey: MonsterVarieties
   BestiaryGroupsKey: BestiaryGroups
   Name: string
@@ -83,7 +83,7 @@ type BestiaryRecipeCategories {
   Text: string
 }
 
-type BestiaryRecipes {
+type BestiaryRecipes @tags(list: ["item:recipe", "crafting"]) {
   Id: string @unique
   Description: string
   BestiaryRecipeComponentKeys: [BestiaryRecipeComponent]
@@ -96,4 +96,9 @@ type BestiaryRecipes {
   _: i32
   _: i32
   FlaskMod: Mods
+}
+
+type NetTiers {
+  BaseItemTypesKey: BaseItemTypes
+  Tier: i32
 }

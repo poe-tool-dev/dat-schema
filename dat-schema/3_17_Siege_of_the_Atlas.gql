@@ -81,7 +81,7 @@ type KiracLevels {
   _: i32
 }
 
-type ScoutingReports {
+type ScoutingReports @tags(list: ["item:def"]) {
   Id: string
   BaseItemType: BaseItemTypes
   MinMapTier: i32

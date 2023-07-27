@@ -4,7 +4,7 @@ type AlternateQualityCurrencyDecayFactors {
   Factor: i32
 }
 
-type AlternateQualityTypes {
+type AlternateQualityTypes @tags(list: ["item:def"]) {
   StatsKey: Stats
   Description: string
   BaseItemTypesKey: BaseItemTypes

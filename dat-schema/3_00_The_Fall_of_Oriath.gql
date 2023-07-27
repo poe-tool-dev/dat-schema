@@ -25,7 +25,7 @@ type PantheonPanelLayout {
   AchievementItems: [AchievementItems]
 }
 
-type PantheonSouls {
+type PantheonSouls @tags(list: ["item:itemized"]) {
   WorldArea: WorldAreas
   CapturedVessel: BaseItemTypes
   QuestFlag: QuestFlags

@@ -1,5 +1,5 @@
 
-type DivinationCardArt {
+type DivinationCardArt @tags(list: ["item:def"]) {
   BaseItemTypesKey: BaseItemTypes
   VirtualFile: string
   _: [i32]

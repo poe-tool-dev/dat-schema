@@ -1,4 +1,4 @@
-type InfluenceModUpgrades {
+type InfluenceModUpgrades @tags(list: ["crafting"]) {
   InfluenceMod: Mods
   UpgradedMod: Mods
   _: bool

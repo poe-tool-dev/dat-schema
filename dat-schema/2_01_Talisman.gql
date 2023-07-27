@@ -16,7 +16,7 @@ type TalismanPacks {
   MonsterPacksKey: MonsterPacks
 }
 
-type Talismans {
+type Talismans @tags(list: ["item:def"]) {
   BaseItemTypesKey: BaseItemTypes @unique
   SpawnWeight: i32
   ModsKey: Mods

@@ -101,7 +101,7 @@ type BetrayalTargets {
   ScriptArgument: string
 }
 
-type BetrayalTraitorRewards {
+type BetrayalTraitorRewards @tags(list: ["item:droptable"]) {
   BetrayalJobsKey: BetrayalJobs
   BetrayalTargetsKey: BetrayalTargets
   BetrayalRanksKey: BetrayalRanks
@@ -130,7 +130,7 @@ type BetrayalWallLifeScalingPerLevel {
   MoreLife: i32
 }
 
-type SafehouseBYOCrafting {
+type SafehouseBYOCrafting @tags(list: ["crafting"]) {
   BetrayalJobsKey: BetrayalJobs
   BetrayalTargetsKey: BetrayalTargets
   Rank: i32

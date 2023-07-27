@@ -37,7 +37,7 @@ type LabyrinthRewardTypes {
   ObjectPath: string @files(ext: [".ot", ".otc"])
 }
 
-type Labyrinths {
+type Labyrinths @tags(list: ["item:droptable", "item:unique"]) {
   Tier: i32
   Name: string
   OfferingItem: BaseItemTypes

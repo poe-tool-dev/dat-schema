@@ -19,7 +19,7 @@ type BlightChestTypes {
   ChestsKey: Chests
 }
 
-type BlightCraftingItems {
+type BlightCraftingItems @tags(list: ["item:def"]) {
   Oil: BaseItemTypes
   Tier: i32
   Achievements: [AchievementItems]
@@ -27,7 +27,7 @@ type BlightCraftingItems {
   NameShort: string
 }
 
-type BlightCraftingRecipes {
+type BlightCraftingRecipes @tags(list: ["crafting"]) {
   Id: string @unique
   BlightCraftingItemsKeys: [BlightCraftingItems]
   BlightCraftingResultsKey: BlightCraftingResults
@@ -46,7 +46,7 @@ type BlightCraftingTypes {
   _: bool
 }
 
-type BlightCraftingUniques {
+type BlightCraftingUniques @tags(list: ["crafting", "item:unique"]) {
   WordsKey: Words
 }
 

@@ -17,7 +17,7 @@ type IncursionBrackets {
   _: i32
 }
 
-type IncursionChestRewards {
+type IncursionChestRewards @tags(list: ["item:droptable"]) {
   IncursionRoomsKey: IncursionRooms
   IncursionChestsKeys: [IncursionChests]
   ChestMarkerMetadata: string @files(ext: [".ot", ".otc"])
@@ -46,7 +46,7 @@ type IncursionRoomBossFightEvents {
   _: rid
 }
 
-type IncursionRooms {
+type IncursionRooms @tags(list: ["item:itemized"]) {
   Id: string @unique
   Name: string
   Tier: i32
@@ -70,7 +70,7 @@ type IncursionRooms {
   _: [Mods]
 }
 
-type IncursionUniqueUpgradeComponents {
+type IncursionUniqueUpgradeComponents @tags(list: ["item:recipe", "item:unique"]) {
   BaseUnique: Words
   UpgradeCurrency: BaseItemTypes
 }

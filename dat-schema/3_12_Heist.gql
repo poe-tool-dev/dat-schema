@@ -14,7 +14,7 @@ type HeistAreaFormationLayout {
   _: i32
 }
 
-type HeistAreas {
+type HeistAreas @tags(list: ["item:droptable"]) {
   Id: string @unique
   WorldAreasKeys: [WorldAreas]
   _: i32
@@ -135,7 +135,7 @@ type HeistDoors {
   HeistAreasKey: HeistAreas
 }
 
-type HeistEquipment {
+type HeistEquipment @tags(list: ["item:def"]) {
   BaseItemTypesKey: BaseItemTypes @unique
   RequiredJob_HeistJobsKey: HeistJobs
   RequiredLevel: i32

@@ -1,6 +1,6 @@
 enum AccountQuestFlags @indexing(first: 0) { _ }
 
-type AchievementItemRewards {
+type AchievementItemRewards @tags(list: ["mtx:reward"]) {
   AchievementItemsKey: AchievementItems
   BaseItemTypesKey: BaseItemTypes
   Message: string
@@ -39,7 +39,7 @@ type Achievements {
   _: string
 }
 
-type AchievementSetRewards {
+type AchievementSetRewards @tags(list: ["mtx:reward"]) {
   SetId: AchievementSetsDisplay @ref(column: "Id")
   AchievementsRequired: i32
   Rewards: [BaseItemTypes]
@@ -273,11 +273,11 @@ type ApplyDamageFunctions {
   _: bool
 }
 
-type ArchetypeRewards {
+type ArchetypeRewards @tags(list: ["item:reward"]) {
   Id: string @unique
   _: rid
   _: [rid]
-  _: rid
+  Gem: BaseItemTypes
   BK2File: string @file(ext: ".bk2")
 }
 
@@ -343,7 +343,7 @@ enum ArmourClasses @indexing(first: 0) { _ }
 
 enum ArmourSurfaceTypes @indexing(first: 0) { _ }
 
-type ArmourTypes {
+type ArmourTypes @tags(list: ["item:def"]) {
   BaseItemTypesKey: BaseItemTypes
   ArmourMin: i32
   ArmourMax: i32
@@ -543,7 +543,7 @@ type BackendErrors {
   Text: string
 }
 
-type BaseItemTypes {
+type BaseItemTypes @tags(list: ["item:def", "item:droptable"]) {
   Id: string @unique
   ItemClassesKey: ItemClasses
   Width: i32
@@ -1035,14 +1035,14 @@ type Commands {
   _: bool
 }
 
-type ComponentAttributeRequirements {
+type ComponentAttributeRequirements @tags(list: ["item:def"]) {
   BaseItemTypesKey: BaseItemTypes @ref(column: "Id") @unique
   ReqStr: i32
   ReqDex: i32
   ReqInt: i32
 }
 
-type ComponentCharges {
+type ComponentCharges @tags(list: ["item:def"]) {
   BaseItemTypesKey: BaseItemTypes @ref(column: "Id") @unique
   MaxCharges: i32
   PerCharge: i32
@@ -1087,7 +1087,7 @@ enum CraftingBenchCustomActions @indexing(first: 0) {
 	REMOVE_ENCHANT_MODS
 }
 
-type CraftingBenchOptions {
+type CraftingBenchOptions @tags(list: ["crafting"]) {
   HideoutNPCsKey: HideoutNPCs
   Order: i32
   AddMod: Mods
@@ -1149,7 +1149,7 @@ type CraftingItemClassCategories {
   Text: string
 }
 
-type CurrencyItems {
+type CurrencyItems @tags(list: ["item:def", "item:recipe"]) {
   BaseItemTypesKey: BaseItemTypes @unique
   Stacks: i32
   CurrencyUseType: i32
@@ -1603,7 +1603,7 @@ type FixedMissions {
   _: i32
 }
 
-type Flasks {
+type Flasks @tags(list: ["item:def"]) {
   BaseItemTypesKey: BaseItemTypes @unique
   Name: string
   Group: i32
@@ -1706,7 +1706,7 @@ type GenericBuffAuras {
   Id: string @unique
 }
 
-type GenericLeagueRewardTypes {
+type GenericLeagueRewardTypes @tags(list: ["item:droptable"]) {
   Id: string
   MinLevel: i32
   MaxLevel: i32
@@ -1885,7 +1885,7 @@ type Grandmasters {
 
 enum GrantedEffectGroups @indexing(first: 0) { _ }
 
-type GrantedEffectQualityStats {
+type GrantedEffectQualityStats @tags(list: ["item:droptable"]) {
   GrantedEffectsKey: GrantedEffects
   SetId: i32
   StatsKeys: [Stats]
@@ -1895,7 +1895,7 @@ type GrantedEffectQualityStats {
   _: [i32]
 }
 
-type GrantedEffectQualityTypes {
+type GrantedEffectQualityTypes @tags(list: ["item:def"]) {
   Id: i32 @unique
   Text: string
   ClientStringsKey: ClientStrings
@@ -2136,13 +2136,13 @@ type ImpactSoundData {
   _: i32
 }
 
-type IndexableSupportGems {
+type IndexableSupportGems @tags(list: ["crafting"]) {
   Index: i32 @unique
   SupportGem: SkillGems
   Name: string
 }
 
-type InfluenceExalts {
+type InfluenceExalts @tags(list: ["item:def"]) {
   Id: i32 @unique
   BaseItemTypesKey: BaseItemTypes
 }
@@ -2183,7 +2183,7 @@ type ItemClassCategories {
   _: rid
 }
 
-type ItemClasses {
+type ItemClasses @tags(list: ["crafting"]) {
   Id: string @unique
   Name: string
   TradeMarketCategory: TradeMarketCategory
@@ -2525,7 +2525,7 @@ type MapCreationInformation {
   Tier: i32
 }
 
-type MapDeviceRecipes {
+type MapDeviceRecipes @tags(list: ["item:recipe"]) {
   Id: string
   RecipeItems: [BaseItemTypes]
   WorldArea: WorldAreas
@@ -2594,7 +2594,7 @@ type MapPurchaseCosts {
   _: rid
 }
 
-type Maps {
+type Maps @tags(list: ["item:def", "item:recipe"]) {
   BaseItemTypesKey: BaseItemTypes @unique
   Regular_WorldAreasKey: WorldAreas
   Unique_WorldAreasKey: WorldAreas
@@ -3040,7 +3040,7 @@ enum ModGenerationType @indexing(first: 1) {
   WEAPON_TREE_RECOMBINED
 }
 
-type Mods {
+type Mods @tags(list: ["crafting"]) {
   Id: string @unique
   HASH16: i32
   ModTypeKey: ModType
@@ -3663,11 +3663,6 @@ type NearbyMonsterConditions {
   MinimumHealthPercentage: i32
 }
 
-type NetTiers {
-  BaseItemTypesKey: BaseItemTypes
-  Tier: i32
-}
-
 type Notifications {
   Id: string @unique
   _: bool
@@ -4062,7 +4057,7 @@ type PassiveSkillTreeUIArt {
   GroupBackgroundLargeBlank: string
 }
 
-type PassiveTreeExpansionJewels {
+type PassiveTreeExpansionJewels @tags(list: ["item:def"]) {
   BaseItemTypesKey: BaseItemTypes
   PassiveTreeExpansionJewelSizesKey: PassiveTreeExpansionJewelSizes
   MinNodes: i32
@@ -4077,7 +4072,7 @@ type PassiveTreeExpansionJewelSizes {
   Name: string @unique
 }
 
-type PassiveTreeExpansionSkills {
+type PassiveTreeExpansionSkills @tags(list: ["crafting"]) {
   PassiveSkillsKey: PassiveSkills
   Mastery_PassiveSkillsKey: PassiveSkills
   TagsKey: Tags
@@ -4232,7 +4227,7 @@ type QuestItems {
 type QuestRewardOffers {
   Id: string
   QuestKey: Quest
-  _: rid
+  QuestFlag: QuestFlags
   _: i32
   RewardWindowTake: ClientStrings
   _: bool
@@ -4240,7 +4235,7 @@ type QuestRewardOffers {
   RewardWindowTitle: ClientStrings
 }
 
-type QuestRewards {
+type QuestRewards @tags(list: ["item:reward"]) {
   RewardOffer: QuestRewardOffers
   _: i32
   Characters: [Characters]
@@ -4405,7 +4400,7 @@ type SessionQuestFlags {
   QuestFlag: QuestFlags
 }
 
-type ShieldTypes {
+type ShieldTypes @tags(list: ["item:def"]) {
   BaseItemTypesKey: BaseItemTypes @unique
   Block: i32
 }
@@ -4539,7 +4534,7 @@ type SkillGemInfo {
   CharactersKeys: [Characters]
 }
 
-type SkillGems {
+type SkillGems @tags(list: ["item:def"]) {
   BaseItemTypesKey: BaseItemTypes @unique
   GrantedEffectsKey: GrantedEffects
   Str: i32
@@ -4717,7 +4712,7 @@ type StatsAffectingGeneration {
   StatValue: i32
 }
 
-type Stats {
+type Stats @tags(list: ["crafting"]) {
   Id: string @unique
   _: bool
   IsLocal: bool
@@ -5114,7 +5109,7 @@ type UniqueChests {
   _: [rid]
 }
 
-type UniqueJewelLimits {
+type UniqueJewelLimits @tags(list: ["item:unique"]) {
   JewelName: Words
   Limit: i32
 }
@@ -5127,7 +5122,7 @@ type UniqueMapInfo {
   _: bool
 }
 
-type UniqueMaps {
+type UniqueMaps @tags(list: ["item:unique"]) {
   ItemVisualIdentityKey: ItemVisualIdentity @unique
   WorldAreasKey: WorldAreas
   WordsKey: Words
@@ -5140,7 +5135,7 @@ type UniqueMaps {
 
 enum UniqueSetNames @indexing(first: 0) { _ }
 
-type UniqueStashLayout {
+type UniqueStashLayout @tags(list: ["item:unique"]) {
   WordsKey: Words
   ItemVisualIdentityKey: ItemVisualIdentity
   UniqueStashTypesKey: UniqueStashTypes
@@ -5207,7 +5202,7 @@ type WeaponImpactSoundData {
 
 enum WeaponSoundTypes @indexing(first: 0) { _ }
 
-type WeaponTypes {
+type WeaponTypes @tags(list: ["item:def"]) {
   BaseItemTypesKey: BaseItemTypes @unique
   Critical: i32
   "1000 / speed -> attacks per second"

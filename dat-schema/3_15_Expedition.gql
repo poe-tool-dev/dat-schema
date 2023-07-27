@@ -27,7 +27,7 @@ type ExpeditionBalancePerLevel {
   _: i32
 }
 
-type ExpeditionCurrency {
+type ExpeditionCurrency @tags(list: ["item:def"]) {
   BaseItemType: BaseItemTypes
   Tier: i32
   NPC: ExpeditionNPCs

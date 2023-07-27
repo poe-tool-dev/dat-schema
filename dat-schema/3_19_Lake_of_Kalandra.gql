@@ -30,7 +30,7 @@ type LakeRoomCompletion {
   _: i32
 }
 
-type LakeRooms {
+type LakeRooms @tags(list: ["item:itemized"]) {
   Id: string
   ARMFiles: [string] @file(ext: ".arm")
   Script: string

@@ -5,7 +5,7 @@ type HarvestCraftOptionIcons {
   DDSFile: string @file(ext: ".dds")
 }
 
-type HarvestCraftOptions {
+type HarvestCraftOptions @tags(list: ["crafting"]) {
   Id: string @unique
   Text: string
   _: rid
@@ -105,7 +105,7 @@ type HarvestSeeds {
   SeedType: i32
 }
 
-type HarvestSeedItems {
+type HarvestSeedItems @tags(list: ["item:def"]) {
   Id: i32
   BaseItem: BaseItemTypes
   DropStat: Stats
