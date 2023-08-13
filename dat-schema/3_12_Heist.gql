@@ -113,8 +113,8 @@ type HeistContracts {
 
 type HeistDoodadNPCs {
   NPCsKey: NPCs
-  _: i32
-  _: i32
+  _: rid
+  _: rid
   _: i32
   _: i32
   _: i32
