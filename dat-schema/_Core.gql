@@ -4292,7 +4292,6 @@ type QuestStaticRewards {
   _: i32
   StatValuesHardmode: [i32]
   ClientStringHardmode: ClientStrings
-  _: i32
 }
 
 type QuestTrackerGroup {

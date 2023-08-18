@@ -1,0 +1,141 @@
+type AncestralEmbraceVariations {
+  Id: string
+  Minion: MonsterVarieties
+  _: rid
+}
+
+type AncestralLifeScalingPerLevel {
+  Level: i32
+  _: i32
+}
+
+type AncestralTrialChieftains {
+  _: rid
+  _: rid
+}
+
+type AncestralTrialDialogue {
+  _: rid
+  _: rid
+  _: i32
+  TextAudio: [NPCTextAudio]
+  _: rid
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+  _: bool
+  _: bool
+}
+
+type AncestralTrialDialogueEvents {
+  Id: string
+  _: i32
+}
+
+type AncestralTrialFieldItems {
+  _: rid
+  _: rid
+  HASH32: i32
+  Description: string
+  Achievement: [AchievementItems]
+  _: rid
+  _: rid
+}
+
+type AncestralTrialItems {
+  Id: string
+  HASH16: i32
+  Name: string
+  Image: string
+  _: rid
+  _: i32
+  Mods: [Mods]
+  FlavorText: string
+  _: i32
+  _: [_]
+  _: rid
+  _: rid
+}
+
+type AncestralTrialMonsters {
+  _: rid
+  Monster: MonsterVarieties
+  _: rid
+  _: i32
+  Achievement: [AchievementItems]
+}
+
+type AncestralTrialPositionType {
+  Id: string
+  PlayerTotemIcon: string
+  Name: string
+  EnemyTotemIcon: string
+  PlayerTotemSmallIcon: string
+  EnemyTotemSmallIcon: string
+}
+
+type AncestralTrialShopSlotEntries {
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+  _: bool
+  _: i32
+}
+
+type AncestralTrialTribeOpinions {
+  _: rid
+  _: rid
+  _: i32
+}
+
+type AncestralTrialTribes {
+  Id: string
+  _: rid
+  Portrait: string
+  TribeIcon: string
+  TribeName: string
+  FavourTracker: string
+  _: [rid]
+  Name: string
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: [rid]
+  _: rid
+  _: [rid]
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: rid
+}
+
+type AncestralTrialUnitPositions {
+  Id: string
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}
+
+type AncestralTrialUnits {
+  Id: string
+  Name: string
+  _: rid
+  Image: string
+  TotemImage: string
+  _: i32
+  _: i32
+  Description: string
+  _: i32
+  _: i32
+  _: rid
+}
