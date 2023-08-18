@@ -1125,6 +1125,8 @@ type CraftingBenchOptions @tags(list: ["crafting"]) {
   _: Stats #"stat granted by kirac mod"
   _: Stats #"stat granted by kirac mod"
   _: Stats #"stat granted by kirac mod"
+  MapDevice: bool
+  _: [rid]
 }
 
 type CraftingBenchSortCategories {
@@ -2134,6 +2136,15 @@ type ImpactSoundData {
   _: i32
   _: i32
   _: i32
+}
+
+type IndexableSkillGems {
+  Index: i32
+  SkillGem1: [SkillGems]
+  Name1: string
+  SkillGem2: [SkillGems]
+  Name2: string
+  _: IndexableSkillGems
 }
 
 type IndexableSupportGems @tags(list: ["crafting"]) {
@@ -3920,6 +3931,32 @@ type PassiveSkillFilterOptions {
   _: rid
   Name: string
   _: string
+}
+
+type PassiveSkillOverrides {
+  Id: string
+  Name: string
+  NodeIcon: string
+  Stats: [Stats]
+  StatValues: [i32]
+  HASH16: i32
+  PassiveBG: string
+  Effect: GrantedEffectsPerLevel
+  Type: PassiveSkillOverrideTypes
+  Limit: PassiveOverrideLimits
+  _: i32
+  _: i32
+}
+
+type PassiveSkillOverrideTypes {
+  Id: string
+  CounterStat: Stats
+  _: bool
+}
+
+type PassiveOverrideLimits {
+  Id: string
+  Description: string
 }
 
 type PassiveSkillMasteryGroups {

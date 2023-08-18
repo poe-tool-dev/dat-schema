@@ -129,13 +129,31 @@ type AncestralTrialUnitPositions {
 type AncestralTrialUnits {
   Id: string
   Name: string
-  _: rid
+  Tribe: AncestralTrialTribes
   Image: string
   TotemImage: string
-  _: i32
+  HASH16: i32
   _: i32
   Description: string
   _: i32
   _: i32
-  _: rid
+  Position: AncestralTrialUnitPositions
+}
+
+type ChieftainLifeScalingPerLevel {
+  Level: i32
+  _: i32
+}
+
+type PassiveSkillTattoos {
+  Tattoo: BaseItemTypes
+  Override: PassiveSkillOverrides
+  Set: PassiveSkillTattooTargetSets
+}
+
+type PassiveSkillTattooTargetSets {
+  Id: string
+  Set: [i32]
+  _: string
+  _: string
 }
