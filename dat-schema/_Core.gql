@@ -711,6 +711,7 @@ type BuffVisualOrbArt {
   _: string
   _: string
   _: string
+  _: i32
 }
 
 type BuffVisualOrbs {
@@ -736,8 +737,8 @@ type BuffVisualOrbTypes {
   _: f32
   _: i32
   _: f32
-  _: bool
   _: f32
+  _: i32
 }
 
 type BuffVisuals {
@@ -2276,7 +2277,7 @@ type ItemFrameType {
 }
 
 type ItemExperienceTypes {
-  Id: string
+  Id: string @unique
 }
 
 type ItemExperiencePerLevel {
