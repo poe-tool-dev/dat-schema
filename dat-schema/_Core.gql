@@ -529,7 +529,7 @@ type BaseItemTypes @tags(list: ["item:def", "item:droptable"]) {
   SoundEffect: SoundEffects
   TagsKeys: [Tags]
   ModDomain: ModDomains
-  SiteVisibility: rid # was BaseItemTypeVisibility enum
+  SiteVisibility: i32 # was BaseItemTypeVisibility enum
   ItemVisualIdentity: ItemVisualIdentity
   HASH32: i32 @unique
   VendorRecipe_AchievementItems: [AchievementItems]
