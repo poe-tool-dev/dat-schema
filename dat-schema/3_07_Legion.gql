@@ -20,6 +20,9 @@ type LegionBalancePerLevel {
   _: i32
   _: i32
   _: i32
+  _: f32
+  _: i32
+  _: i32
 }
 
 type LegionChestTypes {
@@ -41,13 +44,6 @@ type LegionChestCounts {
   _: i32
 }
 
-type LegionChests {
-  ChestsKey: Chests
-  LegionFactionsKey: LegionFactions
-  LegionRanksKey: LegionRanks
-  MonsterVarietiesKey: MonsterVarieties
-  _: i32
-}
 
 type LegionFactions {
   Id: string @unique
@@ -110,6 +106,7 @@ type LegionRanks {
   _: i32
   _: i32
   LegionBalancePerLevelKey: LegionBalancePerLevel
+  _: i32
   _: i32
   _: i32
 }

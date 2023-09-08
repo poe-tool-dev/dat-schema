@@ -15,12 +15,6 @@ type MavenDialog {
   TextAudioT6: NPCTextAudio
 }
 
-type AtlasSkillGraphs {
-  Id: string
-  SkillGraph: string
-  RegionName: string
-  Achievements: [AchievementItems]
-}
 
 type MavenFights {
   Id: string
@@ -37,7 +31,7 @@ type MavenFights {
   _: i32
   _: QuestFlags
   _: bool
-  _: [_]
+  _: [_] # All rows empty
   Achievements1: [AchievementItems]
   Achievements2: [AchievementItems]
 }

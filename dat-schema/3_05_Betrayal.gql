@@ -106,6 +106,7 @@ type BetrayalTraitorRewards @tags(list: ["item:droptable"]) {
   BetrayalTargetsKey: BetrayalTargets
   BetrayalRanksKey: BetrayalRanks
   Description: string
+  Description2: string
 }
 
 type BetrayalUpgrades {
@@ -137,6 +138,8 @@ type SafehouseBYOCrafting @tags(list: ["crafting"]) {
   Description: string
   ServerCommand: string
   _: [rid]
+  Description2: string
+  ServerCommand2: string
 }
 
 type SafehouseCraftingSpreeType {
@@ -146,6 +149,7 @@ type SafehouseCraftingSpreeType {
   _: [rid]
   Disabled: bool
   ItemClassText: string
+  _: i32
 }
 
 type SafehouseCraftingSpreeCurrencies {

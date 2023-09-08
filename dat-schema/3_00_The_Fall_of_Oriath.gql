@@ -29,6 +29,7 @@ type PantheonSouls @tags(list: ["item:itemized"]) {
   WorldArea: WorldAreas
   CapturedVessel: BaseItemTypes
   QuestFlag: QuestFlags
-  CapturedMonster: MonsterVarieties
+  CapturedMonster: [MonsterVarieties]
   PanelLayout: PantheonPanelLayout
+  CapturedMonsterDescription: string
 }

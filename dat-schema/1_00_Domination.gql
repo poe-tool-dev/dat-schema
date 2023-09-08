@@ -1,9 +1,3 @@
-type ShrineBuffs {
-  Id: string @unique
-  BuffStatValues: [i32]
-  BuffDefinitionsKey: BuffDefinitions
-  BuffVisual: BuffVisuals
-}
 
 type Shrines {
   Id: string @unique
@@ -26,6 +20,8 @@ type Shrines {
   Description: ClientStrings
   Name: ClientStrings
   _: bool
+  _: rid
+  _: [_]
 }
 
 type ShrineSounds {
