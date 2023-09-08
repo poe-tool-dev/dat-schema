@@ -529,7 +529,7 @@ type BaseItemTypes @tags(list: ["item:def", "item:droptable"]) {
   SoundEffect: SoundEffects
   TagsKeys: [Tags]
   ModDomain: ModDomains
-  SiteVisibility: i32 # was BaseItemTypeVisibility enum
+  SiteVisibility: BaseItemTypeVisibility
   ItemVisualIdentity: ItemVisualIdentity
   HASH32: i32 @unique
   VendorRecipe_AchievementItems: [AchievementItems]
@@ -550,6 +550,11 @@ type BaseItemTypes @tags(list: ["item:def", "item:droptable"]) {
   Achievement: [AchievementItems]
 }
 
+enum BaseItemTypeVisibility @indexing(first: 0) {
+  HIDDEN
+  VISIBLE
+  _
+}
 
 type BindableVirtualKeys {
   KeyCode: i32
@@ -2136,14 +2141,15 @@ enum InfluenceTypes @indexing(first: 0) {
 
 type Inventories {
   Id: string
-  InventoryIdKey: rid # InventoryId removed in 3.15
+  InventoryIdKey: InventoryId
   InventoryTypeKey: InventoryType
+  _: bool
+  _: bool
   _: i32
-  _: bool
-  _: bool
   _: bool
 }
 
+enum InventoryId @indexing(first: 0) { _ }
 
 enum InventoryType @indexing(first: 0) { _ }
 
