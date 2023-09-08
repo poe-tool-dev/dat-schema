@@ -529,7 +529,7 @@ type BaseItemTypes @tags(list: ["item:def", "item:droptable"]) {
   SoundEffect: SoundEffects
   TagsKeys: [Tags]
   ModDomain: ModDomains
-  SiteVisibility: BaseItemTypeVisibility
+  SiteVisibility: i32
   ItemVisualIdentity: ItemVisualIdentity
   HASH32: i32 @unique
   VendorRecipe_AchievementItems: [AchievementItems]
@@ -548,12 +548,6 @@ type BaseItemTypes @tags(list: ["item:def", "item:droptable"]) {
   TradeMarketCategory: TradeMarketCategory
   Unmodifiable: bool
   Achievement: [AchievementItems]
-}
-
-enum BaseItemTypeVisibility @indexing(first: 0) {
-  HIDDEN
-  VISIBLE
-  _
 }
 
 type BindableVirtualKeys {
