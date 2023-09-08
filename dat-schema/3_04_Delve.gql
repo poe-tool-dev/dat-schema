@@ -4,6 +4,8 @@ type DelveAzuriteShop {
   Cost: i32
   MinDepth: i32
   IsEnabled: bool
+  _: i32
+  _: i32
 }
 
 type DelveBiomes {
@@ -91,6 +93,7 @@ type DelveFeatures {
   _: [i32]
   _: [i32]
   _: [i32]
+  _: [_]
 }
 
 type DelveFlares {

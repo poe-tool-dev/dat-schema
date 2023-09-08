@@ -1,9 +1,4 @@
 
-type AlternateQualityCurrencyDecayFactors {
-  BaseItemTypesKey: BaseItemTypes
-  Factor: i32
-}
-
 type AlternateQualityTypes @tags(list: ["item:def"]) {
   StatsKey: Stats
   Description: string
@@ -48,8 +43,8 @@ type MetamorphosisMetaSkills {
   _: i32
   _: [i32]
   _: [rid]
-  _: [_]
-  _: [_]
+  _: [_] # All rows empty
+  _: [_] # All rows empty
   MiscAnimations: [MiscAnimated]
   _: bool
 }
@@ -73,6 +68,7 @@ type MetamorphosisRewardTypeItemsClient {
   MetamorphosisRewardTypesKey: MetamorphosisRewardTypes
   _: i32
   Description: string
+  _: i32
 }
 
 type MetamorphosisRewardTypes {

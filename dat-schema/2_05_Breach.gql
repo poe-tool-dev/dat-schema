@@ -1,4 +1,3 @@
-
 type BreachBossLifeScalingPerLevel {
   MonsterLevel: i32
   LifeMultiplier: i32
@@ -12,10 +11,3 @@ type BreachElement {
   DuplicateBoss: Stats
 }
 
-type BreachstoneUpgrades {
-  BaseItemTypesKey0: BaseItemTypes
-  BaseItemTypesKey1: BaseItemTypes
-  BaseItemTypesKey2: BaseItemTypes
-  BaseItemTypesKey3: BaseItemTypes
-  _: rid
-}

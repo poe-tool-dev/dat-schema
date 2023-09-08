@@ -58,7 +58,7 @@ type AncestralTrialItems {
   Mods: [Mods]
   FlavorText: string
   _: i32
-  _: [_]
+  _: [_] # All rows empty
   _: rid
   _: rid
 }
@@ -69,6 +69,10 @@ type AncestralTrialMonsters {
   _: rid
   _: i32
   Achievement: [AchievementItems]
+  _: bool
+  _: bool
+  _: bool
+  _: bool
 }
 
 type AncestralTrialPositionType {
@@ -87,6 +91,7 @@ type AncestralTrialShopSlotEntries {
   _: bool
   _: bool
   _: i32
+  _: bool
 }
 
 type AncestralTrialTribeOpinions {
@@ -149,6 +154,8 @@ type PassiveSkillTattoos {
   Tattoo: BaseItemTypes
   Override: PassiveSkillOverrides
   Set: PassiveSkillTattooTargetSets
+  Tribe: i32
+  OverrideType: PassiveSkillOverrideTypes
 }
 
 type PassiveSkillTattooTargetSets {

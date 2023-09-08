@@ -26,7 +26,7 @@ type LakeRoomCompletion {
   _: i32
   Achievements: [AchievementItems]
   _: [i32]
-  _: [_]
+  _: [_] # All rows empty
   _: i32
 }
 
@@ -34,7 +34,7 @@ type LakeRooms @tags(list: ["item:itemized"]) {
   Id: string
   ARMFiles: [string] @file(ext: ".arm")
   Script: string
-  _: [_]
+  _: [_] # All rows empty
   Stats: [Stats]
   StatsValues: [i32]
   Description: string @localized
@@ -50,4 +50,22 @@ type LakeRooms @tags(list: ["item:itemized"]) {
   ExtraStatsValues: [i32]
   ReminderText: string @localized
   TextAudio: NPCTextAudio
+  _: rid
+  _: bool
+}
+
+type StampChoice {
+  Id: string @unique
+  _: rid
+  _: i32
+  Effect: string
+  Icon: string
+  _: rid
+  _: [_]
+  _: i32
+}
+
+type StampFamily {
+  Id: string @unique
+  _: i32
 }
