@@ -529,7 +529,7 @@ type BaseItemTypes @tags(list: ["item:def", "item:droptable"]) {
   SoundEffect: SoundEffects
   TagsKeys: [Tags]
   ModDomain: ModDomains
-  SiteVisibility: BaseItemTypeVisibility
+  SiteVisibility: rid # was BaseItemTypeVisibility enum
   ItemVisualIdentity: ItemVisualIdentity
   HASH32: i32 @unique
   VendorRecipe_AchievementItems: [AchievementItems]
@@ -2136,7 +2136,7 @@ enum InfluenceTypes @indexing(first: 0) {
 
 type Inventories {
   Id: string
-  InventoryIdKey: InventoryId
+  InventoryIdKey: rid # InventoryId removed in 3.15
   InventoryTypeKey: InventoryType
   _: i32
   _: bool
