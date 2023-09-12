@@ -3973,7 +3973,7 @@ type PassiveSkills {
   IsJewelSocket: bool
   AscendancyKey: Ascendancy
   IsAscendancyStartingNode: bool
-  ReminderStrings: [ClientStrings]
+  ReminderStrings: [ReminderText]
   SkillPointsGranted: i32
   IsMultipleChoice: bool
   IsMultipleChoiceOption: bool
