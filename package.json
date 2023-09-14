@@ -16,5 +16,12 @@
     "@types/node": "^18.17.1",
     "graphql": "^16.7.1",
     "typescript": "^5.1.6"
+  },
+  "typesVersions": {
+    "*": {
+      "index": [
+        "dist/index.d.ts"
+      ]
+    }
   }
 }
