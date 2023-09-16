@@ -346,7 +346,7 @@ enum ArmourClasses @indexing(first: 0) { _ }
 enum ArmourSurfaceTypes @indexing(first: 0) { _ }
 
 type ArmourTypes @tags(list: ["item:def"]) {
-  BaseItemTypesKey: BaseItemTypes
+  BaseItemTypesKey: BaseItemTypes @unique
   ArmourMin: i32
   ArmourMax: i32
   EvasionMin: i32
@@ -631,7 +631,7 @@ type BuffDefinitions {
   _: [rid]
   _: bool
   _: [Stats]
-  _: [Stats]
+  BinaryStats: [Stats]
   _: [Stats]
   _: [Stats]
   _: bool
@@ -654,7 +654,7 @@ enum BuffStackUIModes @indexing(first: 0) { _ }
 type BuffTemplates {
   Id: string @unique
   BuffDefinitionsKey: BuffDefinitions
-  _: [i32]
+  Buff_StatValues: [i32]
   AuraRadius: i32
   _: [i32]
   _: [i32]
@@ -3916,8 +3916,8 @@ type PassiveSkillOverrides {
   Effect: GrantedEffectsPerLevel
   Type: PassiveSkillOverrideTypes
   Limit: PassiveOverrideLimits
-  _: i32
-  _: i32
+  RequiresAdjacent: i32
+  MaxAdjacent: i32
   AllocatedPassiveSkill: PassiveSkills
 }
 
@@ -3986,7 +3986,7 @@ type PassiveSkills {
   IsProxyPassive: bool
   SkillType: PassiveSkillTypes
   MasteryGroup: PassiveSkillMasteryGroups
-  _: rid
+  Group: AtlasPassiveSkillTreeGroupType
   SoundEffect: SoundEffects
   _: string
   _: i32
@@ -4391,7 +4391,7 @@ type RecipeUnlockObjects {
 }
 
 type ReminderText {
-  Id: string
+  Id: string @unique
   Text: string @localized
   TextHardmode: string @localized
 }

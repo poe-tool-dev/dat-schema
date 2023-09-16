@@ -161,6 +161,6 @@ type PassiveSkillTattoos {
 type PassiveSkillTattooTargetSets {
   Id: string
   Set: [i32]
-  _: string
-  _: string
+  Name: string
+  Qualifier: string
 }

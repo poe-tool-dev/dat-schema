@@ -8,13 +8,13 @@ type HarvestCraftOptionIcons {
 type HarvestCraftOptions @tags(list: ["crafting"]) {
   Id: string @unique
   Text: string
-  _: rid
+  Tier: HarvestCraftTiers
   Command: string
   Parameters: string
   _: [_] # All rows empty
-  _: i32
+  HASH16: i32
   Description: string
-  _: bool
+  IsEnchant: bool
   LifeforceType: i32
   LifeforceCost: i32
   SacredCost: i32
@@ -86,6 +86,3 @@ type HarvestSeedItems @tags(list: ["item:def"]) {
   BaseItem: BaseItemTypes
   DropStat: Stats
 }
-
-
-
