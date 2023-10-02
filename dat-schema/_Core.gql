@@ -2251,7 +2251,6 @@ type ItemisedVisualEffect {
   BaseItemTypesKey: BaseItemTypes
   ItemVisualEffectKey: ItemVisualEffect
   ItemVisualIdentityKey1: ItemVisualIdentity
-  ItemVisualIdentityKey2: ItemVisualIdentity
   Stats: [Stats]
   ItemClasses: [ItemClasses]
   _: [rid]
@@ -2263,11 +2262,11 @@ type ItemisedVisualEffect {
   _: bool
   _: [_] # All rows empty
   _: [_]
-  _: rid
   _: [_]
   _: [_]
   _: rid
   _: bool
+  _: rid
 }
 
 type ItemNoteCode {
