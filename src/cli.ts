@@ -13,7 +13,7 @@ import {
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const SCHEMA_PATH = path.join(__dirname, '../dat-schema');
+const SCHEMA_PATH = process.argv[2] || path.join(__dirname, '../dat-schema');
 
 function read() {
   const sources = fs.readdirSync(SCHEMA_PATH).map((entryName) => {
