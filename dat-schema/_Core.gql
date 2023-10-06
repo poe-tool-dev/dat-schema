@@ -2804,6 +2804,12 @@ type MicrotransactionSlot {
   _: i32 # All rows empty
 }
 
+type MicrotransactionSkillGemEffectSlotTypes {
+  Id: string
+  Type: string
+  _: i32
+}
+
 type MicrotransactionSocialFrameVariations {
   BaseItemTypesKey: BaseItemTypes
   Id: i32 @unique
@@ -4522,6 +4528,7 @@ type SkillGems @tags(list: ["item:def"]) {
   _: rid
   _: i32
   ItemExperienceType: ItemExperienceTypes
+  MtxSlotTypes: [MicrotransactionSkillGemEffectSlotTypes]
 }
 
 enum SkillMines @indexing(first: 0) { _ }
