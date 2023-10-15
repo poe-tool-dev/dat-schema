@@ -4285,10 +4285,10 @@ type QuestRewards @tags(list: ["item:reward"]) {
 enum QuestStateCalculation @indexing(first: 0) { _ }
 
 type QuestStates {
-  QuestKey: Quest
-  _: i32
-  QuestStates: [i32]
-  _: [i32]
+  Quest: Quest
+  Order: i32
+  FlagsPresent: [QuestFlags]
+  FlagsMissing: [QuestFlags]
   Text: string
   _: bool
   Message: string
@@ -4302,7 +4302,7 @@ type QuestStates {
   _: [i32]
   _: i32
   SoundEffect: SoundEffects
-  _: QuestStates
+  _: string
 }
 
 type QuestStaticRewards {
