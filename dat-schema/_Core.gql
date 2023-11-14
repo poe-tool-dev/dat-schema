@@ -4510,9 +4510,9 @@ type SkillGemInfo {
 type SkillGems @tags(list: ["item:def"]) {
   BaseItemTypesKey: BaseItemTypes @unique
   GrantedEffectsKey: GrantedEffects
-  Str: i32
-  Dex: i32
-  Int: i32
+  StrengthRequirementPercent: i32
+  DexterityRequirementPercent: i32
+  IntelligenceRequirementPercent: i32
   GemTagsKeys: [GemTags]
   VaalVariant_BaseItemTypesKey: BaseItemTypes
   IsVaalVariant: bool
