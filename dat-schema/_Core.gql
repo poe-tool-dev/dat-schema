@@ -5982,7 +5982,11 @@ type TryTheNewLeagueVersions {
 
 enum AncestralTrialMonsterRanks @indexing(first: 0) { _ }
 
-enum AncestralTrialOpinionTypes @indexing(first: 0) { _ }
+enum AncestralTrialOpinionTypes @indexing(first: 0) {
+  NEUTRAL
+  LIKES
+  DISLIKES
+}
 
 enum AncestralTrialShopSlots @indexing(first: 0) { _ }
 
