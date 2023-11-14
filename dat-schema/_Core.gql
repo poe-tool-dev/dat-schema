@@ -558,13 +558,13 @@ type BindableVirtualKeys {
 
 type BlightStashTabLayout {
   Id: string @unique
-  BaseItemTypesKey: BaseItemTypes
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
+  StoredItem: BaseItemTypes
+  XOffset: i32
+  YOffset: i32
+  FirstSlotIndex: i32
+  Width: i32
+  Height: i32
+  SlotSize: i32
   _: bool
   _: bool
   _: bool
@@ -1152,14 +1152,14 @@ type CurrencyItems @tags(list: ["item:def", "item:recipe"]) {
 
 type CurrencyStashTabLayout {
   Id: string
-  BaseItemTypesKey: BaseItemTypes
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: bool
-  _: i32
+  StoredItem: BaseItemTypes
+  XOffset: i32
+  YOffset: i32
+  FirstSlotIndex: i32
+  Width: i32
+  Height: i32
+  ShowIfEmpty: bool
+  SlotGroup: i32
 }
 
 enum CurrencyUseTypes @indexing(first: 0) { _ }
@@ -1237,26 +1237,26 @@ type DefaultMonsterStats {
 
 type DeliriumStashTabLayout {
   Id: string @unique
-  BaseItemType: BaseItemTypes
-  X: i32
-  Y: i32
-  IntId: i32 @unique
+  StoredItem: BaseItemTypes
+  XOffset: i32
+  YOffset: i32
+  FirstSlotIndex: i32 @unique
   Width: i32
   Height: i32
-  _: i32
+  SlotSize: i32
   _: bool
 }
 
 type DelveStashTabLayout {
   Id: string @unique
-  BaseItemTypesKey: BaseItemTypes
-  X: i32
-  Y: i32
-  IntId: i32 @unique
+  StoredItem: BaseItemTypes
+  XOffset: i32
+  YOffset: i32
+  FirstSlotIndex: i32 @unique
   Width: i32
   Height: i32
-  StackSize: i32
-  HideIfNoneOwned: bool
+  SlotSize: i32
+  HideIfEmpty: bool
   Image: string
 }
 
@@ -1308,7 +1308,7 @@ type DisplayMinionMonsterType {
 }
 
 type DivinationCardStashTabLayout {
-  BaseItemTypesKey: BaseItemTypes @unique
+  StoredItem: BaseItemTypes @unique
   IsInGame: bool
   IsEnabled: bool
 }
@@ -1421,12 +1421,12 @@ type EnvironmentTransitions {
 
 type EssenceStashTabLayout {
   Id: string @unique
-  BaseItemTypesKey: BaseItemTypes
-  X: i32
-  Y: i32
-  IntId: i32 @unique
-  SlotWidth: i32
-  SlotHeight: i32
+  StoredItem: BaseItemTypes
+  XOffset: i32
+  YOffset: i32
+  FirstSlotIndex: i32 @unique
+  Width: i32
+  Height: i32
   IsUpgradableEssenceSlot: bool
 }
 
@@ -1559,7 +1559,7 @@ type FixedMissions {
 type Flasks @tags(list: ["item:def"]) {
   BaseItemTypesKey: BaseItemTypes @unique
   Name: string
-  Group: i32
+  Type: FlaskType
   LifePerUse: i32
   ManaPerUse: i32
   "in 1/10 s"
@@ -1570,7 +1570,12 @@ type Flasks @tags(list: ["item:def"]) {
   BuffStatValues2: [i32]
 }
 
-enum FlaskType @indexing(first: 0) { _ }
+enum FlaskType @indexing(first: 1) {
+  LIFE
+  MANA
+  HYBRID
+  UTILITY
+}
 
 type FlavourText {
   Id: string @unique
@@ -1597,18 +1602,18 @@ type FootstepAudio {
 
 type FragmentStashTabLayout {
   Id: string
-  PosX: i32
-  PosY: i32
-  Order: i32
-  SizeX: i32
-  SizeY: i32
+  XOffset: i32
+  YOffset: i32
+  FirstSlotIndex: i32
+  Width: i32
+  Height: i32
   _: bool
   Tab: i32
-  _: i32
-  IsDisabled: bool
+  SlotSize: i32
+  HideIfEmpty: bool
   Subtab: i32
-  FragmentItems: [BaseItemTypes]
-  _: bool
+  StoredItems: [BaseItemTypes]
+  _: bool # this has to do with the breachstone conversion
   _: string
   _: i32
 }
@@ -2699,13 +2704,13 @@ type MeleeTrails {
 
 type MetamorphosisStashTabLayout {
   Id: string @unique
-  BaseItemTypesKey: BaseItemTypes
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
+  StoredItem: BaseItemTypes
+  XOffset: i32
+  YOffset: i32
+  FirstSlotIndex: i32
+  Width: i32
+  Height: i32
+  SlotSize: i32
   BackgroundImage: string
   ButtonImage: string
 }
@@ -4657,10 +4662,10 @@ type StashTabAffinities {
 
 type StashType {
   Id: string @unique
-  IntId: i32 @unique
+  StashId: StashId @unique
   Id2: string
-  Width: i32
-  Height: i32
+  _: i32 # these two are NOT width and height unless GGG defines that very strangely
+  _: i32 #
   _: i32
   Icon: string
 }
@@ -5037,7 +5042,7 @@ type UniqueStashLayout @tags(list: ["item:unique"]) {
   WordsKey: Words
   ItemVisualIdentityKey: ItemVisualIdentity
   UniqueStashTypesKey: UniqueStashTypes
-  _: i32
+  _: i32 # release order?
   _: i32
   OverrideWidth: i32
   OverrideHeight: i32
@@ -5053,8 +5058,8 @@ type UniqueStashTypes {
   Order: i32
   Width: i32
   Height: i32
-  _: i32
-  _: i32
+  TotalCount: i32 # total designated slots including legacy and alt-art
+  _: i32 # identical to Height
   Name: string @localized
   StandardCount: i32
   Image: string
@@ -5497,8 +5502,8 @@ type EntityInfobarStyle {
 
 # Added 3.17
 type FlaskStashBaseTypeOrdering {
-  _: rid @unique
-  _: i32 @unique
+  Flask: Flasks @unique
+  Order: i32 @unique
 }
 
 # Added 3.20
