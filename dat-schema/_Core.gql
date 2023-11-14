@@ -1309,8 +1309,8 @@ type DisplayMinionMonsterType {
 
 type DivinationCardStashTabLayout {
   BaseItemTypesKey: BaseItemTypes @unique
+  IsInGame: bool
   IsEnabled: bool
-  _: bool
 }
 
 type Doors {
