@@ -2940,12 +2940,12 @@ enum ModDomains @indexing(first: 1) {
   SANCTUM_RELIC
   _
   CRAFTED
-  MISC
+  BASE_JEWEL
   ATLAS
   LEAGUESTONE
   ABYSS_JEWEL
   MAP_DEVICE
-  DUMMY
+  DUMMY # The name indicates this is meant for the unique Piece item class
   DELVE
   DELVE_AREA
   SYNTHESIS_A
