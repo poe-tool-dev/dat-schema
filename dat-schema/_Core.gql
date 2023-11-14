@@ -5298,8 +5298,8 @@ type AlternateTreeArt {
 # Added 3.21
 type AnimateWeaponUniques {
   Id: string @unique
-  _: rid
-  _: rid
+  ItemVisualIdentity: ItemVisualIdentity
+  ItemClass: ItemClasses
   _: i32
 }
 
