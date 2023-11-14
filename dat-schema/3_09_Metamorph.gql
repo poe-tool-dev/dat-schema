@@ -1,9 +1,9 @@
 
 type AlternateQualityTypes @tags(list: ["item:def"]) {
-  StatsKey: Stats
+  QualityModifier: Mods
   Description: string
   BaseItemTypesKey: BaseItemTypes
-  ModsKey: Mods
+  _: rid
 }
 
 type MetamorphLifeScalingPerLevel {
