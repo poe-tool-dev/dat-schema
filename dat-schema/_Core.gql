@@ -112,8 +112,8 @@ type Acts {
   Id: string @unique
   Part: i32
   _: string
-  ActNumber: i32
   _: i32
+  ActNumber: i32
   WorldPanelImage: string
   WorldPanelImageEpilogue: string
   _: i32
