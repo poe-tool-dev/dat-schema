@@ -3,9 +3,9 @@ type DelveAzuriteShop {
   SpawnWeight: i32
   Cost: i32
   MinDepth: i32
-  IsEnabled: bool
+  IsResonator: bool
   _: i32
-  _: i32
+  _: i32 # 2x cost
 }
 
 type DelveBiomes {
