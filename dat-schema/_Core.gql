@@ -5382,11 +5382,11 @@ type BreachArtVariations {
 
 # Added 3.21
 type Breachstones {
-  _: rid @unique
-  _: i32
+  BaseType: BaseItemTypes @unique
+  MapTierEquivalent: i32
   _: i32 @unique
-  _: rid
-  _: rid
+  UpgradesTo: BaseItemTypes
+  UpgradeCurrency: BaseItemTypes
 }
 
 # Added 3.22
