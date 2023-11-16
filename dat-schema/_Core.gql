@@ -1145,7 +1145,7 @@ type CurrencyItems @tags(list: ["item:def", "item:recipe"]) {
   _: i32
   _: [i32]
   ShopTag: ShopTag
-  IsHardmode: bool
+  ChangedForHardmode: bool
   DescriptionHardmode: string
   IsGold: bool
 }
