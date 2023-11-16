@@ -544,9 +544,9 @@ type BaseItemTypes @tags(list: ["item:def", "item:droptable"]) {
   _: bool
   _: rid
   _: rid
-  _: bool
+  _: bool # something to do with being transactional/UI based items
   TradeMarketCategory: TradeMarketCategory
-  Unmodifiable: bool
+  Unmodifiable: bool # only for base types whose class isn't inherently Unmodifiable
   Achievement: [AchievementItems]
 }
 
@@ -4362,7 +4362,7 @@ type RareMonsterLifeScalingPerLevel {
 
 type Rarity {
   Id: string
-  MinMods: i32
+  MinMods: i32 # This doesn't seem right, rare should be 3 not 4
   MaxMods: i32
   _: i32
   MaxPrefix: i32
@@ -4531,7 +4531,7 @@ type SkillGems @tags(list: ["item:def"]) {
   RegularVariant: SkillGems
   GrantedEffectHardMode: GrantedEffects
   _: rid
-  _: i32
+  _: i32 # This is tied to gem color: 1=red, 2=green, 3=blue, 4=white
   ItemExperienceType: ItemExperienceTypes
   MtxSlotTypes: [MicrotransactionSkillGemEffectSlotTypes]
 }
