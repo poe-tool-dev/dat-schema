@@ -1,13 +1,13 @@
 type DroneBaseTypes {
   BaseType: BaseItemTypes
   Type: DroneTypes
-  _: i32
-  _: i32
-  _: i32
+  Charges: i32
+  Duration: i32
+  EnemyLimit: i32
   Visual: BuffVisuals
-  _: i32
+  Empowerment: i32
   UseAchievement: AchievementItems
-  _: bool
+  CreatedViaPowerCore: bool
 }
 
 type DroneTypes {
