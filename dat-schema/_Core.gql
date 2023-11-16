@@ -2118,7 +2118,7 @@ type IndexableSupportGems @tags(list: ["crafting"]) {
 }
 
 type InfluenceExalts @tags(list: ["item:def"]) {
-  Id: i32 @unique
+  Influence: InfluenceTypes @unique
   BaseItemTypesKey: BaseItemTypes
 }
 
