@@ -2008,13 +2008,13 @@ type GroundEffectTypes {
 
 type HeistStorageLayout {
   Id: string @unique
-  BaseItemType: BaseItemTypes
+  StoredItem: BaseItemTypes
   _: bool
   ButtonFile: string
-  _: i32
+  SlotSize: i32
   HeistJobsKey: HeistJobs
-  Columns: i32
-  Rows: i32
+  Width: i32
+  Height: i32
   _: i32
   _: i32
   _: i32

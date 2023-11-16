@@ -69,17 +69,17 @@ type SentinelPowerExpLevels {
 
 type SentinelStorageLayout {
   Id: string
-  _: BaseItemTypes
+  StoredItem: BaseItemTypes
   DroneType: DroneTypes
   _: bool
-  _: string
+  TabIcon: string
+  XOffset: i32
+  YOffset: i32
   _: i32
   _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
+  Width: i32
+  Height: i32
+  SlotSize: i32
   _: ItemClasses
 }
 
