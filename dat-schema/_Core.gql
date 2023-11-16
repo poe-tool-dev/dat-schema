@@ -1129,7 +1129,7 @@ type CurrencyItems @tags(list: ["item:def", "item:recipe"]) {
   FullStack_BaseItemTypesKey: BaseItemTypes
   Description: string
   Usage_AchievementItemsKeys: [AchievementItems]
-  _: bool
+  Scroll: bool
   CosmeticTypeName: string
   Possession_AchievementItemsKey: AchievementItems
   _: [rid]
