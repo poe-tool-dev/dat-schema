@@ -164,4 +164,21 @@ type Scarabs {
   BaseItemTypesKey: BaseItemTypes
 }
 
-enum ScarabTypes @indexing(first: 0) { _ }
+enum ScarabTypes @indexing(first: 0) {
+  BESTIARY
+  BREACH
+  CARTOGRAPHY
+  RELIQUARY
+  SHAPER
+  ELDER
+  DIVINATION
+  TORMENT
+  AMBUSH
+  HARBINGER
+  EXPEDITION
+  LEGION
+  METAMORPH
+  SULPHITE
+  BLIGHT
+  ABYSS
+}
