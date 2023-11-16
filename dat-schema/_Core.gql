@@ -4233,10 +4233,10 @@ type QuestFlags {
 
 type QuestItems {
   Item: BaseItemTypes
-  _: rid
-  _: rid
+  TriggeredQuestFlag: QuestFlags
+  _: QuestFlags
   _: i32
-  _: rid
+  _: QuestFlags
   _: [_] # All rows empty
   _: bool
   _: bool
