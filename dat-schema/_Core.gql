@@ -1121,7 +1121,7 @@ type CraftingItemClassCategories {
 
 type CurrencyItems @tags(list: ["item:def", "item:recipe"]) {
   BaseItemTypesKey: BaseItemTypes @unique
-  Stacks: i32
+  StackSize: i32
   CurrencyUseType: i32
   Action: string
   Directions: string
