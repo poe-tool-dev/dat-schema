@@ -1841,10 +1841,10 @@ type GeometryTrigger {
 }
 
 type GiftWrapArtVariations {
+  Width: i32
+  Height: i32
   _: i32
-  _: i32
-  _: i32
-  _: rid
+  Item: BaseItemTypes
 }
 
 type GlobalAudioConfig {
