@@ -5944,24 +5944,24 @@ type StatVisuals {
 
 # Added 3.19
 type TieredMicrotransactions {
-  _: rid @unique
+  MTX: BaseItemTypes @unique
+  TierThresholds: [i32]
+  _: Stats
   _: [_]
-  _: rid
-  _: [_]
-  _: rid
-  _: i32
-  _: [_]
+  _: Stats
+  TierCount: i32
+  _: [Stats]
   _: [_]
   _: [_]
   _: bool
   _: bool
-  _: rid
+  _: Stats
 }
 
 # Added 3.22
 type TieredMicrotransactionsVisuals {
-  _: rid
-  _: i32
+  MTX: BaseItemTypes
+  Tier: i32
   Description: string
   DDSFile: string @file(ext: ".dds")
   _: i32
