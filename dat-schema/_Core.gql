@@ -61,9 +61,9 @@ type ActiveSkills {
   Id: string @unique
   DisplayedName: string
   Description: string
-  _: string
+  _: rid
   Icon_DDSFile: string @file(ext: ".dds")
-  ActiveSkillTargetTypes: [ActiveSkillTargetTypes]
+  _: [i32]
   ActiveSkillTypes: [ActiveSkillType]
   WeaponRestriction_ItemClassesKeys: [ItemClasses]
   WebsiteDescription: string
@@ -71,7 +71,7 @@ type ActiveSkills {
   _: bool
   _: string
   _: bool
-  SkillTotemId: SkillTotems
+  _: i32
   IsManuallyCasted: bool
   Input_StatKeys: [Stats]
   Output_StatKeys: [Stats]
@@ -80,13 +80,14 @@ type ActiveSkills {
   _: bool
   _: [Stats]
   _: i32
-  AlternateSkillTargetingBehavioursKey: AlternateSkillTargetingBehaviours
+AlternateSkillTargetingBehavioursKey: AlternateSkillTargetingBehaviours
   _: bool
-  AIFile: string @file(ext: ".ai")
+  AISFile: string @file(ext: ".ais")
   _: [rid]
   _: bool
   _: bool
   _: bool
+  RegularVersion: ActiveSkills
 }
 
 enum ActiveSkillTargetTypes @indexing(first: 1) {
@@ -548,6 +549,7 @@ type BaseItemTypes @tags(list: ["item:def", "item:droptable"]) {
   TradeMarketCategory: TradeMarketCategory
   Unmodifiable: bool # only for base types whose class isn't inherently Unmodifiable
   Achievement: [AchievementItems]
+  Achievement2: [AchievementItems]
 }
 
 type BindableVirtualKeys {
@@ -1864,14 +1866,12 @@ type Grandmasters {
 
 enum GrantedEffectGroups @indexing(first: 0) { _ }
 
-type GrantedEffectQualityStats @tags(list: ["item:droptable"]) {
+type GrantedEffectQualityStats {
   GrantedEffectsKey: GrantedEffects
-  SetId: i32
-  StatsKeys: [Stats]
-  StatsValuesPermille: [i32]
-  Weight: i32
+  _: [Stats]
   _: [i32]
-  _: [i32]
+  _: [_]
+  _: [_]
 }
 
 type GrantedEffectQualityTypes @tags(list: ["item:def"]) {
@@ -4509,31 +4509,21 @@ type SkillGemInfo {
 
 type SkillGems @tags(list: ["item:def"]) {
   BaseItemTypesKey: BaseItemTypes @unique
-  GrantedEffectsKey: GrantedEffects
   StrengthRequirementPercent: i32
   DexterityRequirementPercent: i32
   IntelligenceRequirementPercent: i32
-  GemTagsKeys: [GemTags]
   VaalVariant_BaseItemTypesKey: BaseItemTypes
-  IsVaalVariant: bool
-  Description: string
-  Consumed_ModsKey: Mods
-  GrantedEffectsKey2: GrantedEffects
+  _: bool
   MinionGlobalSkillLevelStat: Stats
-  SupportSkillName: string
-  IsSupport: bool
-  _: bool
-  _: bool
-  _: bool
+  _: i32
   _: bool
   _: bool
   AwakenedVariant: SkillGems
   RegularVariant: SkillGems
-  GrantedEffectHardMode: GrantedEffects
-  _: rid
   _: i32 # This is tied to gem color: 1=red, 2=green, 3=blue, 4=white
-  ItemExperienceType: ItemExperienceTypes
-  MtxSlotTypes: [MicrotransactionSkillGemEffectSlotTypes]
+  _: rid
+  _: [rid]
+  _: [rid]
 }
 
 enum SkillMines @indexing(first: 0) { _ }

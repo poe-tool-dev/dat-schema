@@ -44,7 +44,6 @@ type DelveCraftingModifiers @tags(list: ["crafting"]) {
   CanMirrorItem: bool
   CorruptedEssenceChance: i32
   CanImproveQuality: bool
-  CanRollEnchant: bool
   HasLuckyRolls: bool
   SellPrice_ModsKeys: [Mods]
   CanRollWhiteSockets: bool

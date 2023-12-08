@@ -1,0 +1,4 @@
+
+type Tinctures {
+  BaseItem: BaseItemTypes
+}
