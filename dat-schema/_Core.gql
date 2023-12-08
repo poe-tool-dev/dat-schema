@@ -4515,7 +4515,7 @@ type SkillGems @tags(list: ["item:def"]) {
   DexterityRequirementPercent: i32
   IntelligenceRequirementPercent: i32
   VaalVariant_BaseItemTypesKey: BaseItemTypes
-  _: bool
+  IsVaalVariant: bool
   MinionGlobalSkillLevelStat: Stats
   _: i32
   _: bool
@@ -4525,7 +4525,7 @@ type SkillGems @tags(list: ["item:def"]) {
   _: i32 # This is tied to gem color: 1=red, 2=green, 3=blue, 4=white
   _: rid
   _: [rid]
-  _: [rid]
+  GemEffects: [GemEffects]
 }
 
 type GemEffects {
