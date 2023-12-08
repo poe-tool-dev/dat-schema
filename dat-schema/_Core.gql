@@ -1957,15 +1957,15 @@ type GrantedEffectStatSetsPerLevel {
   AttackCritChance: i32
   BaseMultiplier: i32
   DamageEffectiveness: i32
-  AdditionalFlags: [Stats]
-  FloatStats: [Stats]
+  _: [i32]
+  _: [i32]
+  GrantedEffects: [GrantedEffects]
   InterpolationBases: [Stats]
   AdditionalStats: [Stats]
   StatInterpolations: [StatInterpolationTypes]
-  FloatStatsValues: [f32]
-  BaseResolvedValues: [i32]
+  _: [Stats]
   AdditionalStatsValues: [i32]
-  GrantedEffects: [GrantedEffects]
+  FloatStatsValues: [f32]
 }
 
 enum GroundEffectEffectTypes @indexing(first: 0) { _ }
@@ -2964,6 +2964,8 @@ enum ModDomains @indexing(first: 1) {
   MEMORY_LINE
   SANCTUM_SPECIAL
   CRUCIBLE_MAP
+  TINCTURE
+  ANIMAL_CHARM
 }
 
 type ModEffectStats {
@@ -4524,6 +4526,20 @@ type SkillGems @tags(list: ["item:def"]) {
   _: rid
   _: [rid]
   _: [rid]
+}
+
+type GemEffects {
+  Id: string
+  Name: string
+  GrantedEffect: GrantedEffects
+  GrantedEffectHardmode: GrantedEffects
+  GrantedEffect2: GrantedEffects
+  GrantedEffect2Hardmode: GrantedEffects
+  SupportText: string
+  SupportName: string
+  _: [rid]
+  _: rid
+  _: i32
 }
 
 enum SkillMines @indexing(first: 0) { _ }
