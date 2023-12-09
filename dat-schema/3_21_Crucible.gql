@@ -28,7 +28,6 @@ type WeaponPassiveSkills {
   Achievements: [AchievementItems]
 }
 
-# Added 3.21
 type CrucibleDifficulty {
   Number: string @unique
   Name: string @unique
@@ -38,7 +37,6 @@ type CrucibleDifficulty {
   _: i32
 }
 
-# Added 3.21
 type CrucibleEndgameMonsterPacks {
   Tier: string @unique
   _: [_]
@@ -47,20 +45,17 @@ type CrucibleEndgameMonsterPacks {
   _: bool
 }
 
-# Added 3.21
 type CrucibleLifeScalingPerLevel {
   Level: i32
   Life: i32
 }
 
-# Added 3.21
 type CruciblePlayerClassOffsets {
   _: rid @unique
   _: i32
   _: i32
 }
 
-# Added 3.21
 type CrucibleTags {
   Tag: string @unique
   _: bool

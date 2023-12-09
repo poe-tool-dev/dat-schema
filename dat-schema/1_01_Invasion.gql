@@ -1,4 +1,3 @@
-
 enum InvasionMonsterGroups @indexing(first: 0) { _ }
 
 type InvasionMonsterRestrictions {

@@ -11,7 +11,7 @@ type HarvestCraftOptions @tags(list: ["crafting"]) {
   Tier: HarvestCraftTiers
   Command: string
   Parameters: string
-  _: [_] # All rows empty
+  _: [string]
   HASH16: i32
   Description: string
   IsEnchant: bool
@@ -35,16 +35,11 @@ type HarvestCraftFilters {
   Name: string
 }
 
-
-
 type HarvestInfrastructure {
   Object: string
   _: i32
   ClientStringsKey: ClientStrings
 }
-
-
-
 
 type HarvestPerLevelValues {
   Level: i32
@@ -60,8 +55,6 @@ type HarvestPerLevelValues {
   _: i32
   _: i32
 }
-
-
 
 type HarvestLifeScalingPerLevel {
   Level: i32

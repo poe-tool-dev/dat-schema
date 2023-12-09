@@ -1,4 +1,3 @@
-
 type Essences @tags(list: ["item:def", "crafting"]) {
   BaseItemTypesKey: BaseItemTypes @unique
   _: rid

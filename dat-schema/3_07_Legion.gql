@@ -44,7 +44,6 @@ type LegionChestCounts {
   _: i32
 }
 
-
 type LegionFactions {
   Id: string @unique
   SpawnWeight: i32

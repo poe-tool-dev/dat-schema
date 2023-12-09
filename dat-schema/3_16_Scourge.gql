@@ -1,4 +1,3 @@
-
 type HellscapeAOReplacements {
   Original: string @file(ext: ".ao")
   HASH32: i32
