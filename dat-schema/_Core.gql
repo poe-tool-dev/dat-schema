@@ -859,8 +859,8 @@ type Characters {
   _: i32
   _: string
   _: [_] # All rows empty
-  _: i32 # All rows empty
-  _: i32 # All rows empty
+  _: i32
+  _: i32
   _: i32
 }
 
@@ -1488,8 +1488,8 @@ type ExecuteGEAL {
   _: bool
   _: i32
   _: bool
-  _: i32 # All rows empty
-  _: i32 # All rows empty
+  _: i32
+  _: i32
   _: i32
 }
 
@@ -2149,7 +2149,7 @@ enum InfluenceTypes @indexing(first: 0) {
 
 type Inventories {
   Id: string
-  InventoryIdKey: InventoryId
+  InventoryIdKey: i32
   InventoryTypeKey: InventoryType
   _: bool
   _: bool
@@ -2534,7 +2534,7 @@ type MapDevices {
   _: bool
   _: f32
   _: i32
-  _: i32 # All rows empty
+  _: i32
   _: i32
   _: i32
   _: bool
@@ -3856,9 +3856,9 @@ type NPCTalk {
   _: rid
   _: rid
   _: string
-  _: i32 # All rows empty
   _: i32
-  _: i32 # All rows empty
+  _: i32
+  _: i32
   _: i32
   _: rid
   _: i32
@@ -4542,29 +4542,6 @@ type SkillGems @tags(list: ["item:def"]) {
   ItemExperienceType: ItemExperienceTypes
   MtxSlotTypes: [MicrotransactionSkillGemEffectSlotTypes]
   GemEffects: [GemEffects]
-}
-
-# Added 3.23
-type GemEffects {
-  Id: string @unique
-  Name: string
-  GrantedEffect: GrantedEffects
-  GrantedEffectHardmode: GrantedEffects
-  GrantedEffect2: GrantedEffects
-  GrantedEffect2Hardmode: GrantedEffects
-  SupportText: string
-  SupportName: string
-  GemTags: [GemTags]
-  Consumed_ModsKey: Mods
-  _: i32
-}
-
-# Added 3.23
-type ActionTypes {
-  Id: string @unique
-  _: i32
-  _: bool
-  _: bool
 }
 
 enum SkillMines @indexing(first: 0) { _ }
@@ -5332,6 +5309,14 @@ type AbyssBossLifeScalingPerLevel {
   Life: i32
 }
 
+# Added 3.23
+type ActionTypes {
+  Id: string @unique
+  _: i32
+  _: bool
+  _: bool
+}
+
 # Added 3.21
 type ActiveSettings {
   _: string @unique
@@ -5350,7 +5335,7 @@ type AdditionalMonstersFromMapStats {
   _: [_]
   _: bool
   _: i32
-  _: i32 # All rows empty
+  _: i32
 }
 
 # Added 3.23
@@ -5420,9 +5405,9 @@ type azmeriwoodsdusttype {
   _: rid
   _: rid
   _: string
-  _: i32 # All rows empty
+  _: i32
   _: rid
-  _: i32 # All rows empty
+  _: i32
   _: string
 }
 
@@ -5446,7 +5431,7 @@ type BattlePassRewards {
   _: bool
   Id: string
   RewardedMTX: [BaseItemTypes]
-  _: i32 # All rows empty
+  _: i32
   RewardDescription: string
   _: string
   _: i32
@@ -5455,9 +5440,9 @@ type BattlePassRewards {
   RewardTitle: string
   _: rid
   _: bool
-  _: i32 # All rows empty
-  _: i32 # All rows empty
-  _: i32 # All rows empty
+  _: i32
+  _: i32
+  _: i32
   _: i32
   _: i32
   _: i32
@@ -5661,6 +5646,21 @@ type GamepadThumbstick {
   _: string @unique
 }
 
+# Added 3.23
+type GemEffects {
+  Id: string @unique
+  Name: string
+  GrantedEffect: GrantedEffects
+  GrantedEffectHardmode: GrantedEffects
+  GrantedEffect2: GrantedEffects
+  GrantedEffect2Hardmode: GrantedEffects
+  SupportText: string
+  SupportName: string
+  GemTags: [GemTags]
+  Consumed_ModsKey: Mods
+  _: i32
+}
+
 # Added 3.20
 type GoldActScaling {
   Act: string @unique
@@ -5775,7 +5775,7 @@ type HudVisualsFromStat {
 # Added 3.23
 type InfluenceAmbushVariations {
   _: rid
-  _: i32 # All rows empty
+  _: i32
   _: f32
   _: [_]
   _: i32
@@ -5839,14 +5839,14 @@ type LabyrinthCraftOptions {
   _: string
   _: string
   _: rid
-  _: i32 # All rows empty
+  _: i32
   _: bool
   _: bool
   _: [string]
   _: bool
   _: string
-  _: i32 # All rows empty
-  _: i32 # All rows empty
+  _: i32
+  _: i32
   _: i32
 }
 
@@ -6005,9 +6005,9 @@ type MicrotransactionOnKillConditions {
   _: i32
   _: bool
   _: [_]
-  _: i32 # All rows empty
-  _: i32 # All rows empty
-  _: i32 # All rows empty
+  _: i32
+  _: i32
+  _: i32
   _: bool
   _: string
   _: [string]
@@ -6064,7 +6064,7 @@ type MonsterStatueOverrides {
   _: rid
   _: rid
   _: i32
-  _: i32 # All rows empty
+  _: i32
   _: i32
   _: i32
 }
@@ -6142,7 +6142,7 @@ type SkillWeaponEffects {
   _: rid
   _: bool
   _: i32
-  _: i32 # All rows empty
+  _: i32
 }
 
 # Added 3.23
@@ -6154,11 +6154,11 @@ type StatisticTrackingMicrotransactions {
 }
 
 # Added 3.23
-type statistictrackingmicrotransactionsstatistics {
+type StatisticTrackingMicrotransactionsStatistics {
   _: bool
-  _: i32 # All rows empty
-  _: i32 # All rows empty
-  _: i32 # All rows empty
+  _: i32
+  _: i32
+  _: i32
   _: i32
   _: i32
   _: i32
@@ -6215,11 +6215,6 @@ type TieredMicrotransactionsVisuals {
   DDSFile: string @file(ext: ".dds")
   _: i32
   _: string
-}
-
-# Added 3.23
-type Tinctures {
-  _: rid
 }
 
 # Added 3.22
