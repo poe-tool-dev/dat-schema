@@ -1,6 +1,5 @@
-
 type BeyondFactions {
   Id: string
-  Boss: MonsterVarieties # from Scourge league
+  Boss: MonsterVarieties
   _: rid
 }

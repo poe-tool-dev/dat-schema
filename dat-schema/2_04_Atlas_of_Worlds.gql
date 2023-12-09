@@ -1,4 +1,3 @@
-
 type ShaperGuardians {
   Id: string
   WorldArea: WorldAreas

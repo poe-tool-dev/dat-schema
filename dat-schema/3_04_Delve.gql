@@ -5,7 +5,7 @@ type DelveAzuriteShop {
   MinDepth: i32
   IsResonator: bool
   _: i32
-  _: i32 # 2x cost
+  _: i32
 }
 
 type DelveBiomes {

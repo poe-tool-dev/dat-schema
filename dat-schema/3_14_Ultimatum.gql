@@ -8,6 +8,7 @@ type UltimatumEncounters {
   HASH16: i32
   _: bool
   _: i32
+  _: bool
 }
 
 type UltimatumEncounterTypes {
@@ -18,6 +19,7 @@ type UltimatumEncounterTypes {
   _: bool
   NormalAchievements: [AchievementItems]
   InscribedAchievement: AchievementItems
+  _: rid
 }
 
 type UltimatumItemisedRewards {
@@ -44,9 +46,8 @@ type UltimatumModifiers {
   ExtraMods: [Mods]
   TypesFiltered: [UltimatumModifierTypes]
   DaemonSpawningData: DaemonSpawningData
-  PreviousTiers: [UltimatumModifiers]
+  PreviousTier: UltimatumModifiers
   _: bool
-  Bosses: [MonsterVarieties]
   Radius: i32
   Name: string
   Icon: string

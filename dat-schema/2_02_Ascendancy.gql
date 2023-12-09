@@ -120,9 +120,9 @@ type LabyrinthTrials {
   _: string
   _: string
   _: i32
-  _: i32 # All rows empty
-  _: i32 # All rows empty
-  _: i32 # All rows empty
+  _: i32
+  _: i32
+  _: i32
 }
 
 type LabyrinthTrinkets {
@@ -130,27 +130,4 @@ type LabyrinthTrinkets {
   LabyrinthSecretsKey: [LabyrinthSecrets]
   Buff_BuffDefinitionsKey: BuffDefinitions
   Buff_StatValues: [i32]
-}
-
-enum LabyrinthCraftOptionFamily @indexing(first: 0) { _ }
-
-type LabyrinthCraftOptions {
-  Id: string
-  CraftFamily: LabyrinthCraftOptionFamily
-  Text: string
-  Script: string
-  ScriptArgument: string
-  HASH16: i32
-  _: bool
-  Tier: LabyrinthCraftOptionTiers
-  _: bool
-  Achievement: [AchievementItems]
-  _: bool
-  _: rid
-  _: i32
-}
-
-type LabyrinthCraftOptionTiers {
-  Id: string
-  CraftIcon: string
 }

@@ -1,12 +1,11 @@
-
 type Shrines {
   Id: string @unique
   TimeoutInSeconds: i32
   ChargesShared: bool
-  Player_ShrineBuffsKey: rid # ShrineBuffs removed in 3.17
+  Player_ShrineBuffsKey: rid
   _: i32
   _: i32
-  Monster_ShrineBuffsKey: rid # ShrineBuffs removed in 3.17
+  Monster_ShrineBuffsKey: rid
   SummonMonster_MonsterVarietiesKey: MonsterVarieties
   SummonPlayer_MonsterVarietiesKey: MonsterVarieties
   _: i32

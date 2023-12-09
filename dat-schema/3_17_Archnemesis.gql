@@ -1,4 +1,3 @@
-
 type ArchnemesisMetaRewards {
   Id: string
   RewardText: string @localized

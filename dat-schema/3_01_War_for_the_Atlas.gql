@@ -1,4 +1,3 @@
-
 type ElderBossArenas {
   WorldAreasKey: WorldAreas @unique
   _: i32
