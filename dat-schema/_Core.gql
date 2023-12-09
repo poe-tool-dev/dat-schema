@@ -5338,12 +5338,6 @@ type AdditionalMonstersFromMapStats {
   _: i32
 }
 
-# Added 3.23
-type AfflictionDustedMonsterCurrencyDropWeightingByItemRarity {
-  _: rid
-  _: i32
-}
-
 # Added 3.19
 type AlternateTreeArt {
   _: rid @unique
@@ -5368,47 +5362,6 @@ type AtlasMemoryLine {
   MidPointArt: string
   EndPointArt: string
   PathArt: string
-}
-
-# Added 3.23
-type AzmeriCounterQuests {
-  _: string
-  _: rid
-  _: rid
-  _: rid
-  _: i32
-}
-
-# Added 3.23
-type AzmeriFeatureRooms {
-  _: i32
-  _: i32
-  _: string
-  _: string
-  _: [_]
-  _: bool
-}
-
-# Added 3.23
-type azmerilifescalingperlevel {
-  _: i32
-  _: i32
-}
-
-# Added 3.23
-type azmeriwoodsdusttype {
-  _: string
-  _: rid
-  _: string
-  _: string
-  _: rid
-  _: rid
-  _: rid
-  _: string
-  _: i32
-  _: rid
-  _: i32
-  _: string
 }
 
 # Added 3.17
@@ -5502,15 +5455,6 @@ type CorpseSinkVariations {
   _: bool
 }
 
-# Added 3.23
-type CorpseTypeTags {
-  _: rid
-  _: string
-  _: rid
-  _: string
-  _: i32
-}
-
 # Added 3.21
 type CosmeticsEquipPanelMode {
   Id: string @unique
@@ -5569,19 +5513,6 @@ type DelveRobotVariations {
   Id: string @unique
   AOFile: string @file(ext: ".ao")
   _: [string]
-  _: rid
-  _: rid
-}
-
-# Added 3.23
-type Descendancy {
-  _: string
-  _: string
-  _: string
-  _: string
-  _: string
-  _: string
-  _: string
   _: rid
   _: rid
 }
@@ -5804,14 +5735,6 @@ type ItemClassVisualReplacement {
   _: bool
 }
 
-# Added 3.23
-type ItemisedCorpse {
-  _: rid
-  _: rid
-  _: string
-  _: rid
-}
-
 # Added 3.22
 type ItemPickupEffect {
   _: rid @unique
@@ -5829,31 +5752,6 @@ type ItemVisualReplacement {
   _: bool
   _: bool
   _: bool
-}
-
-# Added 3.23
-type LabyrinthCraftOptions {
-  _: string
-  _: i32
-  _: string
-  _: string
-  _: string
-  _: rid
-  _: i32
-  _: bool
-  _: bool
-  _: [string]
-  _: bool
-  _: string
-  _: i32
-  _: i32
-  _: i32
-}
-
-# Added 3.23
-type labyrinthcraftoptiontiers {
-  _: string
-  _: string
 }
 
 # Added 3.17
@@ -6272,8 +6170,6 @@ enum DropReplacementCustomTargets @indexing(first: 0) { _ }
 enum DuplicateGrantedEffect @indexing(first: 0) { _ }
 
 enum GemItemVisualEffect @indexing(first: 0) { _ }
-
-enum LabyrinthCraftOptionFamily @indexing(first: 0) { _ }
 
 enum MapDeviceCustomEffects @indexing(first: 0) { _ }
 
