@@ -87,8 +87,7 @@ type ActiveSkills {
   _: bool
   _: bool
   _: bool
-  _: i32
-  _: i32
+  TransfigureBase: ActiveSkills
 }
 
 enum ActiveSkillTargetTypes @indexing(first: 1) {
