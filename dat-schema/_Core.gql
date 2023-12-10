@@ -5588,7 +5588,8 @@ type GemEffects {
   SupportName: string
   GemTags: [GemTags]
   Consumed_ModsKey: Mods
-  _: i32
+  "Used by gem icon shader https://gist.github.com/zao/08878df57aba605e5fa1e6373f2dce02"
+  ItemColor: i32
 }
 
 # Added 3.20
