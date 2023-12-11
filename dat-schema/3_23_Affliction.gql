@@ -41,10 +41,10 @@ type AzmeriWoodsDustType {
 }
 
 type CorpseTypeTags {
-  _: rid
-  _: string
-  _: rid
-  _: string
+  Tag: Tags
+  Name: string @localized
+  RavenousBuff: BuffDefinitions
+  Icon: string
   _: i32
 }
 
@@ -61,10 +61,10 @@ type Descendancy {
 }
 
 type ItemisedCorpse {
-  _: rid
-  _: rid
-  _: string
-  _: rid
+  BaseItem: BaseItemTypes @unique
+  MonsterVariety: MonsterVarieties
+  MonsterAbilities: string @localized
+  MonsterCategory: CorpseTypeTags
 }
 
 type Tinctures {
