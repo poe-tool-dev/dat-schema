@@ -90,3 +90,9 @@ type NecropolisUniqueCrafts {
   Id: string
   Stats: [Stats]
 }
+
+type PackFrequencyNames {
+  Id: string
+  Frequency: f32
+  Text: ClientStrings
+}

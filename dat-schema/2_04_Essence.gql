@@ -61,10 +61,9 @@ type Essences @tags(list: ["item:def", "crafting"]) {
   Shield_ModsKey: Mods
   Display_Items_ModsKey: Mods
   IsScreamingEssence: bool
-  _: [rid]
-  _: i32
-  _: i32
-  _: i32
+  MemoryLines: [Mods]
+  _: [i32]
+  Level2: [i32]
 }
 
 type EssenceType {

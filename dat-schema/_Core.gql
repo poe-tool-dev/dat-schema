@@ -1,5 +1,13 @@
 enum AccountQuestFlags @indexing(first: 0) { _ }
 
+type AtlasTrees {
+  Id: string
+  Name: string
+  _: i32
+  _: i32
+  UnlockObjective: string
+}
+
 type AchievementItemRewards @tags(list: ["mtx:reward"]) {
   AchievementItemsKey: AchievementItems
   BaseItemTypesKey: BaseItemTypes
@@ -3330,7 +3338,7 @@ type MonsterPacks {
   BossMonsterCount: i32
   BossMonster_MonsterVarietiesKeys: [MonsterVarieties]
   _: bool
-  _: i32
+  _: [i32]
   _: [string]
   TagsKeys: [Tags]
   MinLevel: i32
@@ -3924,6 +3932,15 @@ type PassiveJewelSlots {
   ReplacesSlot: PassiveJewelSlots
   ProxySlot: PassiveSkills
   StartIndices: [i32]
+  _: bool
+}
+
+type PassiveJewelNodeModifyingStats {
+  JwelStat: Stats
+  Stat: Stats
+  _: bool
+  _: bool
+  _: bool
   _: bool
 }
 
@@ -5237,23 +5254,18 @@ type WorldAreas {
   EnvironmentsKey: Environments
   _: i32
   _: rid
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
   _: bool
   _: bool
-  _: i32
-  _: i32
+  _: WorldAreas
   _: i32
   _: [_] # All rows empty
-  _: rid
+  LeagueChance1: WorldAreaLeagueChances
   _: i32
+  LeagueChance2: WorldAreaLeagueChances
   _: rid
-  _: rid
-  _: Rulesets
+  Ruleset: Rulesets
   _: i32
+  QuestFlag: QuestFlags
 }
 
 type WorldAreaLeagueChances {
@@ -6138,6 +6150,14 @@ type TryTheNewLeagueVersions {
 type UltimatumLifescalingPerLevel {
   _: i32
   _: i32
+}
+
+type TypeTags {
+  Id: string
+  Tag: Tags
+  Name: string
+  Icon: string
+  _: Stats
 }
 
 enum AncestralTrialMonsterRanks @indexing(first: 0) { _ }
