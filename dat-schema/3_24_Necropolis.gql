@@ -1,6 +1,6 @@
 type ItemisedNecropolisPacks {
-  _: rid
-  _: rid
+  Item: BaseItemTypes
+  Pack: NecropolisPacks
   Description: string
 }
 
@@ -9,17 +9,17 @@ type NecropolisCraftingMods {
   _: i32
   Stats: [Stats]
   StatsValues: [i32]
-  _: rid
+  CraftingItemType: NecropolisCraftItemTypes
   _: i32
-  _: bool
-  _: [rid]
+  CorpsesNotConsumed: bool
+  CraftingItemTypes: [NecropolisCraftItemTypes]
   Achievements: [AchievementItems]
   MatchingMonsters: i32
 }
 
 type NecropolisCraftingModsFromStats {
-  _: rid
-  _: rid
+  Stat: Stats
+  CraftingMod: NecropolisCraftingMods
 }
 
 type NecropolisCraftItemTypes {
@@ -29,8 +29,8 @@ type NecropolisCraftItemTypes {
   _: i32
   _: [rid]
   IllustratuionIcon: string
-  _: rid
-  _: rid
+  UniqueCraft: NecropolisUniqueCrafts
+  BaseItem: BaseItemTypes
   TextAudioLong: NPCTextAudio
   _: bool
   _: bool
@@ -44,9 +44,9 @@ type NecropolisPackAdditionalPacks {
 }
 
 type NecropolisPackImplicitClass {
-    Id: string
-  _: rid
-  _: rid
+  Id: string
+  MoreImplicit: NecropolisPackImplicits
+  LessImplicit: NecropolisPackImplicits
 }
 
 type NecropolisPackImplicits {
@@ -57,7 +57,7 @@ type NecropolisPackImplicits {
 
 type NecropolisPackMods {
   Mod: Mods
-  _: rid
+  Tier: NecropolisPackModTiers
   NextTier: NecropolisPackMods
   PrevTier: NecropolisPackMods
 }
@@ -70,9 +70,21 @@ type NecropolisPackModTiers {
   SpecialTier: bool
 }
 
-#type NecropolisPacks {}
+type NecropolisPacks {
+  Id: string
+  Name: string
+  Icon: string
+  Description: string
+  PackLeader1: string
+  PackLeader2: string
+  Mod: Mods
+}
 
-#type NecropolisPacksPerArea {}
+type NecropolisPacksPerArea {
+  _: rid
+  _: [rid]
+  _: [i32]
+}
 
 type NecropolisUniqueCrafts {
   Id: string
