@@ -27,7 +27,7 @@ type Essences @tags(list: ["item:def", "crafting"]) {
   Monster_ModsKeys: [Mods]
   EssenceTypeKey: EssenceType
   Level: i32
-  _: i32
+  _: [i32]
   Display_Weapon_ModsKey: Mods
   Display_MeleeWeapon_ModsKey: Mods
   Display_OneHandWeapon_ModsKey: Mods
