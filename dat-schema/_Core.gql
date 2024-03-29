@@ -3322,6 +3322,7 @@ type MonsterPackEntries {
 
 type MonsterPacks {
   Id: string @unique
+  _: i32
   WorldAreasKeys: [WorldAreas]
   _: i32
   _: i32
@@ -5214,7 +5215,6 @@ type WorldAreas {
   _: bool
   MaxLevel: i32
   AreaTypeTags: [Tags]
-  _: i32
   IsHideout: bool
   Inflection: string
   _: i32
