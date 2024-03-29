@@ -1,0 +1,80 @@
+type ItemisedNecropolisPacks {
+  _: rid
+  _: rid
+  Description: string
+}
+
+type NecropolisCraftingMods {
+  Id: string
+  _: i32
+  Stats: [Stats]
+  StatsValues: [i32]
+  _: rid
+  _: i32
+  _: bool
+  _: [rid]
+  Achievements: [AchievementItems]
+  MatchingMonsters: i32
+}
+
+type NecropolisCraftingModsFromStats {
+  _: rid
+  _: rid
+}
+
+type NecropolisCraftItemTypes {
+  Id: string
+  ExorciseIcon: string
+  Name: string
+  _: i32
+  _: [rid]
+  IllustratuionIcon: string
+  _: rid
+  _: rid
+  TextAudioLong: NPCTextAudio
+  _: bool
+  _: bool
+  Achievements: AchievementItems
+  TextAudioShort: NPCTextAudio
+}
+
+type NecropolisPackAdditionalPacks {
+  _: rid
+  _: rid
+}
+
+type NecropolisPackImplicitClass {
+    Id: string
+  _: rid
+  _: rid
+}
+
+type NecropolisPackImplicits {
+  Id: string
+  Text: string
+  Icon: string
+}
+
+type NecropolisPackMods {
+  Mod: Mods
+  _: rid
+  NextTier: NecropolisPackMods
+  PrevTier: NecropolisPackMods
+}
+
+type NecropolisPackModTiers {
+  Id: string
+  Icon: string
+  Name: string
+  TextColours: [string]
+  SpecialTier: bool
+}
+
+#type NecropolisPacks {}
+
+#type NecropolisPacksPerArea {}
+
+type NecropolisUniqueCrafts {
+  Id: string
+  Stats: [Stats]
+}
