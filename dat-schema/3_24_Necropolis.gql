@@ -1,5 +1,5 @@
 type ItemisedNecropolisPacks {
-  Item: BaseItemTypes
+  Item: BaseItemTypes @unique
   Pack: NecropolisPacks
   Description: string
 }
