@@ -277,9 +277,9 @@ type Animation {
   Offhand_AnimationKey: Animation
   _: bool
   _: rid
-  _: animation
+  _: Animation
   _: bool
-  _: animation
+  _: Animation
   _: [string]
 }
 
