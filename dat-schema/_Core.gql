@@ -273,10 +273,14 @@ type Animation {
   _: bool
   _: bool
   _: bool
-  Mainhand_AnimationKey: Animation @ref(column: "Id")
-  Offhand_AnimationKey: Animation @ref(column: "Id")
+  Mainhand_AnimationKey: Animation
+  Offhand_AnimationKey: Animation
   _: bool
   _: rid
+  _: animation
+  _: bool
+  _: animation
+  _: [string]
 }
 
 type ApplyDamageFunctions {
@@ -739,6 +743,7 @@ type BuffVisuals {
   BuffVisualOrbs: [BuffVisualOrbs]
   MiscAnimated3: MiscAnimated
   _: rid
+  _: string
 }
 
 type BuffVisualsArtVariations {
@@ -2204,6 +2209,7 @@ type ItemClasses @tags(list: ["crafting"]) {
   CanBeFractured: bool
   EquipAchievements: AchievementItems
   UsedInMapDevice: bool
+  _: bool
   _: bool
   _: bool
 }
