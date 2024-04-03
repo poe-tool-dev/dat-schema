@@ -4,6 +4,18 @@ type ItemisedNecropolisPacks {
   Description: string
 }
 
+type NecropolisCraftBases {
+  Id: string
+  BaseItem: BaseItemTypes
+  UniqueCraft: NecropolisUniqueCrafts
+  _: bool
+  _: i32
+  CraftItemType: NecropolisCraftItemTypes
+  Name: string
+  CraftTag: Stats
+  _: bool
+}
+
 type NecropolisCraftingMods {
   Id: string
   _: i32
@@ -27,15 +39,11 @@ type NecropolisCraftItemTypes {
   ExorciseIcon: string
   Name: string
   _: i32
-  _: [rid]
   IllustratuionIcon: string
-  UniqueCraft: NecropolisUniqueCrafts
-  BaseItem: BaseItemTypes
   TextAudioLong: NPCTextAudio
-  _: bool
-  _: bool
   Achievements: AchievementItems
   TextAudioShort: NPCTextAudio
+  _: rid
 }
 
 type NecropolisPackAdditionalPacks {

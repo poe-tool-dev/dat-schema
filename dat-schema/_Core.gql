@@ -3365,6 +3365,7 @@ type MonsterPacks {
   _: bool
   _: bool
   _: [string]
+  NecropolisPack: NecropolisPacks
 }
 
 type MonsterProjectileAttack {
