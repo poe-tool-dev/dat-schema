@@ -71,4 +71,5 @@ type EssenceType {
   EssenceType: i32
   IsCorruptedEssence: bool
   WordsKey: Words
+  _: rid
 }

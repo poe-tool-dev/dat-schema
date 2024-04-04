@@ -2989,6 +2989,7 @@ enum ModDomains @indexing(first: 1) {
   TINCTURE
   ANIMAL_CHARM
   NECROPOLIS_MONSTER
+  UBER_MAP
 }
 
 type ModEffectStats {
@@ -3792,7 +3793,8 @@ type NPCMaster {
   _: [rid]
   _: [rid]
   _: rid
-  _: [_]
+  _: [rid]
+  _: rid
 }
 
 type NPCPortraits {
