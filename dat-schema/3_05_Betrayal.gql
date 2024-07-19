@@ -159,26 +159,14 @@ type SafehouseCraftingSpreeCurrencies {
 }
 
 type Scarabs {
-  ScarabType: i32
-  Tier: i32
-  BaseItemTypesKey: BaseItemTypes
+  Type: ScarabTypes
+  Items: [BaseItemTypes]
 }
 
-enum ScarabTypes @indexing(first: 0) {
-  BESTIARY
-  BREACH
-  CARTOGRAPHY
-  RELIQUARY
-  SHAPER
-  ELDER
-  DIVINATION
-  TORMENT
-  AMBUSH
-  HARBINGER
-  EXPEDITION
-  LEGION
-  METAMORPH
-  SULPHITE
-  BLIGHT
-  ABYSS
+type ScarabTypes {
+  Id: string
+  Tag: Tags
+  DisableDrops: Stats
+  MoreLikely: Stats
+  Count: Stats
 }

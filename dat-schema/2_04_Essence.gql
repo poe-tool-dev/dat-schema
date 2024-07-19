@@ -22,13 +22,12 @@ type Essences @tags(list: ["item:def", "crafting"]) {
   Display_BodyArmour_ModsKey: Mods
   Display_Helmet_ModsKey: Mods
   Display_Shield_ModsKey: Mods
-  _: i32
-  DropLevelMinimum: i32
-  DropLevelMaximum: i32
+  HASH32: i32
+  DropLevel: [i32]
   Monster_ModsKeys: [Mods]
   EssenceTypeKey: EssenceType
   Level: i32
-  _: i32
+  _: [i32]
   Display_Weapon_ModsKey: Mods
   Display_MeleeWeapon_ModsKey: Mods
   Display_OneHandWeapon_ModsKey: Mods
@@ -62,10 +61,9 @@ type Essences @tags(list: ["item:def", "crafting"]) {
   Shield_ModsKey: Mods
   Display_Items_ModsKey: Mods
   IsScreamingEssence: bool
-  _: [rid]
-  _: i32
-  _: i32
-  _: i32
+  MemoryLines: [Mods]
+  _: [i32]
+  Level2: [i32]
 }
 
 type EssenceType {
@@ -73,4 +71,5 @@ type EssenceType {
   EssenceType: i32
   IsCorruptedEssence: bool
   WordsKey: Words
+  _: rid
 }

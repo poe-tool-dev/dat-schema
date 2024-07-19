@@ -1,5 +1,13 @@
 enum AccountQuestFlags @indexing(first: 0) { _ }
 
+type AtlasTrees {
+  Id: string
+  Name: string
+  _: i32
+  _: i32
+  UnlockObjective: string
+}
+
 type AchievementItemRewards @tags(list: ["mtx:reward"]) {
   AchievementItemsKey: AchievementItems
   BaseItemTypesKey: BaseItemTypes
@@ -265,10 +273,14 @@ type Animation {
   _: bool
   _: bool
   _: bool
-  Mainhand_AnimationKey: Animation @ref(column: "Id")
-  Offhand_AnimationKey: Animation @ref(column: "Id")
+  Mainhand_AnimationKey: Animation
+  Offhand_AnimationKey: Animation
   _: bool
   _: rid
+  _: Animation
+  _: bool
+  _: Animation
+  _: [string]
 }
 
 type ApplyDamageFunctions {
@@ -731,6 +743,7 @@ type BuffVisuals {
   BuffVisualOrbs: [BuffVisualOrbs]
   MiscAnimated3: MiscAnimated
   _: rid
+  _: string
 }
 
 type BuffVisualsArtVariations {
@@ -2198,6 +2211,7 @@ type ItemClasses @tags(list: ["crafting"]) {
   UsedInMapDevice: bool
   _: bool
   _: bool
+  _: bool
 }
 
 enum ItemClassFlags @indexing(first: 0) {
@@ -2621,6 +2635,7 @@ type MapSeries {
   Drawn_DDSFile: string @file(ext: ".dds")
   Delirious_DDSFile: string @file(ext: ".dds")
   UberBlight_DDSFile: string @file(ext: ".dds")
+  Purple_DDSFile: string @file(ext: ".dds")
 }
 
 type MapSeriesTiers {
@@ -2644,6 +2659,7 @@ type MapSeriesTiers {
   CrucibleTier: i32
   AncestorTier: i32
   AzmeriTier: i32
+  NecropolisTier: i32
 }
 
 type MapStashSpecialTypeEntries {
@@ -2973,6 +2989,8 @@ enum ModDomains @indexing(first: 1) {
   CRUCIBLE_MAP
   TINCTURE
   ANIMAL_CHARM
+  NECROPOLIS_MONSTER
+  UBER_MAP
 }
 
 type ModEffectStats {
@@ -3030,6 +3048,9 @@ enum ModGenerationType @indexing(first: 1) {
   _
   WEAPON_TREE
   WEAPON_TREE_RECOMBINED
+  _
+  NECROPOLIS_HAUNTED
+  NECROPOLIS_DEVOTED
 }
 
 type Mods @tags(list: ["crafting"]) {
@@ -3322,6 +3343,7 @@ type MonsterPackEntries {
 
 type MonsterPacks {
   Id: string @unique
+  _: i32
   WorldAreasKeys: [WorldAreas]
   _: i32
   _: i32
@@ -3329,7 +3351,7 @@ type MonsterPacks {
   BossMonsterCount: i32
   BossMonster_MonsterVarietiesKeys: [MonsterVarieties]
   _: bool
-  _: i32
+  _: [i32]
   _: [string]
   TagsKeys: [Tags]
   MinLevel: i32
@@ -3345,6 +3367,7 @@ type MonsterPacks {
   _: bool
   _: bool
   _: [string]
+  NecropolisPack: NecropolisPacks
 }
 
 type MonsterProjectileAttack {
@@ -3771,7 +3794,8 @@ type NPCMaster {
   _: [rid]
   _: [rid]
   _: rid
-  _: [_]
+  _: [rid]
+  _: rid
 }
 
 type NPCPortraits {
@@ -3887,7 +3911,7 @@ type NPCTextAudio {
   _: i32
   _: i32
   _: i32
-  _: [rid]
+  NPCs: [NPCs]
   _: rid
 }
 
@@ -3923,6 +3947,15 @@ type PassiveJewelSlots {
   ReplacesSlot: PassiveJewelSlots
   ProxySlot: PassiveSkills
   StartIndices: [i32]
+  _: bool
+}
+
+type PassiveJewelNodeModifyingStats {
+  JwelStat: Stats
+  Stat: Stats
+  _: bool
+  _: bool
+  _: bool
   _: bool
 }
 
@@ -5214,7 +5247,6 @@ type WorldAreas {
   _: bool
   MaxLevel: i32
   AreaTypeTags: [Tags]
-  _: i32
   IsHideout: bool
   Inflection: string
   _: i32
@@ -5237,23 +5269,18 @@ type WorldAreas {
   EnvironmentsKey: Environments
   _: i32
   _: rid
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
   _: bool
   _: bool
-  _: i32
-  _: i32
+  _: WorldAreas
   _: i32
   _: [_] # All rows empty
-  _: rid
+  LeagueChance1: WorldAreaLeagueChances
   _: i32
+  LeagueChance2: WorldAreaLeagueChances
   _: rid
-  _: rid
-  _: Rulesets
+  Ruleset: Rulesets
   _: i32
+  QuestFlag: QuestFlags
 }
 
 type WorldAreaLeagueChances {
@@ -6138,6 +6165,14 @@ type TryTheNewLeagueVersions {
 type UltimatumLifescalingPerLevel {
   _: i32
   _: i32
+}
+
+type TypeTags {
+  Id: string
+  Tag: Tags
+  Name: string
+  Icon: string
+  _: Stats
 }
 
 enum AncestralTrialMonsterRanks @indexing(first: 0) { _ }
