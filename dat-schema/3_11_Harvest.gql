@@ -11,7 +11,7 @@ type HarvestCraftOptions @tags(list: ["crafting"]) {
   Tier: HarvestCraftTiers
   Command: string
   Parameters: string
-  _: [string]
+  _: [_]
   HASH16: i32
   Description: string
   IsEnchant: bool

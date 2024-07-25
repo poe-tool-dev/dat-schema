@@ -27,7 +27,6 @@ type MavenFights {
   _: QuestFlags
   _: i32
   WitnessAreas: [WorldAreas]
-  _: i32
   _: QuestFlags
   _: bool
   _: [_] # All rows empty
