@@ -45,6 +45,8 @@ type Achievements {
   HardcoreOnly: bool
   _: bool
   _: string
+  _: string
+  _: string
 }
 
 type AchievementSetRewards @tags(list: ["mtx:reward"]) {
@@ -476,6 +478,7 @@ type AtlasNode {
   _: i32
   _: i32
   _: i32
+  DivCards: [BaseItemTypes]
 }
 
 type AtlasNodeDefinition {
@@ -558,6 +561,8 @@ type BaseItemTypes @tags(list: ["item:def", "item:droptable"]) {
   Unmodifiable: bool
   Achievement: [AchievementItems]
   _: [string]
+  IgnoreQuantBonus: bool
+  _: bool
 }
 
 type BindableVirtualKeys {
@@ -869,11 +874,10 @@ type Characters {
   Script: string
   _: rid
   _: i32
-  _: string
-  _: [_] # All rows empty
+  _: MonsterVarieties
+  _: MonsterVarieties
   _: i32
-  _: i32
-  _: i32
+  _: f32
 }
 
 type CharacterStartQuestState {
@@ -1119,6 +1123,7 @@ type CraftingBenchOptions @tags(list: ["crafting"]) {
   _: Stats
   MapDevice: bool
   _: [rid]
+  Tags: [Tags]
 }
 
 type CraftingBenchSortCategories {
@@ -1141,6 +1146,7 @@ type CraftingItemClassCategories {
   ItemClasses: [ItemClasses]
   _: string
   Text: string
+  _: [rid]
 }
 
 type CurrencyItems @tags(list: ["item:def", "item:recipe"]) {
@@ -1172,6 +1178,7 @@ type CurrencyItems @tags(list: ["item:def", "item:recipe"]) {
   ChangedForHardmode: bool
   DescriptionHardmode: string
   IsGold: bool
+  _: bool
 }
 
 type CurrencyStashTabLayout {
@@ -2261,6 +2268,7 @@ type ItemFrameType {
   Rarity: Rarity
   DisplayString: ClientStrings
   ColorMarkup: string
+  _: i32
 }
 
 type ItemExperienceTypes {
@@ -2318,13 +2326,14 @@ type ItemVisualEffect {
   _: string
   TwoHandedSwordEPKFile: string @file(ext: ".epk")
   TwoHandedStaffEPKFile: string @file(ext: ".epk")
-  _: i32 @unique
+  HASH16: i32 @unique
   TwoHandedMaceEPKFile: string @file(ext: ".epk")
   OneHandedAxeEPKFile: string @file(ext: ".epk")
   TwoHandedAxeEPKFile: string @file(ext: ".epk")
   ClawEPKFile: string @file(ext: ".epk")
   PETFile: string @file(ext: ".pet")
   Shield: [string] @file(ext: ".epk")
+  _: bool
 }
 
 type ItemVisualHeldBodyModel {
@@ -2531,6 +2540,9 @@ type MapDeviceRecipes @tags(list: ["item:recipe"]) {
   _: bool
   _: bool
   OpenAchievemnts: [AchievementItems]
+  _: bool
+  _: i32
+  _: [Mods]
   _: bool
 }
 
@@ -3577,6 +3589,8 @@ type MonsterVarieties {
   _: i32
   _: i32
   _: bool
+  BossHealthBar: bool
+  _: bool
 }
 
 type MonsterVarietiesArtVariations {
@@ -3786,8 +3800,6 @@ type NPCMaster {
   _: bool
   SpawnWeight_TagsKeys: [Tags]
   SpawnWeight_Values: [i32]
-  _: [i32]
-  _: [i32]
   _: rid
   _: i32
   AreaDescription: string
@@ -3830,29 +3842,18 @@ type NPCs {
 }
 
 type NPCShop {
-  Id: string @unique
-  _: i32
-  SoldItem_TagsKeys: [Tags]
-  SoldItem_Weights: [i32]
-  _: [rid]
-  _: [i32]
-  _: [rid]
-  _: [i32]
-  _: i32
-  _: i32
-  _: i32
-  _: [_]
-  _: i32
-  _: i32
-  _: [_]
-}
-
-type NPCShops {
   Id: string
   _: i32
-  Shop: NPCShop
-  ShopHardmode: NPCShop
-  ShopHardmodeGold: NPCShop
+  _: [rid]
+}
+
+type NPCShopSets {
+  Id: string
+  _: i32
+  _: rid
+  _: rid
+  _: rid
+  _: i32
 }
 
 type NPCTalk {
@@ -3890,6 +3891,10 @@ type NPCTalk {
   _: i32
   _: rid
   _: i32
+  _: rid
+  _: bool
+  _: i32
+  _: NPCTalk
 }
 
 type NPCTalkCategory {
@@ -3905,7 +3910,7 @@ type NPCTalkConsoleQuickActions {
 
 type NPCTextAudio {
   Id: string @unique
-  CharactersKey: Characters
+  Characters: [Characters]
   Text: string
   Mono_AudioFile: string @file(ext: ".ogg")
   Stereo_AudioFile: string @file(ext: ".ogg")
@@ -4103,6 +4108,7 @@ type PassiveSkillTrees {
   _: bool
   _: ClientStrings
   UIArt: PassiveSkillTreeUIArt
+  _: bool
 }
 
 type PassiveSkillTreeTutorial {
@@ -4305,6 +4311,8 @@ type QuestItems {
   _: rid
   Script: string
   _: rid
+  _: rid
+  _: i32
 }
 
 type QuestRewardOffers {
@@ -4429,6 +4437,7 @@ type Rarity {
   _: i32
   MaxSuffix: i32
   Color: string
+  Text: string @localized
 }
 
 type Realms {
@@ -5283,6 +5292,7 @@ type WorldAreas {
   Ruleset: Rulesets
   _: i32
   QuestFlag: QuestFlags
+  _: i32
 }
 
 type WorldAreaLeagueChances {
