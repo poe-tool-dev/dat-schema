@@ -1,0 +1,91 @@
+type VillageAssignWorkerTextAudio {
+  _: rid
+  _: NPCTextAudio
+  _: NPCTextAudio
+  _: NPCTextAudio
+  _: NPCTextAudio
+  _: NPCTextAudio
+  _: NPCTextAudio
+  _: NPCTextAudio
+  _: NPCTextAudio
+  _: NPCTextAudio
+  _: NPCTextAudio
+  _: NPCTextAudio
+  _: NPCTextAudio
+}
+
+type VillageExports {
+  Id: string
+  Name: string
+  _: i32
+  Icon: string
+  _: i32
+  _: i32
+  Icon2: string
+  Name2: string
+  IconCombined: string
+  Result: VillageExports
+  _: i32
+}
+
+type VillageFarmAdjacency {
+  _: i32
+  _: [i32]
+}
+
+type VillageJobs {
+  _: rid
+  _: i32
+  Status: string
+  Stat: Stats
+  StatValue: i32
+}
+
+type VillageJobTypes {
+  Id: string
+  Icon: string
+  StateText: string
+  MaxWorkersStat: Stats
+  _: bool
+  JobSpeedStat: Stats
+}
+
+type VillageResources {
+  Id: string
+  _: rid
+  _: i32
+}
+
+type VillageSharedConstants {
+  Id: string
+  Value: i32
+}
+
+type VillageUniqueDisenchantValues @tags(list: ["item:droptable"]) {
+  UniqueName: Words @unique
+  Value: f32
+}
+
+type VillageUpgradeCategories {
+  Id: string
+  ScriptArgs: string
+  Name: string
+  Icon: string
+  Text: string
+  _: rid
+}
+
+type VillageUpgrades {
+  _: rid
+  Tier: i32
+  Text: string
+  _: i32
+  _: [rid]
+  _: [i32]
+  _: i32
+  RuneItem: [BaseItemTypes]
+  _: [i32]
+  Stats: [Stats]
+  StatsValues: [i32]
+  UpgradeTextAudio: NPCTextAudio
+}

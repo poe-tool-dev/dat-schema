@@ -1130,6 +1130,13 @@ type CraftingBenchSortCategories {
   Id: string @unique
   Name: ClientStrings
   IsVisible: bool
+  Type: CraftingBenchTypes
+}
+
+type CraftingBenchTypes {
+  Id: string
+  _: rid
+  _: bool
 }
 
 type CraftingBenchUnlockCategories {
