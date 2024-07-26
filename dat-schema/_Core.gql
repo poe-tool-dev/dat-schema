@@ -2683,6 +2683,7 @@ type MapSeriesTiers {
   AncestorTier: i32
   AzmeriTier: i32
   NecropolisTier: i32
+  SettlersTier: i32
 }
 
 type MapStashSpecialTypeEntries {
