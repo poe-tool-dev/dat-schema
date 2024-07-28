@@ -69,6 +69,7 @@ type ItemisedCorpse {
 
 type Tinctures {
   BaseItem: BaseItemTypes
-  _: i32
-  _: i32
+  "1 stack of Mana Burn is applied every x milliseconds"
+  DebuffInterval: i32
+  Cooldown: i32
 }
