@@ -31,8 +31,10 @@ type PantheonPanelLayout {
 type PantheonSouls @tags(list: ["item:itemized"]) {
   WorldArea: WorldAreas
   CapturedVessel: BaseItemTypes
-  QuestFlag: QuestFlags
+  QuestFlagUpgrade: QuestFlags
   CapturedMonster: [MonsterVarieties]
   PanelLayout: PantheonPanelLayout
   CapturedMonsterDescription: string
+  _: i32
+  QuestFlagDowngrade: QuestFlags
 }

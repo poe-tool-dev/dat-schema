@@ -1,6 +1,11 @@
 type AlternateQualityTypes @tags(list: ["item:def"]) {
-  QualityModifier: Mods
+  Id: string
   Description: string
-  BaseItemTypesKey: BaseItemTypes
+  Item: BaseItemTypes
   _: rid
+  MapStats: [Stats]
+  _: i32
+  IsCatalyst: bool
+  HASH16: i32
+  CatalystMod: Mods
 }

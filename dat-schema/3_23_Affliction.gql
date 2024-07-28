@@ -69,4 +69,6 @@ type ItemisedCorpse {
 
 type Tinctures {
   BaseItem: BaseItemTypes
+  _: i32
+  _: i32
 }
