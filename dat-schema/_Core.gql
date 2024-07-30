@@ -2417,6 +2417,9 @@ type ItemVisualIdentity {
   _: rid
   _: rid
   _: rid
+  _: [rid]
+  _: [rid]
+  _: bool
 }
 
 type JobAssassinationSpawnerGroups {
@@ -4034,6 +4037,7 @@ type PassiveSkillMasteryEffects {
   Stat2Value: i32
   Stat3Value: i32
   AchievementItem: AchievementItems
+  _: rid
 }
 
 type PassiveSkills {
