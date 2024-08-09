@@ -1,3 +1,18 @@
+type CurrencyExchange {
+  Item: BaseItemTypes
+  Category: CurrencyExchangeCategories
+  SubCategory: CurrencyExchangeCategories
+  _: bool
+  EnabledInChallengeLeague: bool
+  GoldPurchaseFee: i32
+  _: bool
+}
+
+type CurrencyExchangeCategories {
+  Id: string
+  Name: string
+}
+
 type VillageAssignWorkerTextAudio {
   _: rid
   _: NPCTextAudio
