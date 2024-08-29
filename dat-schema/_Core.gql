@@ -624,7 +624,7 @@ type BuffDefinitions {
   BuffVisualsKey: BuffVisuals
   _: bool
   _: bool
-  _: i32
+  BuffCategory: i32
   _: bool
   _: bool
   _: bool
