@@ -27,7 +27,7 @@ type RitualRuneTypes {
   LevelMin: i32
   LevelMax: i32
   BuffDefinitionsKey: BuffDefinitions
-  _: [i32]
+  BuffStatValues: [i32]
   SpawnPatterns: [RitualSpawnPatterns]
   ModsKey: [Mods]
   _: [i32]
