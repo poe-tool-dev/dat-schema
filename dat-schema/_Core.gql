@@ -3082,7 +3082,7 @@ enum ModGenerationType @indexing(first: 1) {
 
 type Mods @tags(list: ["crafting"]) {
   Id: string @unique
-  HASH16: i32
+  HASH16: i16
   ModTypeKey: ModType
   Level: i32
   StatsKey1: Stats
@@ -5244,7 +5244,7 @@ type WorldAreas {
   HasWaypoint: bool
   Connections_WorldAreasKeys: [WorldAreas]
   AreaLevel: i32
-  HASH16: i32
+  HASH16: i16
   _: i32
   _: i32
   LoadingScreen_DDSFile: string @file(ext: ".dds")

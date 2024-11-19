@@ -1,9 +1,10 @@
 // incremented only when breaking changes are made
-export const SCHEMA_VERSION = 3;
+export const SCHEMA_VERSION = 4;
 
 export type ScalarType =
   | 'bool'
   | 'string'
+  | 'i16'
   | 'i32'
   | 'f32';
 

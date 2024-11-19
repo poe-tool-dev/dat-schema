@@ -21,6 +21,7 @@ import type {
 const ScalarTypes: ReadonlySet<string> = new Set([
   'bool',
   'string',
+  'i16',
   'i32',
   'f32',
 ]);

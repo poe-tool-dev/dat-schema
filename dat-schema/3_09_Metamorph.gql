@@ -6,6 +6,6 @@ type AlternateQualityTypes @tags(list: ["item:def"]) {
   MapStats: [Stats]
   _: i32
   IsCatalyst: bool
-  HASH16: i32
+  HASH16: i16
   CatalystMod: Mods
 }
