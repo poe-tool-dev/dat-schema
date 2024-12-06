@@ -16,12 +16,14 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const SCHEMA_PATH = process.argv[2] || path.join(__dirname, '../dat-schema');
 
 function read() {
-  const sources = fs.readdirSync(SCHEMA_PATH).map((entryName) => {
-    const contents = fs.readFileSync(path.join(SCHEMA_PATH, entryName), {
-      encoding: 'utf-8',
+  const sources = fs.readdirSync(SCHEMA_PATH, { recursive: true, withFileTypes: true })
+    .filter(entry => entry.isFile())
+    .map((entry) => {
+      const contents = fs.readFileSync(path.join(entry.parentPath, entry.name), {
+        encoding: 'utf-8',
+      });
+      return new Source(contents, path.relative(SCHEMA_PATH, path.join(entry.parentPath, entry.name)));
     });
-    return new Source(contents, entryName);
-  });
 
   try {
     return readSchemaSources(sources);

@@ -2,19 +2,21 @@ import * as assert from 'node:assert';
 import {
   parse,
   Source,
+  TypeDefinitionNode,
   ObjectTypeDefinitionNode,
   FieldDefinitionNode,
   DirectiveNode,
   EnumTypeDefinitionNode,
   GraphQLError,
 } from 'graphql';
-import type {
+import {
   SchemaTable,
   TableColumn,
   ColumnType,
   RefUsingColumn,
   SchemaEnumeration,
   SchemaFile,
+  ValidFor,
 } from './types.js';
 
 // prettier-ignore
@@ -195,85 +197,162 @@ const DIRECTIVE_TABLE_TAGS = {
   },
 };
 
+class VersionedTypedefNode<T> implements Iterable<[ValidFor, T]> {
+  constructor (
+    public vBase?: T,
+    public vOverride?: T,
+  ) {}
+
+  *[Symbol.iterator](): Iterator<[ValidFor, T]> {
+    if (this.vBase != null && this.vOverride != null) {
+      yield [ValidFor.PoE1, this.vBase];
+      yield [ValidFor.PoE2, this.vOverride];
+    } else if (this.vOverride != null) {
+      yield [ValidFor.PoE2, this.vOverride];
+    } else if (this.vBase != null) {
+      yield [ValidFor.Common, this.vBase];
+    }
+  }
+}
+
+class VersionedTypedefMap<T extends TypeDefinitionNode> {
+  readonly data = new Map<string, VersionedTypedefNode<T>>();
+
+  add(typeNode: T, override: boolean): boolean {
+    const existingNode = this.data.get(typeNode.name.value);
+    if (!existingNode) {
+      this.data.set(typeNode.name.value, new VersionedTypedefNode(
+        !override ? typeNode : undefined,
+        override ? typeNode : undefined,
+      ));
+    } else if (override) {
+      if (existingNode.vOverride != null) return false;
+      existingNode.vOverride = typeNode;
+    } else {
+      if (existingNode.vBase != null) return false;
+      existingNode.vBase = typeNode;
+    }
+    return true;
+  }
+}
+
+class ScopedTypedefMap<T> {
+  constructor (
+    private data: ReadonlyMap<string, VersionedTypedefNode<T>>,
+    private ver: ValidFor
+  ) {
+    if (ver === ValidFor.Common) {
+      this.ver = ValidFor.PoE1;
+    }
+  }
+
+  get(name: string): T | undefined {
+    const node = this.data.get(name);
+    if (node != null) {
+      if (this.ver === ValidFor.PoE1) {
+        return node.vBase;
+      } else {
+        return node.vOverride ?? node.vBase;
+      }
+    }
+  }
+
+  has(name: string): boolean {
+    return this.get(name) != null;
+  }
+}
+
 interface Context {
-  typeDefsMap: ReadonlyMap<string, ObjectTypeDefinitionNode>;
-  enumDefsMap: ReadonlyMap<string, EnumTypeDefinitionNode>;
+  typeDefsMap: ScopedTypedefMap<ObjectTypeDefinitionNode>;
+  enumDefsMap: ScopedTypedefMap<EnumTypeDefinitionNode>;
 }
 
 export function readSchemaSources(
   sources: readonly Source[]
 ): Pick<SchemaFile, 'tables' | 'enumerations'> {
-  const typeDefsMap = new Map<string, ObjectTypeDefinitionNode>();
-  const enumDefsMap = new Map<string, EnumTypeDefinitionNode>();
+  const typeDefsMap = new VersionedTypedefMap<ObjectTypeDefinitionNode>();
+  const enumDefsMap = new VersionedTypedefMap<EnumTypeDefinitionNode>();
 
   for (const source of sources) {
     const doc = parse(source, { noLocation: false });
 
     for (const typeNode of doc.definitions) {
+      if (typeNode.kind !== 'EnumTypeDefinition' && typeNode.kind !== 'ObjectTypeDefinition') {
+        throw new GraphQLError('Unsupported definition.', { nodes: typeNode });
+      }
+
+      const override = source.name.startsWith('poe2');
       if (typeNode.kind === 'EnumTypeDefinition') {
-        if (enumDefsMap.has(typeNode.name.value)) {
+        if (!enumDefsMap.add(typeNode, override)) {
           throw new GraphQLError(
             'Enum with this name has already been defined.',
             { nodes: typeNode.name }
           );
         }
-        enumDefsMap.set(typeNode.name.value, typeNode);
       } else if (typeNode.kind === 'ObjectTypeDefinition') {
-        if (typeDefsMap.has(typeNode.name.value)) {
+        if (!typeDefsMap.add(typeNode, override)) {
           throw new GraphQLError(
             'Table with this name has already been defined.',
             { nodes: typeNode.name }
           );
         }
-        typeDefsMap.set(typeNode.name.value, typeNode);
-      } else {
-        throw new GraphQLError('Unsupported definition.', { nodes: typeNode });
       }
     }
   }
 
   const tables: SchemaTable[] = [];
-  for (const typeNode of typeDefsMap.values()) {
-    const table: SchemaTable = {
-      name: typeNode.name.value,
-      columns: [],
-      tags: [],
-    };
+  for (const verNode of typeDefsMap.data.values()) {
+    for (const [validFor, typeNode] of verNode) {
+      const table: SchemaTable = {
+        validFor: validFor,
+        name: typeNode.name.value,
+        columns: [],
+        tags: [],
+      };
 
-    validateDirectives(typeNode, [DIRECTIVE_TABLE_TAGS]);
-    table.tags = getTags(typeNode);
+      validateDirectives(typeNode, [DIRECTIVE_TABLE_TAGS]);
+      table.tags = getTags(typeNode);
 
-    assert.ok(typeNode.fields != null);
-    for (const fieldNode of typeNode.fields) {
-      const column = parseFieldNode(
-        { typeDefsMap, enumDefsMap },
-        table.name,
-        fieldNode
-      );
-      if (
-        column.name != null &&
-        table.columns.some((col) => col.name === column.name)
-      ) {
-        throw new GraphQLError(`Duplicate column name "${column.name}".`, {
-          nodes: fieldNode.name,
-        });
+      const ctx: Context = {
+        typeDefsMap: new ScopedTypedefMap(typeDefsMap.data, validFor),
+        enumDefsMap: new ScopedTypedefMap(enumDefsMap.data, validFor),
+      };
+      assert.ok(typeNode.fields != null);
+      for (const fieldNode of typeNode.fields) {
+        const column = parseFieldNode(
+          ctx,
+          table.name,
+          fieldNode
+        );
+        if (
+          column.name != null &&
+          table.columns.some((col) => col.name === column.name)
+        ) {
+          throw new GraphQLError(`Duplicate column name "${column.name}".`, {
+            nodes: fieldNode.name,
+          });
+        }
+        table.columns.push(column);
       }
-      table.columns.push(column);
-    }
 
-    tables.push(table);
+      tables.push(table);
+    }
   }
 
   const enumerations: SchemaEnumeration[] = [];
-  for (const enumNode of enumDefsMap.values()) {
-    enumerations.push(parseEnumNode(enumNode));
+  for (const verNode of enumDefsMap.data.values()) {
+    for (const [validFor, enumNode] of verNode) {
+      const enum_ = parseEnumNode(enumNode, validFor);
+      enumerations.push(enum_);
+    }
   }
 
   return { tables, enumerations };
 }
 
-function parseEnumNode(enumNode: EnumTypeDefinitionNode) {
+function parseEnumNode(enumNode: EnumTypeDefinitionNode, validFor: ValidFor) {
   const schemaEnum: SchemaEnumeration = {
+    validFor: validFor,
     name: enumNode.name.value,
     indexing: 0,
     enumerators: [],
