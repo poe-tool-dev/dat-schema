@@ -31,7 +31,7 @@ export interface RefUsingColumn {
 export type FileExtension = string;
 
 // Bitmask
-export const enum ValidFor {
+export enum ValidFor {
   PoE1 = 0x01,
   PoE2 = 0x02,
   Common = 0x03,
