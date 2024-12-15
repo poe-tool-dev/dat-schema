@@ -1,3 +1,18 @@
 type ExpeditionCurrency {
   BaseItemType: BaseItemTypes
 }
+
+type Essences {
+  BaseItemType: BaseItemTypes
+  HASH32: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  MonsterMod: Mods
+  _: bool
+  CraftTag: Tags
+}
