@@ -16,13 +16,13 @@ The schema is based on GraphQL syntax.
 
 ### Supported scalar types
 
-| Type   | Description                       |
-|--------|-----------------------------------|
-| bool   | Boolean                           |
-| string | String                            |
-| i32    | Signed Integer                    |
-| f32    | Floating Point Number             |
-| rid    | Index to a Row in a Foreign Table |
+| Type     | Description                       |
+|----------|-----------------------------------|
+| bool     | Boolean                           |
+| string   | String                            |
+| i16, i32 | Signed Integer                    |
+| f32      | Floating Point Number             |
+| rid      | Index to a Row in a Foreign Table |
 
 The `rid` type is intended to be used temporarily until we know the name of foreign table.
 

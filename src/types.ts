@@ -1,9 +1,10 @@
 // incremented only when breaking changes are made
-export const SCHEMA_VERSION = 3;
+export const SCHEMA_VERSION = 5;
 
 export type ScalarType =
   | 'bool'
   | 'string'
+  | 'i16'
   | 'i32'
   | 'f32';
 
@@ -29,6 +30,13 @@ export interface RefUsingColumn {
 
 export type FileExtension = string;
 
+// Bitmask
+export enum ValidFor {
+  PoE1 = 0x01,
+  PoE2 = 0x02,
+  Common = 0x03,
+};
+
 export interface TableColumn {
   name: string | null;
   description: string | null;
@@ -43,12 +51,14 @@ export interface TableColumn {
 }
 
 export interface SchemaTable {
+  validFor: ValidFor;
   name: string;
   columns: TableColumn[];
   tags: string[];
 }
 
 export interface SchemaEnumeration {
+  validFor: ValidFor;
   name: string;
   indexing: 0 | 1;
   enumerators: Array<string | null>;

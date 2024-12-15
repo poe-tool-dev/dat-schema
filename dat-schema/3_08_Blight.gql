@@ -52,7 +52,7 @@ type BlightCraftingUniques @tags(list: ["crafting", "item:unique"]) {
 
 type BlightedSporeAuras {
   BuffDefinitionsKey: BuffDefinitions
-  _: [i32]
+  BuffStatValues: [i32]
   _: i32
   _: [i32]
   _: i32

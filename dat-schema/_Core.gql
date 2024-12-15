@@ -33,7 +33,7 @@ type Achievements {
   Description: string
   SetId: AchievementSetsDisplay @ref(column: "Id")
   Objective: string
-  _: i32 @unique
+  HASH16: i16
   _: bool
   HideAchievementItems: bool
   _: bool
@@ -624,7 +624,7 @@ type BuffDefinitions {
   BuffVisualsKey: BuffVisuals
   _: bool
   _: bool
-  _: i32
+  BuffCategory: i32
   _: bool
   _: bool
   _: bool
@@ -1167,21 +1167,15 @@ type CurrencyItems @tags(list: ["item:def", "item:recipe"]) {
   Description: string
   Usage_AchievementItemsKeys: [AchievementItems]
   Scroll: bool
-  CosmeticTypeName: string
   Possession_AchievementItemsKey: AchievementItems
   _: [rid]
   _: [i32]
   CurrencyTab_StackSize: i32
   XBoxDirections: string
   _: i32
-  _: rid
-  _: rid
   ModifyMapsAchievements: [AchievementItems]
   ModifyContractsAchievements: [AchievementItems]
   CombineAchievements: [AchievementItems]
-  _: i32
-  _: [i32]
-  ShopTag: ShopTag
   ChangedForHardmode: bool
   DescriptionHardmode: string
   IsGold: bool
@@ -2107,9 +2101,8 @@ type HideoutRarity {
 }
 
 type Hideouts {
-  Id: string @unique
   HideoutArea: WorldAreas
-  HASH16: i32
+  HASH16: i16
   HideoutFile: string @file(ext: ".hideout")
   SpawnAreas: [WorldAreas]
   ClaimSideArea: WorldAreas
@@ -2333,7 +2326,7 @@ type ItemVisualEffect {
   _: string
   TwoHandedSwordEPKFile: string @file(ext: ".epk")
   TwoHandedStaffEPKFile: string @file(ext: ".epk")
-  HASH16: i32 @unique
+  HASH16: i16 @unique
   TwoHandedMaceEPKFile: string @file(ext: ".epk")
   OneHandedAxeEPKFile: string @file(ext: ".epk")
   TwoHandedAxeEPKFile: string @file(ext: ".epk")
@@ -2366,7 +2359,7 @@ type ItemVisualIdentity {
   DDSFile: string @file(ext: ".dds")
   AOFile: string @file(ext: ".ao")
   InventorySoundEffect: SoundEffects
-  _: i32 @unique
+  HASH16: i16 @unique
   AOFile2: string @file(ext: ".ao")
   MarauderSMFiles: [string] @file(ext: ".sm")
   RangerSMFiles: [string] @file(ext: ".sm")
@@ -3082,7 +3075,7 @@ enum ModGenerationType @indexing(first: 1) {
 
 type Mods @tags(list: ["crafting"]) {
   Id: string @unique
-  HASH16: i32
+  HASH16: i16
   ModTypeKey: ModType
   Level: i32
   StatsKey1: Stats
@@ -3554,7 +3547,7 @@ type MonsterVarieties {
   _: i32
   _: i32
   _: i32
-  _: i32
+  HASH16: i16
   _: bool
   _: string
   KillWhileOnslaughtIsActive_AchievementItemsKey: AchievementItems
@@ -3842,7 +3835,7 @@ type NPCs {
   _: i32
   NPCAudios1: [NPCAudio]
   NPCAudios2: [NPCAudio]
-  _: i32
+  HASH16: i16
   _: NPCs
   Portrait: NPCPortraits
   DialogueStyle: NPCDialogueStyles
@@ -4031,7 +4024,7 @@ type PassiveSkillMasteryGroups {
 
 type PassiveSkillMasteryEffects {
   Id: string
-  HASH16: i32
+  HASH16: i16
   Stats: [Stats]
   Stat1Value: i32
   Stat2Value: i32
@@ -4049,7 +4042,7 @@ type PassiveSkills {
   Stat3Value: i32
   Stat4Value: i32
   "Id used by PassiveSkillGraph.psg"
-  PassiveSkillGraphId: i32 @unique
+  PassiveSkillGraphId: i16 @unique
   Name: string
   Characters: [Characters]
   IsKeystone: bool
@@ -5244,7 +5237,7 @@ type WorldAreas {
   HasWaypoint: bool
   Connections_WorldAreasKeys: [WorldAreas]
   AreaLevel: i32
-  HASH16: i32
+  HASH16: i16
   _: i32
   _: i32
   LoadingScreen_DDSFile: string @file(ext: ".dds")
@@ -5364,8 +5357,6 @@ type AbyssBossLifeScalingPerLevel {
 type ActionTypes {
   Id: string @unique
   _: i32
-  _: bool
-  _: bool
 }
 
 # Added 3.21

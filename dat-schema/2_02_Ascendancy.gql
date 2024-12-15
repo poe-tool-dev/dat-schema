@@ -140,7 +140,7 @@ type LabyrinthCraftOptions {
   Text: string
   Script: string
   ScriptArgument: string
-  HASH16: i32
+  HASH16: i16
   _: bool
   Tier: LabyrinthCraftOptionTiers
   _: bool
