@@ -5,7 +5,9 @@ export type ScalarType =
   | 'bool'
   | 'string'
   | 'i16'
+  | 'u16'
   | 'i32'
+  | 'u32'
   | 'f32';
 
 export type ColumnType =
