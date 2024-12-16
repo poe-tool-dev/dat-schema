@@ -1,3 +1,45 @@
+type ActiveSkills {
+  Id: string @unique
+  DisplayedName: string
+  Description: string
+  ActionType: ActionTypes
+  Icon_DDSFile: string @file(ext: ".dds")
+  ActiveSkillTargetTypes: [ActiveSkillTargetTypes]
+  ActiveSkillTypes: [ActiveSkillType]
+  WeaponRestriction_ItemClassesKeys: [ItemClasses]
+  WebsiteDescription: string
+  WebsiteImage: string
+  _: bool
+  _: string
+  _: bool
+  SkillTotemId: SkillTotems
+  IsManuallyCasted: bool
+  Input_StatKeys: [Stats]
+  Output_StatKeys: [Stats]
+  MinionActiveSkillTypes: [ActiveSkillType]
+  _: bool
+  _: bool
+  _: [Stats]
+  _: i32
+  AlternateSkillTargetingBehavioursKey: AlternateSkillTargetingBehaviours
+  _: bool
+  AIFile: string @file(ext: ".ai")
+  _: [rid]
+  _: bool
+  _: bool
+  _: bool
+  TransfigureBase: ActiveSkills
+  VideoClip: string @file(ext: ".bk2")
+  _: rid
+  AiScript: string @file(ext: ".ais")
+  _: rid
+  _: rid
+  _: bool
+  _: string
+  _: i32
+  StatDescription: string
+}
+
 type Acts {
   Id: string @unique
   UI_Title: string
@@ -15,12 +57,334 @@ type Acts {
   Description: string
 }
 
+type AegisVariations {
+  Id: string @unique
+  DefendsAgainstPhysical: bool
+  DefendsAgainstFire: bool
+  DefendsAgainstCold: bool
+  DefendsAgainstLightning: bool
+  DefendsAgainstChaos: bool
+  _: rid
+  _: rid
+  _: rid
+  _: bool
+  _: [string]
+}
+
+type AtlasPassiveSkillSubTrees {
+  Id: string @unique
+  UI_Image: string
+  UI_Background: string
+  Position1: i32
+  Position2: i32
+  _: i32
+  _: i32
+  _: rid
+  _: rid  
+}
+
+type BaseItemTypes @tags(list: ["item:def", "item:droptable"]) {
+  Id: string @unique
+  ItemClassesKey: ItemClasses
+  Width: i32
+  Height: i32
+  Name: string @localized
+  InheritsFrom: string @files(ext: [".ot", ".otc"])
+  DropLevel: i32
+  FlavourTextKey: FlavourText
+  Implicit_ModsKeys: [Mods]
+  SizeOnGround: i32
+  SoundEffect: SoundEffects
+  TagsKeys: [Tags]
+  ModDomain: ModDomains
+  SiteVisibility: i32
+  ItemVisualIdentity: ItemVisualIdentity
+  HASH32: i32 @unique
+  VendorRecipe_AchievementItems: [AchievementItems]
+  "the inflection identifier used for i18n in related fields"
+  Inflection: string
+  Equip_AchievementItemsKey: AchievementItems
+  IsCorrupted: bool
+  Identify_AchievementItems: [AchievementItems]
+  IdentifyMagic_AchievementItems: [AchievementItems]
+  "the item which represents this item in the fragment stash tab"
+  FragmentBaseItemTypesKey: BaseItemTypes
+  _: bool
+  _: rid
+  _: rid
+  _: bool
+  TradeMarketCategory: TradeMarketCategory
+  Unmodifiable: bool
+  Achievement: [AchievementItems]
+  _: rid # spells have some values
+  _: rid # all nulls
+}
+
+
+type Chanceableitemclasses {
+  ItemClass: ItemClasses
+  _: i32
+}
+
+type CurrencyItems @tags(list: ["item:def", "item:recipe"]) {
+  BaseItemTypesKey: BaseItemTypes @unique
+  StackSize: i32
+  CurrencyUseType: i32
+  Action: string
+  Directions: string
+  "Full stack transforms into this item"
+  FullStack_BaseItemTypesKey: BaseItemTypes
+  Description: string
+  Usage_AchievementItemsKeys: [AchievementItems]
+  Scroll: bool
+  Possession_AchievementItemsKey: AchievementItems
+  _: [rid]
+  _: [i32]
+  CurrencyTab_StackSize: i32
+  XBoxDirections: string
+  _: i32
+  ModifyMapsAchievements: [AchievementItems]
+  ModifyContractsAchievements: [AchievementItems]
+  CombineAchievements: [AchievementItems]
+  ChangedForHardmode: bool
+  DescriptionHardmode: string
+  IsGold: bool
+  UsageHint: string
+  _: bool
+}
+
+
+type EndgameCorruptionMods {
+  _: rid
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}
+
+type ItemClasses @tags(list: ["crafting"]) {
+  Id: string @unique
+  Name: string
+  TradeMarketCategory: TradeMarketCategory
+  ItemClassCategory: ItemClassCategories
+  RemovedIfLeavesArea: bool
+  _: [_] # All rows empty
+  IdentifyAchievements: [AchievementItems]
+  AllocateToMapOwner: bool
+  AlwaysAllocate: bool
+  CanHaveVeiledMods: bool
+  PickedUpQuest: QuestFlags
+  _: i32
+  AlwaysShow: bool
+  CanBeCorrupted: bool
+  CanHaveIncubators: bool
+  CanHaveInfluence: bool
+  CanBeDoubleCorrupted: bool
+  CanHaveAspects: bool
+  CanTransferSkin: bool
+  ItemStance: ItemStances
+  CanScourge: bool
+  CanUpgradeRarity: bool
+  _: bool
+  InventoryDimensions: [i32]
+  ItemClassFlags: [i32]
+  Unmodfiable: bool
+  CanBeFractured: bool
+  _: rid # Only charms have a value
+  UsableInMapDevice: bool
+}
+
+type ItemInherentSkills {
+  BaseItemTypes: BaseItemTypes
+  SkillsGranted: [SkillGems]
+  IsWeapon: bool
+}
+
+type ItemSpirit {
+  BaseItemTypes: BaseItemTypes
+  SpiritGranted: i32
+}
+
 type KeywordPopups {
   Id: string @unique
   Term: string
   Definition: string
   _: string
 }
+
+
+type Mods @tags(list: ["crafting"]) {
+  Id: string @unique
+  HASH16: i16
+  ModTypeKey: ModType
+  Level: i32
+  StatsKey1: Stats
+  StatsKey2: Stats
+  StatsKey3: Stats
+  StatsKey4: Stats
+  Domain: ModDomains
+  Name: string
+  GenerationType: ModGenerationType
+  Families: [ModFamily]
+  Stat1Min: i32
+  Stat1Max: i32
+  Stat2Min: i32
+  Stat2Max: i32
+  Stat3Min: i32
+  Stat3Max: i32
+  Stat4Min: i32
+  Stat4Max: i32
+  SpawnWeight_TagsKeys: [Tags]
+  SpawnWeight_Values: [i32]
+  TagsKeys: [Tags]
+  GrantedEffectsPerLevelKeys: [GrantedEffectsPerLevel]
+  _: [i32]
+  MonsterMetadata: string
+  MonsterKillAchievements: [AchievementItems]
+  ChestModType: [ModType]
+  Stat5Min: i32
+  Stat5Max: i32
+  StatsKey5: Stats
+  FullAreaClear_AchievementItemsKey: [AchievementItems]
+  AchievementItemsKey: [AchievementItems]
+  GenerationWeight_TagsKeys: [Tags]
+  GenerationWeight_Values: [i32]
+  ModifyMapsAchievements: [AchievementItems]
+  IsEssenceOnlyModifier: bool
+  Stat6Min: i32
+  Stat6Max: i32
+  StatsKey6: Stats
+  MaxLevel: i32
+  _: bool
+  CraftingItemClassRestrictions: [ItemClasses]
+  MonsterOnDeath: string
+  _: i32
+  _: [GrantedEffectsPerLevel]
+  Heist_SubStatValue1: i32
+  Heist_SubStatValue2: i32
+  Heist_StatsKey0: Stats
+  Heist_StatsKey1: Stats
+  Heist_AddStatValue1: i32
+  Heist_AddStatValue2: i32
+  InfluenceTypes: InfluenceTypes
+  ImplicitTagsKeys: [Tags]
+  _: bool
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  BuffTemplate: BuffTemplates
+  ArchnemesisMinionMod: Mods
+  HASH32: i32
+  _: [rid]
+  _: i32
+  _: [GrantedEffectsPerLevel]
+  _: i32
+}
+
+type Passiveskills {
+  Id: string @unique
+  Icon_DDSFile: string @file(ext: ".dds")
+  Stats: [Stats]
+  Stat1Value: i32
+  Stat2Value: i32
+  Stat3Value: i32
+  Stat4Value: i32
+  "Id used by PassiveSkillGraph.psg"
+  PassiveSkillGraphId: i16 @unique
+  Name: string
+  Characters: [Characters]
+  IsKeystone: bool
+  IsNotable: bool
+  FlavourText: string
+  IsJustIcon: bool
+  AchievementItem: AchievementItems
+  IsJewelSocket: bool
+  AscendancyKey: Ascendancy
+  IsAscendancyStartingNode: bool
+  ReminderStrings: [ReminderText]
+  SkillPointsGranted: i32
+  IsMultipleChoice: bool
+  IsMultipleChoiceOption: bool
+  Stat5Value: i32
+  PassiveSkillBuffs: [BuffTemplates]
+  _: i32
+  _: bool
+  IsAffliction: bool
+  _: bool
+  IsEndgameNode: bool
+  _: i16
+  _: bool
+  MasteryGroup: rid
+  Group: rid
+  SoundEffect: rid
+  _: string
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+  _: [rid]
+  _: i32
+  _: [rid]
+  _: bool
+  KeystoneId: rid
+  _: bool
+  IsAttribute: bool
+  EndgameTreeId: AtlasPassiveSkillSubTrees
+  IsRootOfEndgameTree: bool
+  Unkonwn_AscendancyNotable: rid
+  AscendancyParam: i32
+}
+
+type SkillGems @tags(list: ["item:def"]) {
+  BaseItemTypesKey: BaseItemTypes @unique
+  StrengthRequirementPercent: i32
+  DexterityRequirementPercent: i32
+  IntelligenceRequirementPercent: i32
+  VaalVariant_BaseItemTypesKey: BaseItemTypes
+  IsVaalVariant: bool
+  MinionGlobalSkillLevelStat: Stats
+  _: i32
+  _: bool
+  _: bool
+  _: rid
+  _: i32
+  _: i32
+  _: rid
+  _: [rid]
+  _: [rid]
+  _: bool
+  _: [rid]
+  _: bool
+  TutorialVideo: string @file(ext: ".bk2")
+  UI_Image: string @file(ext: ".dds")
+  _: i32
+  _: i32
+  _: bool
+  _: i32
+  _: bool
+  _: string
+}
+
+type SkillGemSupports {
+  _: rid
+  _: [rid]
+}
+
 
 type Tags {
   Id: string @unique

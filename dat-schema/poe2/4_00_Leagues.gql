@@ -1,3 +1,13 @@
+type BlightCraftingItems @tags(list: ["item:def"]) {
+  Oil: BaseItemTypes @unique
+  Tier: i32
+  Achievements: [AchievementItems]
+  UseType: i32
+  NameShort: string
+  _ : rid
+}
+
+
 type ExpeditionCurrency {
   BaseItemType: BaseItemTypes
 }
