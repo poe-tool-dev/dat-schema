@@ -1,5 +1,18 @@
 type Acts {
   Id: string @unique
+  UI_Title: string
+  ActNumber: i32
+  _: string
+  _: string
+  _: i32
+  IsEndGame: bool
+  _: i32
+  _: [rid]
+  _: [rid]
+  _: [rid]
+  _: rid
+  _: [rid]
+  Description: string
 }
 
 type KeywordPopups {
@@ -7,4 +20,12 @@ type KeywordPopups {
   Term: string
   Definition: string
   _: string
+}
+
+type Tags {
+  Id: string @unique
+   _: i32
+  DisplayString: string
+  _: [rid]
+  UiHints: string
 }
