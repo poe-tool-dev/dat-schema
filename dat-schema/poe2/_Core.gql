@@ -80,7 +80,7 @@ type AtlasPassiveSkillSubTrees {
   _: i32
   _: i32
   _: rid
-  _: rid  
+  _: rid
 }
 
 type BaseItemTypes @tags(list: ["item:def", "item:droptable"]) {
@@ -193,15 +193,20 @@ type GemEffects {
 }
 
 type GoldModPrices {
-  _: rid
+  Mod: Mods
+  Value: i32
   _: i32
   _: i32
   _: i32
-  _: i32
+  Tags: [Tags]
+  SpawnWeight: [i32]
+  CraftableType: CraftableModTypes
   _: [rid]
-  _: [i32]
-  _: rid
-  _: [rid]
+}
+
+type CraftableModTypes {
+  ModType: ModType
+  HASH16: u16
 }
 
 type GrantedEffectsPerLevel {
@@ -413,7 +418,7 @@ type Passiveskills {
   PassiveSkillBuffs: [BuffTemplates]
   IsAnointmentOnly: bool
   _: i32
-  IsEndgameNode: bool
+  IsExpansion: bool
   IsProxyPassive: bool
   SkillType: PassiveSkillTypes
   MasteryGroup: PassiveSkillMasteryGroups
@@ -433,9 +438,9 @@ type Passiveskills {
   KeystoneId: rid
   _: bool
   IsAttribute: bool
-  EndgameTreeId: AtlasPassiveSkillSubTrees
-  IsRootOfEndgameTree: bool
-  GrantedSkill: rid
+  AtlasSubTree: AtlasPassiveSkillSubTrees
+  IsRootOfAtlasTree: bool
+  GrantedSkill: SkillGems
   WeaponPointsGranted: i32
 }
 
@@ -488,7 +493,7 @@ type Tags {
   _: [rid]
   UiHints: string
 }
-  
+
 type UncutGemAdditionalTiers {
   BaseItemType: BaseItemTypes
   AreaLevel: i32
