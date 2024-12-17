@@ -6012,9 +6012,9 @@ type MonsterStatueOverrides {
 
 # Added 3.19
 type PassiveJewelArt {
-  _: rid @unique
-  _: string
-  _: string
+  BaseItemTypesKey: BaseItemTypes @unique
+  SocketedImage: string
+  SocketedImageLarge: string
   _: rid
 }
 
