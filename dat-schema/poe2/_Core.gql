@@ -208,38 +208,38 @@ type CurrencyItems @tags(list: ["item:def", "item:recipe"]) {
 
 type DamageCalculationTypes {
   Id: string
-  Physical: [stats]
-  Fire: [stats]
-  Lightning: [stats]
-  Cold: [stats]
-  Chaos: [stats]
-  CritChance: stats
-  HitDamageBonus: stats
-  VirtualAlwaysCrit: stats
-  VirtualCannotCrit: stats
-  SupressionChance: stats
-  SupressionLuckyChance: stats
-  SupressedDamagePercent: stats
-  StunThresholdRecution: stats
-  StunDurationAddedPercent: stats
-  StunDurationMorePercent: stats
-  CannotBlock: stats
-  CannotBeBlocked: stats
-  BlockedAttackDamagePercent: stats
-  BlockedProjectileDamagePercent: stats
-  BlockIsLucky: stats
-  ReduceEnemyBlock: stats
-  DeflectChance: stats
-  DamagePercentDeflected: stats
-  DeflectChanceLucky: stats
-  Knockback: stats
-  KnockbackOnCrit: stats
-  KnockbackChance: stats
+  Physical: [Stats]
+  Fire: [Stats]
+  Lightning: [Stats]
+  Cold: [Stats]
+  Chaos: [Stats]
+  CritChance: Stats
+  HitDamageBonus: Stats
+  VirtualAlwaysCrit: Stats
+  VirtualCannotCrit: Stats
+  SupressionChance: Stats
+  SupressionLuckyChance: Stats
+  SupressedDamagePercent: Stats
+  StunThresholdRecution: Stats
+  StunDurationAddedPercent: Stats
+  StunDurationMorePercent: Stats
+  CannotBlock: Stats
+  CannotBeBlocked: Stats
+  BlockedAttackDamagePercent: Stats
+  BlockedProjectileDamagePercent: Stats
+  BlockIsLucky: Stats
+  ReduceEnemyBlock: Stats
+  DeflectChance: Stats
+  DamagePercentDeflected: Stats
+  DeflectChanceLucky: Stats
+  Knockback: Stats
+  KnockbackOnCrit: Stats
+  KnockbackChance: Stats
   _: string
   _: rid
   _: i32
   _: bool
-  HitDamageIncreasedStun: stats
+  HitDamageIncreasedStun: Stats
   HitDamageMoreStun: rid
   _: DamageCalculationTypes
   IsFake: bool
@@ -561,6 +561,33 @@ type SkillGemSupports {
   _: SkillGems
   _: [SkillGems]
 }
+
+type Stats @tags(list: ["crafting"]) {
+  Id: string @unique
+  _: bool
+  IsLocal: bool
+  IsWeaponLocal: bool
+  Semantics: StatSemantics
+  Text: string
+  _: bool
+  IsVirtual: bool
+  MainHandAlias_StatsKey: Stats
+  OffHandAlias_StatsKey: Stats
+  _: bool
+  HASH32: i32
+  BelongsActiveSkillsKey: [ActiveSkills] @ref(column: "Id")   # This is array of strings now
+  Category: PassiveSkillStatCategories
+  _: bool
+  _: bool
+  """
+  If not, displayed in advanced mod description as " — Unscalable Value"
+  """
+  IsScalable: bool
+  ContextFlags: [VirtualStatContextFlags]
+  _: [rid]
+  _: bool
+}
+
 
 type SupportGems {
   _: SkillGems
