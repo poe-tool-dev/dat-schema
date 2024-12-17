@@ -126,6 +126,21 @@ type Chanceableitemclasses {
   _: i32
 }
 
+type CharacterCreationButton {
+  _: rid
+  _: string
+  _: string
+  _: string
+  _: string
+}
+
+type CharacterCreationDialogue {
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+}
+
 type CurrencyItems @tags(list: ["item:def", "item:recipe"]) {
   BaseItemTypesKey: BaseItemTypes @unique
   StackSize: i32
@@ -161,6 +176,83 @@ type EndgameCorruptionMods {
   _: i32
   _: i32
 }
+
+type GemEffects {
+  Id: string @unique
+  Name: string
+  GrantedEffect: GrantedEffects
+  GrantedEffectHardmode: GrantedEffects
+  GrantedEffect2: GrantedEffects
+  GrantedEffect2Hardmode: GrantedEffects
+  SupportText: string
+  SupportName: string
+  GemTags: [GemTags]
+  Consumed_ModsKey: Mods
+  "Used by gem icon shader https://gist.github.com/zao/08878df57aba605e5fa1e6373f2dce02"
+  ItemColor: i32
+}
+
+type GoldModPrices {
+  _: rid
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: [rid]
+  _: [i32]
+  _: rid
+  _: [rid]
+}
+
+type GrantedEffectsPerLevel {
+  GrantedEffect: GrantedEffects
+  Level: i32
+  PlayerLevelReq: f32
+  CostMultiplier: i32
+  StoredUses: i32
+  Cooldown: i32
+  CooldownBypassType: CooldownBypassTypes
+  VaalSouls: i32
+  VaalStoredUses: i32
+  CooldownGroup: i32
+  _: i32
+  SoulGainPreventionDuration: i32
+  AttackSpeedMultiplier: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: [i32]
+  _: f32
+  _: i32
+}
+
+type GrantedEffectStatSetsPerLevel {
+  StatSet: GrantedEffectStatSets
+  GemLevel: i32
+  PlayerLevelReq: f32
+  SpellCritChance: i32
+  AttackCritChance: i32
+  BaseMultiplier: i32
+  DamageEffectiveness: i32
+  _: i32
+  _: [i32] # should have been field insertion, but will figure out later
+  _: [rid]
+  _: bool
+  _: i32
+  _: [rid]
+  _: [rid]
+  _: [rid]
+  _: [rid]
+  _: [i32]
+  _: [f32]
+  _: f32
+  _: i32
+}
+
 
 type ItemClasses @tags(list: ["crafting"]) {
   Id: string @unique
@@ -381,8 +473,14 @@ type SkillGems @tags(list: ["item:def"]) {
 }
 
 type SkillGemSupports {
-  _: rid
-  _: [rid]
+  _: SkillGems
+  _: [SkillGems]
+}
+
+type SupportGems {
+  _: SkillGems
+  _: i32
+  _: string  @file(ext: ".dds")
 }
 
 
@@ -392,4 +490,18 @@ type Tags {
   DisplayString: string
   _: [rid]
   UiHints: string
+}
+  
+type UncutGemAdditionalTiers {
+  BaseItemType: BaseItemTypes
+  AreaLevel: i32
+  Tier: i32
+  Odds: i32
+}
+
+
+type UncutGemTiers {
+  BaseItemType: BaseItemTypes
+  Tier: i32
+  AreaLevel: i32
 }
