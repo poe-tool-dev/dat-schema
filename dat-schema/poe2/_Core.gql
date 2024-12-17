@@ -306,7 +306,7 @@ type KeywordPopups {
 
 type Mods @tags(list: ["crafting"]) {
   Id: string @unique
-  HASH16: i16
+  HASH16: u16
   ModTypeKey: ModType
   Level: i32
   StatsKey1: Stats
@@ -394,7 +394,7 @@ type Passiveskills {
   Stat3Value: i32
   Stat4Value: i32
   "Id used by PassiveSkillGraph.psg"
-  PassiveSkillGraphId: i16 @unique
+  PassiveSkillGraphId: u16 @unique
   Name: string
   Characters: [Characters]
   IsKeystone: bool
