@@ -1,5 +1,5 @@
 // incremented only when breaking changes are made
-export const SCHEMA_VERSION = 5;
+export const SCHEMA_VERSION = 6;
 
 export type ScalarType =
   | 'bool'

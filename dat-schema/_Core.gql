@@ -1525,9 +1525,9 @@ type ExpandingPulse {
 }
 
 type ExperienceLevels {
-  _: string
+  Id: string
   Level: i32
-  Experience: i32
+  Experience: u32
 }
 
 type ExplodingStormBuffs {
