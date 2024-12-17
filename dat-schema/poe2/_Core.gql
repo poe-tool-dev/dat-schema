@@ -1,3 +1,21 @@
+type Ascendancy {
+  Id: string @unique
+  ClassNo: i32
+  Characters: [Characters]
+  "Coordinates in 'x1, y1, x2, y2' format"
+  CoordinateRect: string
+  RGBFlavourTextColour: string
+  Name: string @localized
+  FlavourText: string @localized
+  OGGFile: string @file(ext: ".ogg")
+  PassiveTreeImage: string @file(ext: ".dds")
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+}
+
 type ActiveSkills {
   Id: string @unique
   DisplayedName: string
@@ -83,6 +101,21 @@ type AtlasPassiveSkillSubTrees {
   _: rid
 }
 
+type ballisticbounceoverride {
+  _: string
+  _: f32
+  _: f32
+  _: f32
+  _: bool
+  _: i32
+  _: f32
+  _: bool
+  _: i32
+  _: bool
+  _: i32
+  _: i32
+}
+
 type BaseItemTypes @tags(list: ["item:def", "item:droptable"]) {
   Id: string @unique
   ItemClassesKey: ItemClasses
@@ -118,6 +151,11 @@ type BaseItemTypes @tags(list: ["item:def", "item:droptable"]) {
   Achievement: [AchievementItems]
   _: rid # spells have some values
   _: rid # all nulls
+}
+
+type BeltTypes {
+  BaseItemType: BaseItemTypes
+  CharmSlots: i32
 }
 
 
@@ -168,6 +206,44 @@ type CurrencyItems @tags(list: ["item:def", "item:recipe"]) {
   _: bool
 }
 
+type DamageCalculationTypes {
+  Id: string
+  Physical: [stats]
+  Fire: [stats]
+  Lightning: [stats]
+  Cold: [stats]
+  Chaos: [stats]
+  CritChance: stats
+  HitDamageBonus: stats
+  VirtualAlwaysCrit: stats
+  VirtualCannotCrit: stats
+  SupressionChance: stats
+  SupressionLuckyChance: stats
+  SupressedDamagePercent: stats
+  StunThresholdRecution: stats
+  StunDurationAddedPercent: stats
+  StunDurationMorePercent: stats
+  CannotBlock: stats
+  CannotBeBlocked: stats
+  BlockedAttackDamagePercent: stats
+  BlockedProjectileDamagePercent: stats
+  BlockIsLucky: stats
+  ReduceEnemyBlock: stats
+  DeflectChance: stats
+  DamagePercentDeflected: stats
+  DeflectChanceLucky: stats
+  Knockback: stats
+  KnockbackOnCrit: stats
+  KnockbackChance: stats
+  _: string
+  _: rid
+  _: i32
+  _: bool
+  HitDamageIncreasedStun: stats
+  HitDamageMoreStun: rid
+  _: DamageCalculationTypes
+  IsFake: bool
+}
 
 type EndgameCorruptionMods {
   _: rid
@@ -259,6 +335,8 @@ type GrantedEffectStatSetsPerLevel {
 }
 
 
+
+
 type ItemClasses @tags(list: ["crafting"]) {
   Id: string @unique
   Name: string
@@ -300,6 +378,11 @@ type ItemInherentSkills {
 type ItemSpirit {
   BaseItemTypes: BaseItemTypes
   SpiritGranted: i32
+}
+
+type ItemToggleable {
+  BaseItemTypes: baseitemtypes
+  _: string
 }
 
 type KeywordPopups {
@@ -485,7 +568,6 @@ type SupportGems {
   _: string  @file(ext: ".dds")
 }
 
-
 type Tags {
   Id: string @unique
    _: i32
@@ -588,22 +670,4 @@ type Characters {
   _: [rid]
   _: f32
   _: string
-}
-
-type Ascendancy {
-  Id: string @unique
-  ClassNo: i32
-  Characters: [Characters]
-  "Coordinates in 'x1, y1, x2, y2' format"
-  CoordinateRect: string
-  RGBFlavourTextColour: string
-  Name: string @localized
-  FlavourText: string @localized
-  OGGFile: string @file(ext: ".ogg")
-  PassiveTreeImage: string @file(ext: ".dds")
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: bool
 }
