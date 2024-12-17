@@ -24,7 +24,9 @@ const ScalarTypes: ReadonlySet<string> = new Set([
   'bool',
   'string',
   'i16',
+  'u16',
   'i32',
+  'u32',
   'f32',
 ]);
 

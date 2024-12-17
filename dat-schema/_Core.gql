@@ -1525,9 +1525,9 @@ type ExpandingPulse {
 }
 
 type ExperienceLevels {
-  _: string
+  Id: string
   Level: i32
-  Experience: i32
+  Experience: u32
 }
 
 type ExplodingStormBuffs {
@@ -4042,7 +4042,7 @@ type PassiveSkills {
   Stat3Value: i32
   Stat4Value: i32
   "Id used by PassiveSkillGraph.psg"
-  PassiveSkillGraphId: i16 @unique
+  PassiveSkillGraphId: u16 @unique
   Name: string
   Characters: [Characters]
   IsKeystone: bool

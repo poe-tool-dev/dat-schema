@@ -304,7 +304,6 @@ type KeywordPopups {
   _: string
 }
 
-
 type Mods @tags(list: ["crafting"]) {
   Id: string @unique
   HASH16: i16
@@ -412,16 +411,14 @@ type Passiveskills {
   IsMultipleChoiceOption: bool
   Stat5Value: i32
   PassiveSkillBuffs: [BuffTemplates]
+  IsAnointmentOnly: bool
   _: i32
-  _: bool
-  IsAffliction: bool
-  _: bool
   IsEndgameNode: bool
-  _: i16
-  _: bool
-  MasteryGroup: rid
-  Group: rid
-  SoundEffect: rid
+  IsProxyPassive: bool
+  SkillType: PassiveSkillTypes
+  MasteryGroup: PassiveSkillMasteryGroups
+  Group: AtlasPassiveSkillTreeGroupType
+  SoundEffect: SoundEffects
   _: string
   _: i32
   _: i32
@@ -438,8 +435,8 @@ type Passiveskills {
   IsAttribute: bool
   EndgameTreeId: AtlasPassiveSkillSubTrees
   IsRootOfEndgameTree: bool
-  Unkonwn_AscendancyNotable: rid
-  AscendancyParam: i32
+  GrantedSkill: rid
+  WeaponPointsGranted: i32
 }
 
 type SkillGems @tags(list: ["item:def"]) {
@@ -504,4 +501,104 @@ type UncutGemTiers {
   BaseItemType: BaseItemTypes
   Tier: i32
   AreaLevel: i32
+}
+
+type ClassPassiveSkillOverrides {
+  CharacterToOverrideFor: Characters
+  SkillToOverride: PassiveSkills
+  Override: PassiveSkills
+}
+
+type Characters {
+  Id: string @unique
+  Name: string @unique @localized
+  AOFile: string @file(ext: ".ao")
+  ACTFile: string @file(ext: ".act")
+  BaseMaxLife: i32
+  BaseMaxMana: i32
+  "Attack Speed in milliseconds"
+  WeaponSpeed: i32
+  MinDamage: i32
+  MaxDamage: i32
+  MaxAttackDistance: i32
+  Icon: string
+  IntegerId: i32 @unique
+  BaseStrength: i32
+  BaseDexterity: i32
+  BaseIntelligence: i32
+  _: [rid]
+  Description: string @localized
+  StartSkillGem: SkillGems
+  _: rid
+  _: i32
+  _: i32
+  CharacterSize: i32
+  _: i32
+  _: i32
+  _: i32
+  IntroSoundFile: string @file(ext: ".ogg")
+  StartWeapons: [BaseItemTypes]
+  Gender: string
+  TraitDescription: string @localized
+  _: rid
+  _: rid
+  _: [rid]
+  _: rid
+  _: rid
+  _: i32
+  PassiveTreeImage: string @file(ext: ".dds")
+  _: i32
+  _: i32
+  AttrsAsId: string
+  LoginScreen: string @file(ext: ".ao")
+  PlayerCritter: string
+  PlayerEffect: string
+  AfterImage: string
+  Mirage: MonsterVarieties
+  CloneImmobile: MonsterVarieties
+  ReplicateClone: MonsterVarieties
+  LightningClone: MonsterVarieties
+  _: f32
+  _: f32
+  SkillTreeBackground: string
+  Clone: MonsterVarieties
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  MirageWarrior: MonsterVarieties
+  DoubleTwo: MonsterVarieties
+  DarkExile: MonsterVarieties
+  Attr: string
+  AttrLowercase: string
+  Script: string
+  _: rid
+  _: i32
+  _: f32
+  _: f32
+  _: f32
+  _: string
+  _: i32
+  _: rid
+  _: [rid]
+  _: f32
+  _: string
+}
+
+type Ascendancy {
+  Id: string @unique
+  ClassNo: i32
+  Characters: [Characters]
+  "Coordinates in 'x1, y1, x2, y2' format"
+  CoordinateRect: string
+  RGBFlavourTextColour: string
+  Name: string @localized
+  FlavourText: string @localized
+  OGGFile: string @file(ext: ".ogg")
+  PassiveTreeImage: string @file(ext: ".dds")
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: bool
 }
