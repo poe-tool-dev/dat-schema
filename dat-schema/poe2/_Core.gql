@@ -1,21 +1,3 @@
-type Ascendancy {
-  Id: string @unique
-  ClassNo: i32
-  Characters: [Characters]
-  "Coordinates in 'x1, y1, x2, y2' format"
-  CoordinateRect: string
-  RGBFlavourTextColour: string
-  Name: string @localized
-  FlavourText: string @localized
-  OGGFile: string @file(ext: ".ogg")
-  PassiveTreeImage: string @file(ext: ".dds")
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: bool
-}
-
 type ActiveSkills {
   Id: string @unique
   DisplayedName: string
@@ -162,12 +144,6 @@ type BaseItemTypes @tags(list: ["item:def", "item:droptable"]) {
   _: rid # spells have some values
   _: rid # all nulls
 }
-
-type BeltTypes {
-  BaseItemType: BaseItemTypes
-  CharmSlots: i32
-}
-
 
 type Chanceableitemclasses {
   ItemClass: ItemClasses
@@ -582,33 +558,6 @@ type SkillGemSupports {
   Supports: [SkillGems]
 }
 
-type Stats @tags(list: ["crafting"]) {
-  Id: string @unique
-  _: bool
-  IsLocal: bool
-  IsWeaponLocal: bool
-  Semantics: StatSemantics
-  Text: string
-  _: bool
-  IsVirtual: bool
-  MainHandAlias_StatsKey: Stats
-  OffHandAlias_StatsKey: Stats
-  _: bool
-  HASH32: i32
-  BelongsActiveSkillsKey: [ActiveSkills] @ref(column: "Id")   # This is array of strings now
-  Category: PassiveSkillStatCategories
-  _: bool
-  _: bool
-  """
-  If not, displayed in advanced mod description as " � Unscalable Value"
-  """
-  IsScalable: bool
-  ContextFlags: [VirtualStatContextFlags]
-  _: [rid]
-  _: bool
-}
-
-
 type SupportGems {
   SkillGemsKey: SkillGems
   _: i32
@@ -716,11 +665,34 @@ type Characters {
   GemCuttingIcon: string
 }
 
+type Ascendancy {
+  Id: string @unique
+  ClassNo: i32
+  Characters: [Characters]
+  "Coordinates in 'x1, y1, x2, y2' format"
+  CoordinateRect: string
+  RGBFlavourTextColour: string
+  Name: string @localized
+  FlavourText: string @localized
+  OGGFile: string @file(ext: ".ogg")
+  PassiveTreeImage: string @file(ext: ".dds")
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+}
+
 type AttributeRequirements {
   BaseItemTypesKey: BaseItemTypes
   ReqStr: i32
   ReqInt: i32
   ReqDex: i32
+}
+
+type BeltTypes {
+  BaseItemType: BaseItemTypes
+  CharmSlots: i32
 }
 
 type BuffDefinitions {
