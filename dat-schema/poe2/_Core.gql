@@ -413,7 +413,7 @@ type Passiveskills {
   PassiveSkillBuffs: [BuffTemplates]
   IsAnointmentOnly: bool
   _: i32
-  IsEndgameNode: bool
+  IsExpansion: bool
   IsProxyPassive: bool
   SkillType: PassiveSkillTypes
   MasteryGroup: PassiveSkillMasteryGroups
@@ -433,9 +433,9 @@ type Passiveskills {
   KeystoneId: rid
   _: bool
   IsAttribute: bool
-  EndgameTreeId: AtlasPassiveSkillSubTrees
-  IsRootOfEndgameTree: bool
-  GrantedSkill: rid
+  AtlasSubTree: AtlasPassiveSkillSubTrees
+  IsRootOfAtlasTree: bool
+  GrantedSkill: SkillGems
   WeaponPointsGranted: i32
 }
 
