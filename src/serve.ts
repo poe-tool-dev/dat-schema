@@ -1,17 +1,7 @@
 import * as path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import * as process from 'node:process';
-import * as fs from 'node:fs';
-import { Source, GraphQLError } from 'graphql';
-import { readSchemaSources } from './reader.js';
 import { generate } from './cli.js';
 import http from 'http';
-import {
-  SchemaFile,
-  SchemaLine,
-  SchemaMetadata,
-  SCHEMA_VERSION,
-} from './types.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
