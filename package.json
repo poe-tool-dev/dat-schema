@@ -5,13 +5,15 @@
   "type": "module",
   "exports": "./dist/index.js",
   "scripts": {
-    "generate": "node dist/cli.js"
+    "generate": "tsc --noCheck && node dist/cli.js",
+    "generate:watch": "tsc --noCheck && node dist/cli.js --watch"
   },
   "files": [
     "dist/index.*",
     "dist/types.*"
   ],
   "devDependencies": {
+    "@parcel/watcher": "^2.5.0",
     "@types/node": "^22.0.0",
     "graphql": "^16.7.1",
     "typescript": "^5.1.6"

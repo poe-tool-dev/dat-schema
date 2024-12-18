@@ -16,4 +16,4 @@ jobs:
     - uses: actions/setup-node@v4
     - run: npm ci
     - run: npm exec tsc
-    - run: npm run generate
+    - run: node dist/cli.js
