@@ -14,47 +14,64 @@ import {
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const SCHEMA_PATH = process.argv[2] || path.join(__dirname, '../dat-schema');
+const OUTPUT_PATH = process.argv[3] || process.cwd();
+const MIN = 'schema.min.json';
+const JSONL = 'schema.jsonl';
 
 function read() {
-  const sources = fs.readdirSync(SCHEMA_PATH, { recursive: true, withFileTypes: true })
-    .filter(entry => entry.isFile())
+  const sources = fs
+    .readdirSync(SCHEMA_PATH, { recursive: true, withFileTypes: true })
+    .filter((entry) => entry.isFile())
     .map((entry) => {
-      const contents = fs.readFileSync(path.join(entry.parentPath, entry.name), {
-        encoding: 'utf-8',
-      });
-      return new Source(contents, path.relative(SCHEMA_PATH, path.join(entry.parentPath, entry.name)));
+      const contents = fs.readFileSync(
+        path.join(entry.parentPath, entry.name),
+        {
+          encoding: 'utf-8',
+        },
+      );
+      return new Source(
+        contents,
+        path.relative(SCHEMA_PATH, path.join(entry.parentPath, entry.name)),
+      );
     });
 
-  try {
-    return readSchemaSources(sources);
-  } catch (e) {
-    if (e instanceof GraphQLError) {
-      console.error(e.toString());
-      if (e.originalError instanceof GraphQLError) {
-        console.error('\n-----\n' + e.originalError.toString());
-      }
-      process.exit(1);
-    } else {
-      throw e;
-    }
-  }
+  return readSchemaSources(sources);
 }
 
-const readResult = read();
+export function generate() {
+  const readResult = read();
+  const metadata: SchemaMetadata = {
+    version: SCHEMA_VERSION,
+    createdAt: Math.floor(Date.now() / 1000),
+  };
+  return {
+    [MIN]: JSON.stringify({
+      ...metadata,
+      ...readResult,
+    } satisfies SchemaFile),
+    [JSONL]:
+      [metadata, ...readResult.tables, ...readResult.enumerations]
+        .map((line: SchemaLine) => JSON.stringify(line))
+        .join('\n') + '\n',
+  };
+}
 
-const metadata: SchemaMetadata = {
-  version: SCHEMA_VERSION,
-  createdAt: Math.floor(Date.now() / 1000),
-};
-
-fs.writeFileSync(
-  path.join(process.cwd(), './schema.min.json'),
-  JSON.stringify({ ...metadata, ...readResult } satisfies SchemaFile)
-);
-
-fs.writeFileSync(
-  path.join(process.cwd(), './schema.jsonl'),
-  [metadata, ...readResult.tables, ...readResult.enumerations]
-    .map((line: SchemaLine) => JSON.stringify(line))
-    .join('\n') + '\n'
-);
+try {
+  const output = generate();
+  for (const filename in output) {
+    fs.writeFileSync(
+      path.join(OUTPUT_PATH, filename),
+      output[filename as keyof typeof output],
+    );
+  }
+} catch (e) {
+  if (e instanceof GraphQLError) {
+    console.error(e.toString());
+    if (e.originalError instanceof GraphQLError) {
+      console.error('\n-----\n' + e.originalError.toString());
+    }
+    process.exit(1);
+  } else {
+    throw e;
+  }
+}

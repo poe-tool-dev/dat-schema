@@ -130,7 +130,6 @@ type BaseItemTypes @tags(list: ["item:def", "item:droptable"]) {
   _: rid # all nulls
 }
 
-
 type Chanceableitemclasses {
   ItemClass: ItemClasses
   _: i32
@@ -177,7 +176,6 @@ type CurrencyItems @tags(list: ["item:def", "item:recipe"]) {
   UsageHint: string
   _: bool
 }
-
 
 type EndgameCorruptionMods {
   _: rid
@@ -474,7 +472,7 @@ type SkillGems @tags(list: ["item:def"]) {
   VaalVariant_BaseItemTypesKey: BaseItemTypes
   IsVaalVariant: bool
   MinionGlobalSkillLevelStat: Stats
-  GemType: i32
+  GemType: GemTypes
   _: bool
   _: bool
   _: rid
@@ -504,9 +502,8 @@ type SkillGemSupports {
 type SupportGems {
   SkillGemsKey: SkillGems
   _: i32
-  Icon: string  @file(ext: ".dds")
+  Icon: string @file(ext: ".dds")
 }
-
 
 type Tags {
   Id: string @unique
@@ -522,7 +519,6 @@ type UncutGemAdditionalTiers {
   Tier: i32
   Odds: i32
 }
-
 
 type UncutGemTiers {
   BaseItemType: BaseItemTypes
@@ -1096,7 +1092,7 @@ type UtilityFlaskBuffs {
   BuffDefinitionsKey: BuffDefinitions
   StatValues: [i32]
   StatValues2: [i32]
-  _: rid  
+  _: rid
 }
 
 type WeaponClasses {

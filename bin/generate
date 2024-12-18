@@ -1,0 +1,6 @@
+#!/bin/bash -e
+
+cd "$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"..
+
+mkdir -p output/
+docker run --rm -it -v ./dat-schema/:/dat-schema/:Z -v ./output:/output:Z dat-schema-generate:latest

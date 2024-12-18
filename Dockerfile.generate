@@ -1,0 +1,16 @@
+FROM node:alpine
+
+WORKDIR /app
+
+COPY package.json .
+
+RUN npm install \
+ && npm install typescript -g \
+ && mkdir /output /dat-schema
+
+COPY tsconfig.json .
+COPY src/ src/
+
+RUN tsc
+
+CMD [ "npm", "run", "generate", "/dat-schema/", "/output/"]

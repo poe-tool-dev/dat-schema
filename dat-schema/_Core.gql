@@ -1695,7 +1695,11 @@ type GemTags {
   Stat4: Stats
 }
 
-enum GemTypes @indexing(first: 0) { _ }
+enum GemTypes @indexing(first: 0) {
+  SKILL
+  SUPPORT
+  SPIRIT
+}
 
 type GenericBuffAuras {
   Id: string @unique
