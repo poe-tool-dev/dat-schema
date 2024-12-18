@@ -1,9 +1,5 @@
-import * as path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { generate } from './cli.js';
 import http from 'http';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const HOSTNAME = '0.0.0.0';
 const PORT = 3001;
