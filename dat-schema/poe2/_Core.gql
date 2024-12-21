@@ -412,7 +412,7 @@ type Mods @tags(list: ["crafting"]) {
   RadiusJewelType: i32
 }
 
-type Passiveskills {
+type PassiveSkills {
   Id: string @unique
   Icon_DDSFile: string @file(ext: ".dds")
   Stats: [Stats]
