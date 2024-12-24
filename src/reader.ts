@@ -199,6 +199,17 @@ const DIRECTIVE_TABLE_TAGS = {
   },
 };
 
+const DIRECTIVE_INTERVAL = {
+  NAME: 'interval',
+  validate(directive: DirectiveNode) {
+    if (directive.arguments?.length) {
+      throw new GraphQLError(`Interval doesn't accept arguments.`, {
+        nodes: directive.arguments,
+      });
+    }
+  },
+};
+
 class VersionedTypedefNode<T> implements Iterable<[ValidFor, T]> {
   constructor (
     public vBase?: T,
@@ -410,12 +421,14 @@ function parseFieldNode(
     DIRECTIVE_LOCALIZED,
     DIRECTIVE_FILE,
     DIRECTIVE_FILES_GROUP,
+    DIRECTIVE_INTERVAL,
   ]);
 
   const unique = isUnique(fieldNode);
   const localized = isLocalized(fieldNode);
   const refFieldName = referencesField(fieldNode);
   const fieldType = unwrapType(fieldNode);
+  const interval = isInterval(fieldNode);
   let references: TableColumn['references'] = null;
 
   if (fieldType.name === tableName) {
@@ -487,6 +500,7 @@ function parseFieldNode(
     until: null, // TODO
     file: getFileExtension(fieldNode),
     files: getFileGroupExtensions(fieldNode),
+    interval: interval,
   };
 
   return column;
@@ -494,6 +508,10 @@ function parseFieldNode(
 
 function isUnique(field: FieldDefinitionNode): boolean {
   return findDirective(field, DIRECTIVE_UNIQUE.NAME) != null;
+}
+
+function isInterval(field: FieldDefinitionNode): boolean {
+  return findDirective(field, DIRECTIVE_INTERVAL.NAME) != null;
 }
 
 function isLocalized(field: FieldDefinitionNode): boolean {
