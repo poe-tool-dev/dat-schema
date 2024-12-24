@@ -1,3 +1,4 @@
+# noinspection GraphQLMemberRedefinition,GraphQLTypeRedefinition
 enum AccountQuestFlags @indexing(first: 0) { _ }
 
 type AtlasTrees {
@@ -1653,7 +1654,7 @@ type FragmentStashTabLayout {
 type GameConstants {
   Id: string @unique
   Value: i32
-  _: i32
+  Divisor: i32
 }
 
 type GameLogos {
@@ -3196,18 +3197,18 @@ type MonsterConditionalEffectPacks {
 
 type MonsterConditions {
   Id: string
-  _: rid
-  _: rid
-  _: rid
-  _: [rid]
-  _: bool
-  _: bool
+  Rarity: Rarity
+  Stat: Stats
+  NotRarity: Rarity
+  NotStat: [Stats]
+  MapBoss: bool
+  NotMapBoss: bool
   _: [rid]
   _: [string]
   _: i32
   _: i32
   _: i32
-  _: i32
+  HASH32: i32
 }
 
 type MonsterDeathAchievements {
@@ -3293,27 +3294,27 @@ type MonsterHeights {
 
 type MonsterMapBossDifficulty {
   MapLevel: i32
-  Stat1Value: i32
-  Stat2Value: i32
-  StatsKey1: Stats
-  StatsKey2: Stats
-  StatsKey3: Stats
-  Stat3Value: i32
-  StatsKey4: Stats
-  Stat4Value: i32
-  StatsKey5: Stats
-  Stat5Value: i32
+  BossLifePercentIncrease: i32
+  BossDamagePercentIncrease: i32
+  Stat1: Stats
+  Stat2: Stats
+  Stat3: Stats
+  BossIncItemQuantity: i32
+  Stat4: Stats
+  BossIncItemRarity: i32
+  Stat5: Stats
+  BossAilmentPercentDecrease: i32
 }
 
 type MonsterMapDifficulty {
   MapLevel: i32
-  Stat1Value: i32
-  Stat2Value: i32
-  StatsKey1: Stats
-  StatsKey2: Stats
-  StatsKey3: Stats
+  LifePercentIncrease: i32
+  DamagePercentIncrease: i32
+  Stat1: Stats
+  Stat2: Stats
+  Stat3: Stats
   Stat3Value: i32
-  StatsKey4: Stats
+  Stat4: Stats
   Stat4Value: i32
 }
 
@@ -3672,7 +3673,7 @@ type MultiPartAchievements {
   Id: string @unique
   _: i32
   AchievementItemsKey: AchievementItems
-  _: i32
+  Threshold: i32
   _: bool
   _: bool
   _: i32
@@ -5984,8 +5985,8 @@ type MicrotransactionSlotAdditionalDefaultOptions {
 # Added 3.22
 type MinionType {
   Id: string @unique
-  _: rid
-  _: rid
+  LimitStat: Stats
+  ActiveCountStat: Stats
   _: bool
   _: bool
   _: i32

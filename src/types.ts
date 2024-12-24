@@ -50,6 +50,7 @@ export interface TableColumn {
   references: RefUsingRowIndex | RefUsingColumn | null;
   file: FileExtension | null;
   files: FileExtension[] | null;
+  interval: boolean;
 }
 
 export interface SchemaTable {

@@ -1,0 +1,36 @@
+scalar i16
+scalar i32
+
+scalar u16
+scalar u32
+
+scalar f32
+
+scalar string
+scalar bool
+scalar rid
+scalar _
+
+directive @unique on FIELD_DEFINITION
+directive @localized on FIELD_DEFINITION
+directive @interval on FIELD_DEFINITION
+
+directive @file(
+    ext: String
+) on FIELD_DEFINITION
+
+directive @tags(
+    list: [String]
+) repeatable on FIELD_DEFINITION | OBJECT
+
+directive @files(
+    ext: [String]
+) on FIELD_DEFINITION
+
+directive @ref(
+    column: String
+) on FIELD_DEFINITION
+
+directive @indexing(
+    first: Int
+) on ENUM

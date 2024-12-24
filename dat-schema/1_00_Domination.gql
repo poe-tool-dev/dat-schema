@@ -9,7 +9,7 @@ type Shrines {
   SummonMonster_MonsterVarietiesKey: MonsterVarieties
   SummonPlayer_MonsterVarietiesKey: MonsterVarieties
   _: i32
-  _: i32
+  Duration: i32
   ShrineSoundsKey: ShrineSounds
   _: bool
   AchievementItemsKeys: [AchievementItems]
