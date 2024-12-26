@@ -1,0 +1,5 @@
+type ItemStances {
+  Id: string @unique
+  _: bool
+  _: ItemStances
+}

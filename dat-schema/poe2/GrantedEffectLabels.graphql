@@ -1,0 +1,7 @@
+type GrantedEffectLabels {
+  Id: string
+  Text: string
+  _: bool
+  _: bool
+  _: bool
+}

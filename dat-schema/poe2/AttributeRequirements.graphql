@@ -1,0 +1,6 @@
+type AttributeRequirements {
+  BaseItemType: BaseItemTypes
+  ReqStr: i32
+  ReqInt: i32
+  ReqDex: i32
+}

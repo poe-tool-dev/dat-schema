@@ -1,0 +1,7 @@
+type GemTags {
+  Id: string @unique
+  Name: string
+  LocalLevelStat: Stats
+  LocalQualityStat: Stats
+  GlobalSpellLevelStat: Stats
+}

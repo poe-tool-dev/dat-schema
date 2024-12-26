@@ -1,0 +1,19 @@
+type GrantedEffectStatSetsPerLevel {
+  StatSet: GrantedEffectStatSets
+  GemLevel: i32
+  SpellCritChance: i32
+  AttackCritChance: i32
+  BaseResolvedValues: [i32]
+  AdditionalStatsValues: [i32]
+  GrantedEffects: [GrantedEffects]
+  _: bool
+  _: i32
+  AdditionalFlags: [Stats]
+  FloatStats: [Stats]
+  InterpolationBases: [Stats]
+  AdditionalStats: [Stats]
+  StatInterpolations: [StatInterpolationTypes]
+  FloatStatsValues: [f32]
+  ActorLevel: f32
+  BaseMultiplier: i32
+}

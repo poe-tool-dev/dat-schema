@@ -1,0 +1,36 @@
+type BaseItemTypes @tags(list: ["item:def", "item:droptable"]) {
+  Id: string @unique
+  ItemClass: ItemClasses
+  Width: i32
+  Height: i32
+  Name: string @localized
+  InheritsFrom: string @files(ext: [".ot", ".otc"])
+  DropLevel: i32
+  FlavourText: FlavourText
+  Implicit_Mods: [Mods]
+  SizeOnGround: i32
+  SoundEffect: SoundEffects
+  Tags: [Tags]
+  ModDomain: ModDomains
+  SiteVisibility: i32
+  ItemVisualIdentity: ItemVisualIdentity
+  HASH32: i32 @unique
+  VendorRecipe_AchievementItems: [AchievementItems]
+  "the inflection identifier used for i18n in related fields"
+  Inflection: string
+  Equip_AchievementItem: AchievementItems
+  IsCorrupted: bool
+  Identify_AchievementItems: [AchievementItems]
+  IdentifyMagic_AchievementItems: [AchievementItems]
+  "the item which represents this item in the fragment stash tab"
+  FragmentBaseItemType: BaseItemTypes
+  _: bool
+  _: rid
+  _: rid
+  _: bool
+  TradeMarketCategory: TradeMarketCategory
+  Unmodifiable: bool
+  Achievement: [AchievementItems]
+  _: rid # spells have some values
+  _: rid # all nulls
+}

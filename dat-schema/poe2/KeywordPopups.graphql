@@ -1,0 +1,6 @@
+type KeywordPopups {
+  Id: string @unique
+  Term: string
+  Definition: string
+  _: string
+}

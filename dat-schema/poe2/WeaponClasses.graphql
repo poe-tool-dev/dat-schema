@@ -1,0 +1,5 @@
+type WeaponClasses {
+  ItemClass: ItemClasses
+  RangeMax: i32
+  _: rid
+}

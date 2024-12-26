@@ -1,0 +1,11 @@
+type MapSeries {
+  Id: string @unique
+  Name: string
+  BaseIcon_DDSFile: string @file(ext: ".dds")
+  Infected_DDSFile: string @file(ext: ".dds")
+  Shaper_DDSFile: string @file(ext: ".dds")
+  Elder_DDSFile: string @file(ext: ".dds")
+  Drawn_DDSFile: string @file(ext: ".dds")
+  Delirious_DDSFile: string @file(ext: ".dds")
+  UberBlight_DDSFile: string @file(ext: ".dds")
+}

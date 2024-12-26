@@ -1,0 +1,13 @@
+type Flasks @tags(list: ["item:def"]) {
+  BaseItemType: BaseItemTypes @unique
+  Name: string
+  Type: FlaskType
+  LifePerUse: i32
+  ManaPerUse: i32
+  "in 1/10 s"
+  RecoveryTime: i32
+  RecoveryTime2: i32
+  BuffDefinition: BuffDefinitions
+  _: i32
+  UtilityBuff: [UtilityFlaskBuffs]
+}

@@ -1,0 +1,6 @@
+type CraftingItemClassCategories {
+  Id: string @unique
+  ItemClasses: [ItemClasses]
+  _: string
+  Text: string
+}

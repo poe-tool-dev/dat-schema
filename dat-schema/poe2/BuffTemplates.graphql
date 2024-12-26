@@ -1,0 +1,17 @@
+type BuffTemplates {
+  Id: string @unique
+  BuffDefinition: BuffDefinitions
+  Buff_StatValues: [i32]
+  AuraRadius: i32
+  _: [i32]
+  _: [i32]
+  BuffVisual: BuffVisuals
+  _: f32
+  _: bool
+  Stats: [Stats]
+  _: i32
+  _: i32
+  _: bool
+  _: Stats
+  _: bool
+}

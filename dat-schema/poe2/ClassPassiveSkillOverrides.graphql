@@ -1,0 +1,5 @@
+type ClassPassiveSkillOverrides {
+  CharacterToOverrideFor: Characters
+  SkillToOverride: PassiveSkills
+  Override: PassiveSkills
+}

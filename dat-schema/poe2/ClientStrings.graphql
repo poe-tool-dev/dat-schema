@@ -1,0 +1,9 @@
+type ClientStrings {
+  Id: string @unique
+  Text: string
+  XBoxText: string
+  XBoxText2: string
+  HASH32: i32
+  PlaystationText: string
+  _: string
+}

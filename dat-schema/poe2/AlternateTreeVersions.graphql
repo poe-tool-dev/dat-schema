@@ -1,0 +1,9 @@
+type AlternateTreeVersions {
+  ConquerorType: string @unique
+  SmallAttributeReplaced: bool
+  SmallNormalPassiveReplaced: bool
+  SmallAttributePassiveSkillAdditions: i32 @interval
+  NotableAdditions: i32 @interval
+  SmallNormalPassiveSkillAdditions: i32 @interval
+  NotableReplacementSpawnWeight: i32
+}
