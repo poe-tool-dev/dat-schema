@@ -1,0 +1,12 @@
+type GrantedEffectStatSets {
+  Id: string @unique
+  Label: GrantedEffectLabels
+  ImplicitStats: [Stats]
+  ConstantStats: [Stats]
+  ConstantStatsValues: [i32]
+  BaseEffectiveness: f32
+  IncrementalEffectiveness: f32
+  DamageIncrementalEffectiveness: f32
+  _: [rid]
+  _: bool
+}

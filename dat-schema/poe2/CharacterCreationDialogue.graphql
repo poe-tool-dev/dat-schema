@@ -1,0 +1,6 @@
+type CharacterCreationDialogue {
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+}

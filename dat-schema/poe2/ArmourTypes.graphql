@@ -1,0 +1,9 @@
+type ArmourTypes @tags(list: ["item:def"]) {
+  BaseItemType: BaseItemTypes @unique
+  Armour: i32
+  Evasion: i32
+  EnergyShield: i32
+  IncreasedMovementSpeed: i32
+  Ward: i32
+  _: i32
+}

@@ -1,0 +1,17 @@
+type Ascendancy {
+  Id: string @unique
+  ClassNo: i32
+  Characters: [Characters]
+  "Coordinates in 'x1, y1, x2, y2' format"
+  CoordinateRect: string
+  RGBFlavourTextColour: string
+  Name: string @localized
+  FlavourText: string @localized
+  OGGFile: string @file(ext: ".ogg")
+  PassiveTreeImage: string @file(ext: ".dds")
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  Disabled: bool
+}

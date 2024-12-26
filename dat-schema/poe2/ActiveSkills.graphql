@@ -1,0 +1,41 @@
+type ActiveSkills {
+  Id: string @unique
+  DisplayedName: string
+  Description: string
+  ActionType: ActionTypes
+  Icon_DDSFile: string @file(ext: ".dds")
+  ActiveSkillTargetTypes: [ActiveSkillTargetTypes]
+  ActiveSkillTypes: [ActiveSkillType]
+  WeaponRestriction_ItemClasses: [ItemClasses]
+  WebsiteDescription: string
+  WebsiteImage: string
+  HideOnWebsite: bool
+  GrantedEffect: string
+  _: bool
+  SkillTotemId: SkillTotems
+  IsManuallyCasted: bool
+  Input_Stats: [Stats]
+  Output_Stats: [Stats]
+  MinionActiveSkillTypes: [ActiveSkillType]
+  _: bool
+  isGem: bool
+  SecondarySkillSpecificStats: [Stats]
+  SkillMine: i32
+  AlternateSkillTargetingBehaviour: AlternateSkillTargetingBehaviours
+  _: bool
+  AIFile: string @file(ext: ".ai")
+  StatContextFlags: [VirtualStatContextFlags]
+  _: bool
+  _: bool
+  _: bool
+  TransfigureBase: ActiveSkills
+  VideoClip: string @file(ext: ".bk2")
+  _: rid
+  AiScript: string @file(ext: ".ais")
+  _: rid
+  _: rid
+  _: bool
+  _: string
+  StatDescriptionType: i32
+  StatDescription: string
+}

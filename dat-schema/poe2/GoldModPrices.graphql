@@ -1,0 +1,11 @@
+type GoldModPrices {
+  Mod: Mods
+  Value: i32
+  _: i32
+  _: i32
+  _: i32
+  Tags: [Tags]
+  SpawnWeight: [i32]
+  CraftableType: CraftableModTypes
+  _: [rid]
+}

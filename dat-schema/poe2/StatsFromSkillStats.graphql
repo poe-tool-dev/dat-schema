@@ -1,0 +1,5 @@
+type StatsFromSkillStats {
+  SkillCondition: Stats
+  GrantedFlag: Stats
+  FlagValue: bool
+}

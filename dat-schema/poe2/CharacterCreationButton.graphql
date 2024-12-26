@@ -1,0 +1,7 @@
+type CharacterCreationButton {
+  _: rid
+  _: string
+  _: string
+  _: string
+  _: string
+}

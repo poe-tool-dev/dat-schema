@@ -1,0 +1,5 @@
+type CharacterMeleeSkills {
+  _: rid
+  _: rid
+  SkillGem: SkillGems
+}

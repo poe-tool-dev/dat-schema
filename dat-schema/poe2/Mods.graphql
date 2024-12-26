@@ -1,0 +1,74 @@
+type Mods @tags(list: ["crafting"]) {
+  Id: string @unique
+  HASH16: u16
+  ModType: ModType
+  Level: i32
+  Stat1: Stats
+  Stat2: Stats
+  Stat3: Stats
+  Stat4: Stats
+  Domain: ModDomains
+  Name: string
+  GenerationType: ModGenerationType
+  Families: [ModFamily]
+  Stat1Value: i32 @interval
+  Stat2Value: i32 @interval
+  Stat3Value: i32 @interval
+  Stat4Value: i32 @interval
+  SpawnWeight_Tags: [Tags]
+  SpawnWeight_Values: [i32]
+  Tags: [Tags]
+  GrantedEffectsPerLevel: [GrantedEffectsPerLevel]
+  _: [i32]
+  MonsterMetadata: string
+  MonsterKillAchievements: [AchievementItems]
+  ChestModType: [ModType]
+  Stat5Value: i32 @interval
+  Stat5: Stats
+  FullAreaClear_AchievementItems: [AchievementItems]
+  AchievementItems: [AchievementItems]
+  GenerationWeight_Tags: [Tags]
+  GenerationWeight_Values: [i32]
+  ModifyMapsAchievements: [AchievementItems]
+  IsEssenceOnlyModifier: bool
+  Stat6Value: i32 @interval
+  Stat6: Stats
+  MaxLevel: i32
+  _: bool
+  CraftingItemClassRestrictions: [ItemClasses]
+  MonsterOnDeath: string
+  _: i32
+  _: [GrantedEffectsPerLevel]
+  Heist_SubStatValue1: i32
+  Heist_SubStatValue2: i32
+  Heist_Stat0: Stats
+  Heist_Stat1: Stats
+  Heist_AddStatValue1: i32
+  Heist_AddStatValue2: i32
+  InfluenceType: InfluenceTypes
+  ImplicitTags: [Tags]
+  _: bool
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  BuffTemplate: BuffTemplates
+  ArchnemesisMinionMod: Mods
+  HASH32: i32
+  _: [rid]
+  _: i32
+  _: [GrantedEffectsPerLevel]
+  RadiusJewelType: i32
+}

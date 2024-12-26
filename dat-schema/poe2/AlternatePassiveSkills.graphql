@@ -1,0 +1,21 @@
+type AlternatePassiveSkills {
+  Id: string @unique
+  AlternateTreeVersion: AlternateTreeVersions
+  Name: string
+  PassiveType: [i32]
+  Stats: [Stats]
+  Stat1: i32 @interval
+  Stat2: i32 @interval
+  Stat3: i32 @interval
+  Stat4: i32 @interval
+  Stat5: i32 @interval
+  Stat6: i32 @interval
+  SpawnWeight: i32
+  ConquerorIndex: i32
+  Random: i32 @interval
+  FlavourText: string
+  DDSIcon: string @file(ext: ".dds")
+  AchievementItems: [AchievementItems]
+  ConquerorVersion: i32
+  ConquerorSpawnWeight: i32
+}

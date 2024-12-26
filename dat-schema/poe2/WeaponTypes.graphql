@@ -1,0 +1,11 @@
+type WeaponTypes @tags(list: ["item:def"]) {
+  BaseItemType: BaseItemTypes @unique
+  Critical: i32
+  _: rid
+  "1000 / speed -> attacks per second"
+  Speed: i32
+  DamageMin: i32
+  DamageMax: i32
+  RangeMax: i32
+  _: i32
+}

@@ -1,0 +1,9 @@
+type PassiveSkillMasteryEffects {
+  Id: string
+  HASH16: i16
+  Stats: [Stats]
+  Stat1Value: i32
+  Stat2Value: i32
+  Stat3Value: i32
+  AchievementItem: AchievementItems
+}

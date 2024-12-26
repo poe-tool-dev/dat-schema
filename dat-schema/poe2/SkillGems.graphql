@@ -1,0 +1,29 @@
+type SkillGems @tags(list: ["item:def"]) {
+  BaseItemType: BaseItemTypes @unique
+  StrengthRequirementPercent: i32
+  DexterityRequirementPercent: i32
+  IntelligenceRequirementPercent: i32
+  VaalVariant_BaseItemType: BaseItemTypes
+  IsVaalVariant: bool
+  MinionGlobalSkillLevelStat: Stats
+  GemType: i32
+  _: bool
+  _: bool
+  _: rid
+  _: i32
+  _: i32
+  ItemExperienceType: ItemExperienceTypes
+  CraftingTypes: [SkillCraftingData]
+  _: [rid]
+  _: bool
+  GemEffects: [GemEffects]
+  _: bool
+  TutorialVideo: string @file(ext: ".bk2")
+  UI_Image: string @file(ext: ".dds")
+  _: i32
+  CraftingLevel: i32
+  _: bool
+  _: i32
+  _: bool
+  _: string
+}

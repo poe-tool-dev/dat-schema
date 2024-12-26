@@ -1,0 +1,7 @@
+type Tags {
+  Id: string @unique
+  HASH32: i32
+  DisplayString: string
+  _: [rid]
+  UiHints: string
+}

@@ -1,0 +1,5 @@
+type SupportGems {
+  SkillGem: SkillGems
+  _: i32
+  Icon: string  @file(ext: ".dds")
+}

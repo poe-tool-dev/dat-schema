@@ -1,0 +1,24 @@
+type DelveCraftingModifiers @tags(list: ["crafting"]) {
+  BaseItemType: BaseItemTypes
+  AddedMods: [Mods]
+  NegativeWeight_Tags: [Tags]
+  NegativeWeight_Values: [i32]
+  ForcedAddMods: [Mods]
+  ForbiddenDelveCraftingTags: [DelveCraftingTags]
+  AllowedDelveCraftingTags: [DelveCraftingTags]
+  CanMirrorItem: bool
+  CorruptedEssenceChance: i32
+  CanImproveQuality: bool
+  HasLuckyRolls: bool
+  _: bool
+  SellPrice_Mods: [Mods]
+  CanRollWhiteSockets: bool
+  Weight_Tags: [Tags]
+  Weight_Values: [i32]
+  DelveCraftingModifierDescriptions: [DelveCraftingModifierDescriptions]
+  BlockedDelveCraftingModifierDescriptions: [DelveCraftingModifierDescriptions]
+  _: bool
+  _: bool
+  _: [i32]
+  _: [i32]
+}

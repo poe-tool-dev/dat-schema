@@ -1,0 +1,8 @@
+type GrantedEffectQualityStats @tags(list: ["item:droptable"]) {
+  GrantedEffect: GrantedEffects
+  Stats: [Stats]
+  StatsValuesPermille: [i32]
+  AddTypes: [ActiveSkillType]
+  AddMinionTypes: [ActiveSkillType]
+  _: [i32]
+}

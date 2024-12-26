@@ -1,0 +1,20 @@
+type DefaultMonsterStats {
+  DisplayLevel: string
+  Damage: f32
+  Evasion: i32
+  Accuracy: i32
+  Life: i32
+  Experience: i32
+  AllyLife: i32
+  Armour: i32
+  Difficulty: i32
+  MinionDamage: f32
+  AltLife1: i32
+  AltDamage1: f32
+  AltDamage2: f32
+  AltLife2: i32
+  EvasiveEvasion: i32
+  AilmentThreshold: i32
+  StunThreshold: i32
+  _: i32
+}
