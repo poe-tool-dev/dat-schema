@@ -1,2 +1,11 @@
-documents: '**/*.gql'
-schema: '**/*.gql'
+projects:
+  poe1:
+    schema:
+      - 'dat-schema/*.gql'
+      - 'meta.gql'
+    documents: 'dat-schema/*.gql'
+  poe2:
+    schema:
+      - 'dat-schema/poe2/**/*.gql'
+      - 'meta.gql'
+    documents: 'dat-schema/poe2/**/*.gql'
