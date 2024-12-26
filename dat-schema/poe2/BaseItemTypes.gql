@@ -14,7 +14,7 @@ type BaseItemTypes @tags(list: ["item:def", "item:droptable"]) {
   ModDomain: ModDomains
   SiteVisibility: i32
   ItemVisualIdentity: ItemVisualIdentity
-  HASH32: i32 @unique
+  HASH32: u32 @unique
   VendorRecipe_AchievementItems: [AchievementItems]
   "the inflection identifier used for i18n in related fields"
   Inflection: string

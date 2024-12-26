@@ -3,7 +3,7 @@ type ClientStrings {
   Text: string
   XBoxText: string
   XBoxText2: string
-  HASH32: i32
+  HASH32: u32
   PlaystationText: string
   _: string
 }

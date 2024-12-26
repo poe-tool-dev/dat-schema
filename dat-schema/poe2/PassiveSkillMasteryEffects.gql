@@ -1,6 +1,6 @@
 type PassiveSkillMasteryEffects {
   Id: string
-  HASH16: i16
+  HASH16: u16
   Stats: [Stats]
   Stat1Value: i32
   Stat2Value: i32

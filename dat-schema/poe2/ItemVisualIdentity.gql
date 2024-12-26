@@ -3,7 +3,7 @@ type ItemVisualIdentity {
   DDSFile: string @file(ext: ".dds")
   AOFile: string @file(ext: ".ao")
   InventorySoundEffect: SoundEffects
-  HASH16: i16 @unique
+  HASH16: u16 @unique
   AOFile2: string @file(ext: ".ao")
   MarauderSMFiles: [string] @file(ext: ".sm")
   RangerSMFiles: [string] @file(ext: ".sm")

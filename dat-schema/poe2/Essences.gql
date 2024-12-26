@@ -1,6 +1,6 @@
 type Essences {
   BaseItemType: BaseItemTypes
-  HASH32: i32
+  HASH32: u32
   _: i32
   _: i32
   _: [i32]

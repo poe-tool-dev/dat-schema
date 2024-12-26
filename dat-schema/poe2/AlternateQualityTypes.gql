@@ -3,5 +3,5 @@ type AlternateQualityTypes @tags(list: ["item:def"]) {
   Description: string
   Item: BaseItemTypes
   _: rid
-  HASH16: i16
+  HASH16: u16
 }
