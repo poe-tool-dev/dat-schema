@@ -11,7 +11,7 @@ type Ascendancy {
   PassiveTreeImage: string @file(ext: ".dds")
   _: i32
   _: i32
-  _: i32
+  BackgroundImage: i32
   _: i32
   Disabled: bool
 }

@@ -19,7 +19,7 @@ type Mods @tags(list: ["crafting"]) {
   SpawnWeight_Values: [i32]
   Tags: [Tags]
   GrantedEffectsPerLevel: [GrantedEffectsPerLevel]
-  _: [i32]
+  AuraFlags: [ModAuraFlags]
   MonsterMetadata: string
   MonsterKillAchievements: [AchievementItems]
   ChestModType: [ModType]
@@ -38,7 +38,7 @@ type Mods @tags(list: ["crafting"]) {
   CraftingItemClassRestrictions: [ItemClasses]
   MonsterOnDeath: string
   _: i32
-  _: [GrantedEffectsPerLevel]
+  HeistAchievements: [AchievementItems]
   Heist_SubStatValue1: i32
   Heist_SubStatValue2: i32
   Heist_Stat0: Stats

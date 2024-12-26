@@ -9,12 +9,12 @@ type SkillGems @tags(list: ["item:def"]) {
   GemType: i32
   _: bool
   _: bool
-  _: rid
-  _: i32
-  _: i32
+  Awakened: rid
+  GemColour: i32
+  MinLevelReq: i32
   ItemExperienceType: ItemExperienceTypes
   CraftingTypes: [SkillCraftingData]
-  _: [rid]
+  MtxSlotTypes: [MicrotransactionSkillGemEffectSlotTypes]
   _: bool
   GemEffects: [GemEffects]
   _: bool
