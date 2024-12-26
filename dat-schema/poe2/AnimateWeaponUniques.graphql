@@ -2,5 +2,5 @@ type AnimateWeaponUniques {
   Id: string @unique
   ItemVisualIdentity: ItemVisualIdentity
   ItemClass: ItemClasses
-  _: i32
+  MinLevelReq: i32
 }
