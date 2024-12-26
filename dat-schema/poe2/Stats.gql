@@ -10,7 +10,7 @@ type Stats @tags(list: ["crafting"]) {
   MainHandAlias_Stat: Stats
   OffHandAlias_Stat: Stats
   _: bool
-  HASH32: i32
+  HASH32: u32
   BelongsActiveSkills: [ActiveSkills] @ref(column: "Id")
   Category: PassiveSkillStatCategories
   _: bool

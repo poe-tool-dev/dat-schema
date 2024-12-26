@@ -1,5 +1,5 @@
 type FlavourText {
   Id: string @unique
-  HASH16: i16
+  HASH16: u16
   Text: string
 }
