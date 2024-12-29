@@ -1,0 +1,7 @@
+type EndgameMapCompletionQuests {
+  Id: string @unique
+  RequiredTier: i32
+  RequiredCount: i32
+  _: i32
+  _: i32
+}

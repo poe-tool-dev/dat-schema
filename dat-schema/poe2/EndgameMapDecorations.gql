@@ -1,0 +1,12 @@
+type EndgameMapDecorations {
+  Id: string @unique
+  AnimatedObject: string @file(ext: ".ao")
+  AdditionalAnimatedObjects: [string] @file(ext: ".ao")
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+}
