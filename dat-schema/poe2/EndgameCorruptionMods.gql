@@ -1,7 +1,4 @@
 type EndgameCorruptionMods {
-  _: rid
-  _: i32
-  _: i32
-  _: i32
-  _: i32
+  CorruptionMod: Mods
+  SpawnWeight: [i32]
 }

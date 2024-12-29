@@ -1,0 +1,19 @@
+type EndgameMapBiomes {
+  Id: string @unique
+  _: f32
+  _: f32
+  GroundType1: string @file(ext: ".gt")
+  _: f32
+  _: f32
+  _: f32
+  _: f32
+  GroundType2: string @file(ext: ".gt")
+  _: [i32]
+  _: f32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  GroundTypeCorrupted1: string @file(ext: ".gt")
+  GroundTypeCorrupted2: string @file(ext: ".gt")
+}

@@ -1,0 +1,16 @@
+type EndgameMapContent {
+  Id: string @unique
+  SpawnChance: [i32]
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  InherentStat: [Stats]
+  _: [i32]
+  Icon: string @file(ext: ".dds")
+  PrecursorTabletStat: Stats
+  Stats: [Stats]
+  StatsValues: [i32]
+  Description: string
+  Name: string
+}

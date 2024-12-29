@@ -1,0 +1,4 @@
+type EndgameMapContentSet {
+  Id: string @unique
+  Content: [EndgameMapContent]
+}
