@@ -1,4 +1,5 @@
 type SkillGemsForUniqueStat {
   Index: i32
-  SkillGem: SkillGems
+  SkillGems: [SkillGems]
+  _: bool
 }
