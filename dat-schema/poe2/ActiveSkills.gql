@@ -28,7 +28,7 @@ type ActiveSkills {
   _: bool
   _: bool
   _: bool
-  Form: rid
+  ShapeShiftForm: ShapeShiftForms
   VideoClip: string @file(ext: ".bk2")
   CharacterAudioEvent: CharacterAudioEvents
   AiScript: string @file(ext: ".ais")

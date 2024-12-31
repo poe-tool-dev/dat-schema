@@ -25,7 +25,7 @@ type BaseItemTypes @tags(list: ["item:def", "item:droptable"]) {
   "the item which represents this item in the fragment stash tab"
   FragmentBaseItemType: BaseItemTypes
   _: bool
-  SoundEffect: SoundEffects
+  UncutGemSoundEffect: SoundEffects
   _: rid
   _: bool
   TradeMarketCategory: TradeMarketCategory
