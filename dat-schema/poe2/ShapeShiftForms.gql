@@ -1,0 +1,20 @@
+type ShapeShiftForms {
+  Id: string @unique
+  AOFile: string @file(ext: ".ao")
+  ACTFile: string @file(ext: ".act")
+  Source: MiscEffectPacks
+  Destination: MiscEffectPacks
+  StatsKeys: [Stats]
+  StatsValues: [i32]
+  _: rid
+  _: i32
+  _: string
+  _: i32
+  _: f32
+  _: f32
+  _: f32
+  SkillStat: Stats
+  _: i32
+  _: bool
+  Status: string
+}

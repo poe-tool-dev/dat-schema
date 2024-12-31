@@ -1,0 +1,11 @@
+type ShopTag {
+  Id: string
+  Name: string @localized
+  IsCategory: bool
+  Category: ShopTag
+  _: bool
+  SubFlagArt: string
+  IsGuild: bool
+  Parent: ShopTag
+  CategoryArt: string
+}

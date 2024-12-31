@@ -4757,6 +4757,12 @@ type StatDescriptionFunctions {
   TranslationId: string @unique
 }
 
+enum StatDescriptionTypes @indexing(first: 0) {
+  GENERIC
+  SPECIFIC
+  STATSET
+}
+
 enum StatInterpolationTypes @indexing(first: 1) {
   CONSTANT
   LINEAR
