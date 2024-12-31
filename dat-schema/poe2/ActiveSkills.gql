@@ -28,14 +28,14 @@ type ActiveSkills {
   _: bool
   _: bool
   _: bool
-  TransfigureBase: ActiveSkills
+  ShapeShiftForm: ShapeShiftForms
   VideoClip: string @file(ext: ".bk2")
-  _: rid
+  CharacterAudioEvent: CharacterAudioEvents
   AiScript: string @file(ext: ".ais")
+  MinionType: MinionType
   _: rid
-  _: rid
-  _: bool
   _: string
-  StatDescriptionType: i32
+  _: bool
+  StatDescriptionType: StatDescriptionTypes
   StatDescription: string
 }
