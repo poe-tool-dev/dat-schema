@@ -7,6 +7,7 @@ type GrantedEffectStatSets {
   BaseEffectiveness: f32
   IncrementalEffectiveness: f32
   DamageIncrementalEffectiveness: f32
-  _: [rid]
+  "Values for these stats are copied from the base StatSet of the GrantedEffect"
+  CopiedStats: [Stats]
   _: bool
 }
