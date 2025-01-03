@@ -18,7 +18,7 @@ type ActiveSkills {
   Output_Stats: [Stats]
   MinionActiveSkillTypes: [ActiveSkillType]
   _: bool
-  isGem: bool
+  IsGem: bool
   SecondarySkillSpecificStats: [Stats]
   SkillMine: i32
   AlternateSkillTargetingBehaviour: AlternateSkillTargetingBehaviours

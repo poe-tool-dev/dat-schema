@@ -1,0 +1,23 @@
+type ItemVisualEffect {
+    Id: string @unique
+    DaggerEPKFile: string @file(ext: ".epk")
+    BowEPKFile: string @file(ext: ".epk")
+    OneHandedMaceEPKFile: string @file(ext: ".epk")
+    OneHandedSwordEPKFile: string @file(ext: ".epk")
+    _: string
+    TwoHandedSwordEPKFile: string @file(ext: ".epk")
+    TwoHandedStaffEPKFile: string @file(ext: ".epk")
+    HASH16: i16 @unique
+    _: bool
+    _: bool
+    TwoHandedMaceEPKFile: string @file(ext: ".epk")
+    OneHandedAxeEPKFile: string @file(ext: ".epk")
+    TwoHandedAxeEPKFile: string @file(ext: ".epk")
+    ClawEPKFile: string @file(ext: ".epk")
+    PETFile: string @file(ext: ".pet")
+    Shield: string @file(ext: ".epk")
+    OnHitEffect: string @file(ext: ".epk")
+    _: string @file(ext: ".epk")
+    _: string @file(ext: ".epk")
+    _: string @file(ext: ".epk")
+}
