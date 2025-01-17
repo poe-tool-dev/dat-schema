@@ -36,8 +36,8 @@ type BlightCraftingRecipes @tags(list: ["crafting"]) {
 
 type BlightCraftingResults {
   Id: string @unique
-  ModsKey: Mods
-  PassiveSkillsKey: PassiveSkills
+  Mod: Mods
+  PassiveSkill: PassiveSkills
 }
 
 type BlightCraftingTypes {

@@ -4013,7 +4013,7 @@ type PassiveOverrideLimits {
 }
 
 type PassiveSkillMasteryGroups {
-  Id: string
+  Id: string @unique
   MasteryEffects: [PassiveSkillMasteryEffects]
   InactiveIcon: string @file(ext: ".dds")
   ActiveIcon: string @file(ext: ".dds")
