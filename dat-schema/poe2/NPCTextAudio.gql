@@ -1,0 +1,16 @@
+type NPCTextAudio {
+  Id: string
+  Characters: [Characters]
+  Text: string
+  AudioFiles: [string]
+  _: i32
+  _: i32
+  _: bool
+  _: bool
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  NPCs: [rid]
+}
