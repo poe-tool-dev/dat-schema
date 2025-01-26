@@ -13,7 +13,7 @@ type MonsterPacks {
   MinLevel: i32
   MaxLevel: i32
   _: [_]
-  _: PackFormation
+  Formation: PackFormation
   _: i32
   _: bool
   _: [string]

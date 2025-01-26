@@ -3356,10 +3356,10 @@ type MonsterPackCounts {
 type MonsterPackEntries {
   Id: string @unique
   MonsterPacksKey: MonsterPacks
-  _: bool
-  _: i32
+  Flag: bool
+  Weight: i32
   MonsterVarietiesKey: MonsterVarieties
-  _: MonsterPackEntries
+  _: string
 }
 
 type MonsterPacks {
