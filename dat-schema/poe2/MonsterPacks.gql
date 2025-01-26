@@ -1,0 +1,27 @@
+type MonsterPacks {
+  Id: string
+  WorldAreas: [WorldAreas]
+  MinCount: i32
+  MaxCount: i32
+  BossMonsterSpawnChance: i32
+  BossCount: i32
+  BossMonsters: [MonsterVarieties]
+  _: bool
+  _: [i32]
+  Grounds: [string]
+  Tags: [Tags]
+  MinLevel: i32
+  MaxLevel: i32
+  _: [_]
+  _: PackFormation
+  _: i32
+  _: bool
+  _: [string]
+  _: bool
+  _: bool
+  _: string
+  _: bool
+  _: bool
+  AdditionalMonsters: [MonsterVarieties]
+  AdditionalCounts: [i32]
+}
