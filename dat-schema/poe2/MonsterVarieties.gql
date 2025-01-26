@@ -111,15 +111,18 @@ type MonsterVarieties {
   _: i32
   _: i32
   _: bool
-  _: i32
+  _: rid
+  _: f32
+  _: f32
+  _: bool
+  _: [_]
   _: rid
   _: i32
   _: i32
-  _: i32
+  _: f32
+  _: rid
   _: bool
   _: i32
-  _: string
-  _: rid
-  _: i32
+  _: bool
   _: i32
 }
