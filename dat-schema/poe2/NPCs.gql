@@ -1,0 +1,20 @@
+type NPCs {
+  Id: string @unique
+  Name: string
+  Metadata: string @files(ext: [".ot", ".otc"])
+  _: rid
+  NPCMasterKey: NPCMaster
+  ShortName: string
+  _: i32
+  NPCAudios1: [NPCAudio]
+  NPCAudios2: [NPCAudio]
+  HASH16: i16
+  _: NPCs
+  Portrait: NPCPortraits
+  DialogueStyle: NPCDialogueStyles
+  _: rid
+  Gender: string
+  _: bool
+  _: string 
+  _: rid
+}
