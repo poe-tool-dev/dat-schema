@@ -17,7 +17,7 @@ type Characters {
   BaseIntelligence: i32
   _: [rid]
   Description: string @localized
-  StartSkillGem: SkillGems
+  StartSkillGem: BaseItemTypes
   _: rid
   _: i32
   _: i32
