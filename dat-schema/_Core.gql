@@ -561,9 +561,10 @@ type BaseItemTypes @tags(list: ["item:def", "item:droptable"]) {
   TradeMarketCategory: TradeMarketCategory
   Unmodifiable: bool
   Achievement: [AchievementItems]
-  _: [string]
+  _: [rid]
   IgnoreQuantBonus: bool
   _: bool
+  _: rid
 }
 
 type BindableVirtualKeys {
@@ -2414,6 +2415,9 @@ type ItemVisualIdentity {
   _: [rid]
   _: [rid]
   _: bool
+  _: string
+  _: string
+  _: string
 }
 
 type JobAssassinationSpawnerGroups {
