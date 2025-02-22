@@ -6210,6 +6210,18 @@ enum AncestralTrialOpinionTypes @indexing(first: 0) {
   DISLIKES
 }
 
+type MapRelicInventoryLayout {
+  XOffset: i32
+  YOffset: i32
+  UnlockQuest: i32
+  UnlockText: string
+}
+
+type UniqueMapRelicLimits {
+  Idol: Words @unique
+  Limit: i32
+}
+
 enum AncestralTrialShopSlots @indexing(first: 0) { _ }
 
 enum AncestralTrialUnitTypes @indexing(first: 0) { _ }
