@@ -3016,6 +3016,7 @@ enum ModDomains @indexing(first: 1) {
   ANIMAL_CHARM
   NECROPOLIS_MONSTER
   UBER_MAP
+  IDOL
 }
 
 type ModEffectStats {
