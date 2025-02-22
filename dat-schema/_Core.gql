@@ -3155,7 +3155,8 @@ type Mods @tags(list: ["crafting"]) {
   ArchnemesisMinionMod: Mods
   HASH32: i32
   _: [rid]
-  _: i32
+  # This is some enum and mods with value 2 looks to be disabled
+  Disabled2: i32
   _: [GrantedEffectsPerLevel]
 }
 
