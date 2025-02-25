@@ -93,7 +93,7 @@ type BestiaryRecipes @tags(list: ["item:recipe", "crafting"]) {
   _: bool
   _: i32
   _: i32
-  "1: Normal, 2: Ruthless"
+  "0: All, 1: Normal, 2: Ruthless"
   GameMode: i32
   FlaskMod: Mods
 }
