@@ -28,4 +28,5 @@ type ItemClasses @tags(list: ["crafting"]) {
   CanBeFractured: bool
   EquipAchievement: AchievementItems
   UsableInMapDevice: bool
+  _: bool
 }

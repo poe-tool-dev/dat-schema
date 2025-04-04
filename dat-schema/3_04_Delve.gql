@@ -55,6 +55,7 @@ type DelveCraftingModifiers @tags(list: ["crafting"]) {
   _: bool
   _: [i32]
   _: [i32]
+  _: bool
 }
 
 type DelveCraftingTags {

@@ -6,7 +6,6 @@ type ActiveSkills {
   Icon_DDSFile: string @file(ext: ".dds")
   ActiveSkillTargetTypes: [ActiveSkillTargetTypes]
   ActiveSkillTypes: [ActiveSkillType]
-  WeaponRestriction_ItemClasses: [ItemClasses]
   WebsiteDescription: string
   WebsiteImage: string
   HideOnWebsite: bool
@@ -34,8 +33,9 @@ type ActiveSkills {
   AiScript: string @file(ext: ".ais")
   MinionType: MinionType
   _: rid
-  _: string
   _: bool
+  _: string
   StatDescriptionType: StatDescriptionTypes
   StatDescription: string
+  WeaponRequirements: ActiveSkillWeaponRequirement
 }

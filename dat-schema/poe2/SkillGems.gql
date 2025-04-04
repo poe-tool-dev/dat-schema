@@ -25,5 +25,5 @@ type SkillGems @tags(list: ["item:def"]) {
   _: bool
   _: i32
   _: bool
-  _: string
+  _: [rid]
 }

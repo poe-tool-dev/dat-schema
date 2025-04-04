@@ -64,7 +64,7 @@ type Characters {
   _: f32
   _: f32
   BaseClass: string
-  _: i32
+  _: rid
   _: rid
   _: [rid]
   _: f32

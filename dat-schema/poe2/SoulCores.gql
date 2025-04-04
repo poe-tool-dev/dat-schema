@@ -4,4 +4,5 @@ type SoulCores {
   StatsValuesWeapon: [i32]
   StatsArmour: [Stats]
   StatsValuesArmour: [i32]
+  _: i32
 }
