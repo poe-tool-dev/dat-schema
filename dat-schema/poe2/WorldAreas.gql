@@ -10,7 +10,7 @@ type WorldAreas {
   _: i32
   _: i32
   LoadingScreens: [string]
-  FlagOnEntered: QuestFlags
+  FlagOnEntered: [QuestFlags]
   RequiredFlags: [QuestFlags]
   _: i32
   Topologies: [Topologies]
