@@ -3,9 +3,15 @@ type Essences {
   HASH32: u32
   _: i32
   _: i32
-  _: [i32]
+  _: [rid]
   _: i32
   MonsterMod: Mods
   _: bool
   CraftTag: Tags
+  _: Essences
+  _: i32
+  _: rid
+  CraftedMod: Mods
+  ItemClasses: [ItemClasses]
+  _: i32
 }
