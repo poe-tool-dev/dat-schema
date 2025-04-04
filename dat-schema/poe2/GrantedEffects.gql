@@ -21,7 +21,6 @@ type GrantedEffects {
   Animation: Animation
   MultiPartAchievement: MultiPartAchievements
   _: bool
-  SupportWeaponRestrictions: [ItemClasses]
   RegularVariant: GrantedEffects
   _: bool
   _: i32
@@ -35,4 +34,5 @@ type GrantedEffects {
   _: bool
   _: [i32]
   _: i32
+  SupportWeaponRestrictions: [ItemClasses]
 }

@@ -1,0 +1,5 @@
+﻿type ActiveSkillWeaponRequirement {
+  Id: string @unique
+  WieldableClasses: [WieldableClasses]
+  String: ClientStrings
+}

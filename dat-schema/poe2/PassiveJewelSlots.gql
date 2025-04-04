@@ -5,4 +5,5 @@ type PassiveJewelSlots {
   ReplacesSlot: PassiveJewelSlots
   ProxySlot: PassiveSkills
   StartIndices: [i32]
+  _: rid
 }

@@ -50,4 +50,6 @@ type PassiveSkills {
   IsRootOfAtlasTree: bool
   GrantedSkill: SkillGems
   WeaponPointsGranted: i32
+  _: bool
+  _: bool
 }
