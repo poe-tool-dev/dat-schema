@@ -1,0 +1,6 @@
+type SoulCoresPerClass {
+  BaseItemType: BaseItemTypes
+  ItemClass: ItemClasses
+  Stats: [Stats]
+  StatsValues: [i32]
+}
