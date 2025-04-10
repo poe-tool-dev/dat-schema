@@ -4326,8 +4326,8 @@ type QuestItems {
   _: [_] # All rows empty
   _: bool
   _: bool
-  _: rid
-  _: rid
+  HelpText: ClientStrings
+  Description: ClientStrings
   Script: string
   _: rid
   _: rid
