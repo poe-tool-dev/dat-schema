@@ -1,0 +1,15 @@
+type QuestItems {
+  Item: BaseItemTypes
+  TriggeredQuestFlag: QuestFlags
+  _: QuestFlags
+  _: i32
+  _: [_] # All rows empty
+  _: bool
+  _: bool
+  HelpText: ClientStrings
+  Description: ClientStrings
+  Script: string
+  _: rid
+  _: rid
+  _: i32
+}
