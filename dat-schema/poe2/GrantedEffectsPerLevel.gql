@@ -20,6 +20,6 @@ type GrantedEffectsPerLevel {
   Reservation: i32
   _: i32
   CostAmounts: [i32]
-  _: f32
+  ActorLevel: f32
   EffectOnPlayer: i32
 }
