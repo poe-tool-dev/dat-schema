@@ -9,8 +9,8 @@ type Ascendancy {
   FlavourText: string @localized
   OGGFile: string @file(ext: ".ogg")
   PassiveTreeImage: string @file(ext: ".dds")
-  _: i32
-  _: i32
+  TreeRegionVector: i32
+  TreeRegionAngle: i32
   BackgroundImage: i32
   _: i32
   Disabled: bool
