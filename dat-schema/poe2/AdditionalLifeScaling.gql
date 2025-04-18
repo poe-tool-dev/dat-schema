@@ -1,0 +1,5 @@
+type AdditionalLifeScaling {
+  IntId: i32
+  ID: string
+  DatFile: string @file(ext: ".dat")
+}
