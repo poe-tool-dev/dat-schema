@@ -1,4 +1,0 @@
-type BeltTypes {
-  BaseItem: BaseItemTypes
-  CharmSlots: i32
-}
