@@ -1,0 +1,9 @@
+type Chests {
+  Id: string @unique
+  _: bool
+  _: i32
+  Name: string
+  AOFiles: [string] @file(ext: ".ao")
+  _: bool
+  # From this point schema is invalid
+}

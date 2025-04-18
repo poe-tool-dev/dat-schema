@@ -1,0 +1,7 @@
+type AddBuffToTargetVarieties {
+  BuffDefinitions: BuffDefinitions
+  _: [i32]
+  StatsKeys: [Stats]
+  _: i32
+  # From this point schema is invalid
+}
