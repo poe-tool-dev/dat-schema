@@ -7,5 +7,5 @@ type WeaponTypes @tags(list: ["item:def"]) {
   DamageMin: i32
   DamageMax: i32
   RangeMax: i32
-  _: i32
+  ReloadTime: i32
 }
