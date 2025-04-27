@@ -4,5 +4,5 @@ type BlightCraftingItems @tags(list: ["item:def"]) {
   Achievements: [AchievementItems]
   UseType: i32
   NameShort: string @unique
-  _ : rid
+  EnchantedMod : Mods
 }
