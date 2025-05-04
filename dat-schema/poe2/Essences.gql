@@ -1,5 +1,5 @@
 type Essences {
-  BaseItemType: BaseItemTypes
+  BaseItemType: BaseItemTypes @unique
   HASH32: u32
   _: i32
   _: i32
