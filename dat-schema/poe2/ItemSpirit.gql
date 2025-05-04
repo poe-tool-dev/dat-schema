@@ -1,4 +1,4 @@
 type ItemSpirit {
-  BaseItemType: BaseItemTypes
+  BaseItemType: BaseItemTypes @unique
   SpiritGranted: i32
 }
