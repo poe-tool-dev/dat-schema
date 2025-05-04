@@ -8,9 +8,9 @@ type Essences {
   MonsterMod: Mods
   _: bool
   CraftTag: Tags
-  _: Essences
-  _: i32
-  _: rid
+  UpgradeResult: Essences
+  Tier: i32
+  Stats: Stats
   CraftedMod: Mods
   ItemClasses: [ItemClasses]
   _: i32
