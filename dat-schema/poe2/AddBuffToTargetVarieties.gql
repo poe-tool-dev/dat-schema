@@ -3,5 +3,4 @@ type AddBuffToTargetVarieties {
   _: [i32]
   StatsKeys: [Stats]
   _: i32
-  # From this point schema is invalid
 }
