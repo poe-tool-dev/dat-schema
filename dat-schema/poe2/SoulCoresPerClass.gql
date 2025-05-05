@@ -1,5 +1,5 @@
 type SoulCoresPerClass {
-  BaseItemType: BaseItemTypes @unique
+  BaseItemType: BaseItemTypes
   ItemClass: ItemClasses
   Stats: [Stats]
   StatsValues: [i32]
