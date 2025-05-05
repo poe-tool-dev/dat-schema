@@ -1,5 +1,5 @@
 type SoulCores {
-  BaseItemType: BaseItemTypes
+  BaseItemType: BaseItemTypes @unique
   StatsMartialWeapon: [Stats]
   StatsValuesMartialWeapon: [i32]
   StatsArmour: [Stats]

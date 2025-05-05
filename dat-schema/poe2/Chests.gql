@@ -5,5 +5,4 @@ type Chests {
   Name: string
   AOFiles: [string] @file(ext: ".ao")
   _: bool
-  # From this point schema is invalid
 }
