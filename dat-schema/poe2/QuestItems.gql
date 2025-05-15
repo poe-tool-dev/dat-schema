@@ -1,5 +1,5 @@
 type QuestItems {
-  Item: BaseItemTypes @unique
+  BaseItemType: BaseItemTypes @unique
   TriggeredQuestFlag: QuestFlags
   _: QuestFlags
   _: i32
