@@ -2122,7 +2122,7 @@ type Hideouts {
   _: bool
   _: bool
   _: bool
-  _: bool
+  _: rid
   ErrorMessage: string
 }
 
@@ -3188,14 +3188,12 @@ enum MonsterBehavior @indexing(first: 0) { _ }
 
 type MonsterBonuses {
   Id: string @unique
-  _: [rid]
+  BonusMods: [Mods]
   _: rid
   _: [i32]
   StatsKeys: [Stats]
   StatValues: [i32]
-  _: bool
-  _: bool
-  _: bool
+  _: i32
   _: bool
 }
 
@@ -3490,6 +3488,7 @@ type MonsterSpawnerOverrides {
 
 type MonsterTypes {
   Id: string @unique
+  OTFile: string @file(ext: ".ot")
   _: i32
   IsSummoned: bool
   Armour: i32
@@ -4530,7 +4529,11 @@ type ShopTag {
   Name: string @localized
   IsCategory: bool
   Category: ShopTag
-  SkillGem: [BaseItemTypes]
+  PoE2: bool
+  _: string
+  Guild: bool
+  _: ShopTag
+  _: string
 }
 
 type SigilDisplay {
@@ -5262,8 +5265,7 @@ type WorldAreas {
   HASH16: i16
   _: i32
   _: i32
-  LoadingScreen_DDSFile: string @file(ext: ".dds")
-  _: string
+  LoadingScreens: [string] @file(ext: ".dds")
   _: rid
   _: [rid]
   _: i32
@@ -5839,18 +5841,18 @@ type MapStashSubstashGroup {
   Description: string
 }
 
-# Added 3.19
 type MemoryLineType {
-  Id: string @unique
-  _: rid
-  _: i32
-  _: [_]
-  _: [_]
-  _: i32
-  _: i32
-  _: rid
+  Id: string
+  MemoryLine: AtlasMemoryLine
+  HASH16: i16
+  _: bool
+  _: bool
+  Stats: [Stats]
+  StatsValues: [i32]
   _: i32
   Suffix: string
+  _: i32
+  _: i32
   _: rid
 }
 
