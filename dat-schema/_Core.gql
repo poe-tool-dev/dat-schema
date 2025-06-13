@@ -1115,13 +1115,13 @@ type CraftingBenchOptions @tags(list: ["crafting"]) {
   Tier: i32
   CraftingItemClassCategories: [CraftingItemClassCategories]
   _: i32
-  _: [rid]
-  _: [rid]
+  _: [_]
+  AchievementItems: [AchievementItems]
   _: i32
   _: i32
-  _: rid
   AddEnchantment: Mods
-  _: rid
+  SortCategory: CraftingBenchSortCategories
+  ModType: ModType
   _: bool
   _: i32
   _: Stats
