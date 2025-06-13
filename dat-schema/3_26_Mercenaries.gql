@@ -1,0 +1,13 @@
+type MercenaryClasses {
+  Id: string
+  MonsterVariety: MonsterVarieties
+  _: i32
+  _: rid
+  _: i32
+  _: i32
+  Icon: string
+  House: string
+  _: MercenaryClasses
+  _: [_]
+  MonsterVarietyAllied: MonsterVarieties
+}
