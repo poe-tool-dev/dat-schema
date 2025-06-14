@@ -104,3 +104,13 @@ type VillageUpgrades {
   StatsValues: [i32]
   UpgradeTextAudio: NPCTextAudio
 }
+
+type VillageBaseStats {
+  Stat: Stats
+  StatValue: i32
+}
+
+type RecombinableClasses {
+  Id: ItemClasses
+  _: i32
+}

@@ -1350,6 +1350,11 @@ type DivinationCardStashTabLayout {
   IsEnabled: bool
 }
 
+type DivinationBuffTemplates {
+  Buff: BuffTemplates
+  DivCardArt: DivinationCardArt
+}
+
 type Doors {
   Id: string @unique
   _: bool
@@ -5359,6 +5364,11 @@ type WorldAreaLeagueChances {
   _: i32
 }
 
+type WorldObjectDisplayedApplicableItems {
+  Id: string
+  BaseItemType: [BaseItemTypes]
+}
+
 type WorldPopupIconTypes {
   Id: string @unique
   _: string
@@ -5499,6 +5509,18 @@ type Breachstones {
   _: i32 @unique
   UpgradesTo: BaseItemTypes
   UpgradeCurrency: BaseItemTypes
+}
+
+type BossKillEvent {
+  _: string
+  QuestFlag: QuestFlags
+  AreaLevel: i32
+  Monster: MonsterVarieties
+  _: rid
+  _: i32
+  QuestFlag2: QuestFlags
+  _: i32
+  _: i32
 }
 
 # Added 3.22
@@ -5856,6 +5878,18 @@ type MemoryLineType {
   _: rid
 }
 
+type MtxTypes {
+  Id: string
+}
+
+type MtxTypeGameSpecific {
+  Type: MtxTypes
+  HASH16: i32
+  DDSFile: string @file(ext: ".dds")
+  _: i32
+  _: [i32]
+}
+
 # Added 3.19
 type MicrotransactionAppliedInventoryItemArtVariations {
   _: rid @unique
@@ -6019,6 +6053,12 @@ type MinionType {
   _: bool
   _: bool
   _: bool
+}
+
+type MinionDoublingStatTypes {
+  Id: i32
+  Stat: Stats
+  MinionType: MinionType
 }
 
 # Added 3.23
