@@ -1005,6 +1005,7 @@ type ClientStrings {
   XBoxText2: string
   HASH32: i32
   PlaystationText: string
+  _: string
 }
 
 type ClientLeagueAction {
@@ -1114,17 +1115,13 @@ type CraftingBenchOptions @tags(list: ["crafting"]) {
   Tier: i32
   CraftingItemClassCategories: [CraftingItemClassCategories]
   _: i32
-  UnlockCategory: CraftingBenchUnlockCategories
-  UnveilsRequired: i32
-  UnveilsRequired2: i32
-  _: [rid]
-  _: [rid]
+  _: [_]
+  AchievementItems: [AchievementItems]
   _: i32
   _: i32
-  _: rid
   AddEnchantment: Mods
   SortCategory: CraftingBenchSortCategories
-  _: rid
+  ModType: ModType
   _: bool
   _: i32
   _: Stats
@@ -1351,6 +1348,11 @@ type DivinationCardStashTabLayout {
   StoredItem: BaseItemTypes @unique
   IsInGame: bool
   IsEnabled: bool
+}
+
+type DivinationBuffTemplates {
+  Buff: BuffTemplates
+  DivCardArt: DivinationCardArt
 }
 
 type Doors {
@@ -2125,7 +2127,7 @@ type Hideouts {
   _: bool
   _: bool
   _: bool
-  _: bool
+  _: rid
   ErrorMessage: string
 }
 
@@ -2667,6 +2669,8 @@ type MapSeries {
   Delirious_DDSFile: string @file(ext: ".dds")
   UberBlight_DDSFile: string @file(ext: ".dds")
   Purple_DDSFile: string @file(ext: ".dds")
+  _: string @file(ext: ".dds")
+  _: string @file(ext: ".dds")
 }
 
 type MapSeriesTiers {
@@ -2692,6 +2696,7 @@ type MapSeriesTiers {
   AzmeriTier: i32
   NecropolisTier: i32
   SettlersTier: i32
+  SecretsTier: i32
 }
 
 type MapStashSpecialTypeEntries {
@@ -3188,14 +3193,12 @@ enum MonsterBehavior @indexing(first: 0) { _ }
 
 type MonsterBonuses {
   Id: string @unique
-  _: [rid]
+  BonusMods: [Mods]
   _: rid
   _: [i32]
   StatsKeys: [Stats]
   StatValues: [i32]
-  _: bool
-  _: bool
-  _: bool
+  _: i32
   _: bool
 }
 
@@ -3490,6 +3493,7 @@ type MonsterSpawnerOverrides {
 
 type MonsterTypes {
   Id: string @unique
+  OTFile: string @file(ext: ".ot")
   _: i32
   IsSummoned: bool
   Armour: i32
@@ -4018,11 +4022,13 @@ type PassiveSkillOverrideTypes {
   Id: string
   CounterStat: Stats
   _: bool
+  _: bool
 }
 
 type PassiveOverrideLimits {
   Id: string
   Description: string
+  _: bool
 }
 
 type PassiveSkillMasteryGroups {
@@ -4528,7 +4534,11 @@ type ShopTag {
   Name: string @localized
   IsCategory: bool
   Category: ShopTag
-  SkillGem: [BaseItemTypes]
+  PoE2: bool
+  _: string
+  Guild: bool
+  _: ShopTag
+  _: string
 }
 
 type SigilDisplay {
@@ -5260,7 +5270,7 @@ type WorldAreas {
   HASH16: i16
   _: i32
   _: i32
-  LoadingScreen_DDSFile: string @file(ext: ".dds")
+  LoadingScreens: [string] @file(ext: ".dds")
   _: rid
   _: [rid]
   _: i32
@@ -5317,7 +5327,6 @@ type WorldAreas {
   Ruleset: Rulesets
   _: i32
   QuestFlag: QuestFlags
-  _: i32
 }
 
 type WorldAreaLeagueChances {
@@ -5353,6 +5362,11 @@ type WorldAreaLeagueChances {
   _: i32
   _: i32
   _: i32
+}
+
+type WorldObjectDisplayedApplicableItems {
+  Id: string
+  BaseItemType: [BaseItemTypes]
 }
 
 type WorldPopupIconTypes {
@@ -5495,6 +5509,18 @@ type Breachstones {
   _: i32 @unique
   UpgradesTo: BaseItemTypes
   UpgradeCurrency: BaseItemTypes
+}
+
+type BossKillEvent {
+  _: string
+  QuestFlag: QuestFlags
+  AreaLevel: i32
+  Monster: MonsterVarieties
+  _: rid
+  _: i32
+  QuestFlag2: QuestFlags
+  _: i32
+  _: i32
 }
 
 # Added 3.22
@@ -5837,19 +5863,31 @@ type MapStashSubstashGroup {
   Description: string
 }
 
-# Added 3.19
 type MemoryLineType {
-  Id: string @unique
-  _: rid
-  _: i32
-  _: [_]
-  _: [_]
-  _: i32
-  _: i32
-  _: rid
+  Id: string
+  MemoryLine: AtlasMemoryLine
+  HASH16: i16
+  _: bool
+  _: bool
+  Stats: [Stats]
+  StatsValues: [i32]
   _: i32
   Suffix: string
+  _: i32
+  _: i32
   _: rid
+}
+
+type MtxTypes {
+  Id: string
+}
+
+type MtxTypeGameSpecific {
+  Type: MtxTypes
+  HASH16: i32
+  DDSFile: string @file(ext: ".dds")
+  _: i32
+  _: [i32]
 }
 
 # Added 3.19
@@ -6015,6 +6053,12 @@ type MinionType {
   _: bool
   _: bool
   _: bool
+}
+
+type MinionDoublingStatTypes {
+  Id: i32
+  Stat: Stats
+  MinionType: MinionType
 }
 
 # Added 3.23
