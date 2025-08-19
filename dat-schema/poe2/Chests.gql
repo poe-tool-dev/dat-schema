@@ -2,7 +2,45 @@ type Chests {
   Id: string @unique
   _: bool
   _: i32
-  Name: string
+  Name: string @localized
   AOFiles: [string] @file(ext: ".ao")
+  _: bool
+  _: i32
+  _: bool
+  _: bool
+  _: i32
+  _: [rid]
+  _: rid
+  _: bool
+  _: [rid]
+  _: [rid]
+  _: rid
+  _: i32
+  _: string @localized
+  _: i32
+  _: rid
+  _: rid
+  _: [rid]
+  _: rid
+  _: string
+  _: bool
+  _: rid
+  _: [rid]
+  _: string
+  _: i32
+  _: i32
+  _: bool
+  _: rid
+  _: bool
+  _: bool
+  _: [rid]
+  _: bool
+  _: string @localized
+  _: bool
+  _: bool
+  _: bool
+  _: i32
+  _: i32
+  _: rid
   _: bool
 }

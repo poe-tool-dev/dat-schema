@@ -12,4 +12,6 @@ type QuestItems {
   _: rid
   _: rid
   _: i32
+  _: [rid]
+  _: rid
 }

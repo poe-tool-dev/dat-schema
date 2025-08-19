@@ -7,6 +7,9 @@ type SocketableStashTabLayout {
   Width: i32
   Height: i32
   _: bool
-  # _: something here
-  # IsUpgradable: bool
+  _: string
+  _: i32
+  _: i32
+  _: i32
+  IsUpgradable: bool
 }

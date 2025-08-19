@@ -7,4 +7,7 @@ type RitualStashTabLayout {
   Width: i32
   Height: i32
   _: bool
+  _: string
+  _: i32
+  _: [rid]
 }
