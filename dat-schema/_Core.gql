@@ -923,6 +923,7 @@ type CharacterTextAudio {
   SoundFile: string @file(ext: ".ogg")
   ParrotSoundFile: string @file(ext: ".ogg")
   _: i32
+  _: i32
 }
 
 type ChatIcons {
@@ -5894,9 +5895,9 @@ type MtxTypeGameSpecific {
 type MicrotransactionAppliedInventoryItemArtVariations {
   _: rid @unique
   DDSFiles: [string] @file(ext: ".dds")
-  _: [_]
-  _: [_]
-  _: [_] # All rows empty
+  _: [i32]
+  _: [rid]
+  _: [rid] # All rows empty
 }
 
 # Added 3.18

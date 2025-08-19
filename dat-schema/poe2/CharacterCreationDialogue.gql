@@ -1,5 +1,5 @@
 type CharacterCreationDialogue {
-  _: rid
+  Character: Characters @unique
   _: rid
   _: rid
   _: rid

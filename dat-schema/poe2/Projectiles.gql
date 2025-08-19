@@ -1,0 +1,48 @@
+type Projectiles {
+  Id: string @unique @files(ext: [".ot", ".otc"])
+  AOFiles: [string] @file(ext: ".ao")
+  LoopAnimationIds: [string]
+  ImpactAnimationIds: [string]
+  ProjectileSpeed: i32
+  _: bool
+  _: i32
+  _: bool
+  _: bool
+  InheritsFrom: string @files(ext: [".ot", ".otc"])
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+  _: bool
+  Stuck_AOFile: [string] @file(ext: ".ao")
+  Bounce_AOFile: string @file(ext: ".ao")
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: rid
+  _: rid
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: [string]
+  _: [string]
+  _: bool
+  _: [i32]
+  _: string
+  _: rid
+  _: rid
+  _: rid
+  _: bool
+  _: string
+  _: rid
+  _: string
+  _: rid
+  _: string
+  _: [string]
+  _: [string]
+}
