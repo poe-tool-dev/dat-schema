@@ -1,0 +1,21 @@
+type QuestStates {
+  Quest: Quest
+  Order: i32
+  FlagsPresent: [QuestFlags]
+  FlagsMissing: [QuestFlags]
+  Text: string @localized
+  _: bool
+  Message: string @localized
+  MapPinsKeys: [MapPins]
+  _: i32
+  MapPinsText: string @localized
+  MapPinsKey: MapPins
+  _: [rid]
+  _: bool
+  _: [i32]
+  _: [i32]
+  _: i32
+  SoundEffect: SoundEffects
+  _: string
+  _: [rid]
+}

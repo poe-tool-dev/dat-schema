@@ -1,0 +1,32 @@
+type QuestRewards @tags(list: ["item:reward"]) {
+  RewardOffer: QuestRewardOffers
+  _: i32
+  _: bool
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: rid
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: rid
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+  _: [rid]
+  _: rid
+  _: i32
+  _: i32
+  _: i32
+  _: rid
+  _: i32
+  _: [rid]
+  _: i32
+  _: bool
+}

@@ -1,0 +1,6 @@
+type QuestItemNpcAudio {
+  _: rid
+  _: rid
+  _: [rid]
+  _: rid
+}
