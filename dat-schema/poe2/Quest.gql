@@ -1,0 +1,16 @@
+type Quest {
+  Id: string @unique
+  Act: i32
+  Name: string @localized
+  Icon_DDSFile: string @file(ext: ".dds")
+  QuestId: i32
+  _: bool
+  Type: QuestType
+  _: [i32]
+  _: i32
+  TrackerGroup: QuestTrackerGroup
+  _: bool
+  _: bool
+  _: [rid]
+  _: [rid]
+}
