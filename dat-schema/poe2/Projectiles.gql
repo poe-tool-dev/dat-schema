@@ -30,7 +30,6 @@ type Projectiles {
   _: i32
   _: i32
   _: [string]
-  _: [string]
   _: bool
   _: [i32]
   _: string
