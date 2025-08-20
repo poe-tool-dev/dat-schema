@@ -1,0 +1,14 @@
+type MonsterShapeshift {
+  _: rid @unique
+  _: rid
+  _: i32
+  _: rid
+  _: rid
+  _: [string]
+  _: [string]
+  _: [string]
+  _: [string]
+  _: rid
+  _: rid
+  _: [i32]
+}

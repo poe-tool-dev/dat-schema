@@ -1,0 +1,4 @@
+type MinionGemLevelScaling {
+  GemLevel: i32 @unique
+  MinionLevel: i32 @unique
+}

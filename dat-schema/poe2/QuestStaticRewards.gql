@@ -8,7 +8,5 @@ type QuestStaticRewards {
   _: i32
   ClientStringsKey: ClientStrings
   _: i32
-  _: rid
-  _: i32
   _: bool
 }

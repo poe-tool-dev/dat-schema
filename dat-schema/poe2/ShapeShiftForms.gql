@@ -17,4 +17,6 @@ type ShapeShiftForms {
   _: i32
   _: bool
   Status: string
+  _: f32
+  _: bool
 }

@@ -1,0 +1,5 @@
+type UniqueMapSkillBooks {
+  BaseItem: BaseItemTypes @unique
+  _: i32 @unique
+  _: i32 @unique
+}

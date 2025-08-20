@@ -14,10 +14,10 @@ type MapPins {
   _: [rid]
   _: [rid]
   _: rid
-  MetadataId: string
-  _: i32
-  _: i32
   _: string
+  _: i32
+  _: i32
+  MetadataId: string
   _: rid
   _: rid
   _: string @localized

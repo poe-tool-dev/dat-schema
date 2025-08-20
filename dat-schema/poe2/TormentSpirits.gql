@@ -1,0 +1,27 @@
+type TormentSpirits {
+  MonsterVarietiesKey: MonsterVarieties
+  Spirit_ModsKeys: [Mods]
+  Touched_ModsKeys: [Mods]
+  Possessed_ModsKeys: [Mods]
+  MinZoneLevel: i32
+  MaxZoneLevel: i32
+  SpawnWeight: i32
+  SummonedMonster_MonsterVarietiesKey: MonsterVarieties
+  _: i32
+  ModsKeys0: [Mods]
+  ModsKeys1: [Mods]
+  StatsKeys1: Stats
+  _: i32
+  Type: i32
+  ModsKeys3: [Mods]
+  _: [rid]
+  StatsKeys2: Stats
+  _: [rid]
+  _: [i32]
+  _: rid
+  ModsKeys4: Mods @unique
+  DropsBaseItems: [BaseItemTypes]
+  _: i32
+  _: i32
+  _: [i32]
+}
