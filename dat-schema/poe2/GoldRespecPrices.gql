@@ -1,0 +1,4 @@
+type GoldRespecPrices {
+  Level: i32 @unique
+  Cost: i32 @unique
+}

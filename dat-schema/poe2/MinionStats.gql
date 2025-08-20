@@ -1,0 +1,8 @@
+type MinionStats {
+  Stat: Stats @unique
+  _: [rid]
+  _: [rid]
+  _: [rid]
+  _: bool
+  _: bool
+}
