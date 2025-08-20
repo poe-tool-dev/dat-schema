@@ -1168,23 +1168,23 @@ type CurrencyItems @tags(list: ["item:def", "item:recipe"]) {
   StackSize: i32
   CurrencyUseType: i32
   Action: string
-  Directions: string
+  Directions: string @localized
   "Full stack transforms into this item"
   FullStack_BaseItemTypesKey: BaseItemTypes
-  Description: string
+  Description: string @localized
   Usage_AchievementItemsKeys: [AchievementItems]
   Scroll: bool
   Possession_AchievementItemsKey: AchievementItems
   _: [rid]
   _: [i32]
   CurrencyTab_StackSize: i32
-  XBoxDirections: string
+  XBoxDirections: string @localized
   _: i32
   ModifyMapsAchievements: [AchievementItems]
   ModifyContractsAchievements: [AchievementItems]
   CombineAchievements: [AchievementItems]
   ChangedForHardmode: bool
-  DescriptionHardmode: string
+  DescriptionHardmode: string @localized
   IsGold: bool
   _: bool
 }
@@ -2469,13 +2469,16 @@ type LeagueInfo {
   PanelImage: string
   HeaderImage: string
   Screenshots: [string]
-  Description: string
+  Description: string @localized
   _: bool
-  TrailerVideoLink: string
+  TrailerVideoLink: string @localized
   BackgroundImage: string
   _: bool
   _: bool
   PanelItems: [string]
+  _: string
+  _: string @localized
+  _: [i32]
   _: string
 }
 
@@ -5881,6 +5884,30 @@ type MemoryLineType {
 
 type MtxTypes {
   Id: string
+  _: i32 @unique
+  Name: string @localized
+  _: string @localized
+  Description1: string @localized
+  Description2: string @localized
+  _: string @localized
+  Type: string @localized
+  _: rid
+  _: rid
+  _: rid
+  _: string
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+  _: string
+  _: bool
+  _: bool
+  _: bool
+  _: string @localized
+  _: string
+  _: string
 }
 
 type MtxTypeGameSpecific {

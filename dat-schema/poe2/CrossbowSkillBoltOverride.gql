@@ -1,0 +1,5 @@
+type CrossbowSkillBoltOverride {
+  ActiveSkill: ActiveSkills
+  _: rid
+  _: i32
+}

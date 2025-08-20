@@ -1,7 +1,7 @@
 type ThreeToOneRecipes {
   _: string @unique
-  InputBaseItem: rid @unique
-  OutputBaseItem: rid
+  InputBaseItem: BaseItemTypes @unique
+  OutputBaseItem: BaseItemTypes
   _: i32
   _: rid
 }
