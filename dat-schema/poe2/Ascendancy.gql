@@ -1,7 +1,7 @@
 type Ascendancy {
   Id: string @unique
   ClassNo: i32
-  Characters: [Characters]
+  Character: Characters
   "Coordinates in 'x1, y1, x2, y2' format"
   CoordinateRect: string
   RGBFlavourTextColour: string
@@ -11,7 +11,13 @@ type Ascendancy {
   PassiveTreeImage: string @file(ext: ".dds")
   TreeRegionVector: i32
   TreeRegionAngle: i32
+  _: bool
   BackgroundImage: i32
   _: i32
-  Disabled: bool
+  _: i32
+  _: rid
+  _: i32
+  _: rid
+  _: rid
+  _: rid
 }

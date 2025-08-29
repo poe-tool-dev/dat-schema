@@ -1,0 +1,4 @@
+type SupportGemFamily {
+  Id: string @unique
+  Text: string @localized
+}
