@@ -1,0 +1,6 @@
+type TieredCurrency {
+  BaseItemType: BaseItemTypes @unique
+  Tier: i32
+  MinimumModLevel: rid
+  _: i32 # All rows empty
+}
