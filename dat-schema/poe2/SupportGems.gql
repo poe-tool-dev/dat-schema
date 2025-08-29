@@ -2,4 +2,9 @@ type SupportGems {
   SkillGem: SkillGems
   _: i32
   Icon: string  @file(ext: ".dds")
+  Family: [SupportGemFamily]
+  _: bool
+  _: rid
+  _: rid
+  _: rid
 }
