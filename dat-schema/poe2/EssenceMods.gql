@@ -2,8 +2,8 @@
 type EssenceMods {
   Essence: Essences
   TargetItemCategory: EssenceTargetItemCategories
-  _: rid
-  _: rid
+  Mod1: Mods
+  Mod2: Mods
   Text: string @localized
   _: [rid]
   _: [rid]
