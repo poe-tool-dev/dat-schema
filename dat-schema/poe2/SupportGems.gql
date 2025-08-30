@@ -3,8 +3,8 @@ type SupportGems {
   _: i32
   Icon: string  @file(ext: ".dds")
   Family: [SupportGemFamily]
-  _: bool
-  _: rid
+  IsLineage: bool
+  FlavourText: FlavourText
   _: rid
   _: rid
 }
