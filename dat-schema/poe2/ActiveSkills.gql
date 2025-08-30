@@ -32,10 +32,10 @@ type ActiveSkills {
   CharacterAudioEvent: CharacterAudioEvents
   AiScript: string @file(ext: ".ais")
   MinionType: MinionType
-  _: rid
   _: bool
   _: string
-  StatDescriptionType: StatDescriptionTypes
+  StatDescriptionType: i32
   StatDescription: string
   WeaponRequirements: ActiveSkillWeaponRequirement
+  _: i32
 }
