@@ -1,0 +1,10 @@
+# Added 4.3
+type EssenceMods {
+  _: rid
+  TargetItemCategory: EssenceTargetItemCategories
+  _: rid
+  _: rid
+  Text: string @localized
+  _: [rid]
+  _: [rid]
+}
