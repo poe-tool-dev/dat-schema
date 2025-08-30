@@ -6,8 +6,8 @@ type RitualStashTabLayout {
   FirstSlotIndex: i32 @unique
   Width: i32
   Height: i32
-  _: bool
-  _: string
+  ShowIfEmpty: bool
+  _: rid
   _: i32
-  _: [rid]
+  _: string
 }
