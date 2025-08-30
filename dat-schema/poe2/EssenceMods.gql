@@ -1,6 +1,6 @@
 # Added 4.3
 type EssenceMods {
-  _: rid
+  Essence: Essences
   TargetItemCategory: EssenceTargetItemCategories
   _: rid
   _: rid
