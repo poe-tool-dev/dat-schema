@@ -1,7 +1,6 @@
 type ItemClasses @tags(list: ["crafting"]) {
   Id: string @unique
   Name: string
-  TradeMarketCategory: TradeMarketCategory
   ItemClassCategory: ItemClassCategories
   RemovedIfLeavesArea: bool
   _: [_] # All rows empty
@@ -22,7 +21,6 @@ type ItemClasses @tags(list: ["crafting"]) {
   CanScourge: bool
   CanUpgradeRarity: bool
   _: bool
-  InventoryDimensions: [i32]
   ItemClassFlags: [i32]
   Unmodfiable: bool
   CanBeFractured: bool
