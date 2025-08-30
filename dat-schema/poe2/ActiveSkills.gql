@@ -33,7 +33,7 @@ type ActiveSkills {
   AiScript: string @file(ext: ".ais")
   MinionType: MinionType
   _: bool
-  _: string
+  ShortDescription: string
   StatDescriptionType: i32
   StatDescription: string
   WeaponRequirements: ActiveSkillWeaponRequirement
