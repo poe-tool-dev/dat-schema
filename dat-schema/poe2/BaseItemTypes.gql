@@ -12,7 +12,6 @@ type BaseItemTypes @tags(list: ["item:def", "item:droptable"]) {
   SoundEffect: SoundEffects
   Tags: [Tags]
   ModDomain: ModDomains
-  SiteVisibility: i32
   ItemVisualIdentity: ItemVisualIdentity
   HASH32: u32 @unique
   VendorRecipe_AchievementItems: [AchievementItems]
@@ -28,7 +27,6 @@ type BaseItemTypes @tags(list: ["item:def", "item:droptable"]) {
   UncutGemSoundEffect: SoundEffects
   _: rid
   _: bool
-  TradeMarketCategory: TradeMarketCategory
   Unmodifiable: bool
   Achievement: [AchievementItems]
   ShopTag: ShopTag
