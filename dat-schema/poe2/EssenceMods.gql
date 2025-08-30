@@ -6,5 +6,5 @@ type EssenceMods {
   Mod2: Mods
   Text: string @localized
   _: [rid]
-  _: [rid]
+  _: [i32]
 }
