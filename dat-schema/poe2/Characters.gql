@@ -69,4 +69,6 @@ type Characters {
   _: [rid]
   _: f32
   GemCuttingIcon: string
+  _: rid
+  _: rid
 }

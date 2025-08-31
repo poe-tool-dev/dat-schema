@@ -1,0 +1,8 @@
+type PassiveSkillMasteryGroups {
+  Id: string @unique
+  MasteryEffects: [PassiveSkillMasteryEffects]
+  _: bool
+  SoundEffect: SoundEffects
+  MasteryCountStat: Stats
+  Art: PassiveSkillTreeMasteryArt
+}

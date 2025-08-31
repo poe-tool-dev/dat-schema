@@ -52,4 +52,5 @@ type PassiveSkills {
   WeaponPointsGranted: i32
   _: bool
   _: bool
+  _: [PassiveSkills]
 }
