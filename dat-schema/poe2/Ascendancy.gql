@@ -14,8 +14,10 @@ type Ascendancy {
   _: bool
   BackgroundImage: i32
   _: i32
+  BaseAscendancy: Ascendancy
   _: i32
-  _: rid
+  _: i32
+  _: i32
   _: i32
   _: rid
   _: rid
