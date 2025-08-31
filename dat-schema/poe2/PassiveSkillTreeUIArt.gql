@@ -1,0 +1,17 @@
+type PassiveSkillTreeUIArt {
+  Id: string @unique
+  GroupBackgroundSmall: string
+  GroupBackgroundMedium: string
+  GroupBackgroundLarge: string
+  _: bool
+  GroupBackgroundSmallBlank: string
+  GroupBackgroundMediumBlank: string
+  GroupBackgroundLargeBlank: string
+  _: rid
+  PassiveFrame: PassiveSkillTreeNodeFrameArt
+  NotableFrame: PassiveSkillTreeNodeFrameArt
+  KeystoneFrame: PassiveSkillTreeNodeFrameArt
+  JewelFrame: PassiveSkillTreeNodeFrameArt
+  Ornament: string
+  _: rid
+}
