@@ -1,0 +1,10 @@
+type AbyssBenchTicketTypes {
+  BaseItemType: BaseItemTypes @unique
+  UsabeOnItemClasses: [ItemClasses]
+  _: i32 # All rows empty
+  _: i32
+  MaximumItemLevel: i32
+  MinimumModLevel: i32
+  _: i32
+  _: bool
+}
