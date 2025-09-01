@@ -4,7 +4,7 @@ type SoulCores {
   StatsValuesMartialWeapon: [i32]
   StatsArmour: [Stats]
   StatsValuesArmour: [i32]
-  Rank: i32
+  RequiredLevel: i32
   StatsCasterWeapon: [Stats]
   StatsValuesCasterWeapon: [i32]
   StatsAllEquipment: [Stats]
