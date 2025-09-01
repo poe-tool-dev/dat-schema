@@ -1,0 +1,8 @@
+type AbyssMonsterModReplacement {
+  Mod: Mods @unique
+  Mods: [Mods]
+  _: bool
+  _: bool
+  _: [i32]
+  _: [rid]
+}
