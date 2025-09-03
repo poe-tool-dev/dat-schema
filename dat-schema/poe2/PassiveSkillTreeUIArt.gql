@@ -7,11 +7,11 @@ type PassiveSkillTreeUIArt {
   GroupBackgroundSmallBlank: string
   GroupBackgroundMediumBlank: string
   GroupBackgroundLargeBlank: string
-  _: rid
+  Connection: PassiveSkillTreeConnectionArt
   PassiveFrame: PassiveSkillTreeNodeFrameArt
   NotableFrame: PassiveSkillTreeNodeFrameArt
   KeystoneFrame: PassiveSkillTreeNodeFrameArt
   JewelFrame: PassiveSkillTreeNodeFrameArt
-  Ornament: string
-  _: rid
+  Glow: string
+  AscendancyStart: PassiveSkillTreeNodeFrameArt
 }

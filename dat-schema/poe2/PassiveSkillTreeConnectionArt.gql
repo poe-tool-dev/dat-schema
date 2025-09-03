@@ -1,0 +1,10 @@
+type PassiveSkillTreeConnectionArt {
+  Id: string @unique
+  _: string
+  _: string
+  _: string
+  _: string
+  _: string
+  Ornament1: string
+  Ornament2: string
+}
