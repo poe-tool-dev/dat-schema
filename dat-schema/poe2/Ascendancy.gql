@@ -15,10 +15,7 @@ type Ascendancy {
   BackgroundImage: i32
   _: i32
   BaseAscendancy: Ascendancy
-  _: i32
-  _: i32
-  _: i32
-  _: i32
+  _: PassiveSkillTreeUIArt
   _: rid
   _: rid
   _: rid
