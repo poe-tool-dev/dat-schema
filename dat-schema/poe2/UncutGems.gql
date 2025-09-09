@@ -1,0 +1,4 @@
+type UncutGems {
+  BaseItemType: BaseItemTypes @unique
+  Tier: i32
+}

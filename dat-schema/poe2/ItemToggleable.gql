@@ -1,0 +1,4 @@
+type ItemToggleable {
+  BaseItemType: BaseItemTypes @unique
+  _: rid
+}

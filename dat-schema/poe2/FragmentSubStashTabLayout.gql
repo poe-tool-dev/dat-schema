@@ -1,0 +1,17 @@
+type FragmentSubStashTabLayout {
+  Id: string @unique
+  SubStash: FragmentSubStashes
+  StoredItem: BaseItemTypes
+  _: i32 # All rows empty
+  _: i32 # All rows empty
+  _: i32
+  _: i32 # All rows empty
+  _: i32
+  _: i32
+  _: rid
+  _: bool
+  _: i32
+  _: rid
+  _: rid
+  _: i32 # All rows empty
+}

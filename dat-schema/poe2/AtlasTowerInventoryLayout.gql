@@ -1,0 +1,9 @@
+type AtlasTowerInventoryLayout {
+  Slot: i32 @unique
+  RequiredModifiers: i32 @unique # Required number of modifiers on waystone to unlock this slot
+  BlockedIcon: string @unique
+  _: i32
+  _: i32 @unique
+  _: i32
+  UnblockedIcon: string @unique
+}

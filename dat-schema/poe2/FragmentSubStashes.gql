@@ -1,0 +1,4 @@
+type FragmentSubStashes {
+  Id: string @unique
+  _: string
+}
