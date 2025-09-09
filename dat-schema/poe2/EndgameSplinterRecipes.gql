@@ -1,0 +1,5 @@
+type EndgameSplinterRecipes {
+  BaseItemType: BaseItemTypes
+  Difficulty: i32
+  Cost: i32
+}

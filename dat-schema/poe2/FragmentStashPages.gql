@@ -1,0 +1,5 @@
+type FragmentStashPages {
+  Id: string @unique
+  Text: string @unique @localized
+  Icon: string
+}
