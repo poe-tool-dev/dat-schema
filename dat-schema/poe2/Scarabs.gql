@@ -1,0 +1,4 @@
+type Scarabs {
+  Type: i32
+  Tier: i32
+}

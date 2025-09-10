@@ -1,6 +1,0 @@
-type UncutGemAdditionalTiers {
-  BaseItemType: BaseItemTypes
-  AreaLevel: i32
-  Tier: i32
-  Odds: i32
-}

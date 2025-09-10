@@ -1,0 +1,4 @@
+type SoulCoreLimits {
+  Id: string
+  Limit: i32
+}
