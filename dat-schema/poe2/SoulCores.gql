@@ -9,4 +9,6 @@ type SoulCores {
   StatsValuesCasterWeapon: [i32]
   StatsAllEquipment: [Stats]
   StatsValuesAllEquipment: [i32]
+  Limit: SoulCoreLimits
+  _: rid
 }

@@ -1,5 +1,5 @@
 type TrapTools {
   BaseItemType: BaseItemTypes @unique
-  DetonationType: i32
+  DetonationType: i32 # 1 Manually 2 Proximity
   ThrowTime: i32
 }

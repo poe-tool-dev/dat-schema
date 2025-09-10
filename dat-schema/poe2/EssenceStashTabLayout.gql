@@ -1,4 +1,4 @@
-type SocketableStashTabLayout {
+type EssenceStashTabLayout {
   Id: string @unique
   StoredItem: BaseItemTypes
   XOffset: i32
@@ -6,7 +6,7 @@ type SocketableStashTabLayout {
   FirstSlotIndex: i32 @unique
   Width: i32
   Height: i32
-  _: bool
+  ShowIfEmpty: bool
   _: i32
   FrameType: i32
 }

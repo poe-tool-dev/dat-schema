@@ -1,5 +1,5 @@
 type UncutGemTiers {
   BaseItemType: BaseItemTypes
   Tier: i32
-  AreaLevel: i32
+  NewBaseItemType: BaseItemTypes
 }
