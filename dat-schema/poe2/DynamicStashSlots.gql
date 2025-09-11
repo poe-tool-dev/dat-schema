@@ -1,0 +1,10 @@
+type DynamicStashSlots {
+  Id: string @unique
+  Icon_DDSFile: string @file(ext: ".dds")
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}

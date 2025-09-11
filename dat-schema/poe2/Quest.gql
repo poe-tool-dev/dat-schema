@@ -12,5 +12,4 @@ type Quest {
   _: bool
   _: bool
   _: [rid]
-  _: [rid]
 }

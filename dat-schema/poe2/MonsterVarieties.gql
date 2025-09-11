@@ -125,4 +125,7 @@ type MonsterVarieties {
   _: i32
   _: bool
   _: i32
+  MonsterCategory: MonsterCategories
+  _: rid
+  _: i32
 }

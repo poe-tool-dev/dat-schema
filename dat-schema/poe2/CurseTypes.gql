@@ -1,0 +1,7 @@
+type CurseTypes {
+  Id: string @unique
+  _: rid @unique
+  _: bool
+  HexproofStat: Stats @unique
+  _: rid @unique
+}

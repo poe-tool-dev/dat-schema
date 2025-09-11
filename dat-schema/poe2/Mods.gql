@@ -71,4 +71,5 @@ type Mods @tags(list: ["crafting"]) {
   _: [GrantedEffectsPerLevel]
   RadiusJewelType: i32
   IsEssenceOnlyModifier: bool
+  _: i32
 }
