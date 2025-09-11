@@ -1,0 +1,5 @@
+type MarkTypes {
+  Id: string @unique
+  _: rid @unique
+  _: rid @unique
+}

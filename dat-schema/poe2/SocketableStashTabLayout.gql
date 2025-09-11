@@ -8,5 +8,5 @@ type SocketableStashTabLayout {
   Height: i32
   _: bool
   _: i32
-  FrameType: i32
+  SlotIcon: DynamicStashSlots
 }

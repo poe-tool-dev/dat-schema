@@ -1,4 +1,4 @@
-type EssenceStashTabLayout {
+type DeliriumStashTabLayout {
   Id: string @unique
   StoredItem: BaseItemTypes
   XOffset: i32
@@ -6,7 +6,8 @@ type EssenceStashTabLayout {
   FirstSlotIndex: i32 @unique
   Width: i32
   Height: i32
-  ShowIfEmpty: bool
+  SlotSize: i32
   _: i32
   SlotIcon: DynamicStashSlots
+  ShowIfEmpty: bool
 }
