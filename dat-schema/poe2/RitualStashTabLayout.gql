@@ -7,7 +7,7 @@ type RitualStashTabLayout {
   Width: i32
   Height: i32
   ShowIfEmpty: bool
-  _: rid
-  _: i32
-  _: string
+  SlotSize: i32
+  SlotIcon: DynamicStashSlots
+  MiniIcon: string # mini icon in top left corner
 }

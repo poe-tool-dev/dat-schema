@@ -1,0 +1,8 @@
+type MiniQuestStates {
+  _: i32
+  QuestFlags1: [QuestFlags] # when state start
+  QuestFlags2: [QuestFlags] # when state end
+  _: string
+  _: i32 # maybe act?
+  TSIFile: string @file(ext: ".tsi")
+}

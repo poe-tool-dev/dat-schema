@@ -1,12 +1,11 @@
 type QuestStaticRewards {
   QuestFlag: QuestFlags
   _: i32
-  _: i32
-  StatsKeys: [Stats]
-  StatValues: [i32]
+  RewardStats: [Stats]
+  RewardStatsValues: [i32]
   QuestKey: Quest
   _: i32
-  ClientStringsKey: ClientStrings
+  Message: ClientStrings
   _: i32
   _: bool
 }

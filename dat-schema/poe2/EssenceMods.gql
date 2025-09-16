@@ -2,7 +2,7 @@
 type EssenceMods {
   Essence: Essences
   TargetItemCategory: EssenceTargetItemCategories
-  Mod1: Mods
+  Mod: Mods
   DisplayMod: Mods
   Text: string @localized
   OutcomeMods: [Mods]

@@ -6,7 +6,7 @@ type SocketableStashTabLayout {
   FirstSlotIndex: i32 @unique
   Width: i32
   Height: i32
-  _: bool
-  _: i32
+  ShowIfEmpty: bool
+  SlotSize: i32
   SlotIcon: DynamicStashSlots
 }
