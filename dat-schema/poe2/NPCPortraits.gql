@@ -1,0 +1,10 @@
+type NPCPortraits {
+  Name: string @unique
+  PortraitFile: string
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+  _: i32
+  _: bool
+}
