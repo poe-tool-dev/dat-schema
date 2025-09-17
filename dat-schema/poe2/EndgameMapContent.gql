@@ -11,6 +11,13 @@ type EndgameMapContent {
   PrecursorTabletStat: Stats
   Stats: [Stats]
   StatsValues: [i32]
-  Description: string
-  Name: string
+  Description: string @localized
+  Name: string @localized
+  _: rid
+  _: [i32]
+  _: string @localized
+  _: string @localized
+  _: [Stats]
+  _: [Stats]
+  _: i32
 }

@@ -1,0 +1,6 @@
+type LeagueStaticRewards {
+  _: i32
+  _: i32
+  _: rid
+  _: rid
+}

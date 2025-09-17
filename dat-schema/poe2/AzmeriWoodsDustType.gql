@@ -1,0 +1,8 @@
+type AzmeriWoodsDustType {
+  Id: string
+  Name: string @localized
+  Icon: string
+  _: MiscAnimated
+  _: rid
+  Text: string @localized
+}

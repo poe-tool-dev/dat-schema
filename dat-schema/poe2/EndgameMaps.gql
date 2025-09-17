@@ -1,17 +1,21 @@
 type EndgameMaps {
   _: i32
-  Biomes: [EndgameMapBiomes]
-  AdjacentBiomes: [EndgameMapBiomes]
-  WorldAreaBoss: WorldAreas
-  WorldArea: WorldAreas
-  NaturalSpawnWeight: [i32]
-  NativePacks: [MonsterPacks]
-  FlavourText: string
-  MinWatchstoneTier: i32
+  _: rid @unique
+  _: [i32]
+  _: [rid]
+  FlavourText: string @localized
   _: i32
-  MapPin: EndgameMapPins
-  MapDecoration: EndgameMapDecorations
+  _: [i32]
   _: rid
-  CorruptedMapPin: EndgameMapPins
+  _: rid
+  _: rid
+  _: rid
   _: i32
+  _: i32
+  _: rid
+  _: rid
+  _: [rid]
+  SpecialMapText: string @localized
+  SpecialMapFlavourText: string @localized
+  SpecialMapHelpText: string @localized
 }

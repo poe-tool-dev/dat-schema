@@ -7,6 +7,6 @@ type EssenceStashTabLayout {
   Width: i32
   Height: i32
   ShowIfEmpty: bool
-  _: i32
+  SlotSize: i32
   SlotIcon: DynamicStashSlots
 }

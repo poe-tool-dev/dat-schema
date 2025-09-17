@@ -8,6 +8,6 @@ type CurrencyStashTabLayout {
   Height: i32
   ShowIfEmpty: bool
   SlotGroup: i32
-  _: i32
+  SlotSize: i32
   SlotIcon: DynamicStashSlots
 }

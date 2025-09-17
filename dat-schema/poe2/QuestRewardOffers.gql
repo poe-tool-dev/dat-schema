@@ -14,5 +14,4 @@ type QuestRewardOffers {
   _: rid
   _: rid
   _: i32
-  _: i32
 }
