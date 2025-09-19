@@ -1,0 +1,4 @@
+type SkillGemGoldPricePerLevel {
+    Level: i32
+    Price: i32
+}

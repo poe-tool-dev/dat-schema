@@ -1,0 +1,4 @@
+type SkillGemGoldPricePerQuality {
+    Quality: i32
+    Price: i32
+}
