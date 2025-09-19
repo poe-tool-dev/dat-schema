@@ -1,7 +1,7 @@
 type GoldModPrices {
   Mod: Mods
   Value: i32
-  _: i32
+  BasePricePercent: i32
   _: i32
   _: i32
   Tags: [Tags]
