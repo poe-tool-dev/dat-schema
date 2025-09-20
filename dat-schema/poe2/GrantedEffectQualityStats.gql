@@ -4,5 +4,6 @@ type GrantedEffectQualityStats @tags(list: ["item:droptable"]) {
   StatsValuesPermille: [i32]
   AddTypes: [ActiveSkillType]
   AddMinionTypes: [ActiveSkillType]
-  _: [i32]
+  "Apply to these stat sets, if not specified apply to all sets"
+  ApplyToStatSets: [i32]
 }
