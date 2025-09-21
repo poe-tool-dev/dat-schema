@@ -1,0 +1,8 @@
+type ProjectileOverrides {
+  Id: string
+  _: [string] @file(ext: ".ao")
+  _: string @file(ext: ".ao")
+  _: [string] @file(ext: ".ao")
+  ItemVisualIdentity: ItemVisualIdentity
+  _: string @file(ext: ".fmt")
+}

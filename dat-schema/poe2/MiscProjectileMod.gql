@@ -1,0 +1,9 @@
+type MiscProjectileMod {
+  Id: string
+  _: string
+  _: string
+  AOFile: string @file(ext: ".ao")
+  _: rid
+  _: rid
+  _: string
+}

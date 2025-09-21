@@ -1,0 +1,7 @@
+# Added 4.3
+type NPCTalkDialogueSteps {
+  NPCTalkDialogue: NPCTalkDialogue
+  Step: i32
+  NPCTextAudio: [NPCTextAudio]
+  NPCTalkDialogueTextAudio: [NPCTalkDialogueTextAudio]
+}

@@ -1,0 +1,11 @@
+type MapStashSpecialTypeEntries {
+  Id: string
+  _: i32
+  MapItem: BaseItemTypes
+  Name: string
+  _: i32
+  DDSFile: string @file(ext: ".dds")
+  DDSFileNew: string @file(ext: ".dds")
+  IsShaperGuardian: bool
+  IsElderGuardian: bool
+}

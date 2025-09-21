@@ -1,0 +1,7 @@
+type MiscProjectileModArtVariations {
+  Id: string
+  _: i32
+  _: i32
+  _: rid
+  _: [MiscProjectileMod]
+}
