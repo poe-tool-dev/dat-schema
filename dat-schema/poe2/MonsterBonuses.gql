@@ -1,0 +1,8 @@
+type MonsterBonuses {
+  Id: string @unique
+  BonusMods: [Mods]
+  _: rid
+  _: [i32]
+  StatsKeys: [Stats]
+  StatValues: [i32]
+}

@@ -5,9 +5,10 @@ type AegisVariations {
   DefendsAgainstCold: bool
   DefendsAgainstLightning: bool
   DefendsAgainstChaos: bool
-  _: rid
-  _: rid
-  _: rid
+  DefinitionBuff: BuffDefinitions
+  DefinitionDepleted: BuffDefinitions
+  DefinitionValue: BuffDefinitions
   _: bool
+  _: rid
   _: [string]
 }
