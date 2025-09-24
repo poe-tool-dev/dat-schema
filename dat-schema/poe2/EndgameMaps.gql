@@ -1,6 +1,6 @@
 type EndgameMaps {
   _: i32
-  _: rid @unique
+  WorldArea: WorldAreas @unique
   _: [i32]
   _: [rid]
   FlavourText: string @localized
@@ -14,7 +14,7 @@ type EndgameMaps {
   _: i32
   _: rid
   _: rid
-  _: [rid]
+  MapLocations: [EndgameMapLocation]
   SpecialMapText: string @localized
   SpecialMapFlavourText: string @localized
   SpecialMapHelpText: string @localized
