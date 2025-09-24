@@ -1,0 +1,15 @@
+# Added 4.1
+type IndicatorConditions {
+  Id: string @unique
+  _: i32
+  _: [Stats]
+  _: i32
+  _: bool
+  _: bool
+  _: Stats
+  _: bool
+  _: bool
+  _: [i32]
+  _: i32
+  _: i32
+}

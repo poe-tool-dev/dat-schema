@@ -1,25 +1,19 @@
 type MapPins {
   Id: string @unique
-  "X starts at left side of image, can be negative"
-  PositionX: i32
-  "Y starts at top side of image, can be negative"
-  PositionY: i32
-  _: i32
-  _: i32
+  WorldArea: WorldAreas
   WorldAreasKeys: [WorldAreas]
   Name: string @localized
   FlavourText: string @localized
-  _: [rid]
+  QuestFlags1: [QuestFlags]
   Act: i32
-  _: [rid]
-  _: [rid]
-  _: rid
+  QuestFlags2: [QuestFlags]
+  QuestFlags3: [QuestFlags]
+  QuestFlag1: QuestFlags
   _: string
-  _: i32
-  _: i32
+  ParentMapPin: MapPins
   MetadataId: string
   _: rid
-  _: rid
+  QuestFlag2: QuestFlags
   _: string @localized
   _: bool
   _: i32

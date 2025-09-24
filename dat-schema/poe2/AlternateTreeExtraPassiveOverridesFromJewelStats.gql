@@ -1,0 +1,7 @@
+# Added 4.3
+type AlternateTreeExtraPassiveOverridesFromJewelStats {
+  Id: string @unique
+  RadiusArt: PassiveJewelRadiiArt
+  _: i32
+  PassiveSkill: PassiveSkills
+}
