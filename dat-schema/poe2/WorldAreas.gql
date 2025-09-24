@@ -22,16 +22,16 @@ type WorldAreas {
   _: [_]
   _: [_]
   _: [_]
-  _: bool
+  IsMapArea: bool
   _: [_]
   _: rid
   _: rid
   AreaMods: [Mods]
   _: i32
   _: bool
+  MaxLevel: i32
   _: i32
-  _: i32
-  _: bool
+  IsHideout: bool
   _: i32
   _: i32
   Tags: [Tags]
@@ -41,7 +41,7 @@ type WorldAreas {
   _: i32
   _: rid
   _: [string]
-  _: bool
+  IsUniqueMapArea: bool
   _: rid
   _: rid
   _: i32

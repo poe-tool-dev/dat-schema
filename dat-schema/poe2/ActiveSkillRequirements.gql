@@ -1,0 +1,14 @@
+# Added 4.1
+type ActiveSkillRequirements {
+  GrantedEffect: GrantedEffects @unique
+  BuffDefinition: BuffDefinitions
+  _: i32
+  _: i32
+  _: rid
+  _: rid
+  Stat: Stats
+  _: bool
+  _: bool
+  _: i32
+  _: bool
+}

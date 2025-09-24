@@ -1,0 +1,11 @@
+# Added 4.1
+type WorldMapLegends {
+  Id: string @unique
+  Icon: string
+  Name: string @localized
+  _: i32
+  _: i32
+  Acts: [Acts]
+  _: bool
+  _: string
+}

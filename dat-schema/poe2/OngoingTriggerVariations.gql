@@ -1,0 +1,8 @@
+# Added 4.1
+type OngoingTriggerVariations {
+  ActiveSkill: ActiveSkills @unique
+  BuffReserve: BuffDefinitions
+  BuffCount: BuffDefinitions
+  _: bool
+  Stats: [Stats]
+}

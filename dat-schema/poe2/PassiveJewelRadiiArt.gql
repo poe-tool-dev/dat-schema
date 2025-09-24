@@ -1,0 +1,7 @@
+# Added 4.3
+type PassiveJewelRadiiArt {
+  Id: string @unique
+  Circle1: string
+  Circle2: string
+  Glow: string
+}

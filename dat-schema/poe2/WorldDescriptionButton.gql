@@ -1,0 +1,10 @@
+# Added 4.3
+type WorldDescriptionButton {
+  Id: string @unique
+  IconDefault: string
+  IconLight: string
+  _: bool
+  IconWASD: string
+  Sound1: SoundEffects
+  Sound2: SoundEffects
+}
