@@ -1,0 +1,12 @@
+type ExpeditionDeals {
+  Id: i32 @unique
+  Function: string
+  Arguments: string
+  _: i32
+  Description: string @localized
+  _: [_]
+  _: string
+  _: i32
+  _: i32
+  DealFamily: ExpeditionDealFamilies
+}
