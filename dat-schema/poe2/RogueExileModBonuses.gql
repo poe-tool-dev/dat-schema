@@ -1,0 +1,6 @@
+# Added 4.2
+type RogueExileModBonuses {
+  Mod: Mods @unique
+  Stats: [Stats]
+  StatsValues: [i32]
+}

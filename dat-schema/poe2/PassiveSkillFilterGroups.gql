@@ -1,0 +1,5 @@
+# Added 4.2
+type PassiveSkillFilterGroups {
+  Id: string @unique
+  Name: string @localized
+}

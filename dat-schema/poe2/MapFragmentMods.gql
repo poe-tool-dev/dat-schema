@@ -1,7 +1,7 @@
 type MapFragmentMods {
-  BaseItemTypesKey: BaseItemTypes @unique
-  ModsKeys: [Mods]
-  AchievementItemsKey: [AchievementItems]
+  BaseItemType: BaseItemTypes @unique
+  Mods: [Mods]
+  AchievementItems: [AchievementItems]
   MapFragmentFamilies: i32
   _: bool
   _: bool
