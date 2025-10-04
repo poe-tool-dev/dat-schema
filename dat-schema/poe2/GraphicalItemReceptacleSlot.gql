@@ -1,0 +1,12 @@
+# Added 4.1
+type GraphicalItemReceptacleSlot {
+  GraphicalItemReceptacle: GraphicalItemReceptacle
+  Key: i32
+  _: rid
+  _: i32
+  _: string
+  _: string
+  BaseItemType: BaseItemTypes @unique
+  SoundEffect: SoundEffects
+  _: string
+}
