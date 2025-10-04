@@ -50,7 +50,7 @@ type PassiveSkills {
   IsRootOfAtlasTree: bool
   GrantedSkill: SkillGems
   WeaponPointsGranted: i32
-  _: bool
-  _: bool
+  IsFree: bool
+  _: bool # Smith of Kitava body armour passives, maybe DoNotDraw(Connection)Line?
   _: [PassiveSkills]
 }

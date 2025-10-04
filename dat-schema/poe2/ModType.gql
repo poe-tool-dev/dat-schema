@@ -1,0 +1,7 @@
+# Added 4.1
+type ModType {
+  Name: string @unique
+  Stat: [Stats]
+  _: [_]
+  _: bool
+}

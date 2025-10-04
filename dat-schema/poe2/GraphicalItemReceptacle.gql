@@ -1,0 +1,21 @@
+# Added 4.1
+type GraphicalItemReceptacle {
+  Id: string @unique
+  _: string
+  _: ClientStrings
+  _: bool
+  _: bool
+  SoundEffect: SoundEffects
+  _: string
+  _: rid
+  Script: string
+  _: ClientStrings
+  _: bool
+  _: string
+  _: string
+  _: bool
+  _: rid
+  _: string
+  _: ClientStrings
+  _: string
+}

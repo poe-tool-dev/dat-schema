@@ -1,0 +1,7 @@
+# Added 4.3
+type MicrotransactionSlotFromWeaponSet {
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}

@@ -1,0 +1,28 @@
+# Added 4.1
+type WorldAreaLeagueChances {
+  Id: string @unique
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32 # All rows empty
+  _: i32
+  _: i32 # All rows empty
+  _: i32 # ShrineChance?
+  _: i32 # ShrineChance?
+  _: i32 # All rows empty
+  _: i32 # All rows empty
+  _: i32 # All rows empty
+  _: i32 # EssenceChance?
+  _: i32 # EssenceChance?
+  _: i32 # All rows empty
+  AbyssChance: i32
+  _: i32 # All rows empty
+  _: i32 # All rows empty
+  _: i32 # All rows empty
+  _: i32 # All rows empty
+  _: i32 # All rows empty
+  _: i32 # StrongboxChance?
+  _: i32 # StrongboxChance?
+  StoneCirclesChance: i32
+}

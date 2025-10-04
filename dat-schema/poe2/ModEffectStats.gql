@@ -1,0 +1,8 @@
+# Added 4.1
+type ModEffectStats {
+  Stat: Stats
+  Tags: [Tags]
+  _: bool
+  _: i32
+  _: bool
+}
