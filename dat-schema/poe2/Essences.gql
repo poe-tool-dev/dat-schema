@@ -5,9 +5,9 @@ type Essences {
   _: [Mods]
   _: [i32]
   MonsterMod: Mods
-  _: bool
+  Perfect: bool
   _: i32
   _: i32
-  _: i32
+  Tier: i32
   MapStat: Stats
 }
