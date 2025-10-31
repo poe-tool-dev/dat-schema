@@ -564,10 +564,9 @@ type BaseItemTypes @tags(list: ["item:def", "item:droptable"]) {
   _: rid
   _: rid
   _: bool
-  TradeMarketCategory: TradeMarketCategory
   Unmodifiable: bool
-  Achievement: [AchievementItems]
-  _: [rid]
+  Achievement1: [AchievementItems]
+  Achievement2: [AchievementItems]
   IgnoreQuantBonus: bool
   _: bool
   _: rid
@@ -2221,7 +2220,6 @@ type ItemClasses @tags(list: ["crafting"]) {
   _: bool
   _: bool
   MaxInventoryDimensions: [i32]
-  Flags: [ItemClassFlags]
   Unmodifiable: bool
   CanBeFractured: bool
   EquipAchievements: AchievementItems
