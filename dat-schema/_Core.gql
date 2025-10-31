@@ -380,7 +380,7 @@ type ArmourTypes @tags(list: ["item:def"]) {
 type Ascendancy {
   Id: string @unique
   ClassNo: i32
-  Characters: [Characters]
+  Character: Characters
   "Coordinates in 'x1, y1, x2, y2' format"
   CoordinateRect: string
   RGBFlavourTextColour: string
@@ -549,7 +549,6 @@ type BaseItemTypes @tags(list: ["item:def", "item:droptable"]) {
   SoundEffect: SoundEffects
   TagsKeys: [Tags]
   ModDomain: ModDomains
-  SiteVisibility: i32
   ItemVisualIdentity: ItemVisualIdentity
   HASH32: i32 @unique
   VendorRecipe_AchievementItems: [AchievementItems]
@@ -2200,7 +2199,6 @@ type ItemClassCategories {
 type ItemClasses @tags(list: ["crafting"]) {
   Id: string @unique
   Name: string
-  TradeMarketCategory: TradeMarketCategory
   ItemClassCategory: ItemClassCategories
   RemovedIfLeavesArea: bool
   _: [_] # All rows empty
@@ -2892,8 +2890,8 @@ type MinimapIcons {
   LargemapIconRadius: i32
   _: bool
   _: bool
-  _: bool
   MinimapIconPointerMaxDistance: i32
+  _: i32
   _: i32
 }
 
@@ -3497,7 +3495,7 @@ type MonsterSpawnerOverrides {
 
 type MonsterTypes {
   Id: string @unique
-  OTFile: string @file(ext: ".ot")
+  _: i32
   _: i32
   IsSummoned: bool
   Armour: i32
@@ -4807,7 +4805,6 @@ type Stats @tags(list: ["crafting"]) {
   IsLocal: bool
   IsWeaponLocal: bool
   Semantics: StatSemantics
-  Text: string
   _: bool
   IsVirtual: bool
   MainHandAlias_StatsKey: Stats
@@ -5275,7 +5272,7 @@ type WorldAreas {
   _: i32
   _: i32
   LoadingScreens: [string] @file(ext: ".dds")
-  _: rid
+  _: [rid]
   _: [rid]
   _: i32
   TopologiesKeys: [Topologies]
