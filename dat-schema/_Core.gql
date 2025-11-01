@@ -3498,7 +3498,6 @@ type MonsterTypes {
   IsSummoned: bool
   Armour: i32
   Evasion: i32
-  EnergyShieldFromLife: i32
   DamageSpread: i32
   MonsterResistancesKey: MonsterResistances
   IsLargeAbyssMonster: bool
@@ -4115,7 +4114,6 @@ type PassiveSkillStatCategories {
 
 type PassiveSkillTrees {
   Id: string
-  PassiveSkillGraph: string
   _: i32
   _: f32
   _: f32
@@ -4131,9 +4129,9 @@ type PassiveSkillTrees {
   _: bool
   _: bool
   _: bool
-  _: ClientStrings
+  Name: ClientStrings
   UIArt: PassiveSkillTreeUIArt
-  _: bool
+  PassiveSkillGraph: string
 }
 
 type PassiveSkillTreeTutorial {
