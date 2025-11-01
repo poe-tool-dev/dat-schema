@@ -17,4 +17,7 @@ type DefaultMonsterStats {
   AilmentThreshold: i32
   StunThreshold: i32
   _: i32
+  _: i32
+  _: i32
+  _: i32
 }

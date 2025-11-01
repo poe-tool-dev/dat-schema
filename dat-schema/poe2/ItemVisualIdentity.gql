@@ -85,4 +85,7 @@ type ItemVisualIdentity {
   _: string
   _: rid
   _: rid
+  _: rid
+  _: rid
+  _: string
 }

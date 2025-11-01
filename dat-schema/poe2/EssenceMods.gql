@@ -6,5 +6,5 @@ type EssenceMods {
   DisplayMod: Mods
   Text: string @localized
   OutcomeMods: [Mods]
-  _: [i32]
+  OutcomeModWeights: [i32]
 }
