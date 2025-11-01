@@ -1457,7 +1457,6 @@ type Environments {
 type EnvironmentTransitions {
   Id: string
   OTFiles: [string] @file(ext: ".ot")
-  _: [string]
 }
 
 type EssenceStashTabLayout {
@@ -2697,6 +2696,7 @@ type MapSeriesTiers {
   NecropolisTier: i32
   SettlersTier: i32
   SecretsTier: i32
+  KeepersTier: i32
 }
 
 type MapStashSpecialTypeEntries {
