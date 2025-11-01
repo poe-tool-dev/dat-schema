@@ -11,11 +11,11 @@ type Ascendancy {
   PassiveTreeImage: string @file(ext: ".dds")
   TreeRegionVector: i32
   TreeRegionAngle: i32
-  _: bool
   BackgroundImage: i32
   _: i32
+  Disabled: bool
   BaseAscendancy: Ascendancy
-  _: PassiveSkillTreeUIArt
+  UIArt: PassiveSkillTreeUIArt
   _: rid
   _: rid
   _: rid
