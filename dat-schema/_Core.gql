@@ -3180,6 +3180,7 @@ enum ModSetNames @indexing(first: 0) { _ }
 
 type ModType {
   Name: string @unique
+  _: [Stats]
   ModSellPriceTypesKeys: [ModSellPriceTypes]
   _: bool
 }
