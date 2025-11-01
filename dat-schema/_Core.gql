@@ -885,6 +885,7 @@ type Characters {
   _: MonsterVarieties
   _: i32
   _: f32
+  _: rid
 }
 
 type CharacterStartQuestState {
@@ -1129,6 +1130,7 @@ type CraftingBenchOptions @tags(list: ["crafting"]) {
   MapDevice: bool
   _: [rid]
   Tags: [Tags]
+  _: [i32]
 }
 
 type CraftingBenchSortCategories {
@@ -4101,6 +4103,10 @@ type PassiveSkills {
   _: bool
   _: rid
   _: rid
+  BrequelSubTree: brequelpassivesubtrees
+  _: bool
+  _: bool
+  _: bool
 }
 
 enum PassiveSkillTypes @indexing(first: 0) {

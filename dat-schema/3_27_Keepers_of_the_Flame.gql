@@ -10,3 +10,10 @@ type BreachElement {
   BossMapMod: Stats
   DuplicateBoss: Stats
 }
+
+type brequelpassivesubtrees {
+  Id: string  @unique
+  _: ClientStrings
+  _: ClientStrings
+  _: BaseItemTypes
+}
