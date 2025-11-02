@@ -17,3 +17,13 @@ type brequelpassivesubtrees {
   _: ClientStrings
   _: BaseItemTypes
 }
+
+type BrequelGraftTypes {
+  BaseItemType: BaseItemTypes
+  LeftArm: string
+  RightArm: string
+  SkillGem: SkillGems
+  _: i32
+  SkillAnimation: string
+  Achievement: AchievementItems
+}
