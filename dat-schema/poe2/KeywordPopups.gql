@@ -3,4 +3,5 @@ type KeywordPopups {
   Term: string
   Definition: string
   _: string
+  _: string
 }

@@ -1187,6 +1187,7 @@ type CurrencyItems @tags(list: ["item:def", "item:recipe"]) {
   DescriptionHardmode: string @localized
   IsGold: bool
   _: bool
+  _: bool
 }
 
 type CurrencyStashTabLayout {
@@ -1271,6 +1272,7 @@ type DefaultMonsterStats {
   _: i32
   _: i32
   Armour: i32
+  _: i32
 }
 
 type DeliriumStashTabLayout {
@@ -2104,6 +2106,7 @@ type HideoutNPCs {
   _: i32
   _: bool
   _: rid
+  _: bool
 }
 
 type HideoutRarity {
@@ -3863,6 +3866,7 @@ type NPCs {
   _: rid
   Gender: string
   _: bool
+  _: i32
 }
 
 type NPCShop {
@@ -3971,6 +3975,7 @@ type PassiveJewelRadii {
   RingOuterRadius: i32
   RingInnerRadius: i32
   Radius: i32
+  _: rid
 }
 
 type PassiveJewelSlots {
@@ -4101,7 +4106,7 @@ type PassiveSkills {
   _: i32
   _: [rid]
   _: bool
-  _: rid
+  DescendancyKey: Descendancy
   _: rid
   BrequelSubTree: brequelpassivesubtrees
   _: bool
@@ -4173,6 +4178,23 @@ type PassiveSkillTreeUIArt {
   GroupBackgroundSmallBlank: string
   GroupBackgroundMediumBlank: string
   GroupBackgroundLargeBlank: string
+}
+
+type PassiveSkillTreeUIArtAscendancy {
+  Id: string
+  StartNode: string
+  PassiveFrameNormal: string
+  PassiveFrameCanAllocate: string
+  PassiveFrameActive: string
+  PassiveFrameMask: string
+  NotableFrameNormal: string
+  NotableFrameCanAllocate: string
+  NotableFrameActive: string
+  NotableFrameMask: string
+  SocketFrameNormal: string
+  SocketFrameCanAllocate: string
+  SocketFrameActive: string
+  SocketFrameMask: string
 }
 
 type PassiveTreeExpansionJewels @tags(list: ["item:def"]) {
@@ -5102,6 +5124,23 @@ type Tutorial {
   _: i32
 }
 
+type UIArtAscendancy {
+  Id: string
+  AscendancyButtonNormal: string
+  AscendancyInfoPlate: string
+  ButtonBackground: string
+  ButtonBackgroundDouble: string
+  NameBackground: string
+  AscendancyButtonHighlight: string
+  AscendancyButtonPressed: string
+  Color: string
+  _: rid
+  RespcBGTop: string
+  RespcBGMiddle: string
+  RespcBGBottom: string
+  _: i32
+}
+
 enum UITalkCategories @indexing(first: 0) { _ }
 
 type UITalkText {
@@ -5331,6 +5370,7 @@ type WorldAreas {
   Ruleset: Rulesets
   _: i32
   QuestFlag: QuestFlags
+  _: i32
 }
 
 type WorldAreaLeagueChances {

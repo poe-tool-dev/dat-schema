@@ -24,4 +24,5 @@ type CurrencyItems @tags(list: ["item:def", "item:recipe"]) {
   UsageHint: string @localized
   _: bool
   _: bool
+  _: i32
 }
