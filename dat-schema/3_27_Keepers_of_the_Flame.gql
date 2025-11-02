@@ -19,7 +19,7 @@ type brequelpassivesubtrees {
 }
 
 type BrequelGraftTypes {
-  BaseItemType: BaseItemTypes
+  BaseItemType: BaseItemTypes @unique
   LeftArm: string
   RightArm: string
   SkillGem: SkillGems
