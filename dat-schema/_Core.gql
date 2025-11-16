@@ -2060,7 +2060,7 @@ type HeistStorageLayout {
 }
 
 type HideoutDoodads {
-  BaseItemTypesKey: BaseItemTypes @unique
+  MtxTypeGameSpecific: MtxTypeGameSpecific @unique
   Variation_AOFiles: [string] @file(ext: ".ao")
   IsNonMasterDoodad: bool
   InheritsFrom: string @files(ext: [".ot", ".otc"])
@@ -2796,6 +2796,7 @@ enum MicrotransactionCategoryId @indexing(first: 0) { _ }
 type MicrotransactionCategory {
   Id: MicrotransactionCategoryId
   Name: string
+  _: i32
 }
 
 type MicrotransactionCharacterPortraitVariations {
@@ -5933,7 +5934,7 @@ type MtxTypes {
   Type: string @localized
   _: rid
   _: rid
-  _: rid
+  ShopTag: ShopTag
   _: string
   _: i32
   _: i32
@@ -5951,11 +5952,12 @@ type MtxTypes {
 }
 
 type MtxTypeGameSpecific {
-  Type: MtxTypes
+  Type: MtxTypes @unique
   HASH16: i32
   DDSFile: string @file(ext: ".dds")
-  _: i32
+  Category: MicrotransactionCategory
   _: [i32]
+  _: i32
 }
 
 # Added 3.19
