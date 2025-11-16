@@ -4,4 +4,5 @@ type ThreeToOneRecipes {
   OutputBaseItem: BaseItemTypes
   _: i32
   _: rid
+  UpgradableInStashType: [StashType] @ref(column: "Id")
 }
