@@ -2261,7 +2261,7 @@ type ItemCosts {
   Cost3Values: [i32]
   Cost4Currencies: [BaseItemTypes]
   Cost4Values: [i32]
-  _: [_]
+  RuthlessWithGold: [i32]
 }
 
 enum ItemCreationTemplateCustomAction @indexing(first: 0) { _ }
@@ -2637,7 +2637,7 @@ type MapPins {
 type MapPurchaseCosts {
   Tier: i32 @unique
   Cost: ItemCosts
-  _: rid
+  CostHardmode: ItemCosts
 }
 
 type Maps @tags(list: ["item:def", "item:recipe"]) {
