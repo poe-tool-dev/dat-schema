@@ -2245,7 +2245,7 @@ enum ItemClassFlags @indexing(first: 0) {
 }
 
 type ItemCostPerLevel {
-  Contract_BaseItemTypesKey: BaseItemTypes
+  BaseItem: BaseItemTypes
   Level: i32
   Cost: ItemCosts
   CostHardmode: ItemCosts
