@@ -2673,8 +2673,8 @@ type MapSeries {
   Delirious_DDSFile: string @file(ext: ".dds")
   UberBlight_DDSFile: string @file(ext: ".dds")
   Purple_DDSFile: string @file(ext: ".dds")
-  _: string @file(ext: ".dds")
-  _: string @file(ext: ".dds")
+  Memory_DDSFile: string @file(ext: ".dds")
+  UberMemory_DDSFile: string @file(ext: ".dds")
 }
 
 type MapSeriesTiers {
