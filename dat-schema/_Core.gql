@@ -2655,8 +2655,8 @@ type Maps @tags(list: ["item:def", "item:recipe"]) {
   UpgradedFrom_MapsKey: Maps
   MapsKey2: Maps
   MapsKey3: Maps
-  "References MapSeries as an enum: i32, 1-based indexing"
-  MapSeriesKey: i32
+  "1: Map, 2: Map2, 3: MapAtlas, 4: MapWorlds"
+  MapGeneration: i32
   _: bool
   _: bool
   _: bool
@@ -2678,7 +2678,7 @@ type MapSeries {
 }
 
 type MapSeriesTiers {
-  MapsKey: Maps
+  MapsKey: Maps @unique
   MapWorldsTier: i32
   BetrayalTier: i32
   SynthesisTier: i32
