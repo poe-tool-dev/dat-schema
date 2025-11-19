@@ -2640,6 +2640,13 @@ type MapPurchaseCosts {
   CostHardmode: ItemCosts
 }
 
+enum MapGenerations @indexing(first: 1) {
+  MAP
+  MAP2
+  MAPATLAS
+  MAPWORLDS
+}
+
 type Maps @tags(list: ["item:def", "item:recipe"]) {
   BaseItemTypesKey: BaseItemTypes @unique
   Regular_WorldAreasKey: WorldAreas
@@ -2655,8 +2662,7 @@ type Maps @tags(list: ["item:def", "item:recipe"]) {
   UpgradedFrom_MapsKey: Maps
   MapsKey2: Maps
   MapsKey3: Maps
-  "1: Map, 2: Map2, 3: MapAtlas, 4: MapWorlds"
-  MapGeneration: i32
+  MapGeneration: MapGenerations
   _: bool
   _: bool
   _: bool
