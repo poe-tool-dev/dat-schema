@@ -2,6 +2,6 @@ type Tags {
   Id: string @unique
   HASH32: u32
   DisplayString: string
-  _: [rid]
+  _: [ClientStrings]
   UiHints: string
 }

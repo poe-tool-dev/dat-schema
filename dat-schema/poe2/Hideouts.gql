@@ -1,0 +1,14 @@
+type Hideouts {
+  HideoutArea: WorldAreas
+  HASH16: i16
+  HideoutFile: string @file(ext: ".hideout")
+  ClaimSideArea: WorldAreas
+  HideoutImage: string
+  IsEnabled: bool
+  _: bool
+  Name: string
+  _: rid
+  _: bool
+  MtxType: MtxTypes
+  ErrorMessage: string
+}

@@ -1,0 +1,10 @@
+type FixedHideoutDoodadTypes {
+  Id: string
+  HideoutDoodads: [HideoutDoodads]
+  BaseTypeHideoutDoodads: HideoutDoodads
+  _: i32
+  _: i32
+  _: bool
+  _: rid
+  _: rid
+}
