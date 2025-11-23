@@ -1,0 +1,9 @@
+type MicrotransactionJewelVariations {
+  MtxTypeGameSpecific: MtxTypeGameSpecific @unique
+  _: i32
+  _: string
+  _: string
+  _: i32
+  _: string
+  _: rid
+}
