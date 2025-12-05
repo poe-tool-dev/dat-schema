@@ -1,0 +1,5 @@
+# Added 4.3
+type StashtabAffinityByItemClassCategory {
+  ItemClassCategory: ItemClassCategories @unique
+  StashTabAffinityId: StashTabAffinityId
+}

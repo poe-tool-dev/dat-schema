@@ -1,6 +1,8 @@
+# Added 4.1
 type StashTabAffinities {
-  SpecializedStash: StashId
-  Name: string @localized
+  StashTabAffinityId: StashTabAffinityId
+  _: i32
+  _: [rid]
   ShowInStashes: [StashId]
-  IsDisabled: bool
+  _: i32
 }
