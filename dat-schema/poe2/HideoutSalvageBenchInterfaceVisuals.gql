@@ -1,0 +1,11 @@
+# Added 4.3
+type HideoutSalvageBenchInterfaceVisuals {
+  Id: string @unique
+  BackgroundArt: string
+  HammerArt: string
+  ButtonArt: string
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}
