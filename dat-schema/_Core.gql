@@ -2643,8 +2643,8 @@ type MapPurchaseCosts {
 enum MapGenerations @indexing(first: 1) {
   ORIGINAL
   THE_AWAKENING
-  WAR_FOR_THE_ATLAS
   ATLAS_OF_WORLDS
+  WAR_FOR_THE_ATLAS
 }
 
 type Maps @tags(list: ["item:def", "item:recipe"]) {
