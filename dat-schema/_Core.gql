@@ -463,7 +463,7 @@ type AtlasFavouredMapSlots {
 enum AtlasModTiers @indexing(first: 0) { _ }
 
 type AtlasNode {
-  WorldAreasKey: WorldAreas
+  WorldAreasKey: WorldAreas @unique
   ItemVisualIdentityKey: ItemVisualIdentity
   _: bool
   MapsKey: Maps
@@ -480,13 +480,14 @@ type AtlasNode {
   _: f32
   _: f32
   DDSFile: string @file(ext: ".dds")
-  _: bool
+  StartingNode: bool
   NotOnAtlas: bool
   _: i32
   _: i32
   _: i32
   _: i32
   DivCards: [BaseItemTypes]
+  _: [BaseItemTypes]
 }
 
 type AtlasNodeDefinition {
@@ -2643,8 +2644,8 @@ type MapPurchaseCosts {
 enum MapGenerations @indexing(first: 1) {
   ORIGINAL
   THE_AWAKENING
-  WAR_FOR_THE_ATLAS
   ATLAS_OF_WORLDS
+  WAR_FOR_THE_ATLAS
 }
 
 type Maps @tags(list: ["item:def", "item:recipe"]) {
