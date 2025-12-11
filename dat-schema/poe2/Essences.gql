@@ -1,7 +1,7 @@
 type Essences {
   BaseItemType: BaseItemTypes @unique
   HASH32: u32
-  _: [i32]
+  _: [i32] @interval
   _: [Mods]
   _: [i32]
   MonsterMod: Mods
