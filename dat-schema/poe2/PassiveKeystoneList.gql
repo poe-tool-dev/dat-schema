@@ -1,0 +1,4 @@
+type PassiveKeystoneList {
+    Passive: PassiveSkills
+    DisplayText: string
+}

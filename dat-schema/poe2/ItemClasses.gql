@@ -16,7 +16,6 @@ type ItemClasses @tags(list: ["crafting"]) {
   CanHaveInfluence: bool
   CanBeDoubleCorrupted: bool
   CanHaveAspects: bool
-  CanTransferSkin: bool
   ItemStance: ItemStances
   CanScourge: bool
   CanUpgradeRarity: bool
