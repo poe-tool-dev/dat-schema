@@ -4,4 +4,5 @@ type PassiveSkillTreeNodeFrameArt {
   CanAllocate: string
   Active: string
   Mask: string @file(ext: ".dds")
+  Header: string
 }

@@ -9,4 +9,5 @@ type AtlasPassiveSkillSubTrees {
   CounterY: i32
   _: ClientStrings
   _: ClientStrings
+  _: ClientStrings
 }
