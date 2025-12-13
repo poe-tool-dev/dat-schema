@@ -27,3 +27,9 @@ type BrequelGraftTypes {
   SkillAnimation: string
   Achievement: AchievementItems
 }
+
+type BrequelGraftGrantedSkillLevels {
+  ItemLevel: i32
+  SkillLevel: i32
+  RequiredLevel: i32
+}
