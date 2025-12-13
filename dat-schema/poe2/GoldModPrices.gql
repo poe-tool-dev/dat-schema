@@ -1,5 +1,5 @@
 type GoldModPrices {
-  Mod: Mods
+  Mod: Mods @unique
   Value: i32
   BasePricePercent: i32
   _: i32
