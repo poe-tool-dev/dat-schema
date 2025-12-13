@@ -1,5 +1,7 @@
+# Added 4.3
 type SoulCoreLimits {
-  Id: string
+  Id: string @unique
   Limit: i32
   Text: string @localized
+  _: bool
 }
