@@ -1,0 +1,13 @@
+# Added 4.4
+type Incursion2Rooms {
+  Id: string @unique
+  IsPathway: bool
+  _: [Incursion2Rooms]
+  _: [Incursion2Rooms]
+  _: [Incursion2Rooms]
+  _: i32
+  _: bool
+  _: bool
+  Name: string @localized
+  Icon_DDSFile: string @file(ext: ".dds")
+}

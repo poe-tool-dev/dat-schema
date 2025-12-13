@@ -1,0 +1,14 @@
+# Added 4.4
+type Incursion2Crafting {
+  Id: string @unique
+  BaseItemType: BaseItemTypes
+  _: i32
+  _: i32
+  Icon_DDSFile: string @file(ext: ".dds")
+  Name: string @localized
+  Description: string @localized
+  _: bool
+  _: i32
+  GlowIcon_DDSFile: string @file(ext: ".dds")
+  _: rid
+}
