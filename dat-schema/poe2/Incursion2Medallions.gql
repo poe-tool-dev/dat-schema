@@ -1,0 +1,11 @@
+# Added 4.4
+type Incursion2Medallions {
+  Id: string @unique
+  Name: string @localized
+  FlavourText: string @localized
+  Icon_DDSFile: string @file(ext: ".dds")
+  _: bool
+  _: rid
+  Description: string @localized
+  _: rid
+}

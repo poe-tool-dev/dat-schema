@@ -1,0 +1,5 @@
+# Added 4.4
+type Incursion2TempleLevelPerCharacterLevel {
+  CharacterLevel: i32 @unique
+  AreaLevel: i32
+}

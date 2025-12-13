@@ -1,0 +1,11 @@
+# Added 4.4
+type Incursion2RoomPerLevel {
+  Room: Incursion2Rooms
+  Level: i32
+  Id: string @unique
+  Description: string @localized
+  Name: string @localized
+  Icon_DDSFile: string @file(ext: ".dds")
+  _: rid
+  _: [i32]
+}
