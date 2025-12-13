@@ -1,0 +1,7 @@
+# Added 4.4
+type SoulCoreTypes {
+  Id: string @unique
+  EffectStat: Stats
+  Name: string @localized
+  SocketedStat: Stats
+}

@@ -1,14 +1,8 @@
+# Added 4.1
 type SoulCores {
   BaseItemType: BaseItemTypes @unique
-  StatsMartialWeapon: [Stats]
-  StatsValuesMartialWeapon: [i32]
-  StatsArmour: [Stats]
-  StatsValuesArmour: [i32]
   RequiredLevel: i32
-  StatsCasterWeapon: [Stats]
-  StatsValuesCasterWeapon: [i32]
-  StatsAllEquipment: [Stats]
-  StatsValuesAllEquipment: [i32]
   Limit: SoulCoreLimits
   _: rid
+  Type: SoulCoreTypes
 }
