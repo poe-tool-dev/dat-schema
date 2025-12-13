@@ -7,8 +7,6 @@ type WorldAreas {
   Connections: [WorldAreas]
   AreaLevel: i32
   HASH16: i16
-  _: i32
-  _: i32
   LoadingScreens: [string]
   FlagOnEntered: [QuestFlags]
   RequiredFlags: [QuestFlags]
