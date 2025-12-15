@@ -1,6 +1,6 @@
 # Added 4.1
 type StatisticTrackingMicrotransactions {
-  MtxTypeGameSpecific: MtxTypeGameSpecific
+  MtxTypeGameSpecific: MtxTypeGameSpecific @unique
   _: bool
   _: bool
   _: bool
