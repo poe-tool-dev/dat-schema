@@ -1,0 +1,6 @@
+# Added 4.3
+type ShopItemToStashId {
+  Id: string @unique
+  Id2: string @unique
+  StashId: StashId
+}

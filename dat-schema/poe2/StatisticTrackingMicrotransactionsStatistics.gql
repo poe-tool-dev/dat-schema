@@ -1,0 +1,13 @@
+# Added 4.1
+type StatisticTrackingMicrotransactionsStatistics {
+  StatisticTrackingMtx: StatisticTrackingMicrotransactions
+  _: i32
+  _: i32
+  _: rid
+  _: bool
+  Icon: string
+  _: bool
+  _: rid
+  CounterType: StatisticTrackingMicrotransactionCounterType
+  _: i32
+}

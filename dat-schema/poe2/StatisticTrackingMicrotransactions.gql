@@ -1,0 +1,9 @@
+# Added 4.1
+type StatisticTrackingMicrotransactions {
+  MtxTypeGameSpecific: MtxTypeGameSpecific
+  _: bool
+  _: bool
+  _: bool
+  _: i32
+  _: bool
+}
