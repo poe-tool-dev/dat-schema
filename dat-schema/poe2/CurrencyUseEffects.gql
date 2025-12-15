@@ -1,0 +1,8 @@
+# Added 4.1
+type CurrencyUseEffects {
+  Id: string @unique
+  BK2File: string @file(ext: ".bk2")
+  SoundFile: string @file(ext: ".ogg")
+  _: bool
+  BK2File2: string @file(ext: ".bk2")
+}

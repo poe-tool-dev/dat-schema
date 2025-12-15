@@ -1,0 +1,5 @@
+# Added 4.4
+type IncubatorBaseRequiredKillsPerLevel {
+  Level: i32 @unique
+  RequiredKills: i32
+}

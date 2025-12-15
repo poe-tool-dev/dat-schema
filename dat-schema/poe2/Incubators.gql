@@ -1,0 +1,11 @@
+# Added 4.1
+type Incubators @tags(list: ["item:def"]) {
+  BaseItemType: BaseItemTypes @unique
+  _: i32
+  Reward: string @localized
+  HASH32: i32
+  AchievementItemsKeys: [AchievementItems]
+  _: bool
+  RewardDescription: ClientStrings
+  _: [i32]
+}

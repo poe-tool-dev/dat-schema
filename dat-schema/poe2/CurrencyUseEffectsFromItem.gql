@@ -1,0 +1,7 @@
+# Added 4.3
+type CurrencyUseEffectsFromItem {
+  BaseItemType: BaseItemTypes @unique
+  _: i32
+  Effect: CurrencyUseEffects
+  Stat: Stats
+}

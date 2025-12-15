@@ -1,0 +1,5 @@
+# Added 4.3
+type StatisticTrackingMicrotransactionOnEnteringArea {
+  _: rid @unique
+  _: i32
+}
