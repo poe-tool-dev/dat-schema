@@ -1,3 +1,4 @@
+# Added 4.1
 type MonsterVarieties {
   Id: string @unique
   MonsterType: MonsterTypes
@@ -116,7 +117,7 @@ type MonsterVarieties {
   _: f32
   _: bool
   _: [_]
-  _: rid
+  _: [rid]
   _: i32
   _: i32
   _: f32
@@ -128,4 +129,7 @@ type MonsterVarieties {
   MonsterCategory: MonsterCategories
   _: rid
   _: i32
+  _: rid
+  _: bool
+  _: [i32]
 }

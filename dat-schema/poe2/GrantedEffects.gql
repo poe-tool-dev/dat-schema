@@ -36,7 +36,8 @@ type GrantedEffects {
   _: i32
   SupportWeaponRestrictions: [ItemClasses]
   _: string
-  _: rid
+  MinionType: MinionType
   _: f32
   _: f32
+  _: i32
 }

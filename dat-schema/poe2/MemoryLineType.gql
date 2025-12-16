@@ -1,0 +1,14 @@
+# Added 4.1
+type MemoryLineType {
+  Id: string @unique
+  MemoryLine: AtlasMemoryLine
+  HASH16: i16
+  Stats: [Stats]
+  StatsValues: [i32]
+  _: i32
+  _: i32
+  _: rid
+  _: i32
+  Suffix: string @localized
+  Mod: Mods
+}

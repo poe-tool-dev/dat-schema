@@ -1,0 +1,5 @@
+# Added 4.4
+type CharacterShapeShiftBasicSkills {
+  ShapeShiftForm: ShapeShiftForms @unique
+  Skill: SkillGems
+}

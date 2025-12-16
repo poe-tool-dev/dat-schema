@@ -1,0 +1,6 @@
+# Added 4.1
+type NPCTalkConsoleQuickActions {
+  Id: string @unique
+  _: rid
+  _: rid
+}

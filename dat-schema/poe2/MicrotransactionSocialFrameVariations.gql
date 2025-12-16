@@ -1,0 +1,6 @@
+# Added 4.1
+type MicrotransactionSocialFrameVariations {
+  MtxTypeGameSpecific: MtxTypeGameSpecific @unique
+  Id: i16 @unique
+  BK2File: string @file(ext: ".bk2")
+}

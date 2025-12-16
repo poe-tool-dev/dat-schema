@@ -1,0 +1,14 @@
+# Added 4.1
+type MicrotransactionOnKillConditions {
+  Id: string @unique
+  _: [rid]
+  _: [_]
+  _: [_]
+  _: i32
+  _: bool
+  _: [i32]
+  _: i32
+  _: bool
+  _: [_]
+  _: [rid]
+}
