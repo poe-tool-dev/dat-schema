@@ -1,0 +1,21 @@
+# Added 4.1
+type Pet {
+  Id: string @unique
+  MtxTypeGameSpecific: MtxTypeGameSpecific @unique
+  HASH16: i16
+  HASH32: i32
+  Size: i32
+  _: bool
+  _: bool
+  _: [rid]
+  _: rid
+  _: [rid]
+  _: i32
+  _: bool
+  _: rid
+  _: bool
+  _: bool
+  _: bool
+  _: string
+  _: rid
+}

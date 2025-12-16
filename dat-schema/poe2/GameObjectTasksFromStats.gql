@@ -1,0 +1,11 @@
+# Added 4.1
+type GameObjectTasksFromStats {
+  Stat: Stats @unique
+  GameObjectTask: GameObjectTasks
+  _: i32
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+}

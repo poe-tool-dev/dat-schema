@@ -1,0 +1,13 @@
+# Added 4.1
+type Races {
+  Id: string @unique
+  Mods: [Mods]
+  _: string @localized
+  _: string
+  _: i32
+  _: i32
+  _: [rid]
+  _: i32
+  _: [i32]
+  _: [rid]
+}

@@ -1,0 +1,18 @@
+# Added 4.1
+type MapDeviceRecipes @tags(list: ["item:recipe"]) {
+  Id: string @unique
+  RecipeItems: [BaseItemTypes]
+  _: [_]
+  _: rid
+  _: i32
+  _: rid
+  _: i32
+  _: bool
+  _: bool
+  _: bool
+  _: [_]
+  _: bool
+  _: [_]
+  _: bool
+  _: bool
+}

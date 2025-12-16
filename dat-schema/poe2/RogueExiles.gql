@@ -1,0 +1,19 @@
+# Added 4.1
+type RogueExiles {
+  MonsterVarietiesKey: MonsterVarieties @unique
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: [i32]
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+}

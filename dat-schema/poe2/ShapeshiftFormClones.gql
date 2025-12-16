@@ -1,5 +1,7 @@
+# Added 4.1
 type ShapeShiftFormClones {
   ShapeShiftForm: ShapeShiftForms @unique
   _: rid @unique
   Metadata: string @unique
+  Metadata2: string @unique
 }

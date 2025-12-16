@@ -1,0 +1,12 @@
+# Added 4.1
+type ExtraTerrainFeatures {
+  Id: string @unique
+  ArmFiles: [string]
+  TdtFiles: [string]
+  _: [string]
+  _: [i32]
+  _: ExtraTerrainFeatures
+  _: rid
+  _: bool
+  _: i32
+}

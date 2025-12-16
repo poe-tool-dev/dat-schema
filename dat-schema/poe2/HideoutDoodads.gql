@@ -1,0 +1,23 @@
+# Added 4.1
+type HideoutDoodads {
+  MtxTypeGameSpecific: MtxTypeGameSpecific @unique
+  Variation_AOFiles: [string] @file(ext: ".ao")
+  _: [i32]
+  _: bool
+  _: string
+  _: bool
+  _: bool
+  _: [rid]
+  _: bool
+  _: rid
+  _: rid
+  _: i32
+  _: bool
+  _: rid
+  _: bool
+  _: rid
+  _: [string]
+  _: HideoutDoodads
+  _: bool
+  _: bool
+}

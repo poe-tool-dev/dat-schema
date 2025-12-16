@@ -1,0 +1,11 @@
+# Added 4.1
+type HardModeExtraContentChances {
+  Id: string @unique
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: [rid]
+  _: [rid]
+  _: [rid]
+}

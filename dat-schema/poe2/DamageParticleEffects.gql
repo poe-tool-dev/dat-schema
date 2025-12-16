@@ -1,0 +1,9 @@
+# Added 4.1
+type DamageParticleEffects {
+  DamageParticleEffectTypes: DamageParticleEffectTypes
+  Variation: i32
+  _: i32
+  _: rid
+  _: rid
+  _: bool
+}
