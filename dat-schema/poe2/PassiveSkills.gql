@@ -53,7 +53,7 @@ type PassiveSkills {
   IsFree: bool
   _: bool # Smith of Kitava body armour passives, maybe DoNotDraw(Connection)Line?
   _: [PassiveSkills]
-  _: rid
+  AscendancyUnlock: Ascendancy
   _: bool
   _: rid
 }
