@@ -31,7 +31,7 @@ type ActiveSkills {
   VideoClip: string @file(ext: ".bk2")
   CharacterAudioEvent: CharacterAudioEvents
   AiScript: string @file(ext: ".ais")
-  MinionType: MinionType
+  _: rid
   _: bool
   ShortDescription: string
   StatDescriptionType: i32
