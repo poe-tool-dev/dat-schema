@@ -14,4 +14,5 @@ type GemEffects {
   _: bool
   _: [i32]
   _: i32
+  _: i32
 }

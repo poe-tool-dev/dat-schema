@@ -18,4 +18,9 @@ type PassiveSkillTrees {
   _: bool
   Name: ClientStrings
   UIArt: PassiveSkillTreeUIArt
+  _: i32
+  _: i32
+  _: f32
+  _: f32
+  _: f32
 }
