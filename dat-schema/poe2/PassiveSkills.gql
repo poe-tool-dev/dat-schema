@@ -52,8 +52,8 @@ type PassiveSkills {
   WeaponPointsGranted: i32
   IsFree: bool
   _: bool # Smith of Kitava body armour passives, maybe DoNotDraw(Connection)Line?
-  _: [PassiveSkills]
-  AscendancyUnlock: Ascendancy
+  UnlockedBy: [PassiveSkills]
+  VisibleForAscendancy: Ascendancy
   _: bool
-  _: rid
+  NodeFrameArt: PassiveSkillTreeNodeFrameArt
 }
