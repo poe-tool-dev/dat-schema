@@ -10,5 +10,6 @@ type Incursion2Crafting {
   _: bool
   _: i32
   GlowIcon_DDSFile: string @file(ext: ".dds")
-  _: rid
+  SoundEffect: SoundEffects
+  CanTakeCurrency: bool
 }

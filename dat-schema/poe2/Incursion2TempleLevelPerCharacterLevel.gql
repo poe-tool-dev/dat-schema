@@ -2,4 +2,5 @@
 type Incursion2TempleLevelPerCharacterLevel {
   CharacterLevel: i32 @unique
   AreaLevel: i32
+  _: i32
 }
