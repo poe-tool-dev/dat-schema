@@ -5,7 +5,8 @@ type Incursion2Medallions {
   FlavourText: string @localized
   Icon_DDSFile: string @file(ext: ".dds")
   _: bool
-  _: rid
+  MiscObject: MiscObjects
   Description: string @localized
-  _: rid
+  SoundEffect: SoundEffects
+  _: i32
 }

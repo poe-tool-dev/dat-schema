@@ -1,0 +1,25 @@
+# Added 4.1
+type ItemisedVisualEffect {
+  EffectBaseType: BaseItemTypes
+  VisualEffect: ItemVisualEffect
+  VisualIdentity: ItemVisualIdentity
+  Stats: [Stats]
+  ItemClasses: [ItemClasses]
+  _: [rid]
+  _: bool
+  _: [i32]
+  _: [i32]
+  _: bool
+  _: [_]
+  _: bool
+  _: [_] # All rows empty
+  _: [_]
+  _: [_]
+  _: [_]
+  _: rid
+  _: bool
+  _: rid
+  _: rid
+  _: bool
+  _: bool
+}
