@@ -4,4 +4,11 @@ type PassiveJewelRadiiArt {
   Circle1: string
   Circle2: string
   Glow: string
+  _: PassiveJewelRadiiArt
+  _: i32
+  _: i32
+  Inverse1: string
+  _: i32
+  _: i32
+  Inverse2: string
 }
