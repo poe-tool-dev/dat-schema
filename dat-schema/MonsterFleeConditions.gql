@@ -1,0 +1,1 @@
+enum MonsterFleeConditions @indexing(first: 0) { _ }

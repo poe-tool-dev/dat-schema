@@ -1,0 +1,8 @@
+# Added 3.07
+type LegionChestTypes {
+  _: MonsterVarieties
+  Chest: Chests
+  HardmodeChest: Chests
+  _: i32
+  Faction: LegionFactions
+}

@@ -1,0 +1,11 @@
+# Added 3.17
+type ArchnemesisModVisuals {
+  Id: string
+  _: MiscAnimated
+  _: rid
+  _: rid
+  _: [BuffVisuals]
+  _: [MonsterVarieties]
+  _: [MiscAnimated]
+  _: [rid]
+}

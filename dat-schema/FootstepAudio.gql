@@ -1,0 +1,4 @@
+type FootstepAudio {
+  Id: string
+  Index: i32
+}

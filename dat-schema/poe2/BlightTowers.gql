@@ -1,0 +1,17 @@
+# Added 3.08
+type BlightTowers {
+  Id: string @unique
+  Name: string
+  Description: string
+  Icon: string
+  NextUpgradeOptions: [BlightTowers]
+  _: i32
+  Tier: string
+  Radius: i32
+  _: i32
+  SpendResourceAchievement: AchievementItems
+  StatsKey: Stats
+  StatsKeys: [Stats]
+  StatsKeys2: [Stats]
+  _: bool
+}

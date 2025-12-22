@@ -1,0 +1,6 @@
+# Added 3.12
+type HeistContracts {
+  BaseItemTypesKey: BaseItemTypes @unique
+  HeistAreasKey: HeistAreas
+  _: i32
+}

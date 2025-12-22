@@ -1,0 +1,9 @@
+# Added 3.08
+type BlightEncounterWaves {
+  MonsterSpawnerId: string
+  EncounterType: BlightEncounterTypes
+  _: i32
+  _: i32
+  _: i32
+  Wave: i32
+}

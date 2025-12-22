@@ -1,0 +1,10 @@
+type PassiveTreeExpansionJewels @tags(list: ["item:def"]) {
+  BaseItemTypesKey: BaseItemTypes
+  PassiveTreeExpansionJewelSizesKey: PassiveTreeExpansionJewelSizes
+  MinNodes: i32
+  MaxNodes: i32
+  SmallIndices: [i32]
+  NotableIndices: [i32]
+  SocketIndices: [i32]
+  TotalIndices: i32
+}

@@ -1,0 +1,11 @@
+# Added 3.07
+type LegionMonsterCounts {
+  LegionFactionsKey: LegionFactions
+  LegionRanksKey: LegionRanks
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}

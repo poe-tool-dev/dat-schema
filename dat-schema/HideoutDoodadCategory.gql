@@ -1,0 +1,4 @@
+type HideoutDoodadCategory {
+  Id: string
+  Name: string @localized
+}

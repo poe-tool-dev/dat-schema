@@ -1,0 +1,12 @@
+type MeleeTrails {
+  EPKFile1: string @file(ext: ".epk")
+  _: i32
+  EPKFile2: string @file(ext: ".epk")
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+  AOFile: string @file(ext: ".ao")
+  _: bool
+  _: string
+}

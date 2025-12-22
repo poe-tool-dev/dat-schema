@@ -1,0 +1,13 @@
+# Added 3.06
+type SynthesisAreas {
+  Id: string @unique
+  MinLevel: i32
+  MaxLevel: i32
+  Weight: i32
+  TopologiesKey: Topologies
+  MonsterPacksKeys: [MonsterPacks]
+  ArtFile: string
+  Name: string
+  SynthesisAreaSizeKey: SynthesisAreaSize
+  AchievementItemsKey: AchievementItems
+}

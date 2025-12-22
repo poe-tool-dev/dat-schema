@@ -1,0 +1,15 @@
+type PassiveSkillOverrides {
+  Id: string
+  Name: string
+  NodeIcon: string
+  Stats: [Stats]
+  StatValues: [i32]
+  HASH16: i32
+  PassiveBG: string
+  Effect: GrantedEffectsPerLevel
+  Type: PassiveSkillOverrideTypes
+  Limit: PassiveOverrideLimits
+  RequiresAdjacent: i32
+  MaxAdjacent: i32
+  AllocatedPassiveSkill: PassiveSkills
+}

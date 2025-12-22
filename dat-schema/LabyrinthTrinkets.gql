@@ -1,0 +1,7 @@
+# Added 2.02
+type LabyrinthTrinkets {
+  BaseItemTypesKey: BaseItemTypes @unique
+  LabyrinthSecretsKey: [LabyrinthSecrets]
+  Buff_BuffDefinitionsKey: BuffDefinitions
+  Buff_StatValues: [i32]
+}

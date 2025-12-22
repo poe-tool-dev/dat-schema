@@ -1,0 +1,9 @@
+type ImpactSoundData {
+  Id: string @unique
+  "Located in Audio/SoundEffects. Format has SG removed and $(#) replaced with the number"
+  Sound: string
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}

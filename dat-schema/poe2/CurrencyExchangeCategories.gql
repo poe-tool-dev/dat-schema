@@ -1,0 +1,5 @@
+# Added 3.25
+type CurrencyExchangeCategories {
+  Id: string
+  Name: string
+}

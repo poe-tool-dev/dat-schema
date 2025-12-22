@@ -1,0 +1,12 @@
+# Added 3.12
+type HeistDoors {
+  Id: string
+  _: string
+  HeistJobsKey1: HeistJobs
+  HeistJobsKey2: HeistJobs
+  _: string
+  _: [string]
+  _: [string]
+  _: i32
+  HeistAreasKey: HeistAreas
+}

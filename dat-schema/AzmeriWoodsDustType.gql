@@ -1,0 +1,15 @@
+# Added 3.23
+type AzmeriWoodsDustType {
+  _: string
+  _: rid
+  _: string
+  _: string
+  _: rid
+  _: rid
+  _: rid
+  _: string
+  _: i32
+  _: rid
+  _: i32
+  _: string
+}

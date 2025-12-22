@@ -1,0 +1,6 @@
+type AnimatedObjectFlags {
+  AOFile: string @file(ext: ".ao")
+  _: i32
+  _: bool
+  _: bool
+}

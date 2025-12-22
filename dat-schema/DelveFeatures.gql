@@ -1,0 +1,17 @@
+# Added 3.04
+type DelveFeatures {
+  Id: string @unique
+  Name: string
+  SpawnWeight: [i32]
+  WorldAreasKey: WorldAreas
+  Image: string
+  AchievementItemsKeys: [AchievementItems]
+  _: [i32]
+  MinDepth: [i32]
+  Description: string
+  _: i32
+  _: [i32]
+  _: [i32]
+  _: [i32]
+  _: [_]
+}

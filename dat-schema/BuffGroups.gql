@@ -1,0 +1,1 @@
+enum BuffGroups @indexing(first: 0) { _ }

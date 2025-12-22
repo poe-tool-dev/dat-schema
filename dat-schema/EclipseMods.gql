@@ -1,0 +1,9 @@
+type EclipseMods {
+  Key: string @unique
+  SpawnWeight_TagsKeys: [Tags]
+  SpawnWeight_Values: [i32]
+  ModsKey: Mods
+  MinLevel: i32
+  MaxLevel: i32
+  IsPrefix: bool
+}

@@ -1,0 +1,5 @@
+type TencentAutoLootPetCurrencies {
+  BaseItemTypesKey: BaseItemTypes
+  _: bool
+  _: [_]
+}

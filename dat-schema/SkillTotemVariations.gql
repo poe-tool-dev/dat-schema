@@ -1,0 +1,5 @@
+type SkillTotemVariations {
+  SkillTotemsKey: SkillTotems
+  TotemSkinId: i32
+  MonsterVarietiesKey: MonsterVarieties
+}

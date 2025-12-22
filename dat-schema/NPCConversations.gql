@@ -1,0 +1,7 @@
+type NPCConversations {
+  Id: string
+  DialogueEvent: DialogueEvent
+  NPCTextAudioKeys: [NPCTextAudio]
+  _: [i32]
+  _: i32
+}

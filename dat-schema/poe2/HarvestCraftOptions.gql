@@ -1,0 +1,18 @@
+# Added 3.11
+type HarvestCraftOptions @tags(list: ["crafting"]) {
+  Id: string @unique
+  Text: string
+  Tier: HarvestCraftTiers
+  Command: string
+  Parameters: string
+  _: [_]
+  HASH16: i16
+  Description: string
+  IsEnchant: bool
+  LifeforceType: i32
+  LifeforceCost: i32
+  SacredCost: i32
+  _: bool
+  Achievements: [AchievementItems]
+  _: i32
+}

@@ -1,0 +1,6 @@
+# Added 3.15
+type ExpeditionRelicMods {
+  Mod: Mods
+  Categories: [ExpeditionRelicModCategories]
+  DestroyAchievements: [AchievementItems]
+}

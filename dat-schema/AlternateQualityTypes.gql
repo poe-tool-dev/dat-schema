@@ -1,0 +1,12 @@
+# Added 3.09
+type AlternateQualityTypes @tags(list: ["item:def"]) {
+  Id: string
+  Description: string
+  Item: BaseItemTypes
+  _: rid
+  MapStats: [Stats]
+  _: i32
+  IsCatalyst: bool
+  HASH16: i16
+  CatalystMod: Mods
+}

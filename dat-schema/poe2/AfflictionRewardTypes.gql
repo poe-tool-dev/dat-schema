@@ -1,0 +1,2 @@
+# Added 3.10
+enum AfflictionRewardTypes @indexing(first: 0) { _ }

@@ -1,0 +1,7 @@
+type AtlasTrees {
+  Id: string
+  Name: string
+  _: i32
+  _: i32
+  UnlockObjective: string
+}

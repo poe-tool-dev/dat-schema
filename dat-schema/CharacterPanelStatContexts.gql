@@ -1,0 +1,1 @@
+enum CharacterPanelStatContexts @indexing(first: 0) { _ }

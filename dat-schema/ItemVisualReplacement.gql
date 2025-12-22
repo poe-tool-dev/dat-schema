@@ -1,0 +1,10 @@
+# Added 3.20
+type ItemVisualReplacement {
+  _: rid
+  _: rid
+  _: rid
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+}

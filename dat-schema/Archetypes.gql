@@ -1,0 +1,18 @@
+type Archetypes {
+  Id: string
+  CharactersKey: Characters
+  PassiveSkillTreeURL: string
+  AscendancyClassName: string
+  Description: string
+  UIImageFile: string
+  TutorialVideo_BKFile: string @file(ext: ".bk")
+  _: i32
+  _: f32
+  _: f32
+  BackgroundImageFile: string
+  IsTemporary: bool
+  _: bool
+  ArchetypeImage: string
+  _: bool
+  _: bool
+}

@@ -1,0 +1,5 @@
+type SurgeTypes {
+  Id: string @unique
+  SurgeEffects: [SurgeEffects]
+  IntId: i32
+}

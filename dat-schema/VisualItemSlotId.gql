@@ -1,0 +1,1 @@
+enum VisualItemSlotId @indexing(first: 0) { _ }

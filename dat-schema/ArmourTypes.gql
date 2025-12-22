@@ -1,0 +1,14 @@
+type ArmourTypes @tags(list: ["item:def"]) {
+  BaseItemTypesKey: BaseItemTypes @unique
+  ArmourMin: i32
+  ArmourMax: i32
+  EvasionMin: i32
+  EvasionMax: i32
+  EnergyShieldMin: i32
+  EnergyShieldMax: i32
+  IncreasedMovementSpeed: i32
+  WardMin: i32
+  WardMax: i32
+  _: i32
+  _: i32
+}

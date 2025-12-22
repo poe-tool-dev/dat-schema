@@ -1,0 +1,10 @@
+# Added 3.25
+type CurrencyExchange {
+  Item: BaseItemTypes
+  Category: CurrencyExchangeCategories
+  SubCategory: CurrencyExchangeCategories
+  _: bool
+  EnabledInChallengeLeague: bool
+  GoldPurchaseFee: i32
+  _: bool
+}

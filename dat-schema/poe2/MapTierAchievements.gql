@@ -1,0 +1,5 @@
+type MapTierAchievements {
+  Id: string @unique
+  AchievementItemsKey: [AchievementItems]
+  MapTiers: [i32]
+}

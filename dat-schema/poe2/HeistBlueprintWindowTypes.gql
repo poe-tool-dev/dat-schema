@@ -1,0 +1,2 @@
+# Added 3.12
+enum HeistBlueprintWindowTypes @indexing(first: 0) { _ }

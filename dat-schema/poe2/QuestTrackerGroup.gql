@@ -1,0 +1,5 @@
+type QuestTrackerGroup {
+  Id: string @unique
+  Name: string @localized
+  QuestType: QuestType
+}

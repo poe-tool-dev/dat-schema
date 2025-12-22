@@ -1,0 +1,5 @@
+# Added 3.17
+type GamepadThumbstick {
+  _: string @unique
+  _: string @unique
+}

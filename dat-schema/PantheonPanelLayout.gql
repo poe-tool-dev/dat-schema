@@ -1,0 +1,30 @@
+# Added 3.00
+type PantheonPanelLayout {
+  Id: string @unique
+  X: i32
+  Y: i32
+  IsMajorGod: bool
+  CoverImage: string
+  GodName2: string
+  SelectionImage: string
+  Effect1_StatsKeys: [Stats]
+  Effect1_Values: [i32]
+  Effect2_StatsKeys: [Stats]
+  GodName3: string
+  Effect3_Values: [i32]
+  Effect3_StatsKeys: [Stats]
+  GodName4: string
+  Effect4_StatsKeys: [Stats]
+  Effect4_Values: [i32]
+  GodName1: string
+  Effect2_Values: [i32]
+  QuestFlag: QuestFlags
+  IsDisabled: bool
+  AchievementItems: [AchievementItems]
+  LeagueQuestFlag1: i32
+  LeagueQuestFlag2: i32
+  LeagueQuestFlag3: i32
+  DowngradeFlag1: QuestFlags
+  DowngradeFlag2: QuestFlags
+  DowngradeFlag3: QuestFlags
+}

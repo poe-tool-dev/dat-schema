@@ -1,0 +1,4 @@
+type QuestFlags {
+  Id: string
+  HASH32: i32
+}

@@ -1,0 +1,5 @@
+type FlavourText {
+  Id: string @unique
+  _: i32
+  Text: string
+}

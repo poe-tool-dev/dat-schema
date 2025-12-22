@@ -1,0 +1,12 @@
+# Added 2.02
+type LabyrinthSectionLayout {
+  LabyrinthSectionKey: LabyrinthSection
+  _: i32
+  LabyrinthSectionLayoutKeys: [LabyrinthSectionLayout]
+  LabyrinthSecretsKey0: LabyrinthSecrets
+  LabyrinthSecretsKey1: LabyrinthSecrets
+  LabyrinthAreasKey: LabyrinthAreas
+  Float0: f32
+  Float1: f32
+  LabyrinthNodeOverridesKeys: [LabyrinthNodeOverrides]
+}

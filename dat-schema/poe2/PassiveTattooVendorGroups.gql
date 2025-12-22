@@ -1,0 +1,1 @@
+enum PassiveTattooVendorGroups @indexing(first: 0) { _ }

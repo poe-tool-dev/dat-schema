@@ -1,0 +1,4 @@
+type UniqueJewelLimits @tags(list: ["item:unique"]) {
+  JewelName: Words
+  Limit: i32
+}

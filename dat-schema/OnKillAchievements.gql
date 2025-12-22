@@ -1,0 +1,4 @@
+type OnKillAchievements {
+  MonsterVarietiesKey: MonsterVarieties
+  GameStat: GameStats
+}

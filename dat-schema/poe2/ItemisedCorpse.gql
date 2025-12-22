@@ -1,0 +1,7 @@
+# Added 3.23
+type ItemisedCorpse {
+  BaseItem: BaseItemTypes @unique
+  MonsterVariety: MonsterVarieties
+  MonsterAbilities: string @localized
+  MonsterCategory: CorpseTypeTags
+}

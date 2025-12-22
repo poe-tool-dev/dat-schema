@@ -1,0 +1,18 @@
+type SpawnObject {
+  _: i32
+  _: [rid]
+  _: [_] # All rows empty
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+  _: string
+  _: i32
+  _: bool
+  _: i32
+}

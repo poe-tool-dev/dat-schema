@@ -1,0 +1,12 @@
+# Added 3.20
+type SanctumPersistentEffectCategories {
+  Id: string
+  Frame: string
+  Popup: string
+  Glow: string
+  Curse: bool
+  Boon: bool
+  Icon: string
+  Name: string
+  Deferral: bool
+}

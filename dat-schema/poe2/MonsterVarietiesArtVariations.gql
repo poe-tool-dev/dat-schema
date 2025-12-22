@@ -1,0 +1,5 @@
+type MonsterVarietiesArtVariations {
+  Id: string
+  _: i32
+  _: [_]
+}

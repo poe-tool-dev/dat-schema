@@ -1,0 +1,16 @@
+type MapFragmentMods {
+  BaseItemTypesKey: BaseItemTypes @unique
+  ModsKeys: [Mods]
+  AchievementItemsKey: [AchievementItems]
+  MapFragmentFamilies: i32
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+  MinAreaLevel: i32
+  _: i32
+  MapFragmentLimit: i32
+  _: bool
+}

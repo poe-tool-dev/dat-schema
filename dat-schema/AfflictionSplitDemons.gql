@@ -1,0 +1,6 @@
+# Added 3.10
+type AfflictionSplitDemons {
+  _: i32
+  MonsterVarietiesKey: MonsterVarieties
+  AfflictionRandomModCategoriesKey: AfflictionRandomModCategories
+}

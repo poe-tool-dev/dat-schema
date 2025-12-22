@@ -1,0 +1,5 @@
+# Added 2.01
+type TalismanMonsterMods {
+  ModTypeKey: ModType
+  ModsKey: Mods
+}

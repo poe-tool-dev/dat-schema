@@ -1,0 +1,4 @@
+# Added 3.08
+type BlightChestTypes {
+  ChestsKey: Chests
+}

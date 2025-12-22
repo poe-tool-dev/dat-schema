@@ -1,0 +1,11 @@
+type Rarity {
+  Id: string
+  MinMods: i32
+  MaxMods: i32
+  _: i32
+  MaxPrefix: i32
+  _: i32
+  MaxSuffix: i32
+  Color: string
+  Text: string @localized
+}

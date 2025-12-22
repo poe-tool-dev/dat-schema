@@ -1,0 +1,1 @@
+enum MonsterSkillsOrientation @indexing(first: 0) { _ }

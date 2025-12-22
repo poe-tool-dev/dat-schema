@@ -1,0 +1,2 @@
+# Added 1.01
+enum InvasionMonsterGroups @indexing(first: 0) { _ }

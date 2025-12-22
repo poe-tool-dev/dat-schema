@@ -1,0 +1,10 @@
+# Added 3.19
+type LakeRoomCompletion {
+  Room: LakeRooms
+  _: i32
+  _: i32
+  Achievements: [AchievementItems]
+  _: [i32]
+  _: [_] # All rows empty
+  _: i32
+}

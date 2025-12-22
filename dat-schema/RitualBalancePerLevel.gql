@@ -1,0 +1,17 @@
+# Added 3.13
+type RitualBalancePerLevel {
+  MinLevel: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: f32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}

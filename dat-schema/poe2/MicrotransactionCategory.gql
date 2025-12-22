@@ -1,0 +1,5 @@
+type MicrotransactionCategory {
+  Id: i32 @unique
+  Name: string
+  _: i32
+}

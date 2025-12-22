@@ -1,0 +1,10 @@
+# Added 3.04
+type DelveAzuriteShop {
+  BaseItemTypesKey: BaseItemTypes
+  SpawnWeight: i32
+  Cost: i32
+  MinDepth: i32
+  IsResonator: bool
+  _: i32
+  _: i32
+}

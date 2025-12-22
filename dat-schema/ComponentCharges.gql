@@ -1,0 +1,7 @@
+type ComponentCharges @tags(list: ["item:def"]) {
+  BaseItemTypesKey: BaseItemTypes @ref(column: "Id") @unique
+  MaxCharges: i32
+  PerCharge: i32
+  MaxCharges2: i32
+  PerCharge2: i32
+}

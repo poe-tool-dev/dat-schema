@@ -1,0 +1,21 @@
+type SkillGems @tags(list: ["item:def"]) {
+  BaseItemTypesKey: BaseItemTypes @unique
+  StrengthRequirementPercent: i32
+  DexterityRequirementPercent: i32
+  IntelligenceRequirementPercent: i32
+  VaalVariant_BaseItemTypesKey: BaseItemTypes
+  IsVaalVariant: bool
+  MinionGlobalSkillLevelStat: Stats
+  IsSupport: bool
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+  AwakenedVariant: SkillGems
+  RegularVariant: SkillGems
+  _: i32
+  ItemExperienceType: ItemExperienceTypes
+  MtxSlotTypes: [MicrotransactionSkillGemEffectSlotTypes]
+  GemEffects: [GemEffects]
+}

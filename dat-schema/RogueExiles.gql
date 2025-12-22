@@ -1,0 +1,6 @@
+# Added 0.11
+type RogueExiles {
+  MonsterVarietiesKey: MonsterVarieties
+  _: bool
+  _: rid
+}

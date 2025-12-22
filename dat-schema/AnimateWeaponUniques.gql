@@ -1,0 +1,7 @@
+# Added 3.21
+type AnimateWeaponUniques {
+  Id: string @unique
+  ItemVisualIdentity: ItemVisualIdentity
+  ItemClass: ItemClasses
+  _: i32
+}

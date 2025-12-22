@@ -1,0 +1,24 @@
+# Added 3.03
+type IncursionRooms @tags(list: ["item:itemized"]) {
+  Id: string @unique
+  Name: string
+  Tier: i32
+  MinLevel: i32
+  RoomUpgrade_IncursionRoomsKey: IncursionRooms
+  Mods: [Mods]
+  PresentARMFile: string @file(ext: ".arm")
+  HASH16: i32 @unique
+  IncursionArchitectKey: IncursionArchitect
+  PastARMFile: string @file(ext: ".arm")
+  TSIFile: string @file(ext: ".tsi")
+  UIIcon: string
+  FlavourText: string
+  Description: string
+  AchievementItemsKeys: [AchievementItems]
+  _: i32
+  _: i32
+  RoomUpgradeFrom_IncursionRoomsKey: IncursionRooms
+  ItemisedFlavourText: FlavourText
+  _: string
+  _: [Mods]
+}

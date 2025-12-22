@@ -1,0 +1,24 @@
+# Added 3.12
+type HeistBalancePerLevel {
+  Level: i32
+  _: f32
+  _: f32
+  _: i32
+  _: i32
+  _: f32
+  _: f32
+  HeistValueScalingKey1: HeistValueScaling
+  HeistValueScalingKey2: HeistValueScaling
+  HeistValueScalingKey3: HeistValueScaling
+  HeistValueScalingKey4: HeistValueScaling
+  HeistValueScalingKey5: HeistValueScaling
+  _: f32
+  _: f32
+  _: f32
+  _: f32
+  HeistValueScalingKey6: HeistValueScaling
+  HeistValueScalingKey7: HeistValueScaling
+  _: f32
+  _: f32
+  _: i32
+}

@@ -1,0 +1,12 @@
+type CharacterAudioEvents {
+  Id: string @unique
+  Event: QuestFlags
+  _: i32
+  _: i32
+  "For the Goddess Bound/Scorned/Unleashed unique"
+  Goddess_CharacterTextAudioKeys: [CharacterTextAudio]
+  "For Jack the Axe unique"
+  JackTheAxe_CharacterTextAudioKeys: [CharacterTextAudio]
+  _: bool
+  _: bool
+}

@@ -1,0 +1,1 @@
+enum DropReplacementCustomTargets @indexing(first: 0) { _ }

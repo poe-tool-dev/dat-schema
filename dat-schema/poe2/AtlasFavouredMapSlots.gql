@@ -1,0 +1,5 @@
+type AtlasFavouredMapSlots {
+  _: i32
+  _: i32
+  Requirement: string
+}

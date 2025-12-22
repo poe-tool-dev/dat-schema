@@ -1,0 +1,9 @@
+type TalkingPetAudioEvents {
+  Event: string
+  _: i32
+  _: i32
+  _: i32
+  _: [i32]
+  _: [i32]
+  _: i32
+}

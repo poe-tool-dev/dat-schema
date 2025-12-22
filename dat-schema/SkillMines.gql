@@ -1,0 +1,1 @@
+enum SkillMines @indexing(first: 0) { _ }

@@ -1,0 +1,6 @@
+# Added 3.24
+type NecropolisPackImplicits {
+  Id: string
+  Text: string
+  Icon: string
+}

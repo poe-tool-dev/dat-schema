@@ -1,0 +1,16 @@
+# Added 3.25
+type VillageAssignWorkerTextAudio {
+  _: rid
+  _: NPCTextAudio
+  _: NPCTextAudio
+  _: NPCTextAudio
+  _: NPCTextAudio
+  _: NPCTextAudio
+  _: NPCTextAudio
+  _: NPCTextAudio
+  _: NPCTextAudio
+  _: NPCTextAudio
+  _: NPCTextAudio
+  _: NPCTextAudio
+  _: NPCTextAudio
+}

@@ -1,0 +1,42 @@
+type Chests {
+  Id: string @unique
+  _: bool
+  _: i32
+  Name: string
+  AOFiles: [string] @file(ext: ".ao")
+  _: bool
+  _: bool
+  _: i32
+  _: bool
+  _: bool
+  _: i32
+  _: [rid]
+  BaseItemTypesKey: BaseItemTypes
+  _: bool
+  ModsKeys: [Mods]
+  TagsKeys: [Tags]
+  ChestEffectsKey: ChestEffects
+  MinLevel: i32
+  _: string
+  MaxLevel: i32
+  Corrupt_AchievementItemsKey: AchievementItems
+  CurrencyUse_AchievementItemsKey: AchievementItems
+  Encounter_AchievementItemsKeys: [AchievementItems]
+  _: rid
+  InheritsFrom: string @files(ext: [".ot", ".otc"])
+  _: bool
+  _: rid
+  _: [i32]
+  _: string
+  _: i32
+  _: i32
+  _: bool
+  _: rid
+  _: rid
+  _: bool
+  _: bool
+  _: [rid]
+  IsHardmode: bool
+  StatsHardmode: [Stats]
+  _: bool
+}

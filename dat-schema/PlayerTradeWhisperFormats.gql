@@ -1,0 +1,6 @@
+type PlayerTradeWhisperFormats {
+  Id: string
+  Whisper: string
+  InStash: bool
+  IsPriced: bool
+}

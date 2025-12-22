@@ -1,0 +1,10 @@
+# Added 3.03
+type IncursionRoomBossFightEvents {
+  Room: IncursionRooms
+  _: string
+  _: string
+  _: string
+  _: string
+  _: string
+  _: rid
+}

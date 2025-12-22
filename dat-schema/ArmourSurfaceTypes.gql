@@ -1,0 +1,1 @@
+enum ArmourSurfaceTypes @indexing(first: 0) { _ }

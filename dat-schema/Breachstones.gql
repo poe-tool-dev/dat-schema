@@ -1,0 +1,8 @@
+# Added 3.21
+type Breachstones {
+  BaseType: BaseItemTypes @unique
+  MapTierEquivalent: i32
+  _: i32 @unique
+  UpgradesTo: BaseItemTypes
+  UpgradeCurrency: BaseItemTypes
+}

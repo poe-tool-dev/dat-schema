@@ -1,0 +1,7 @@
+# Added 3.05
+type BetrayalRanks {
+  Id: string
+  Text: string
+  Level: i32
+  RankImage: string
+}

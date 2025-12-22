@@ -1,0 +1,1 @@
+enum ItemCreationTemplateCustomAction @indexing(first: 0) { _ }

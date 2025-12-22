@@ -1,0 +1,2 @@
+# Added 3.07
+enum LegionRankTypes @indexing(first: 0) { _ }

@@ -1,0 +1,10 @@
+type VoteType {
+  Id: string @unique
+  Text: string
+  AcceptText: string
+  RejectText: string
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}

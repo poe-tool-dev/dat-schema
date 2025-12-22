@@ -1,0 +1,9 @@
+type Footprints {
+  Id: string
+  Active_AOFiles: [string] @file(ext: ".ao")
+  Idle_AOFiles: [string] @file(ext: ".ao")
+  _: [string] @file(ext: ".ao")
+  _: [string] @file(ext: ".ao")
+  _: i32
+  _: rid
+}

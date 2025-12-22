@@ -1,0 +1,7 @@
+# Added 2.02
+type LabyrinthNodeOverrides {
+  Id1: string
+  Id2: string
+  _: [i32]
+  _: [i32]
+}

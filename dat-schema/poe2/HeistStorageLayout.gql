@@ -1,0 +1,15 @@
+type HeistStorageLayout {
+  Id: string @unique
+  StoredItem: BaseItemTypes
+  _: bool
+  ButtonFile: string
+  SlotSize: i32
+  HeistJobsKey: HeistJobs
+  Width: i32
+  Height: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  ItemClass: ItemClasses
+}

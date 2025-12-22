@@ -1,0 +1,23 @@
+type GrantedEffectsPerLevel {
+  GrantedEffect: GrantedEffects
+  Level: i32
+  PlayerLevelReq: f32
+  CostMultiplier: i32
+  StoredUses: i32
+  Cooldown: i32
+  CooldownBypassType: CooldownBypassTypes
+  VaalSouls: i32
+  VaalStoredUses: i32
+  CooldownGroup: i32
+  _: i32
+  SoulGainPreventionDuration: i32
+  AttackSpeedMultiplier: i32
+  _: i32
+  CostAmounts: [i32]
+  CostTypes: [CostTypes]
+  ManaReservationFlat: i32
+  ManaReservationPercent: i32
+  LifeReservationFlat: i32
+  LifeReservationPercent: i32
+  AttackTime: i32
+}

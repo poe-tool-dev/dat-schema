@@ -1,0 +1,5 @@
+# Added 0.11
+type RogueExileLifeScalingPerLevel {
+  Level: i32
+  AdditionalLife: i32
+}

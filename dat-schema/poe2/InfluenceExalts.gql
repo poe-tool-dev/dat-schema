@@ -1,0 +1,4 @@
+type InfluenceExalts @tags(list: ["item:def"]) {
+  Influence: InfluenceTypes @unique
+  BaseItemTypesKey: BaseItemTypes
+}

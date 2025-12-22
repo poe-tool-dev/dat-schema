@@ -1,0 +1,6 @@
+type ComponentAttributeRequirements @tags(list: ["item:def"]) {
+  BaseItemTypesKey: BaseItemTypes @ref(column: "Id") @unique
+  ReqStr: i32
+  ReqDex: i32
+  ReqInt: i32
+}

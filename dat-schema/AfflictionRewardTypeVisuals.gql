@@ -1,0 +1,6 @@
+# Added 3.10
+type AfflictionRewardTypeVisuals {
+  AfflictionRewardTypes: AfflictionRewardTypes
+  Id: string
+  Name: string
+}

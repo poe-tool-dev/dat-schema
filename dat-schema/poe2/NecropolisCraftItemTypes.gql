@@ -1,0 +1,12 @@
+# Added 3.24
+type NecropolisCraftItemTypes {
+  Id: string
+  ExorciseIcon: string
+  Name: string
+  _: i32
+  IllustratuionIcon: string
+  TextAudioLong: NPCTextAudio
+  Achievements: AchievementItems
+  TextAudioShort: NPCTextAudio
+  _: rid
+}

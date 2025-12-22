@@ -1,0 +1,7 @@
+type DescentExiles {
+  Id: string @unique
+  WorldAreasKey: WorldAreas
+  CharactersKey: Characters
+  MonsterVarietiesKey: MonsterVarieties
+  _: i32
+}

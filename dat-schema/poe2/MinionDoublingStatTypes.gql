@@ -1,0 +1,5 @@
+type MinionDoublingStatTypes {
+  Id: i32
+  Stat: Stats
+  MinionType: MinionType
+}

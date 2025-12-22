@@ -1,0 +1,18 @@
+type DescentRewardChests {
+  Id: string @unique
+  BaseItemTypesKeys1: [BaseItemTypes]
+  BaseItemTypesKeys2: [BaseItemTypes]
+  BaseItemTypesKeys3: [BaseItemTypes]
+  BaseItemTypesKeys4: [BaseItemTypes]
+  BaseItemTypesKeys5: [BaseItemTypes]
+  BaseItemTypesKeys6: [BaseItemTypes]
+  BaseItemTypesKeys7: [BaseItemTypes]
+  BaseItemTypesKeys8: [BaseItemTypes]
+  BaseItemTypesKeys9: [BaseItemTypes]
+  BaseItemTypesKeys10: [BaseItemTypes]
+  BaseItemTypesKeys11: [BaseItemTypes]
+  BaseItemTypesKeys12: [BaseItemTypes]
+  WorldAreasKey: WorldAreas
+  BaseItemTypesKeys13: [BaseItemTypes]
+  BaseItemTypesKeys14: [BaseItemTypes]
+}

@@ -1,0 +1,6 @@
+type DropPool {
+  Group: string @unique
+  Weight: i32
+  _: [i32]
+  WeightHardmode: i32
+}

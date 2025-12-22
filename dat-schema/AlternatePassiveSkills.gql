@@ -1,0 +1,28 @@
+type AlternatePassiveSkills {
+  Id: string @unique
+  AlternateTreeVersionsKey: AlternateTreeVersions
+  Name: string
+  PassiveType: [i32]
+  StatsKeys: [Stats]
+  Stat1Min: i32
+  Stat1Max: i32
+  Stat2Min: i32
+  Stat2Max: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  SpawnWeight: i32
+  _: i32
+  RandomMin: i32
+  RandomMax: i32
+  FlavourText: string
+  DDSIcon: string @file(ext: ".dds")
+  AchievementItemsKeys: [AchievementItems]
+  _: i32
+  _: i32
+}

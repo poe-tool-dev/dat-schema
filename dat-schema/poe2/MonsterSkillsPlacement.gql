@@ -1,0 +1,1 @@
+enum MonsterSkillsPlacement @indexing(first: 0) { _ }

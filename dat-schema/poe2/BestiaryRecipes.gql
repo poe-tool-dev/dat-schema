@@ -1,0 +1,16 @@
+# Added 3.02
+type BestiaryRecipes @tags(list: ["item:recipe", "crafting"]) {
+  Id: string @unique
+  Description: string
+  BestiaryRecipeComponentKeys: [BestiaryRecipeComponent]
+  Notes: string
+  Category: BestiaryRecipeCategories
+  _: bool
+  Achievements: [AchievementItems]
+  _: bool
+  _: i32
+  _: i32
+  "0: All, 1: Normal, 2: Ruthless"
+  GameMode: i32
+  FlaskMod: Mods
+}

@@ -1,0 +1,5 @@
+# Added 3.03
+type IncursionUniqueUpgradeComponents @tags(list: ["item:recipe", "item:unique"]) {
+  BaseUnique: Words
+  UpgradeCurrency: BaseItemTypes
+}

@@ -1,0 +1,6 @@
+# Added 2.00
+type DivinationCardArt @tags(list: ["item:def"]) {
+  BaseItemTypesKey: BaseItemTypes
+  VirtualFile: string
+  Influences: [InfluenceTypes]
+}

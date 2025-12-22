@@ -1,0 +1,23 @@
+# Added 3.22
+type AncestralTrialTribes {
+  Id: string @unique
+  _: rid
+  Portrait: string
+  TribeIcon: string
+  TribeName: string @unique
+  FavourTracker: string
+  _: [rid]
+  Name: string
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: [rid]
+  _: rid
+  _: [rid]
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: rid
+}

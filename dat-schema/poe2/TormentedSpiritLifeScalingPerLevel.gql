@@ -1,0 +1,5 @@
+# Added 3.22
+type TormentedSpiritLifeScalingPerLevel {
+  Level: i32
+  Life: i32
+}

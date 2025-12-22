@@ -1,0 +1,9 @@
+# Added 3.22
+type TieredMicrotransactionsVisuals {
+  MTX: BaseItemTypes
+  Tier: i32
+  Description: string
+  DDSFile: string @file(ext: ".dds")
+  _: i32
+  _: string
+}

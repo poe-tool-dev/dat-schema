@@ -1,0 +1,15 @@
+# Added 3.12
+type HeistRooms {
+  HeistAreasKey: HeistAreas
+  Id: i32
+  ARMFile: string @file(ext: ".arm")
+  HeistJobsKey1: HeistJobs
+  HeistJobsKey2: HeistJobs
+  _: i32
+  _: i32
+  _: i32
+  _: string
+  _: f32
+  _: bool
+  _: bool
+}

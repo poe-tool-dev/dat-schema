@@ -1,0 +1,21 @@
+type ExplodingStormBuffs {
+  Id: string @unique
+  BuffDefinitionsKey1: BuffDefinitions
+  _: rid
+  StatValues: [i32]
+  _: i32
+  _: [i32]
+  _: i32
+  _: i32
+  _: i32
+  Friendly_MonsterVarietiesKey: MonsterVarieties
+  MiscObjectsKey: MiscObjects
+  MiscAnimatedKey: MiscAnimated
+  BuffVisualsKey: BuffVisuals
+  Enemy_MonsterVarietiesKey: MonsterVarieties
+  _: i32
+  _: i32
+  _: i32
+  BuffDefinitionsKey2: BuffDefinitions
+  IsOnlySpawningNearPlayer: bool
+}

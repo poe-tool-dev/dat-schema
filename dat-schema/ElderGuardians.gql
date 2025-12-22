@@ -1,0 +1,5 @@
+# Added 3.01
+type ElderGuardians {
+  Id: string
+  MapIcon: string
+}

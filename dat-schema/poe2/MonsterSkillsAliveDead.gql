@@ -1,0 +1,1 @@
+enum MonsterSkillsAliveDead @indexing(first: 0) { _ }

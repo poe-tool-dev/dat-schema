@@ -1,0 +1,6 @@
+# Added 3.05
+type SafehouseCraftingSpreeCurrencies {
+  Id: string @unique
+  BaseItemTypesKey: BaseItemTypes
+  HasSpecificBaseItem: bool
+}

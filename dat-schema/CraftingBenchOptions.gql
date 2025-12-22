@@ -1,0 +1,39 @@
+type CraftingBenchOptions @tags(list: ["crafting"]) {
+  HideoutNPCsKey: HideoutNPCs
+  Order: i32
+  AddMod: Mods
+  Cost_BaseItemTypes: [BaseItemTypes]
+  Cost_Values: [i32]
+  RequiredLevel: i32
+  Name: string
+  CraftingBenchCustomAction: CraftingBenchCustomActions
+  ItemClasses: [ItemClasses]
+  Links: i32
+  SocketColours: string
+  Sockets: i32
+  ItemQuantity: i32
+  _: [i32]
+  Description: string
+  IsDisabled: bool
+  IsAreaOption: bool
+  RecipeIds: [RecipeUnlockDisplay] @ref(column: "RecipeId")
+  Tier: i32
+  CraftingItemClassCategories: [CraftingItemClassCategories]
+  _: i32
+  _: [_]
+  AchievementItems: [AchievementItems]
+  _: i32
+  _: i32
+  AddEnchantment: Mods
+  SortCategory: CraftingBenchSortCategories
+  ModType: ModType
+  _: bool
+  _: i32
+  _: Stats
+  _: Stats
+  _: Stats
+  MapDevice: bool
+  _: [rid]
+  Tags: [Tags]
+  _: [i32]
+}

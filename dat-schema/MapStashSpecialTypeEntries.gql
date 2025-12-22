@@ -1,0 +1,12 @@
+type MapStashSpecialTypeEntries {
+  Id: string
+  _: i32
+  MapItem: BaseItemTypes
+  Name: string @localized
+  _: i32
+  IsShaperGuardian: bool
+  IsElderGuardian: bool
+  _: rid
+  _: rid
+  _: rid
+}

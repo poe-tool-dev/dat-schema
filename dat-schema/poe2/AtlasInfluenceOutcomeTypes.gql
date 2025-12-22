@@ -1,0 +1,7 @@
+enum AtlasInfluenceOutcomeTypes @indexing(first: 0) {
+  MONSTER_PACKS
+  EMPOWERED_BOSS
+  ON_KILL
+  INITIAL_PACKS
+  AWAKENER
+}

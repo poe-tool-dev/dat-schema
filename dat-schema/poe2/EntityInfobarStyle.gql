@@ -1,0 +1,21 @@
+# Added 3.22
+type EntityInfobarStyle {
+  Id: string @unique
+  FrameLeft: string
+  FrameMiddle: string
+  FrameRepeat: string
+  FrameRight: string
+  EntityLeft: string
+  EntityMiddle: string
+  EntityRepeat: string
+  EntityRight: string
+  EntityStats: string
+  EntityStatsSmall: string
+  _: i32
+  _: i32
+  LifeBar: string
+  LifeBarLeft: string
+  LifeBarMiddle: string
+  LifeBarRepeat: string
+  LifeBarRight: string
+}

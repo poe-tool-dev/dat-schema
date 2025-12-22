@@ -1,0 +1,5 @@
+# Added 2.00
+type WarbandsMapGraph {
+  WorldAreasKey: WorldAreas
+  Connections: [i32]
+}

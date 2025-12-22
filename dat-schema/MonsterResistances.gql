@@ -1,0 +1,15 @@
+type MonsterResistances {
+  Id: string @unique
+  FireNormal: i32
+  ColdNormal: i32
+  LightningNormal: i32
+  ChaosNormal: i32
+  FireCruel: i32
+  ColdCruel: i32
+  LightningCruel: i32
+  ChaosCruel: i32
+  FireMerciless: i32
+  ColdMerciless: i32
+  LightningMerciless: i32
+  ChaosMerciless: i32
+}

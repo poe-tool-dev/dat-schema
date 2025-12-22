@@ -1,0 +1,8 @@
+# Added 3.08
+type BlightedSporeAuras {
+  BuffDefinitionsKey: BuffDefinitions
+  BuffStatValues: [i32]
+  _: i32
+  _: [i32]
+  _: i32
+}

@@ -1,0 +1,7 @@
+type DescentStarterChest {
+  Id: string @unique
+  CharactersKey: Characters
+  BaseItemTypesKey: BaseItemTypes
+  SocketColours: string
+  WorldAreasKey: WorldAreas
+}

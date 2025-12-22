@@ -1,0 +1,10 @@
+type Notifications {
+  Id: string @unique
+  _: bool
+  _: bool
+  Message: string
+  _: string
+  _: i32
+  _: bool
+  _: bool
+}

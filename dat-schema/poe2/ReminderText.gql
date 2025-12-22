@@ -1,0 +1,5 @@
+type ReminderText {
+  Id: string @unique
+  Text: string @localized
+  TextHardmode: string @localized
+}

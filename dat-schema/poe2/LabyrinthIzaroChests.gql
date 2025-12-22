@@ -1,0 +1,9 @@
+# Added 2.02
+type LabyrinthIzaroChests {
+  Id: string @unique @files(ext: [".ot", ".otc"])
+  ChestsKey: Chests
+  SpawnWeight: i32
+  MinLabyrinthTier: i32
+  MaxLabyrinthTier: i32
+  _: i32
+}

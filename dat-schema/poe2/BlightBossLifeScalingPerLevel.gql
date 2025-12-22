@@ -1,0 +1,5 @@
+# Added 3.08
+type BlightBossLifeScalingPerLevel {
+  Level: i32
+  MoreLife: i32
+}

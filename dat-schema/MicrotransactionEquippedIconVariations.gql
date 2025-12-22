@@ -1,0 +1,6 @@
+# Added 3.21
+type MicrotransactionEquippedIconVariations {
+  _: rid
+  DDSFiles: [string] @file(ext: ".dds")
+  _: [_]
+}

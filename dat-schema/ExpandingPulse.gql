@@ -1,0 +1,10 @@
+type ExpandingPulse {
+  IntId: i32 @unique
+  StringId: string @unique
+  _: [i32]
+  _: [f32]
+  _: [rid]
+  _: i32
+  _: i32
+  _: bool
+}

@@ -1,0 +1,20 @@
+type PassiveSkillTreeUIArt {
+  Id: string
+  GroupBackgroundSmall: string
+  GroupBackgroundMedium: string
+  GroupBackgroundLarge: string
+  _: bool
+  PassiveFrameNormal: string
+  NotableFrameNormal: string
+  KeystoneFrameNormal: string
+  PassiveFrameActive: string
+  NotableFrameActive: string
+  KeystoneFrameActive: string
+  PassiveFrameCanAllocate: string
+  NotableFrameCanAllocate: string
+  KeystoneCanAllocate: string
+  Ornament: string
+  GroupBackgroundSmallBlank: string
+  GroupBackgroundMediumBlank: string
+  GroupBackgroundLargeBlank: string
+}

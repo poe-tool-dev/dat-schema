@@ -1,0 +1,5 @@
+type InfluenceTags {
+  ItemClass: ItemClasses
+  Influence: InfluenceTypes
+  Tag: Tags
+}

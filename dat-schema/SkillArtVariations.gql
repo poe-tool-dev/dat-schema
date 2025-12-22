@@ -1,0 +1,15 @@
+type SkillArtVariations {
+  Id: string
+  _: [rid]
+  _: [i32]
+  _: [i32]
+  _: [i32]
+  Variants: [string]
+  _: [rid]
+  _: [i32]
+  _: [rid]
+  _: rid
+  _: [i32]
+  _: [rid]
+  _: [i32]
+}

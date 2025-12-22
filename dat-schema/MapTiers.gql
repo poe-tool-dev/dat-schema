@@ -1,0 +1,5 @@
+type MapTiers {
+  Tier: i32
+  Level: i32
+  Level2: i32
+}

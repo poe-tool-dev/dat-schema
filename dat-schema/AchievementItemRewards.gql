@@ -1,0 +1,6 @@
+type AchievementItemRewards @tags(list: ["mtx:reward"]) {
+  AchievementItemsKey: AchievementItems
+  BaseItemTypesKey: BaseItemTypes
+  Message: string
+  Id: string
+}

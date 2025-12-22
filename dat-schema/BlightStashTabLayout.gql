@@ -1,0 +1,14 @@
+type BlightStashTabLayout {
+  Id: string @unique
+  StoredItem: BaseItemTypes
+  XOffset: i32
+  YOffset: i32
+  FirstSlotIndex: i32
+  Width: i32
+  Height: i32
+  SlotSize: i32
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+}

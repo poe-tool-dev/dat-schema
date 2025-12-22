@@ -1,0 +1,12 @@
+# Added 3.08
+type BlightTopologies {
+  Id: string @unique
+  BlightTopologyNodesKey: BlightTopologyNodes
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}

@@ -1,0 +1,11 @@
+type WindowCursors {
+  Id: string
+  CursorDefault: string @file(ext: ".bmp")
+  CursorClick: string @file(ext: ".bmp")
+  _: i32
+  _: i32
+  CursorHover: string @file(ext: ".bmp")
+  Description: string
+  IsEnabled: bool
+  _: i32
+}

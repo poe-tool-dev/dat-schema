@@ -1,0 +1,34 @@
+# Added 3.12
+type HeistQuestContracts {
+  HeistContractsKey: HeistContracts
+  HeistObjectivesKey: HeistObjectives
+  HeistNPCsKey: [HeistNPCs]
+  HeistJobsKey: HeistJobs
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+  HeistRoomsKey1: HeistRooms
+  WorldAreasKey: WorldAreas
+  _: bool
+  _: bool
+  _: i32
+  _: i32
+  _: bool
+  _: bool
+  HaveObjective: QuestFlags
+  _: bool
+  QuestActive: QuestFlags
+  HaveQuest: QuestFlags
+  HaveObjective2: QuestFlags
+  _: bool
+  _: bool
+  Objective: string @localized
+  _: bool
+  BaseItemTypesKey: BaseItemTypes
+  _: bool
+  HeistIntroAreasKey: HeistIntroAreas
+  _: i32
+  HeistRoomsKey2: HeistRooms
+  _: string
+}

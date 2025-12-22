@@ -1,0 +1,13 @@
+type QuestStaticRewards {
+  QuestFlag: QuestFlags
+  _: i32
+  StatsKeys: [Stats]
+  StatValues: [i32]
+  QuestKey: Quest
+  _: i32
+  ClientStringsKey: ClientStrings
+  _: i32
+  StatValuesHardmode: [i32]
+  ClientStringHardmode: ClientStrings
+  _: rid
+}

@@ -1,0 +1,17 @@
+type FragmentStashTabLayout {
+  Id: string
+  XOffset: i32
+  YOffset: i32
+  FirstSlotIndex: i32
+  Width: i32
+  Height: i32
+  _: bool
+  Tab: i32
+  SlotSize: i32
+  HideIfEmpty: bool
+  Subtab: i32
+  StoredItems: [BaseItemTypes]
+  _: bool
+  _: string
+  _: i32
+}

@@ -1,0 +1,14 @@
+# Added 2.02
+type LabyrinthTrials {
+  WorldAreas: WorldAreas
+  _: i32
+  _: i32
+  _: i32
+  NPCTextAudioKey: NPCTextAudio
+  _: string
+  _: string
+  _: i32
+  _: i32 # All rows empty
+  _: i32 # All rows empty
+  _: i32 # All rows empty
+}

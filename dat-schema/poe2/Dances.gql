@@ -1,0 +1,4 @@
+type Dances {
+  BaseItemTypesKey: BaseItemTypes
+  CharactersKey: Characters
+}

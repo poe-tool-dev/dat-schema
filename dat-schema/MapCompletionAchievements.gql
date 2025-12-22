@@ -1,0 +1,10 @@
+type MapCompletionAchievements {
+  _: string
+  MapStatConditionsKeys: [MapStatConditions]
+  StatsKeys: [Stats]
+  AchievementItemsKeys: [AchievementItems]
+  MapTierAchievementsKeys: [MapTierAchievements]
+  _: bool
+  WorldAreasKeys: [WorldAreas]
+  _: [_]
+}

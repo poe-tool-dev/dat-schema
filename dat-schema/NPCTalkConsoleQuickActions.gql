@@ -1,0 +1,5 @@
+type NPCTalkConsoleQuickActions {
+  Id: string
+  Controller: string
+  _: string
+}

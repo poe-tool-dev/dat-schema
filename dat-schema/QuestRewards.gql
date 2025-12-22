@@ -1,0 +1,22 @@
+type QuestRewards @tags(list: ["item:reward"]) {
+  RewardOffer: QuestRewardOffers
+  _: i32
+  Characters: [Characters]
+  Reward: BaseItemTypes
+  RewardLevel: i32
+  _: rid
+  _: i32
+  _: string
+  _: [_] # All rows empty
+  RewardStack: i32
+  _: bool
+  _: bool
+  _: [_]
+  _: i32
+  _: i32
+  _: [_] # All rows empty
+  _: i32
+  _: rid
+  _: i32
+  _: [_] # All rows empty
+}

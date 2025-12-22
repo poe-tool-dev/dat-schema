@@ -1,0 +1,12 @@
+type DaressoPitFights {
+  Id: string @unique
+  _: rid
+  _: i32
+  _: [i32]
+  _: bool
+  _: bool
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+}

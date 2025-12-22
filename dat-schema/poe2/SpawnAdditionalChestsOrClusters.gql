@@ -1,0 +1,5 @@
+type SpawnAdditionalChestsOrClusters {
+  StatsKey: Stats
+  ChestsKey: Chests
+  ChestClustersKey: ChestClusters
+}

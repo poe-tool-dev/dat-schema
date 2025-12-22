@@ -1,0 +1,10 @@
+type LevelRelativePlayerScaling {
+  PlayerLevel: i32 @unique
+  MonsterLevel: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}

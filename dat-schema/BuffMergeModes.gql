@@ -1,0 +1,1 @@
+enum BuffMergeModes @indexing(first: 0) { _ }

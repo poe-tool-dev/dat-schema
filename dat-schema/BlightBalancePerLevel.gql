@@ -1,0 +1,12 @@
+# Added 3.08
+type BlightBalancePerLevel {
+  Level: i32
+  _: i32
+  _: [i32]
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}

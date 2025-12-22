@@ -1,0 +1,14 @@
+# Added 2.00
+type WarbandsPackNumbers {
+  Id: string @unique
+  SpawnChance: i32
+  MinLevel: i32
+  MaxLevel: i32
+  Tier4Number: i32
+  _: i32
+  Tier3Number: i32
+  _: i32
+  Tier2Number: i32
+  _: i32
+  Tier1Number: i32
+}

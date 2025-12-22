@@ -1,0 +1,20 @@
+type Achievements {
+  Id: string @unique
+  Description: string
+  SetId: AchievementSetsDisplay @ref(column: "Id")
+  Objective: string
+  HASH16: i16
+  _: bool
+  HideAchievementItems: bool
+  _: bool
+  MinCompletedItems: i32
+  TwoColumnLayout: bool
+  ShowItemCompletionsAsOne: bool
+  _: string
+  SoftcoreOnly: bool
+  HardcoreOnly: bool
+  _: bool
+  _: string
+  _: string
+  _: string
+}

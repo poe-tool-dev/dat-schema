@@ -1,0 +1,7 @@
+# Added 3.06
+type SynthesisGlobalMods {
+  ModsKey: Mods
+  Weight: i32
+  MinLevel: i32
+  MaxLevel: i32
+}

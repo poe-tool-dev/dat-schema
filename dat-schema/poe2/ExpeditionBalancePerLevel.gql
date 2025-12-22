@@ -1,0 +1,18 @@
+# Added 3.15
+type ExpeditionBalancePerLevel {
+  Level: i32
+  _: bool
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}

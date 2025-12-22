@@ -1,0 +1,6 @@
+type CharacterPanelDescriptionModes {
+  Id: string @unique
+  _: string
+  FormatString_Positive: string
+  FormatString_Negative: string
+}

@@ -1,0 +1,4 @@
+type BackendErrors {
+  Id: string @unique
+  Text: string
+}

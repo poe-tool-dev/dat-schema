@@ -1,0 +1,9 @@
+type MicrotransactionCombineFormula {
+  Id: string
+  Result_BaseItemTypesKey: BaseItemTypes
+  Ingredients_BaseItemTypesKeys: [BaseItemTypes]
+  BK2File: string @file(ext: ".bk2")
+  _: [i32]
+  _: i32
+  _: bool
+}

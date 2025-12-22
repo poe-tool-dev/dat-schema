@@ -1,0 +1,5 @@
+# Added 3.14
+type UltimatumMapModifiers {
+  Stat: Stats
+  Mods: [UltimatumModifiers]
+}

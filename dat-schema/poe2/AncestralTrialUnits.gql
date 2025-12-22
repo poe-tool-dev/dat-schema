@@ -1,0 +1,14 @@
+# Added 3.22
+type AncestralTrialUnits {
+  Id: string
+  Name: string
+  Tribe: AncestralTrialTribes
+  Image: string
+  TotemImage: string
+  HASH16: i32
+  _: i32
+  Description: string
+  _: i32
+  _: i32
+  Position: AncestralTrialUnitPositions
+}

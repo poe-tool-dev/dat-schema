@@ -1,0 +1,5 @@
+# Added 3.06
+type SynthesisMonsterExperiencePerLevel {
+  Level: i32
+  ExperienceBonus: i32
+}

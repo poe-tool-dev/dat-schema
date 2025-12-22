@@ -1,0 +1,8 @@
+type IndexableSkillGems {
+  Index: i32
+  SkillGem1: [SkillGems]
+  Name1: string
+  SkillGem2: [SkillGems]
+  Name2: string
+  _: IndexableSkillGems
+}

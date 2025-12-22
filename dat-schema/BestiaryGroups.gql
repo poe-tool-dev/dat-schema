@@ -1,0 +1,11 @@
+# Added 3.02
+type BestiaryGroups {
+  Id: string @unique
+  Description: string
+  Illustration: string
+  Name: string
+  Icon: string
+  IconSmall: string
+  BestiaryFamiliesKey: BestiaryFamilies
+  AchievementItemsKeys: [AchievementItems]
+}

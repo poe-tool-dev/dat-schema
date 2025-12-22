@@ -1,0 +1,8 @@
+# Added 3.23
+type AdditionalMonstersFromMapStats {
+  _: rid
+  _: [_]
+  _: bool
+  _: i32
+  _: i32
+}

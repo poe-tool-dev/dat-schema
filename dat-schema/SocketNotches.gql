@@ -1,0 +1,7 @@
+type SocketNotches {
+  Id: string
+  Description: string
+  RedSocketImage: string
+  BlueSocketImage: string
+  GreenSocketImage: string
+}

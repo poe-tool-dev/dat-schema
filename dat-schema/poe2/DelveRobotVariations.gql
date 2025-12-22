@@ -1,0 +1,8 @@
+# Added 3.20
+type DelveRobotVariations {
+  Id: string @unique
+  AOFile: string @file(ext: ".ao")
+  _: [string]
+  _: rid
+  _: rid
+}

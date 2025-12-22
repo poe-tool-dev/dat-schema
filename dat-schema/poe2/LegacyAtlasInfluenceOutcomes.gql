@@ -1,0 +1,10 @@
+# Added 3.17
+type LegacyAtlasInfluenceOutcomes {
+  Id: string @unique
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: rid
+  _: [_]
+}

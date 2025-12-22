@@ -1,0 +1,11 @@
+type ShopTag {
+  Id: string
+  Name: string @localized
+  IsCategory: bool
+  Category: ShopTag
+  PoE2: bool
+  _: string
+  Guild: bool
+  _: ShopTag
+  _: string
+}

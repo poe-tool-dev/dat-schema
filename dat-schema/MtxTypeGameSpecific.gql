@@ -1,0 +1,8 @@
+type MtxTypeGameSpecific {
+  Type: MtxTypes @unique
+  HASH16: i32
+  DDSFile: string @file(ext: ".dds")
+  Category: MicrotransactionCategory @ref(column: "Id")
+  _: [i32]
+  _: i32
+}

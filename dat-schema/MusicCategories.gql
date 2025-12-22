@@ -1,0 +1,6 @@
+type MusicCategories {
+  Id: string @unique
+  Name: string
+  Order: i32
+  _: bool
+}

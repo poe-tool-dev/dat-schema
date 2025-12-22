@@ -1,0 +1,4 @@
+type DivinationBuffTemplates {
+  Buff: BuffTemplates
+  DivCardArt: DivinationCardArt
+}

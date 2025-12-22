@@ -1,0 +1,10 @@
+# Added 3.03
+type IncursionChests {
+  Id: string @unique
+  ChestsKey: Chests
+  UniqueChestsKey: UniqueChests
+  MinLevel: i32
+  MaxLevel: i32
+  Weight: i32
+  _: i32
+}

@@ -1,0 +1,5 @@
+type SkillMineVariations {
+  SkillMinesKey: i32
+  _: i32
+  MiscObject: MiscObjects
+}

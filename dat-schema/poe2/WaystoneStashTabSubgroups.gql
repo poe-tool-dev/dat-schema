@@ -1,0 +1,5 @@
+type WaystoneStashTabSubgroups {
+  Tier: i32 @unique
+  Text: string @unique
+  Colour: i32 # 1 white 2 yellow 3 red
+}

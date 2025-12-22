@@ -1,0 +1,16 @@
+# Added 3.23
+type StatisticTrackingMicrotransactionsStatistics {
+  _: bool
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: string
+  _: bool
+}

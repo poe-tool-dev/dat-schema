@@ -1,0 +1,15 @@
+type NPCTextAudio {
+  Id: string @unique
+  Characters: [Characters]
+  Text: string
+  Mono_AudioFile: string @file(ext: ".ogg")
+  Stereo_AudioFile: string @file(ext: ".ogg")
+  HasStereo: bool
+  _: bool
+  Video: string
+  _: i32
+  _: i32
+  _: i32
+  NPCs: [NPCs]
+  _: rid
+}

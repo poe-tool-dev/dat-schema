@@ -1,0 +1,1 @@
+enum MonsterGroupNames @indexing(first: 0) { _ }

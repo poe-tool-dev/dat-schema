@@ -1,0 +1,6 @@
+# Added 3.10
+type AfflictionStartDialogue {
+  WorldAreasKey: WorldAreas
+  NPCTextAudioKey: NPCTextAudio
+  _: [rid]
+}

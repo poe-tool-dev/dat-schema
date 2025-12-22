@@ -1,0 +1,12 @@
+type CharacterPanelStats {
+  Id: string @unique
+  Text: string
+  StatsKeys1: [Stats]
+  CharacterPanelDescriptionModesKey: CharacterPanelDescriptionModes
+  StatsKeys2: [Stats]
+  StatsKeys3: [Stats]
+  CharacterPanelTabsKey: CharacterPanelTabs
+  _: bool
+  _: [i32]
+  _: i32
+}

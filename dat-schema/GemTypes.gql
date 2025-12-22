@@ -1,0 +1,1 @@
+enum GemTypes @indexing(first: 0) { _ }

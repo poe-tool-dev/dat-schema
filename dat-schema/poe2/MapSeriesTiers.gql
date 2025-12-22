@@ -1,0 +1,26 @@
+type MapSeriesTiers {
+  MapsKey: Maps @unique
+  MapWorldsTier: i32
+  BetrayalTier: i32
+  SynthesisTier: i32
+  LegionTier: i32
+  BlightTier: i32
+  MetamorphosisTier: i32
+  DeliriumTier: i32
+  HarvestTier: i32
+  HeistTier: i32
+  RitualTier: i32
+  ExpeditionTier: i32
+  ScourgeTier: i32
+  ArchnemesisTier: i32
+  SentinelTier: i32
+  KalandraTier: i32
+  SanctumTier: i32
+  CrucibleTier: i32
+  AncestorTier: i32
+  AzmeriTier: i32
+  NecropolisTier: i32
+  SettlersTier: i32
+  SecretsTier: i32
+  KeepersTier: i32
+}

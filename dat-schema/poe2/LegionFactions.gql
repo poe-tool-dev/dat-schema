@@ -1,0 +1,21 @@
+# Added 3.07
+type LegionFactions {
+  Id: string @unique
+  SpawnWeight: i32
+  LegionBalancePerLevelKey: LegionBalancePerLevel
+  _: f32
+  _: f32
+  BuffVisualsKey: BuffVisuals
+  MiscAnimatedKey1: MiscAnimated
+  MiscAnimatedKey2: MiscAnimated
+  MiscAnimatedKey3: MiscAnimated
+  AchievementItemsKeys1: [AchievementItems]
+  MiscAnimatedKey4: MiscAnimated
+  MiscAnimatedKey5: MiscAnimated
+  _: f32
+  _: f32
+  AchievementItemsKeys2: [AchievementItems]
+  StatsKey: Stats
+  Shard: string
+  RewardJewelArt: string
+}

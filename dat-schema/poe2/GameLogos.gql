@@ -1,0 +1,5 @@
+type GameLogos {
+  Id: string
+  LogoIntl: string
+  LogoTW: string
+}

@@ -1,0 +1,7 @@
+type TypeTags {
+  Id: string
+  Tag: Tags
+  Name: string
+  Icon: string
+  _: Stats
+}

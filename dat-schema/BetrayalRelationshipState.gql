@@ -1,0 +1,5 @@
+# Added 3.05
+type BetrayalRelationshipState {
+  Id: string
+  Text: string
+}

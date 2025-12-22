@@ -1,0 +1,6 @@
+# Added 3.12
+type HeistObjectiveValueDescriptions {
+  Tier: i32
+  MarkersMultiply: f32
+  Description: string
+}

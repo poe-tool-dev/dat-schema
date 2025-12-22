@@ -1,0 +1,5 @@
+# Added 3.19
+type HideoutWaypointDoodads {
+  _: rid @unique
+  _: [_]
+}

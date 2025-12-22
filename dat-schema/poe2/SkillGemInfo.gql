@@ -1,0 +1,8 @@
+type SkillGemInfo {
+  Id: string @unique
+  Description: string
+  VideoURL1: string
+  SkillGemsKey: SkillGems
+  VideoURL2: string
+  CharactersKeys: [Characters]
+}

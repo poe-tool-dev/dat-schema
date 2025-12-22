@@ -1,0 +1,6 @@
+# Added 3.25
+type VillageResources {
+  Id: string
+  _: rid
+  _: i32
+}

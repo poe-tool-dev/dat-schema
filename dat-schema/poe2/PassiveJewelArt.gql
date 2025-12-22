@@ -1,0 +1,7 @@
+# Added 3.19
+type PassiveJewelArt {
+  BaseItemTypesKey: BaseItemTypes @unique
+  SocketedImage: string
+  SocketedImageLarge: string
+  _: rid
+}

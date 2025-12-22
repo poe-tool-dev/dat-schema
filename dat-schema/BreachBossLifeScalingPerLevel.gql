@@ -1,0 +1,5 @@
+# Added 3.27
+type BreachBossLifeScalingPerLevel {
+  MonsterLevel: i32
+  LifeMultiplier: i32
+}

@@ -1,0 +1,11 @@
+# Added 3.21
+type ActiveSettings {
+  _: string @unique
+  _: i32
+  _: i32
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: i32
+}

@@ -1,0 +1,1 @@
+enum MonsterSkillsAttackSpell @indexing(first: 0) { _ }

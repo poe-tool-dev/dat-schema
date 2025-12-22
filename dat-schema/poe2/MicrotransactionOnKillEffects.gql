@@ -1,0 +1,11 @@
+# Added 3.21
+type MicrotransactionOnKillEffects {
+  Id: string @unique
+  _: rid
+  _: rid
+  _: rid
+  _: i32
+  _: rid
+  _: i32
+  _: rid
+}

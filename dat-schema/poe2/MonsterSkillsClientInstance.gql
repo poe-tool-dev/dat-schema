@@ -1,0 +1,1 @@
+enum MonsterSkillsClientInstance @indexing(first: 0) { _ }

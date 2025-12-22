@@ -1,0 +1,8 @@
+type GemTags {
+  Id: string @unique
+  Tag: string
+  Stat1: Stats
+  Stat2: Stats
+  Stat3: Stats
+  Stat4: Stats
+}

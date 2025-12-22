@@ -1,0 +1,5 @@
+enum StatInterpolationTypes @indexing(first: 1) {
+  CONSTANT
+  LINEAR
+  EXPONENTIAL
+}

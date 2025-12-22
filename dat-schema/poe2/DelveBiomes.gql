@@ -1,0 +1,15 @@
+# Added 3.04
+type DelveBiomes {
+  Id: string @unique
+  Name: string
+  WorldAreasKeys: [WorldAreas]
+  UIImage: string
+  SpawnWeight_Depth: [i32]
+  SpawnWeight_Values: [i32]
+  _: [i32]
+  _: [i32]
+  Art2D: string @files(ext: [".dds"])
+  AchievementItemsKeys: [AchievementItems]
+  _: bool
+  _: [i32]
+}

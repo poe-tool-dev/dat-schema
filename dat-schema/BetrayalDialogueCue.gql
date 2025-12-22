@@ -1,0 +1,2 @@
+# Added 3.05
+enum BetrayalDialogueCue @indexing(first: 0) { _ }

@@ -1,0 +1,12 @@
+# Added 3.19
+type MicrotransactionConditionalApparitions {
+  Id: string @unique
+  _: [_]
+  _: [_]
+  _: rid
+  _: rid
+  _: i32
+  _: bool
+  _: i32
+  _: bool
+}

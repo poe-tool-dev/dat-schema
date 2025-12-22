@@ -1,0 +1,16 @@
+# Added 3.02
+type BestiaryCapturableMonsters @tags(list: ["item:itemized"]) {
+  MonsterVarietiesKey: MonsterVarieties
+  BestiaryGroupsKey: BestiaryGroups
+  BestiaryEncountersKey: BestiaryEncounters
+  _: bool
+  IconSmall: string
+  Icon: string
+  Boss_MonsterVarietiesKey: MonsterVarieties
+  BestiaryGenusKey: BestiaryGenus
+  _: bool
+  BestiaryCapturableMonstersKey: BestiaryCapturableMonsters
+  IsDisabled: bool
+  _: i32
+  _: bool
+}

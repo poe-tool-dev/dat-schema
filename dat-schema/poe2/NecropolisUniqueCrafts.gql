@@ -1,0 +1,5 @@
+# Added 3.24
+type NecropolisUniqueCrafts {
+  Id: string
+  Stats: [Stats]
+}

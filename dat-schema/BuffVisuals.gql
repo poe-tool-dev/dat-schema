@@ -1,0 +1,21 @@
+type BuffVisuals {
+  Id: string @unique
+  BuffDDSFile: string @file(ext: ".dds")
+  EPKFiles1: [string] @file(ext: ".epk")
+  EPKFiles2: [string] @file(ext: ".epk")
+  PreloadGroups: [PreloadGroups]
+  _: bool
+  BuffName: string
+  MiscAnimated1: MiscAnimated
+  MiscAnimated2: MiscAnimated
+  BuffDescription: string
+  EPKFile: string @file(ext: ".epk")
+  HasExtraArt: bool
+  ExtraArt: string
+  _: [i32]
+  EPKFiles: [string] @file(ext: ".epk")
+  BuffVisualOrbs: [BuffVisualOrbs]
+  MiscAnimated3: MiscAnimated
+  _: rid
+  _: string
+}

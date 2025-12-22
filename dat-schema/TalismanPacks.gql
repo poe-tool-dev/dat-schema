@@ -1,0 +1,13 @@
+# Added 2.01
+type TalismanPacks {
+  Id: string
+  MonsterPacksKeys: [MonsterPacks]
+  _: i32
+  _: i32
+  MonsterVarietiesKey: MonsterVarieties
+  _: rid
+  _: i32
+  _: i32
+  _: i32
+  MonsterPacksKey: MonsterPacks
+}

@@ -1,0 +1,6 @@
+type LeagueProgressQuestFlags {
+  QuestFlag: QuestFlags
+  CompletionString: ClientStrings
+  Boss: string
+  _: bool
+}

@@ -1,0 +1,6 @@
+type AtlasPositions {
+  _: i32
+  _: i32
+  X: f32
+  Y: f32
+}

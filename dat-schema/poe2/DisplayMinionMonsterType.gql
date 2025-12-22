@@ -1,0 +1,4 @@
+type DisplayMinionMonsterType {
+  Id: i32 @unique
+  MonsterVarietiesKey: MonsterVarieties
+}

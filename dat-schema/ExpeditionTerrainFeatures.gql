@@ -1,0 +1,14 @@
+# Added 3.15
+type ExpeditionTerrainFeatures {
+  Id: string @unique
+  ExtraFeature: ExtraTerrainFeatures
+  ExpeditionFaction: ExpeditionFactions
+  MinLevel: i32
+  MaxLevel: i32
+  _: i32
+  Area: WorldAreas
+  ExpeditionAreas: [ExpeditionAreas]
+  _: i32
+  _: bool
+  UnearthAchievements: [AchievementItems]
+}

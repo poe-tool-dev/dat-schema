@@ -1,0 +1,15 @@
+# Added 3.25
+type VillageUpgrades {
+  _: rid
+  Tier: i32
+  Text: string
+  _: i32
+  _: [rid]
+  _: [i32]
+  _: i32
+  RuneItem: [BaseItemTypes]
+  _: [i32]
+  Stats: [Stats]
+  StatsValues: [i32]
+  UpgradeTextAudio: NPCTextAudio
+}

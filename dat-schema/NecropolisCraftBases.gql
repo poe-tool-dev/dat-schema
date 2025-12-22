@@ -1,0 +1,12 @@
+# Added 3.24
+type NecropolisCraftBases {
+  Id: string
+  BaseItem: BaseItemTypes
+  UniqueCraft: NecropolisUniqueCrafts
+  _: bool
+  _: i32
+  CraftItemType: NecropolisCraftItemTypes
+  Name: string
+  CraftTag: Stats
+  _: bool
+}

@@ -1,0 +1,12 @@
+# Added 1.01
+type InvasionMonstersPerArea {
+  WorldAreasKey: WorldAreas
+  _: i32
+  _: [i32]
+  MonsterVarietiesKeys1: [MonsterVarieties]
+  MonsterVarietiesKeys2: [MonsterVarieties]
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}

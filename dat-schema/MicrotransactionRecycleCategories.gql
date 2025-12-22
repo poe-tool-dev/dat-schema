@@ -1,0 +1,1 @@
+enum MicrotransactionRecycleCategories @indexing(first: 0) { _ }

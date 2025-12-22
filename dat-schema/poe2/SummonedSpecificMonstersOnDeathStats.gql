@@ -1,0 +1,6 @@
+# Added 3.23
+type SummonedSpecificMonstersOnDeathStats {
+  _: rid
+  _: rid
+  _: bool
+}

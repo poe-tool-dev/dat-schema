@@ -1,0 +1,5 @@
+enum AncestralTrialOpinionTypes @indexing(first: 0) {
+  NEUTRAL
+  LIKES
+  DISLIKES
+}

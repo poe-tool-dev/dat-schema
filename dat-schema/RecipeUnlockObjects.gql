@@ -1,0 +1,5 @@
+type RecipeUnlockObjects {
+  WorldAreasKey: WorldAreas
+  InheritsFrom: string @files(ext: [".ot", ".otc"])
+  RecipeId: i32
+}

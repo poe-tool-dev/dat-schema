@@ -1,0 +1,7 @@
+# Added 3.05
+type BetrayalChoices {
+  Id: string
+  Text: string
+  _: i32
+  Achievements: [AchievementItems]
+}

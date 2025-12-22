@@ -1,0 +1,6 @@
+# Added 3.08
+type BlightCraftingTypes {
+  Id: string @unique
+  _: i32
+  _: bool
+}

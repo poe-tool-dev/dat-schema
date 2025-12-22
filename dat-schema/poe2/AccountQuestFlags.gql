@@ -1,0 +1,2 @@
+# noinspection GraphQLMemberRedefinition,GraphQLTypeRedefinition
+enum AccountQuestFlags @indexing(first: 0) { _ }

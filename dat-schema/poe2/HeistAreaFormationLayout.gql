@@ -1,0 +1,16 @@
+# Added 3.12
+type HeistAreaFormationLayout {
+  HeistAreasKey: HeistAreas
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+  _: i32
+  _: i32
+}

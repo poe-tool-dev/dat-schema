@@ -1,0 +1,4 @@
+type ChatIcons {
+  Icon: string
+  Image: string
+}

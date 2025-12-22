@@ -1,0 +1,4 @@
+type MonsterSegments {
+  Id: string
+  Shapes: string
+}

@@ -1,0 +1,1 @@
+enum SkillMorphDisplayOverlayStyle @indexing(first: 0) { _ }

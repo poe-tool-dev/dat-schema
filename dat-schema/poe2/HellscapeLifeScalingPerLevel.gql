@@ -1,0 +1,5 @@
+# Added 3.16
+type HellscapeLifeScalingPerLevel {
+  AreaLevel: i32
+  Scale: i32
+}

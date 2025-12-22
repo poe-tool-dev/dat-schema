@@ -1,0 +1,10 @@
+# Added 3.14
+type UltimatumTrialMasterAudio {
+  Id: string
+  Variant: i32
+  _: i32
+  _: i32
+  TextAudio: NPCTextAudio
+  RoundsMin: i32
+  RoundsMax: i32
+}

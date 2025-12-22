@@ -1,0 +1,14 @@
+type MemoryLineType {
+  Id: string
+  MemoryLine: AtlasMemoryLine
+  HASH16: i16
+  _: bool
+  _: bool
+  Stats: [Stats]
+  StatsValues: [i32]
+  _: i32
+  Suffix: string
+  _: i32
+  _: i32
+  _: rid
+}

@@ -1,0 +1,1 @@
+enum PantheonMapBossSelection @indexing(first: 0) { _ }

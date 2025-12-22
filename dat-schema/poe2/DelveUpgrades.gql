@@ -1,0 +1,11 @@
+# Added 3.04
+type DelveUpgrades {
+  DelveUpgradeTypeKey: i32
+  UpgradeLevel: i32
+  StatsKeys: [Stats]
+  StatValues: [i32]
+  Cost: i32
+  _: i32
+  AchievementItemsKey: AchievementItems
+  _: i32
+}

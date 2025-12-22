@@ -1,0 +1,5 @@
+# Added 3.09
+type AtlasExileInfluence {
+  Conqueror: AtlasExiles
+  Sets: [AtlasInfluenceSets]
+}

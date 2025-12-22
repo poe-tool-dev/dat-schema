@@ -1,0 +1,4 @@
+type ActiveSkillType {
+  Id: string @unique
+  FlagStat: Stats
+}

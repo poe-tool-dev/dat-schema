@@ -1,0 +1,6 @@
+type MicroMigrationData {
+  BaseItemTypesKey: BaseItemTypes
+  _: i32
+  _: rid
+  _: rid
+}

@@ -1,0 +1,11 @@
+# Added 3.18
+type DroneTypes {
+  Id: string
+  _: QuestFlags
+  _: MonsterVarieties
+  DeployText: string
+  _: string
+  UnlockedStat: Stats
+  SocketableText: string
+  NotPoweredText: string
+}

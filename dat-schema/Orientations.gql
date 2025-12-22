@@ -1,0 +1,1 @@
+enum Orientations @indexing(first: 0) { _ }

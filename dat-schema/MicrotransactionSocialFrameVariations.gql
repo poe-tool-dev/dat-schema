@@ -1,0 +1,5 @@
+type MicrotransactionSocialFrameVariations {
+  BaseItemTypesKey: BaseItemTypes
+  Id: i32 @unique
+  BK2File: string @file(ext: ".bk2")
+}

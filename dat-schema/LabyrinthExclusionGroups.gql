@@ -1,0 +1,4 @@
+# Added 2.02
+type LabyrinthExclusionGroups {
+  Id: string
+}

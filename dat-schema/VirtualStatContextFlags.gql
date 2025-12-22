@@ -1,0 +1,4 @@
+type VirtualStatContextFlags {
+  Id: string @unique
+  _: i32
+}

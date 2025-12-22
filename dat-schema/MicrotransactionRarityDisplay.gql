@@ -1,0 +1,6 @@
+type MicrotransactionRarityDisplay {
+  Rarity: string @unique
+  _: rid
+  _: string
+  _: string
+}

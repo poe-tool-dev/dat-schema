@@ -1,0 +1,8 @@
+type MonsterConditionalEffectPacks {
+  Id: string @unique
+  MiscEffectPack1: [MiscEffectPacks]
+  MiscEffectPack2: [MiscEffectPacks]
+  MiscEffectPack3: [MiscEffectPacks]
+  MiscEffectPack4: [MiscEffectPacks]
+  _: i32
+}

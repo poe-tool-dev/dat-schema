@@ -1,0 +1,26 @@
+type MonsterMortar {
+  Id: i32
+  _: rid
+  _: rid
+  _: rid
+  _: i32
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+  _: i32
+  _: bool
+  _: bool
+  _: rid
+  _: i32
+  _: f32
+  _: f32
+  _: f32
+  _: bool
+  _: rid
+  _: string
+}

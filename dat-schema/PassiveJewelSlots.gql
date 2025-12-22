@@ -1,0 +1,9 @@
+type PassiveJewelSlots {
+  Slot: PassiveSkills
+  ClusterJewelSize: PassiveTreeExpansionJewelSizes
+  _: i32
+  ReplacesSlot: PassiveJewelSlots
+  ProxySlot: PassiveSkills
+  StartIndices: [i32]
+  _: bool
+}

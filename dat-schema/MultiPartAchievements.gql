@@ -1,0 +1,9 @@
+type MultiPartAchievements {
+  Id: string @unique
+  _: i32
+  AchievementItemsKey: AchievementItems
+  Threshold: i32
+  _: bool
+  _: bool
+  _: i32
+}

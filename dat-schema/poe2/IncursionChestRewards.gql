@@ -1,0 +1,15 @@
+# Added 3.03
+type IncursionChestRewards @tags(list: ["item:droptable"]) {
+  IncursionRoomsKey: IncursionRooms
+  IncursionChestsKeys: [IncursionChests]
+  ChestMarkerMetadata: string @files(ext: [".ot", ".otc"])
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}

@@ -1,0 +1,5 @@
+type BindableVirtualKeys {
+  KeyCode: i32
+  Name: string
+  Id: string
+}

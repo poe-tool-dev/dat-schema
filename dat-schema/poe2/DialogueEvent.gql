@@ -1,0 +1,4 @@
+type DialogueEvent {
+  Id: string @unique
+  Timer: i32
+}

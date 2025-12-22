@@ -1,0 +1,15 @@
+type SkillSurgeEffects {
+  GrantedEffectsKey: GrantedEffects
+  _: string
+  _: bool
+  _: bool
+  _: bool
+  MiscAnimated: MiscAnimated
+  _: bool
+  _: bool
+  _: i32
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+}

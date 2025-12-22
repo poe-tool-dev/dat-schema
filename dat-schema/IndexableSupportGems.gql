@@ -1,0 +1,5 @@
+type IndexableSupportGems @tags(list: ["crafting"]) {
+  Index: i32 @unique
+  SupportGem: SkillGems
+  Name: string
+}

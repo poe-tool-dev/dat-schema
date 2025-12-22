@@ -1,0 +1,6 @@
+type ModType {
+  Name: string @unique
+  _: [Stats]
+  ModSellPriceTypesKeys: [ModSellPriceTypes]
+  _: bool
+}

@@ -1,0 +1,7 @@
+# Added 3.12
+type HeistRevealingNPCs {
+  NPCsKey: NPCs
+  PortraitFile: string
+  NPCAudioKey: [NPCAudio]
+  _: i32
+}

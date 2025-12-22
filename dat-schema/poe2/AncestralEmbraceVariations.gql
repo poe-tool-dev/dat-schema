@@ -1,0 +1,6 @@
+# Added 3.22
+type AncestralEmbraceVariations {
+  Id: string
+  Minion: MonsterVarieties
+  _: rid
+}

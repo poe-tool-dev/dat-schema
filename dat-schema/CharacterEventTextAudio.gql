@@ -1,0 +1,5 @@
+type CharacterEventTextAudio {
+  Event: CharacterAudioEvents
+  Character: Characters
+  TextAudio: [CharacterTextAudio]
+}

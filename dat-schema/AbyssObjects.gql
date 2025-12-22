@@ -1,0 +1,24 @@
+# Added 3.01
+type AbyssObjects {
+  Id: string @unique
+  MinLevel: i32
+  MaxLevel: i32
+  SpawnWeight: i32
+  _: i32
+  MetadataFile: string @files(ext: [".ot", ".otc"])
+  _: i32
+  DaemonSpawners: [MonsterVarieties]
+  _: i32
+  _: i32
+  AbyssalDepths: WorldAreas
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+}

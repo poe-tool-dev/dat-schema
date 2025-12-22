@@ -1,0 +1,10 @@
+type AchievementSetRewards @tags(list: ["mtx:reward"]) {
+  SetId: AchievementSetsDisplay @ref(column: "Id")
+  AchievementsRequired: i32
+  Rewards: [BaseItemTypes]
+  TotemPieceEveryNAchievements: i32
+  Message: string
+  NotificationIcon: string @file(ext: ".dds")
+  HideoutName: string
+  Id: string
+}

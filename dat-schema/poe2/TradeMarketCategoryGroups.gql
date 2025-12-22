@@ -1,0 +1,4 @@
+type TradeMarketCategoryGroups {
+  Id: string
+  Name: string @localized
+}

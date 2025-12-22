@@ -1,0 +1,5 @@
+type MonsterSpawnerOverrides {
+  _: rid
+  Base_MonsterVarietiesKey: MonsterVarieties
+  Override_MonsterVarietiesKey: MonsterVarieties
+}

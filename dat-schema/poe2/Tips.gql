@@ -1,0 +1,5 @@
+type Tips {
+  Id: string @unique
+  Text: string
+  TextXBox: string
+}

@@ -1,0 +1,5 @@
+type MicrotransactionFireworksVariations {
+  BaseItemTypesKey: BaseItemTypes
+  AOFile: string @file(ext: ".ao")
+  _: bool
+}

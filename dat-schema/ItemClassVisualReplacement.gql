@@ -1,0 +1,10 @@
+# Added 3.22
+type ItemClassVisualReplacement {
+  _: rid @unique
+  _: rid
+  _: rid
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+}

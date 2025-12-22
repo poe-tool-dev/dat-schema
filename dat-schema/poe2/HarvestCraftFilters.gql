@@ -1,0 +1,6 @@
+# Added 3.11
+type HarvestCraftFilters {
+  Id: string
+  BaseItem: BaseItemTypes
+  Name: string
+}

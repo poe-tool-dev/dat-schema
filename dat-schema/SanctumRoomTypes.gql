@@ -1,0 +1,16 @@
+# Added 3.20
+type SanctumRoomTypes {
+  Id: string
+  _: bool
+  _: bool
+  _: rid
+  _: rid
+  _: bool
+  Icon: string
+  _: bool
+  Description: string
+  _: [string]
+  Rooms: [SanctumRooms]
+  _: string
+  _: bool
+}

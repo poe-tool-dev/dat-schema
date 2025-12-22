@@ -1,0 +1,8 @@
+type CharacterTextAudio {
+  Id: string @unique
+  Text: string
+  SoundFile: string @file(ext: ".ogg")
+  ParrotSoundFile: string @file(ext: ".ogg")
+  _: i32
+  _: i32
+}

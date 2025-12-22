@@ -1,0 +1,26 @@
+# Added 3.20
+type SanctumPersistentEffects {
+  Id: string
+  Stats: [Stats]
+  StatValues: [i32]
+  Name: string
+  Icon: string
+  _: i32
+  _: bool
+  EffectCategory: SanctumPersistentEffectCategories
+  NextEffect: SanctumPersistentEffects
+  _: string
+  BoonDesc: string
+  CurseDesc: string
+  _: i32
+  _: i32
+  _: bool
+  _: [rid]
+  Guard: [MonsterVarieties]
+  FirstEffect: SanctumPersistentEffects
+  _: i32
+  _: i32
+  _: bool
+  _: bool
+  HASH16: i32
+}

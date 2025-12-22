@@ -1,0 +1,8 @@
+# Added 3.25
+type VillageJobs {
+  _: rid
+  _: i32
+  Status: string
+  Stat: Stats
+  StatValue: i32
+}

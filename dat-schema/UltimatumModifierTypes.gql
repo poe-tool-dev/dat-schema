@@ -1,0 +1,5 @@
+# Added 3.14
+type UltimatumModifierTypes {
+  Id: string @unique
+  _: bool
+}

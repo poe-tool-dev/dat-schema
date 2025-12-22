@@ -1,0 +1,16 @@
+# Added 3.04
+type DelveDynamite {
+  _: i32
+  ProjectilesKey: Projectiles
+  _: rid
+  Dynamite_MiscObjectsKey: MiscObjects
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  MiscAnimatedKey: MiscAnimated
+  _: i32
+}

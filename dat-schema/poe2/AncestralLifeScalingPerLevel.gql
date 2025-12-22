@@ -1,0 +1,5 @@
+# Added 3.22
+type AncestralLifeScalingPerLevel {
+  Level: i32
+  _: i32
+}

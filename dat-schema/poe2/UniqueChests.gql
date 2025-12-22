@@ -1,0 +1,15 @@
+type UniqueChests {
+  Id: string @unique
+  WordsKey: Words
+  FlavourTextKey: FlavourText
+  MinLevel: i32
+  ModsKeys: [Mods]
+  SpawnWeight: i32
+  _: [i32]
+  AOFile: string @file(ext: ".ao")
+  _: bool
+  _: [i32]
+  AppearanceChestsKey: Chests
+  ChestsKey: Chests
+  _: [rid]
+}

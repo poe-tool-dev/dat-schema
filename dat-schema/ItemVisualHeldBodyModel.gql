@@ -1,0 +1,17 @@
+type ItemVisualHeldBodyModel {
+  ItemVisualIdentity: ItemVisualIdentity
+  MarauderAnimatedObject: string
+  RangerAnimatedObject: string
+  WitchAnimatedObject: string
+  DuelistAnimatedObject: string
+  TemplarAnimatedObject: string
+  ShadowAnimatedObject: string
+  ScionAnimatedObject: string
+  MarauderBone: string
+  RangerBone: string
+  WitchBone: string
+  DuelistBone: string
+  TemplarBone: string
+  ShadowBone: string
+  ScionBone: string
+}

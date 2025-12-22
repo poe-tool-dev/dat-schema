@@ -1,0 +1,10 @@
+type MinimapIcons {
+  Id: string
+  MinimapIconRadius: i32
+  LargemapIconRadius: i32
+  _: bool
+  _: bool
+  MinimapIconPointerMaxDistance: i32
+  _: i32
+  _: i32
+}

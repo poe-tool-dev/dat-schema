@@ -1,0 +1,20 @@
+type MapPins {
+  Id: string @unique
+  "X starts at left side of image, can be negative"
+  PositionX: i32
+  "Y starts at top side of image, can be negative"
+  PositionY: i32
+  Waypoint_WorldAreasKey: WorldAreas
+  WorldAreasKeys: [WorldAreas]
+  Name: string
+  FlavourText: string
+  _: [i32]
+  Act: i32
+  _: string
+  _: [i32]
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: rid
+}

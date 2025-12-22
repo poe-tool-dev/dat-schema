@@ -1,0 +1,13 @@
+type Realms {
+  Id: string @unique
+  Name: string
+  Server: [string]
+  IsEnabled: bool
+  Server2: [string]
+  ShortName: string
+  _: [Realms]
+  _: Realms
+  _: i32
+  IsGammaRealm: bool
+  SpeedtestUrl: [string]
+}

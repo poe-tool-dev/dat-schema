@@ -1,0 +1,18 @@
+type SingleGroundLaser {
+  Id: i32
+  _: rid
+  _: rid
+  _: i32
+  _: string
+  _: bool
+  _: i32
+  _: bool
+  _: i32
+  _: i32
+  _: rid
+  _: rid
+  _: i32
+  _: bool
+  _: i32
+  _: i32
+}

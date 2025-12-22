@@ -1,0 +1,14 @@
+# Added 3.25
+type VillageExports {
+  Id: string
+  Name: string
+  _: i32
+  Icon: string
+  _: i32
+  _: i32
+  Icon2: string
+  Name2: string
+  IconCombined: string
+  Result: VillageExports
+  _: i32
+}

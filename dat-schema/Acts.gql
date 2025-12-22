@@ -1,0 +1,13 @@
+type Acts {
+  Id: string @unique
+  Part: i32
+  _: string
+  _: i32
+  ActNumber: i32
+  WorldPanelImage: string
+  WorldPanelImageEpilogue: string
+  _: i32
+  IsPostGame: bool
+  _: i32
+  _: [QuestFlags]
+}

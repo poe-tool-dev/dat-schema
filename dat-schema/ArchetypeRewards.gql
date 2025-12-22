@@ -1,0 +1,7 @@
+type ArchetypeRewards @tags(list: ["item:reward"]) {
+  Id: string @unique
+  _: rid
+  _: [rid]
+  Gem: BaseItemTypes
+  BK2File: string @file(ext: ".bk2")
+}

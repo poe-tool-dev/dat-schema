@@ -1,0 +1,13 @@
+# Added 3.05
+type BetrayalJobs {
+  Id: string
+  Text: string
+  ExtraTerrainFeaturesKey: ExtraTerrainFeatures
+  Art: string
+  _: i32
+  _: i32
+  WorldAreasKey: WorldAreas
+  Completion_AchievementItemsKey: [AchievementItems]
+  OpenChests_AchievementItemsKey: [AchievementItems]
+  MissionCompletion_AcheivementItemsKey: [AchievementItems]
+}

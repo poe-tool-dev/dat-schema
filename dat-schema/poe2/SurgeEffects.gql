@@ -1,0 +1,7 @@
+type SurgeEffects {
+  Id: string
+  _: MiscAnimated
+  _: [f32]
+  _: [MiscAnimated]
+  _: [string]
+}

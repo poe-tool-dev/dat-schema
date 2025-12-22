@@ -1,0 +1,6 @@
+# Added 2.02
+type LabyrinthBonusItems {
+  BaseItemType: BaseItemTypes
+  AreaLevel: i32
+  LabyrinthName: string
+}

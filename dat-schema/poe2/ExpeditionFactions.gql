@@ -1,0 +1,13 @@
+# Added 3.15
+type ExpeditionFactions {
+  Id: string @unique
+  Name: string
+  FactionFlag: string
+  _: i32
+  FactionIcon: string
+  MonsterVarieties: MonsterVarieties
+  Progress1: NPCTextAudio
+  Progress2Vaal: NPCTextAudio
+  Progress3Final: NPCTextAudio
+  Tags: Tags
+}

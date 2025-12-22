@@ -1,0 +1,6 @@
+# Added 3.17
+type ArchnemesisRecipes {
+  Result: ArchnemesisMods
+  Recipe: [ArchnemesisMods]
+  _: i32
+}

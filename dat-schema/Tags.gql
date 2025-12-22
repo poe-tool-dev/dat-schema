@@ -1,0 +1,6 @@
+type Tags {
+  Id: string @unique
+  _: i32
+  DisplayString: string
+  Name: string
+}

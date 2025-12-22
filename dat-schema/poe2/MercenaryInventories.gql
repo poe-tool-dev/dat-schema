@@ -1,0 +1,8 @@
+# Added 3.26
+type MercenaryInventories {
+  Id: MercenaryClasses
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}

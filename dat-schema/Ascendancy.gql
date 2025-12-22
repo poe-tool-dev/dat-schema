@@ -1,0 +1,22 @@
+type Ascendancy {
+  Id: string @unique
+  ClassNo: i32
+  Character: Characters
+  "Coordinates in 'x1, y1, x2, y2' format"
+  CoordinateRect: string
+  RGBFlavourTextColour: string
+  Name: string
+  FlavourText: string
+  OGGFile: string @file(ext: ".ogg")
+  PassiveTreeImage: string @file(ext: ".dds")
+  _: i32
+  _: i32
+  BackgroundImage: string
+  LeagueName: string
+  LeagueFlavourText: string
+  LeagueBackgroundImage: string
+  LeaguePassiveTreeImage: string
+  _: i32
+  _: i32
+  LeagueIcon: string
+}

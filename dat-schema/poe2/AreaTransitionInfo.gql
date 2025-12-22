@@ -1,0 +1,16 @@
+type AreaTransitionInfo {
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: [rid]
+  _: i32
+  _: [rid]
+}

@@ -1,0 +1,6 @@
+type ItemCostPerLevel {
+  BaseItem: BaseItemTypes
+  Level: i32
+  Cost: ItemCosts
+  CostHardmode: ItemCosts
+}

@@ -1,0 +1,5 @@
+type AtlasInfluenceOutcomes {
+  Id: string
+  _: i32
+  Type: AtlasInfluenceOutcomeTypes
+}

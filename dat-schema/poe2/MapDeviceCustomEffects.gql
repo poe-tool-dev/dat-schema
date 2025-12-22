@@ -1,0 +1,1 @@
+enum MapDeviceCustomEffects @indexing(first: 0) { _ }

@@ -1,0 +1,13 @@
+type UniqueStashTypes {
+  Id: string
+  Order: i32
+  Width: i32
+  Height: i32
+  TotalCount: i32
+  _: i32
+  Name: string @localized
+  StandardCount: i32
+  Image: string
+  ChallengeLeagueCount: i32
+  IsDisabled: bool
+}

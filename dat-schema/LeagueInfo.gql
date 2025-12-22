@@ -1,0 +1,18 @@
+type LeagueInfo {
+  PanelVersion: LeagueInfoPanelVersions
+  PanelId: string
+  PanelImage: string
+  HeaderImage: string
+  Screenshots: [string]
+  Description: string @localized
+  _: bool
+  TrailerVideoLink: string @localized
+  BackgroundImage: string
+  _: bool
+  _: bool
+  PanelItems: [string]
+  _: string
+  _: string @localized
+  _: [i32]
+  _: string
+}

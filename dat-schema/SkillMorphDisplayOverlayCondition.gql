@@ -1,0 +1,1 @@
+enum SkillMorphDisplayOverlayCondition @indexing(first: 0) { _ }

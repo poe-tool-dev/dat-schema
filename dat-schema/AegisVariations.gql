@@ -1,0 +1,13 @@
+type AegisVariations {
+  Name: string
+  DefendsAgainstPhysical: bool
+  DefendsAgainstFire: bool
+  DefendsAgainstCold: bool
+  DefendsAgainstLightning: bool
+  DefendsAgainstChaos: bool
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: [_]
+}

@@ -1,0 +1,5 @@
+# Added 3.24
+type NecropolisCraftingModsFromStats {
+  Stat: Stats
+  CraftingMod: NecropolisCraftingMods
+}

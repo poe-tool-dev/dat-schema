@@ -1,0 +1,12 @@
+# Added 3.18
+type CorpseSinkVariations {
+  Id: string @unique
+  AOFile: string @file(ext: ".ao")
+  EPKFile: string @file(ext: ".epk")
+  AOFiles: [string] @file(ext: ".ao")
+  _: i32
+  _: bool
+  _: i32
+  _: i32
+  _: bool
+}

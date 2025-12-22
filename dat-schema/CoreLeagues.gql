@@ -1,0 +1,19 @@
+type CoreLeagues {
+  Id: string
+  _: bool
+  _: bool
+  _: Stats
+  _: [Stats]
+  _: Stats
+  _: Stats
+  _: Stats
+  _: [Stats]
+  _: Stats
+  _: rid
+  _: i32
+  _: bool
+  _: Stats
+  _: bool
+  _: bool
+  _: [Stats]
+}

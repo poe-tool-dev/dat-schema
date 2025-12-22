@@ -1,0 +1,1 @@
+enum InventoryType @indexing(first: 0) { _ }

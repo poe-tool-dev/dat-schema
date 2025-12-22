@@ -1,0 +1,8 @@
+# Added 3.05
+type BetrayalForts {
+  Id: string @unique
+  _: i32
+  _: i32
+  _: i32
+  ExtraTerrainFeaturesKey: ExtraTerrainFeatures
+}

@@ -1,0 +1,9 @@
+# Added 3.07
+type LegionRewardTypeVisuals {
+  IntId: i32 @unique
+  MinimapIconsKey: MinimapIcons
+  _: string
+  MiscAnimatedKey: MiscAnimated
+  _: f32
+  Id: string
+}

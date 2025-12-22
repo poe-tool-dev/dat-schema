@@ -1,0 +1,7 @@
+# Added 3.16
+type HellscapeAreaPacks {
+  WorldArea: WorldAreas
+  MonsterPacks: [MonsterPacks]
+  _: i32
+  _: i32
+}

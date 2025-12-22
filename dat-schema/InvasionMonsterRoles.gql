@@ -1,0 +1,2 @@
+# Added 1.01
+enum InvasionMonsterRoles @indexing(first: 0) { _ }

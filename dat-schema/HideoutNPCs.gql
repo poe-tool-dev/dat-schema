@@ -1,0 +1,14 @@
+type HideoutNPCs {
+  Hideout_NPCsKey: NPCs
+  Regular_NPCsKeys: [NPCs]
+  HideoutDoodadsKey: HideoutDoodads
+  NPCMasterKey: i32
+  _: rid
+  _: rid
+  _: i32
+  _: rid
+  _: i32
+  _: bool
+  _: rid
+  _: bool
+}

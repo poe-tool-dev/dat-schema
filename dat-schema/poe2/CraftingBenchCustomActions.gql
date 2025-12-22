@@ -1,0 +1,4 @@
+enum CraftingBenchCustomActions @indexing(first: 0) {
+  REMOVE_CRAFTED_MODS
+  REMOVE_ENCHANT_MODS
+}

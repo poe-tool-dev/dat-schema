@@ -1,0 +1,5 @@
+type CraftingBenchTypes {
+  Id: string
+  _: rid
+  _: bool
+}

@@ -1,0 +1,8 @@
+type PassiveJewelNodeModifyingStats {
+  JwelStat: Stats
+  Stat: Stats
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+}

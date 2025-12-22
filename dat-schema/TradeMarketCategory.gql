@@ -1,0 +1,9 @@
+type TradeMarketCategory {
+  Id: string
+  Name: string @localized
+  StyleFlag: TradeMarketCategoryStyleFlag
+  Group: TradeMarketCategoryGroups
+  _: [i32]
+  _: bool
+  IsDisabled: bool
+}

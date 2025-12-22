@@ -1,0 +1,15 @@
+# Added 3.22
+type MinionType {
+  Id: string @unique
+  LimitStat: Stats
+  ActiveCountStat: Stats
+  _: bool
+  _: bool
+  _: i32
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+}

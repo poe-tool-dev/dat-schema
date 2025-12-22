@@ -1,0 +1,8 @@
+# Added 3.20
+type SkillWeaponEffects {
+  _: string
+  _: rid
+  _: bool
+  _: i32
+  _: i32
+}

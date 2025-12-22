@@ -1,0 +1,5 @@
+# Added 3.23
+type UltimatumLifescalingPerLevel {
+  _: i32
+  _: i32
+}

@@ -1,0 +1,16 @@
+# Added 2.02
+type LabyrinthCraftOptions {
+  Id: string
+  CraftFamily: LabyrinthCraftOptionFamily
+  Text: string
+  Script: string
+  ScriptArgument: string
+  HASH16: i16
+  _: bool
+  Tier: LabyrinthCraftOptionTiers
+  _: bool
+  Achievement: [AchievementItems]
+  _: bool
+  _: rid
+  _: i32
+}

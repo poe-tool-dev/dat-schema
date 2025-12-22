@@ -1,0 +1,10 @@
+# Added 3.17
+type AtlasUpgradesInventoryLayout {
+  Id: string
+  _: i32
+  Voidstone: BaseItemTypes
+  _: i32
+  Objective: string
+  GrantAtlasUpgrade: QuestFlags
+  _: rid
+}

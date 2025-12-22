@@ -1,0 +1,5 @@
+type GamepadType {
+  Id: string
+  Console: string
+  ImageFile: string
+}

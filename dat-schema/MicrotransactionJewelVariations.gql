@@ -1,0 +1,20 @@
+# Added 3.17
+type MicrotransactionJewelVariations {
+  _: rid @unique
+  _: i32
+  _: string
+  _: string
+  _: i32
+  _: [_]
+  _: string
+  _: string
+  _: i32
+  _: i32
+  _: string
+  _: i32
+  _: string
+  _: i32
+  _: bool
+  _: rid
+  _: bool
+}

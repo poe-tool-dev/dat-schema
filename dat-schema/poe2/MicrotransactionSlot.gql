@@ -1,0 +1,11 @@
+type MicrotransactionSlot {
+  Id: MicrotransactionSlotId
+  _: rid
+  Name: string @localized
+  _: rid
+  _: i32
+  _: bool
+  _: i32
+  _: i32
+  _: bool
+}

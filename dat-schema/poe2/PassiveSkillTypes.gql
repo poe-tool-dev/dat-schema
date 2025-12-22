@@ -1,0 +1,4 @@
+enum PassiveSkillTypes @indexing(first: 0) {
+  PASSIVE_TREE
+  ATLAS_TREE
+}

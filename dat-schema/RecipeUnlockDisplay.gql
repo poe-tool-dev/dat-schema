@@ -1,0 +1,8 @@
+type RecipeUnlockDisplay {
+  RecipeId: i32 @unique
+  Description: string
+  CraftingItemClassCategoriesKeys: [CraftingItemClassCategories]
+  UnlockDescription: string
+  Rank: i32
+  UnlockArea: WorldAreas
+}

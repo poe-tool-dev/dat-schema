@@ -1,0 +1,4 @@
+type HideoutRarity {
+  Id: string @unique
+  Text: string
+}

@@ -1,0 +1,19 @@
+# Added 3.15
+type ExpeditionNPCs {
+  Id: string
+  NPCs: [NPCs]
+  RerollItem: BaseItemTypes
+  _: i32
+  _: i32
+  _: QuestFlags
+  Faction: ExpeditionFactions
+  Reroll: NPCTextAudio
+  AllBombsPlaced: NPCTextAudio
+  BombPlacedRemnant: NPCTextAudio
+  BombPlacedTreasure: NPCTextAudio
+  BombPlacedMonsters: NPCTextAudio
+  BombPlacedGeneric: NPCTextAudio
+  EncounterComplete: NPCTextAudio
+  _: i32
+  _: i32
+}

@@ -1,0 +1,8 @@
+# Added 2.04
+type EssenceType {
+  Id: string
+  EssenceType: i32
+  IsCorruptedEssence: bool
+  WordsKey: Words
+  _: rid
+}

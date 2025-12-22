@@ -1,0 +1,16 @@
+type Pet {
+  Id: string @unique @files(ext: [".ot", ".otc"])
+  BaseItemTypesKey: BaseItemTypes
+  HASH16: i32
+  HASH32: i32
+  _: i32
+  _: bool
+  _: bool
+  _: [_]
+  _: rid
+  Skills: [GrantedEffectsPerLevel]
+  _: i32
+  _: bool
+  _: rid
+  _: bool
+}

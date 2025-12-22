@@ -1,0 +1,13 @@
+# Added 3.14
+type UltimatumItemisedRewards {
+  Id: string @unique
+  HASH16: i32
+  RewardText: string
+  ItemVisualIdentityKey: ItemVisualIdentity
+  RewardType: i32
+  SacrificeItem: BaseItemTypes
+  SacrificeAmount: i32
+  SacrificeText: string
+  _: bool
+  TrialMods: [Mods]
+}

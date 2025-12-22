@@ -1,0 +1,8 @@
+type GroundEffectTypes {
+  Id: string @unique
+  _: i32
+  _: f32
+  _: rid
+  _: rid
+  _: rid
+}

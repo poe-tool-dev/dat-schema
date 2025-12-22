@@ -1,0 +1,10 @@
+type Words {
+  Wordlist: Wordlists
+  Text: string
+  SpawnWeight_Tags: [Tags]
+  SpawnWeight_Values: [i32]
+  _: i32
+  Text2: string
+  "the inflection identifier used for i18n in related fields"
+  Inflection: string
+}

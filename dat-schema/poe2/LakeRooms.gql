@@ -1,0 +1,24 @@
+# Added 3.19
+type LakeRooms @tags(list: ["item:itemized"]) {
+  Id: string
+  ARMFiles: [string] @file(ext: ".arm")
+  Script: string
+  _: [_] # All rows empty
+  Stats: [Stats]
+  StatsValues: [i32]
+  Description: string @localized
+  Name: string @localized
+  Type: i32
+  WorldArea: WorldAreas
+  Icon: string
+  _: i32
+  MinLevel: i32
+  _: rid
+  _: bool
+  ExtraStats: [Stats]
+  ExtraStatsValues: [i32]
+  ReminderText: string @localized
+  TextAudio: NPCTextAudio
+  _: rid
+  _: bool
+}

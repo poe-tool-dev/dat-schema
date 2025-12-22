@@ -1,0 +1,26 @@
+type CurrencyItems @tags(list: ["item:def", "item:recipe"]) {
+  BaseItemTypesKey: BaseItemTypes @unique
+  StackSize: i32
+  CurrencyUseType: i32
+  Action: string
+  Directions: string @localized
+  "Full stack transforms into this item"
+  FullStack_BaseItemTypesKey: BaseItemTypes
+  Description: string @localized
+  Usage_AchievementItemsKeys: [AchievementItems]
+  Scroll: bool
+  Possession_AchievementItemsKey: AchievementItems
+  _: [rid]
+  _: [i32]
+  CurrencyTab_StackSize: i32
+  XBoxDirections: string @localized
+  _: i32
+  ModifyMapsAchievements: [AchievementItems]
+  ModifyContractsAchievements: [AchievementItems]
+  CombineAchievements: [AchievementItems]
+  ChangedForHardmode: bool
+  DescriptionHardmode: string @localized
+  IsGold: bool
+  _: bool
+  _: bool
+}

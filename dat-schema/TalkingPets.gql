@@ -1,0 +1,4 @@
+type TalkingPets {
+  _: rid
+  _: [rid]
+}

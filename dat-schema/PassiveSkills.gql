@@ -1,0 +1,53 @@
+type PassiveSkills {
+  Id: string @unique
+  Icon_DDSFile: string @file(ext: ".dds")
+  Stats: [Stats]
+  Stat1Value: i32
+  Stat2Value: i32
+  Stat3Value: i32
+  Stat4Value: i32
+  "Id used by PassiveSkillGraph.psg"
+  PassiveSkillGraphId: u16 @unique
+  Name: string
+  Characters: [Characters]
+  IsKeystone: bool
+  IsNotable: bool
+  FlavourText: string
+  IsJustIcon: bool
+  AchievementItem: AchievementItems
+  IsJewelSocket: bool
+  AscendancyKey: Ascendancy
+  IsAscendancyStartingNode: bool
+  ReminderStrings: [ReminderText]
+  SkillPointsGranted: i32
+  IsMultipleChoice: bool
+  IsMultipleChoiceOption: bool
+  Stat5Value: i32
+  PassiveSkillBuffs: [BuffTemplates]
+  GrantedEffectsPerLevel: GrantedEffectsPerLevel
+  IsAnointmentOnly: bool
+  _: i32
+  IsExpansion: bool
+  IsProxyPassive: bool
+  SkillType: PassiveSkillTypes
+  MasteryGroup: PassiveSkillMasteryGroups
+  Group: AtlasPassiveSkillTreeGroupType
+  SoundEffect: SoundEffects
+  _: string
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+  _: [rid]
+  _: i32
+  _: [rid]
+  _: bool
+  DescendancyKey: Descendancy
+  _: rid
+  BrequelSubTree: brequelpassivesubtrees
+  _: bool
+  _: bool
+  _: bool
+}

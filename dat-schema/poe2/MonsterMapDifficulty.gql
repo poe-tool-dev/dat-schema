@@ -1,0 +1,11 @@
+type MonsterMapDifficulty {
+  MapLevel: i32
+  LifePercentIncrease: i32
+  DamagePercentIncrease: i32
+  Stat1: Stats
+  Stat2: Stats
+  Stat3: Stats
+  Stat3Value: i32
+  Stat4: Stats
+  Stat4Value: i32
+}

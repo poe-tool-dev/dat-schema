@@ -1,0 +1,11 @@
+# Added 3.06
+type SynthesisBrackets {
+  WorldAreasKey1: WorldAreas
+  MinLevel: i32
+  MaxLevel: i32
+  WorldAreasKey2: WorldAreas
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}

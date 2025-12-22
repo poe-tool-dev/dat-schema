@@ -1,0 +1,9 @@
+type SigilDisplay {
+  Id: string @unique
+  Active_StatsKey: Stats
+  Inactive_StatsKey: Stats
+  DDSFile: string @file(ext: ".dds")
+  Inactive_ArtFile: string
+  Active_ArtFile: string
+  Frame_ArtFile: string
+}

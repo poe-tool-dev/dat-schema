@@ -1,0 +1,5 @@
+type PassiveOverrideLimits {
+  Id: string
+  Description: string
+  _: bool
+}

@@ -1,0 +1,5 @@
+# Added 3.11
+type HarvestCraftOptionIcons {
+  Id: string @unique
+  DDSFile: string @file(ext: ".dds")
+}

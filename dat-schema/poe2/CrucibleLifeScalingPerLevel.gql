@@ -1,0 +1,5 @@
+# Added 3.21
+type CrucibleLifeScalingPerLevel {
+  Level: i32
+  Life: i32
+}

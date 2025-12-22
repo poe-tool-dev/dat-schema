@@ -1,0 +1,10 @@
+# Added 3.27
+type BrequelGraftTypes {
+  BaseItemType: BaseItemTypes @unique
+  LeftArm: string
+  RightArm: string
+  SkillGem: SkillGems
+  _: i32
+  SkillAnimation: string
+  Achievement: AchievementItems
+}

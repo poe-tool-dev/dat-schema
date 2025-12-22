@@ -1,0 +1,1 @@
+enum MicrotransactionConditionalApparitionPosition @indexing(first: 0) { _ }

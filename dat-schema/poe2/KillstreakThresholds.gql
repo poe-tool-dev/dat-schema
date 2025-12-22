@@ -1,0 +1,6 @@
+type KillstreakThresholds {
+  Kills: i32
+  "Monster that plays the effect, i.e. the 'nova' etc."
+  MonsterVarietiesKey: MonsterVarieties
+  AchievementItemsKey: AchievementItems
+}

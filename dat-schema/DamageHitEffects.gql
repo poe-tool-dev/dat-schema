@@ -1,0 +1,7 @@
+type DamageHitEffects {
+  Id: i32
+  _: i32
+  _: i32
+  _: [_]
+  _: [_]
+}

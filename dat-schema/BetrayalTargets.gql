@@ -1,0 +1,21 @@
+# Added 3.05
+type BetrayalTargets {
+  Id: string
+  BetrayalRanksKey: BetrayalRanks
+  MonsterVarietiesKey: MonsterVarieties
+  BetrayalJobsKey: BetrayalJobs
+  Art: string
+  _: bool
+  ItemClasses: ItemClasses
+  FullName: string
+  Safehouse_ARMFile: string @file(ext: ".arm")
+  ShortName: string
+  _: i32
+  SafehouseLeader_AcheivementItemsKey: AchievementItems
+  Level3_AchievementItemsKey: AchievementItems
+  _: i32
+  _: i32
+  _: i32
+  _: rid
+  ScriptArgument: string
+}

@@ -1,0 +1,16 @@
+# Added 3.18
+type SentinelStorageLayout {
+  Id: string
+  StoredItem: BaseItemTypes
+  DroneType: DroneTypes
+  _: bool
+  TabIcon: string
+  XOffset: i32
+  YOffset: i32
+  _: i32
+  _: i32
+  Width: i32
+  Height: i32
+  SlotSize: i32
+  _: ItemClasses
+}

@@ -1,0 +1,6 @@
+type CharacterPanelTabs {
+  Id: string @unique
+  _: i32
+  Text: string
+  _: i32
+}

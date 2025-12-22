@@ -1,0 +1,22 @@
+# Added 2.00
+type WarbandsPackMonsters {
+  Id: string @unique
+  _: i32
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+  _: i32
+  Tier4_MonsterVarietiesKeys: [MonsterVarieties]
+  Tier3_MonsterVarietiesKeys: [MonsterVarieties]
+  Tier2_MonsterVarietiesKeys: [MonsterVarieties]
+  Tier1_MonsterVarietiesKeys: [MonsterVarieties]
+  Tier1Name: string @localized
+  Tier2Name: string @localized
+  Tier3Name: string @localized
+  Tier4Name: string @localized
+  Tier1Art: string
+  Tier2Art: string
+  Tier3Art: string
+  Tier4Art: string
+}

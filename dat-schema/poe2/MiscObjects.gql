@@ -1,0 +1,8 @@
+type MiscObjects {
+  Id: string @unique
+  EffectVirtualPath: string @files(ext: [".ot", ".otc"])
+  PreloadGroupsKeys: [PreloadGroups]
+  _: i32
+  _: i32
+  _: i32
+}

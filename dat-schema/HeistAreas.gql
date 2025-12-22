@@ -1,0 +1,22 @@
+# Added 3.12
+type HeistAreas @tags(list: ["item:droptable"]) {
+  Id: string @unique
+  WorldAreasKeys: [WorldAreas]
+  _: i32
+  EnvironmentsKey1: Environments
+  EnvironmentsKey2: Environments
+  HeistJobsKeys: [HeistJobs]
+  Contract_BaseItemTypesKey: BaseItemTypes
+  Blueprint_BaseItemTypesKey: BaseItemTypes
+  DGRFile: string @file(ext: ".dgr")
+  _: i32
+  _: i32
+  _: bool
+  _: bool
+  Blueprint_DDSFile: string @file(ext: ".dds")
+  Achievements1: [AchievementItems]
+  Achievements2: [AchievementItems]
+  Reward: ClientStrings
+  Achievements3: [AchievementItems]
+  RewardHardmode: ClientStrings
+}

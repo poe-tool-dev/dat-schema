@@ -1,0 +1,5 @@
+# Added 3.04
+type DelveCatchupDepths {
+  Level: i32
+  Depth: i32
+}

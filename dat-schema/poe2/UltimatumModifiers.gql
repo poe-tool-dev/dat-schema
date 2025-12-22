@@ -1,4 +1,3 @@
-
 type UltimatumModifiers {
   Id: string @unique
   Types: [UltimatumModifierTypes]

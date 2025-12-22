@@ -1,0 +1,17 @@
+type BuffVisualOrbArt {
+  Id: string @unique
+  MiscAnimated: MiscAnimated
+  _: [i32]
+  _: [string]
+  _: string
+  _: string
+  _: string
+  _: string
+  _: i32
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: bool
+  _: i32
+}

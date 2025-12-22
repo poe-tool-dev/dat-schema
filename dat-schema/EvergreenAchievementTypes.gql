@@ -1,0 +1,1 @@
+enum EvergreenAchievementTypes @indexing(first: 0) { _ }

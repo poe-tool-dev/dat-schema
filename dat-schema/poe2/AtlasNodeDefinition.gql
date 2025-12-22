@@ -1,0 +1,9 @@
+type AtlasNodeDefinition {
+  WorldAreasKey: WorldAreas
+  ItemVisualIdentityKey: ItemVisualIdentity
+  _: bool
+  Tier: i32
+  _: i32
+  _: i32
+  _: bool
+}

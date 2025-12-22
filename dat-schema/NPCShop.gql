@@ -1,0 +1,5 @@
+type NPCShop {
+  Id: string
+  _: i32
+  _: [rid]
+}

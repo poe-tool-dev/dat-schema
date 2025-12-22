@@ -1,0 +1,19 @@
+# Added 3.13
+type MavenFights {
+  Id: string
+  WitnessesRequired: i32
+  AreaLevel: i32
+  _: i32
+  _: i32
+  BaseItemType: BaseItemTypes
+  _: i32
+  MinMapTier: i32
+  _: QuestFlags
+  _: i32
+  WitnessAreas: [WorldAreas]
+  _: QuestFlags
+  _: bool
+  _: [_] # All rows empty
+  Achievements1: [AchievementItems]
+  Achievements2: [AchievementItems]
+}

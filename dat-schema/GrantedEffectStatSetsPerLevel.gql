@@ -1,0 +1,18 @@
+type GrantedEffectStatSetsPerLevel {
+  StatSet: GrantedEffectStatSets
+  GemLevel: i32
+  PlayerLevelReq: f32
+  SpellCritChance: i32
+  AttackCritChance: i32
+  BaseMultiplier: i32
+  DamageEffectiveness: i32
+  BaseResolvedValues: [i32]
+  AdditionalStatsValues: [i32]
+  GrantedEffects: [GrantedEffects]
+  AdditionalFlags: [Stats]
+  FloatStats: [Stats]
+  InterpolationBases: [Stats]
+  AdditionalStats: [Stats]
+  StatInterpolations: [StatInterpolationTypes]
+  FloatStatsValues: [f32]
+}

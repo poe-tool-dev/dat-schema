@@ -1,0 +1,66 @@
+type Characters {
+  Id: string @unique
+  Name: string @unique @localized
+  AOFile: string @file(ext: ".ao")
+  ACTFile: string @file(ext: ".act")
+  BaseMaxLife: i32
+  BaseMaxMana: i32
+  "Attack Speed in milliseconds"
+  WeaponSpeed: i32
+  MinDamage: i32
+  MaxDamage: i32
+  MaxAttackDistance: i32
+  Icon: string
+  IntegerId: i32 @unique
+  BaseStrength: i32
+  BaseDexterity: i32
+  BaseIntelligence: i32
+  _: [rid]
+  Description: string @localized
+  StartSkillGem: SkillGems
+  _: rid
+  _: i32
+  _: i32
+  CharacterSize: i32
+  IntroSoundFile: string @file(ext: ".ogg")
+  StartWeapons: [BaseItemTypes]
+  Gender: string
+  TraitDescription: string @localized
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: i32
+  _: [rid]
+  PassiveTreeImage: string @file(ext: ".dds")
+  _: i32
+  _: i32
+  TencentVideo: string @file(ext: ".bk2")
+  AttrsAsId: string
+  LoginScreen: string @file(ext: ".ao")
+  PlayerCritter: string
+  PlayerEffect: string
+  AfterImage: string
+  Mirage: MonsterVarieties
+  CloneImmobile: MonsterVarieties
+  ReplicateClone: MonsterVarieties
+  LightningClone: MonsterVarieties
+  _: f32
+  _: f32
+  SkillTreeBackground: string
+  Clone: MonsterVarieties
+  Double: MonsterVarieties
+  MirageWarrior: MonsterVarieties
+  DoubleTwo: MonsterVarieties
+  DarkExile: MonsterVarieties
+  Attr: string
+  AttrLowercase: string
+  Script: string
+  _: rid
+  _: i32
+  _: MonsterVarieties
+  _: MonsterVarieties
+  _: i32
+  _: f32
+  _: rid
+}

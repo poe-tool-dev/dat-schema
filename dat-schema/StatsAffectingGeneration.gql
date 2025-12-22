@@ -1,0 +1,4 @@
+type StatsAffectingGeneration {
+  Stat: Stats
+  StatValue: i32
+}

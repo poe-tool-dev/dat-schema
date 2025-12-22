@@ -1,0 +1,14 @@
+# Added 3.16
+type HellscapePassives {
+  Id: string @unique
+  Name: string @localized
+  Stats: [Stats]
+  StatsValues: [i32]
+  Points: i32
+  HASH16: i32
+  Icon: string
+  IconMaxed: string
+  SoundEffect: SoundEffects
+  _: i32
+  Quest: Quest
+}

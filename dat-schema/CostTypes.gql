@@ -1,0 +1,6 @@
+type CostTypes {
+  Id: string @unique
+  StatsKey: Stats
+  FormatText: string
+  _: i32
+}

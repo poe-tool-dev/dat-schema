@@ -1,0 +1,2 @@
+# Added 3.01
+enum AbyssTheme @indexing(first: 0) { _ }

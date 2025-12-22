@@ -1,0 +1,1 @@
+enum AtlasModTiers @indexing(first: 0) { _ }

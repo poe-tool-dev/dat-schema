@@ -1,0 +1,9 @@
+# Added 3.25
+type VillageJobTypes {
+  Id: string
+  Icon: string
+  StateText: string
+  MaxWorkersStat: Stats
+  _: bool
+  JobSpeedStat: Stats
+}

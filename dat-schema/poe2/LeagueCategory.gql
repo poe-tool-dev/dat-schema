@@ -1,0 +1,1 @@
+enum LeagueCategory @indexing(first: 0) { _ }

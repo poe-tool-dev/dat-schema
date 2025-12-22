@@ -1,0 +1,20 @@
+type Maps @tags(list: ["item:def", "item:recipe"]) {
+  BaseItemTypesKey: BaseItemTypes @unique
+  Regular_WorldAreasKey: WorldAreas
+  Unique_WorldAreasKey: WorldAreas
+  MapUpgrade_BaseItemTypesKey: BaseItemTypes
+  MonsterPacksKeys: [MonsterPacks]
+  AchievementItem: AchievementItems
+  Regular_GuildCharacter: string
+  Unique_GuildCharacter: string
+  Tier: i32
+  Shaped_Base_MapsKey: Maps
+  Shaped_AreaLevel: i32
+  UpgradedFrom_MapsKey: Maps
+  MapsKey2: Maps
+  MapsKey3: Maps
+  MapGeneration: MapGenerations
+  _: bool
+  _: bool
+  _: bool
+}

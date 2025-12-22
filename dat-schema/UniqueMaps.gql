@@ -1,0 +1,10 @@
+type UniqueMaps @tags(list: ["item:unique"]) {
+  ItemVisualIdentityKey: ItemVisualIdentity @unique
+  WorldAreasKey: WorldAreas
+  WordsKey: Words
+  FlavourTextKey: FlavourText
+  HasGuildCharacter: bool
+  GuildCharacter: string
+  Name: string
+  IsDropDisabled: bool
+}

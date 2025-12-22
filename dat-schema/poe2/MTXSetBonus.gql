@@ -1,0 +1,8 @@
+type MTXSetBonus {
+  Id: string @unique
+  _: rid
+  _: [rid]
+  _: [rid]
+  _: [rid]
+  _: [rid]
+}

@@ -1,0 +1,10 @@
+# Added 3.06
+type SynthesisFragmentDialogue {
+  _: rid
+  NPCTextAudioKey1: NPCTextAudio
+  NPCTextAudioKey2: NPCTextAudio
+  NPCTextAudioKey3: NPCTextAudio
+  NPCTextAudioKey4: NPCTextAudio
+  NPCTextAudioKey5: NPCTextAudio
+  NPCTextAudioKey6: NPCTextAudio
+}

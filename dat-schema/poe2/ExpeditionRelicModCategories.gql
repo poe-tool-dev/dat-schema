@@ -1,0 +1,7 @@
+# Added 3.15
+enum ExpeditionRelicModCategories @indexing(first: 0) {
+  GENERIC
+  RUNIC
+  REWARD_CHEST
+  REWARD_PACK_SIZE
+}

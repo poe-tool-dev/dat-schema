@@ -1,0 +1,7 @@
+type MonsterPackCounts {
+  _: rid
+  _: i32
+  _: [rid]
+  _: bool
+  _: [i32]
+}

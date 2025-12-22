@@ -1,0 +1,5 @@
+# Added 3.20
+type SanctumLifeScalingPerLevel {
+  Level: i32
+  _: i32
+}

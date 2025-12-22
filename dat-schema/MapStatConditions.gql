@@ -1,0 +1,8 @@
+type MapStatConditions {
+  Id: string @unique
+  StatsKey: Stats
+  _: bool
+  StatMin: i32
+  StatMax: i32
+  _: bool
+}

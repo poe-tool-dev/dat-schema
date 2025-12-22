@@ -1,0 +1,7 @@
+# Added 3.24
+type NecropolisPackMods {
+  Mod: Mods
+  Tier: NecropolisPackModTiers
+  NextTier: NecropolisPackMods
+  PrevTier: NecropolisPackMods
+}

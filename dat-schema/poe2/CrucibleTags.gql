@@ -1,0 +1,5 @@
+# Added 3.21
+type CrucibleTags {
+  Tag: string @unique
+  _: bool
+}

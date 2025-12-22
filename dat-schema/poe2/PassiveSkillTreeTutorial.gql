@@ -1,0 +1,12 @@
+type PassiveSkillTreeTutorial {
+  Id: string
+  CharactersKey: Characters
+  _: rid
+  ChoiceA_Description: string
+  ChoiceB_Description: string
+  _: rid
+  ChoiceA_PassiveTreeURL: string
+  ChoiceB_PassiveTreeURL: string
+  _: rid
+  _: rid
+}

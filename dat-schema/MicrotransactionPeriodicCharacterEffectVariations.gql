@@ -1,0 +1,6 @@
+type MicrotransactionPeriodicCharacterEffectVariations {
+  Id: string @unique
+  AOFile: string @file(ext: ".ao")
+  MiscObject: MiscObjects
+  _: i32
+}

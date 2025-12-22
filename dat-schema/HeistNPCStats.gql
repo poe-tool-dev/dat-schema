@@ -1,0 +1,8 @@
+# Added 3.12
+type HeistNPCStats {
+  StatsKey: Stats
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+}

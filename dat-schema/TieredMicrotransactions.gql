@@ -1,0 +1,16 @@
+# Added 3.19
+type TieredMicrotransactions {
+  MTX: BaseItemTypes @unique
+  TierThresholds: [i32]
+  _: Stats
+  _: [_]
+  _: Stats
+  TierCount: i32
+  _: [Stats]
+  _: [_]
+  _: [_]
+  _: bool
+  _: bool
+  _: Stats
+  _: bool
+}

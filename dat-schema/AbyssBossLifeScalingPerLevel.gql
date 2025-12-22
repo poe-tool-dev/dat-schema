@@ -1,0 +1,5 @@
+# Added 3.21
+type AbyssBossLifeScalingPerLevel {
+  Level: i32
+  Life: i32
+}

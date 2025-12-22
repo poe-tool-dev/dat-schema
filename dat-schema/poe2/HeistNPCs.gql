@@ -1,0 +1,23 @@
+# Added 3.12
+type HeistNPCs {
+  NPCsKey: NPCs
+  MonsterVarietiesKey: MonsterVarieties
+  SkillLevel_HeistJobsKeys: [HeistJobs]
+  PortraitFile: string
+  HeistNPCStatsKeys: [HeistNPCStats]
+  StatValues: [f32]
+  _: f32
+  SkillLevel_Values: [i32]
+  Name: string
+  SilhouetteFile: string
+  _: i32
+  _: i32
+  HeistNPCsKey: HeistNPCs
+  StatValues2: [f32]
+  Ally_NPCsKey: NPCs
+  ActiveNPCIcon: string
+  HeistJobsKey: HeistJobs
+  Equip_AchievementItemsKeys: [AchievementItems]
+  AOFile: string @file(ext: ".ao")
+  _: rid
+}

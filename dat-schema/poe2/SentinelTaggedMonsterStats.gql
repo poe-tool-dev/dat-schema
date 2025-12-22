@@ -1,0 +1,8 @@
+# Added 3.18
+type SentinelTaggedMonsterStats {
+  TaggedStat: Stats
+  _: Stats
+  _: [rid]
+  _: rid
+  _: rid
+}

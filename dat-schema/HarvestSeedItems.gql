@@ -1,0 +1,6 @@
+# Added 3.11
+type HarvestSeedItems @tags(list: ["item:def"]) {
+  Id: i32
+  BaseItem: BaseItemTypes
+  DropStat: Stats
+}

@@ -1,0 +1,11 @@
+# Added 3.19
+type StampChoice {
+  Id: string @unique
+  _: rid
+  _: i32
+  Effect: string
+  Icon: string
+  _: rid
+  _: [_]
+  _: i32
+}

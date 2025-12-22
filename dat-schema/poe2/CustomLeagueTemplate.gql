@@ -1,0 +1,1 @@
+enum CustomLeagueTemplate @indexing(first: 0) { _ }

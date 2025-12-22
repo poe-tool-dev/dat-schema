@@ -1,0 +1,1 @@
+enum MonsterSkillsSequenceMode @indexing(first: 0) { _ }

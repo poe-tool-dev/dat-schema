@@ -1,0 +1,6 @@
+# Added 3.22
+type MicrotransactionSkillGemEffectSlotTypes {
+  Id: string
+  Type: string
+  _: i32
+}

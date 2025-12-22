@@ -1,0 +1,22 @@
+# Added 3.13
+type RitualRuneTypes {
+  Id: string @unique
+  MiscAnimatedKey1: MiscAnimated
+  SpawnWeight: i32
+  LevelMin: i32
+  LevelMax: i32
+  BuffDefinitionsKey: BuffDefinitions
+  BuffStatValues: [i32]
+  SpawnPatterns: [RitualSpawnPatterns]
+  ModsKey: [Mods]
+  _: [i32]
+  _: [i32]
+  MiscAnimatedKey2: MiscAnimated
+  EnvironmentsKey: Environments
+  _: i32
+  Achievements: [AchievementItems]
+  Type: string
+  Description: string
+  DaemonSpawningDataKey: DaemonSpawningData
+  _: bool
+}

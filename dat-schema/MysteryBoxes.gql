@@ -1,0 +1,7 @@
+type MysteryBoxes {
+  BaseItemTypesKey: BaseItemTypes
+  BK2File: string @file(ext: ".bk2")
+  BoxId: string
+  BundleId: string
+  _: bool
+}

@@ -1,0 +1,1 @@
+enum QuestStateCalculation @indexing(first: 0) { _ }

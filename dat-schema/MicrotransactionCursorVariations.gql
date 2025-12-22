@@ -1,0 +1,5 @@
+type MicrotransactionCursorVariations {
+  _: BaseItemTypes
+  _: rid
+  _: i32
+}

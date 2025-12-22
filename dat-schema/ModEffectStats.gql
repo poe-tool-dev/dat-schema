@@ -1,0 +1,9 @@
+type ModEffectStats {
+  StatsKey: Stats
+  TagsKeys: [Tags]
+  _: bool
+  _: i32
+  _: bool
+  _: bool
+  _: bool
+}

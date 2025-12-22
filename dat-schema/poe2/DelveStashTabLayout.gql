@@ -1,0 +1,12 @@
+type DelveStashTabLayout {
+  Id: string @unique
+  StoredItem: BaseItemTypes
+  XOffset: i32
+  YOffset: i32
+  FirstSlotIndex: i32 @unique
+  Width: i32
+  Height: i32
+  SlotSize: i32
+  HideIfEmpty: bool
+  Image: string
+}

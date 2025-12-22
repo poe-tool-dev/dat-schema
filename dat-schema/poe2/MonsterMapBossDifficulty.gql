@@ -1,0 +1,13 @@
+type MonsterMapBossDifficulty {
+  MapLevel: i32
+  BossLifePercentIncrease: i32
+  BossDamagePercentIncrease: i32
+  Stat1: Stats
+  Stat2: Stats
+  Stat3: Stats
+  BossIncItemQuantity: i32
+  Stat4: Stats
+  BossIncItemRarity: i32
+  Stat5: Stats
+  BossAilmentPercentDecrease: i32
+}

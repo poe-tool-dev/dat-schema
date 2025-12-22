@@ -1,0 +1,8 @@
+type MiscAnimated {
+  Id: string @unique
+  AOFile: string @file(ext: ".ao")
+  PreloadGroupsKeys: [PreloadGroups]
+  _: i32
+  _: i32
+  HASH32: i32
+}

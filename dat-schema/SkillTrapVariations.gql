@@ -1,0 +1,5 @@
+type SkillTrapVariations {
+  Id: i32
+  Metadata: string
+  MiscAnimated: MiscAnimated
+}

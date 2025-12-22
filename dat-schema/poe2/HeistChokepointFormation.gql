@@ -1,0 +1,14 @@
+# Added 3.12
+type HeistChokepointFormation {
+  _: MonsterVarieties
+  _: i32
+  _: [i32]
+  _: [GrantedEffects]
+  _: GrantedEffects
+  _: i32
+  _: bool
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}

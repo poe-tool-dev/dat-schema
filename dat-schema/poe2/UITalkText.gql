@@ -1,0 +1,8 @@
+type UITalkText {
+  Id: string @unique
+  UITalkCategoriesKey: UITalkCategories
+  OGGFile: string @file(ext: ".ogg")
+  Text: string
+  _: bool
+  NPCTextAudio: NPCTextAudio
+}

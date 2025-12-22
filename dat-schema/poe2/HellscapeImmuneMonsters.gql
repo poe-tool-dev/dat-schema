@@ -1,0 +1,4 @@
+# Added 3.16
+type HellscapeImmuneMonsters {
+  Monster: MonsterVarieties
+}

@@ -1,0 +1,11 @@
+type WorldPopupIconTypes {
+  Id: string @unique
+  _: string
+  _: i32
+  _: i32
+  _: bool
+  _: f32
+  _: f32
+  _: f32
+  _: string
+}

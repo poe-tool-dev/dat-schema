@@ -1,0 +1,7 @@
+# Added 3.16
+type HellscapeItemModificationTiers {
+  Tier: i32
+  IsMap: bool
+  _: i32
+  MinItemLvl: i32
+}

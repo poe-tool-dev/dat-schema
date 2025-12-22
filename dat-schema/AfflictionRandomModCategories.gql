@@ -1,0 +1,5 @@
+# Added 3.10
+type AfflictionRandomModCategories {
+  Id: string @unique
+  _: bool
+}

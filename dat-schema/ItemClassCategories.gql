@@ -1,0 +1,5 @@
+type ItemClassCategories {
+  Id: string @unique
+  Text: string
+  _: rid
+}

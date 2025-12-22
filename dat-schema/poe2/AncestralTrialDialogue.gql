@@ -1,0 +1,19 @@
+# Added 3.22
+type AncestralTrialDialogue {
+  _: rid
+  _: rid
+  _: i32
+  TextAudio: [NPCTextAudio]
+  _: rid
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+  _: bool
+  _: bool
+}

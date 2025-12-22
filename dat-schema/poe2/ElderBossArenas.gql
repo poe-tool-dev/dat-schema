@@ -1,0 +1,6 @@
+# Added 3.01
+type ElderBossArenas {
+  WorldAreasKey: WorldAreas @unique
+  _: i32
+  AchievementItemsKeys: [AchievementItems]
+}

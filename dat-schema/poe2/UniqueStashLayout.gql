@@ -1,0 +1,14 @@
+type UniqueStashLayout @tags(list: ["item:unique"]) {
+  WordsKey: Words
+  ItemVisualIdentityKey: ItemVisualIdentity
+  UniqueStashTypesKey: UniqueStashTypes
+  _: i32
+  _: i32
+  OverrideWidth: i32
+  OverrideHeight: i32
+  ShowIfEmptyChallengeLeague: bool
+  ShowIfEmptyStandard: bool
+  RenamedVersion: UniqueStashLayout
+  BaseVersion: UniqueStashLayout
+  IsAlternateArt: bool
+}

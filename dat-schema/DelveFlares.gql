@@ -1,0 +1,10 @@
+# Added 3.04
+type DelveFlares {
+  _: i32
+  _: rid
+  _: rid
+  _: i32
+  _: rid
+  _: i32
+  _: i32
+}

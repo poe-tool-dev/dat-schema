@@ -1,0 +1,9 @@
+# Added 3.21
+type WeaponPassiveTreeBalancePerItemLevel {
+  Level: i32
+  Bar1: i32
+  Bar2: i32
+  Bar3: i32
+  Bar4: i32
+  Bar5: i32
+}

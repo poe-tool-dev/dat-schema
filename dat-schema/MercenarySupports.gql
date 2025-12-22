@@ -1,0 +1,14 @@
+# Added 3.26
+type MercenarySupports {
+  Id: string
+  _: i32
+  _: i32
+  _: i32
+  Stat: [Stats]
+  StatValues: [i32]
+  Name: string
+  SupportFamily: MercenarySupportFamilies
+  HASH16: u16
+  GemIcon: string
+  Variant: i32
+}

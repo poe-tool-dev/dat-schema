@@ -1,0 +1,15 @@
+type ChestEffects {
+  Id: string @unique
+  Normal_EPKFile: string @file(ext: ".epk")
+  Normal_Closed_AOFile: string @file(ext: ".ao")
+  Normal_Open_AOFile: string @file(ext: ".ao")
+  Magic_EPKFile: string @file(ext: ".epk")
+  Unique_EPKFile: string @file(ext: ".epk")
+  Rare_EPKFile: string @file(ext: ".epk")
+  Magic_Closed_AOFile: string @file(ext: ".ao")
+  Unique_Closed_AOFile: string @file(ext: ".ao")
+  Rare_Closed_AOFile: string @file(ext: ".ao")
+  Magic_Open_AOFile: string @file(ext: ".ao")
+  Unique_Open_AOFile: string @file(ext: ".ao")
+  Rare_Open_AOFile: string @file(ext: ".ao")
+}

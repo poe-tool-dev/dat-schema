@@ -1,0 +1,25 @@
+type GroundEffects {
+  GroundEffectTypesKey: GroundEffectTypes
+  _: i32
+  _: i32
+  _: rid
+  _: f32
+  _: [i32]
+  _: bool
+  AOFile: [string] @file(ext: ".ao")
+  _: [string]
+  EndEffect: string
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: bool
+  _: bool
+  _: bool
+  _: rid
+  _: rid
+  _: bool
+  _: bool
+  _: bool
+}

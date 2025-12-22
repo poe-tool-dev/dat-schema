@@ -1,0 +1,33 @@
+type ItemClasses @tags(list: ["crafting"]) {
+  Id: string @unique
+  Name: string
+  ItemClassCategory: ItemClassCategories
+  RemovedIfLeavesArea: bool
+  _: [_] # All rows empty
+  IdentifyAchievements: [AchievementItems]
+  AllocateToMapOwner: bool
+  AlwaysAllocate: bool
+  CanHaveVeiledMods: bool
+  PickedUpQuest: QuestFlags
+  _: i32
+  AlwaysShow: bool
+  CanBeCorrupted: bool
+  CanHaveIncubators: bool
+  CanHaveInfluence: bool
+  CanBeDoubleCorrupted: bool
+  CanHaveAspects: bool
+  CanTransferSkin: bool
+  ItemStance: ItemStances
+  CanScourge: bool
+  CanUpgradeRarity: bool
+  _: bool
+  _: bool
+  MaxInventoryDimensions: [i32]
+  Unmodifiable: bool
+  CanBeFractured: bool
+  EquipAchievements: AchievementItems
+  UsedInMapDevice: bool
+  _: bool
+  _: bool
+  _: bool
+}

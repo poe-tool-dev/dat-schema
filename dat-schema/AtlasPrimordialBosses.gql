@@ -1,0 +1,17 @@
+# Added 3.17
+type AtlasPrimordialBosses {
+  Id: string
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  InfluenceComplete: MiscAnimated
+  MiniBossInvitation: BaseItemTypes
+  BossInvitation: BaseItemTypes
+  PickUpKey: QuestFlags
+  _: rid
+  _: rid
+  Tag: Tags
+  Altar: MiscObjects
+  AltarActivated: MiscAnimated
+}

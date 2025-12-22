@@ -1,0 +1,5 @@
+type GenericLeagueRewardTypes @tags(list: ["item:droptable"]) {
+  Id: string
+  MinLevel: i32
+  MaxLevel: i32
+}

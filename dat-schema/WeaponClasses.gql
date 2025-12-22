@@ -1,0 +1,4 @@
+type WeaponClasses {
+  ItemClass: ItemClasses
+  _: i32
+}

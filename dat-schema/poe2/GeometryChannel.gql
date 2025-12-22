@@ -1,0 +1,16 @@
+type GeometryChannel {
+  Id: string @unique
+  _: rid
+  _: rid
+  _: rid
+  _: string
+  _: string
+  _: string
+  _: bool
+  _: bool
+  _: rid
+  _: rid
+  EPKFile: string @file(ext: ".epk")
+  _: i32
+  _: i32
+}

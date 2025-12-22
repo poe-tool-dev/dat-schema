@@ -1,0 +1,11 @@
+# Added 3.02
+type BestiaryNets {
+  BaseItemTypesKey: BaseItemTypes
+  _: i32
+  CaptureMinLevel: i32
+  CaptureMaxLevel: i32
+  DropMinLevel: i32
+  DropMaxLevel: i32
+  _: i32
+  IsEnabled: bool
+}

@@ -1,0 +1,6 @@
+# Added 3.26
+type MercenaryBuildVisualOverrides {
+  Id: MercenaryBuilds
+  SlotId: i32
+  MtxGameSpecific: MtxTypeGameSpecific
+}

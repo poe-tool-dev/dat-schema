@@ -1,0 +1,5 @@
+# Added 3.04
+type DelveResourcePerLevel {
+  AreaLevel: i32
+  Sulphite: i32
+}

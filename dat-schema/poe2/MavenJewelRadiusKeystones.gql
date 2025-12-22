@@ -1,0 +1,4 @@
+# Added 3.13
+type MavenJewelRadiusKeystones {
+  Keystone: PassiveSkills
+}

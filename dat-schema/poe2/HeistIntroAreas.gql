@@ -1,0 +1,14 @@
+# Added 3.12
+type HeistIntroAreas {
+  Id: string @unique
+  HeistAreasKey: HeistAreas
+  _: i32
+  _: i32
+  DGRFile: string @file(ext: ".dgr")
+  _: i32
+  _: i32
+  _: bool
+  _: i32
+  _: i32
+  _: i32
+}

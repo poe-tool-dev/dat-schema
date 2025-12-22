@@ -1,0 +1,9 @@
+type JobRaidBrackets {
+  MinLevel: i32
+  _: i32
+  WorldArea: WorldAreas
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}

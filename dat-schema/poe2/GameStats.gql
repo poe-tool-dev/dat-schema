@@ -1,0 +1,4 @@
+type GameStats {
+  Id: string @unique
+  Id2: string @unique
+}

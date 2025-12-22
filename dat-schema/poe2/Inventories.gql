@@ -1,0 +1,10 @@
+type Inventories {
+  Id: string
+  InventoryIdKey: i32
+  InventoryTypeKey: InventoryType
+  _: bool
+  _: bool
+  _: i32
+  _: bool
+  _: i32
+}

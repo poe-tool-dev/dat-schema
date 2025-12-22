@@ -1,0 +1,1 @@
+enum MonsterBehavior @indexing(first: 0) { _ }

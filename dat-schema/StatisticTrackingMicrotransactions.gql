@@ -1,0 +1,7 @@
+# Added 3.23
+type StatisticTrackingMicrotransactions {
+  _: rid
+  _: bool
+  _: bool
+  _: bool
+}

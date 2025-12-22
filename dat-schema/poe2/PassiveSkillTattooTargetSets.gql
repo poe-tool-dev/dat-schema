@@ -1,0 +1,7 @@
+# Added 3.22
+type PassiveSkillTattooTargetSets {
+  Id: string
+  Set: [i32]
+  Name: string
+  Qualifier: string
+}

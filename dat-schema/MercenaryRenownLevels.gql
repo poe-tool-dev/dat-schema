@@ -1,0 +1,6 @@
+# Added 3.26
+type MercenaryRenownLevels {
+  RenownLevel: i32
+  _: i32
+  _: i32
+}

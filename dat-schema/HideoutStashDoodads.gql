@@ -1,0 +1,7 @@
+# Added 3.20
+type HideoutStashDoodads {
+  _: rid @unique
+  _: bool
+  _: bool
+  _: bool
+}

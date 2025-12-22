@@ -1,0 +1,19 @@
+# Added 3.05
+type BetrayalDialogue {
+  _: rid
+  _: i32
+  _: i32
+  _: [i32]
+  BetrayalTargetsKey: BetrayalTargets
+  _: i32
+  _: rid
+  _: [rid]
+  BetrayalUpgradesKey: BetrayalUpgrades
+  _: bool
+  _: [i32]
+  _: [rid]
+  _: bool
+  _: [i32]
+  NPCTextAudioKey: NPCTextAudio
+  _: [i32]
+}

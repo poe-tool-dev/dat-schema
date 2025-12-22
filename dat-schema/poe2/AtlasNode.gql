@@ -1,0 +1,27 @@
+type AtlasNode {
+  WorldAreasKey: WorldAreas @unique
+  ItemVisualIdentityKey: ItemVisualIdentity
+  _: bool
+  MapsKey: Maps
+  FlavourTextKey: FlavourText
+  AtlasNodeKeys: [AtlasNode]
+  Tier0: i32
+  Tier1: i32
+  Tier2: i32
+  Tier3: i32
+  Tier4: i32
+  _: f32
+  _: f32
+  _: f32
+  _: f32
+  _: f32
+  DDSFile: string @file(ext: ".dds")
+  StartingNode: bool
+  NotOnAtlas: bool
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  DivCards: [BaseItemTypes]
+  _: [BaseItemTypes]
+}

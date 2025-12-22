@@ -1,0 +1,6 @@
+# Added 3.26
+type MercenaryAttributes {
+  Id: string
+  Name: string
+  Tags: [Tags]
+}

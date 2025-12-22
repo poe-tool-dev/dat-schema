@@ -1,0 +1,9 @@
+type MissionTimerTypes {
+  Id: string
+  Image: string
+  BackgroundImage: string
+  _: [rid]
+  _: [f32]
+  _: rid
+  _: rid
+}

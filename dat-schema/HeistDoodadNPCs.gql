@@ -1,0 +1,12 @@
+# Added 3.12
+type HeistDoodadNPCs {
+  NPCsKey: NPCs
+  _: rid
+  _: rid
+  _: i32
+  _: i32
+  _: i32
+  AOFile: string @file(ext: ".ao")
+  Stance: string
+  BetrayalTargetsKey: BetrayalTargets
+}

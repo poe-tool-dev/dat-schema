@@ -1,0 +1,9 @@
+enum StatSemantics @indexing(first: 1) {
+  PERCENT
+  OVERRIDE_VALUE
+  VALUE
+  FLAG
+  OVERRIDE_PERCENT
+  PERMYRIAD
+  OVERRIDE_PERMYRIAD
+}

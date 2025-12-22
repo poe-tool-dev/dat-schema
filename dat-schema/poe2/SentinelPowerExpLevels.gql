@@ -1,0 +1,5 @@
+# Added 3.18
+type SentinelPowerExpLevels {
+  _: i32
+  _: i32
+}

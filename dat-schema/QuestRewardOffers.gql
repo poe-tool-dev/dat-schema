@@ -1,0 +1,15 @@
+type QuestRewardOffers {
+  Id: string
+  QuestKey: Quest
+  QuestFlag: QuestFlags
+  _: i32
+  RewardWindowTake: ClientStrings
+  _: bool
+  _: bool
+  RewardWindowTitle: ClientStrings
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+  _: rid
+}

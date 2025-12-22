@@ -1,0 +1,8 @@
+type Commands {
+  Id: string @unique
+  Command: string
+  _: bool
+  EnglishCommand: string
+  Description: string
+  _: bool
+}

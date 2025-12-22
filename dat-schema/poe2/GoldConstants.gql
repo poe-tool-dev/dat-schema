@@ -1,0 +1,5 @@
+# Added 3.20
+type GoldConstants {
+  Id: string @unique
+  _: i32
+}

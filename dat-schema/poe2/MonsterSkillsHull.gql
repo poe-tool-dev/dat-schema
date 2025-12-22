@@ -1,0 +1,1 @@
+enum MonsterSkillsHull @indexing(first: 0) { _ }

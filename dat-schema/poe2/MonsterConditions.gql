@@ -1,0 +1,15 @@
+type MonsterConditions {
+  Id: string
+  Rarity: Rarity
+  Stat: Stats
+  NotRarity: Rarity
+  NotStat: [Stats]
+  MapBoss: bool
+  NotMapBoss: bool
+  _: [rid]
+  _: [string]
+  _: i32
+  _: i32
+  _: i32
+  HASH32: i32
+}

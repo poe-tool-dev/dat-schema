@@ -1,0 +1,6 @@
+# Added 3.11
+type HarvestCraftTiers {
+  Id: string @unique
+  FrameImage: string
+  FrameHighlight: string
+}

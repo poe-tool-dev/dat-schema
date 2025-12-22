@@ -1,0 +1,7 @@
+# Added 3.12
+type HeistChests {
+  ChestsKey: Chests
+  Weight: i32
+  HeistAreasKey: [HeistAreas]
+  HeistChestTypesKey: HeistChestTypes
+}

@@ -1,0 +1,6 @@
+# Added 3.01
+type ElderMapBossOverride {
+  WorldAreasKey: WorldAreas @unique
+  MonsterVarietiesKeys: [MonsterVarieties]
+  TerrainMetadata: string @files(ext: [".ot", ".otc"])
+}

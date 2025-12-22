@@ -1,0 +1,6 @@
+type RaceTimes {
+  RacesKey: Races
+  Index: i32
+  StartUNIXTime: i32
+  EndUNIXTime: i32
+}

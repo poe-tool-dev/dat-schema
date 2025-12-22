@@ -1,0 +1,21 @@
+type MapDevices {
+  Id: string
+  MiscObject: MiscObjects
+  _: i32
+  _: string
+  _: string
+  _: [i32]
+  _: bool
+  _: i32
+  _: bool
+  _: i32
+  _: bool
+  _: f32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+  _: bool
+  _: bool
+}

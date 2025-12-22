@@ -1,0 +1,14 @@
+type AlternatePassiveAdditions {
+  Id: string @unique
+  AlternateTreeVersionsKey: AlternateTreeVersions
+  SpawnWeight: i32
+  StatsKeys: [Stats]
+  Stat1Min: i32
+  Stat1Max: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  PassiveType: [i32]
+  _: i32
+}

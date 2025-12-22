@@ -1,0 +1,4 @@
+type AtlasInfluenceSets {
+  Id: string
+  InfluencePacks: [AtlasInfluenceOutcomes]
+}

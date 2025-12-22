@@ -1,0 +1,9 @@
+# Added 3.20
+type SanctumDefenceIcons {
+  Id: string
+  Stat: Stats
+  DefenceIcon: string
+  DefenceBrokenIcon: string
+  BrokenStat: Stats
+  Description: string
+}

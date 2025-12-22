@@ -1,0 +1,43 @@
+type ExecuteGEAL {
+  _: i32
+  _: i32
+  MiscAnimated: [MiscAnimated]
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+  _: [_] # All rows empty
+  _: bool
+  _: i32
+  _: rid
+  _: bool
+  Script: string
+  _: bool
+  _: i32
+  _: bool
+  _: i32
+  _: i32
+  _: bool
+  _: i32
+  MetadataIDs: [string] @files(ext: [".ot", ".otc"])
+  ScriptCommand: string
+  _: [_]
+  _: [_]
+  _: i32
+  _: bool
+  _: [_]
+  _: bool
+  _: i32
+  _: bool
+  _: i32
+  _: bool
+  _: i32
+  _: i32
+  _: i32
+}

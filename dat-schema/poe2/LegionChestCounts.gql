@@ -1,0 +1,11 @@
+# Added 3.07
+type LegionChestCounts {
+  LegionFactionsKey: LegionFactions
+  LegionRanksKey: LegionRanks
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  MinLevel: i32
+  _: i32
+}

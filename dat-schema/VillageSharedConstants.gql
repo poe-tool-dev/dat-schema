@@ -1,0 +1,5 @@
+# Added 3.25
+type VillageSharedConstants {
+  Id: string
+  Value: i32
+}

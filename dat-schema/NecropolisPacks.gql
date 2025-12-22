@@ -1,0 +1,10 @@
+# Added 3.24
+type NecropolisPacks {
+  Id: string
+  Name: string
+  Icon: string
+  Description: string
+  PackLeader1: string
+  PackLeader2: string
+  Mod: Mods
+}

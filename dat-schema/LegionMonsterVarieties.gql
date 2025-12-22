@@ -1,0 +1,20 @@
+# Added 3.07
+type LegionMonsterVarieties {
+  MonsterVarietiesKey: MonsterVarieties
+  LegionFactionsKey: LegionFactions
+  LegionRanksKey: LegionRanks
+  _: i32
+  MiscAnimatedKey: [MiscAnimated]
+  _: i32
+  _: i32
+  _: [i32]
+  _: [i32]
+  _: [i32]
+  _: [i32]
+  _: [i32]
+  _: [i32]
+  _: i32
+  _: i32
+  _: [rid]
+  MonsterVarietiesKey2: MonsterVarieties
+}

@@ -1,0 +1,11 @@
+type MiscEffectPacks {
+  Id: string @unique
+  EPKFile: string @file(ext: ".epk")
+  _: i32
+  _: i32
+  _: i32
+  PreloadGroups: [PreloadGroups]
+  _: bool
+  PlayerOnly_EPKFile: string @file(ext: ".epk")
+  _: bool
+}

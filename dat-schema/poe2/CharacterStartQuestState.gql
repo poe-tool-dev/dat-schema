@@ -1,0 +1,9 @@
+type CharacterStartQuestState {
+  Id: string
+  QuestKeys: [Quest]
+  QuestStates: [i32]
+  _: [rid]
+  MapPinsKeys: [MapPins]
+  _: [i32]
+  _: [rid]
+}

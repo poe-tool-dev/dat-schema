@@ -1,0 +1,8 @@
+# Added 3.02
+type BestiaryGenus {
+  Id: string @unique
+  Name: string
+  BestiaryGroupsKey: BestiaryGroups
+  Name2: string
+  Icon: string
+}

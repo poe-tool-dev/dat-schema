@@ -1,0 +1,4 @@
+# Added 3.26
+type MercenarySupportFamilies {
+  Id: string
+}

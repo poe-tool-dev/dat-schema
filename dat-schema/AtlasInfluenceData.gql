@@ -1,0 +1,22 @@
+type AtlasInfluenceData {
+  InfluencePack: AtlasInfluenceOutcomes
+  MonsterPacks: [MonsterPacks]
+  _: rid
+  _: [Stats]
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: [_]
+  _: i32
+  _: i32
+  _: rid
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+}

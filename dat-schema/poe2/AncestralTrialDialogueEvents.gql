@@ -1,0 +1,5 @@
+# Added 3.22
+type AncestralTrialDialogueEvents {
+  Id: string
+  _: i32
+}

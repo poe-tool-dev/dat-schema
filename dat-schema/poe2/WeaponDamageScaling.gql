@@ -1,0 +1,1 @@
+enum WeaponDamageScaling @indexing(first: 0) { _ }

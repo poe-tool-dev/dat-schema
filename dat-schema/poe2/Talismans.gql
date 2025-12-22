@@ -1,0 +1,12 @@
+# Added 2.01
+type Talismans @tags(list: ["item:def"]) {
+  BaseItemTypesKey: BaseItemTypes @unique
+  SpawnWeight: i32
+  ModsKey: Mods
+  Tier: i32
+  _: bool
+  _: bool
+  _: rid
+  _: rid
+  _: i32
+}

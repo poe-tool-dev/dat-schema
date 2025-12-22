@@ -1,0 +1,7 @@
+type SoundEffects {
+  Id: string @unique
+  SoundFile: string @file(ext: ".ogg")
+  SoundFile_2D: string @file(ext: ".ogg")
+  _: bool
+  _: string
+}

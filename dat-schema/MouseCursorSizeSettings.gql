@@ -1,0 +1,5 @@
+type MouseCursorSizeSettings {
+  Size: string
+  Description: string
+  Ratio: f32
+}

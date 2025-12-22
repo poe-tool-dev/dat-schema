@@ -1,0 +1,11 @@
+# Added 3.15
+type ExpeditionDeals {
+  Id: i32 @unique
+  Function: string
+  Arguments: string
+  TextAudio: NPCTextAudio
+  Description: string @localized
+  BuyAchievements: [AchievementItems]
+  _: rid
+  DealFamily: ExpeditionDealFamilies
+}

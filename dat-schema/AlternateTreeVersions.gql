@@ -1,0 +1,12 @@
+type AlternateTreeVersions {
+  Id: string @unique
+  _: bool
+  _: bool
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}

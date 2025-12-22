@@ -1,0 +1,7 @@
+type MultiPartAchievementConditions {
+  Id: string @unique
+  MultiPartAchievementsKey1: MultiPartAchievements
+  MultiPartAchievementsKey2: MultiPartAchievements
+  _: i32
+  _: i32
+}

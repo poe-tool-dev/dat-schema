@@ -1,0 +1,10 @@
+type EssenceStashTabLayout {
+  Id: string @unique
+  StoredItem: BaseItemTypes
+  XOffset: i32
+  YOffset: i32
+  FirstSlotIndex: i32 @unique
+  Width: i32
+  Height: i32
+  IsUpgradableEssenceSlot: bool
+}

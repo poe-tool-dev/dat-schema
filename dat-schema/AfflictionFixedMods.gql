@@ -1,0 +1,6 @@
+# Added 3.10
+type AfflictionFixedMods {
+  Rarity: i32
+  Mod: Mods
+  _: rid
+}

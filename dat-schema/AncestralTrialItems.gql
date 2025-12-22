@@ -1,0 +1,15 @@
+# Added 3.22
+type AncestralTrialItems {
+  Id: string
+  HASH16: i32
+  Name: string
+  Image: string
+  _: rid
+  _: i32
+  Mods: [Mods]
+  FlavorText: string
+  _: i32
+  _: [_] # All rows empty
+  _: rid
+  _: rid
+}

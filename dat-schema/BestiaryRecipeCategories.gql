@@ -1,0 +1,5 @@
+# Added 3.02
+type BestiaryRecipeCategories {
+  Id: string
+  Text: string
+}

@@ -1,0 +1,24 @@
+type NPCDialogueStyles {
+  Id: string @unique
+  HeaderBaseFile: string
+  ButtomFile: string
+  BannerFiles: [string]
+  HeaderFiles: [string]
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: [i32]
+  _: NPCDialogueStyles
+  _: string
+  _: [i32]
+  _: [i32]
+  _: i32
+  _: i32
+  _: f32
+  _: string
+  _: string
+  _: i32
+  _: i32
+}

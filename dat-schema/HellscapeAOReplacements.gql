@@ -1,0 +1,6 @@
+# Added 3.16
+type HellscapeAOReplacements {
+  Original: string @file(ext: ".ao")
+  HASH32: i32
+  Replacement: string @file(ext: ".ao")
+}

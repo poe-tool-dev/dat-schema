@@ -1,0 +1,4 @@
+type WorldObjectDisplayedApplicableItems {
+  Id: string
+  BaseItemType: [BaseItemTypes]
+}

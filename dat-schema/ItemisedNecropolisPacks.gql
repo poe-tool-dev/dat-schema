@@ -1,0 +1,6 @@
+# Added 3.24
+type ItemisedNecropolisPacks {
+  Item: BaseItemTypes @unique
+  Pack: NecropolisPacks
+  Description: string
+}

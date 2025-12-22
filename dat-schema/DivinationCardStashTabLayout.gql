@@ -1,0 +1,5 @@
+type DivinationCardStashTabLayout {
+  StoredItem: BaseItemTypes @unique
+  IsInGame: bool
+  IsEnabled: bool
+}

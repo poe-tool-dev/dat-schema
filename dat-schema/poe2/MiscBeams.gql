@@ -1,0 +1,7 @@
+type MiscBeams {
+  Id: string @unique
+  MiscAnimated: MiscAnimated
+  _: i32
+  PreloadGroupsKeys: [PreloadGroups]
+  _: i32
+}

@@ -1,0 +1,4 @@
+type RareMonsterLifeScalingPerLevel {
+  Level: i32
+  Life: i32
+}

@@ -1,0 +1,26 @@
+# Added 3.14
+type UltimatumModifiers {
+  Id: string @unique
+  Types: [UltimatumModifierTypes]
+  ExtraMods: [Mods]
+  TypesFiltered: [UltimatumModifierTypes]
+  DaemonSpawningData: DaemonSpawningData
+  PreviousTier: UltimatumModifiers
+  _: bool
+  Radius: i32
+  Name: string
+  Icon: string
+  HASH16: i32
+  TypesExtra: [UltimatumModifierTypes]
+  MonsterTypesApplyingRuin: i32
+  MiscAnimated: MiscAnimated
+  BuffTemplates: [BuffTemplates]
+  Tier: i32
+  _: i32
+  Description: string
+  MonsterSpawners: [string]
+  _: bool
+  Achievements: [AchievementItems]
+  TextAudio: NPCTextAudio
+  UniqueMapMod: Mods
+}

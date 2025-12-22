@@ -1,0 +1,6 @@
+type PassiveTreeExpansionSkills @tags(list: ["crafting"]) {
+  PassiveSkillsKey: PassiveSkills
+  Mastery_PassiveSkillsKey: PassiveSkills
+  TagsKey: Tags
+  PassiveTreeExpansionJewelSizesKey: PassiveTreeExpansionJewelSizes
+}

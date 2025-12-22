@@ -1,0 +1,14 @@
+# Added 3.16
+type HellscapeModificationInventoryLayout {
+  Id: string @unique
+  Column: i32
+  Row: i32
+  IsMapSlot: bool
+  _: i32
+  Width: i32
+  Height: i32
+  Stat: Stats
+  StatValue: i32
+  UnlockedWith: HellscapePassives
+  Quest: Quest
+}

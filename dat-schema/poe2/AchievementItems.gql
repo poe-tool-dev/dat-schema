@@ -1,0 +1,12 @@
+type AchievementItems {
+  Id: string @unique
+  _: i32
+  _: i32
+  Name: string
+  CompletionsRequired: i32
+  AchievementsKey: Achievements
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+}

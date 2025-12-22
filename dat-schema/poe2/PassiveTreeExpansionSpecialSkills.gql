@@ -1,0 +1,4 @@
+type PassiveTreeExpansionSpecialSkills {
+  PassiveSkillsKey: PassiveSkills
+  StatsKey: Stats
+}

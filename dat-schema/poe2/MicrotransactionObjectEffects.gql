@@ -1,0 +1,20 @@
+# Added 3.21
+type MicrotransactionObjectEffects {
+  Id: string @unique
+  _: [_]
+  Script: string
+  _: [_]
+  _: [_]
+  _: rid
+  _: [_]
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}

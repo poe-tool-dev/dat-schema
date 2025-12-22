@@ -1,0 +1,4 @@
+type AtlasMods {
+  ModsKey: Mods
+  AtlasModTiers: i32
+}

@@ -1,0 +1,5 @@
+# Added 3.02
+type NetTiers {
+  BaseItemTypesKey: BaseItemTypes
+  Tier: i32
+}

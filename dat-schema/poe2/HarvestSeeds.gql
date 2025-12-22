@@ -1,0 +1,13 @@
+# Added 3.11
+type HarvestSeeds {
+  Id: string
+  Monster: MonsterVarieties
+  Tier: i32
+  _: i32
+  _: [i32]
+  Achievements: [AchievementItems]
+  SeedAnimation: string @file(ext: ".ao")
+  _: i32
+  HatchAnimation: string @file(ext: ".ao")
+  SeedType: i32
+}

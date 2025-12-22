@@ -1,0 +1,11 @@
+# Added 3.21
+type WeaponPassiveSkills {
+  Id: string
+  Tier: i32
+  Mod: Mods
+  _: [_]
+  _: [_]
+  Icon: string
+  Type: WeaponPassiveSkillTypes
+  Achievements: [AchievementItems]
+}

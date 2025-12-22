@@ -1,0 +1,1 @@
+enum UITalkCategories @indexing(first: 0) { _ }

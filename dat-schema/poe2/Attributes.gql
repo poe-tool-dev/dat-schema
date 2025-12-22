@@ -1,0 +1,6 @@
+enum Attributes @indexing(first: 1) {
+  STRENGTH
+  DEXTERITY
+  INTELLIGENCE
+  NONE
+}

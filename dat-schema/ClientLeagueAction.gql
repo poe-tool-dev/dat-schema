@@ -1,0 +1,6 @@
+type ClientLeagueAction {
+  Id: string
+  _: rid
+  _: i32
+  GamepadIcon: string
+}

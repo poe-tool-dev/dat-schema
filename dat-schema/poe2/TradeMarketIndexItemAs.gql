@@ -1,0 +1,4 @@
+type TradeMarketIndexItemAs {
+  Item: rid
+  IndexAs: rid
+}

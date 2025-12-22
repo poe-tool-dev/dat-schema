@@ -1,0 +1,8 @@
+# Added 3.23
+type AzmeriCounterQuests {
+  _: string
+  _: rid
+  _: rid
+  _: rid
+  _: i32
+}

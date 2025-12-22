@@ -1,0 +1,6 @@
+# Added 1.00
+type ShrineSounds {
+  Id: string @unique
+  StereoSoundFile: string @file(ext: ".ogg")
+  MonoSoundFile: string @file(ext: ".ogg")
+}

@@ -1,0 +1,1 @@
+enum AudioCharacterClass @indexing(first: 0) { _ }

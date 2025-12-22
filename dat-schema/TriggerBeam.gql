@@ -1,0 +1,16 @@
+type TriggerBeam {
+  _: i32
+  _: [MiscBeams]
+  _: [MiscBeams]
+  _: [i32]
+  _: bool
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+  _: [i32]
+  _: bool
+  _: i32
+  _: bool
+}

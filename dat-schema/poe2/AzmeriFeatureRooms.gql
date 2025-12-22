@@ -1,0 +1,9 @@
+# Added 3.23
+type AzmeriFeatureRooms {
+  _: i32
+  _: i32
+  _: string
+  _: string
+  _: [_]
+  _: bool
+}

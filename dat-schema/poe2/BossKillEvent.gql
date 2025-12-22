@@ -1,0 +1,11 @@
+type BossKillEvent {
+  _: string
+  QuestFlag: QuestFlags
+  AreaLevel: i32
+  Monster: MonsterVarieties
+  _: rid
+  _: i32
+  QuestFlag2: QuestFlags
+  _: i32
+  _: i32
+}

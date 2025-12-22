@@ -1,0 +1,4 @@
+type PassiveSkillStatCategories {
+  Id: string @unique
+  Name: string
+}

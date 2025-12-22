@@ -1,0 +1,15 @@
+type MicrotransactionPortalVariations {
+  BaseItemTypesKey: BaseItemTypes
+  Id: i32 @unique
+  AOFile: string @file(ext: ".ao")
+  MapAOFile: string @file(ext: ".ao")
+  _: f32
+  MiscObject: MiscObjects
+  PortalEffect: string @file(ext: ".ao")
+  _: f32
+  _: string
+  PortalEffectLarge: string @file(ext: ".ao")
+  _: i32
+  _: i32
+  Script: string
+}

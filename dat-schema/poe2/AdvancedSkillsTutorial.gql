@@ -1,0 +1,10 @@
+type AdvancedSkillsTutorial {
+  Id: string @unique
+  SkillGemInfoKey1: [SkillGemInfo]
+  SkillGemInfoKey2: [SkillGemInfo]
+  Description: string
+  International_BK2File: string @file(ext: ".bk2")
+  SkillGemsKey: SkillGems
+  China_BK2File: string @file(ext: ".bk2")
+  CharactersKey: [Characters]
+}

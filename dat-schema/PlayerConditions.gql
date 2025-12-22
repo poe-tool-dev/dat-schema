@@ -1,0 +1,12 @@
+type PlayerConditions {
+  Id: string @unique
+  BuffDefinitionsKeys: [BuffDefinitions]
+  _: bool
+  BuffStacks: i32
+  CharactersKey: Characters
+  StatsKeys: [Stats]
+  _: bool
+  StatValue: i32
+  _: [rid]
+  _: bool
+}

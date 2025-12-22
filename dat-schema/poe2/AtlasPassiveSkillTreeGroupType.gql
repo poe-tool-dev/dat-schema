@@ -1,0 +1,4 @@
+# Added 3.17
+type AtlasPassiveSkillTreeGroupType {
+  Id: string @unique
+}

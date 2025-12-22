@@ -1,0 +1,7 @@
+# Added 3.18
+type PortalAudio {
+  _: rid
+  _: rid
+  _: rid
+  _: i32
+}

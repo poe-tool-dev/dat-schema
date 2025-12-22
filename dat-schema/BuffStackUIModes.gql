@@ -1,0 +1,1 @@
+enum BuffStackUIModes @indexing(first: 0) { _ }

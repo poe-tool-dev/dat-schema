@@ -1,0 +1,19 @@
+type NPCFollowerVariations {
+  MonsterVarietiesKey: MonsterVarieties
+  MiscAnimatedKey0: MiscAnimated
+  MiscAnimatedKey1: MiscAnimated
+  _: bool
+  _: bool
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+  _: bool
+  _: [_] # All rows empty
+  _: [_] # All rows empty
+  _: i32
+  _: bool
+  _: bool
+  _: i32
+}

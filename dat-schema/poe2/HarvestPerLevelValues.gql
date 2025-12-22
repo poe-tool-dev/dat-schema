@@ -1,0 +1,15 @@
+# Added 3.11
+type HarvestPerLevelValues {
+  Level: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}

@@ -1,0 +1,1 @@
+enum MapDevicePortalFormation @indexing(first: 0) { _ }

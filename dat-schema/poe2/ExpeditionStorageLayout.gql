@@ -1,0 +1,14 @@
+# Added 3.15
+type ExpeditionStorageLayout {
+  Id: string
+  StoredItem: BaseItemTypes
+  XOffset: i32
+  YOffset: i32
+  _: i32
+  _: i32
+  Width: i32
+  Height: i32
+  _: i32
+  _: bool
+  _: rid
+}

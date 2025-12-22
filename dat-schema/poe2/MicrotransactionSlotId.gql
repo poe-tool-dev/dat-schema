@@ -1,0 +1,1 @@
+enum MicrotransactionSlotId @indexing(first: 1) { _ }

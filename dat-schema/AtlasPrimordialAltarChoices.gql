@@ -1,0 +1,6 @@
+# Added 3.17
+type AtlasPrimordialAltarChoices {
+  Mod: Mods
+  Type: AtlasPrimordialAltarChoiceTypes
+  _: bool
+}

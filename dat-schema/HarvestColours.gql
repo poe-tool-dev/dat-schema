@@ -1,0 +1,2 @@
+# Added 3.11
+enum HarvestColours @indexing(first: 0) { _ }

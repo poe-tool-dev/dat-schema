@@ -1,0 +1,9 @@
+enum InfluenceTypes @indexing(first: 0) {
+  SHAPER
+  ELDER
+  CRUSADER
+  EYRIE
+  BASILISK
+  ADJUDICATOR
+  NONE
+}

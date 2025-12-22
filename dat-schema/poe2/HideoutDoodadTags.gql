@@ -1,0 +1,6 @@
+type HideoutDoodadTags {
+  Id: string
+  _: [i32]
+  _: [i32]
+  Name: string @localized
+}

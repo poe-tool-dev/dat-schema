@@ -1,0 +1,7 @@
+type ProjectilesArtVariations {
+  Projectile: string
+  Variant: i32
+  _: [_]
+  _: i32
+  _: rid
+}

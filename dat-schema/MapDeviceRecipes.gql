@@ -1,0 +1,17 @@
+type MapDeviceRecipes @tags(list: ["item:recipe"]) {
+  Id: string
+  RecipeItems: [BaseItemTypes]
+  WorldArea: WorldAreas
+  MicrotransactionPortalVariation: MicrotransactionPortalVariations
+  AreaLevel: i32
+  _: rid
+  _: i32
+  _: bool
+  _: bool
+  _: bool
+  OpenAchievemnts: [AchievementItems]
+  _: bool
+  _: i32
+  _: [Mods]
+  _: bool
+}

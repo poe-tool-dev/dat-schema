@@ -1,0 +1,11 @@
+# Added 3.02
+type BestiaryRecipeComponent {
+  Id: string @unique
+  MinLevel: i32
+  BestiaryFamiliesKey: BestiaryFamilies
+  BestiaryGroupsKey: BestiaryGroups
+  ModsKey: Mods
+  BestiaryCapturableMonstersKey: BestiaryCapturableMonsters
+  BeastRarity: Rarity
+  BestiaryGenusKey: BestiaryGenus
+}

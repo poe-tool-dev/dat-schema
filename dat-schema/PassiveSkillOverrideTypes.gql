@@ -1,0 +1,6 @@
+type PassiveSkillOverrideTypes {
+  Id: string
+  CounterStat: Stats
+  _: bool
+  _: bool
+}

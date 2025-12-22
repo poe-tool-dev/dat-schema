@@ -1,0 +1,8 @@
+type GenericLeagueRewardTypeVisuals {
+  Type: GenericLeagueRewardTypes
+  _: rid
+  _: rid
+  _: f32
+  Icon: string
+  Name: string @localized
+}

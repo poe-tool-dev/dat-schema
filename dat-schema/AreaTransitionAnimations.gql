@@ -1,0 +1,4 @@
+type AreaTransitionAnimations {
+  Id: string @unique
+  AnimationId: string
+}

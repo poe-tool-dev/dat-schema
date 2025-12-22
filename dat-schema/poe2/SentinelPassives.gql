@@ -1,0 +1,14 @@
+# Added 3.18
+type SentinelPassives {
+  Id: string
+  HASH16: i32
+  _: string
+  _: [rid]
+  _: [i32]
+  _: i32
+  _: i32
+  _: rid
+  _: i32
+  _: i32
+  _: i32
+}

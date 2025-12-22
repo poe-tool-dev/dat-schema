@@ -1,0 +1,12 @@
+# Added 3.23
+type InfluenceAmbushVariations {
+  _: rid
+  _: i32
+  _: f32
+  _: [_]
+  _: i32
+  _: i32
+  _: i32
+  _: f32
+  _: f32
+}

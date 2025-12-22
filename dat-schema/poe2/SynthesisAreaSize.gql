@@ -1,0 +1,7 @@
+# Added 3.06
+type SynthesisAreaSize {
+  Id: string @unique
+  _: i32
+  _: i32
+  _: i32
+}

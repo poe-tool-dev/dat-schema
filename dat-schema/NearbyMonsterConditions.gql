@@ -1,0 +1,11 @@
+type NearbyMonsterConditions {
+  Id: string @unique
+  MonsterVarietiesKeys: [MonsterVarieties]
+  MonsterAmount: i32
+  _: i32
+  IsNegated: bool
+  _: i32
+  _: [i32]
+  IsLessThen: bool
+  MinimumHealthPercentage: i32
+}

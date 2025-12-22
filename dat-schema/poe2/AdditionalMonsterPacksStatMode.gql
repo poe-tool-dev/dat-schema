@@ -1,0 +1,1 @@
+enum AdditionalMonsterPacksStatMode @indexing(first: 0) { _ }

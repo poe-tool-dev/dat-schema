@@ -1,0 +1,4 @@
+type PVPTypes {
+  Id: string
+  _: rid
+}

@@ -1,0 +1,12 @@
+# Added 3.22
+type AncestralTrialMonsters {
+  _: rid
+  Monster: MonsterVarieties
+  _: rid
+  _: i32
+  Achievement: [AchievementItems]
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+}

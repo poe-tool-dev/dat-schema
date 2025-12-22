@@ -1,0 +1,63 @@
+type ItemVisualIdentity {
+  Id: string @unique
+  DDSFile: string @file(ext: ".dds")
+  AOFile: string @file(ext: ".ao")
+  InventorySoundEffect: SoundEffects
+  HASH16: i16 @unique
+  AOFile2: string @file(ext: ".ao")
+  MarauderSMFiles: [string] @file(ext: ".sm")
+  RangerSMFiles: [string] @file(ext: ".sm")
+  WitchSMFiles: [string] @file(ext: ".sm")
+  DuelistDexSMFiles: [string] @file(ext: ".sm")
+  TemplarSMFiles: [string] @file(ext: ".sm")
+  ShadowSMFiles: [string] @file(ext: ".sm")
+  ScionSMFiles: [string] @file(ext: ".sm")
+  MarauderShape: string
+  RangerShape: string
+  WitchShape: string
+  DuelistShape: string
+  TemplarShape: string
+  ShadowShape: string
+  ScionShape: string
+  _: i32
+  _: i32
+  Pickup_AchievementItemsKeys: [AchievementItems]
+  SMFiles: [string] @file(ext: ".sm")
+  Identify_AchievementItemsKeys: [AchievementItems]
+  EPKFile: string @file(ext: ".epk")
+  Corrupt_AchievementItemsKeys: [AchievementItems]
+  IsAlternateArt: bool
+  _: bool
+  CreateCorruptedJewelAchievementItemsKey: AchievementItems
+  AnimationLocation: string
+  _: string
+  _: string
+  _: string
+  _: string
+  _: string
+  _: string
+  _: string
+  _: string
+  _: string
+  _: string
+  _: string
+  _: string
+  IsAtlasOfWorldsMapIcon: bool
+  IsTier16Icon: bool
+  _: [i32]
+  _: bool
+  _: [rid]
+  _: string
+  "0: Standard, 1: Flask, 2: Divination Card, 3: Gem"
+  Composition: i32
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: [rid]
+  _: [rid]
+  _: bool
+  _: string
+  _: string
+  _: string
+}

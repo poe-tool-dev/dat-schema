@@ -1,0 +1,12 @@
+type ItemCosts {
+  Id: string
+  Cost1Currencies: [BaseItemTypes]
+  Cost1Values: [i32]
+  Cost2Currencies: [BaseItemTypes]
+  Cost2Values: [i32]
+  Cost3Currencies: [BaseItemTypes]
+  Cost3Values: [i32]
+  Cost4Currencies: [BaseItemTypes]
+  Cost4Values: [i32]
+  RuthlessWithGold: [i32]
+}

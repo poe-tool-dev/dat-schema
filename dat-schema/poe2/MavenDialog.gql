@@ -1,0 +1,11 @@
+# Added 3.13
+type MavenDialog {
+  Id: string
+  TextAudioT1: NPCTextAudio
+  TextAudioT2: NPCTextAudio
+  TextAudioT3: NPCTextAudio
+  TextAudioT4: NPCTextAudio
+  TextAudioT5: NPCTextAudio
+  _: bool
+  TextAudioT6: NPCTextAudio
+}

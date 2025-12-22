@@ -1,0 +1,6 @@
+# Added 3.24
+type NecropolisPacksPerArea {
+  _: rid
+  _: [rid]
+  _: [i32]
+}

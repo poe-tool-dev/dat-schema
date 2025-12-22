@@ -1,0 +1,1 @@
+enum PerLevelValues @indexing(first: 0) { _ }

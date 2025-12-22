@@ -1,0 +1,10 @@
+type AreaInfluenceDoodads {
+  StatsKey: Stats
+  StatValue: i32
+  _: f32
+  AOFiles: [string] @file(ext: ".ao")
+  _: i32
+  _: bool
+  _: string
+  _: Stats
+}

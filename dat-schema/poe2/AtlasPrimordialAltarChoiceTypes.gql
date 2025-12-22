@@ -1,0 +1,9 @@
+# Added 3.17
+type AtlasPrimordialAltarChoiceTypes {
+  Id: string
+  TopIconEater: string
+  BottomIconEater: string
+  TopIconExarch: string
+  BottomIconExarch: string
+  Text: string @localized
+}

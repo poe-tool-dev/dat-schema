@@ -1,0 +1,9 @@
+# Added 3.20
+type HideoutCraftingBenchInterfaceVisuals {
+  Id: string @unique
+  _: string
+  _: string
+  _: string
+  _: string
+  _: string
+}

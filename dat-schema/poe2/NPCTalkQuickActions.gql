@@ -1,0 +1,1 @@
+enum NPCTalkQuickActions @indexing(first: 0) { _ }

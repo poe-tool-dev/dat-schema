@@ -1,0 +1,28 @@
+type MonsterPacks {
+  Id: string @unique
+  _: i32
+  WorldAreasKeys: [WorldAreas]
+  _: i32
+  _: i32
+  BossMonsterSpawnChance: i32
+  BossMonsterCount: i32
+  BossMonster_MonsterVarietiesKeys: [MonsterVarieties]
+  _: bool
+  _: [i32]
+  _: [string]
+  TagsKeys: [Tags]
+  MinLevel: i32
+  MaxLevel: i32
+  WorldAreas2: [Tags]
+  _: i32
+  PackFormation: PackFormation
+  _: i32
+  _: bool
+  _: [_] # All rows empty
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+  _: [string]
+  NecropolisPack: NecropolisPacks
+}

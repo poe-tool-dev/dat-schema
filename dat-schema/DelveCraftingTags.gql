@@ -1,0 +1,5 @@
+# Added 3.04
+type DelveCraftingTags {
+  TagsKey: Tags
+  ItemClass: string
+}

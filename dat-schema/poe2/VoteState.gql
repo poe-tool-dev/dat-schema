@@ -1,0 +1,4 @@
+type VoteState {
+  Id: string @unique
+  Text: string
+}

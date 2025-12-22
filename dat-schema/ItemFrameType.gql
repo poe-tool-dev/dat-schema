@@ -1,0 +1,16 @@
+type ItemFrameType {
+  Id: string
+  _: bool
+  DoubleLine: bool
+  HeaderSingle: string
+  HeaderDouble: string
+  HardmodeHeaderSingle: string
+  HardmodeHeaderDouble: string
+  Color: [i32]
+  Separator: string
+  _: bool
+  Rarity: Rarity
+  DisplayString: ClientStrings
+  ColorMarkup: string
+  _: i32
+}

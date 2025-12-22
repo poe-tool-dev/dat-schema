@@ -1,0 +1,15 @@
+# Added 3.23
+type GemEffects {
+  Id: string @unique
+  Name: string
+  GrantedEffect: GrantedEffects
+  GrantedEffectHardmode: GrantedEffects
+  GrantedEffect2: GrantedEffects
+  GrantedEffect2Hardmode: GrantedEffects
+  SupportText: string
+  SupportName: string
+  GemTags: [GemTags]
+  Consumed_ModsKey: Mods
+  "Used by gem icon shader https://gist.github.com/zao/08878df57aba605e5fa1e6373f2dce02"
+  ItemColor: i32
+}

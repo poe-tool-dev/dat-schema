@@ -1,0 +1,9 @@
+# Added 3.15
+type ExpeditionRelics {
+  Id: string @unique
+  Name: string
+  ItemTag: Tags
+  AOFile: string
+  MinLevel: i32
+  MaxLevel: i32
+}

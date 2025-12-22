@@ -1,0 +1,8 @@
+type CraftingBenchUnlockCategories {
+  Id: string @unique
+  _: i32
+  _: [i32]
+  UnlockType: string
+  CraftingItemClassCategories: [CraftingItemClassCategories]
+  ObtainingDescription: string
+}

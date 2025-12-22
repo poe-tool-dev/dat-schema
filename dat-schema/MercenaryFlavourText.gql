@@ -1,0 +1,8 @@
+# Added 3.26
+type MercenaryFlavourText {
+  Id: string
+  Description: string
+  HASH16: u16
+  Tags: [Tags]
+  TagWeight: [i32]
+}

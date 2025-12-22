@@ -1,0 +1,13 @@
+# Added 3.14
+type UltimatumEncounters {
+  Id: string @unique
+  Description: string
+  ModTypes: [UltimatumModifierTypes]
+  BossARMFile: string
+  Type: UltimatumEncounterTypes
+  Icon: string
+  HASH16: i32
+  _: bool
+  _: i32
+  _: bool
+}

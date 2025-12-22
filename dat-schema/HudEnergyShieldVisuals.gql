@@ -1,0 +1,13 @@
+# Added 3.21
+type HudEnergyShieldVisuals {
+  Id: string @unique
+  _: string
+  _: string
+  _: string
+  _: string
+  _: string
+  _: string
+  _: string
+  _: string
+  _: bool
+}

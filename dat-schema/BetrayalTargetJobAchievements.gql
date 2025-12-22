@@ -1,0 +1,6 @@
+# Added 3.05
+type BetrayalTargetJobAchievements {
+  BetrayalTargetsKey: BetrayalTargets
+  BetrayalJobsKey: BetrayalJobs
+  AchievementItemsKey: AchievementItems
+}

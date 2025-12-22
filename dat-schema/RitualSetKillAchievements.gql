@@ -1,0 +1,5 @@
+# Added 3.13
+type RitualSetKillAchievements {
+  Achievement: AchievementItems
+  KillBosses: [MonsterVarieties]
+}

@@ -1,0 +1,6 @@
+# Added 1.02
+type BeyondFactions {
+  Id: string
+  Boss: MonsterVarieties
+  _: rid
+}

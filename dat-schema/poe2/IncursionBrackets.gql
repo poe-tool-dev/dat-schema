@@ -1,0 +1,9 @@
+# Added 3.03
+type IncursionBrackets {
+  MinLevel: i32
+  Incursion_WorldAreasKey: WorldAreas
+  Template_WorldAreasKey: WorldAreas
+  _: [f32]
+  _: f32
+  _: i32
+}

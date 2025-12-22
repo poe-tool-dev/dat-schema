@@ -1,0 +1,4 @@
+type StartingPassiveSkills {
+  Id: string @unique
+  PassiveSkills: [PassiveSkills]
+}

@@ -1,0 +1,1 @@
+enum MissionTileMap @indexing(first: 0) { _ }

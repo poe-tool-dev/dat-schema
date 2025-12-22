@@ -1,0 +1,6 @@
+# Added 3.22
+type DivinationWindowVisuals {
+  Id: string @unique
+  WindowArt: string
+  ButtonArt: string
+}

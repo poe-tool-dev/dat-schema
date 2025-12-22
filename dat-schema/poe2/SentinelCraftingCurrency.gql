@@ -1,0 +1,5 @@
+# Added 3.18
+type SentinelCraftingCurrency {
+  Currency: BaseItemTypes
+  Type: i32
+}

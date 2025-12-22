@@ -1,0 +1,15 @@
+# Added 3.17
+type AtlasPrimordialBossOptions {
+  _: i32
+  _: i32
+  DefaultIcon: string
+  HoverIcon: string
+  HighlightIcon: string
+  EmptyIcon: string
+  Description: ClientStrings
+  DescriptionActive: ClientStrings
+  ProgressTracker: string
+  ProgressTrackerFill: string
+  Name: string @localized
+  MapDeviceTrackerFill: string
+}

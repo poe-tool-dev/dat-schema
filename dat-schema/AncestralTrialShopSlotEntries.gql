@@ -1,0 +1,10 @@
+# Added 3.22
+type AncestralTrialShopSlotEntries {
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+  _: bool
+  _: i32
+  _: bool
+}

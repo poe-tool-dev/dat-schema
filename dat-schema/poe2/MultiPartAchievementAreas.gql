@@ -1,0 +1,5 @@
+type MultiPartAchievementAreas {
+  _: rid
+  _: [rid]
+  _: i32
+}

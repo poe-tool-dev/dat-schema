@@ -1,0 +1,5 @@
+# Added 3.22
+type HardModeExtraContentChancesPerMapTier {
+  _: rid @unique
+  _: i32
+}

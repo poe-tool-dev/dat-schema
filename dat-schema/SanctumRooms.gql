@@ -1,0 +1,9 @@
+# Added 3.20
+type SanctumRooms {
+  Id: string
+  ArmFile: string
+  RoomType: SanctumRoomTypes
+  Script: string
+  Floor: SanctumFloors
+  Area: WorldAreas
+}

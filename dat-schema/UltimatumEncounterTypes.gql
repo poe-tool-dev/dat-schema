@@ -1,0 +1,11 @@
+# Added 3.14
+type UltimatumEncounterTypes {
+  Id: string @unique
+  Name: string
+  ProgressBarText: string
+  _: bool
+  _: bool
+  NormalAchievements: [AchievementItems]
+  InscribedAchievement: AchievementItems
+  _: rid
+}

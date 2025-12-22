@@ -1,0 +1,4 @@
+type GameObjectTasks {
+  Id: string
+  HASH16: i32
+}

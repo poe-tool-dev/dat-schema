@@ -1,0 +1,7 @@
+# Added 3.22
+type ItemPickupEffect {
+  _: rid @unique
+  _: rid
+  _: rid
+  _: i32
+}

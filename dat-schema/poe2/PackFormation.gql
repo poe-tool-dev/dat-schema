@@ -1,0 +1,8 @@
+type PackFormation {
+  Id: string
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}

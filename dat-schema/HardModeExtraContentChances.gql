@@ -1,0 +1,13 @@
+# Added 3.20
+type HardModeExtraContentChances {
+  Id: string @unique
+  _: i32
+  _: i32
+  _: bool
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}

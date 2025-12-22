@@ -1,0 +1,10 @@
+type MapConnections {
+  MapPinsKey0: MapPins
+  MapPinsKey1: MapPins
+  _: rid
+  RestrictedAreaText: string
+  _: rid
+  _: rid
+  _: rid
+  _: [_] # All rows empty
+}

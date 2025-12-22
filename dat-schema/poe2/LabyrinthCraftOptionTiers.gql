@@ -1,0 +1,5 @@
+# Added 2.02
+type LabyrinthCraftOptionTiers {
+  Id: string
+  CraftIcon: string
+}

@@ -1,0 +1,9 @@
+# Added 3.19
+type AtlasMemoryLine {
+  League: string
+  League2: string
+  StartPointArt: string
+  MidPointArt: string
+  EndPointArt: string
+  PathArt: string
+}

@@ -1,0 +1,8 @@
+# Added 3.08
+type BlightTowersPerLevel {
+  BlightTowersKey: BlightTowers
+  _: i32
+  MonsterVarietiesKey: MonsterVarieties
+  Cost: i32
+  _: i32
+}

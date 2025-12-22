@@ -1,0 +1,1 @@
+enum GemItemVisualEffect @indexing(first: 0) { _ }

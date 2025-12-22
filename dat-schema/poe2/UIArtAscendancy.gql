@@ -1,0 +1,16 @@
+type UIArtAscendancy {
+  Id: string
+  AscendancyButtonNormal: string
+  AscendancyInfoPlate: string
+  ButtonBackground: string
+  ButtonBackgroundDouble: string
+  NameBackground: string
+  AscendancyButtonHighlight: string
+  AscendancyButtonPressed: string
+  Color: string
+  _: rid
+  RespcBGTop: string
+  RespcBGMiddle: string
+  RespcBGBottom: string
+  _: i32
+}

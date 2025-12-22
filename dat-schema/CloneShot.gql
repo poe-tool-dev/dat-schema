@@ -1,0 +1,7 @@
+type CloneShot {
+  Id: i32 @unique
+  MonsterVarietiesKey: MonsterVarieties
+  MiscAnimated1: MiscAnimated
+  MiscAnimated2: MiscAnimated
+  MiscAnimated3: MiscAnimated
+}

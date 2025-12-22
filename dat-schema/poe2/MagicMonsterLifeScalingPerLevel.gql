@@ -1,0 +1,4 @@
+type MagicMonsterLifeScalingPerLevel {
+  Level: i32
+  Life: i32
+}

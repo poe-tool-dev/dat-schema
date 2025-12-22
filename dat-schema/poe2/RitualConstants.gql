@@ -1,0 +1,5 @@
+# Added 3.13
+type RitualConstants {
+  Id: string @unique
+  Value: f32
+}

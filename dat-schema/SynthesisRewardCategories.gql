@@ -1,0 +1,4 @@
+# Added 3.06
+type SynthesisRewardCategories {
+  Id: string
+}

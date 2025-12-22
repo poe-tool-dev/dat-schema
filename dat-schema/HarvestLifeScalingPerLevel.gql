@@ -1,0 +1,5 @@
+# Added 3.11
+type HarvestLifeScalingPerLevel {
+  Level: i32
+  Life: i32
+}

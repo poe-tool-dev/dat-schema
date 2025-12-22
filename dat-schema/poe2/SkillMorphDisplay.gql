@@ -1,0 +1,11 @@
+type SkillMorphDisplay {
+  _: rid
+  _: [rid]
+  DDSFiles: [string] @file(ext: ".dds")
+  _: i32
+  _: [i32]
+  _: i32
+  _: [f32]
+  _: bool
+  _: bool
+}

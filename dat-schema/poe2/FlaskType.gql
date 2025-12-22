@@ -1,0 +1,6 @@
+enum FlaskType @indexing(first: 1) {
+  LIFE
+  MANA
+  HYBRID
+  UTILITY
+}

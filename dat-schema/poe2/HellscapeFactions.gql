@@ -1,0 +1,11 @@
+# Added 3.16
+type HellscapeFactions {
+  Id: string @unique
+  _: Environments
+  _: Environments
+  _: [Environments]
+  _: i32
+  _: [MonsterVarieties]
+  _: string @file(ext: ".ao")
+  Boss: MonsterVarieties
+}

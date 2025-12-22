@@ -1,0 +1,8 @@
+# Added 3.18
+type SentinelDroneInventoryLayout {
+  DroneType: DroneTypes
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}

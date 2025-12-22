@@ -1,0 +1,34 @@
+type GrantedEffects {
+  Id: string @unique
+  IsSupport: bool
+  "This support gem only supports active skills with at least one of these types"
+  AllowedActiveSkillTypes: [ActiveSkillType]
+  SupportGemLetter: string
+  Attribute: Attributes
+  "This support gem adds these types to supported active skills"
+  AddedActiveSkillTypes: [ActiveSkillType]
+  "This support gem does not support active skills with one of these types"
+  ExcludedActiveSkillTypes: [ActiveSkillType]
+  "This support gem only supports active skills that come from gem items"
+  SupportsGemsOnly: bool
+  _: i32
+  _: [i32]
+  CannotBeSupported: bool
+  _: i32
+  CastTime: i32
+  ActiveSkill: ActiveSkills
+  IgnoreMinionTypes: bool
+  _: bool
+  AddedMinionActiveSkillTypes: [ActiveSkillType]
+  Animation: Animation
+  MultiPartAchievement: MultiPartAchievements
+  _: bool
+  SupportWeaponRestrictions: [ItemClasses]
+  RegularVariant: GrantedEffects
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+  StatSet: GrantedEffectStatSets
+  _: [rid]
+}

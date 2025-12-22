@@ -1,0 +1,4 @@
+# Added 3.08
+type BlightCraftingUniques @tags(list: ["crafting", "item:unique"]) {
+  WordsKey: Words
+}

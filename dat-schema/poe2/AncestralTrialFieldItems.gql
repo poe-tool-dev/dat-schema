@@ -1,0 +1,10 @@
+# Added 3.22
+type AncestralTrialFieldItems {
+  _: rid
+  _: rid
+  HASH32: i32
+  Description: string
+  Achievement: [AchievementItems]
+  _: rid
+  _: rid
+}

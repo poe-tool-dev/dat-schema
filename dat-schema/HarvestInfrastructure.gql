@@ -1,0 +1,6 @@
+# Added 3.11
+type HarvestInfrastructure {
+  Object: string
+  _: i32
+  ClientStringsKey: ClientStrings
+}

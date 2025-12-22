@@ -1,0 +1,27 @@
+type MonsterDeathAchievements {
+  Id: string @unique
+  MonsterVarietiesKeys: [MonsterVarieties]
+  AchievementItemsKeys: [AchievementItems]
+  _: bool
+  PlayerConditionsKeys: [PlayerConditions]
+  MonsterDeathConditionsKeys: [MonsterDeathConditions]
+  _: [rid]
+  _: i32
+  _: i32
+  _: bool
+  _: bool
+  _: [_]
+  _: [_]
+  _: [string]
+  _: [_]
+  _: rid
+  _: i32
+  NearbyMonsterConditionsKeys: [NearbyMonsterConditions]
+  _: bool
+  MultiPartAchievementConditionsKeys: [MultiPartAchievementConditions]
+  _: [_]
+  _: bool
+  _: [_]
+  _: [_]
+  _: bool
+}

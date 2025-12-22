@@ -1,0 +1,4 @@
+type ShieldTypes @tags(list: ["item:def"]) {
+  BaseItemTypesKey: BaseItemTypes @unique
+  Block: i32
+}

@@ -1,0 +1,24 @@
+# Added 3.26
+type MercenaryBuilds {
+  Id: string
+  Class: MercenaryClasses
+  Skill1: [MercenarySkills]
+  _: i32
+  Skill2: [MercenarySkills]
+  _: i32
+  _: [rid]
+  _: i32
+  Skill3: [MercenarySkills]
+  _: [string]
+  Tags: [Tags]
+  AIFile: string
+  HASH16: u16
+  BuildName: string
+  _: i32
+  Infamous: bool
+  _: rid
+  _: string
+  _: [string]
+  Achievements: [AchievementItems]
+  WieldableTypes: [MercenaryWieldableTypes]
+}

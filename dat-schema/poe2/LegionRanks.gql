@@ -1,0 +1,12 @@
+# Added 3.07
+type LegionRanks {
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  LegionBalancePerLevelKey: LegionBalancePerLevel
+  _: i32
+  _: i32
+  _: i32
+}

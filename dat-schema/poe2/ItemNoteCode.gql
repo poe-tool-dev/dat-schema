@@ -1,0 +1,7 @@
+type ItemNoteCode {
+  BaseItem: BaseItemTypes
+  Code: string
+  Order1: i32
+  Show: bool
+  Order2: i32
+}

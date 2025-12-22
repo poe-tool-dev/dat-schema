@@ -1,0 +1,11 @@
+# Added 3.06
+type SynthesisBonuses {
+  ModsKey: Mods
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+  _: bool
+}

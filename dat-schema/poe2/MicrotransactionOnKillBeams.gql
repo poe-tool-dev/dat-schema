@@ -1,0 +1,10 @@
+# Added 3.21
+type MicrotransactionOnKillBeams {
+  Id: string @unique
+  _: rid
+  _: string
+  _: string
+  _: string
+  _: bool
+  _: rid
+}

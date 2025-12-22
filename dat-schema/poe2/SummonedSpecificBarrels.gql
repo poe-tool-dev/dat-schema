@@ -1,0 +1,8 @@
+type SummonedSpecificBarrels {
+  Id: string
+  Chest: Chests
+  _: rid
+  _: rid
+  _: rid
+  _: string
+}

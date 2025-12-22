@@ -1,0 +1,4 @@
+type EnvironmentTransitions {
+  Id: string
+  OTFiles: [string] @file(ext: ".ot")
+}

@@ -1,0 +1,6 @@
+type EndlessLedgeChests {
+  Id: string @unique
+  WorldAreasKey: WorldAreas
+  BaseItemTypesKeys: [BaseItemTypes]
+  SocketColour: string
+}

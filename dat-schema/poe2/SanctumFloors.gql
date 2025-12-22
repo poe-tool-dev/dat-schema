@@ -1,0 +1,11 @@
+# Added 3.20
+type SanctumFloors {
+  Id: string
+  Area: WorldAreas
+  Title: ClientStrings
+  RoomIcon: string
+  BossIcon: string
+  Description: string
+  Summary: ClientStrings
+  Itemised: BaseItemTypes
+}

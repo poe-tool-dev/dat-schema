@@ -1,0 +1,8 @@
+# Added 3.04
+type DelveRewardTierConstants {
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}

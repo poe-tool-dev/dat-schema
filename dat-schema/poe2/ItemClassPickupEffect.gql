@@ -1,0 +1,7 @@
+# Added 3.22
+type ItemClassPickupEffect {
+  _: rid
+  _: rid
+  _: rid
+  _: i32
+}

@@ -1,0 +1,8 @@
+type Grandmasters {
+  Id: string
+  GMFile: string @file(ext: ".gm")
+  AISFile: string @file(ext: ".ais")
+  ModsKeys: [Mods]
+  CharacterLevel: i32
+  _: bool
+}

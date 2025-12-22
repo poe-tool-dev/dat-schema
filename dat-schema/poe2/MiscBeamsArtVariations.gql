@@ -1,0 +1,7 @@
+type MiscBeamsArtVariations {
+  Id: string
+  _: [_]
+  _: i32
+  _: i32
+  _: rid
+}

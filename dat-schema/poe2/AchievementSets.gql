@@ -1,0 +1,1 @@
+enum AchievementSets @indexing(first: 0) { _ }

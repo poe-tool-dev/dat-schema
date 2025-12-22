@@ -1,0 +1,5 @@
+# Added 3.09
+type AtlasExileBossArenas {
+  Conqueror: AtlasExiles
+  WorldArea: WorldAreas
+}

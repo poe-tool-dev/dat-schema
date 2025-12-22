@@ -1,0 +1,4 @@
+type EffectivenessCostConstants {
+  Id: string @unique
+  Multiplier: f32
+}

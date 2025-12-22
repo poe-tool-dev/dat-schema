@@ -1,0 +1,6 @@
+# Added 3.19
+type HarvestCraftCostScalingByBasetype {
+  _: rid
+  _: rid
+  _: i32
+}

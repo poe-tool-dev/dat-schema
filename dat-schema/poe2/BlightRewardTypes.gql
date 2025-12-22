@@ -1,0 +1,5 @@
+# Added 3.08
+type BlightRewardTypes {
+  Id: string @unique
+  Icon: string
+}

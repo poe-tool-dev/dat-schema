@@ -1,0 +1,13 @@
+# Added 3.24
+type NecropolisCraftingMods {
+  Id: string
+  _: i32
+  Stats: [Stats]
+  StatsValues: [i32]
+  CraftingItemType: NecropolisCraftItemTypes
+  _: i32
+  CorpsesNotConsumed: bool
+  CraftingItemTypes: [NecropolisCraftItemTypes]
+  Achievements: [AchievementItems]
+  MatchingMonsters: i32
+}

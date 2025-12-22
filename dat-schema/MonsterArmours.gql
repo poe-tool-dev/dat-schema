@@ -1,0 +1,4 @@
+type MonsterArmours {
+  Id: string
+  ArtString_SMFile: string @file(ext: ".sm")
+}

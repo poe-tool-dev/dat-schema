@@ -1,0 +1,8 @@
+# Added 3.22
+type AncestralTrialUnitPositions {
+  Id: string
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}

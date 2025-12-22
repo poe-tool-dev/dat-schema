@@ -1,9 +1,0 @@
-type Strongboxes {
-  ChestsKey: Chests @unique
-  SpawnWeight: i32
-  _: i32
-  _: bool
-  _: bool
-  SpawnWeightIncrease: Stats
-  SpawnWeightHardmode: i32
-}

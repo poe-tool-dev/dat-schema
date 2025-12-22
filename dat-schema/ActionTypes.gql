@@ -1,0 +1,5 @@
+# Added 3.23
+type ActionTypes {
+  Id: string @unique
+  _: i32
+}

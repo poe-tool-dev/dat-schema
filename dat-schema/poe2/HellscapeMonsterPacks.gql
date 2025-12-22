@@ -1,0 +1,10 @@
+# Added 3.16
+type HellscapeMonsterPacks {
+  Id: string @unique
+  MonsterPack: MonsterPacks
+  Faction: HellscapeFactions
+  IsDonutPack: bool
+  IsElite: bool
+  MinLevel: i32
+  MaxLevel: i32
+}

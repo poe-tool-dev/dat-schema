@@ -1,0 +1,8 @@
+# Added 3.09
+type AtlasExiles {
+  Id: string
+  _: i32
+  InfluencedItemIncrStat: Stats
+  MapIcon: string @file(ext: ".dds")
+  MapIcon2: string @file(ext: ".dds")
+}

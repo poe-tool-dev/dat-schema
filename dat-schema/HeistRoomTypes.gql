@@ -1,0 +1,2 @@
+# Added 3.12
+enum HeistRoomTypes @indexing(first: 0) { _ }

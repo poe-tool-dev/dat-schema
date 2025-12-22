@@ -1,0 +1,12 @@
+type Music {
+  Id: string @unique
+  SoundFile: string @file(ext: ".ogg")
+  BankFile: string @file(ext: ".bank")
+  HASH16: i32
+  IsAvailableInHideout: bool
+  Name: string
+  _: string
+  MusicCategories: [MusicCategories]
+  _: bool
+  _: i32
+}

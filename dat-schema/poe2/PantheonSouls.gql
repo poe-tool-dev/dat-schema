@@ -1,0 +1,11 @@
+# Added 3.00
+type PantheonSouls @tags(list: ["item:itemized"]) {
+  WorldArea: WorldAreas
+  CapturedVessel: BaseItemTypes
+  QuestFlagUpgrade: QuestFlags
+  CapturedMonster: [MonsterVarieties]
+  PanelLayout: PantheonPanelLayout
+  CapturedMonsterDescription: string
+  _: i32
+  QuestFlagDowngrade: QuestFlags
+}

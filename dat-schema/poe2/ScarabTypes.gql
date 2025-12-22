@@ -1,0 +1,8 @@
+# Added 3.05
+type ScarabTypes {
+  Id: string
+  Tag: Tags
+  DisableDrops: Stats
+  MoreLikely: Stats
+  Count: Stats
+}

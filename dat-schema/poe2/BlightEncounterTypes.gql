@@ -1,0 +1,7 @@
+# Added 3.08
+type BlightEncounterTypes {
+  Id: string @unique
+  Icon: string
+  IsGeneric: bool
+  Weight: i32
+}

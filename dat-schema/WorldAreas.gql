@@ -1,0 +1,70 @@
+type WorldAreas {
+  Id: string @unique
+  Name: string
+  Act: i32
+  IsTown: bool
+  HasWaypoint: bool
+  Connections_WorldAreasKeys: [WorldAreas]
+  AreaLevel: i32
+  HASH16: i16
+  _: i32
+  _: i32
+  LoadingScreens: [string] @file(ext: ".dds")
+  _: [rid]
+  _: [rid]
+  _: i32
+  TopologiesKeys: [Topologies]
+  ParentTown_WorldAreasKey: WorldAreas
+  _: i32
+  _: rid
+  _: rid
+  Bosses_MonsterVarietiesKeys: [MonsterVarieties]
+  Monsters_MonsterVarietiesKeys: [MonsterVarieties]
+  SpawnWeight_TagsKeys: [Tags]
+  SpawnWeight_Values: [i32]
+  IsMapArea: bool
+  FullClear_AchievementItemsKeys: [AchievementItems]
+  _: rid
+  AchievementItemsKey: AchievementItems
+  ModsKeys: [Mods]
+  _: i32
+  VaalArea: [WorldAreas]
+  _: bool
+  MaxLevel: i32
+  AreaTypeTags: [Tags]
+  IsHideout: bool
+  Inflection: string
+  _: i32
+  _: i32
+  Tags: [Tags]
+  IsVaalArea: bool
+  IsLabyrinthAirlock: bool
+  IsLabyrinthArea: bool
+  TwinnedFullClear_AchievementItemsKey: AchievementItems
+  Enter_AchievementItemsKey: AchievementItems
+  TSIFile: string @file(ext: ".tsi")
+  _: rid
+  WaypointActivation_AchievementItemsKeys: [AchievementItems]
+  IsUniqueMapArea: bool
+  IsLabyrinthBossArea: bool
+  FirstEntry_NPCTextAudioKey: NPCTextAudio
+  FirstEntry_SoundEffectsKey: SoundEffects
+  FirstEntry_NPCsKey: NPCs @ref(column: "Id")
+  _: i32
+  EnvironmentsKey: Environments
+  _: i32
+  _: rid
+  _: bool
+  _: bool
+  _: WorldAreas
+  _: i32
+  _: [_] # All rows empty
+  LeagueChance1: WorldAreaLeagueChances
+  _: i32
+  LeagueChance2: WorldAreaLeagueChances
+  _: rid
+  Ruleset: Rulesets
+  _: i32
+  QuestFlag: QuestFlags
+  _: i32
+}

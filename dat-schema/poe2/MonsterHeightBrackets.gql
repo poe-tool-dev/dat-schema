@@ -1,0 +1,13 @@
+type MonsterHeightBrackets {
+  Id: string
+  _: i32
+  BuffVisuals1: BuffVisuals
+  BuffVisuals2: BuffVisuals
+  _: i32
+  _: f32
+  _: f32
+  Tag: Tags
+  _: i32
+  _: f32
+  _: f32
+}

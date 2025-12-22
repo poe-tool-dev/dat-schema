@@ -1,0 +1,10 @@
+# Added 3.12
+type HeistPatrolPacks {
+  MonsterPacksKey: MonsterPacks
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+}

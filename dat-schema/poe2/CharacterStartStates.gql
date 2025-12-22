@@ -1,0 +1,13 @@
+type CharacterStartStates {
+  Id: string @unique
+  Description: string
+  CharactersKey: Characters
+  Level: i32
+  PassiveSkillsKeys: [PassiveSkills]
+  CharacterStartStateSetKey: CharacterStartStateSet
+  _: rid
+  CharacterStartQuestStateKeys: [CharacterStartQuestState]
+  _: bool
+  InfoText: string
+  _: rid
+}

@@ -1,0 +1,7 @@
+# Added 3.16
+type HellscapeMods {
+  Mod: Mods
+  TiersWhitelist: [i32]
+  TransformAchievement: AchievementItems
+  ModFamilies: [ModFamily]
+}

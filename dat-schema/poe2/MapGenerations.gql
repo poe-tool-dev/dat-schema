@@ -1,0 +1,6 @@
+enum MapGenerations @indexing(first: 1) {
+  ORIGINAL
+  THE_AWAKENING
+  ATLAS_OF_WORLDS
+  WAR_FOR_THE_ATLAS
+}

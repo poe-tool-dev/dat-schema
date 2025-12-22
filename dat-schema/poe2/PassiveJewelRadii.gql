@@ -1,0 +1,7 @@
+type PassiveJewelRadii {
+  ID: string
+  RingOuterRadius: i32
+  RingInnerRadius: i32
+  Radius: i32
+  _: rid
+}

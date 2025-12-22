@@ -1,0 +1,1 @@
+enum FlavourTextImages @indexing(first: 0) { _ }

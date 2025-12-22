@@ -1,0 +1,7 @@
+# Added 3.08
+type BlightTowerAuras {
+  Id: i32 @unique
+  BuffDefinitionsKey: BuffDefinitions
+  _: i32
+  MiscAnimatedKey: MiscAnimated
+}

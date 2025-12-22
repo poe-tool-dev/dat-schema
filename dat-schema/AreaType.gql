@@ -1,0 +1,1 @@
+enum AreaType @indexing(first: 0) { _ }
