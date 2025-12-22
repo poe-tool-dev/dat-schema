@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PoE Dat Schema</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #0d1117;
+        color: #c9d1d9;
+        font-family:
+          Inter,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          Roboto,
+          Helvetica,
+          Arial,
+          sans-serif;
+        overflow: hidden;
+        user-select: none;
+        -webkit-user-select: none;
+      }
+      #ui-container {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.5rem;
+        pointer-events: none;
+      }
+      #ui-container > * {
+        pointer-events: auto;
+      }
+      #controls {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: #161b22;
+        padding: 0.5rem 0.75rem;
+        border-radius: 8px;
+        border: 1px solid #30363d;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      }
+      #legend {
+        background: #161b22;
+        padding: 0.5rem 0.75rem;
+        border-radius: 8px;
+        border: 1px solid #30363d;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        font-size: 0.75rem;
+        color: #8b949e;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 4px 12px;
+        align-items: center;
+      }
+      #legend span.key {
+        font-weight: 600;
+        color: #c9d1d9;
+        text-align: right;
+      }
+      #graph-container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      button {
+        background-color: #21262d;
+        border: 1px solid #363b42;
+        color: #c9d1d9;
+        padding: 6px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: all 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+      }
+      button:hover {
+        background-color: #30363d;
+        border-color: #8b949e;
+        color: #fff;
+      }
+      button:active {
+        background-color: #282e33;
+        transform: translateY(1px);
+      }
+      button.active {
+        background-color: #1f6feb;
+        border-color: #1f6feb;
+        color: #ffffff;
+      }
+      button.active:hover {
+        background-color: #388bfd;
+        border-color: #388bfd;
+      }
+      input[type='text'] {
+        background-color: #0d1117;
+        border: 1px solid #30363d;
+        color: #c9d1d9;
+        padding: 6px 28px 6px 10px;
+        border-radius: 6px;
+        font-size: 0.875rem;
+        outline: none;
+        transition: border-color 0.2s;
+        min-width: 150px;
+      }
+      input[type='text']:focus {
+        border-color: #58a6ff;
+        box-shadow: 0 0 0 2px rgba(88, 166, 255, 0.3);
+      }
+      .search-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+      #search-clear {
+        position: absolute;
+        right: 6px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        border: none;
+        background-color: rgba(110, 118, 129, 0.4);
+        color: #fff;
+        font-size: 14px;
+        line-height: 1;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        visibility: hidden;
+      }
+      #search-clear:hover {
+        background-color: rgba(110, 118, 129, 0.8);
+      }
+      .slider-group {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.8125rem;
+        font-weight: 500;
+        color: #8b949e;
+      }
+      #depth-val {
+        color: #c9d1d9;
+        font-weight: 600;
+        min-width: 1ch;
+        text-align: center;
+      }
+      input[type='range'] {
+        -webkit-appearance: none;
+        width: 80px;
+        height: 4px;
+        background: #30363d;
+        border-radius: 2px;
+        outline: none;
+        appearance: none;
+      }
+      input[type='range']::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: #58a6ff;
+        cursor: pointer;
+        transition: transform 0.1s;
+      }
+      input[type='range']::-webkit-slider-thumb:hover {
+        transform: scale(1.2);
+      }
+      .separator {
+        width: 1px;
+        height: 16px;
+        background: #30363d;
+        margin: 0 4px;
+      }
+      .button-group {
+        display: flex;
+        gap: 4px;
+      }
+      .unselectable {
+        user-select: none;
+      }
+    </style>
+    <script type="importmap">
+      {
+        "imports": {
+          "d3": "https://cdn.jsdelivr.net/npm/d3@7/+esm"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="ui-container">
+      <div id="controls">
+        <div class="search-wrapper">
+          <input type="text" id="search-input" placeholder="Filter tables..." />
+          <button id="search-clear">&times;</button>
+        </div>
+        <div class="separator"></div>
+        <div class="slider-group">
+          <span class="unselectable">Depth</span>
+          <span id="depth-val">1</span>
+          <input
+            type="range"
+            id="depth-slider"
+            min="1"
+            max="5"
+            value="1"
+            step="1"
+          />
+        </div>
+        <div class="separator"></div>
+        <button id="recenter-btn" title="Reset Camera">Recenter</button>
+        <div class="separator"></div>
+        <div class="button-group">
+          <button id="poe1-btn" class="active">PoE 1</button>
+          <button id="poe2-btn">PoE 2</button>
+        </div>
+      </div>
+      <div id="legend">
+        <span class="key">Left Click</span> <span>Isolate Node</span>
+        <span class="key">Shift + Click</span> <span>Toggle Details</span>
+        <span class="key">Drag</span> <span>Move Node</span>
+        <span class="key">Scroll</span> <span>Zoom</span>
+      </div>
+    </div>
+    <div id="graph-container"></div>
+    <script type="module" src="./dist/viewer.js"></script>
+  </body>
+</html>
