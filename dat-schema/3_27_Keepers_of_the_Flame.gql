@@ -11,7 +11,7 @@ type BreachElement {
   DuplicateBoss: Stats
 }
 
-type brequelpassivesubtrees {
+type BrequelPassiveSubTrees {
   Id: string  @unique
   _: ClientStrings
   _: ClientStrings
