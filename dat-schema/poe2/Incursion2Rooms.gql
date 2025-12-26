@@ -6,7 +6,7 @@ type Incursion2Rooms {
   ConvertedBy: [Incursion2Rooms]
   ConvertedTo: [Incursion2Rooms]
   UpgradedByPower: i32
-  IsPastExclusive: bool
+  IsPresentDay: bool
   IsBossReward: bool
   Name: string @localized
   Icon_DDSFile: string @file(ext: ".dds")
