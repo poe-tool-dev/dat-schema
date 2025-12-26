@@ -1,4 +1,4 @@
 type ItemNoteCode {
-  BaseItem: BaseItemTypes
+  CurrencyItem: CurrencyItems
   Code: string
 }

@@ -2317,7 +2317,7 @@ type ItemisedVisualEffect {
 }
 
 type ItemNoteCode {
-  BaseItem: BaseItemTypes
+  CurrencyItem: CurrencyItems
   Code: string
   # One of these bools was previously called "Show", but unclear which one it is now
   _: bool
