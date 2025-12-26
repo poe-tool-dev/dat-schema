@@ -1,0 +1,7 @@
+type SanctumSelectionDisplayOverride {
+  Id: string
+  Reward: string
+  Icon: string
+  Downside: string
+  Item: BaseItemTypes
+}
