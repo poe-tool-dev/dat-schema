@@ -2,12 +2,12 @@
 type Incursion2Rooms {
   Id: string @unique
   IsPathway: bool
-  _: [Incursion2Rooms]
-  _: [Incursion2Rooms]
-  _: [Incursion2Rooms]
-  _: i32
-  _: bool
-  _: bool
+  UpgradedBy: [Incursion2Rooms]
+  ConvertedBy: [Incursion2Rooms]
+  ConvertedTo: [Incursion2Rooms]
+  UpgradedByPower: i32
+  IsPresentDay: bool
+  IsBossReward: bool
   Name: string @localized
   Icon_DDSFile: string @file(ext: ".dds")
 }

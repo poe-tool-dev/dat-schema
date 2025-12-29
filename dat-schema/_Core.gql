@@ -2317,11 +2317,11 @@ type ItemisedVisualEffect {
 }
 
 type ItemNoteCode {
-  BaseItem: BaseItemTypes
+  CurrencyItem: CurrencyItems
   Code: string
-  Order1: i32
-  Show: bool
-  Order2: i32
+  # One of these bools was previously called "Show", but unclear which one it is now
+  _: bool
+  _: bool
 }
 
 enum ItemSetNames @indexing(first: 0) { _ }
@@ -4114,7 +4114,7 @@ type PassiveSkills {
   _: bool
   DescendancyKey: Descendancy
   _: rid
-  BrequelSubTree: brequelpassivesubtrees
+  BrequelSubTree: BrequelPassiveSubTrees
   _: bool
   _: bool
   _: bool

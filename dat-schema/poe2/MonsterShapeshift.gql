@@ -1,5 +1,5 @@
 # Added 4.1
-type MonsterShapeshift {
+type MonsterShapeShift {
   Id: i32 @unique
   _: rid
   _: rid

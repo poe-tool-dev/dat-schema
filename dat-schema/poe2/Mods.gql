@@ -71,6 +71,6 @@ type Mods @tags(list: ["crafting"]) {
   _: [GrantedEffectsPerLevel]
   RadiusJewelType: i32
   IsEssenceOnlyModifier: bool
-  _: i32
+  SpawnLevel_Override: i32
   SpawnWeight_Values: [i32]
 }
