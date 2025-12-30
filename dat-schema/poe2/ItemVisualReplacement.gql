@@ -1,0 +1,6 @@
+# Added 4.1
+type ItemVisualReplacement {
+  _: rid
+  _: rid
+  _: rid
+}

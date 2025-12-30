@@ -5,24 +5,25 @@ type WorldAreaLeagueChances {
   _: i32
   _: i32
   _: i32
-  _: i32 # All rows empty
   _: i32
-  _: i32 # All rows empty
+  _: i32
+  _: i32
   _: i32 # ShrineChance?
   _: i32 # ShrineChance?
-  _: i32 # All rows empty
-  _: i32 # All rows empty
-  _: i32 # All rows empty
+  _: i32
+  _: i32
+  _: i32
   _: i32 # EssenceChance?
   _: i32 # EssenceChance?
-  _: i32 # All rows empty
+  _: i32
   AbyssChance: i32
-  _: i32 # All rows empty
-  _: i32 # All rows empty
-  _: i32 # All rows empty
-  _: i32 # All rows empty
-  _: i32 # All rows empty
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
   _: i32 # StrongboxChance?
   _: i32 # StrongboxChance?
   StoneCirclesChance: i32
+  VaalTempleChance: i32 # Fate of the Vaal league
 }

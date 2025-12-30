@@ -1,0 +1,5 @@
+# Added 4.1
+type BeyondFactions {
+  Id: string @unique
+  Boss: MonsterVarieties
+}

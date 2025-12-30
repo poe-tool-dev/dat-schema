@@ -1,0 +1,6 @@
+# Added 4.1
+type CraftingBenchSortCategories {
+  Id: string @unique
+  Name: ClientStrings
+  IsVisible: bool
+}

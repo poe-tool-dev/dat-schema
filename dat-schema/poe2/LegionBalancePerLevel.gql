@@ -1,0 +1,16 @@
+# Added 4.1
+type LegionBalancePerLevel {
+  MinLevel: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}

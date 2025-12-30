@@ -1,0 +1,12 @@
+# Added 4.1
+type GenericSkillIndicator {
+  Stat: Stats @unique
+  _: rid
+  _: [rid]
+  _: [string]
+  _: [string]
+  _: [string]
+  _: [rid]
+  _: i32
+  MiscAnimated: MiscAnimated
+}

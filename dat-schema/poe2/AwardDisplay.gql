@@ -1,0 +1,15 @@
+# Added 4.1
+type AwardDisplay {
+  Id: string @unique
+  Text: string @localized
+  BackgroundImage: string
+  _: i32
+  _: f32
+  _: f32
+  _: string
+  _: string
+  ForegroundImage: string
+  OGGFile: string @file(ext: ".ogg")
+  _: rid
+  _: i32
+}
