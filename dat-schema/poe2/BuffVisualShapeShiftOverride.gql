@@ -1,0 +1,7 @@
+# Added 4.1
+type BuffVisualShapeShiftOverride {
+  BuffVisual: BuffVisuals
+  ShapeShiftVisualIdentity: ShapeShiftVisualIdentity
+  _: rid
+  EPKFiles: [string] @file(ext: ".epk")
+}

@@ -1,0 +1,19 @@
+# Added 4.1
+type Melee {
+  ActiveSkill: ActiveSkills
+  _: i32
+  MiscAnimated: MiscAnimated
+  MeleeTrail1: MeleeTrails
+  MeleeTrail2: MeleeTrails
+  MeleeTrail3: MeleeTrails
+  MeleeTrail4: MeleeTrails
+  MeleeTrail5: MeleeTrails
+  MeleeTrail6: MeleeTrails
+  MeleeTrail7: MeleeTrails
+  _: bool
+  SurgeEffect_EPKFile: string @file(ext: ".epk")
+  _: string
+  _: string
+  MeleeTrail8: MeleeTrails
+  MeleeTrail9: MeleeTrails
+}
