@@ -4100,7 +4100,7 @@ type PassiveSkills {
   "0: Character, 1: Atlas, 2: Genesis"
   SkillType: PassiveSkillTypes
   MasteryGroup: PassiveSkillMasteryGroups
-  Group: AtlasPassiveSkillTreeGroupType
+  AtlasGroup: AtlasPassiveSkillTreeGroupType
   SoundEffect: SoundEffects
   NameHardmode: string
   HasHardmodeAlternate: bool
