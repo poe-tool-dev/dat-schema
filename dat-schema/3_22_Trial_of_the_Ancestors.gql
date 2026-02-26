@@ -10,7 +10,7 @@ type AncestralLifeScalingPerLevel {
 }
 
 type AncestralTrialChieftains {
-  _: rid
+  Tribe: AncestralTrialTribes @unique
   _: rid
 }
 
@@ -102,7 +102,7 @@ type AncestralTrialTribeOpinions {
 
 type AncestralTrialTribes {
   Id: string @unique
-  _: rid
+  NPC: NPCs
   Portrait: string
   TribeIcon: string
   TribeName: string @unique
