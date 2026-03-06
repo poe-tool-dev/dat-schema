@@ -1,0 +1,25 @@
+type FaridunWishFamilies {
+  Id: string
+}
+
+type FaridunWishes {
+  Id: string
+  _: i32
+  _: [_]
+  Icon: string
+  _: rid
+  _: [_]
+  _: rid
+  _: i32
+  _: i32
+  Name: string @localized
+  _: rid
+  _: i32
+  _: [_]
+  _: i32
+}
+
+type FaridunLifeScalingPerLevel {
+  Level: i32
+  Life: i32
+}

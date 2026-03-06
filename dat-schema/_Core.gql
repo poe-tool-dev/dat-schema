@@ -463,41 +463,64 @@ type AtlasFavouredMapSlots {
 enum AtlasModTiers @indexing(first: 0) { _ }
 
 type AtlasNode {
-  WorldAreasKey: WorldAreas @unique
-  ItemVisualIdentityKey: ItemVisualIdentity
+  Id: string
+  Area1: WorldAreas
   _: bool
-  MapsKey: Maps
-  FlavourTextKey: FlavourText
-  AtlasNodeKeys: [AtlasNode]
-  Tier0: i32
-  Tier1: i32
-  Tier2: i32
-  Tier3: i32
-  Tier4: i32
+  FlavourText: FlavourText
+  Connections: [AtlasNode]
   _: f32
   _: f32
   _: f32
   _: f32
   _: f32
-  DDSFile: string @file(ext: ".dds")
+  UniqueArt: string @file(ext: ".dds")
   StartingNode: bool
   NotOnAtlas: bool
-  _: i32
-  _: i32
-  _: i32
-  _: i32
   DivCards: [BaseItemTypes]
-  _: [BaseItemTypes]
+  DivCardsHardmode: [BaseItemTypes]
+  _: i32
+  HASH16: i16
+  _: bool
+  _: i32
+  _: i32
+  _: [_]
+  _: bool
+  _: bool
+  WatchstoneSlot: rid
+  _: rid
+  QuestStates: [i32]
+  _: bool
+  _: rid
+  Area2: WorldAreas
+  _: bool
+  _: bool
+  _: f32
+  _: bool
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: bool
 }
 
 type AtlasNodeDefinition {
-  WorldAreasKey: WorldAreas
-  ItemVisualIdentityKey: ItemVisualIdentity
-  _: bool
-  Tier: i32
+  Id: string
+  Area1: WorldAreas
   _: i32
   _: i32
   _: bool
+  _: bool
+  Image: string @file(ext: ".dds")
+  _: bool
+  _: bool
+  _: rid
+  _: rid
+  QuestStates: [i32]
+  _: bool
+  _: rid
+  Area2: WorldAreas
+  _: bool
+  _: rid
 }
 
 type AtlasPositions {
@@ -2126,12 +2149,11 @@ type Hideouts {
   Weight: i32
   Rarity: HideoutRarity
   NotActsArea: bool
-  Name: string
   _: [i32]
   _: bool
   _: bool
   _: bool
-  _: rid
+  UnlockMtx: MtxTypes
   ErrorMessage: string
 }
 
@@ -2607,6 +2629,7 @@ type MapFragmentMods {
   _: i32
   MapFragmentLimit: i32
   _: bool
+  _: [rid]
 }
 
 type MapInhabitants {
@@ -2655,8 +2678,6 @@ type Maps @tags(list: ["item:def", "item:recipe"]) {
   MapUpgrade_BaseItemTypesKey: BaseItemTypes
   MonsterPacksKeys: [MonsterPacks]
   AchievementItem: AchievementItems
-  Regular_GuildCharacter: string
-  Unique_GuildCharacter: string
   Tier: i32
   Shaped_Base_MapsKey: Maps
   Shaped_AreaLevel: i32
@@ -3040,6 +3061,7 @@ enum ModDomains @indexing(first: 1) {
   NECROPOLIS_MONSTER
   UBER_MAP
   IDOL
+  GRAFT
 }
 
 type ModEffectStats {
@@ -3100,6 +3122,7 @@ enum ModGenerationType @indexing(first: 1) {
   _
   NECROPOLIS_HAUNTED
   NECROPOLIS_DEVOTED
+  MEMORY_ALTAR
 }
 
 type Mods @tags(list: ["crafting"]) {
@@ -3181,6 +3204,7 @@ type Mods @tags(list: ["crafting"]) {
   "0: All, 1: Normal, 2: Ruthless"
   GameMode: i32
   _: [GrantedEffectsPerLevel]
+  _: bool # 3.28 something related to a few of unique mods
 }
 
 type ModSellPriceTypes {
@@ -4447,7 +4471,7 @@ type QuestStaticRewards {
   _: i32
   StatValuesHardmode: [i32]
   ClientStringHardmode: ClientStrings
-  _: rid
+  _: bool
 }
 
 type QuestTrackerGroup {
@@ -5185,8 +5209,7 @@ type UniqueMaps @tags(list: ["item:unique"]) {
   WorldAreasKey: WorldAreas
   WordsKey: Words
   FlavourTextKey: FlavourText
-  HasGuildCharacter: bool
-  GuildCharacter: string
+  _: bool
   Name: string
   IsDropDisabled: bool
 }
