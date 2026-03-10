@@ -63,8 +63,7 @@ type ItemVisualIdentity {
   _: string
   _: string
   _: string
-  "0: Standard, 1: Flask, 2: Divination Card, 3: Gem"
-  Composition: i32
+  Composition: ItemVisualCompositions
   _: rid
   _: rid
   _: rid
@@ -88,4 +87,10 @@ type ItemVisualIdentity {
   _: rid
   _: rid
   _: string
+}
+
+enum ItemVisualCompositions @indexing(first: 0) {
+  DEFAULT
+  FLASK
+  DIVCARD
 }
