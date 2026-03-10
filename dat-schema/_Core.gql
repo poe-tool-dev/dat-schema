@@ -2444,8 +2444,7 @@ type ItemVisualIdentity {
   _: bool
   _: [rid]
   _: string
-  "0: Standard, 1: Flask, 2: Divination Card, 3: Gem"
-  Composition: i32
+  Composition: ItemVisualCompositions
   _: rid
   _: rid
   _: rid
@@ -2456,6 +2455,13 @@ type ItemVisualIdentity {
   _: string
   _: string
   _: string
+}
+
+enum ItemVisualCompositions @indexing(first: 0) {
+  DEFAULT
+  FLASK
+  DIVCARD
+  GEM
 }
 
 type JobAssassinationSpawnerGroups {
@@ -2735,6 +2741,7 @@ type MapSeriesTiers {
   SettlersTier: i32
   SecretsTier: i32
   KeepersTier: i32
+  MirageTier: i13
 }
 
 type MapStashSpecialTypeEntries {
@@ -5751,7 +5758,15 @@ type GemEffects {
   GemTags: [GemTags]
   Consumed_ModsKey: Mods
   "Used by gem icon shader https://gist.github.com/zao/08878df57aba605e5fa1e6373f2dce02"
-  ItemColor: i32
+  ItemColor: GemStyles
+}
+
+enum GemStyles @indexing(first: 1) {
+  TRANSFIGURED_X
+  TRANSFIGURED_Y
+  TRARTHAN
+  EXCEPTIONAL
+  DEFAULT
 }
 
 # Added 3.20
