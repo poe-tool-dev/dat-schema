@@ -15,15 +15,13 @@ type BrequelPassiveSubTrees {
   Id: string  @unique
   _: ClientStrings
   _: ClientStrings
-  _: BaseItemTypes
+  Wombgift: BaseItemTypes
 }
 
-type BrequelGraftTypes {
-  BaseItemType: BaseItemTypes @unique
-  LeftArm: string
-  RightArm: string
+type BrequelGrafts {
+  Id: string @unique
+  Arm: string
   SkillGem: SkillGems
   _: i32
   SkillAnimation: string
-  Achievement: AchievementItems
 }
