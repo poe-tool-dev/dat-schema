@@ -214,7 +214,7 @@ type AlternatePassiveSkills {
   Id: string @unique
   AlternateTreeVersionsKey: AlternateTreeVersions
   Name: string
-  PassiveType: [i32]
+  PassiveType: [PassiveSkillSizes]
   StatsKeys: [Stats]
   Stat1Min: i32
   Stat1Max: i32
@@ -239,6 +239,13 @@ type AlternatePassiveSkills {
   _: i32
 }
 
+enum PassiveSkillSizes @indexing(first: 1) {
+  ATTRIBUTE
+  SMALL
+  NOTABLE
+  KEYSTONE
+}
+
 type AlternateSkillTargetingBehaviours {
   Id: string @unique
   _: i32
@@ -248,8 +255,6 @@ type AlternateSkillTargetingBehaviours {
   _: i32
   _: [i32]
 }
-
-enum AlternateTreePassiveSizes @indexing(first: 0) { _ }
 
 type AlternateTreeVersions {
   Id: string @unique
@@ -3059,7 +3064,6 @@ enum ModDomains @indexing(first: 1) {
   TINCTURE
   ANIMAL_CHARM
   NECROPOLIS_MONSTER
-  UBER_MAP
   IDOL
   GRAFT
 }
@@ -3851,22 +3855,11 @@ type NPCFollowerVariations {
 
 type NPCMaster {
   Id: string
-  _: bool
-  _: bool
   Signature_ModsKey: Mods
-  _: bool
   SpawnWeight_TagsKeys: [Tags]
   SpawnWeight_Values: [i32]
   _: rid
-  _: i32
-  AreaDescription: string
-  _: rid
-  _: i32
-  _: Stats
-  HasAreaMissions: bool
   _: [rid]
-  _: [rid]
-  _: rid
   _: [rid]
   _: rid
 }
@@ -4148,6 +4141,7 @@ type PassiveSkills {
 enum PassiveSkillTypes @indexing(first: 0) {
   PASSIVE_TREE
   ATLAS_TREE
+  GENESIS_TREE
 }
 
 type PassiveSkillStatCategories {
@@ -5319,6 +5313,11 @@ enum Wordlists @indexing(first: 1) {
   STRONGBOX_PREFIX
   STRONGBOX_SUFFIX
   ESSENCE
+  TEST
+  VILLAGER_PREFIX
+  VILLAGER_SUFFIX
+  MERCENARY_PREFIX
+  MERCENARY_SUFFIX
 }
 
 type Words {
