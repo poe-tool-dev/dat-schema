@@ -2741,7 +2741,7 @@ type MapSeriesTiers {
   SettlersTier: i32
   SecretsTier: i32
   KeepersTier: i32
-  MirageTier: i13
+  MirageTier: i32
 }
 
 type MapStashSpecialTypeEntries {
