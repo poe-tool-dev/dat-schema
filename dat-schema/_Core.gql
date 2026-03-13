@@ -99,6 +99,7 @@ type ActiveSkills {
   _: bool
   _: bool
   TransfigureBase: ActiveSkills
+  _: string
 }
 
 enum ActiveSkillTargetTypes @indexing(first: 1) {
@@ -914,6 +915,7 @@ type Characters {
   _: MonsterVarieties
   _: i32
   _: f32
+  _: rid
   _: rid
 }
 
@@ -2455,6 +2457,7 @@ type ItemVisualIdentity {
   _: string
   _: string
   _: string
+  _: [rid]
 }
 
 enum ItemVisualCompositions @indexing(first: 0) {
