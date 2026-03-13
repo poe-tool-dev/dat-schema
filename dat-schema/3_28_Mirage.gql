@@ -23,3 +23,13 @@ type FaridunLifeScalingPerLevel {
   Level: i32
   Life: i32
 }
+
+type AtlasMissionTypes {
+  Id: string
+  Stats: [Stats]
+  StatValues: [i32]
+  Astrolabe: BaseItemTypes
+  _: i32
+  _: i32
+  _: rid
+}
