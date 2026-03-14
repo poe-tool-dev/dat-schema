@@ -290,6 +290,11 @@ type Animation {
   _: bool
   _: Animation
   _: [string]
+  _: i32
+  _: bool
+  _: Animation
+  _: Animation
+  _: Animation
 }
 
 type ApplyDamageFunctions {
