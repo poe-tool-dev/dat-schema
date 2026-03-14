@@ -406,6 +406,16 @@ type Ascendancy {
   LeagueIcon: string
 }
 
+type AtlasMissionTypes {
+  Id: string
+  Stats: [Stats]
+  StatValues: [i32]
+  Astrolabe: BaseItemTypes
+  _: i32
+  _: i32
+  _: rid
+}
+
 type AtlasFog {
   _: i32
   _: i32
