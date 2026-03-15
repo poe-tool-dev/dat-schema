@@ -2796,6 +2796,14 @@ type MapTiers {
   Level2: i32
 }
 
+type MapKeys {
+  BaseItemType: BaseItemTypes @unique
+  MapTier: i32
+  KeyTier: i32
+  IsSpecial: bool
+}
+
+
 type Melee {
   ActiveSkill: ActiveSkills
   _: i32
