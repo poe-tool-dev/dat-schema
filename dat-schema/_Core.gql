@@ -548,7 +548,7 @@ type AtlasPositions {
 
 type AtlasRegions {
   Id: string @unique
-  MemoryVault: worldareas
+  MemoryVault: WorldAreas
   _: [_]
   _: [_]
 }
