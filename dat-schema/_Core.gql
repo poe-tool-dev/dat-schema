@@ -479,7 +479,7 @@ type AtlasFavouredMapSlots {
 enum AtlasModTiers @indexing(first: 0) { _ }
 
 type AtlasNode {
-  Id: string
+  Id: string @unique
   Area1: WorldAreas
   _: bool
   FlavourText: FlavourText
@@ -494,14 +494,14 @@ type AtlasNode {
   NotOnAtlas: bool
   DivCards: [BaseItemTypes]
   DivCardsHardmode: [BaseItemTypes]
-  _: i32
+  Tier: i32
   HASH16: i16
-  _: bool
-  _: i32
+  IsUniqueMap: bool
+  Region: i32
   _: i32
   _: [_]
   _: bool
-  _: bool
+  RequiresSpecificItem: bool
   WatchstoneSlot: rid
   _: rid
   QuestStates: [i32]
@@ -536,7 +536,7 @@ type AtlasNodeDefinition {
   _: rid
   Area2: WorldAreas
   _: bool
-  _: rid
+  Header: MapNodeHeader
 }
 
 type AtlasPositions {
@@ -544,6 +544,28 @@ type AtlasPositions {
   _: i32
   X: f32
   Y: f32
+}
+
+type AtlasRegions {
+  Id: string @unique
+  MemoryVault: WorldAreas
+  _: [_]
+  _: [_]
+}
+
+type AtlasVoidstoneSlots {
+  Id: string @unique
+  SlotNumber: i32
+  Voidstone: BaseItemTypes
+  _: i32
+  _: string
+  QuestFlag: QuestFlags
+  _: rid
+  _: string
+  _: string
+  _: string
+  _: rid
+  _: rid
 }
 
 enum Attributes @indexing(first: 1) {
@@ -2661,6 +2683,19 @@ type MapInhabitants {
   MonsterPacksKeys: [MonsterPacks]
 }
 
+type MapKeys {
+  BaseItemType: BaseItemTypes @unique
+  MapTier: i32
+  KeyTier: i32
+  IsSpecial: bool
+}
+
+type MapNodeHeader {
+  Id: string @unique
+  _: string
+  _: [i32]
+}
+
 type MapPins {
   Id: string @unique
   "X starts at left side of image, can be negative"
@@ -2795,14 +2830,6 @@ type MapTiers {
   Level: i32
   Level2: i32
 }
-
-type MapKeys {
-  BaseItemType: BaseItemTypes @unique
-  MapTier: i32
-  KeyTier: i32
-  IsSpecial: bool
-}
-
 
 type Melee {
   ActiveSkill: ActiveSkills
