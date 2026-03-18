@@ -2046,8 +2046,8 @@ type GrantedEffectStatSets {
   ConstantStats: [Stats]
   ConstantStatsValues: [i32]
   BaseEffectiveness: f32
-  IncrementalEffectiveness: f32
   _: i32
+  IncrementalEffectiveness: f32
 }
 
 type GrantedEffectStatSetsPerLevel {
