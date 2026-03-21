@@ -470,12 +470,6 @@ type AtlasMods {
   AtlasModTiers: i32
 }
 
-type AtlasFavouredMapSlots {
-  _: i32
-  _: i32
-  Requirement: string
-}
-
 enum AtlasModTiers @indexing(first: 0) { _ }
 
 type AtlasNode {
@@ -497,13 +491,12 @@ type AtlasNode {
   Tier: i32
   HASH16: i16
   IsUniqueMap: bool
-  Region: i32
-  _: i32
-  _: [_]
-  _: bool
+  Region: AtlasRegions
+  Node_DDSFile: string @file(ext: ".dds")
+  IsNormalMap: bool
   RequiresSpecificItem: bool
-  WatchstoneSlot: rid
-  _: rid
+  VoidstoneSlot: AtlasVoidstoneSlots
+  MapDeviceLayout: MapDeviceLayouts
   QuestStates: [i32]
   _: bool
   _: rid
@@ -524,13 +517,13 @@ type AtlasNodeDefinition {
   Area1: WorldAreas
   _: i32
   _: i32
-  _: bool
-  _: bool
-  Image: string @file(ext: ".dds")
-  _: bool
-  _: bool
-  _: rid
-  _: rid
+  NotOnAtlas: bool
+  IsUniqueMap: bool
+  Node_DDSFile: string @file(ext: ".dds")
+  IsNormalMap: bool
+  RequiresSpecificItem: bool
+  VoidstoneSlot: AtlasVoidstoneSlots
+  MapDeviceLayout: MapDeviceLayouts
   QuestStates: [i32]
   _: bool
   _: rid
@@ -2636,6 +2629,22 @@ type MapDeviceRecipes @tags(list: ["item:recipe"]) {
   _: bool
 }
 
+type MapDeviceLayouts {
+  Id: string @unique
+  Slots: i32
+  _: [i32]
+  Receptacle_DDSFile: string @file(ext: ".dds")
+  _: [f32]
+  _: [f32]
+  MapKey: MapKeys
+  _: i32
+  _: string
+  _: bool
+  _: i32
+  _: i32
+  _: [i32]
+}
+
 type MapDevices {
   Id: string
   MiscObject: MiscObjects
@@ -2762,6 +2771,7 @@ type MapSeries {
   Purple_DDSFile: string @file(ext: ".dds")
   Memory_DDSFile: string @file(ext: ".dds")
   UberMemory_DDSFile: string @file(ext: ".dds")
+  Mirage_DDSFile: string @file(ext: ".dds")
 }
 
 type MapSeriesTiers {
@@ -5685,15 +5695,15 @@ type CraftingBenchSpecificOptionId {
 
 # Added 3.21
 type CurrencyUseEffects {
-  _: rid @unique
+  CurrencyItem: BaseItemTypes @unique
   _: i32
   BK2File: string @file(ext: ".bk2")
-  SoundFile: string @file(ext: ".ogg")
   _: bool
   BK2File2: string @file(ext: ".bk2")
   _: bool
-  _: rid
+  Stat: Stats
   _: f32
+  SoundEffect: SoundEffects
 }
 
 # Added 3.17
@@ -5999,19 +6009,29 @@ type MapStashSubstashGroup {
   Description: string
 }
 
+type MemoryLineModifiers {
+  MemoryLineType: MemoryLineType
+  _: i32
+  Stats: [Stats]
+  StatValues: [i32]
+  _: [_]
+  _: [_]
+}
+
 type MemoryLineType {
-  Id: string
+  Id: string @unique
   MemoryLine: AtlasMemoryLine
   HASH16: i16
-  _: bool
-  _: bool
   Stats: [Stats]
-  StatsValues: [i32]
+  StatValues: [i32]
   _: i32
   Suffix: string
   _: i32
   _: i32
-  _: rid
+  FinalAtlasNode: AtlasNode
+  _: i32
+  Tier: i32
+  CurrencyItem: BaseItemTypes
 }
 
 type MtxTypes {
