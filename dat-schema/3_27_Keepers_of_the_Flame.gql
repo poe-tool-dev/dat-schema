@@ -11,11 +11,25 @@ type BreachElement {
   DuplicateBoss: Stats
 }
 
-type BrequelPassiveSubTrees {
-  Id: string  @unique
-  _: ClientStrings
-  _: ClientStrings
-  Wombgift: BaseItemTypes
+type BrequelFruitRewardTypes {
+  Id: string @unique
+  Name: string
+  Description: string
+  _: string
+  _: string
+  _: [_]
+  _: [_]
+  AchievementItem: AchievementItems
+  AchievementItemHardmode: AchievementItems
+}
+
+type BrequelFruitTypes {
+  BaseItemType: BaseItemTypes @unique
+  Reward: BrequelFruitRewardTypes
+  _: i32
+  _: i32
+  _: rid
+  _: rid
 }
 
 type BrequelGrafts {
@@ -24,4 +38,16 @@ type BrequelGrafts {
   SkillGem: SkillGems
   _: i32
   SkillAnimation: string
+}
+
+type BrequelPassiveSubTrees {
+  Id: string  @unique
+  _: ClientStrings
+  _: ClientStrings
+  Wombgift: BaseItemTypes
+}
+
+type BrequelTreeSlots {
+  PassiveSkill: PassiveSkills @unique
+  BrequelSubTree: BrequelPassiveSubTrees
 }
