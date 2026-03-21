@@ -495,7 +495,7 @@ type AtlasNode {
   Node_DDSFile: string @file(ext: ".dds")
   IsNormalMap: bool
   RequiresSpecificItem: bool
-  VoidstoneSlot: AtlasVoidStoneSlots
+  VoidstoneSlot: AtlasVoidstoneSlots
   MapDeviceLayout: MapDeviceLayouts
   QuestStates: [i32]
   _: bool
@@ -522,7 +522,7 @@ type AtlasNodeDefinition {
   Node_DDSFile: string @file(ext: ".dds")
   IsNormalMap: bool
   RequiresSpecificItem: bool
-  VoidstoneSlot: AtlasVoidStoneSlots
+  VoidstoneSlot: AtlasVoidstoneSlots
   MapDeviceLayout: MapDeviceLayouts
   QuestStates: [i32]
   _: bool
