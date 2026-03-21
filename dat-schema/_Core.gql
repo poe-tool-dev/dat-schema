@@ -2063,7 +2063,7 @@ type GrantedEffectStatSetsPerLevel {
   GrantedEffects: [GrantedEffects]
   AdditionalFlags: [Stats]
   FloatStats: [Stats]
-  InterpolationBases: [Stats]
+  InterpolationBases: [EffectivenessCostConstants]
   AdditionalStats: [Stats]
   StatInterpolations: [StatInterpolationTypes]
   FloatStatsValues: [f32]
