@@ -5695,15 +5695,15 @@ type CraftingBenchSpecificOptionId {
 
 # Added 3.21
 type CurrencyUseEffects {
-  _: rid @unique
+  CurrencyItem: BaseItemTypes @unique
   _: i32
   BK2File: string @file(ext: ".bk2")
-  SoundFile: string @file(ext: ".ogg")
   _: bool
   BK2File2: string @file(ext: ".bk2")
   _: bool
-  _: rid
+  Stat: Stats
   _: f32
+  SoundEffect: SoundEffects
 }
 
 # Added 3.17
