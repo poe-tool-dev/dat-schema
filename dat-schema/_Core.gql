@@ -1415,13 +1415,6 @@ type DropEffects {
   AOFile: string @file(ext: ".ao")
 }
 
-type DropPool {
-  Group: string @unique
-  Weight: i32
-  _: [i32]
-  WeightHardmode: i32
-}
-
 type EclipseMods {
   Key: string @unique
   SpawnWeight_TagsKeys: [Tags]
