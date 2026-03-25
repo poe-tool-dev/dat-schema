@@ -5707,12 +5707,6 @@ type EntityInfobarStyle {
   LifeBarRight: string
 }
 
-# Added 3.17
-type FlaskStashBaseTypeOrdering {
-  Flask: Flasks @unique
-  Order: i32 @unique
-}
-
 # Added 3.20
 type GameObjectTasksFromStats {
   _: rid @unique

@@ -1,0 +1,4 @@
+type FlaskStashBaseTypeOrdering {
+  Flask: Flasks @unique
+  Order: i32 @unique
+}
