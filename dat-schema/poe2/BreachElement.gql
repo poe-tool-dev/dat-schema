@@ -1,0 +1,8 @@
+type BreachElement {
+  Element: string
+  _: rid
+  BaseBreachstone: BaseItemTypes
+  BossMapMod: Stats
+  DuplicateBoss: Stats
+}
+

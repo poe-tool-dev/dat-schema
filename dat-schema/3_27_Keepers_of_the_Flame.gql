@@ -3,14 +3,6 @@ type BreachBossLifeScalingPerLevel {
   LifeMultiplier: i32
 }
 
-type BreachElement {
-  Element: string
-  _: rid
-  BaseBreachstone: BaseItemTypes
-  BossMapMod: Stats
-  DuplicateBoss: Stats
-}
-
 type BrequelFruitRewardTypes {
   Id: string @unique
   Name: string
