@@ -5118,33 +5118,6 @@ type Topologies {
   _: i32
 }
 
-type TradeMarketCategory {
-  Id: string
-  Name: string @localized
-  StyleFlag: TradeMarketCategoryStyleFlag
-  Group: TradeMarketCategoryGroups
-  _: [i32]
-  _: bool
-  IsDisabled: bool
-}
-
-type TradeMarketCategoryGroups {
-  Id: string
-  Name: string @localized
-}
-
-type TradeMarketCategoryListAllClass {
-  TradeCategory: TradeMarketCategory
-  ItemClass: ItemClasses
-}
-
-type TradeMarketIndexItemAs {
-  Item: rid
-  IndexAs: rid
-}
-
-enum TradeMarketCategoryStyleFlag @indexing(first: 0) { _ }
-
 type TriggerBeam {
   _: i32
   _: [MiscBeams]
@@ -6378,12 +6351,6 @@ type TieredMicrotransactionsVisuals {
 type TormentedSpiritLifeScalingPerLevel {
   Level: i32
   Life: i32
-}
-
-# Added 3.19
-type TradeMarketImplicitModDisplay {
-  _: rid @unique
-  _: string
 }
 
 # Added 3.21
