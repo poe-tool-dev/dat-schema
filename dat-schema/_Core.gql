@@ -1202,15 +1202,6 @@ type CraftingBenchTypes {
   _: bool
 }
 
-type CraftingBenchUnlockCategories {
-  Id: string @unique
-  _: i32
-  _: [i32]
-  UnlockType: string
-  CraftingItemClassCategories: [CraftingItemClassCategories]
-  ObtainingDescription: string
-}
-
 type CraftingItemClassCategories {
   Id: string @unique
   ItemClasses: [ItemClasses]
