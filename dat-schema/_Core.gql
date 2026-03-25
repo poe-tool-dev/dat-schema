@@ -5757,20 +5757,6 @@ enum GemStyles @indexing(first: 1) {
 }
 
 # Added 3.20
-type GoldActScaling {
-  Act: string @unique
-  _: i32
-  _: i32
-  _: i32
-}
-
-# Added 3.20
-type GoldConstants {
-  Id: string @unique
-  _: i32
-}
-
-# Added 3.20
 type HardModeExtraContentChances {
   Id: string @unique
   _: i32
