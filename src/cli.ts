@@ -14,11 +14,12 @@ import {
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const WATCH_MODE = process.argv.includes('--watch');
+const ALLOW_SHARING_SCHEMAS = !process.argv.includes('--no-schema-sharing');
 
 const SCHEMA_PATH =
   process.argv
     .slice(2)
-    .filter((arg) => arg !== '--watch')
+    .filter((arg) => arg !== '--watch' && arg !== '--no-schema-sharing')
     .at(0) || path.join(__dirname, '../dat-schema');
 
 function read() {
@@ -32,7 +33,7 @@ function read() {
     });
 
   try {
-    return readSchemaSources(sources);
+    return readSchemaSources(sources, ALLOW_SHARING_SCHEMAS);
   } catch (e) {
     if (e instanceof GraphQLError) {
       console.error(e.toString());

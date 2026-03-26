@@ -212,8 +212,9 @@ const DIRECTIVE_INTERVAL = {
 
 class VersionedTypedefNode<T> implements Iterable<[ValidFor, T]> {
   constructor (
-    public vBase?: T,
-    public vOverride?: T,
+    public vBase: T | undefined,
+    public vOverride: T | undefined,
+    readonly allowSharing: boolean
   ) {}
 
   *[Symbol.iterator](): Iterator<[ValidFor, T]> {
@@ -223,7 +224,11 @@ class VersionedTypedefNode<T> implements Iterable<[ValidFor, T]> {
     } else if (this.vOverride != null) {
       yield [ValidFor.PoE2, this.vOverride];
     } else if (this.vBase != null) {
-      yield [ValidFor.Common, this.vBase];
+      if (this.allowSharing) {
+        yield [ValidFor.Common, this.vBase];
+      } else {
+        yield [ValidFor.PoE1, this.vBase];
+      }
     }
   }
 }
@@ -231,12 +236,17 @@ class VersionedTypedefNode<T> implements Iterable<[ValidFor, T]> {
 class VersionedTypedefMap<T extends TypeDefinitionNode> {
   readonly data = new Map<string, VersionedTypedefNode<T>>();
 
+  constructor (
+    readonly allowSharing: boolean
+  ) {}
+
   add(typeNode: T, override: boolean): boolean {
     const existingNode = this.data.get(typeNode.name.value);
     if (!existingNode) {
       this.data.set(typeNode.name.value, new VersionedTypedefNode(
         !override ? typeNode : undefined,
         override ? typeNode : undefined,
+        this.allowSharing
       ));
     } else if (override) {
       if (existingNode.vOverride != null) return false;
@@ -265,7 +275,11 @@ class ScopedTypedefMap<T> {
       if (this.ver === ValidFor.PoE1) {
         return node.vBase;
       } else {
-        return node.vOverride ?? node.vBase;
+        if (node.allowSharing) {
+          return node.vOverride ?? node.vBase;
+        } else {
+          return node.vOverride;
+        }
       }
     }
   }
@@ -281,10 +295,11 @@ interface Context {
 }
 
 export function readSchemaSources(
-  sources: readonly Source[]
+  sources: readonly Source[],
+  allowSharingSchemas: boolean
 ): Pick<SchemaFile, 'tables' | 'enumerations'> {
-  const typeDefsMap = new VersionedTypedefMap<ObjectTypeDefinitionNode>();
-  const enumDefsMap = new VersionedTypedefMap<EnumTypeDefinitionNode>();
+  const typeDefsMap = new VersionedTypedefMap<ObjectTypeDefinitionNode>(allowSharingSchemas);
+  const enumDefsMap = new VersionedTypedefMap<EnumTypeDefinitionNode>(allowSharingSchemas);
 
   for (const source of sources) {
     const doc = parse(source, { noLocation: false });
