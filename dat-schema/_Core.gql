@@ -1202,15 +1202,6 @@ type CraftingBenchTypes {
   _: bool
 }
 
-type CraftingBenchUnlockCategories {
-  Id: string @unique
-  _: i32
-  _: [i32]
-  UnlockType: string
-  CraftingItemClassCategories: [CraftingItemClassCategories]
-  ObtainingDescription: string
-}
-
 type CraftingItemClassCategories {
   Id: string @unique
   ItemClasses: [ItemClasses]
@@ -1422,13 +1413,6 @@ type Doors {
 type DropEffects {
   Id: string @unique
   AOFile: string @file(ext: ".ao")
-}
-
-type DropPool {
-  Group: string @unique
-  Weight: i32
-  _: [i32]
-  WeightHardmode: i32
 }
 
 type EclipseMods {
@@ -2800,19 +2784,6 @@ type MapSeriesTiers {
   SecretsTier: i32
   KeepersTier: i32
   MirageTier: i32
-}
-
-type MapStashSpecialTypeEntries {
-  Id: string
-  _: i32
-  MapItem: BaseItemTypes
-  Name: string @localized
-  _: i32
-  IsShaperGuardian: bool
-  IsElderGuardian: bool
-  _: rid
-  _: rid
-  _: rid
 }
 
 type MapStashUniqueMapInfo {
@@ -5147,33 +5118,6 @@ type Topologies {
   _: i32
 }
 
-type TradeMarketCategory {
-  Id: string
-  Name: string @localized
-  StyleFlag: TradeMarketCategoryStyleFlag
-  Group: TradeMarketCategoryGroups
-  _: [i32]
-  _: bool
-  IsDisabled: bool
-}
-
-type TradeMarketCategoryGroups {
-  Id: string
-  Name: string @localized
-}
-
-type TradeMarketCategoryListAllClass {
-  TradeCategory: TradeMarketCategory
-  ItemClass: ItemClasses
-}
-
-type TradeMarketIndexItemAs {
-  Item: rid
-  IndexAs: rid
-}
-
-enum TradeMarketCategoryStyleFlag @indexing(first: 0) { _ }
-
 type TriggerBeam {
   _: i32
   _: [MiscBeams]
@@ -5640,15 +5584,6 @@ type BreachArtVariations {
   _: rid
 }
 
-# Added 3.21
-type Breachstones {
-  BaseType: BaseItemTypes @unique
-  MapTierEquivalent: i32
-  _: i32 @unique
-  UpgradesTo: BaseItemTypes
-  UpgradeCurrency: BaseItemTypes
-}
-
 type BossKillEvent {
   _: string
   QuestFlag: QuestFlags
@@ -5772,12 +5707,6 @@ type EntityInfobarStyle {
   LifeBarRight: string
 }
 
-# Added 3.17
-type FlaskStashBaseTypeOrdering {
-  Flask: Flasks @unique
-  Order: i32 @unique
-}
-
 # Added 3.20
 type GameObjectTasksFromStats {
   _: rid @unique
@@ -5825,20 +5754,6 @@ enum GemStyles @indexing(first: 1) {
   TRARTHAN
   EXCEPTIONAL
   DEFAULT
-}
-
-# Added 3.20
-type GoldActScaling {
-  Act: string @unique
-  _: i32
-  _: i32
-  _: i32
-}
-
-# Added 3.20
-type GoldConstants {
-  Id: string @unique
-  _: i32
 }
 
 # Added 3.20
@@ -5998,15 +5913,6 @@ type LegacyAtlasInfluenceOutcomes {
   _: i32
   _: rid
   _: [_]
-}
-
-# Added 3.22
-type MapStashSubstashGroup {
-  Id: string @unique
-  Label: string
-  Icon: string
-  _: rid
-  Description: string
 }
 
 type MemoryLineModifiers {
@@ -6407,12 +6313,6 @@ type TieredMicrotransactionsVisuals {
 type TormentedSpiritLifeScalingPerLevel {
   Level: i32
   Life: i32
-}
-
-# Added 3.19
-type TradeMarketImplicitModDisplay {
-  _: rid @unique
-  _: string
 }
 
 # Added 3.21

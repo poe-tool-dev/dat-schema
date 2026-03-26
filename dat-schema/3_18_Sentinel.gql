@@ -21,11 +21,6 @@ type DroneTypes {
   NotPoweredText: string
 }
 
-type SentinelCraftingCurrency {
-  Currency: BaseItemTypes
-  Type: i32
-}
-
 type SentinelDroneInventoryLayout {
   DroneType: DroneTypes
   _: i32
