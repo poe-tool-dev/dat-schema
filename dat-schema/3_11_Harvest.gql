@@ -11,15 +11,16 @@ type HarvestCraftOptions @tags(list: ["crafting"]) {
   Tier: HarvestCraftTiers
   Command: string
   Parameters: string
-  _: [_]
-  HASH16: i16
+  MirageAchievements: [AchievementItems]
+  HASH16: u16
   Description: string
   IsEnchant: bool
   LifeforceType: i32
   LifeforceCost: i32
   SacredCost: i32
   _: bool
-  Achievements: [AchievementItems]
+  NecropolisAchievements: [AchievementItems]
+  _: i32
   _: i32
 }
 
@@ -58,7 +59,7 @@ type HarvestPerLevelValues {
 
 type HarvestLifeScalingPerLevel {
   Level: i32
-  Life: i32
+  MoreLife: i32
 }
 
 type HarvestSeeds {
@@ -72,6 +73,7 @@ type HarvestSeeds {
   _: i32
   HatchAnimation: string @file(ext: ".ao")
   SeedType: i32
+  _: bool
 }
 
 type HarvestSeedItems @tags(list: ["item:def"]) {

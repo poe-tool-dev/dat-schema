@@ -12,18 +12,18 @@ type BetrayalChoices {
 }
 
 type BetrayalDialogue {
-  _: rid
+  Id: BetrayalTargets @unique
   _: i32
   _: i32
   _: [i32]
   BetrayalTargetsKey: BetrayalTargets
   _: i32
-  _: rid
-  _: [rid]
+  Job: BetrayalJobs
+  Relationship: [BetrayalRelationshipState]
   BetrayalUpgradesKey: BetrayalUpgrades
   _: bool
   _: [i32]
-  _: [rid]
+  PossibleChoices: [BetrayalChoiceActions]
   _: bool
   _: [i32]
   NPCTextAudioKey: NPCTextAudio
@@ -46,13 +46,14 @@ type BetrayalJobs {
   Id: string
   Text: string
   ExtraTerrainFeaturesKey: ExtraTerrainFeatures
-  Art: string
+  IconArt: string
   _: i32
   _: i32
   WorldAreasKey: WorldAreas
   Completion_AchievementItemsKey: [AchievementItems]
   OpenChests_AchievementItemsKey: [AchievementItems]
-  MissionCompletion_AcheivementItemsKey: [AchievementItems]
+  MissionCompletion_AchievementItemsKey: [AchievementItems]
+  Art: string
 }
 
 type BetrayalRanks {
@@ -92,13 +93,15 @@ type BetrayalTargets {
   Safehouse_ARMFile: string @file(ext: ".arm")
   ShortName: string
   _: i32
-  SafehouseLeader_AcheivementItemsKey: AchievementItems
+  SafehouseLeader_AchievementItemsKey: AchievementItems
   Level3_AchievementItemsKey: AchievementItems
   _: i32
   _: i32
   _: i32
-  _: rid
+  UltimatumAchievementItemsKey: AchievementItems
   ScriptArgument: string
+  _: [_] # All rows empty
+  _: [i32]
 }
 
 type BetrayalTraitorRewards @tags(list: ["item:droptable"]) {
@@ -131,15 +134,20 @@ type BetrayalWallLifeScalingPerLevel {
   MoreLife: i32
 }
 
+type BYOCrafting @tags(list: ["crafting"]) {
+  Id: string @unique
+  Description: string
+  Action: string
+  DescriptionRuthless: string
+  ActionRuthless: string
+  AchievementItems: [AchievementItems]
+}
+
 type SafehouseBYOCrafting @tags(list: ["crafting"]) {
   BetrayalJobsKey: BetrayalJobs
   BetrayalTargetsKey: BetrayalTargets
   Rank: i32
-  Description: string
-  ServerCommand: string
-  _: [rid]
-  Description2: string
-  ServerCommand2: string
+  Craft: BYOCrafting
 }
 
 type SafehouseCraftingSpreeType {
@@ -169,4 +177,5 @@ type ScarabTypes {
   DisableDrops: Stats
   MoreLikely: Stats
   Count: Stats
+  _: rid
 }

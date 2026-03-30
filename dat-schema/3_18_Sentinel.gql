@@ -38,11 +38,11 @@ type SentinelPassives {
   Id: string
   HASH16: i32
   _: string
-  _: [rid]
+  Stats: [SentinelPassiveStats]
   _: [i32]
   _: i32
   _: i32
-  _: rid
+  PassiveType: SentinelPassiveTypes
   _: i32
   _: i32
   _: i32
@@ -86,7 +86,7 @@ type SentinelStorageLayout {
 type SentinelTaggedMonsterStats {
   TaggedStat: Stats
   _: Stats
-  _: [rid]
+  BuffTemplate: [BuffTemplates]
   _: rid
   _: rid
 }

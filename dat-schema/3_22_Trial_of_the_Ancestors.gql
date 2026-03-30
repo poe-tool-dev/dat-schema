@@ -1,25 +1,25 @@
 type AncestralEmbraceVariations {
   Id: string
   Minion: MonsterVarieties
-  _: rid
+  BuffTemplate: BuffTemplates
 }
 
 type AncestralLifeScalingPerLevel {
   Level: i32
-  _: i32
+  MoreLife: i32
 }
 
 type AncestralTrialChieftains {
   Tribe: AncestralTrialTribes @unique
-  _: rid
+  Monster: AncestralTrialMonsters
 }
 
 type AncestralTrialDialogue {
-  _: rid
-  _: rid
+  Tribe: AncestralTrialTribes
+  TrialEvent: AncestralTrialDialogueEvents
   _: i32
   TextAudio: [NPCTextAudio]
-  _: rid
+  Character: Characters
   _: i32
   _: i32
   _: i32
@@ -39,13 +39,13 @@ type AncestralTrialDialogueEvents {
 }
 
 type AncestralTrialFieldItems {
-  _: rid
-  _: rid
-  HASH32: i32
+  Unit: AncestralTrialUnits
+  Object: MiscObjects
+  HASH32: u32
   Description: string
   Achievement: [AchievementItems]
-  _: rid
-  _: rid
+  SoundEffectPurchase: SoundEffects
+  SoundEffectPlace: SoundEffects
 }
 
 type AncestralTrialItems {
@@ -53,20 +53,20 @@ type AncestralTrialItems {
   HASH16: i32
   Name: string
   Image: string
-  _: rid
+  Tribe: AncestralTrialTribes
   _: i32
   Mods: [Mods]
   FlavorText: string
   _: i32
   _: [_] # All rows empty
-  _: rid
-  _: rid
+  SoundEffectPurchase: SoundEffects
+  SoundEffectEquip: SoundEffects
 }
 
 type AncestralTrialMonsters {
-  _: rid
+  Unit: AncestralTrialUnits
   Monster: MonsterVarieties
-  _: rid
+  Animation: MiscAnimated
   _: i32
   Achievement: [AchievementItems]
   _: bool
@@ -109,18 +109,18 @@ type AncestralTrialTribes {
   FavourTracker: string
   _: [rid]
   Name: string
-  _: rid
-  _: rid
-  _: rid
-  _: rid
-  _: [rid]
-  _: rid
-  _: [rid]
+  QuestFlagLike: QuestFlags
+  QuestFlagDislike: QuestFlags
+  QuestFlagFightLost: QuestFlags
+  QuestFlagFightWin: QuestFlags
+  Achievement: [AchievementItems]
+  MinimapIcon: MinimapIcons
+  AchievementRuthless: [AchievementItems]
   _: i32
   _: i32
   _: i32
   _: i32
-  _: rid
+  NPC: NPCs
 }
 
 type AncestralTrialUnitPositions {
@@ -147,7 +147,7 @@ type AncestralTrialUnits {
 
 type ChieftainLifeScalingPerLevel {
   Level: i32
-  _: i32
+  MoreLife: i32
 }
 
 type PassiveSkillTattoos {

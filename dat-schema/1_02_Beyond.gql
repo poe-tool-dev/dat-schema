@@ -1,5 +1,6 @@
 type BeyondFactions {
   Id: string
   Boss: MonsterVarieties
-  _: rid
+  FactionChanceStat: Stats
+  BuffTemplate: BuffTemplates
 }

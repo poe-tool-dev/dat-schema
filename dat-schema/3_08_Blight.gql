@@ -63,6 +63,7 @@ type BlightEncounterTypes {
   Icon: string
   IsGeneric: bool
   Weight: i32
+  _: BlightEncounterTypes
 }
 
 type BlightEncounterWaves {

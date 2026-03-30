@@ -47,11 +47,11 @@ type CrucibleEndgameMonsterPacks {
 
 type CrucibleLifeScalingPerLevel {
   Level: i32
-  Life: i32
+  MoreLife: i32
 }
 
 type CruciblePlayerClassOffsets {
-  _: rid @unique
+  Character: Characters @unique
   _: i32
   _: i32
 }

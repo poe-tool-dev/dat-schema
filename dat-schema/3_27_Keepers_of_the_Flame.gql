@@ -4,11 +4,32 @@ type BreachBossLifeScalingPerLevel {
 }
 
 type BreachElement {
-  Element: string
+  Element: string @unique
   _: rid
   BaseBreachstone: BaseItemTypes
   BossMapMod: Stats
   DuplicateBoss: Stats
+}
+
+type BrequelEncounterSkills {
+  Id: string @unique
+  _: rid
+  Description: string
+  Art: string
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}
+
+type BrequelFruitQuests {
+  Id: i32 @unique
+  _: i32
+  _: i32
+  TreeGraftbloodRequired: i32
+  _: i32
+  _: i32
 }
 
 type BrequelFruitRewardTypes {
@@ -32,6 +53,12 @@ type BrequelFruitTypes {
   _: rid
 }
 
+type BrequelGraftGrantedSkillLevels {
+  AreaLevel: i32
+  SkillLevel: i32
+  RequiredLevel: i32
+}
+
 type BrequelGrafts {
   Id: string @unique
   Arm: string
@@ -40,10 +67,29 @@ type BrequelGrafts {
   SkillAnimation: string
 }
 
+type BrequelGraftSkillStats {
+  GraftStat: Stats @unique
+  PlayerStat: Stats
+}
+
+type BrequelItemResourceValues {
+  FleshgraftLevel: i32
+  GraftbloodStorage: i32
+}
+
+type BrequelLockerLayout {
+  Id: string @unique
+  _: i32
+  _: i32
+  _: i32
+  ItemClass: ItemClasses
+  Name: string
+}
+
 type BrequelPassiveSubTrees {
-  Id: string  @unique
-  _: ClientStrings
-  _: ClientStrings
+  Id: string @unique
+  RewardStringSingle: ClientStrings
+  RewardStringMultiple: ClientStrings
   Wombgift: BaseItemTypes
 }
 

@@ -25,8 +25,8 @@ type AfflictionEndgameWaveMods {
 
 type AfflictionFixedMods {
   Rarity: i32
-  Mod: Mods
   _: rid
+  Mod: Mods
 }
 
 type AfflictionRandomModCategories {
@@ -48,7 +48,7 @@ type AfflictionRewardTypeVisuals {
 }
 
 type AfflictionSplitDemons {
-  _: i32
+  Id: i32
   MonsterVarietiesKey: MonsterVarieties
   AfflictionRandomModCategoriesKey: AfflictionRandomModCategories
 }
@@ -56,5 +56,5 @@ type AfflictionSplitDemons {
 type AfflictionStartDialogue {
   WorldAreasKey: WorldAreas
   NPCTextAudioKey: NPCTextAudio
-  _: [rid]
+  MonsterVarieties: [MonsterVarieties]
 }

@@ -27,6 +27,11 @@ type ExpeditionBalancePerLevel {
   _: i32
 }
 
+type ExpeditionStandaloneLifeScalingPerLevel {
+  MonsterLevel: i32
+  Scale: i32
+}
+
 type ExpeditionCurrency @tags(list: ["item:def"]) {
   BaseItemType: BaseItemTypes
   Tier: i32
@@ -66,7 +71,7 @@ type ExpeditionDeals {
   TextAudio: NPCTextAudio
   Description: string @localized
   BuyAchievements: [AchievementItems]
-  _: rid
+  NPCShop: NPCShop
   DealFamily: ExpeditionDealFamilies
 }
 
@@ -140,7 +145,7 @@ type ExpeditionStorageLayout {
   Height: i32
   _: i32
   _: bool
-  _: rid
+  Currency: ExpeditionCurrency
 }
 
 type ExpeditionTerrainFeatures {

@@ -41,7 +41,7 @@ type SynthesisBrackets {
 }
 
 type SynthesisFragmentDialogue {
-  _: rid
+  Area: SynthesisAreas
   NPCTextAudioKey1: NPCTextAudio
   NPCTextAudioKey2: NPCTextAudio
   NPCTextAudioKey3: NPCTextAudio

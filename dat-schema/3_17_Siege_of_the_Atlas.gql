@@ -23,11 +23,12 @@ type AtlasPrimordialBosses {
   MiniBossInvitation: BaseItemTypes
   BossInvitation: BaseItemTypes
   PickUpKey: QuestFlags
-  _: rid
-  _: rid
+  MinorBossKey: QuestItems
+  BossQuestKey: QuestItems
   Tag: Tags
   Altar: MiscObjects
   AltarActivated: MiscAnimated
+  OppositeTag: Tags
 }
 
 type AtlasPrimordialBossInfluence {
@@ -36,9 +37,9 @@ type AtlasPrimordialBossInfluence {
   MinMapTier: i32
   _: i32
   _: i32
-  _: rid
+  QuestItem: QuestItems
   _: f32
-  _: QuestFlags
+  QuestFlag: QuestFlags
 }
 
 type AtlasPrimordialBossOptions {
@@ -54,11 +55,15 @@ type AtlasPrimordialBossOptions {
   ProgressTrackerFill: string
   Name: string @localized
   MapDeviceTrackerFill: string
+  ProgressTrackerDefault: string
+  ProgressTrackerHover: string
+  ProgressTrackerSelected: string
+  SoundEffect: SoundEffects
 }
 
 type PrimordialBossLifeScalingPerLevel {
-  AreaLevel: i32
-  Scale: i32
+  Level: i32
+  MoreLife: i32
 }
 
 type AtlasUpgradesInventoryLayout {
@@ -76,8 +81,10 @@ type AtlasPassiveSkillTreeGroupType {
 }
 
 type KiracLevels {
-  AreaLevel: i32
-  _: i32
+  MapAreaLevelOffered: i32
+  MapCompletion: i32
+  ShopRerollCost: i32
+}
 }
 
 type ScoutingReports @tags(list: ["item:def"]) {

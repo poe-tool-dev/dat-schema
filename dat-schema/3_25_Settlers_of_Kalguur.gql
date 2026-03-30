@@ -6,6 +6,7 @@ type CurrencyExchange {
   EnabledInChallengeLeague: bool
   GoldPurchaseFee: i32
   _: bool
+  _: bool
 }
 
 type CurrencyExchangeCategories {
@@ -13,8 +14,13 @@ type CurrencyExchangeCategories {
   Name: string
 }
 
+type SettlersLifeScalingPerLevel {
+  Level: i32
+  MoreLife: i32
+}
+
 type VillageAssignWorkerTextAudio {
-  _: rid
+  Job: VillageJobs
   _: NPCTextAudio
   _: NPCTextAudio
   _: NPCTextAudio
@@ -29,10 +35,20 @@ type VillageAssignWorkerTextAudio {
   _: NPCTextAudio
 }
 
+type VillageBalancePerLevelShared {
+  MaxAccountLevel: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}
+
 type VillageExports {
   Id: string
   Name: string
-  _: i32
+  ShippingValue: i32
   Icon: string
   _: i32
   _: i32
@@ -44,16 +60,21 @@ type VillageExports {
 }
 
 type VillageFarmAdjacency {
-  _: i32
-  _: [i32]
+  Plot: i32
+  AdjacentPlots: [i32]
 }
 
 type VillageJobs {
-  _: rid
+  JobType: VillageJobTypes
   _: i32
   Status: string
   Stat: Stats
   StatValue: i32
+}
+
+type VillageJobSkillLevels {
+  JobLevel: i32
+  PlayerLevelRequired: i32
 }
 
 type VillageJobTypes {
@@ -65,10 +86,36 @@ type VillageJobTypes {
   JobSpeedStat: Stats
 }
 
+type VillageMappingBonusStats {
+  Stats: Stats
+  PercentChance: i32
+}
+
+type VillageMappingPerTier {
+  Id: i32
+  _: i32
+  _: i32
+  _: i32
+}
+
+type VillageProduction {
+  Id: string
+  Input: VillageResources
+  Output: VillageResources
+  BaseProductionTime: i32
+  Job: VillageJobs
+}
+
+type VillageRecruitBalancePerTier {
+  Id: i32
+  _: i32
+}
+
 type VillageResources {
   Id: string
-  _: rid
+  Export: VillageExports
   _: i32
+  PopupIcon: WorldPopupIconTypes
 }
 
 type VillageSharedConstants {
@@ -76,9 +123,51 @@ type VillageSharedConstants {
   Value: i32
 }
 
+type VillageShippingFailures {
+  Id: string
+  Text: string
+  Resource: [VillageResources]
+  ResourceLostPercent: i32
+  PortBonusLostPercent: i32
+  _: i32
+  CrewMembersLost: i32
+  _: i32
+  SubText: string
+  _: i32
+}
+
+type VillageShippingPorts {
+  Id: string
+  Name: string
+  FlagArt: string
+  MapLineArt: string
+  ReturnMessage: string
+  _: bool
+  PositionX: i32
+  PositionY: i32
+  _: i32
+  _: i32
+  DistanceFromPort: i32
+  _: bool
+  RiskMultiplier: f32
+  _: rid
+}
+
+type VillageTownLayout {
+  Id: string @unique
+  Job: VillageJobs
+  JobType: VillageJobTypes
+  MapButtonArt: string
+  Name: string
+  PositionX: i32
+  PositionY: i32
+  Resource: VillageResources
+}
+
 type VillageUniqueDisenchantValues @tags(list: ["item:droptable"]) {
   UniqueName: Words @unique
   Value: f32
+  RuthlessValue: f32
 }
 
 type VillageUpgradeCategories {
@@ -87,7 +176,7 @@ type VillageUpgradeCategories {
   Name: string
   Icon: string
   Text: string
-  _: rid
+  JobType: VillageJobTypes
 }
 
 type VillageUpgrades {

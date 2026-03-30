@@ -19,6 +19,7 @@ type ArchnemesisMods {
   TextStyles: [string]
   _: bool
   _: bool
+  _: bool
 }
 
 type ArchnemesisModVisuals {

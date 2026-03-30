@@ -40,6 +40,7 @@ type RitualRuneTypes {
   Description: string
   DaemonSpawningDataKey: DaemonSpawningData
   _: bool
+  _: i32
 }
 
 type RitualSetKillAchievements {

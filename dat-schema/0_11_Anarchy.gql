@@ -6,5 +6,5 @@ type RogueExiles {
 
 type RogueExileLifeScalingPerLevel {
   Level: i32
-  AdditionalLife: i32
+  MoreLife: i32
 }

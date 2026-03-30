@@ -94,7 +94,7 @@ type ActiveSkills {
   AlternateSkillTargetingBehavioursKey: AlternateSkillTargetingBehaviours
   _: bool
   AIFile: string @file(ext: ".ai")
-  _: [rid]
+  StatContextFlags: [VirtualStatContextFlags]
   _: bool
   _: bool
   _: bool
@@ -119,6 +119,21 @@ enum ActiveSkillTargetTypes @indexing(first: 1) {
 type ActiveSkillType {
   Id: string @unique
   FlagStat: Stats
+}
+
+type ActiveSkillRequirementIcons {
+  Id: string
+  AOFile: string @file(ext: ".ao")
+}
+
+type ActiveSkillRequirements {
+  GrantedEffect: GrantedEffects
+  BuffDefinition: BuffDefinitions
+  _: i32
+  _: bool
+  _: i32
+  Stat: Stats
+  Icon: ActiveSkillRequirementIcons
 }
 
 type Acts {
@@ -165,6 +180,7 @@ type AdditionalMonsterPacksFromStats {
   StatsValues: [i32]
   _: i32
   PackSizeStatsKey: Stats
+  T17SpawnChanceStatsKey: Stats
 }
 
 enum AdditionalMonsterPacksStatMode @indexing(first: 0) { _ }
@@ -187,11 +203,11 @@ type AegisVariations {
   DefendsAgainstCold: bool
   DefendsAgainstLightning: bool
   DefendsAgainstChaos: bool
-  _: rid
-  _: rid
-  _: rid
-  _: rid
-  _: [_]
+  ActiveBuff: BuffDefinitions
+  DepletedBuff: BuffDefinitions
+  _: BuffDefinitions
+  AnimatedEffect: MiscAnimated
+  _: [MiscAnimated]
 }
 
 enum AlternateBehaviourTypes @indexing(first: 0) { _ }
@@ -285,7 +301,7 @@ type Animation {
   Mainhand_AnimationKey: Animation
   Offhand_AnimationKey: Animation
   _: bool
-  _: rid
+  Stat: Stats
   _: Animation
   _: bool
   _: Animation
@@ -301,7 +317,7 @@ type ApplyDamageFunctions {
 type ArchetypeRewards @tags(list: ["item:reward"]) {
   Id: string @unique
   _: rid
-  _: [rid]
+  Archetype: [Archetypes]
   Gem: BaseItemTypes
   BK2File: string @file(ext: ".bk2")
 }
@@ -346,6 +362,8 @@ type AreaTransitionAnimationTypes {
 }
 
 type AreaTransitionInfo {
+  StartingArea: WorldAreas
+  EndingArea: WorldAreas
   _: rid
   _: rid
   _: rid
@@ -354,10 +372,8 @@ type AreaTransitionInfo {
   _: rid
   _: rid
   _: rid
-  _: rid
-  _: rid
-  _: rid
-  _: [rid]
+  Animation: MiscAnimated
+  MiscObject: [MiscObjects]
   _: i32
   _: [rid]
 }
@@ -426,16 +442,13 @@ type AtlasFog {
 type AtlasInfluenceData {
   InfluencePack: AtlasInfluenceOutcomes
   MonsterPacks: [MonsterPacks]
-  _: rid
+  BuffDefinition: BuffDefinitions
   _: [Stats]
+  BuffStatValues: [i32]
+  _: [MonsterPackCounts]
   _: i32
   _: i32
-  _: i32
-  _: i32
-  _: [_]
-  _: i32
-  _: i32
-  _: rid
+  InfluencePackSizeStat: Stats
   _: i32
   _: i32
   _: i32
@@ -444,6 +457,9 @@ type AtlasInfluenceData {
   _: bool
   _: bool
   _: bool
+  ZanaInfluenceChanceStat: Stats
+  ZanaInfluenceMagicChanceStat: Stats
+  ZanaInfluenceRareChanceStat: Stats
 }
 
 type AtlasInfluenceOutcomes {
@@ -499,7 +515,7 @@ type AtlasNode {
   MapDeviceLayout: MapDeviceLayouts
   QuestStates: [i32]
   _: bool
-  _: rid
+  NodeDisplayName: ClientStrings2
   Area2: WorldAreas
   _: bool
   _: bool
@@ -526,7 +542,7 @@ type AtlasNodeDefinition {
   MapDeviceLayout: MapDeviceLayouts
   QuestStates: [i32]
   _: bool
-  _: rid
+  NodeDisplayName: ClientStrings2
   Area2: WorldAreas
   _: bool
   Header: MapNodeHeader
@@ -546,6 +562,11 @@ type AtlasRegions {
   _: [_]
 }
 
+type AtlasUberMonsterLifeScalingPerLevel {
+  Level: i32
+  MoreLife: i32
+}
+
 type AtlasVoidstoneSlots {
   Id: string @unique
   SlotNumber: i32
@@ -553,12 +574,12 @@ type AtlasVoidstoneSlots {
   _: i32
   _: string
   QuestFlag: QuestFlags
-  _: rid
+  SoundEffect: SoundEffects
   _: string
   _: string
   _: string
-  _: rid
-  _: rid
+  _: Colours
+  _: Colours
 }
 
 enum Attributes @indexing(first: 1) {
@@ -579,7 +600,7 @@ type AwardDisplay {
   _: string
   ForegroundImage: string
   OGGFile: string @file(ext: ".ogg")
-  _: rid
+  QuestFlag: QuestFlags
   _: i32
   _: string
   _: bool
@@ -624,7 +645,7 @@ type BaseItemTypes @tags(list: ["item:def", "item:droptable"]) {
   Achievement2: [AchievementItems]
   IgnoreQuantBonus: bool
   _: bool
-  _: rid
+  ShopTag: ShopTag
 }
 
 type BindableVirtualKeys {
@@ -646,25 +667,26 @@ type BlightStashTabLayout {
   _: bool
   _: bool
   _: bool
+  _: bool
 }
 
 type BloodTypes {
   Id: string
+  ImpactSoundCrit: ImpactSoundData
+  ImpactSoundGoreCrit: ImpactSoundData
+  Animation: [MiscAnimated]
+  ImpactSoundGoreHit: ImpactSoundData
   _: rid
   _: rid
-  _: [rid]
-  _: rid
-  _: rid
-  _: rid
-  _: rid
-  _: rid
-  _: rid
-  _: rid
-  _: rid
-  _: rid
-  _: rid
-  _: rid
-  _: rid
+  EffectSmall: DamageEffectVariations
+  EffectGoreSmall: DamageEffectVariations
+  EffectCrit: DamageEffectVariations
+  EffectGoreSmall: DamageEffectVariations
+  EffectGoreLarge: DamageEffectVariations
+  EffectGoreCrit: DamageEffectVariations
+  EffectFirstBloodSmall: DamageEffectVariations
+  EffectFirstBloodLarge: DamageEffectVariations
+  EffectFirstBloodCrit: MicrotransactionPortalVariations
 }
 
 enum BuffCategories @indexing(first: 0) { _ }
@@ -696,7 +718,7 @@ type BuffDefinitions {
   Id2: string
   IsRecovery: bool
   _: bool
-  _: rid
+  MinStat: Stats
   _: bool
   _: i32
   _: bool
@@ -705,7 +727,7 @@ type BuffDefinitions {
   _: [i32]
   _: bool
   _: bool
-  _: [rid]
+  MultiPartAchievement: [MultiPartAchievements]
   _: bool
   _: [Stats]
   BinaryStats: [Stats]
@@ -756,9 +778,9 @@ type BuffVisualOrbArt {
   _: string
   _: string
   _: i32
-  _: rid
-  _: rid
-  _: rid
+  MonsterExpiredSound: SoundEffects
+  PlayerExpiredSound: SoundEffects
+  PlayerAcquiredSound: SoundEffects
   _: rid
   _: bool
   _: i32
@@ -780,13 +802,13 @@ type BuffVisualOrbTypes {
   _: f32
   _: i32
   _: bool
-  _: rid
-  _: rid
+  RadiusStat: Stats
+  HeightStat: Stats
   _: i32
+  _: f32
+  _: i32
+  _: f32
   _: bool
-  _: f32
-  _: i32
-  _: f32
   _: f32
   _: i32
 }
@@ -809,8 +831,13 @@ type BuffVisuals {
   EPKFiles: [string] @file(ext: ".epk")
   BuffVisualOrbs: [BuffVisualOrbs]
   MiscAnimated3: MiscAnimated
-  _: rid
+  WeaponEffect: SkillWeaponEffects
   _: string
+  _: i32
+  _: i32
+  _: bool
+  _: bool
+  _: [string]
 }
 
 type BuffVisualsArtVariations {
@@ -828,6 +855,16 @@ type BuffVisualSetEntries {
 
 enum BuffVisualSets @indexing(first: 0) { _ }
 
+type BuiltInItemFilters {
+  Id: string @unique
+  Name: string
+  Filter: string
+  _: string
+  _: bool
+  _: bool
+  _: string
+}
+
 type CharacterAudioEvents {
   Id: string @unique
   Event: QuestFlags
@@ -839,6 +876,7 @@ type CharacterAudioEvents {
   JackTheAxe_CharacterTextAudioKeys: [CharacterTextAudio]
   _: bool
   _: bool
+  _: [_]
 }
 
 type CharacterEventTextAudio {
@@ -867,6 +905,7 @@ type CharacterPanelStats {
   _: bool
   _: [i32]
   _: i32
+  _: bool
 }
 
 type CharacterPanelTabs {
@@ -893,7 +932,7 @@ type Characters {
   BaseStrength: i32
   BaseDexterity: i32
   BaseIntelligence: i32
-  _: [rid]
+  StartingMeleeSkill: [GrantedEffectsPerLevel]
   Description: string @localized
   StartSkillGem: SkillGems
   _: rid
@@ -904,10 +943,10 @@ type Characters {
   StartWeapons: [BaseItemTypes]
   Gender: string
   TraitDescription: string @localized
-  _: rid
-  _: rid
-  _: rid
-  _: rid
+  StartSupportGem: SkillGems
+  _: SkillGems
+  _: SkillGems
+  StartingWeaponBase: BaseItemTypes
   _: i32
   _: [rid]
   PassiveTreeImage: string @file(ext: ".dds")
@@ -934,24 +973,24 @@ type Characters {
   Attr: string
   AttrLowercase: string
   Script: string
-  _: rid
+  GhostArmMtx: MiscEffectPacks
   _: i32
   _: MonsterVarieties
   _: MonsterVarieties
   _: i32
   _: f32
-  _: rid
-  _: rid
+  LightningCloneBreach: MonsterVarieties
+  _: MonsterVarieties
 }
 
 type CharacterStartQuestState {
   Id: string
   QuestKeys: [Quest]
-  QuestStates: [i32]
-  _: [rid]
+  QuestFlags: [QuestFlags]
+  NPCs: [NPCs]
   MapPinsKeys: [MapPins]
-  _: [i32]
-  _: [rid]
+  _: [QuestFlags]
+  Areas: [WorldAreas]
 }
 
 type CharacterStartStates {
@@ -961,7 +1000,7 @@ type CharacterStartStates {
   Level: i32
   PassiveSkillsKeys: [PassiveSkills]
   CharacterStartStateSetKey: CharacterStartStateSet
-  _: rid
+  HubArea: WorldAreas
   CharacterStartQuestStateKeys: [CharacterStartQuestState]
   _: bool
   InfoText: string
@@ -979,6 +1018,11 @@ type CharacterTextAudio {
   ParrotSoundFile: string @file(ext: ".ogg")
   _: i32
   _: i32
+}
+
+type ChatColours {
+  Id: string @unique
+  HASH32: u32
 }
 
 type ChatIcons {
@@ -1023,7 +1067,6 @@ type Chests {
   _: bool
   _: bool
   _: i32
-  _: [rid]
   BaseItemTypesKey: BaseItemTypes
   _: bool
   ModsKeys: [Mods]
@@ -1032,23 +1075,22 @@ type Chests {
   MinLevel: i32
   _: string
   MaxLevel: i32
-  Corrupt_AchievementItemsKey: AchievementItems
-  CurrencyUse_AchievementItemsKey: AchievementItems
-  Encounter_AchievementItemsKeys: [AchievementItems]
   _: rid
+  UnlockItem: BaseItemTypes
+  Encounter_AchievementItemsKeys: [AchievementItems]
+  Environment: Environments
   InheritsFrom: string @files(ext: [".ot", ".otc"])
   _: bool
-  _: rid
-  _: [i32]
+  MinimapIcons: MinimapIcons
   _: string
   _: i32
   _: i32
   _: bool
-  _: rid
-  _: rid
+  Colour: Colours
+  OutlineColour: Colours
   _: bool
   _: bool
-  _: [rid]
+  LeagueChallenges: [AchievementItems]
   IsHardmode: bool
   StatsHardmode: [Stats]
   _: bool
@@ -1056,17 +1098,27 @@ type Chests {
 
 type ClientStrings {
   Id: string @unique
-  Text: string
-  XBoxText: string
-  XBoxText2: string
-  HASH32: i32
-  PlaystationText: string
+  Text: string @localized
+  XBoxText: string @localized
+  XBoxText2: string @localized
+  HASH32: u32
+  PlaystationText: string @localized
+  _: string
+}
+
+type ClientStrings2 {
+  Id: string @unique
+  Text: string @localized
+  XBoxText: string @localized
+  XBoxText2: string @localized
+  HASH32: u32
+  PlaystationText: string @localized
   _: string
 }
 
 type ClientLeagueAction {
   Id: string
-  _: rid
+  GamepadButton: GamepadButton
   _: i32
   GamepadIcon: string
 }
@@ -1098,6 +1150,13 @@ type Commands {
   _: bool
 }
 
+type CompletionNotification {
+  Id: string @unique
+  Art: string
+  Sound: SoundEffects
+  PopupMessage: ClientStrings
+}
+
 type ComponentAttributeRequirements @tags(list: ["item:def"]) {
   BaseItemTypesKey: BaseItemTypes @ref(column: "Id") @unique
   ReqStr: i32
@@ -1118,16 +1177,16 @@ enum CooldownBypassTypes @indexing(first: 1) { _ }
 enum CooldownGroups @indexing(first: 0) { _ }
 
 type CoreLeagues {
-  Id: string
+  Id: string @unique
   _: bool
   _: bool
-  _: Stats
-  _: [Stats]
-  _: Stats
-  _: Stats
-  _: Stats
-  _: [Stats]
-  _: Stats
+  DisableChanceStat: Stats
+  DisableStat: [Stats]
+  LeagueChanceStat: Stats
+  AdditionalLeagueChanceStat: Stats
+  BaseLeagueChanceStat: Stats
+  ForcedSpawnStat: [Stats]
+  LeagueCountOverrideStat: Stats
   _: rid
   _: i32
   _: bool
@@ -1135,6 +1194,8 @@ type CoreLeagues {
   _: bool
   _: bool
   _: [Stats]
+  _: bool
+  _: Stats
 }
 
 type CostTypes {
@@ -1184,7 +1245,7 @@ type CraftingBenchOptions @tags(list: ["crafting"]) {
   _: Stats
   _: Stats
   MapDevice: bool
-  _: [rid]
+  PassiveSkills: [PassiveSkills]
   Tags: [Tags]
   _: [i32]
 }
@@ -1276,8 +1337,8 @@ type DamageHitEffects {
   Id: i32
   _: i32
   _: i32
-  _: [_]
-  _: [_]
+  DamageEffectPC: [DamageEffectVariations]
+  DamageEffectConsole: [DamageEffectVariations]
 }
 
 type DamageParticleEffects {
@@ -1431,6 +1492,17 @@ type DropPool {
   WeightHardmode: i32
 }
 
+type DynamicCraftingBenchTypes {
+  Id: string @unique
+  _: string
+  BackgroundArt: string
+  Description: string
+  Name: string
+  SoundEffect: SoundEffects
+  _: [rid]
+  _: i32
+}
+
 type EclipseMods {
   Key: string @unique
   SpawnWeight_TagsKeys: [Tags]
@@ -1443,7 +1515,7 @@ type EclipseMods {
 
 type EffectDrivenSkill {
   _: i32
-  _: [rid]
+  Animation: [MiscAnimated]
   _: [_] # All rows empty
   _: i32
   _: i32
@@ -1512,11 +1584,17 @@ type Environments {
   _: [_]
   EnvironmentTransitionsKey: EnvironmentTransitions
   PreloadGroup: PreloadGroups
+  _: bool
+  _: f32
 }
 
 type EnvironmentTransitions {
   Id: string
   OTFiles: [string] @file(ext: ".ot")
+  _: i32
+  Environment: [Environments]
+  _: [_]
+  _: i32
 }
 
 type EssenceStashTabLayout {
@@ -1539,8 +1617,7 @@ type EvergreenAchievements {
 enum EvergreenAchievementTypes @indexing(first: 0) { _ }
 
 type ExecuteGEAL {
-  _: i32
-  _: i32
+  Id: string @unique
   MiscAnimated: [MiscAnimated]
   _: i32
   _: i32
@@ -1619,6 +1696,9 @@ type ExplodingStormBuffs {
   _: i32
   BuffDefinitionsKey2: BuffDefinitions
   IsOnlySpawningNearPlayer: bool
+  PlayerBuffTemplate: BuffTemplates
+  MonsterBuffTemplate: BuffTemplates
+  _: bool
 }
 
 type ExtraTerrainFeatures {
@@ -1641,9 +1721,8 @@ type FixedHideoutDoodadTypes {
   _: i32
   _: i32
   _: bool
-  _: rid
-  _: i32
-  _: rid
+  UnlockQuest: Quest
+  WorldArea: WorldAreas
 }
 
 type FixedMissions {
@@ -1717,6 +1796,7 @@ type FragmentStashTabLayout {
   _: bool
   _: string
   _: i32
+  _: bool
 }
 
 type GameConstants {
@@ -1726,9 +1806,11 @@ type GameConstants {
 }
 
 type GameLogos {
-  Id: string
-  LogoIntl: string
-  LogoTW: string
+  Id: string @unique
+  LogoIntl: string @file(ext: ".dds")
+  LogoTW: string @file(ext: ".dds")
+  AnimatedLogoIntl: string @file(ext: ".bk2")
+  AnimatedLogoTW: string @file(ext: ".bk2")
 }
 
 type GameObjectTasks {
@@ -1737,11 +1819,12 @@ type GameObjectTasks {
 }
 
 type GamepadButton {
-  _: string
-  _: string
-  _: string
-  _: string
-  _: string
+  Id: string @unique
+  XInput: string
+  Generic: string
+  DualShock: string
+  SteamInput: string
+  DualSense: string
 }
 
 type GamepadType {
@@ -1772,23 +1855,21 @@ type GenericBuffAuras {
 
 type GenericLeagueRewardTypes @tags(list: ["item:droptable"]) {
   Id: string
-  MinLevel: i32
-  MaxLevel: i32
 }
 
 type GenericLeagueRewardTypeVisuals {
   Type: GenericLeagueRewardTypes
-  _: rid
-  _: rid
+  MapIcon: MinimapIcons
+  Animation: MiscAnimated
   _: f32
   Icon: string
   Name: string @localized
 }
 
 type GeometryAttack {
-  _: i32
-  _: [rid]
-  _: [rid]
+  Id: i32
+  Animation: [MiscAnimated] @unique
+  HitEffect: [MiscAnimated]
   _: i32
   _: i32
   _: i32
@@ -1798,36 +1879,36 @@ type GeometryAttack {
   _: i32
   _: i32
   _: i32
+  _: bool
+  _: bool
+  _: [_] # All rows empty
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+  _: bool
+  _: i32
+  _: i32
+  _: bool
+  _: i32
+  _: bool
+  BuffDefinition: BuffDefinitions
+  BuffValues: [i32]
+  _: i32
+  _: bool
+  _: bool
+  _: rid
+  _: bool
+  _: [i32]
+  _: bool
+  _: bool
+  GeometryChannel: GeometryChannel
   _: bool
   _: bool
   _: [_] # All rows empty
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: bool
-  _: bool
-  _: i32
-  _: i32
-  _: bool
-  _: i32
-  _: bool
-  _: rid
-  _: [i32]
-  _: i32
-  _: bool
-  _: bool
-  _: rid
-  _: bool
-  _: [i32]
-  _: bool
-  _: bool
-  _: rid
-  _: bool
-  _: bool
-  _: [_] # All rows empty
   _: bool
   _: bool
   _: bool
@@ -1839,21 +1920,22 @@ type GeometryAttack {
   _: i32
   _: i32
   _: bool
-  _: rid
-  _: rid
+  ExecuteGeal: ExecuteGEAL
+  GroundEffect: GroundEffectTypes
+  MonsterVariety: [MonsterVarieties]
 }
 
 type GeometryChannel {
   Id: string @unique
-  _: rid
-  _: rid
-  _: rid
+  AnimationStart: Animation
+  AnimationEnd: Animation
+  MiscAnimated: MiscAnimated
   _: string
   _: string
   _: string
   _: bool
   _: bool
-  _: rid
+  MiscAnimated2: MiscAnimated
   _: rid
   EPKFile: string @file(ext: ".epk")
   _: i32
@@ -1861,8 +1943,8 @@ type GeometryChannel {
 }
 
 type GeometryProjectiles {
-  _: i32
-  _: rid
+  Id: i32
+  Projectile: Projectiles @unique
   _: bool
   _: i32
   _: bool
@@ -1875,71 +1957,65 @@ type GeometryProjectiles {
   _: bool
   _: i32
   _: i32
+  _: bool
   _: i32
   _: bool
   _: bool
-  _: bool
-  _: rid
+  GeometryChannel: GeometryChannel
   _: bool
   _: rid
   _: i32
 }
 
 type GeometryTrigger {
+  Id: i32
+  GrantedEffect: GrantedEffects @unique
+  Animation: MiscAnimated
   _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+  _: i32
+  _: bool
+  _: bool
+  _: f32
+  _: i32
+  _: i32
+  GroundMarker: [MiscAnimated]
+  _: i32
+  _: bool
+  _: i32
+  _: bool
+  _: bool
+  _: i32
+  _: bool
+  _: bool
   _: rid
-  _: rid
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: bool
-  _: i32
-  _: bool
-  _: i32
-  _: i32
-  _: bool
-  _: i32
-  _: [rid]
-  _: i32
-  _: bool
-  _: i32
-  _: bool
-  _: bool
-  _: i32
-  _: bool
-  _: bool
-  _: rid
-  _: bool
   _: bool
   _: bool
   _: i32
   _: i32
+  Stats: [Stats]
+  StatValues: [i32]
   _: i32
-  _: i32
-  _: bool
-  _: i32
-  _: i32
-  _: rid
-  _: i32
-  _: i32
-  _: i32
-  _: i32
+  _: f32
   _: i32
   _: bool
-  _: bool
-  _: bool
+  _: i32
+  _: i32
+  _: i32
 }
 
 type GiftWrapArtVariations {
@@ -2299,6 +2375,16 @@ enum ItemClassFlags @indexing(first: 0) {
   CURRENCY
 }
 
+type ItemConditions {
+  Id: string
+  _: [_]
+  _: i32
+  _: i32
+  _: bool
+  MinLevel: i32
+  MaxLevel: i32
+}
+
 type ItemCostPerLevel {
   BaseItem: BaseItemTypes
   Level: i32
@@ -2368,6 +2454,12 @@ type ItemisedVisualEffect {
   _: rid
   _: bool
   _: rid
+  _: rid
+  _: bool
+}
+
+type ItemisedVisualEffectExclusiveTypes {
+  Id: string @unique
 }
 
 type ItemNoteCode {
@@ -2401,17 +2493,23 @@ type ItemVisualEffect {
   PETFile: string @file(ext: ".pet")
   Shield: [string] @file(ext: ".epk")
   _: bool
+  _: string
+}
+
+type ItemVisualShaderEffect {
+  Id: string @unique
+  _: bool
 }
 
 type ItemVisualHeldBodyModel {
   ItemVisualIdentity: ItemVisualIdentity
-  MarauderAnimatedObject: string
-  RangerAnimatedObject: string
-  WitchAnimatedObject: string
-  DuelistAnimatedObject: string
-  TemplarAnimatedObject: string
-  ShadowAnimatedObject: string
-  ScionAnimatedObject: string
+  MarauderAnimatedObject: string @file(ext: ".ao")
+  RangerAnimatedObject: string @file(ext: ".ao")
+  WitchAnimatedObject: string @file(ext: ".ao")
+  DuelistAnimatedObject: string @file(ext: ".ao")
+  TemplarAnimatedObject: string @file(ext: ".ao")
+  ShadowAnimatedObject: string @file(ext: ".ao")
+  ScionAnimatedObject: string @file(ext: ".ao")
   MarauderBone: string
   RangerBone: string
   WitchBone: string
@@ -2419,6 +2517,18 @@ type ItemVisualHeldBodyModel {
   TemplarBone: string
   ShadowBone: string
   ScionBone: string
+}
+
+type ItemVisualHeldModelOverrideByItemAffiliatedAttributes {
+  VisualIdentity: ItemVisualIdentity
+  ItemClass: ItemClasses
+  _: string @file(ext: ".ao")
+  _: string @file(ext: ".ao")
+  _: string @file(ext: ".ao")
+  _: string @file(ext: ".ao")
+  _: string @file(ext: ".ao")
+  _: string @file(ext: ".ao")
+  _: string @file(ext: ".ao")
 }
 
 type ItemVisualIdentity {
@@ -2516,6 +2626,16 @@ type KillstreakThresholds {
 
 enum LeagueCategory @indexing(first: 0) { _ }
 
+type LeagueCategoryToDisplayName {
+  Id: i32
+  _: rid
+}
+
+type LeagueCustomAtlasTrees {
+  Id: i32
+  _: rid
+}
+
 type LeagueFlag {
   Id: string @unique
   Image: string
@@ -2558,7 +2678,7 @@ type LeagueProgressQuestFlags {
 enum LeagueQuestFlags @indexing(first: 0) { _ }
 
 type LeagueStaticRewards {
-  _: i32
+  Id: i32
   _: i32
   _: i32
   _: rid
@@ -2566,6 +2686,8 @@ type LeagueStaticRewards {
   _: i32
   _: i32
   _: bool
+  _: [i32]
+  _: [rid]
 }
 
 type LevelRelativePlayerScaling {
@@ -2617,7 +2739,7 @@ type MapDeviceRecipes @tags(list: ["item:recipe"]) {
   WorldArea: WorldAreas
   MicrotransactionPortalVariation: MicrotransactionPortalVariations
   AreaLevel: i32
-  _: rid
+  QuestFlag: QuestFlags
   _: i32
   _: bool
   _: bool
@@ -2625,8 +2747,9 @@ type MapDeviceRecipes @tags(list: ["item:recipe"]) {
   OpenAchievemnts: [AchievementItems]
   _: bool
   _: i32
-  _: [Mods]
+  Mods: [Mods]
   _: bool
+  AtlasNode: AtlasNode
 }
 
 type MapDeviceLayouts {
@@ -2699,6 +2822,11 @@ type MapKeys {
   IsSpecial: bool
 }
 
+type MapMissionIcon {
+  Mission: string @unique
+  Icon: string
+}
+
 type MapNodeHeader {
   Id: string @unique
   _: string
@@ -2715,15 +2843,32 @@ type MapPins {
   WorldAreasKeys: [WorldAreas]
   Name: string
   FlavourText: string
-  _: [i32]
+  QuestFlags: [QuestFlags]
   Act: i32
   _: string
-  _: [i32]
-  _: i32
-  _: i32
-  _: i32
-  _: i32
+  QuestFlagVisit: [QuestFlags]
+  QuestFlagKill: QuestFlags
   _: rid
+}
+
+type SpecialMapPins {
+  Id: string @unique
+  Icon: string
+  _: i32
+  QuestFlag: QuestFlags
+  WorldArea: WorldAreas
+  _: i32
+  _: bool
+  _: bool
+  _: bool
+  HASH16: u16
+  _: bool
+  _: bool
+  HighlightIcon: string
+  Text: ClientStrings
+  PinText: ClientStrings
+  _: i32
+  AreaName: ClientStrings
 }
 
 type MapPurchaseCosts {
@@ -2815,9 +2960,23 @@ type MapStashSpecialTypeEntries {
   _: rid
 }
 
+type MapStashSpecialSubStashGroup {
+  Id: string
+  BaseItemTypes: BaseItemTypes
+  Name: string
+  _: bool
+  _: bool
+  ElderGuardian: ElderGuardians
+  ShaperGuardian: ShaperGuardians
+  _: rid
+  _: string
+  _: MapStashSpecialSubStashGroup
+}
+
 type MapStashUniqueMapInfo {
   UniqueMap: UniqueMaps
   BaseItem: BaseItemTypes
+  HASH16: u16
 }
 
 type MapStatConditions {
@@ -2909,10 +3068,17 @@ type MicrotransactionCombineFormula {
   _: bool
 }
 
+type MicrotransactionCounters {
+  Id: string @unique
+  CountInterval: f32
+  HASH32: u32
+  FunctionCall: string
+}
+
 type MicrotransactionCursorVariations {
-  _: BaseItemTypes
-  _: rid
-  _: i32
+  MtxTypeGameSpecific: MtxTypeGameSpecific @unique
+  CursorType: WindowCursors
+  _: i16
 }
 
 type MicrotransactionFireworksVariations {
@@ -2929,15 +3095,15 @@ type MicrotransactionPeriodicCharacterEffectVariations {
 }
 
 type MicrotransactionPortalVariations {
-  BaseItemTypesKey: BaseItemTypes
-  Id: i32 @unique
+  MtxTypeGameSpecific: MtxTypeGameSpecific @unique
+  Index: i16
   AOFile: string @file(ext: ".ao")
   MapAOFile: string @file(ext: ".ao")
   _: f32
   MiscObject: MiscObjects
   PortalEffect: string @file(ext: ".ao")
   _: f32
-  _: string
+  OTFile: string @file(ext: ".ot")
   PortalEffectLarge: string @file(ext: ".ao")
   _: i32
   _: i32
@@ -2964,24 +3130,28 @@ type MicrotransactionRecycleSalvageValues {
   _: i32
 }
 
-enum MicrotransactionSlotId @indexing(first: 1) { _ }
-
 type MicrotransactionSlot {
-  Id: MicrotransactionSlotId
-  _: rid
+  Id: i32
+  ShopTag: ShopTag
   Name: string @localized
-  _: rid
-  _: i32
+  InventorySlot: Inventories
+  FlaskSlot: i32
   _: bool
   _: i32
   _: i32
   _: bool
+  _: i32
 }
 
 type MicrotransactionSocialFrameVariations {
-  BaseItemTypesKey: BaseItemTypes
-  Id: i32 @unique
+  MtxTypeGameSpecific: MtxTypeGameSpecific @unique
+  Index: i16
   BK2File: string @file(ext: ".bk2")
+}
+
+type MicrotransactionTrackingMapFragmentTypes {
+  BaseItemType: BaseItemTypes @unique
+  _: i32
 }
 
 type MinimapIcons {
@@ -3022,17 +3192,24 @@ type MiscAnimatedArtVariations {
 type MiscBeams {
   Id: string @unique
   MiscAnimated: MiscAnimated
-  _: i32
+  _: f32
   PreloadGroupsKeys: [PreloadGroups]
   _: i32
 }
 
 type MiscBeamsArtVariations {
-  Id: string
-  _: [_]
+  Id: string @unique
+  Beam: [MiscBeams]
   _: i32
   _: i32
-  _: rid
+  Stat: Stats
+}
+
+type MiscCooldowns {
+  Id: string @unique
+  _: i32
+  _: i32
+  _: bool
 }
 
 type MiscEffectPacks {
@@ -3076,10 +3253,14 @@ type MissionTimerTypes {
   Id: string
   Image: string
   BackgroundImage: string
-  _: [rid]
+  SoundEffects: [SoundEffects]
   _: [f32]
-  _: rid
-  _: rid
+  _: SoundEffects
+  _: SoundEffects
+  _: string
+  _: string
+  _: f32
+  _: i32
 }
 
 type MissionTransitionTiles {
@@ -3141,6 +3322,7 @@ type ModEffectStats {
   _: bool
   _: bool
   _: bool
+  _: i32
 }
 
 type ModEquivalencies {
@@ -3403,6 +3585,7 @@ type MonsterHeightBrackets {
   _: i32
   _: f32
   _: f32
+  _: bool
 }
 
 type MonsterHeights {
@@ -3441,9 +3624,9 @@ type MonsterMapDifficulty {
 
 type MonsterMortar {
   Id: i32
-  _: rid
-  _: rid
-  _: rid
+  Projectile: Projectiles @unique
+  Animation: Animation
+  ImpactAnimation: MiscAnimated
   _: i32
   _: bool
   _: bool
@@ -3456,7 +3639,7 @@ type MonsterMortar {
   _: i32
   _: bool
   _: bool
-  _: rid
+  BounceAnimation: MiscAnimated
   _: i32
   _: f32
   _: f32
@@ -3467,9 +3650,9 @@ type MonsterMortar {
 }
 
 type MonsterPackCounts {
-  _: rid
+  Area: WorldAreas @unique
   _: i32
-  _: [rid]
+  Tags: [Tags]
   _: bool
   _: [i32]
 }
@@ -3503,7 +3686,7 @@ type MonsterPacks {
   PackFormation: PackFormation
   _: i32
   _: bool
-  _: [_] # All rows empty
+  _: [string]
   _: bool
   _: bool
   _: bool
@@ -3525,7 +3708,6 @@ type MonsterProjectileSpell {
   Id: i32 @unique
   Projectile: Projectiles
   Animation: Animation
-  _: bool
   _: bool
   _: i32
   _: bool
@@ -3722,7 +3904,7 @@ type MonsterVarieties {
 type MonsterVarietiesArtVariations {
   Id: string
   _: i32
-  _: [_]
+  MonsterVarietiesKeys: [MonsterVarieties]
 }
 
 type MouseCursorSizeSettings {
@@ -3738,7 +3920,7 @@ type MoveDaemon {
   _: i32
   _: i32
   _: i32
-  _: rid
+  MonsterVarietiesKeys: MonsterVarieties
   _: i32
   _: i32
   _: i32
@@ -3763,6 +3945,8 @@ type MoveDaemon {
   _: bool
   _: bool
   _: i32
+  _: bool
+  _: f32
   _: i32
   _: bool
 }
@@ -3826,6 +4010,8 @@ type MysteryBoxes {
   BoxId: string
   BundleId: string
   _: bool
+  Logo: string
+  Gradient: string
 }
 
 type NearbyMonsterConditions {
@@ -3894,6 +4080,30 @@ type NPCDialogueStyles {
   _: f32
   _: string
   _: string
+  _: i32
+  _: i32
+}
+
+type NPCDivinationWindowVisuals {
+  NPC: NPCs @unique
+  DivinationWindowVisual: DivinationWindowVisuals
+}
+
+type NPCVendorDialogueConditions {
+  Id: string @unique
+  _: rid
+  _: rid
+  _: i32
+  _: rid
+  _: i32
+  _: rid
+}
+
+type NPCVendorDialogue {
+  Id: string @unique
+  NPC: [NPCs]
+  NPCAudio: NPCTextAudio
+  DialogueCondition: [NPCVendorDialogueConditions]
   _: i32
   _: i32
 }
@@ -3976,14 +4186,14 @@ type NPCTalk {
   NPCKey: NPCs
   _: i32
   DialogueOption: string
-  _: [i32]
-  _: [i32]
-  _: [i32]
+  QuestFlag1: [QuestFlags]
+  QuestFlag2: [QuestFlags]
+  QuestFlag3: [QuestFlags]
   Script: string
-  TextAudio: NPCTextAudio
+  QuestFlag4: QuestFlags
   Category: NPCTalkCategory
   QuestRewardOffersKey: QuestRewardOffers
-  QuestFlag: QuestFlags
+  QuestFlag5: QuestFlags
   NPCTextAudioKeys: [NPCTextAudio]
   Script2: string
   _: bool
@@ -3994,23 +4204,22 @@ type NPCTalk {
   _: [i32]
   _: i32
   _: bool
-  _: rid
+  BaseItemTypes: BaseItemTypes
   _: i32
   _: bool
   DialogueOption2: string
-  _: rid
-  _: rid
-  _: string
+  ConsoleQuickAction: NPCTalkConsoleQuickActions
+  Music1: Music
   _: i32
+  _: [_]
   _: i32
-  _: i32
-  _: i32
-  _: rid
+  Music2: Music
   _: i32
   _: rid
   _: bool
   _: i32
   _: NPCTalk
+  Inventory: Inventories
 }
 
 type NPCTalkCategory {
@@ -4037,10 +4246,23 @@ type NPCTextAudio {
   _: i32
   _: i32
   NPCs: [NPCs]
-  _: rid
+  NPCPortrait: NPCPortraits
+  _: bool
+  _: f32
+  Cooldown: [MiscCooldowns]
 }
 
 enum NPCTextAudioInterruptRules @indexing(first: 0) { _ }
+
+type Omens {
+  BaseItemType: BaseItemTypes
+}
+
+type OneTimeEvents {
+  Id: string @unique
+  QuestFlag: QuestFlags
+  WorldArea: WorldAreas
+}
 
 type OnKillAchievements {
   MonsterVarietiesKey: MonsterVarieties
@@ -4049,10 +4271,30 @@ type OnKillAchievements {
 
 enum Orientations @indexing(first: 0) { _ }
 
+type PackExtrasFromStats {
+  Stat: Stats
+  _: rid
+  _: i32
+}
+
 type PackFormation {
   Id: string
   _: i32
   _: i32
+  _: i32
+  _: i32
+  _: i32
+}
+
+type PackModChancesToApply {
+  Mod: Mods
+  Chance: i32
+  Guaranteed: bool
+}
+
+type PackSizes {
+  Id: string @unique
+  Description: string
   _: i32
   _: i32
   _: i32
@@ -4323,19 +4565,27 @@ enum PerLevelValues @indexing(first: 0) { _ }
 
 type Pet {
   Id: string @unique @files(ext: [".ot", ".otc"])
-  BaseItemTypesKey: BaseItemTypes
-  HASH16: i32
-  HASH32: i32
+  MtxTypeGameSpecificKey: MtxTypeGameSpecific
+  HASH32: u32
+  HASH16: u16
   _: i32
   _: bool
   _: bool
-  _: [_]
-  _: rid
+  _: [rid]
+  HideoutCategory: HideoutDoodadCategory
   Skills: [GrantedEffectsPerLevel]
   _: i32
   _: bool
   _: rid
   _: bool
+  _: bool
+  _: string
+  DropEffect: DropEffects
+}
+
+type PlayerBuffsFromMapStats {
+  Stat: Stats @unique
+  BuffTemplate: [BuffTemplates]
 }
 
 type PlayerConditions {
@@ -4356,6 +4606,17 @@ type PlayerTradeWhisperFormats {
   Whisper: string
   InStash: bool
   IsPriced: bool
+}
+
+# Added 3.21
+type PreloadFromStats {
+  Stat: Stats @unique
+  Animation: [MiscAnimated]
+  Object: [MiscObjects]
+  BuffVisual: [BuffVisuals]
+  EffectPack: [MiscEffectPacks]
+  _: i32
+  GroundEffectType: [GroundEffectTypes]
 }
 
 type PreloadGroups {
@@ -4558,6 +4819,12 @@ type Races {
   _: [_]
 }
 
+type RaceRewardToMicro {
+  Id: ItemVisualIdentity
+  MtxTypeGameSpecific: MtxTypeGameSpecific @unique
+  HASH32: u32
+}
+
 type RaceTimes {
   RacesKey: Races
   Index: i32
@@ -4618,6 +4885,10 @@ type ReminderText {
 }
 
 enum RelativeImportanceConstants @indexing(first: 0) { _ }
+
+type RogueExileGiants {
+  Id: MonsterVarieties @unique
+}
 
 type Rulesets {
   Id: string @unique
@@ -4688,19 +4959,19 @@ type SingleGroundLaser {
 }
 
 type SkillArtVariations {
-  Id: string
-  _: [rid]
-  _: [i32]
-  _: [i32]
-  _: [i32]
+  Id: string @unique
+  AnimatedArt: [MiscAnimatedArtVariations]
+  BeamArt: [MiscBeamsArtVariations]
+  EffectPacksArt: [MiscEffectPacksArtVariations]
+  ObjectArt: [MiscObjectsArtVariations]
   Variants: [string]
-  _: [rid]
+  BuffVisuals: [BuffVisualsArtVariations]
   _: [i32]
-  _: [rid]
-  _: rid
-  _: [i32]
-  _: [rid]
-  _: [i32]
+  ProjectileArt: [ProjectilesArtVariations]
+  Stat: Stats
+  MonsterVarieties: [MonsterVarietiesArtVariations]
+  ActiveSkill: [ActiveSkills]
+  GrantedEffect: [GrantedEffects]
 }
 
 type SkillGemInfo {
@@ -4810,9 +5081,14 @@ type SpawnAdditionalChestsOrClusters {
   ChestClustersKey: ChestClusters
 }
 
+type SpawnMonsterOnPackDeathStats {
+  Stat: Stats @unique
+  Monster: MonsterVarieties
+}
+
 type SpawnObject {
-  _: i32
-  _: [rid]
+  Id: i32
+  MiscObjects: [MiscObjects] @unique
   _: [_] # All rows empty
   _: i32
   _: i32
@@ -4877,19 +5153,38 @@ enum StashId @indexing(first: 0) {
 }
 
 type StashTabAffinities {
-  SpecializedStash: StashId
+  Id: StashTabAffinityId
   Name: string @localized
-  ShowInStashes: [StashId]
+  _: [i32]
+  _: i32
+}
+
+type StashTabAffinityId {
+  Id: string @unique
+}
+
+type StashAvailabilities {
+  Id: i32
+  _: i32
+  Message: string @localized
 }
 
 type StashType {
   Id: string @unique
   StashId: StashId @unique
   Id2: string
-  _: i32
+  StorageSlots: i32
   _: i32
   _: i32
   Icon: string
+}
+
+type StaticLifeBarStyle {
+  Id: string @unique
+  FrameLeftArt: string
+  FrameMiddleArt: string
+  FrameRightArt: string
+  BossOrnamentArt: string
 }
 
 type StatDescriptionFunctions {
@@ -4912,6 +5207,7 @@ enum StatInterpolationTypes @indexing(first: 1) {
 type StatsAffectingGeneration {
   Stat: Stats
   StatValue: i32
+  _: bool
 }
 
 type Stats @tags(list: ["crafting"]) {
@@ -5094,26 +5390,27 @@ type Tags {
 }
 
 type TalkingPetAudioEvents {
-  Event: string
+  Event: string  @unique
   _: i32
   _: i32
   _: i32
-  _: [i32]
-  _: [i32]
-  _: i32
+  BaseItemTypeKey: [BaseItemTypes]
+  _: [rid]
+  RepeatCooldown: i32
 }
 
 type TalkingPetNPCAudio {
-  _: TalkingPetAudioEvents
-  _: TalkingPets
-  _: [i32]
-  _: string
+  Id: TalkingPetAudioEvents @unique
+  NPC: TalkingPets
+  NPCAudio: [NPCTextAudio]
+  Animation: string
   _: bool
+  NPCAudio2: [NPCTextAudio]
 }
 
 type TalkingPets {
-  _: rid
-  _: [rid]
+  Id: NPCs @unique
+  Pet: [Pet]
 }
 
 type TencentAutoLootPetCurrencies {
@@ -5133,6 +5430,14 @@ type TerrainPlugins {
   _: bool
 }
 
+type TimeTrackingMapDeviceInterfaceArtVariation {
+  MapDevice: MapDevices @unique
+  Art: string
+  _: [i32]
+  _: [i32]
+  _: [i32]
+}
+
 type Tips {
   Id: string @unique
   Text: string
@@ -5144,6 +5449,8 @@ type Topologies {
   DGRFile: string @file(ext: ".dgr")
   _: i32
   _: i32
+  _: i32
+  _: [i32]
   _: i32
 }
 
@@ -5173,6 +5480,13 @@ type TradeMarketIndexItemAs {
 }
 
 enum TradeMarketCategoryStyleFlag @indexing(first: 0) { _ }
+
+type TriggeredAudioEventVolumeOverrides {
+  Id: string @unique
+  _: f32
+  Actions: [ActionTypes]
+  _: f32
+}
 
 type TriggerBeam {
   _: i32
@@ -5255,7 +5569,7 @@ type UniqueChests {
   _: [i32]
   AppearanceChestsKey: Chests
   ChestsKey: Chests
-  _: [rid]
+  Achievement: [AchievementItems]
 }
 
 type UniqueJewelLimits @tags(list: ["item:unique"]) {
@@ -5302,6 +5616,11 @@ type UniqueStashTypes {
   Image: string
   ChallengeLeagueCount: i32
   IsDisabled: bool
+}
+
+type UniqueUpgradesClient {
+  BaseItemType: BaseItemTypes @unique
+  ItemVisualIdentity: [ItemVisualIdentity]
 }
 
 type VirtualStatContextFlags {
@@ -5468,7 +5787,19 @@ type WorldAreas {
 }
 
 type WorldAreaLeagueChances {
-  Id: string
+  Id: string @unique
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
   _: i32
   _: i32
   _: i32
@@ -5517,6 +5848,12 @@ type WorldPopupIconTypes {
   _: f32
   _: f32
   _: string
+  SoundEffect: SoundEffects
+  _: bool
+  _: i32
+  _: i32
+  _: i32
+  _: i32
 }
 
 # Added 3.21
@@ -5581,12 +5918,12 @@ type AtlasMemoryLine {
 # Added 3.17
 type BattlePasses {
   Id: string @unique
-  LeagueCategory: LeagueCategory
+  LeagueCategory: i32
   International_BK2File: string
   China_BK2File: string
   MapCompletionCount: i32
   _: bool
-  Id2: string @unique
+  Mtx: MtxTypes
 }
 
 # Added 3.17
@@ -5624,20 +5961,27 @@ type BattlePassRewards {
 type BattlePassTracks {
   Id: string @unique
   Description: string
+  _: string
 }
 
 # Added 3.20
 type BreachArtVariations {
   Id: string @unique
-  _: rid
-  _: rid
-  _: rid
-  _: rid
-  _: rid
-  _: rid
-  _: rid
-  _: [_]
-  _: rid
+  Portal: MiscAnimated
+  Chest: MiscAnimated
+  LargeChest: MiscAnimated
+  Effect: MiscAnimated
+  BuffVisualSmall: BuffVisuals
+  BuffVisualBig: BuffVisuals
+  LargeChestMarker: MiscAnimated
+  SoulerCoaster: [MiscAnimated]
+  CloseEffect: MiscAnimated
+  Encounter: Environments
+}
+
+type BreachLifeScalingPerLevel {
+  Level: i32
+  Scale: i32
 }
 
 # Added 3.21
@@ -5650,13 +5994,14 @@ type Breachstones {
 }
 
 type BossKillEvent {
-  _: string
+  Id: string
   QuestFlag: QuestFlags
   AreaLevel: i32
   Monster: MonsterVarieties
   _: rid
   _: i32
   QuestFlag2: QuestFlags
+  _: i32
   _: i32
   _: i32
 }
@@ -5687,10 +6032,42 @@ type CosmeticsEquipPanelMode {
   _: [_]
 }
 
+# Added 3.26
+type CountdownTimers {
+  Id: string @unique
+  BackgroundArt: string
+  Text: string
+  FightCountdown: SoundEffects
+  Countdown: [SoundEffects]
+  _: i32
+  _: i32
+  _: i32
+  _: f32
+  _: i32
+  _: f32
+}
+
 # Added 3.21
 type CraftingBenchSpecificOptionId {
   _: string @unique
   _: rid
+}
+
+type CraftingSpreeType @tags(list: ["crafting"]) {
+  Id: string @unique
+  CurrencyItem: [CurrencyItems]
+  CurrencyCount: [i32]
+  ItemClass: [ItemClasses]
+  _: bool
+  Text: string @localized
+  _: i32
+  _: rid
+}
+
+# Added 3.27
+type CurrencyApplyModeAlternativeCurrency {
+  CurrencyItem: CurrencyItems @unique
+  AltCurrencyUse: CurrencyItems
 }
 
 # Added 3.21
@@ -5704,6 +6081,17 @@ type CurrencyUseEffects {
   Stat: Stats
   _: f32
   SoundEffect: SoundEffects
+}
+
+# Added 3.25
+type CustomLeagueMonsterReplacements  {
+  RegularLeagueMonster: MonsterVarieties
+  GauntletMonster: MonsterVarieties
+}
+
+type CustomLeagueRoomReplacements {
+  RegularLeague: string @unique
+  Gauntlet: string
 }
 
 # Added 3.17
@@ -5741,6 +6129,20 @@ type DelveRobotVariations {
   _: [string]
   _: rid
   _: rid
+}
+
+type DisplayCaseTypes {
+  Id: string @unique
+  _: i32
+  Base: string
+  HoverMiddle: string
+  HoverRight: string
+  Glass: string
+  CrackedGlass: string
+  TopLeftCorner: string
+  TopRightCorner: string
+  BottomLeftCorner: string
+  BottomRightCorner: string
 }
 
 # Added 3.22
@@ -5835,10 +6237,32 @@ type GoldActScaling {
   _: i32
 }
 
+type GoldBaseTypePrices {
+  BaseItemType: BaseItemTypes @unique
+  Cost: i32
+  _: f32
+  _: bool
+}
+
 # Added 3.20
 type GoldConstants {
   Id: string @unique
   _: i32
+}
+
+type GoldPriceFromItemLevel {
+  BaseItemType: BaseItemTypes @unique
+  Cost: i32
+  _: i32
+  _: i32
+}
+
+type GoldPriceFromTag {
+  Tag: Tags @unique
+  Multiplier: f32
+  _: bool
+  _: i32
+  _: bool
 }
 
 # Added 3.20
@@ -5930,12 +6354,25 @@ type HudLifeVisuals {
   _: string
 }
 
+type HudManaVisuals {
+  Id: string @unique
+  OrbContent: string
+  OrbTrim: string
+  HUDContent: string
+  HUDTrim: string
+  FlaskContent: string
+  _: i32
+}
+
 # Added 3.21
 type HudVisualsFromStat {
-  _: rid @unique
-  _: rid
-  _: rid
-  _: rid
+  Stat: Stats @unique
+  LifeVisual: HudLifeVisuals
+  EnergyShieldVisual: HudEnergyShieldVisuals
+  ManaVisual: HudManaVisuals
+  TradeVisual: tradewindowvisuals
+  ManaFlaskVisual: HudManaVisuals
+  _: bool
 }
 
 # Added 3.23
@@ -5961,9 +6398,9 @@ type ItemClassPickupEffect {
 
 # Added 3.22
 type ItemClassVisualReplacement {
-  _: rid @unique
-  _: rid
-  _: rid
+  ItemClass: ItemClasses @unique
+  Stat: Stats
+  ItemVisualIdentity: ItemVisualIdentity
   _: bool
   _: bool
   _: bool
@@ -5980,9 +6417,9 @@ type ItemPickupEffect {
 
 # Added 3.20
 type ItemVisualReplacement {
-  _: rid
-  _: rid
-  _: rid
+  Id: BaseItemTypes @unique
+  Stat: Stats
+  ItemVisualIdentity: ItemVisualIdentity
   _: bool
   _: bool
   _: bool
@@ -5998,6 +6435,12 @@ type LegacyAtlasInfluenceOutcomes {
   _: i32
   _: rid
   _: [_]
+}
+
+type LevelUpSoundEffect {
+  Id: string @unique
+  SoundEffectStereo: SoundEffects
+  SoundEffect: SoundEffects
 }
 
 # Added 3.22
@@ -6060,20 +6503,33 @@ type MtxTypes {
   _: string @localized
   _: string
   _: string
+  _: string
 }
 
 type MtxTypeGameSpecific {
   Type: MtxTypes @unique
-  HASH16: i32
+  HASH32: u32
   DDSFile: string @file(ext: ".dds")
-  Category: MicrotransactionCategory @ref(column: "Id")
+  Category: i32
   _: [i32]
   _: i32
+  _: [i32]
+}
+
+type MicrotransactionAfkEffects {
+  Id: string @unique
+  Stat: Stats
+  ObjectTask: GameObjectTasks
+  GrantedEffect: GrantedEffectsPerLevel
+  _: i32
+  _: i32
+  FlyingStat: [Stats]
+  _: bool
 }
 
 # Added 3.19
 type MicrotransactionAppliedInventoryItemArtVariations {
-  _: rid @unique
+  Id: mtxtypegamespecific @unique
   DDSFiles: [string] @file(ext: ".dds")
   _: [i32]
   _: [rid]
@@ -6118,9 +6574,9 @@ type MicrotransactionConditionalApparitions {
 
 # Added 3.21
 type MicrotransactionEquippedIconVariations {
-  _: rid
+  Id: MtxTypeGameSpecific @unique
   DDSFiles: [string] @file(ext: ".dds")
-  _: [_]
+  _: [i32]
 }
 
 # Added 3.17
@@ -6142,6 +6598,18 @@ type MicrotransactionJewelVariations {
   _: bool
   _: rid
   _: bool
+}
+
+type MicrotransactionLevelUpEffects {
+  Id: string @unique
+  Animation: MiscAnimated
+  EffectPack: MiscEffectPacks
+  Stat: Stats
+  MiscObject: MiscObjects
+  _: string
+  Script: string
+  _: string
+  SoundEffect: LevelUpSoundEffect
 }
 
 # Added 3.21
@@ -6168,7 +6636,7 @@ type MicrotransactionObjectEffects {
 # Added 3.21
 type MicrotransactionOnKillBeams {
   Id: string @unique
-  _: rid
+  Beam: MiscBeams
   _: string
   _: string
   _: string
@@ -6179,30 +6647,50 @@ type MicrotransactionOnKillBeams {
 # Added 3.21
 type MicrotransactionOnKillConditions {
   Id: string @unique
-  _: [_]
+  Rarity: [MicrotransactionRarityDisplay]
   _: [_] # All rows empty
   _: [_] # All rows empty
   _: i32
   _: bool
-  _: [_]
-  _: i32
-  _: i32
+  _: [i32]
   _: i32
   _: bool
-  _: string
-  _: [string]
+  _: [_]
+  Stats: [Stats]
 }
 
 # Added 3.21
 type MicrotransactionOnKillEffects {
   Id: string @unique
-  _: rid
-  _: rid
-  _: rid
+  ObjectEffect1: MicrotransactionObjectEffects
+  ObjectEffect2: MicrotransactionObjectEffects
+  KillCondition: MicrotransactionOnKillConditions
+  HASH32: u32
+  OnKillBeam: MicrotransactionOnKillBeams
   _: i32
-  _: rid
+  Stat: Stats
+  Counter: [MicrotransactionCounters]
+  _: [i32]
+}
+
+type MicrotransactionOnOpenChestEffects {
+  Id: string @unique
+  Animation: MiscAnimated
+  Stat: Stats
+  HASH32: u32
   _: i32
-  _: rid
+}
+
+type MicrotransactionRandomDisguises {
+  Id: i32
+  Disguise: string @unique
+  WorldArea: WorldAreas
+}
+
+type MicrotransactionReviveEffects {
+  Id: string @unique
+  _: i32
+  _: bool
 }
 
 # Added 3.22
@@ -6228,6 +6716,8 @@ type MinionType {
   _: bool
   _: bool
   _: i32
+  _: bool
+  _: bool
   _: bool
   _: bool
   _: bool
@@ -6277,16 +6767,6 @@ type PortalAudioEvents {
   _: i32
 }
 
-# Added 3.21
-type PreloadFromStats {
-  _: rid @unique
-  _: [_]
-  _: [_]
-  _: [_]
-  _: [_]
-  _: i32
-}
-
 # Added 3.20
 type RelicInventoryLayout {
   _: i32
@@ -6333,27 +6813,31 @@ type SkillWeaponEffects {
 
 # Added 3.23
 type StatisticTrackingMicrotransactions {
-  _: rid
+  MtxTypeGameSpecific: MtxTypeGameSpecific @unique
   _: bool
   _: bool
+  _: bool
+  _: i32
   _: bool
 }
 
 # Added 3.23
 type StatisticTrackingMicrotransactionsStatistics {
+  Id: StatisticTrackingMicrotransactions @unique
+  _: i32
+  _: i32
+  ItemVisualIdentity: ItemVisualIdentity
   _: bool
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
+  Icon: string
+  _: bool
+  Text: ClientStrings
+  Type: StatisticTrackingMicrotransactionCounterType
+}
+
+type StatisticTrackingMicrotransactionCounterType {
+  Id: string @unique
   _: string
-  _: bool
+  Name: string @localized
 }
 
 # Added 3.20
@@ -6371,9 +6855,10 @@ type StatVisuals {
 
 # Added 3.23
 type SummonedSpecificMonstersOnDeathStats {
-  _: rid
-  _: rid
+  Id: Stats @unique
+  Monster: SummonedSpecificMonstersOnDeath
   _: bool
+  MapStat: Stats
 }
 
 # Added 3.19
@@ -6413,6 +6898,18 @@ type TormentedSpiritLifeScalingPerLevel {
 type TradeMarketImplicitModDisplay {
   _: rid @unique
   _: string
+}
+
+type TradeWindowVisuals {
+  Id: string @unique
+  PCTradeWindow: string
+  ConsoleTradeWindow: string
+  _: [i32]
+  _: [i32]
+  _: [i32]
+  _: [i32]
+  _: [i32]
+  _: bool
 }
 
 # Added 3.21

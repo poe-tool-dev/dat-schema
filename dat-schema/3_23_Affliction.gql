@@ -1,13 +1,13 @@
 type AfflictionDustedMonsterCurrencyDropWeightingByItemRarity {
-  _: rid
-  _: i32
+  Rarity: Rarity
+  CurrencyDropWeighting: f32
 }
 
 type AzmeriCounterQuests {
-  _: string
-  _: rid
-  _: rid
-  _: rid
+  Id: string
+  Ascendancy: Descendancy
+  QuestFlagStart: QuestFlags
+  QuestFlagEnd: QuestFlags
   _: i32
 }
 
@@ -16,28 +16,26 @@ type AzmeriFeatureRooms {
   _: i32
   _: string
   _: string
-  _: [_]
+  Achievements: [AchievementItems]
   _: bool
 }
 
 type AzmeriLifeScalingPerLevel {
-  _: i32
-  _: i32
+  Level: i32
+  MoreLife: i32
 }
 
 type AzmeriWoodsDustType {
+  Id: string @unique
+  BaseItemType: BaseItemTypes
   _: string
-  _: rid
   _: string
-  _: string
-  _: rid
-  _: rid
-  _: rid
-  _: string
-  _: i32
-  _: rid
-  _: i32
-  _: string
+  ChargeAnimation: MiscAnimated
+  ReleaseAnimation: MiscAnimated
+  Stats: Stats
+  BeamArt: MiscBeams
+  WeatherArt: MiscAnimated
+  Text: string
 }
 
 type CorpseTypeTags {
@@ -46,6 +44,9 @@ type CorpseTypeTags {
   RavenousBuff: BuffDefinitions
   Icon: string
   _: i32
+  TypeTag: TypeTags
+  _: string
+  MinimapIcon: MinimapIcons
 }
 
 type Descendancy {
@@ -56,11 +57,11 @@ type Descendancy {
   CoordinateRect: string
   RGBFlavourTextColour: string
   UnlockCondition: string
-  _: rid
-  _: rid
+  SoundEffectOpen: SoundEffects
+  SoundEffectAccept: SoundEffects
   _: i32
-  UIArt: PassiveSkillTreeUIArtAscendancy
-  _: rid
+  PassiveTreeUIArt: PassiveSkillTreeUIArtAscendancy
+  UIArt: UIArtAscendancy
 }
 
 type ItemisedCorpse {

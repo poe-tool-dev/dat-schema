@@ -2,10 +2,10 @@ type Shrines {
   Id: string @unique
   TimeoutInSeconds: i32
   ChargesShared: bool
-  Player_ShrineBuffsKey: rid
+  Player_ShrineBuffsKey: BuffTemplates
   _: i32
   _: i32
-  Monster_ShrineBuffsKey: rid
+  Monster_ShrineBuffsKey: BuffTemplates
   SummonMonster_MonsterVarietiesKey: MonsterVarieties
   SummonPlayer_MonsterVarietiesKey: MonsterVarieties
   _: i32
@@ -19,8 +19,8 @@ type Shrines {
   Description: ClientStrings
   Name: ClientStrings
   _: bool
-  _: rid
-  _: [_]
+  Mods: Mods
+  MonsterPacks: [MonsterPacks]
 }
 
 type ShrineSounds {

@@ -113,8 +113,8 @@ type HeistContracts {
 
 type HeistDoodadNPCs {
   NPCsKey: NPCs
-  _: rid
-  _: rid
+  QuestFlag1: QuestFlags
+  QuestFlag2: QuestFlags
   _: i32
   _: i32
   _: i32
@@ -250,7 +250,7 @@ type HeistNPCs {
   HeistJobsKey: HeistJobs
   Equip_AchievementItemsKeys: [AchievementItems]
   AOFile: string @file(ext: ".ao")
-  _: rid
+  Inventory: Inventories
 }
 
 type HeistNPCStats {

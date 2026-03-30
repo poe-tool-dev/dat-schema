@@ -42,12 +42,12 @@ type SanctumFloors {
 
 type SanctumFodderLifeScalingPerLevel {
   Level: i32
-  _: i32
+  MoreLife: i32
 }
 
 type SanctumLifeScalingPerLevel {
   Level: i32
-  _: i32
+  MoreLife: i32
 }
 
 type SanctumPersistentEffectCategories {
@@ -101,8 +101,8 @@ type SanctumRoomTypes {
   Id: string
   _: bool
   _: bool
-  _: rid
-  _: rid
+  QuestFlagEnter: SessionQuestFlags
+  QuestFlagComplete: SessionQuestFlags
   _: bool
   Icon: string
   _: bool
