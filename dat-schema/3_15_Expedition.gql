@@ -65,8 +65,8 @@ enum ExpeditionDealFamilies @indexing(first: 1) {
 }
 
 type ExpeditionDeals {
-  Id: i32 @unique
-  Function: string
+  Id: i32
+  Function: string @unique
   Arguments: string
   TextAudio: NPCTextAudio
   Description: string @localized

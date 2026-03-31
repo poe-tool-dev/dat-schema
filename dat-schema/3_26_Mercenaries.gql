@@ -8,7 +8,7 @@ type MercenaryClasses {
   Icon: string
   House: string
   _: MercenaryClasses
-  _: [_]
+  _: [_] # All rows empty
   MonsterVarietyAllied: MonsterVarieties
 }
 
@@ -25,7 +25,7 @@ type MercenaryBuilds {
   _: i32
   Skill2: [MercenarySkills]
   _: i32
-  _: [_]
+  _: [_] # All rows empty
   _: i32
   Skill3: [MercenarySkills]
   _: [string]
@@ -108,8 +108,8 @@ type MercenarySupports {
   HASH16: u16
   GemIcon: string
   Variant: i32
-  _: [_]
-  _: [_]
+  _: [_] # All rows empty
+  _: [_] # All rows empty
 }
 
 type MercenaryWieldableTypes {

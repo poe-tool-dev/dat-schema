@@ -38,8 +38,8 @@ type BrequelFruitRewardTypes {
   Description: string
   _: string
   _: string
-  _: [_]
-  _: [_]
+  _: [_] # All rows empty
+  _: [_] # All rows empty
   AchievementItem: AchievementItems
   AchievementItemHardmode: AchievementItems
 }

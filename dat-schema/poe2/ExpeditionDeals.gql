@@ -1,6 +1,6 @@
 type ExpeditionDeals {
-  Id: i32 @unique
-  Function: string
+  Id: i32
+  Function: string @unique
   Arguments: string
   _: i32
   Description: string @localized

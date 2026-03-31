@@ -1,7 +1,7 @@
 # Added 4.1
 type MonsterProjectileSpell {
-  Id: i32 @unique
-  Projectile: Projectiles
+  Id: i32
+  Projectile: Projectiles @unique
   Animation: Animation
   _: bool
   _: i32
