@@ -2749,6 +2749,7 @@ type MapDeviceRecipes @tags(list: ["item:recipe"]) {
   _: i32
   Mods: [Mods]
   _: bool
+  _: [_]
   AtlasNode: AtlasNode
 }
 
@@ -4972,6 +4973,7 @@ type SkillArtVariations {
   MonsterVarieties: [MonsterVarietiesArtVariations]
   ActiveSkill: [ActiveSkills]
   GrantedEffect: [GrantedEffects]
+  Mtx: [MtxTypeGameSpecific]
 }
 
 type SkillGemInfo {
@@ -6237,6 +6239,7 @@ type GoldActScaling {
   _: i32
 }
 
+# Added 3.20
 type GoldBaseTypePrices {
   BaseItemType: BaseItemTypes @unique
   Cost: i32
@@ -6250,14 +6253,15 @@ type GoldConstants {
   _: i32
 }
 
+# Added 3.27
 type GoldPriceFromItemLevel {
-  BaseItemType: BaseItemTypes @unique
-  Cost: i32
+  ItemLevel: i32
   _: i32
   _: i32
 }
 
-type GoldPriceFromTag {
+# Added 3.27
+type GoldPriceMultiFromTag {
   Tag: Tags @unique
   Multiplier: f32
   _: bool
@@ -6437,10 +6441,16 @@ type LegacyAtlasInfluenceOutcomes {
   _: [_]
 }
 
+# Added 3.28
 type LevelUpSoundEffect {
   Id: string @unique
   SoundEffectStereo: SoundEffects
   SoundEffect: SoundEffects
+}
+
+# Added 3.28
+type LoadingScreenOverrides {
+  Id: string
 }
 
 # Added 3.22
