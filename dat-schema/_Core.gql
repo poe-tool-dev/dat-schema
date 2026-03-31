@@ -679,7 +679,7 @@ type BloodTypes {
   _: rid
   _: rid
   EffectSmall: DamageEffectVariations
-  EffectGoreSmall: DamageEffectVariations
+  EffectLarge: DamageEffectVariations
   EffectCrit: DamageEffectVariations
   EffectGoreSmall: DamageEffectVariations
   EffectGoreLarge: DamageEffectVariations
@@ -6370,7 +6370,7 @@ type HudVisualsFromStat {
   LifeVisual: HudLifeVisuals
   EnergyShieldVisual: HudEnergyShieldVisuals
   ManaVisual: HudManaVisuals
-  TradeVisual: tradewindowvisuals
+  TradeVisual: TradeWindowVisuals
   ManaFlaskVisual: HudManaVisuals
   _: bool
 }
@@ -6529,7 +6529,7 @@ type MicrotransactionAfkEffects {
 
 # Added 3.19
 type MicrotransactionAppliedInventoryItemArtVariations {
-  Id: mtxtypegamespecific @unique
+  Id: MtxTypeGameSpecific @unique
   DDSFiles: [string] @file(ext: ".dds")
   _: [i32]
   _: [rid]

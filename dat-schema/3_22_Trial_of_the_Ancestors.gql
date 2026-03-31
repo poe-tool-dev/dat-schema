@@ -102,7 +102,7 @@ type AncestralTrialTribeOpinions {
 
 type AncestralTrialTribes {
   Id: string @unique
-  NPC: NPCs
+  NPCHub: NPCs
   Portrait: string
   TribeIcon: string
   TribeName: string @unique
@@ -120,7 +120,7 @@ type AncestralTrialTribes {
   _: i32
   _: i32
   _: i32
-  NPC: NPCs
+  NPCArena: NPCs
 }
 
 type AncestralTrialUnitPositions {
