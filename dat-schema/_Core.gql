@@ -1353,7 +1353,7 @@ type DamageParticleEffects {
 enum DamageParticleEffectTypes @indexing(first: 0) { _ }
 
 type Dances {
-  BaseItemTypesKey: BaseItemTypes
+  MtxTypeKey: MtxTypes
   CharactersKey: Characters
 }
 
@@ -1632,7 +1632,10 @@ type ExecuteGEAL {
   _: [_] # All rows empty
   _: bool
   _: i32
-  _: rid
+  _: i32
+  _: i32
+  _: i32
+  _: i32
   _: bool
   Script: string
   _: bool
@@ -2815,7 +2818,7 @@ type MapFragmentMods {
   _: i32
   MapFragmentLimit: i32
   _: bool
-  _: [rid]
+  _: [i32]
 }
 
 type MapInhabitants {
@@ -3068,8 +3071,8 @@ type MicrotransactionCharacterPortraitVariations {
 
 type MicrotransactionCombineFormula {
   Id: string
-  Result_BaseItemTypesKey: BaseItemTypes
-  Ingredients_BaseItemTypesKeys: [BaseItemTypes]
+  Result_Mtx: MtxTypeGameSpecific
+  Ingredients_Mtx: [MtxTypeGameSpecific]
   BK2File: string @file(ext: ".bk2")
   _: [i32]
   _: i32
@@ -4013,7 +4016,7 @@ type MusicCategories {
 }
 
 type MysteryBoxes {
-  BaseItemTypesKey: BaseItemTypes
+  MtxTypesKey: MtxTypes
   BK2File: string @file(ext: ".bk2")
   BoxId: string
   BundleId: string
@@ -4908,7 +4911,7 @@ type RunicCircles {
 }
 
 type SalvageBoxes {
-  BaseItemType: BaseItemTypes
+  MtxType: MtxTypeGameSpecific
   Id: string @unique
   _: string
 }
@@ -5322,7 +5325,7 @@ type TableCharge {
   _: f32
   _: f32
   _: bool
-  MiscAnimatedArtVariations: MiscAnimatedArtVariations
+  _: rid
   _: bool
   TravelAnimation: [MiscAnimated]
   ImpactAnimation: MiscAnimated
@@ -5390,7 +5393,7 @@ type TableMonsterSpawners {
 
 type Tags {
   Id: string @unique
-  _: i32
+  HASH32: u32
   DisplayString: string
   Name: string
 }
@@ -5876,14 +5879,14 @@ type ActionTypes {
 
 # Added 3.21
 type ActiveSettings {
-  _: string @unique
+  Id: string @unique
   _: i32
   _: i32
-  _: rid
-  _: rid
-  _: rid
-  _: rid
   _: i32
+  LeagueInfoPanel: LeagueInfoPanelVersions
+  NewLeaguePopup: TryTheNewLeagueVersions
+  Logo: GameLogos
+  BackendError: BackendErrors
 }
 
 # Added 3.23
@@ -5940,7 +5943,7 @@ type BattlePassRewards {
   _: i32
   _: bool
   Id: string
-  RewardedMTX: [BaseItemTypes]
+  RewardedMTX: [MtxTypeGameSpecific]
   _: i32
   RewardDescription: string
   _: string
@@ -6281,8 +6284,8 @@ type HardModeExtraContentChances {
 
 # Added 3.22
 type HardModeExtraContentChancesPerMapTier {
-  _: rid @unique
-  _: i32
+  Tier: i32
+  ContentChance: HardModeExtraContentChances @unique
 }
 
 # Added 3.19
@@ -6378,8 +6381,8 @@ type HudVisualsFromStat {
 
 # Added 3.23
 type InfluenceAmbushVariations {
-  _: rid
-  _: i32
+  Id: i32
+  Stat: Stats
   _: f32
   Monsters: [MonsterVarieties]
   _: i32
@@ -6553,8 +6556,8 @@ type MicrotransactionChargeVariations {
 
 # Added 3.19
 type MicrotransactionConditionalApparitionEvents {
-  _: rid
-  _: i32
+  EventId: i32
+  Apparition: MicrotransactionConditionalApparitions @unique
   _: f32
   _: NPCTextAudio
   _: bool
@@ -6572,10 +6575,13 @@ type MicrotransactionConditionalApparitions {
   Stats: [Stats]
   StatValues: [i32]
   PeriodicVariation: MicrotransactionPeriodicCharacterEffectVariations
-  _: rid
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
   _: i32
   _: bool
-  _: i32
   _: bool
 }
 
@@ -6872,7 +6878,7 @@ type SummonedSpecificMonstersOnDeathStats {
 
 # Added 3.19
 type TieredMicrotransactions {
-  MTX: BaseItemTypes @unique
+  MTX: MtxTypeGameSpecific @unique
   TierThresholds: [i32]
   _: Stats
   _: [i32]
@@ -6889,7 +6895,7 @@ type TieredMicrotransactions {
 
 # Added 3.22
 type TieredMicrotransactionsVisuals {
-  MTX: BaseItemTypes
+  MTX: MtxTypes
   Tier: i32
   Description: string
   DDSFile: string @file(ext: ".dds")
