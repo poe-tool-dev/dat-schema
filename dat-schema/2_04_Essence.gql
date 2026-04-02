@@ -1,16 +1,16 @@
 type Essences @tags(list: ["item:def", "crafting"]) {
   BaseItemTypesKey: BaseItemTypes @unique
-  _: rid
-  _: rid
-  _: rid
-  _: rid
-  _: rid
-  _: rid
-  _: rid
-  _: rid
-  _: rid
-  _: rid
-  _: rid
+  _: rid # All rows empty
+  _: rid # All rows empty
+  _: rid # All rows empty
+  _: rid # All rows empty
+  _: rid # All rows empty
+  _: rid # All rows empty
+  _: rid # All rows empty
+  _: rid # All rows empty
+  _: rid # All rows empty
+  _: rid # All rows empty
+  _: rid # All rows empty
   Display_Wand_ModsKey: Mods
   Display_Bow_ModsKey: Mods
   Display_Quiver_ModsKey: Mods

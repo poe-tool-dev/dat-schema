@@ -29,7 +29,7 @@ type WeaponPassiveSkills {
 }
 
 type CrucibleDifficulty {
-  Number: string @unique
+  Number: string
   Name: string @unique
   _: i32
   _: i32

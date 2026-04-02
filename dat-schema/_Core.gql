@@ -168,8 +168,6 @@ type AdditionalLifeScaling {
   _: bool
 }
 
-enum AdditionalLifeScalingPerLevel @indexing(first: 0) { _ }
-
 type AdditionalMonsterPacksFromStats {
   StatsKey: Stats
   _: i32
@@ -626,7 +624,7 @@ type BaseItemTypes @tags(list: ["item:def", "item:droptable"]) {
   TagsKeys: [Tags]
   ModDomain: ModDomains
   ItemVisualIdentity: ItemVisualIdentity
-  HASH32: i32 @unique
+  HASH32: i32
   VendorRecipe_AchievementItems: [AchievementItems]
   "the inflection identifier used for i18n in related fields"
   Inflection: string
@@ -917,7 +915,7 @@ type CharacterPanelTabs {
 
 type Characters {
   Id: string @unique
-  Name: string @unique @localized
+  Name: string @localized
   AOFile: string @file(ext: ".ao")
   ACTFile: string @file(ext: ".act")
   BaseMaxLife: i32
@@ -928,7 +926,7 @@ type Characters {
   MaxDamage: i32
   MaxAttackDistance: i32
   Icon: string
-  IntegerId: i32 @unique
+  IntegerId: i32
   BaseStrength: i32
   BaseDexterity: i32
   BaseIntelligence: i32
@@ -1397,7 +1395,7 @@ type DeliriumStashTabLayout {
   StoredItem: BaseItemTypes
   XOffset: i32
   YOffset: i32
-  FirstSlotIndex: i32 @unique
+  FirstSlotIndex: i32
   Width: i32
   Height: i32
   SlotSize: i32
@@ -1409,7 +1407,7 @@ type DelveStashTabLayout {
   StoredItem: BaseItemTypes
   XOffset: i32
   YOffset: i32
-  FirstSlotIndex: i32 @unique
+  FirstSlotIndex: i32
   Width: i32
   Height: i32
   SlotSize: i32
@@ -1602,7 +1600,7 @@ type EssenceStashTabLayout {
   StoredItem: BaseItemTypes
   XOffset: i32
   YOffset: i32
-  FirstSlotIndex: i32 @unique
+  FirstSlotIndex: i32
   Width: i32
   Height: i32
   IsUpgradableEssenceSlot: bool
@@ -1840,7 +1838,7 @@ type GamepadType {
 
 type GameStats {
   Id: string @unique
-  Id2: string @unique
+  Id2: string
 }
 
 type GemTags {
@@ -2489,7 +2487,7 @@ type ItemVisualEffect {
   _: string
   TwoHandedSwordEPKFile: string @file(ext: ".epk")
   TwoHandedStaffEPKFile: string @file(ext: ".epk")
-  HASH16: i16 @unique
+  HASH16: u16
   TwoHandedMaceEPKFile: string @file(ext: ".epk")
   OneHandedAxeEPKFile: string @file(ext: ".epk")
   TwoHandedAxeEPKFile: string @file(ext: ".epk")
@@ -2540,7 +2538,7 @@ type ItemVisualIdentity {
   DDSFile: string @file(ext: ".dds")
   AOFile: string @file(ext: ".ao")
   InventorySoundEffect: SoundEffects
-  HASH16: i16 @unique
+  HASH16: u16
   AOFile2: string @file(ext: ".ao")
   MarauderSMFiles: [string] @file(ext: ".sm")
   RangerSMFiles: [string] @file(ext: ".sm")
@@ -2674,8 +2672,8 @@ type LeagueInfoPanelVersions {
 
 type LeagueNames {
   Id: string @unique
-  Name1: string @unique @localized
-  Name2: string @unique @localized
+  Name1: string @localized
+  Name2: string @localized
 }
 
 type LeagueProgressQuestFlags {
@@ -3257,8 +3255,6 @@ type MiscObjectsArtVariations {
   _: i32
   Stat: Stats
 }
-
-enum MissionTileMap @indexing(first: 0) { _ }
 
 type MissionTimerTypes {
   Id: string
@@ -4407,7 +4403,7 @@ type PassiveSkills {
   Stat3Value: i32
   Stat4Value: i32
   "Id used by PassiveSkillGraph.psg"
-  PassiveSkillGraphId: u16 @unique
+  PassiveSkillGraphId: u16
   Name: string
   Characters: [Characters]
   IsKeystone: bool
@@ -4992,6 +4988,11 @@ type SkillGemInfo {
   CharactersKeys: [Characters]
 }
 
+type SkillGemGoldPricePerQuality {
+    Quality: i32
+    Price: i32
+}
+
 type SkillGems @tags(list: ["item:def"]) {
   BaseItemTypesKey: BaseItemTypes @unique
   StrengthRequirementPercent: i32
@@ -5168,6 +5169,16 @@ type StashTabAffinities {
   _: i32
 }
 
+type StashTabAffinityByBaseItemType {
+  BaseItemType: BaseItemTypes @unique
+  StashTabAffinityId: [StashTabAffinityId]
+}
+
+type StashtabAffinityByItemClassCategory {
+  ItemClassCategory: ItemClassCategories @unique
+  StashTabAffinityId: StashTabAffinityId
+}
+
 type StashTabAffinityId {
   Id: string @unique
 }
@@ -5180,7 +5191,7 @@ type StashAvailabilities {
 
 type StashType {
   Id: string @unique
-  StashId: StashId @unique
+  StashId: StashId
   Id2: string
   StorageSlots: i32
   _: i32
@@ -5197,7 +5208,7 @@ type StaticLifeBarStyle {
 }
 
 type StatDescriptionFunctions {
-  Id: string @unique
+  Id: string
   TranslationId: string @unique
 }
 
@@ -5434,7 +5445,7 @@ type TencentAutoLootPetCurrenciesExcludable {
 
 type TerrainPlugins {
   Id: string @unique
-  _: i32 @unique
+  _: i32
   _: bool
   _: bool
 }
@@ -5997,7 +6008,7 @@ type BreachLifeScalingPerLevel {
 type Breachstones {
   BaseType: BaseItemTypes @unique
   MapTierEquivalent: i32
-  _: i32 @unique
+  _: i32
   UpgradesTo: BaseItemTypes
   UpgradeCurrency: BaseItemTypes
 }
@@ -6178,7 +6189,7 @@ type EntityInfobarStyle {
 # Added 3.17
 type FlaskStashBaseTypeOrdering {
   Flask: Flasks @unique
-  Order: i32 @unique
+  Order: i32
 }
 
 # Added 3.20
@@ -6203,7 +6214,7 @@ type GamepadButtonCombination {
 # Added 3.17
 type GamepadThumbstick {
   _: string @unique
-  _: string @unique
+  _: string
 }
 
 # Added 3.23

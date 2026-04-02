@@ -23,14 +23,14 @@ type ArchnemesisMods {
 }
 
 type ArchnemesisModVisuals {
-  Id: string
-  _: MiscAnimated
-  _: rid
-  _: rid
-  _: [BuffVisuals]
-  _: [MonsterVarieties]
-  _: [MiscAnimated]
-  _: [rid]
+  Id: string @unique
+  MiscAnimated: MiscAnimated
+  StampFamily: StampFamily
+  MiscEffectPack: MiscEffectPacks
+  BuffVisual: [BuffVisuals]
+  Monster: [MonsterVarieties]
+  MonsterMiscAnimated: [MiscAnimated]
+  MonsterEffectPack: [MiscEffectPacks]
 }
 
 type ArchnemesisRecipes {

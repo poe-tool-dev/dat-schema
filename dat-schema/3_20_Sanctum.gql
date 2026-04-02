@@ -78,8 +78,8 @@ type SanctumPersistentEffects {
   _: i32
   _: i32
   _: bool
-  _: [rid]
-  Guard: [MonsterVarieties]
+  ConditionalAchievement: [ConditionalAchievements]
+  Achievements: [AchievementItems]
   FirstEffect: SanctumPersistentEffects
   _: i32
   _: i32

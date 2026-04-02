@@ -60,7 +60,7 @@ type IncursionRooms @tags(list: ["item:itemized"]) {
   RoomUpgrade_IncursionRoomsKey: IncursionRooms
   Mods: [Mods]
   PresentARMFile: string @file(ext: ".arm")
-  HASH16: i32 @unique
+  HASH16: u32
   IncursionArchitectKey: IncursionArchitect
   PastARMFile: string @file(ext: ".arm")
   TSIFile: string @file(ext: ".tsi")
