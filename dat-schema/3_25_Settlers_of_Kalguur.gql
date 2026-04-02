@@ -180,13 +180,13 @@ type VillageUpgradeCategories {
 }
 
 type VillageUpgrades {
-  _: rid
+  Category: VillageUpgradeCategories
   Tier: i32
   Text: string
   _: i32
-  _: [rid]
-  _: [i32]
-  _: i32
+  UpgradeResource: [VillageResources]
+  UpgradeResourceCount: [i32]
+  GoldCost: i32
   RuneItem: [BaseItemTypes]
   _: [i32]
   Stats: [Stats]

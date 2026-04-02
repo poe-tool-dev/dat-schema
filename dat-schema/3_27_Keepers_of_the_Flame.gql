@@ -5,7 +5,7 @@ type BreachBossLifeScalingPerLevel {
 
 type BreachElement {
   Element: string @unique
-  _: rid
+  ShardBaseItemType: BaseItemTypes
   BaseBreachstone: BaseItemTypes
   BossMapMod: Stats
   DuplicateBoss: Stats
@@ -65,6 +65,22 @@ type BrequelGrafts {
   SkillGem: SkillGems
   _: i32
   SkillAnimation: string
+}
+
+type BrequelGraftInventoryLayout {
+  Inventory: Inventories
+  QuestFlag: QuestFlags
+  _: i32
+}
+
+type BrequelGraftTypes {
+  BaseItemType: BaseItemTypes @unique
+  AOFileLeftArm: string @file(ext: ".ao")
+  AOFileRightArm: string @file(ext: ".ao")
+  NPC: NPCs
+  _: i32
+  AISFile: string @file(ext: ".ais")
+  Achievement: AchievementItems
 }
 
 type BrequelGraftSkillStats {

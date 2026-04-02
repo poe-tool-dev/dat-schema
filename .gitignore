@@ -1,3 +1,9 @@
+# Development tools
+.idea/
+.vs/
+.vscode/
+*.code-workspace
+
 dist/
 schema.min.json
 schema.jsonl

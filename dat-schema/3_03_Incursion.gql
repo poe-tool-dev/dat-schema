@@ -21,11 +21,8 @@ type IncursionChestRewards @tags(list: ["item:droptable"]) {
   IncursionRoomsKey: IncursionRooms
   IncursionChestsKeys: [IncursionChests]
   ChestMarkerMetadata: string @files(ext: [".ot", ".otc"])
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
+  HASH32: u32
+  RuthlessIncursionChestsKeys: [IncursionChests]
   _: i32
   _: i32
   _: i32

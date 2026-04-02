@@ -11,7 +11,7 @@ type AtlasTrees {
 
 type AchievementItemRewards @tags(list: ["mtx:reward"]) {
   AchievementItemsKey: AchievementItems
-  BaseItemTypesKey: BaseItemTypes
+  Rewards: MtxTypeGameSpecific
   Message: string
   Id: string
 }
@@ -362,18 +362,18 @@ type AreaTransitionAnimationTypes {
 type AreaTransitionInfo {
   StartingArea: WorldAreas
   EndingArea: WorldAreas
-  _: rid
-  _: rid
-  _: rid
-  _: rid
-  _: rid
-  _: rid
-  _: rid
-  _: rid
+  AnimationType: AreaTransitionAnimationTypes
+  AnimationMarauder: AreaTransitionAnimations
+  AnimationRanger: AreaTransitionAnimations
+  AnimationWitch: AreaTransitionAnimations
+  AnimationDualist: AreaTransitionAnimations
+  AnimationTemplar: AreaTransitionAnimations
+  AnimationShadow: AreaTransitionAnimations
+  AnimationScion: AreaTransitionAnimations
   Animation: MiscAnimated
-  MiscObject: [MiscObjects]
+  MiscObjectGround: [MiscObjects]
   _: i32
-  _: [rid]
+  BossObject: [MiscObjects]
 }
 
 enum AreaType @indexing(first: 0) { _ }
@@ -418,6 +418,12 @@ type Ascendancy {
   _: i32
   _: i32
   LeagueIcon: string
+}
+
+type AtlasFavouredMapSlots {
+  SlotId: i32
+  _: i32
+  Unlock: string
 }
 
 type AtlasMissionTypes {
@@ -946,7 +952,7 @@ type Characters {
   _: SkillGems
   StartingWeaponBase: BaseItemTypes
   _: i32
-  _: [rid]
+  Mods: [Mods]
   PassiveTreeImage: string @file(ext: ".dds")
   _: i32
   _: i32
@@ -1002,7 +1008,7 @@ type CharacterStartStates {
   CharacterStartQuestStateKeys: [CharacterStartQuestState]
   _: bool
   InfoText: string
-  _: rid
+  Ascendancy: Ascendancy
 }
 
 type CharacterStartStateSet {
@@ -1257,7 +1263,7 @@ type CraftingBenchSortCategories {
 
 type CraftingBenchTypes {
   Id: string
-  _: rid
+  HideoutDoodad: HideoutCraftingBenchDoodads
   _: bool
 }
 
@@ -1335,7 +1341,7 @@ type DamageHitEffects {
   Id: i32
   _: i32
   _: i32
-  DamageEffectPC: [DamageEffectVariations]
+  DamageEffectPC: [DamageEffectVariations] @unique
   DamageEffectConsole: [DamageEffectVariations]
 }
 
@@ -1375,19 +1381,19 @@ type DefaultMonsterStats {
   Damage: f32
   Evasion: i32
   Accuracy: i32
-  Life: i32
+  MonsterLife: i32
   Experience: i32
-  AllyLife: i32
-  _: i32
-  Difficulty: i32
-  Damage2: f32
-  _: i32
-  _: f32
-  _: f32
-  _: i32
-  _: i32
+  MinionLife: i32
   Armour: i32
-  _: i32
+  Difficulty: i32
+  MinionDamage: f32
+  AltLife1: i32
+  AltDamage1: f32
+  AltDamage2: f32
+  AltLife2: i32
+  EvasiveEvasion: i32
+  AilmentThreshold: i32
+  MonsterPhysConversionMulti: i32
 }
 
 type DeliriumStashTabLayout {
@@ -1591,7 +1597,7 @@ type EnvironmentTransitions {
   OTFiles: [string] @file(ext: ".ot")
   _: i32
   Environment: [Environments]
-  _: [_] # All rows empty
+  _: [string]
   _: i32
 }
 
@@ -2005,7 +2011,7 @@ type GeometryTrigger {
   _: i32
   _: bool
   _: bool
-  _: rid
+  MiscAnimated: MiscAnimated
   _: bool
   _: bool
   _: i32
@@ -2233,7 +2239,7 @@ type HideoutNPCs {
   Regular_NPCsKeys: [NPCs]
   HideoutDoodadsKey: HideoutDoodads
   NPCMasterKey: i32
-  _: rid
+  _: rid # All rows empty
   QuestFlag: QuestFlags
   _: i32
   Quest: Quest
@@ -2450,10 +2456,10 @@ type ItemisedVisualEffect {
   Name: [Words]
   _: bool
   _: [_] # All rows empty
-  _: [rid]
+  Character: [Characters]
   GrantedEffect: [GrantedEffectsPerLevel]
   OnKillEffect: [MicrotransactionOnKillEffects]
-  _: rid
+  _: rid # All rows empty
   _: bool
   EffectSlotType: MicrotransactionSkillGemEffectSlotTypes
   VisualEffectType: ItemisedVisualEffectExclusiveTypes
@@ -2521,6 +2527,19 @@ type ItemVisualHeldBodyModel {
   ScionBone: string
 }
 
+# Removed 3.26.0j
+type ItemVisualHeldBodyModelOverrideByItemAffiliatedAttributes {
+  VisualIdentity: ItemVisualIdentity
+  _: string @file(ext: ".ao")
+  _: string @file(ext: ".ao")
+  _: string @file(ext: ".ao")
+  _: string @file(ext: ".ao")
+  _: string @file(ext: ".ao")
+  _: string @file(ext: ".ao")
+  _: string @file(ext: ".ao")
+}
+
+# Added 3.26.0j
 type ItemVisualHeldModelOverrideByItemAffiliatedAttributes {
   VisualIdentity: ItemVisualIdentity
   ItemClass: ItemClasses
@@ -2757,7 +2776,7 @@ type MapDeviceRecipes @tags(list: ["item:recipe"]) {
   _: i32
   Mods: [Mods]
   _: bool
-  _: [_] # All rows empty
+  _: [i32]
   AtlasNode: AtlasNode
 }
 
@@ -2788,15 +2807,9 @@ type MapDevices {
   _: i32
   _: bool
   _: i32
-  _: bool
-  _: f32
   _: i32
   _: i32
-  _: i32
-  _: i32
-  _: bool
-  _: bool
-  _: bool
+  _: [i32]
 }
 
 enum MapFragmentFamilies @indexing(first: 0) { _ }
@@ -2964,9 +2977,9 @@ type MapStashSpecialTypeEntries {
   _: i32
   IsShaperGuardian: bool
   IsElderGuardian: bool
-  _: rid
-  _: rid
-  _: rid
+  ElderGuardian: ElderGuardians
+  Conqueror: AtlasExiles
+  ItemVisualIdentity: ItemVisualIdentity
 }
 
 type MapStashSpecialSubStashGroup {
@@ -3053,7 +3066,7 @@ type MetamorphosisStashTabLayout {
 type MicroMigrationData {
   Mtx: MtxTypeGameSpecific
   _: i32
-  _: rid
+  MysteryBox: MysteryBoxes
   MtxPack: MtxTypeGameSpecific
 }
 
@@ -3514,7 +3527,7 @@ type MonsterConditions {
   MapBoss: bool
   NotMapBoss: bool
   Tags: [Tags]
-  _: [string]
+  NotTags: [Tags]
   _: i32
   _: i32
   _: i32
@@ -3528,7 +3541,7 @@ type MonsterDeathAchievements {
   _: bool
   PlayerConditionsKeys: [PlayerConditions]
   MonsterDeathConditionsKeys: [MonsterDeathConditions]
-  _: [rid]
+  Area: [WorldAreas]
   _: i32
   _: i32
   _: bool
@@ -3544,7 +3557,7 @@ type MonsterDeathAchievements {
   MultiPartAchievementConditionsKeys: [MultiPartAchievementConditions]
   _: [i32]
   _: bool
-  Area: [WorldAreas]
+  LeagueArea: [WorldAreas]
   Stat: [Stats]
   _: bool
 }
@@ -4137,7 +4150,7 @@ type NPCMaster {
   Signature_ModsKey: Mods
   SpawnWeight_TagsKeys: [Tags]
   SpawnWeight_Values: [i32]
-  _: rid # All rows empty
+  Stat: Stats
   Achievement: [AchievementItems]
   AfflictionAchievement: [AchievementItems]
   League: CoreLeagues
@@ -4338,7 +4351,7 @@ type PassiveSkillFilterCatagories {
 
 type PassiveSkillFilterOptions {
   Id: string @unique
-  _: rid
+  FilterCatagory: PassiveSkillFilterCatagories
   Name: string
   _: string
 }
@@ -5295,7 +5308,7 @@ type SummonedSpecificMonsters {
   _: i32
   _: i32
   _: bool
-  _: rid
+  ModFamily: ModFamily
   _: rid # All rows empty
   _: i32
   _: bool
@@ -5484,19 +5497,22 @@ type TradeMarketCategory {
   IsDisabled: bool
 }
 
+# Removed 3.27
 type TradeMarketCategoryGroups {
   Id: string
   Name: string @localized
 }
 
+# Removed 3.27
 type TradeMarketCategoryListAllClass {
   TradeCategory: TradeMarketCategory
   ItemClass: ItemClasses
 }
 
+# Removed 3.27
 type TradeMarketIndexItemAs {
-  Item: rid
-  IndexAs: rid
+  Item: BaseItemTypes
+  IndexAs: BaseItemTypes
 }
 
 enum TradeMarketCategoryStyleFlag @indexing(first: 0) { _ }
@@ -5793,7 +5809,8 @@ type WorldAreas {
   TerrainPlugin: TerrainPlugins
   _: bool
   _: bool
-  _: WorldAreas
+  _: i32
+  _: i32
   _: i32
   _: [i32]
   LeagueChance1: WorldAreaLeagueChances
@@ -5885,7 +5902,9 @@ type AbyssBossLifeScalingPerLevel {
 # Added 3.23
 type ActionTypes {
   Id: string @unique
-  _: i32
+  HASH16: u16
+  _: bool
+  _: bool
 }
 
 # Added 3.21
@@ -5962,19 +5981,13 @@ type BattlePassRewards {
   _: i32
   _: bool
   RewardTitle: string
-  _: rid
-  _: bool
+  ItemFrameType: ItemFrameType
   _: i32
   _: i32
   _: i32
   _: i32
+  BaseItemTypeReward: BaseItemTypes
   _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: bool
-  _: bool
-  _: bool
 }
 
 # Added 3.21
@@ -6008,7 +6021,7 @@ type BreachLifeScalingPerLevel {
 type Breachstones {
   BaseType: BaseItemTypes @unique
   MapTierEquivalent: i32
-  _: i32
+  HASH32: u32
   UpgradesTo: BaseItemTypes
   UpgradeCurrency: BaseItemTypes
 }
@@ -6129,8 +6142,8 @@ type DamageEffectVariations {
 
 # Added 3.20
 type DamageWhenHitEffects {
-  _: rid @unique
-  _: rid
+  Stat: Stats @unique
+  HitEffect: DamageHitEffects
   _: bool
 }
 
@@ -6196,8 +6209,8 @@ type FlaskStashBaseTypeOrdering {
 type GameObjectTasksFromStats {
   Stat: Stats @unique
   GameObjectTask: GameObjectTasks
-  _: bool
   _: i32
+  _: bool
   _: bool
   _: bool
   _: bool
@@ -6282,15 +6295,12 @@ type GoldPriceMultiFromTag {
 # Added 3.20
 type HardModeExtraContentChances {
   Id: string @unique
-  _: i32
-  _: i32
+  SingleSpawnChance: i32
+  DoubleSpawnChance: i32
+  TripleSpawnChance: i32
+  NoSpawnChance: i32
+  Leagues: [CoreLeagues]
   _: bool
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
 }
 
 # Added 3.22
@@ -6469,7 +6479,7 @@ type MapStashSubstashGroup {
   Id: string @unique
   Label: string
   Icon: string
-  _: rid
+  MapTier: MapTiers
   Description: string
 }
 
@@ -6921,9 +6931,10 @@ type TormentedSpiritLifeScalingPerLevel {
 }
 
 # Added 3.19
+# Removed 3.27
 type TradeMarketImplicitModDisplay {
-  _: rid @unique
-  _: string
+  Mod: Mods @unique
+  Text: string
 }
 
 type TradeWindowVisuals {

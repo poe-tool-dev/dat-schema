@@ -73,7 +73,7 @@ type AtlasUpgradesInventoryLayout {
   _: i32
   Objective: string
   GrantAtlasUpgrade: QuestFlags
-  _: rid
+  SoundEffect: SoundEffects
 }
 
 type AtlasPassiveSkillTreeGroupType {
