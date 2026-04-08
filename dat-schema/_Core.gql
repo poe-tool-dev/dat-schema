@@ -837,8 +837,8 @@ type BuffVisuals {
   MiscAnimated3: MiscAnimated
   WeaponEffect: SkillWeaponEffects
   _: string
-  _: i32
-  _: i32
+  _: f32
+  _: f32
   _: bool
   _: bool
   _: [string]
@@ -2289,7 +2289,7 @@ type IndexableSkillGems {
   Name1: string
   SkillGem2: [SkillGems]
   Name2: string
-  _: IndexableSkillGems
+  IndexRuthless: IndexableSkillGems
 }
 
 type IndexableSupportGems @tags(list: ["crafting"]) {
@@ -3421,10 +3421,10 @@ type Mods @tags(list: ["crafting"]) {
   SpawnWeight_Values: [i32]
   TagsKeys: [Tags]
   GrantedEffectsPerLevelKeys: [GrantedEffectsPerLevel]
-  _: [i32]
+  _: [rid]
   MonsterMetadata: string
   MonsterKillAchievements: [AchievementItems]
-  ChestModType: [ModType]
+  ArchnemesisType: [ModType]
   Stat5Min: i32
   Stat5Max: i32
   StatsKey5: Stats
@@ -3442,7 +3442,7 @@ type Mods @tags(list: ["crafting"]) {
   CraftingItemClassRestrictions: [ItemClasses]
   MonsterOnDeath: string
   _: i32
-  _: [GrantedEffectsPerLevel]
+  HeistAchievements: [AchievementItems]
   Heist_SubStatValue1: i32
   Heist_SubStatValue2: i32
   Heist_StatsKey0: Stats
@@ -3529,8 +3529,8 @@ type MonsterConditions {
   Tags: [Tags]
   NotTags: [Tags]
   _: i32
-  _: i32
-  _: i32
+  MinimumLevel: i32
+  MaximumLevel: i32
   HASH32: u32
 }
 
@@ -3800,16 +3800,16 @@ type MonsterSpawnerOverrides {
 
 type MonsterTypes {
   Id: string @unique
-  _: i32
-  _: i32
-  IsSummoned: bool
+  Accuracy: i32
+  IsPlayerMinion: bool
   Armour: i32
   Evasion: i32
+  EnergyShield: i32
   DamageSpread: i32
-  MonsterResistancesKey: MonsterResistances
-  IsLargeAbyssMonster: bool
-  IsSmallAbyssMonster: bool
-  _: bool
+  Resistances: MonsterResistances
+  AltLife1: bool
+  AltLife2: bool
+  BaseDamageIgnoresAttackSpeed: bool
 }
 
 type MonsterVarieties {
@@ -3837,11 +3837,11 @@ type MonsterVarieties {
   "in percent"
   ExperienceMultiplier: i32
   _: [i32]
-  _: i32
-  _: i32
-  _: i32
-  CriticalStrikeChance: i32
-  _: i32
+  MinAgroRange: i32
+  MaxAgroRange: i32
+  SpotlightColour1: i32
+  SpotlightColour2: i32
+  SpotlightColour3: i32
   GrantedEffectsKeys: [GrantedEffects]
   AISFile: string @file(ext: ".ais")
   ModsKeys2: [Mods]
@@ -3871,7 +3871,7 @@ type MonsterVarieties {
   _: i32
   _: i32
   _: i32
-  HASH16: i16
+  HASH16: u16
   _: bool
   _: string
   KillWhileOnslaughtIsActive_AchievementItemsKey: AchievementItems
@@ -3896,7 +3896,7 @@ type MonsterVarieties {
   _: i32
   _: i32
   _: f32
-  _: i32
+  AilmentThreshold: i32
   EPKFile: string
   _: i32
   MonsterConditionalEffectPacksKey: MonsterConditionalEffectPacks
@@ -4674,7 +4674,7 @@ type Projectiles {
   _: [string]
   _: bool
   _: [i32]
-  _: Projectiles
+  _: string
 }
 
 type ProjectilesArtVariations {
@@ -4682,7 +4682,7 @@ type ProjectilesArtVariations {
   Variant: i32
   Projectiles: [Projectiles]
   _: i32
-  _: rid # All rows empty
+  Stat: Stats
 }
 
 type PVPTypes {
@@ -5022,10 +5022,10 @@ type SkillGems @tags(list: ["item:def"]) {
   _: bool
   AwakenedVariant: SkillGems
   RegularVariant: SkillGems
-  _: i32
+  GemColour: i32
   ItemExperienceType: ItemExperienceTypes
   MtxSlotTypes: [MicrotransactionSkillGemEffectSlotTypes]
-  GemEffects: [GemEffects]
+  GemVariants: [GemEffects]
 }
 
 enum SkillMines @indexing(first: 0) { _ }

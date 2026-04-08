@@ -39,7 +39,7 @@ type VillageBalancePerLevelShared {
   MaxAccountLevel: i32
   _: i32
   _: i32
-  _: i32
+  GoldRespecCost: i32
   _: i32
   _: i32
   _: i32
