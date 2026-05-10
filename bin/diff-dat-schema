@@ -1,0 +1,45 @@
+#!/bin/bash -e
+
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+cd "$SCRIPT_DIR/.." || exit
+
+BOLD="$(tput bold)"
+NORM="$(tput sgr0)"
+
+TMPD=$(mktemp -d .dat-schema-XXX)
+trap 'rm -rf -- "$TMPD"' EXIT
+
+filter() {
+    jq '.tables | sort_by(.name)[] | select(.validFor == '"$1"' or .validFor == 3) | del(.validFor)' "$2" > "$3"
+}
+
+UPSTREAM="upstream.min.json"
+NEW="schema.min.json"
+
+# -c won't download unless upstream is newer
+wget -O "$UPSTREAM" -q -c https://github.com/poe-tool-dev/dat-schema/releases/download/latest/schema.min.json
+
+CHANGES=no
+
+for V in 1 2
+do
+    UPSTREAMV="$TMPD/upstream.$V.json"
+    NEWV="$TMPD/schema.$V.json"
+    TMPV="$TMPD/schema.$V.diff"
+    filter "$V" "$UPSTREAM" "$UPSTREAMV"
+    filter "$V" "$NEW" "$NEWV"
+    if ! diff -u "$UPSTREAMV" "$NEWV" > "$TMPV"
+    then
+        CHANGES=yes
+        echo "${BOLD}Changes for Version $V:${NORM}"
+        tail -n +3 < "$TMPV"
+        echo
+    fi
+done
+
+if [ "$CHANGES" == "yes" ]
+then
+    echo "Note: The above diff is against the published schema which may be behind the main branch"
+else
+    echo "No changes detected"
+fi
