@@ -2464,6 +2464,8 @@ type ItemisedVisualEffect {
   EffectSlotType: MicrotransactionSkillGemEffectSlotTypes
   VisualEffectType: ItemisedVisualEffectExclusiveTypes
   _: bool
+  GameObjectTask: GameObjectTasks
+  _: i32
 }
 
 type ItemisedVisualEffectExclusiveTypes {
@@ -3063,6 +3065,7 @@ type MetamorphosisStashTabLayout {
   SlotSize: i32
 }
 
+# Removed 3.28.0h
 type MicroMigrationData {
   Mtx: MtxTypeGameSpecific
   _: i32
@@ -3509,6 +3512,12 @@ type MonsterBonuses {
   _: bool
 }
 
+type MonsterCategories {
+  Tag: Tags
+  Name: string @unique @localized
+  _: i32
+}
+
 type MonsterConditionalEffectPacks {
   Id: string @unique
   MiscEffectPack1: [MiscEffectPacks]
@@ -3919,6 +3928,7 @@ type MonsterVarieties {
   _: bool
   BossHealthBar: bool
   _: bool
+  MonsterCategory: MonsterCategories
 }
 
 type MonsterVarietiesArtVariations {
@@ -5053,7 +5063,9 @@ enum SkillMorphDisplayOverlayCondition @indexing(first: 0) { _ }
 enum SkillMorphDisplayOverlayStyle @indexing(first: 0) { _ }
 
 type SkillSurgeEffects {
+  Id: string @unique
   GrantedEffectsKey: GrantedEffects
+  Stat: Stats
   _: string
   _: bool
   _: bool
@@ -5061,11 +5073,14 @@ type SkillSurgeEffects {
   MiscAnimated: MiscAnimated
   _: bool
   _: bool
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+  _: [_]
   _: i32
-  _: bool
-  _: bool
-  _: bool
-  _: bool
 }
 
 enum SkillTotems @indexing(first: 0) { _ }
@@ -6570,6 +6585,7 @@ type MicrotransactionAppliedInventoryItemArtVariations {
 # Added 3.18
 type MicrotransactionChargeVariations {
   Mtx: MtxTypeGameSpecific @unique
+  _: i32
   PowerChargeVisual: BuffVisuals
   EnduranceChargeVisual: BuffVisuals
   FrenzyChargeVisual: BuffVisuals
@@ -6843,6 +6859,30 @@ type SkillWeaponEffects {
   Id: string
   VisualEffect: ItemVisualEffect
   _: bool
+  _: i32
+  _: i32
+}
+
+# Added 3.28.0h
+type StatisticTrackingMapDevices {
+  Doodad: HideoutDoodads
+  _: string
+  IconDefault: string
+  IconHover: string
+  IconGlow: string
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}
+
+# Added 3.28.0h
+type StatisticTrackingMapDeviceLabels {
+  MapDevice: StatisticTrackingMapDevices
+  _: i32
+  _: i32
+  _: i32
   _: i32
   _: i32
 }

@@ -179,6 +179,7 @@ type VillageUpgradeCategories {
   JobType: VillageJobTypes
 }
 
+# Removed 3.28.0h
 type VillageUpgrades {
   Category: VillageUpgradeCategories
   Tier: i32
