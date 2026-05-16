@@ -702,9 +702,9 @@ type BuffDefinitions {
   Removable: bool
   Name: string
   StatsKeys: [Stats]
-  _: bool
+  CancelOnDeath: bool
   _: i32
-  _: bool
+  ShowCount: bool
   Maximum_StatsKey: Stats
   Current_StatsKey: Stats
   _: bool
@@ -724,19 +724,19 @@ type BuffDefinitions {
   _: bool
   MinStat: Stats
   _: bool
-  _: i32
+  UIStackMode: i32
   _: bool
-  _: bool
+  IsSkillBuff: bool
   _: i32
   _: [i32]
   _: bool
   _: bool
   MultiPartAchievement: [MultiPartAchievements]
   _: bool
-  _: [Stats]
-  BinaryStats: [Stats]
-  _: [Stats]
-  _: [Stats]
+  Stats2: [Stats]
+  GrantedFlags: [Stats]
+  GrantedStats: [Stats]
+  ConditionStats: [Stats]
   _: bool
   _: bool
   _: bool
@@ -1909,7 +1909,7 @@ type GeometryAttack {
   _: i32
   _: bool
   _: bool
-  _: rid # All rows empty
+  BuffVisual: BuffVisuals
   _: bool
   _: [i32]
   _: bool
@@ -3155,7 +3155,7 @@ type MicrotransactionRecycleSalvageValues {
 type MicrotransactionSlot {
   Id: i32
   ShopTag: ShopTag
-  Name: string @localized
+  Name: string @unique @localized
   InventorySlot: Inventories
   FlaskSlot: i32
   _: bool
@@ -3690,15 +3690,15 @@ type MonsterPacks {
   Id: string @unique
   _: i32
   WorldAreasKeys: [WorldAreas]
-  _: i32
-  _: i32
+  MinCount: i32
+  MaxCount: i32
   BossMonsterSpawnChance: i32
   BossMonsterCount: i32
   BossMonster_MonsterVarietiesKeys: [MonsterVarieties]
   _: bool
   _: [i32]
-  _: [string]
-  TagsKeys: [Tags]
+  Grounds: [string]
+  Tags: [Tags]
   MinLevel: i32
   MaxLevel: i32
   WorldAreas2: [Tags]
@@ -4328,7 +4328,7 @@ type PassiveJewelRadii {
 type PassiveJewelSlots {
   Slot: PassiveSkills
   ClusterJewelSize: PassiveTreeExpansionJewelSizes
-  _: i32
+  ClusterIndex: i32
   ReplacesSlot: PassiveJewelSlots
   ProxySlot: PassiveSkills
   StartIndices: [i32]
@@ -4909,7 +4909,7 @@ type RogueExileGiants {
 
 type Rulesets {
   Id: string @unique
-  _: [string]
+  _: [Rulesets]
 }
 
 type RunicCircles {
@@ -5555,8 +5555,8 @@ type Tutorial {
   ClientString: ClientStrings
   IsEnabled: bool
   _: i32
-  _: [i32]
-  QuestFlag: QuestFlags
+  QuestFlags: [QuestFlags]
+  QuestFlagComplete: QuestFlags
   _: i32
   _: [i32]
   _: bool
@@ -5759,7 +5759,7 @@ type WorldAreas {
   HasWaypoint: bool
   Connections_WorldAreasKeys: [WorldAreas]
   AreaLevel: i32
-  HASH16: i16
+  HASH16: u16
   _: i32
   _: i32
   LoadingScreens: [string] @file(ext: ".dds")
