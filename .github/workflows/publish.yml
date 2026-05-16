@@ -8,18 +8,40 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      contents: write
+      id-token: write
+      pages: write
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-    - run: npm ci
-    - run: npm exec tsc
-    - run: node dist/cli.js
-    - name: Upload schema
-      uses: ncipollo/release-action@v1
-      with:
-        artifacts: "schema.min.json,schema.jsonl"
-        token: ${{ secrets.GITHUB_TOKEN }}
-        tag: latest
-        allowUpdates: true
-        omitBodyDuringUpdate: true
-        omitNameDuringUpdate: true
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - run: npm ci
+      - run: npm exec tsc
+      - run: node dist/cli.js
+      - name: Upload schema
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: 'schema.min.json,schema.jsonl'
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: latest
+          allowUpdates: true
+          omitBodyDuringUpdate: true
+          omitNameDuringUpdate: true
+      - name: Prepare Pages
+        run: |
+          mkdir _site
+          cp index.html _site/
+          cp schema.min.json _site/
+          cp -r dist _site/
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '_site'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

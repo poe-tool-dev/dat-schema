@@ -10,6 +10,8 @@ You can always `curl` latest version at
 
 Structure of JSON file is described in [src/types.ts](https://github.com/poe-tool-dev/dat-schema/blob/main/src/types.ts)
 
+Table relationships can be viewed on [GitHub Pages](https://poe-tool-dev.github.io/dat-schema)
+
 ## Schema
 
 The schema is based on GraphQL syntax.
