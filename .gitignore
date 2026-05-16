@@ -5,8 +5,7 @@
 *.code-workspace
 
 dist/
-schema.min.json
-schema.jsonl
+/schema*
 
 # Logs
 logs

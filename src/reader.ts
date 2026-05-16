@@ -1,4 +1,5 @@
 import * as assert from 'node:assert';
+import { styleText } from 'node:util';
 import {
   parse,
   Source,
@@ -211,7 +212,7 @@ const DIRECTIVE_INTERVAL = {
 };
 
 class VersionedTypedefNode<T> implements Iterable<[ValidFor, T]> {
-  constructor (
+  constructor(
     public vBase: T | undefined,
     public vOverride: T | undefined,
     readonly allowSharing: boolean
@@ -236,9 +237,7 @@ class VersionedTypedefNode<T> implements Iterable<[ValidFor, T]> {
 class VersionedTypedefMap<T extends TypeDefinitionNode> {
   readonly data = new Map<string, VersionedTypedefNode<T>>();
 
-  constructor (
-    readonly allowSharing: boolean
-  ) {}
+  constructor(readonly allowSharing: boolean) {}
 
   add(typeNode: T, override: boolean): boolean {
     const existingNode = this.data.get(typeNode.name.value);
@@ -260,7 +259,7 @@ class VersionedTypedefMap<T extends TypeDefinitionNode> {
 }
 
 class ScopedTypedefMap<T> {
-  constructor (
+  constructor(
     private data: ReadonlyMap<string, VersionedTypedefNode<T>>,
     private ver: ValidFor
   ) {
@@ -296,10 +295,13 @@ interface Context {
 
 export function readSchemaSources(
   sources: readonly Source[],
-  allowSharingSchemas: boolean
+  opts: {
+    allowSharingSchemas: boolean;
+    definitionOrderDelta: number;
+  }
 ): Pick<SchemaFile, 'tables' | 'enumerations'> {
-  const typeDefsMap = new VersionedTypedefMap<ObjectTypeDefinitionNode>(allowSharingSchemas);
-  const enumDefsMap = new VersionedTypedefMap<EnumTypeDefinitionNode>(allowSharingSchemas);
+  const typeDefsMap = new VersionedTypedefMap<ObjectTypeDefinitionNode>(opts.allowSharingSchemas);
+  const enumDefsMap = new VersionedTypedefMap<EnumTypeDefinitionNode>(opts.allowSharingSchemas);
 
   for (const source of sources) {
     const doc = parse(source, { noLocation: false });
@@ -326,6 +328,13 @@ export function readSchemaSources(
         }
       }
     }
+
+    if (opts.definitionOrderDelta) {
+      checkAlphabeticalOrder(
+        doc.definitions as ReadonlyArray<ObjectTypeDefinitionNode | EnumTypeDefinitionNode>,
+        opts.definitionOrderDelta
+      );
+    }
   }
 
   const tables: SchemaTable[] = [];
@@ -347,11 +356,7 @@ export function readSchemaSources(
       };
       assert.ok(typeNode.fields != null);
       for (const fieldNode of typeNode.fields) {
-        const column = parseFieldNode(
-          ctx,
-          table.name,
-          fieldNode
-        );
+        const column = parseFieldNode(ctx, table.name, fieldNode);
         if (
           column.name != null &&
           table.columns.some((col) => col.name === column.name)
@@ -376,6 +381,55 @@ export function readSchemaSources(
   }
 
   return { tables, enumerations };
+}
+
+function checkAlphabeticalOrder(
+  definitions: ReadonlyArray<ObjectTypeDefinitionNode | EnumTypeDefinitionNode>,
+  maxDelta: number
+): void {
+  const tokenizeCamelCase = (str: string): string[] =>
+    str.match(/[A-Z]+[a-z]+/g) ?? [str];
+
+  const sortedDefinitions = [...definitions].sort((a, b) => {
+    const ta = tokenizeCamelCase(a.name.value);
+    const tb = tokenizeCamelCase(b.name.value);
+    const min = Math.min(ta.length, tb.length);
+
+    for (let i = 0; i < min; i++) {
+      if (ta[i] === tb[i]) continue;
+      const min = Math.min(ta[i].length, tb[i].length);
+      const pa = ta[i].slice(0, min);
+      const pb = tb[i].slice(0, min);
+      if (pa !== pb) {
+        return pa < pb ? -1 : 1;
+      }
+    }
+    return ta.length - tb.length;
+  });
+
+  for (let i = 1; i < definitions.length; i++) {
+    const typeNode = definitions[i];
+    const prevTypeNode = definitions[i - 1];
+
+    const sortedIdx = sortedDefinitions.indexOf(typeNode);
+    if (sortedIdx < 1) continue;
+    const sortedPrevNode = sortedDefinitions[sortedIdx - 1];
+    if (prevTypeNode === sortedPrevNode) continue;
+
+    const delta = Math.abs(i - definitions.indexOf(sortedPrevNode));
+    if (delta <= maxDelta) {
+      // throw new GraphQLError(
+      //   `Definitions should be in alphabetical order. Expected after ${sortedPrevNode.name.value}.`,
+      //   { nodes: typeNode },
+      // );
+      const loc = typeNode.name.loc!;
+      console.log(
+        '[warn] Alphabetical order',
+        `${styleText('red', typeNode.name.value)} > ${styleText('green', sortedPrevNode.name.value)}`,
+        `(${loc.source.name}:${loc.startToken.line}:${loc.startToken.column})`
+      );
+    }
+  }
 }
 
 function parseEnumNode(enumNode: EnumTypeDefinitionNode, validFor: ValidFor) {

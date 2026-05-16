@@ -34,7 +34,10 @@ function read() {
     });
 
   try {
-    return readSchemaSources(sources, ALLOW_SHARING_SCHEMAS);
+    return readSchemaSources(sources, {
+      allowSharingSchemas: ALLOW_SHARING_SCHEMAS,
+      definitionOrderDelta: 1,
+    });
   } catch (e) {
     if (e instanceof GraphQLError) {
       console.error(e.toString());
@@ -59,14 +62,14 @@ function runOnce(): boolean {
 
   fs.writeFileSync(
     path.join(process.cwd(), './schema.min.json'),
-    JSON.stringify({ ...metadata, ...readResult } satisfies SchemaFile),
+    JSON.stringify({ ...metadata, ...readResult } satisfies SchemaFile)
   );
 
   fs.writeFileSync(
     path.join(process.cwd(), './schema.jsonl'),
     [metadata, ...readResult.tables, ...readResult.enumerations]
       .map((line: SchemaLine) => JSON.stringify(line))
-      .join('\n') + '\n',
+      .join('\n') + '\n'
   );
 
   const filterResult = (validFor: ValidFor) => ({
@@ -78,12 +81,12 @@ function runOnce(): boolean {
 
   fs.writeFileSync(
     path.join(process.cwd(), './schema-poe1.min.json'),
-    JSON.stringify({ ...metadata, ...filterResult(ValidFor.PoE1) } satisfies SchemaFile),
+    JSON.stringify({ ...metadata, ...filterResult(ValidFor.PoE1) } satisfies SchemaFile)
   );
 
   fs.writeFileSync(
     path.join(process.cwd(), './schema-poe2.min.json'),
-    JSON.stringify({ ...metadata, ...filterResult(ValidFor.PoE2) } satisfies SchemaFile),
+    JSON.stringify({ ...metadata, ...filterResult(ValidFor.PoE2) } satisfies SchemaFile)
   );
 
   console.log(`[${new Date().toISOString()}] Done.`);
