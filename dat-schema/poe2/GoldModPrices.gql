@@ -1,9 +1,0 @@
-type GoldModPrices {
-  Mod: Mods @unique
-  Value: i32
-  BasePricePercent: i32
-  _: i32
-  _: i32
-  CraftableType: CraftableModTypes
-  _: [rid]
-}

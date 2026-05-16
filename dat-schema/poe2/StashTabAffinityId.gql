@@ -1,4 +1,0 @@
-# Added 4.3
-type StashTabAffinityId {
-  Id: string @unique
-}

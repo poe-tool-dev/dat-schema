@@ -1,4 +1,0 @@
-type EndgameCleansedMods {
-  Mod: Mods @unique
-  _: [i32] # Might be a weight for specific mod to appear
-}

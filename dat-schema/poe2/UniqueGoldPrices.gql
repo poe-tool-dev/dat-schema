@@ -1,4 +1,0 @@
-type UniqueGoldPrices {
-    Name: Words
-    Price: i32
-}

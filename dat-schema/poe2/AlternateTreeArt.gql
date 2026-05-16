@@ -1,7 +1,0 @@
-# Added 4.1
-type AlternateTreeArt {
-  _: rid @unique
-  _: rid
-  _: rid
-  _: rid
-}

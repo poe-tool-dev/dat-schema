@@ -1,3 +1,0 @@
-type Animation {
-    Id: string @unique
-}

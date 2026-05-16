@@ -1,5 +1,0 @@
-type FlavourText {
-  Id: string @unique
-  HASH16: u16
-  Text: string
-}

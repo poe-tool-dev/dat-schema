@@ -1,5 +1,0 @@
-# Added 4.4
-type Incursion2EncounterTilePerArea {
-  _: rid @unique
-  _: string
-}

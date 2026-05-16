@@ -1,4 +1,0 @@
-type ShieldTypes @tags(list: ["item:def"]) {
-  BaseItemType: BaseItemTypes @unique
-  Block: i32
-}

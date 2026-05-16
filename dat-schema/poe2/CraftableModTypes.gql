@@ -1,4 +1,0 @@
-type CraftableModTypes {
-  ModType: ModType
-  HASH16: u16
-}

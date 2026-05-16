@@ -1,5 +1,0 @@
-type EndgameMapLocation {
-  Id: string @unique
-  Biomes: [EndgameMapBiomes]
-  AdjacentBiomes: [EndgameMapBiomes]
-}

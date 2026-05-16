@@ -1,4 +1,0 @@
-type TormentModColours {
-  Mod: Mods @unique
-  _: [string]
-}

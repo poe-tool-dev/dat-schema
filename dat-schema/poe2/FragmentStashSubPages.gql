@@ -1,6 +1,0 @@
-type FragmentStashSubPages {
-  Id: string @unique
-  Text: string @unique @localized
-  Icon: string @unique
-  MainPage: FragmentStashPages
-}

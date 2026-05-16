@@ -1,8 +1,0 @@
-type UltimatumEncounterTypes {
-  Id: string @unique
-  Name: string @localized
-  _: bool
-  _: bool
-  QuestFlag: QuestFlags
-  NPCText: NPCTextAudio
-}

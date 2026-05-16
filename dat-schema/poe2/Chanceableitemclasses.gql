@@ -1,4 +1,0 @@
-type Chanceableitemclasses {
-  ItemClass: ItemClasses
-  _: i32
-}

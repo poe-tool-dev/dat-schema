@@ -1,7 +1,0 @@
-# Added 4.1
-type SafehouseBYOCrafting @tags(list: ["crafting"]) {
-  BetrayalJob: BetrayalJobs
-  BetrayalTarget: BetrayalTargets
-  Rank: i32
-  _: rid
-}

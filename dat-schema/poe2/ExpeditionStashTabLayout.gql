@@ -1,4 +1,0 @@
-type ExpeditionStashTabLayout {
-  Id: string @unique
-  BaseItemType: BaseItemTypes @unique
-}

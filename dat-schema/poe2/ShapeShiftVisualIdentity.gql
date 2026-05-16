@@ -1,5 +1,0 @@
-# Added 4.4
-type ShapeShiftVisualIdentity {
-  Id: string @unique
-  AOFile: string @file(ext: ".ao")
-}

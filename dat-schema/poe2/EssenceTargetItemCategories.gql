@@ -1,6 +1,0 @@
-# Added 4.3
-type EssenceTargetItemCategories {
-  Id: string @unique
-  ItemClasses: [ItemClasses]
-  Text: string @unique @localized
-}

@@ -1,7 +1,0 @@
-type MtxTypeGameSpecific {
-  Type: MtxTypes @unique
-  HASH32: u32
-  DDSFile: string @file(ext: ".dds")
-  Category: MicrotransactionCategory
-  _: [i32]
-}

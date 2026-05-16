@@ -1,6 +1,0 @@
-type AttributeRequirements {
-  BaseItemType: BaseItemTypes @unique
-  ReqStr: i32
-  ReqInt: i32
-  ReqDex: i32
-}

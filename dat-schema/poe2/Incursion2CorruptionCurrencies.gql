@@ -1,6 +1,0 @@
-# Added 4.4
-type Incursion2CorruptionCurrencies {
-  BaseItemType: BaseItemTypes @unique
-  ItemClasses: [ItemClasses]
-  _: bool
-}

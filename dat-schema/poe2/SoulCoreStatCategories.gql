@@ -1,7 +1,0 @@
-# Added 4.4
-type SoulCoreStatCategories {
-  Id: string @unique
-  TargetItemClasses: [ItemClasses]
-  Display: string @localized
-  _: i32
-}

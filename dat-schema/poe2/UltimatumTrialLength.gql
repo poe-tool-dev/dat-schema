@@ -1,4 +1,0 @@
-﻿type UltimatumTrialLength {
-  MinAreaLevel: i32
-  Length: i32
-}

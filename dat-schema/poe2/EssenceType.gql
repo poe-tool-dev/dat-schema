@@ -1,6 +1,0 @@
-type EssenceType {
-  Id: string
-  EssenceType: i32
-  IsCorruptedEssence: bool
-  WordsKey: Words
-}

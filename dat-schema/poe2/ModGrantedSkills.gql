@@ -1,4 +1,0 @@
-﻿type ModGrantedSkills {
-  Mod: Mods
-  Skill: SkillGems
-}

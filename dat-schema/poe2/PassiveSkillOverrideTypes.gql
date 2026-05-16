@@ -1,6 +1,0 @@
-# Added 4.1
-type PassiveSkillOverrideTypes {
-  Id: string
-  CounterStat: Stats
-  _: bool
-}

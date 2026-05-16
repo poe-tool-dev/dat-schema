@@ -1,5 +1,0 @@
-type AscendancyPassiveSkillOverrides {
-  AscendancyToOverrideFor: Ascendancy
-  SkillToOverride: PassiveSkills
-  Override: PassiveSkills
-}

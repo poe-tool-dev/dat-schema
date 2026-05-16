@@ -1,5 +1,0 @@
-type ItemDisenchantValues {
-  Rarity: Rarity @unique
-  BaseItemType: BaseItemTypes @unique
-  BaseValue: i32
-}

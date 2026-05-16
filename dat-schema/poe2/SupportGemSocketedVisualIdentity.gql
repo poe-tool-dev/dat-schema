@@ -1,5 +1,0 @@
-type SupportGemSocketedVisualIdentity {
-  Id: string @unique
-  BackingIcon: string @unique
-  ItemIcon: string @unique
-}

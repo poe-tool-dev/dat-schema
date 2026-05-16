@@ -1,7 +1,0 @@
-type EndgameSplinterInfoDisplay {
-  Id: string @unique
-  Text: string @localized
-  _: i32
-  _: i32
-  _: i32
-}
