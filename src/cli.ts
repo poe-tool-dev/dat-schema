@@ -9,6 +9,7 @@ import {
   SchemaLine,
   SchemaMetadata,
   SCHEMA_VERSION,
+  ValidFor,
 } from './types.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -24,7 +25,7 @@ const SCHEMA_PATH =
 
 function read() {
   const sources = fs.readdirSync(SCHEMA_PATH, { recursive: true, withFileTypes: true })
-    .filter(entry => entry.isFile())
+    .filter((entry) => entry.isFile())
     .map((entry) => {
       const contents = fs.readFileSync(path.join(entry.parentPath, entry.name), {
         encoding: 'utf-8',
@@ -58,14 +59,31 @@ function runOnce(): boolean {
 
   fs.writeFileSync(
     path.join(process.cwd(), './schema.min.json'),
-    JSON.stringify({ ...metadata, ...readResult } satisfies SchemaFile)
+    JSON.stringify({ ...metadata, ...readResult } satisfies SchemaFile),
   );
 
   fs.writeFileSync(
     path.join(process.cwd(), './schema.jsonl'),
     [metadata, ...readResult.tables, ...readResult.enumerations]
       .map((line: SchemaLine) => JSON.stringify(line))
-      .join('\n') + '\n'
+      .join('\n') + '\n',
+  );
+
+  const filterResult = (validFor: ValidFor) => ({
+    tables: readResult.tables
+      .filter((entry) => entry.validFor & validFor),
+    enumerations: readResult.enumerations
+      .filter((entry) => entry.validFor & validFor),
+  });
+
+  fs.writeFileSync(
+    path.join(process.cwd(), './schema-poe1.min.json'),
+    JSON.stringify({ ...metadata, ...filterResult(ValidFor.PoE1) } satisfies SchemaFile),
+  );
+
+  fs.writeFileSync(
+    path.join(process.cwd(), './schema-poe2.min.json'),
+    JSON.stringify({ ...metadata, ...filterResult(ValidFor.PoE2) } satisfies SchemaFile),
   );
 
   console.log(`[${new Date().toISOString()}] Done.`);

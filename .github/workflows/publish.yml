@@ -9,15 +9,15 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
+    - uses: actions/checkout@v6
+    - uses: actions/setup-node@v6
     - run: npm ci
     - run: npm exec tsc
     - run: node dist/cli.js
-    - name: Upload schema
+    - name: Upload schemas
       uses: ncipollo/release-action@v1
       with:
-        artifacts: "schema.min.json,schema.jsonl"
+        artifacts: "schema.min.json,schema.jsonl,schema-poe1.min.json,schema-poe2.min.json"
         token: ${{ secrets.GITHUB_TOKEN }}
         tag: latest
         allowUpdates: true
