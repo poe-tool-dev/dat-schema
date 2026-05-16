@@ -1,4 +1,0 @@
-type EndgameCorruptionMods {
-  CorruptionMod: Mods
-  SpawnWeight: [i32]
-}

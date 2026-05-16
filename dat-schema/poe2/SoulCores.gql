@@ -1,8 +1,0 @@
-# Added 4.1
-type SoulCores {
-  BaseItemType: BaseItemTypes @unique
-  RequiredLevel: i32
-  Limit: SoulCoreLimits
-  _: rid
-  Type: SoulCoreTypes
-}

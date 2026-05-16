@@ -1,6 +1,0 @@
-type SkillGemsForUniqueStat {
-  Index: i32
-  SkillGems: [SkillGems]
-  _: bool
-  _: string @localized
-}

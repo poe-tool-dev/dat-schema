@@ -1,5 +1,0 @@
-# Added 4.1
-type EndgameMapContentSet {
-  Id: string @unique
-  Content: [EndgameMapContent]
-}

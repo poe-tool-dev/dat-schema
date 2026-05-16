@@ -1,6 +1,0 @@
-type QuestItemNPCAudio {
-  _: rid
-  _: rid
-  _: [rid]
-  _: rid
-}

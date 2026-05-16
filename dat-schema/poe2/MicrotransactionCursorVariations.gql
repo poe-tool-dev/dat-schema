@@ -1,5 +1,0 @@
-type MicrotransactionCursorVariations {
-  MtxTypeGameSpecific: MtxTypeGameSpecific @unique
-  _: rid
-  _: i16
-}

@@ -1,6 +1,0 @@
-# Added 4.1
-type HudVisualsFromStat {
-  Stat: Stats @unique
-  HudLifeVisual: HudLifeVisuals
-  HudESVisual: HudEnergyShieldVisuals
-}

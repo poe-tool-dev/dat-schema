@@ -1,3 +1,0 @@
-type ItemToggleable {
-  BaseItemType: BaseItemTypes @unique
-}

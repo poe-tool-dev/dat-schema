@@ -1,7 +1,0 @@
-type MiscAnimatedArtVariations {
-  Id: string
-  _: [MiscAnimated]
-  _: i32
-  _: i32
-  _: rid
-}

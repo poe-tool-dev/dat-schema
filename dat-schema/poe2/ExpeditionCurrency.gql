@@ -1,6 +1,0 @@
-# Added 4.1
-type ExpeditionCurrency @tags(list: ["item:def"]) {
-  BaseItemType: BaseItemTypes @unique
-  NPC: ExpeditionNPCs
-  LootSound: SoundEffects
-}

@@ -1,6 +1,0 @@
-type AnimateWeaponUniques {
-  Id: string @unique
-  ItemVisualIdentity: ItemVisualIdentity
-  ItemClass: ItemClasses
-  MinLevelReq: i32
-}

@@ -1,5 +1,0 @@
-type BlightCraftingRecipes @tags(list: ["crafting"]) {
-  Id: string @unique
-  BlightCraftingResult: BlightCraftingResults
-  BlightCraftingItems: [BlightCraftingItems]
-}

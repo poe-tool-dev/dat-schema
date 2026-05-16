@@ -1,9 +1,0 @@
-# Added 4.4
-type SoulCoreStats {
-  SoulCore: SoulCores
-  StatCategory: SoulCoreStatCategories
-  Stats: [Stats]
-  StatsValues: [i32]
-  BondedStats: [Stats]
-  BondedStatsValues: [i32]
-}

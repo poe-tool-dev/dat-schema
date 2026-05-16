@@ -1,4 +1,0 @@
-type GrantedSkillSocketNumbers {
-  Level: i32
-  Sockets: i32
-}

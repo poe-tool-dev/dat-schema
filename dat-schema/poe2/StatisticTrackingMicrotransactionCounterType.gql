@@ -1,6 +1,0 @@
-# Added 4.2
-type StatisticTrackingMicrotransactionCounterType {
-  Id: string @unique
-  _: string
-  Name: string @localized
-}

@@ -1,9 +1,0 @@
-type PassiveSkillMasteryEffects {
-  Id: string @unique
-  HASH16: u16 @unique
-  Stats: [Stats]
-  Stat1Value: i32
-  Stat2Value: i32
-  Stat3Value: i32
-  AchievementItem: AchievementItems
-}

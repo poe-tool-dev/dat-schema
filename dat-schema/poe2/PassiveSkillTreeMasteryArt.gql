@@ -1,6 +1,0 @@
-type PassiveSkillTreeMasteryArt {
-  Id: string @unique
-  InactiveIcon: string @file(ext: ".dds")
-  ActiveIcon: string @file(ext: ".dds")
-  ActiveEffectImage: string
-}

@@ -1,5 +1,0 @@
-type BuffVisualsArtVariations {
-  Buff: string
-  Visuals: [BuffVisuals]
-  _: i32
-}

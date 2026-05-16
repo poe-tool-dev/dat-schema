@@ -1,6 +1,0 @@
-# Added 4.1
-type ExpeditionDealsDialogue {
-  _: i32
-  ExpeditionCurrency: ExpeditionCurrency
-  NPCTextAudio: NPCTextAudio
-}

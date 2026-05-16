@@ -1,5 +1,0 @@
-# Added 4.3
-type HideoutSalvageBenchDoodads {
-  HideoutDoodads: HideoutDoodads @unique
-  InterfaceVisuals: HideoutSalvageBenchInterfaceVisuals @unique
-}
