@@ -1,6 +1,5 @@
 type MonsterCategories {
-  Tag: Tags
+  _: rid @unique
   Name: string @unique @localized
-  Icon: string
-  _: i32
+  Icon: string @unique
 }
