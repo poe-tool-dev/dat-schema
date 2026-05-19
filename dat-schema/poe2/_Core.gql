@@ -5322,7 +5322,8 @@ type SkillGems @tags(list: ["item:def"]) {
   GemType: i32
   _: bool
   _: bool
-  Awakened: SkillGems
+  AwakenedVariant: SkillGems
+  RegularVariant: SkillGems
   GemColour: i32
   MinLevelReq: i32
   ItemExperienceType: ItemExperienceTypes
