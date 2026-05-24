@@ -1405,10 +1405,10 @@ type CurrencyUseEffectsFromItem {
 
 type CurseTypes {
   Id: string @unique
-  _: rid @unique
+  BuffDefinition: BuffDefinitions
   _: bool
-  HexproofStat: Stats @unique
-  _: rid @unique
+  HexproofStat: Stats
+  ActionType: ActionTypes
 }
 
 type CustomSocketArt {
@@ -4205,7 +4205,7 @@ type NPCs {
   _: NPCs
   Portrait: NPCPortraits
   DialogueStyle: NPCDialogueStyles
-  ShopSet: NPCShopSets
+  ShopSet: NPCShops
   Gender: string
   _: bool
   _: string 
