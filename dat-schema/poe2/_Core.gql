@@ -5,7 +5,7 @@ type AbyssBenchTicketTypes {
   _: i32
   MaximumItemLevel: i32
   MinimumModLevel: i32
-  _: i32
+  _: f32
   _: bool
 }
 
@@ -22,10 +22,10 @@ type AbyssMonsterModReplacement {
 # Added 0.2
 type AchievementItemRewards @tags(list: ["mtx:reward"]) {
   AchievementItem: AchievementItems
-  BaseItemType: BaseItemTypes
-  Message: string @localized
+  Rewards: MtxTypeGameSpecific
+  MessagePC: string @localized
   Id: string @unique
-  _: string @localized
+  MessageConsole: string @localized
 }
 
 type ActionTypes {
@@ -181,8 +181,8 @@ type AegisVariations {
   DefinitionBuff: BuffDefinitions
   DefinitionDepleted: BuffDefinitions
   DefinitionValue: BuffDefinitions
+  AnimatedEffect: [MiscAnimated]
   _: bool
-  _: rid
   _: [string]
 }
 
@@ -1313,8 +1313,8 @@ type CraftingSpreeType @tags(list: ["crafting"]) {
 
 type CrossbowSkillBoltOverride {
   ActiveSkill: ActiveSkills
-  ProjectileOverride: ProjectileOverrides
   _: i32
+  ProjectileOverride: ProjectileOverrides
 }
 
 type CurrencyConsumeEffects {
@@ -1474,8 +1474,8 @@ type DamageParticleEffects {
   DamageParticleEffectTypes: DamageParticleEffectTypes
   Variation: i32
   _: i32
-  _: rid
-  _: rid
+  DamageEffect: DamageEffectVariations
+  EffectAddon: DamageEffectVariations
   _: bool
 }
 
@@ -1971,8 +1971,8 @@ type FragmentSubStashTabLayout {
   _: bool
   _: i32
   ItemClass: ItemClasses
-  StashPages: FragmentStashPages
-  _: i32 # All rows empty
+  _: i32
+  StashPages: FragmentStashSubPages
 }
 
 type GamblePrices {
@@ -2792,7 +2792,7 @@ type ItemInherentSkills {
 
 # Added 0.1
 type ItemisedVisualEffect {
-  EffectBaseType: BaseItemTypes @unique
+  Mtx: MtxTypeGameSpecific
   VisualEffect: ItemVisualEffect
   VisualIdentity: ItemVisualIdentity
   Stats: [Stats]
@@ -5220,7 +5220,7 @@ type Shrines {
   Player_ShrineBuffsKey: BuffTemplates
   _: i32
   _: i32
-  Monster_ShrineBuffsKey: rid
+  Monster_ShrineBuffsKey: BuffTemplates
   SummonMonster_MonsterVarietiesKey: MonsterVarieties
   SummonPlayer_MonsterVarietiesKey: MonsterVarieties
   _: i32

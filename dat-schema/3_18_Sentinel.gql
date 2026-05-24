@@ -87,6 +87,6 @@ type SentinelTaggedMonsterStats {
   TaggedStat: Stats
   _: Stats
   BuffTemplate: [BuffTemplates]
-  _: rid
-  _: rid
+  RewardType1: GenericLeagueRewardTypes
+  RewardType2: GenericLeagueRewardTypes
 }
