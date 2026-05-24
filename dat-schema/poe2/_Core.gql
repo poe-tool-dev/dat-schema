@@ -141,7 +141,7 @@ type AddMapStatGealAllowedStats {
 
 type AdditionalLifeScaling {
   IntId: i32
-  ID: string
+  ID: string @unique
   DatFile: string @file(ext: ".dat")
 }
 
@@ -442,13 +442,13 @@ type AtlasPrimordialBossOptions {
 }
 
 type AtlasTowerInventoryLayout {
-  Slot: i32 @unique
-  RequiredModifiers: i32 @unique # Required number of modifiers on waystone to unlock this slot
+  Slot: i32
+  RequiredModifiers: i32 # Required number of modifiers on waystone to unlock this slot
   BlockedIcon: string @unique
   _: i32
-  _: i32 @unique
   _: i32
-  UnblockedIcon: string @unique
+  _: i32
+  UnblockedIcon: string
 }
 
 type AttackSkillDamageScalingType {
@@ -537,7 +537,7 @@ type BaseItemTypes @tags(list: ["item:def", "item:droptable"]) {
   Tags: [Tags]
   ModDomain: ModDomains
   ItemVisualIdentity: ItemVisualIdentity
-  HASH32: u32 @unique
+  HASH32: u32
   VendorRecipe_AchievementItems: [AchievementItems]
   "the inflection identifier used for i18n in related fields"
   Inflection: string
@@ -618,7 +618,7 @@ type BlightCraftingItems @tags(list: ["item:def"]) {
   Tier: i32
   Achievements: [AchievementItems]
   UseType: i32
-  NameShort: string @unique
+  NameShort: string
   EnchantedMod: Mods
 }
 
@@ -875,7 +875,7 @@ type CaravanStops {
 
 type ChakraSlots {
   Id: i32
-  ItemClass: ItemClasses
+  ItemClass: ItemClasses @unique
 }
 
 type Chanceableitemclasses {
@@ -968,7 +968,7 @@ type CharacterVariationGroups {
 
 type Characters {
   Id: string @unique
-  Name: string @unique @localized
+  Name: string @localized
   AOFile: string @file(ext: ".ao")
   ACTFile: string @file(ext: ".act")
   BaseMaxLife: i32
@@ -979,7 +979,7 @@ type Characters {
   MaxDamage: i32
   MaxAttackDistance: i32
   Icon: string
-  IntegerId: i32 @unique
+  IntegerId: i32
   BaseStrength: i32
   BaseDexterity: i32
   BaseIntelligence: i32
@@ -1508,7 +1508,7 @@ type DeliriumStashTabLayout {
   StoredItem: BaseItemTypes
   XOffset: i32
   YOffset: i32
-  FirstSlotIndex: i32 @unique
+  FirstSlotIndex: i32
   Width: i32
   Height: i32
   SlotSize: i32
@@ -1710,8 +1710,8 @@ type EndgameMapObjectives {
 
 type EndgameMapPinIcons {
   Id: string @unique
-  Icon1: string @unique
-  Icon2: string @unique
+  Icon1: string
+  Icon2: string
 }
 
 type EndgameMapPins {
@@ -1820,7 +1820,7 @@ type EssenceStashTabLayout {
   StoredItem: BaseItemTypes
   XOffset: i32
   YOffset: i32
-  FirstSlotIndex: i32 @unique
+  FirstSlotIndex: i32
   Width: i32
   Height: i32
   ShowIfEmpty: bool
@@ -1832,7 +1832,7 @@ type EssenceStashTabLayout {
 type EssenceTargetItemCategories {
   Id: string @unique
   ItemClasses: [ItemClasses]
-  Text: string @unique @localized
+  Text: string @localized
 }
 
 type EssenceType {
@@ -1872,7 +1872,7 @@ type ExpeditionDealsDialogue {
 
 type ExpeditionStashTabLayout {
   Id: string @unique
-  BaseItemType: BaseItemTypes @unique
+  BaseItemType: BaseItemTypes
 }
 
 
@@ -1923,14 +1923,14 @@ type FlavourText {
 
 type FragmentStashPages {
   Id: string @unique
-  Text: string @unique @localized
+  Text: string @localized
   Icon: string
 }
 
 type FragmentStashSubPages {
   Id: string @unique
-  Text: string @unique @localized
-  Icon: string @unique
+  Text: string @localized
+  Icon: string
   MainPage: FragmentStashPages
 }
 
@@ -2221,7 +2221,7 @@ type GoldModPrices {
 
 type GoldRespecPrices {
   Level: i32 @unique
-  Cost: i32 @unique
+  Cost: i32
 }
 
 type GoldVisualIdentities {
@@ -2537,7 +2537,7 @@ type HideoutResistPenalties {
 # Added 0.3
 type HideoutSalvageBenchDoodads {
   HideoutDoodads: HideoutDoodads @unique
-  InterfaceVisuals: HideoutSalvageBenchInterfaceVisuals @unique
+  InterfaceVisuals: HideoutSalvageBenchInterfaceVisuals
 }
 
 # Added 0.3
@@ -2757,7 +2757,7 @@ type ItemClasses @tags(list: ["crafting"]) {
 
 type ItemDisenchantValues {
   Rarity: Rarity @unique
-  BaseItemType: BaseItemTypes @unique
+  BaseItemType: BaseItemTypes
   BaseValue: i32
 }
 
@@ -2849,7 +2849,7 @@ type ItemVisualEffect {
     _: string
     TwoHandedSwordEPKFile: string @file(ext: ".epk")
     TwoHandedStaffEPKFile: string @file(ext: ".epk")
-    HASH16: i16 @unique
+    HASH16: i16
     _: bool
     _: bool
     TwoHandedMaceEPKFile: string @file(ext: ".epk")
@@ -2874,7 +2874,7 @@ type ItemVisualIdentity {
   DDSFile: string @file(ext: ".dds")
   AOFile: string @file(ext: ".ao")
   InventorySoundEffect: SoundEffects
-  HASH16: u16 @unique
+  HASH16: u16
   AOFile2: string @file(ext: ".ao")
   MarauderSMFiles: [string] @file(ext: ".sm")
   RangerSMFiles: [string] @file(ext: ".sm")
@@ -3103,7 +3103,7 @@ type LoginAreas {
 
 type MapAmbushVariations {
   Id: i32
-  Stat: Stats
+  Stat: Stats @unique
   MonsterVariety: [MonsterVarieties]
   _: f32
   _: i32
@@ -3374,7 +3374,7 @@ type MicrotransactionObjectEffects {
 
 type MicrotransactionPortalVariations {
   MtxTypeGameSpecific: MtxTypeGameSpecific @unique
-  Id: i16 @unique
+  Id: i16
   AOFile: string @file(ext: ".ao")
   MapAOFile: string @file(ext: ".ao")
   _: f32
@@ -3426,7 +3426,7 @@ type MicrotransactionSlotFromShapeShiftForm {
 # Added 0.1
 type MicrotransactionSocialFrameVariations {
   MtxTypeGameSpecific: MtxTypeGameSpecific @unique
-  Id: i16 @unique
+  Id: i16
   BK2File: string @file(ext: ".bk2")
 }
 
@@ -3451,7 +3451,7 @@ type MinionCommands {
 
 type MinionGemLevelScaling {
   GemLevel: i32 @unique
-  MinionLevel: i32 @unique
+  MinionLevel: i32
 }
 
 type MinionStats {
@@ -3840,8 +3840,8 @@ type MonsterResistances {
 
 # Added 0.1
 type MonsterShapeShift {
-  Id: i32 @unique
-  MonsterSource: MonsterVarieties
+  Id: i32
+  MonsterSource: MonsterVarieties  @unique
   MonsterShapeshift: MonsterVarieties
   EffectSource: MiscEffectPacks
   EffectDestination: MiscEffectPacks
@@ -4464,7 +4464,7 @@ type PassiveJewelSlots {
 
 type PassiveJewelUniqueArt {
   Id: i32
-  Name: Words
+  Name: Words @unique
   _: rid # All rows empty
   JewelArt: string
   _: rid # All rows empty
@@ -4502,7 +4502,7 @@ type PassiveSkillFilterOptions {
 
 type PassiveSkillMasteryEffects {
   Id: string @unique
-  HASH16: u16 @unique
+  HASH16: u16
   Stats: [Stats]
   Stat1Value: i32
   Stat2Value: i32
@@ -4535,7 +4535,7 @@ type PassiveSkills {
   Stat3Value: i32
   Stat4Value: i32
   "Id used by PassiveSkillGraph.psg"
-  PassiveSkillGraphId: u16 @unique
+  PassiveSkillGraphId: u16
   Name: string
   Characters: [Characters]
   IsKeystone: bool
@@ -4662,7 +4662,7 @@ type PassiveSkillTreeUIArt {
 # Added 0.1
 type Pet {
   Id: string @unique
-  MtxTypeGameSpecific: MtxTypeGameSpecific @unique
+  MtxTypeGameSpecific: MtxTypeGameSpecific
   HASH16: u16
   HASH32: u32
   Size: i32
@@ -4999,7 +4999,7 @@ type RitualStashTabLayout {
   StoredItem: BaseItemTypes
   XOffset: i32
   YOffset: i32
-  FirstSlotIndex: i32 @unique
+  FirstSlotIndex: i32
   Width: i32
   Height: i32
   ShowIfEmpty: bool
@@ -5196,7 +5196,7 @@ type ShopItemRecommendation {
 # Added 0.3
 type ShopItemToStashId {
   Id: string @unique
-  Id2: string @unique
+  Id2: string
   StashId: StashId
 }
 
@@ -5249,7 +5249,7 @@ type ShrineVarieties {
 
 type SingleGroundLaser {
   Id: i32
-  MiscBeams: MiscBeams
+  MiscBeams: MiscBeams @unique
   MiscAnimated: MiscAnimated
   _: i32
   _: string
@@ -5421,7 +5421,7 @@ type Strongboxes {
 type StrongboxPacks {
   Id: i32
   _: i32
-  MonsterPack: MonsterPacks
+  MonsterPack: MonsterPacks @unique
 }
 
 type StrongBoxVarieties {
@@ -5435,7 +5435,7 @@ type SocketableStashTabLayout {
   StoredItem: BaseItemTypes
   XOffset: i32
   YOffset: i32
-  FirstSlotIndex: i32 @unique
+  FirstSlotIndex: i32
   Width: i32
   Height: i32
   ShowIfEmpty: bool
@@ -5528,7 +5528,7 @@ type StashTabAffinityId {
 
 type StashType {
   Id: string @unique
-  StashId: StashId @unique
+  StashId: StashId
   Id2: string
   _: i32
   _: i32
@@ -5639,8 +5639,8 @@ type SupportGems {
 
 type SupportGemSocketedVisualIdentity {
   Id: string @unique
-  BackingIcon: string @unique
-  ItemIcon: string @unique
+  BackingIcon: string
+  ItemIcon: string
 }
 
 type TableCharge {
@@ -5722,7 +5722,7 @@ type TempestTypes {
 }
 
 type ThreeToOneRecipes {
-  _: string @unique
+  Id: string
   InputBaseItem: BaseItemTypes @unique
   OutputBaseItem: BaseItemTypes
   _: i32
@@ -5986,8 +5986,8 @@ type UniqueGoldPrices {
 
 type UniqueMapSkillBooks {
   BaseItem: BaseItemTypes @unique
-  _: i32 @unique
-  _: i32 @unique
+  _: i32
+  _: i32
 }
 
 type UtilityFlaskBuffs {
@@ -6015,7 +6015,7 @@ type VisualPinProperties {
 
 type WaystoneStashTabSubgroups {
   Tier: i32 @unique
-  Text: string @unique
+  Text: string
   Colour: i32 # 1 white 2 yellow 3 red
   ItemClass: ItemClasses
 }
