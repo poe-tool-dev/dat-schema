@@ -34,7 +34,7 @@ type Achievements {
   Description: string
   SetId: AchievementSetsDisplay @ref(column: "Id")
   Objective: string
-  HASH16: i16
+  HASH16: u16
   _: bool
   HideAchievementItems: bool
   _: bool
@@ -509,7 +509,7 @@ type AtlasNode {
   DivCards: [BaseItemTypes]
   DivCardsHardmode: [BaseItemTypes]
   Tier: i32
-  HASH16: i16
+  HASH16: u16
   IsUniqueMap: bool
   Region: AtlasRegions
   Node_DDSFile: string @file(ext: ".dds")
@@ -630,7 +630,7 @@ type BaseItemTypes @tags(list: ["item:def", "item:droptable"]) {
   TagsKeys: [Tags]
   ModDomain: ModDomains
   ItemVisualIdentity: ItemVisualIdentity
-  HASH32: i32
+  HASH32: u32
   VendorRecipe_AchievementItems: [AchievementItems]
   "the inflection identifier used for i18n in related fields"
   Inflection: string
@@ -2256,7 +2256,7 @@ type HideoutRarity {
 
 type Hideouts {
   HideoutArea: WorldAreas
-  HASH16: i16
+  HASH16: u16
   HideoutFile: string @file(ext: ".hideout")
   SpawnAreas: [WorldAreas]
   ClaimSideArea: WorldAreas
@@ -3203,7 +3203,7 @@ type MiscAnimated {
   PreloadGroupsKeys: [PreloadGroups]
   _: i32
   _: i32
-  HASH32: i32
+  HASH32: u32
 }
 
 type MiscAnimatedArtVariations {
@@ -4726,7 +4726,7 @@ type QuestAchievements {
 
 type QuestFlags {
   Id: string
-  HASH32: i32
+  HASH32: u32
 }
 
 type QuestItems {
@@ -5269,7 +5269,7 @@ type Stats @tags(list: ["crafting"]) {
   MainHandAlias_StatsKey: Stats
   OffHandAlias_StatsKey: Stats
   _: bool
-  HASH32: i32
+  HASH32: u32
   BelongsActiveSkillsKey: [ActiveSkills] @ref(column: "Id")
   Category: PassiveSkillStatCategories
   _: bool
@@ -5760,7 +5760,7 @@ type Words {
   Text: string @unique
   SpawnWeight_Tags: [Tags]
   SpawnWeight_Values: [i32]
-  HASH32: i32
+  HASH32: u32
   Text2: string
   "the inflection identifier used for i18n in related fields"
   Inflection: string
@@ -6510,7 +6510,7 @@ type MemoryLineModifiers {
 type MemoryLineType {
   Id: string @unique
   MemoryLine: AtlasMemoryLine
-  HASH16: i16
+  HASH16: u16
   Stats: [Stats]
   StatValues: [i32]
   _: i32

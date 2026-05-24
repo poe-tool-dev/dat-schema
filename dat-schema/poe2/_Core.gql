@@ -2517,7 +2517,7 @@ type HideoutNPCs {
 # Added 0.1
 type Hideouts {
   HideoutArea: WorldAreas @unique
-  HASH16: i16
+  HASH16: u16
   HideoutFile: string @file(ext: ".hideout")
   ClaimSideArea: WorldAreas
   HideoutImage: string
@@ -2605,7 +2605,7 @@ type Incubators @tags(list: ["item:def"]) {
   BaseItemType: BaseItemTypes @unique
   _: i32
   Reward: string @localized
-  HASH32: i32
+  HASH32: u32
   AchievementItemsKeys: [AchievementItems]
   _: bool
   RewardDescription: ClientStrings
@@ -2849,7 +2849,7 @@ type ItemVisualEffect {
     _: string
     TwoHandedSwordEPKFile: string @file(ext: ".epk")
     TwoHandedStaffEPKFile: string @file(ext: ".epk")
-    HASH16: i16
+    HASH16: u16
     _: bool
     _: bool
     TwoHandedMaceEPKFile: string @file(ext: ".epk")
