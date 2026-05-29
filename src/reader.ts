@@ -237,13 +237,16 @@ class VersionedTypedefNode<T> implements Iterable<[ValidFor, T]> {
 class VersionedTypedefMap<T extends TypeDefinitionNode> {
   readonly data = new Map<string, VersionedTypedefNode<T>>();
 
-  add(typeNode: T, override: boolean, allowSharing: boolean): boolean {
+  constructor(readonly allowSharing: boolean) {}
+
+  add(typeNode: T, override: boolean, otherMap: VersionedTypedefMap<any>): boolean {
     const existingNode = this.data.get(typeNode.name.value);
+    const nodeInOtherMap = otherMap.data.get(typeNode.name.value);
     if (!existingNode) {
       this.data.set(typeNode.name.value, new VersionedTypedefNode(
         !override ? typeNode : undefined,
         override ? typeNode : undefined,
-        allowSharing
+        nodeInOtherMap != null ? false : this.allowSharing
       ));
     } else if (override) {
       if (existingNode.vOverride != null) return false;
@@ -251,6 +254,10 @@ class VersionedTypedefMap<T extends TypeDefinitionNode> {
     } else {
       if (existingNode.vBase != null) return false;
       existingNode.vBase = typeNode;
+    }
+
+    if (nodeInOtherMap) {
+      nodeInOtherMap.allowSharing = false;
     }
     return true;
   }
@@ -298,8 +305,8 @@ export function readSchemaSources(
     definitionOrderDelta: number;
   }
 ): Pick<SchemaFile, 'tables' | 'enumerations'> {
-  const typeDefsMap = new VersionedTypedefMap<ObjectTypeDefinitionNode>();
-  const enumDefsMap = new VersionedTypedefMap<EnumTypeDefinitionNode>();
+  const typeDefsMap = new VersionedTypedefMap<ObjectTypeDefinitionNode>(opts.allowSharingSchemas);
+  const enumDefsMap = new VersionedTypedefMap<EnumTypeDefinitionNode>(opts.allowSharingSchemas);
 
   for (const source of sources) {
     const doc = parse(source, { noLocation: false });
@@ -311,24 +318,14 @@ export function readSchemaSources(
 
       const override = source.name.startsWith('poe2');
       if (typeNode.kind === 'EnumTypeDefinition') {
-		const objectDefinition = typeDefsMap.data.get(typeNode.name.value);
-		if(objectDefinition != undefined){
-			objectDefinition.allowSharing = false;
-		}
-		let allowSharing = opts.allowSharingSchemas && objectDefinition == undefined;
-        if (!enumDefsMap.add(typeNode, override, allowSharing)) {
+        if (!enumDefsMap.add(typeNode, override, typeDefsMap)) {
           throw new GraphQLError(
             'Enum with this name has already been defined.',
             { nodes: typeNode.name }
           );
         }
       } else if (typeNode.kind === 'ObjectTypeDefinition') {
-		const enumDefinition = enumDefsMap.data.get(typeNode.name.value);
-		if(enumDefinition != undefined){
-			enumDefinition.allowSharing = false;
-		}
-		let allowSharing = opts.allowSharingSchemas && enumDefinition == undefined;
-        if (!typeDefsMap.add(typeNode, override, allowSharing)) {
+        if (!typeDefsMap.add(typeNode, override, enumDefsMap)) {
           throw new GraphQLError(
             'Table with this name has already been defined.',
             { nodes: typeNode.name }
