@@ -6011,6 +6011,13 @@ type UniqueGoldPrices {
     Price: i32
 }
 
+type UniqueMagesLegacy {
+  Name: string
+  DisplayText: string
+  Stats: [Stats]
+  StatValues: [i32]
+}
+
 type UniqueMapSkillBooks {
   BaseItem: BaseItemTypes @unique
   _: i32 @unique
