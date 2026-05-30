@@ -3013,7 +3013,7 @@ type KeywordPopupItemReference {
   ItemVisualIdentity: ItemVisualIdentity
   _: rid
   _: rid
-  _: int32
+  _: i32
   _: bool
 }
 
