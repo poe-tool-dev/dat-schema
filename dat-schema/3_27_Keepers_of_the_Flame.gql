@@ -53,12 +53,6 @@ type BrequelFruitTypes {
   _: rid
 }
 
-type BrequelGraftGrantedSkillLevels {
-  AreaLevel: i32
-  SkillLevel: i32
-  RequiredLevel: i32
-}
-
 type BrequelGrafts {
   Id: string @unique
   Arm: string
@@ -67,10 +61,21 @@ type BrequelGrafts {
   SkillAnimation: string
 }
 
+type BrequelGraftGrantedSkillLevels {
+  AreaLevel: i32
+  SkillLevel: i32
+  RequiredLevel: i32
+}
+
 type BrequelGraftInventoryLayout {
   Inventory: Inventories
   QuestFlag: QuestFlags
   _: i32
+}
+
+type BrequelGraftSkillStats {
+  GraftStat: Stats @unique
+  PlayerStat: Stats
 }
 
 type BrequelGraftTypes {
@@ -81,11 +86,6 @@ type BrequelGraftTypes {
   _: i32
   AISFile: string @file(ext: ".ais")
   Achievement: AchievementItems
-}
-
-type BrequelGraftSkillStats {
-  GraftStat: Stats @unique
-  PlayerStat: Stats
 }
 
 type BrequelItemResourceValues {

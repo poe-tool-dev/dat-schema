@@ -15,18 +15,18 @@ type SanctumDefenceIcons {
   Description: string
 }
 
-type SanctumDeferredRewardCategories {
-  Item: BaseItemTypes
-  NamePlural: string
-  ScriptReward: string
-}
-
 type SanctumDeferredRewards {
   Id: string
   DeferralIcon: string
   DeferralCategory: SanctumPersistentEffectCategories
   RewardCategory: SanctumDeferredRewardCategories
   Count: i32
+}
+
+type SanctumDeferredRewardCategories {
+  Item: BaseItemTypes
+  NamePlural: string
+  ScriptReward: string
 }
 
 type SanctumFloors {
@@ -48,18 +48,6 @@ type SanctumFodderLifeScalingPerLevel {
 type SanctumLifeScalingPerLevel {
   Level: i32
   MoreLife: i32
-}
-
-type SanctumPersistentEffectCategories {
-  Id: string
-  Frame: string
-  Popup: string
-  Glow: string
-  Curse: bool
-  Boon: bool
-  Icon: string
-  Name: string
-  Deferral: bool
 }
 
 type SanctumPersistentEffects {
@@ -86,6 +74,18 @@ type SanctumPersistentEffects {
   _: bool
   _: bool
   HASH16: i32
+}
+
+type SanctumPersistentEffectCategories {
+  Id: string
+  Frame: string
+  Popup: string
+  Glow: string
+  Curse: bool
+  Boon: bool
+  Icon: string
+  Name: string
+  Deferral: bool
 }
 
 type SanctumRooms {

@@ -25,14 +25,6 @@ type LegionBalancePerLevel {
   _: i32
 }
 
-type LegionChestTypes {
-  _: MonsterVarieties
-  Chest: Chests
-  HardmodeChest: Chests
-  _: i32
-  Faction: LegionFactions
-}
-
 type LegionChestCounts {
   LegionFactionsKey: LegionFactions
   LegionRanksKey: LegionRanks
@@ -42,6 +34,14 @@ type LegionChestCounts {
   _: i32
   MinLevel: i32
   _: i32
+}
+
+type LegionChestTypes {
+  _: MonsterVarieties
+  Chest: Chests
+  HardmodeChest: Chests
+  _: i32
+  Faction: LegionFactions
 }
 
 type LegionFactions {

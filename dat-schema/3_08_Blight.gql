@@ -106,13 +106,6 @@ type BlightTopologyNodes {
   _: i32
 }
 
-type BlightTowerAuras {
-  Id: i32 @unique
-  BuffDefinitionsKey: BuffDefinitions
-  _: i32
-  MiscAnimatedKey: MiscAnimated
-}
-
 type BlightTowers {
   Id: string @unique
   Name: string
@@ -128,6 +121,13 @@ type BlightTowers {
   StatsKeys: [Stats]
   StatsKeys2: [Stats]
   _: bool
+}
+
+type BlightTowerAuras {
+  Id: i32 @unique
+  BuffDefinitionsKey: BuffDefinitions
+  _: i32
+  MiscAnimatedKey: MiscAnimated
 }
 
 type BlightTowersPerLevel {

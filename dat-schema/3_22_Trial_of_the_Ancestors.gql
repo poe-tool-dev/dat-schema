@@ -94,12 +94,6 @@ type AncestralTrialShopSlotEntries {
   _: bool
 }
 
-type AncestralTrialTribeOpinions {
-  SourceTribe: AncestralTrialTribes
-  TargetTribe: AncestralTrialTribes
-  Opinion: AncestralTrialOpinionTypes
-}
-
 type AncestralTrialTribes {
   Id: string @unique
   NPCHub: NPCs
@@ -123,12 +117,10 @@ type AncestralTrialTribes {
   NPCArena: NPCs
 }
 
-type AncestralTrialUnitPositions {
-  Id: string
-  _: i32
-  _: i32
-  _: i32
-  _: i32
+type AncestralTrialTribeOpinions {
+  SourceTribe: AncestralTrialTribes
+  TargetTribe: AncestralTrialTribes
+  Opinion: AncestralTrialOpinionTypes
 }
 
 type AncestralTrialUnits {
@@ -143,6 +135,14 @@ type AncestralTrialUnits {
   _: i32
   _: i32
   Position: AncestralTrialUnitPositions
+}
+
+type AncestralTrialUnitPositions {
+  Id: string
+  _: i32
+  _: i32
+  _: i32
+  _: i32
 }
 
 type ChieftainLifeScalingPerLevel {

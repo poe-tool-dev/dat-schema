@@ -66,21 +66,6 @@ type BestiaryNets {
   IsEnabled: bool
 }
 
-type BestiaryRecipeComponent {
-  Id: string @unique
-  MinLevel: i32
-  BestiaryFamiliesKey: BestiaryFamilies
-  BestiaryGroupsKey: BestiaryGroups
-  ModsKey: Mods
-  BestiaryCapturableMonstersKey: BestiaryCapturableMonsters
-  BeastRarity: Rarity
-  BestiaryGenusKey: BestiaryGenus
-}
-
-type BestiaryRecipeCategories {
-  Id: string
-  Text: string
-}
 
 type BestiaryRecipes @tags(list: ["item:recipe", "crafting"]) {
   Id: string @unique
@@ -96,6 +81,22 @@ type BestiaryRecipes @tags(list: ["item:recipe", "crafting"]) {
   "0: All, 1: Normal, 2: Ruthless"
   GameMode: i32
   FlaskMod: Mods
+}
+
+type BestiaryRecipeCategories {
+  Id: string
+  Text: string
+}
+
+type BestiaryRecipeComponent {
+  Id: string @unique
+  MinLevel: i32
+  BestiaryFamiliesKey: BestiaryFamilies
+  BestiaryGroupsKey: BestiaryGroups
+  ModsKey: Mods
+  BestiaryCapturableMonstersKey: BestiaryCapturableMonsters
+  BeastRarity: Rarity
+  BestiaryGenusKey: BestiaryGenus
 }
 
 type NetTiers {

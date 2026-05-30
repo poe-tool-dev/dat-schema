@@ -20,16 +20,6 @@ type LakeMetaOptionsUnlockText {
   Text: string @localized
 }
 
-type LakeRoomCompletion {
-  Room: LakeRooms
-  _: i32
-  _: i32
-  Achievements: [AchievementItems]
-  _: [i32]
-  _: [_] # All rows empty
-  _: i32
-}
-
 type LakeRooms @tags(list: ["item:itemized"]) {
   Id: string
   ARMFiles: [string] @file(ext: ".arm")
@@ -52,6 +42,16 @@ type LakeRooms @tags(list: ["item:itemized"]) {
   TextAudioIntro: NPCTextAudio
   TextAudioOutro: NPCTextAudio
   _: bool
+}
+
+type LakeRoomCompletion {
+  Room: LakeRooms
+  _: i32
+  _: i32
+  Achievements: [AchievementItems]
+  _: [i32]
+  _: [_] # All rows empty
+  _: i32
 }
 
 type StampChoice {

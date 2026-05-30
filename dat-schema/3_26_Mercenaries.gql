@@ -70,10 +70,6 @@ type MercenaryRenownLevels {
   _: i32
 }
 
-type MercenarySkillFamilies {
-  Id: string
-}
-
 type MercenarySkills {
   Id: GrantedEffects
   SupportCount: MercenarySupportCounts
@@ -86,6 +82,10 @@ type MercenarySkills {
   SkillFamily: MercenarySkillFamilies
   HASH16: u16
   HouseIcon: string
+}
+
+type MercenarySkillFamilies {
+  Id: string
 }
 
 type MercenarySupportCounts {

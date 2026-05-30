@@ -150,6 +150,12 @@ type SafehouseBYOCrafting @tags(list: ["crafting"]) {
   Craft: BYOCrafting
 }
 
+type SafehouseCraftingSpreeCurrencies {
+  Id: string @unique
+  BaseItemTypesKey: BaseItemTypes
+  HasSpecificBaseItem: bool
+}
+
 type SafehouseCraftingSpreeType {
   Id: string
   Currencies: [SafehouseCraftingSpreeCurrencies]
@@ -158,12 +164,6 @@ type SafehouseCraftingSpreeType {
   Disabled: bool
   ItemClassText: string
   _: i32
-}
-
-type SafehouseCraftingSpreeCurrencies {
-  Id: string @unique
-  BaseItemTypesKey: BaseItemTypes
-  HasSpecificBaseItem: bool
 }
 
 type Scarabs {
