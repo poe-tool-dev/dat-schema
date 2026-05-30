@@ -3006,7 +3006,7 @@ type ItemVisualsReplacedWithStat {
   VisualIdentity: ItemVisualIdentity
 }
 
-type KeywordPopupsItemReference {
+type KeywordPopupItemReference {
   Id: string @unique
   BaseItemType: BaseItemTypes @unique
   _: rid
@@ -3017,7 +3017,7 @@ type KeywordPopupsItemReference {
   _: bool
 }
 
-type KeywordPopupsModReference {
+type KeywordPopupModReference {
   Id: string @unique
   Mod: Mods @unique
   CSDFile: string @file(ext. ".csd")
@@ -3029,8 +3029,8 @@ type KeywordPopups {
   Definition: string
   _: string
   _: string
-  _: rid
-  _: rid
+  ItemReference: KeywordPopupItemReference
+  ModReference: KeywordPopupModReference
 }
 
 type KioskModeCharacterTutorials {
