@@ -3020,7 +3020,7 @@ type KeywordPopupItemReference {
 type KeywordPopupModReference {
   Id: string @unique
   Mod: Mods @unique
-  CSDFile: string @file(ext. ".csd")
+  CSDFile: string @file(ext: ".csd")
 }
 
 type KeywordPopups {
