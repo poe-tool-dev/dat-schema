@@ -215,7 +215,7 @@ class VersionedTypedefNode<T> implements Iterable<[ValidFor, T]> {
   constructor(
     public vBase: T | undefined,
     public vOverride: T | undefined,
-    readonly allowSharing: boolean
+    public allowSharing: boolean
   ) {}
 
   *[Symbol.iterator](): Iterator<[ValidFor, T]> {
@@ -239,13 +239,14 @@ class VersionedTypedefMap<T extends TypeDefinitionNode> {
 
   constructor(readonly allowSharing: boolean) {}
 
-  add(typeNode: T, override: boolean): boolean {
+  add(typeNode: T, override: boolean, otherMap: VersionedTypedefMap<any>): boolean {
     const existingNode = this.data.get(typeNode.name.value);
+    const nodeInOtherMap = otherMap.data.get(typeNode.name.value);
     if (!existingNode) {
       this.data.set(typeNode.name.value, new VersionedTypedefNode(
         !override ? typeNode : undefined,
         override ? typeNode : undefined,
-        this.allowSharing
+        nodeInOtherMap != null ? false : this.allowSharing
       ));
     } else if (override) {
       if (existingNode.vOverride != null) return false;
@@ -253,6 +254,10 @@ class VersionedTypedefMap<T extends TypeDefinitionNode> {
     } else {
       if (existingNode.vBase != null) return false;
       existingNode.vBase = typeNode;
+    }
+
+    if (nodeInOtherMap) {
+      nodeInOtherMap.allowSharing = false;
     }
     return true;
   }
@@ -313,14 +318,14 @@ export function readSchemaSources(
 
       const override = source.name.startsWith('poe2');
       if (typeNode.kind === 'EnumTypeDefinition') {
-        if (!enumDefsMap.add(typeNode, override)) {
+        if (!enumDefsMap.add(typeNode, override, typeDefsMap)) {
           throw new GraphQLError(
             'Enum with this name has already been defined.',
             { nodes: typeNode.name }
           );
         }
       } else if (typeNode.kind === 'ObjectTypeDefinition') {
-        if (!typeDefsMap.add(typeNode, override)) {
+        if (!typeDefsMap.add(typeNode, override, enumDefsMap)) {
           throw new GraphQLError(
             'Table with this name has already been defined.',
             { nodes: typeNode.name }

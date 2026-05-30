@@ -92,6 +92,7 @@ type ActiveSkills {
   StatDescription: string
   WeaponRequirements: ActiveSkillWeaponRequirement
   _: i32
+  _: string
 }
 
 
@@ -100,6 +101,7 @@ type ActiveSkillWeaponRequirement {
   WieldableClasses: [WieldableClasses]
   String: ClientStrings
   _: i32
+  _: rid
 }
 
 type Acts {
@@ -248,6 +250,7 @@ type AlternateQualityTypes @tags(list: ["item:def"]) {
   Item: BaseItemTypes
   ModEffectStat: ModEffectStats
   HASH16: u16
+  _: [rid]
 }
 
 
@@ -407,6 +410,10 @@ type AtlasPassiveSkillSubTrees {
   _: ClientStrings
   _: ClientStrings
   _: ClientStrings
+  _: string
+  _: string
+  _: f32
+  _: string
 }
 
 type AtlasPrimordialBosses {
@@ -555,6 +562,10 @@ type BaseItemTypes @tags(list: ["item:def", "item:droptable"]) {
   Achievement: [AchievementItems]
   ShopTag: ShopTag
   _: rid # All rows empty
+  _: i32
+  _: [rid]
+  _: [rid]
+  _: [rid]
 }
 
 type BattlePasses {
@@ -1001,7 +1012,6 @@ type Characters {
   _: rid # All rows empty
   _: [rid] # All rows empty
   LevelUpEffect: MiscEffectPacks
-  _: rid
   _: i32
   PassiveTreeImage: string @file(ext: ".dds")
   _: i32
@@ -1241,43 +1251,23 @@ type CraftableModTypes @tags(list: ["crafting"]) {
 }
 
 type CraftingBenchOptions @tags(list: ["crafting"]) {
-  HideoutNPC: HideoutNPCs
-  Order: i32
-  AddMod: Mods
-  Cost_BaseItemTypes: [BaseItemTypes]
-  Cost_Values: [i32]
-  RequiredLevel: i32
-  Name: string
-  CraftingBenchCustomAction: CraftingBenchCustomActions
-  ItemClasses: [ItemClasses]
-  Links: i32
-  SocketColours: string
-  Sockets: i32
-  ItemQuantity: i32
-  _: [i32]
-  Description: string
-  IsDisabled: bool
-  IsAreaOption: bool
-  RecipeIds: [RecipeUnlockDisplay] @ref(column: "RecipeId")
-  Tier: i32
-  CraftingItemClassCategories: [CraftingItemClassCategories]
+  Id: string @unique
+  _: rid
+  _: string
+  _: string
+  _: rid
   _: i32
-  UnlockCategory: CraftingBenchUnlockCategories
-  UnveilsRequired: i32
-  UnveilsRequired2: i32
   _: [rid]
-  KalandraAchievement: [AchievementItems]
-  _: i32
-  _: i32
-  VeiledMod: Mods
-  AddEnchantment: Mods
-  SortCategory: CraftingBenchSortCategories
-  ModType: ModType
+  _: [i32]
+  _: [rid]
+  _: [rid]
+  _: [rid]
   _: bool
-  _: i32
-  Stat1: Stats
-  Stat2: Stats
-  Stat3: Stats
+  _: [rid]
+  _: [rid]
+  _: rid
+  _: rid
+  _: bool
 }
 
 
@@ -1357,7 +1347,6 @@ type CurrencyItems @tags(list: ["item:def", "item:recipe"]) {
   ChangedForHardmode: bool
   DescriptionHardmode: string @localized
   IsGold: bool
-  UsageHint: string @localized
   _: bool
   _: bool
   _: i32
@@ -1735,9 +1724,7 @@ type EndgameMapTablets {
 }
 
 type EndgameMaps {
-  _: i32
   WorldArea: WorldAreas @unique
-  _: [i32]
   _: [rid]
   FlavourText: string @localized
   _: i32
@@ -1812,6 +1799,9 @@ type Essences {
   UpgradeResult: Essences
   Tier: i32
   MapStat: Stats
+  _: rid
+  _: [rid]
+  _: [rid]
 }
 
 
@@ -2250,6 +2240,9 @@ type GrantedEffectQualityStats @tags(list: ["item:droptable"]) {
   AddMinionTypes: [ActiveSkillType]
   "Apply to these stat sets, if not specified apply to all sets"
   ApplyToStatSets: [i32]
+  _: [rid]
+  _: [i32]
+  _: [i32]
 }
 
 type GrantedEffects {
@@ -2752,6 +2745,7 @@ type ItemClasses @tags(list: ["crafting"]) {
   EquipAchievement: AchievementItems
   UsableInMapDevice: bool
   _: bool
+  _: bool
 }
 
 
@@ -2958,6 +2952,7 @@ type ItemVisualIdentity {
   DropSoundEffect: SoundEffects
   Animation: MiscAnimated
   _: string
+  _: string
 }
 
 enum ItemVisualCompositions @indexing(first: 0) {
@@ -3011,12 +3006,31 @@ type ItemVisualsReplacedWithStat {
   VisualIdentity: ItemVisualIdentity
 }
 
+type KeywordPopupItemReference {
+  Id: string @unique
+  BaseItemType: BaseItemTypes @unique
+  _: rid
+  ItemVisualIdentity: ItemVisualIdentity
+  _: rid
+  _: rid
+  _: i32
+  _: bool
+}
+
+type KeywordPopupModReference {
+  Id: string @unique
+  Mod: Mods @unique
+  CSDFile: string @file(ext: ".csd")
+}
+
 type KeywordPopups {
   Id: string @unique
   Term: string
   Definition: string
   _: string
   _: string
+  ItemReference: KeywordPopupItemReference
+  ModReference: KeywordPopupModReference
 }
 
 type KioskModeCharacterTutorials {
@@ -4459,7 +4473,8 @@ type PassiveJewelSlots {
   ReplacesSlot: PassiveJewelSlots
   ProxySlot: PassiveSkills
   StartIndices: [i32]
-  _: rid # All rows empty
+  _: i32
+  _: bool
 }
 
 type PassiveJewelUniqueArt {
@@ -4584,6 +4599,20 @@ type PassiveSkills {
   VisibleForAscendancy: Ascendancy
   _: bool
   NodeFrameArt: PassiveSkillTreeNodeFrameArt
+  _: bool
+  _: i32
+  _: bool
+  _: rid
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+  _: rid
+  _: i32
+  _: rid
+  _: rid
 }
 
 
@@ -4657,6 +4686,7 @@ type PassiveSkillTreeUIArt {
   JewelFrame: PassiveSkillTreeNodeFrameArt
   Glow: string
   AscendancyStart: PassiveSkillTreeNodeFrameArt
+  MultipleChoiceFrame: PassiveSkillTreeNodeFrameArt
 }
 
 # Added 0.1
@@ -5343,6 +5373,10 @@ type SkillGems @tags(list: ["item:def"]) {
   Tier: i32
   GroundEffect: [GroundEffects]
   _: [_] # All rows empty
+  _: SkillGems
+  _: bool
+  _: bool
+  _: bool
 }
 
 type SkillGemsForUniqueStat {
@@ -5458,6 +5492,13 @@ type SoulCores {
   Limit: SoulCoreLimits
   Description: ClientStrings2
   Type: SoulCoreTypes
+  _: SoulCores
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+  _: rid
+  _: bool
 }
 
 
@@ -5635,6 +5676,7 @@ type SupportGems {
   FlavourText: FlavourText
   _: rid # All rows empty
   VisualIdentity: SupportGemSocketedVisualIdentity
+  _: bool
 }
 
 type SupportGemSocketedVisualIdentity {
@@ -5982,6 +6024,13 @@ type UniqueChests {
 type UniqueGoldPrices {
     Name: Words
     Price: i32
+}
+
+type UniqueMagesLegacy {
+  Name: string
+  DisplayText: string
+  Stats: [Stats]
+  StatValues: [i32]
 }
 
 type UniqueMapSkillBooks {
