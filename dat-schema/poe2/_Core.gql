@@ -1724,9 +1724,7 @@ type EndgameMapTablets {
 }
 
 type EndgameMaps {
-  _: i32
   WorldArea: WorldAreas @unique
-  _: [i32]
   _: [rid]
   FlavourText: string @localized
   _: i32
@@ -3006,6 +3004,23 @@ type ItemVisualsReplacedWithStat {
   BaseItemType: BaseItemTypes
   Stat: Stats
   VisualIdentity: ItemVisualIdentity
+}
+
+type KeywordPopupsItemReference {
+  Id: string @unique
+  BaseItemType: BaseItemTypes @unique
+  _: rid
+  ItemVisualIdentity: ItemVisualIdentity
+  _: rid
+  _: rid
+  _: int32
+  _: bool
+}
+
+type KeywordPopupsModReference {
+  Id: string @unique
+  Mod: Mods @unique
+  CSDFile: string @file(ext. ".csd")
 }
 
 type KeywordPopups {
