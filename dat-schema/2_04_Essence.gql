@@ -22,7 +22,7 @@ type Essences @tags(list: ["item:def", "crafting"]) {
   Display_BodyArmour_ModsKey: Mods
   Display_Helmet_ModsKey: Mods
   Display_Shield_ModsKey: Mods
-  HASH32: i32
+  HASH32: u32
   DropLevel: [i32]
   Monster_ModsKeys: [Mods]
   EssenceTypeKey: EssenceType

@@ -25,7 +25,7 @@ type ArchnemesisMods {
 type ArchnemesisModVisuals {
   Id: string @unique
   MiscAnimated: MiscAnimated
-  StampFamily: StampFamily
+  BuffVisualOrbType: BuffVisualOrbTypes
   MiscEffectPack: MiscEffectPacks
   BuffVisual: [BuffVisuals]
   Monster: [MonsterVarieties]

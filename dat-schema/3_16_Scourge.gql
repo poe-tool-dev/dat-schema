@@ -1,6 +1,6 @@
 type HellscapeAOReplacements {
   Original: string @file(ext: ".ao")
-  HASH32: i32
+  HASH32: u32
   Replacement: string @file(ext: ".ao")
 }
 
