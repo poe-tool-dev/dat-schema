@@ -2453,7 +2453,7 @@ type ExpeditionRelics {
   Id: string @unique
   Name: string
   ItemTag: Tags
-  AOFile: string
+  AOFiles: [string]
   MinLevel: i32
   MaxLevel: i32
   WorldArea: WorldAreas
@@ -6419,6 +6419,9 @@ type Strongboxes {
   _: bool
   SpawnWeightIncrease: Stats
   SpawnWeightHardmode: i32
+  BasicSpawnChanceStat: Stats
+  RequiredSpawnStat: [Stats]
+  BlockingSpawnStat: [Stats]
 }
 
 type StrongboxPacks {
