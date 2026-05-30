@@ -4,13 +4,13 @@ type ElderBossArenas {
   AchievementItemsKeys: [AchievementItems]
 }
 
+type ElderGuardians {
+  Id: string
+  MapIcon: string
+}
+
 type ElderMapBossOverride {
   WorldAreasKey: WorldAreas @unique
   MonsterVarietiesKeys: [MonsterVarieties]
   TerrainMetadata: string @files(ext: [".ot", ".otc"])
-}
-
-type ElderGuardians {
-  Id: string
-  MapIcon: string
 }

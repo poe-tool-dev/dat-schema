@@ -37,21 +37,6 @@ type ActionTypes {
   _: bool
 }
 
-# Added 0.1
-type ActiveSkillRequirements {
-  GrantedEffect: GrantedEffects @unique
-  BuffDefinition: BuffDefinitions
-  _: i32
-  _: i32
-  _: rid # All rows empty
-  _: rid # All rows empty
-  Stat: Stats
-  _: bool
-  _: bool
-  _: i32
-  _: bool
-}
-
 type ActiveSkills {
   Id: string @unique
   DisplayedName: string
@@ -93,6 +78,21 @@ type ActiveSkills {
   WeaponRequirements: ActiveSkillWeaponRequirement
   _: i32
   _: string
+}
+
+# Added 0.1
+type ActiveSkillRequirements {
+  GrantedEffect: GrantedEffects @unique
+  BuffDefinition: BuffDefinitions
+  _: i32
+  _: i32
+  _: rid # All rows empty
+  _: rid # All rows empty
+  Stat: Stats
+  _: bool
+  _: bool
+  _: i32
+  _: bool
 }
 
 
@@ -137,14 +137,14 @@ type AddBuffToTargetVarieties {
   _: bool
 }
 
-type AddMapStatGealAllowedStats {
-  Stat: Stats
-}
-
 type AdditionalLifeScaling {
   IntId: i32
   ID: string @unique
   DatFile: string @file(ext: ".dat")
+}
+
+type AddMapStatGealAllowedStats {
+  Stat: Stats
 }
 
 type AdditionalMonsterPacksFromStats {
@@ -1297,26 +1297,6 @@ type ChargeVariations {
   Animation: MiscAnimated
 }
 
-type ChestEffects {
-  Id: string @unique
-  Normal_EPKFile: string @file(ext: ".epk")
-  Normal_Closed_AOFile: string @file(ext: ".ao")
-  Normal_Open_AOFile: string @file(ext: ".ao")
-  Magic_EPKFile: string @file(ext: ".epk")
-  Unique_EPKFile: string @file(ext: ".epk")
-  Rare_EPKFile: string @file(ext: ".epk")
-  Magic_Closed_AOFile: string @file(ext: ".ao")
-  Unique_Closed_AOFile: string @file(ext: ".ao")
-  Rare_Closed_AOFile: string @file(ext: ".ao")
-  Magic_Open_AOFile: string @file(ext: ".ao")
-  Unique_Open_AOFile: string @file(ext: ".ao")
-  Rare_Open_AOFile: string @file(ext: ".ao")
-  Normal_Open_EPKFile: string @file(ext: ".epk")
-  Magic_Open_EPKFile: string @file(ext: ".epk")
-  Rare_Open_EPKFile: string @file(ext: ".epk")
-  Unique_Open_EPKFile: string @file(ext: ".epk")
-}
-
 type Chests {
   Id: string @unique
   _: bool
@@ -1366,6 +1346,26 @@ type Chests {
   _: [_] # All rows empty
   _: [_] # All rows empty
   _: [_] # All rows empty
+}
+
+type ChestEffects {
+  Id: string @unique
+  Normal_EPKFile: string @file(ext: ".epk")
+  Normal_Closed_AOFile: string @file(ext: ".ao")
+  Normal_Open_AOFile: string @file(ext: ".ao")
+  Magic_EPKFile: string @file(ext: ".epk")
+  Unique_EPKFile: string @file(ext: ".epk")
+  Rare_EPKFile: string @file(ext: ".epk")
+  Magic_Closed_AOFile: string @file(ext: ".ao")
+  Unique_Closed_AOFile: string @file(ext: ".ao")
+  Rare_Closed_AOFile: string @file(ext: ".ao")
+  Magic_Open_AOFile: string @file(ext: ".ao")
+  Unique_Open_AOFile: string @file(ext: ".ao")
+  Rare_Open_AOFile: string @file(ext: ".ao")
+  Normal_Open_EPKFile: string @file(ext: ".epk")
+  Magic_Open_EPKFile: string @file(ext: ".epk")
+  Rare_Open_EPKFile: string @file(ext: ".epk")
+  Unique_Open_EPKFile: string @file(ext: ".epk")
 }
 
 type ChooseOneUniqueNPCs {
@@ -1906,16 +1906,6 @@ type EndgameMapAtlasTowers {
   FortressAtlas: [EndgameMapAtlas]
 }
 
-type EndgameMapBiomeGroundTypes {
-  Id: string
-  _: string @file(ext: ".gt")
-  _: string @file(ext: ".gt")
-  _: string @file(ext: ".gt")
-  _: string @file(ext: ".gt")
-  _: string @file(ext: ".gt")
-  _: string @file(ext: ".gt")
-}
-
 type EndgameMapBiomes {
   Id: string @unique
   _: f32
@@ -1934,6 +1924,16 @@ type EndgameMapBiomes {
   MonsterTag: Tags
   Stat: Stats
   GroundType: EndgameMapBiomeGroundTypes
+}
+
+type EndgameMapBiomeGroundTypes {
+  Id: string
+  _: string @file(ext: ".gt")
+  _: string @file(ext: ".gt")
+  _: string @file(ext: ".gt")
+  _: string @file(ext: ".gt")
+  _: string @file(ext: ".gt")
+  _: string @file(ext: ".gt")
 }
 
 type EndgameMapCompletionQuests {
@@ -2074,12 +2074,6 @@ type EndgameMapObjectives {
   MiniMapIcon: MinimapIcons
 }
 
-type EndgameMapPinIcons {
-  Id: string @unique
-  Icon1: string
-  Icon2: string
-}
-
 type EndgameMapPins {
   Id: string @unique
   UnavailablePin: MiscAnimated
@@ -2093,6 +2087,12 @@ type EndgameMapPins {
   RitualSelectedEPK: string @file(ext: ".epk")
   DeliriumHighlightEPK: string @file(ext: ".epk")
   AudioAnimation: MiscAnimated
+}
+
+type EndgameMapPinIcons {
+  Id: string @unique
+  Icon1: string
+  Icon2: string
 }
 
 # Added 0.5
@@ -3316,12 +3316,6 @@ type HudVisualsFromStat {
   HudESVisual: HudEnergyShieldVisuals
 }
 
-# Added 0.4
-type IncubatorBaseRequiredKillsPerLevel {
-  Level: i32 @unique
-  RequiredKills: i32
-}
-
 # Added 0.1
 type Incubators @tags(list: ["item:def"]) {
   BaseItemType: BaseItemTypes @unique
@@ -3332,6 +3326,12 @@ type Incubators @tags(list: ["item:def"]) {
   _: bool
   RewardDescription: ClientStrings
   _: [i32]
+}
+
+# Added 0.4
+type IncubatorBaseRequiredKillsPerLevel {
+  Level: i32 @unique
+  RequiredKills: i32
 }
 
 # Added 0.4
@@ -3384,19 +3384,6 @@ type Incursion2MutatedUniqueModsClient {
 }
 
 # Added 0.4
-type Incursion2RoomPerLevel {
-  Room: Incursion2Rooms
-  Level: i32
-  Id: string @unique
-  Description: string @localized
-  Name: string @localized
-  Icon_DDSFile: string @file(ext: ".dds")
-  Mod: Mods
-  ModValues: [i32]
-  Description2: string
-}
-
-# Added 0.4
 type Incursion2Rooms {
   Id: string @unique
   IsPathway: bool
@@ -3409,6 +3396,19 @@ type Incursion2Rooms {
   Name: string @localized
   Icon_DDSFile: string @file(ext: ".dds")
   RewardUnlockStat: Stats
+}
+
+# Added 0.4
+type Incursion2RoomPerLevel {
+  Room: Incursion2Rooms
+  Level: i32
+  Id: string @unique
+  Description: string @localized
+  Name: string @localized
+  Icon_DDSFile: string @file(ext: ".dds")
+  Mod: Mods
+  ModValues: [i32]
+  Description2: string
 }
 
 # Added 0.4
@@ -3752,6 +3752,12 @@ type ItemVisualHeldBodyModel {
   _: string
 }
 
+type ItemVisualsReplacedWithStat {
+  BaseItemType: BaseItemTypes
+  Stat: Stats
+  VisualIdentity: ItemVisualIdentity
+}
+
 # Added 0.1
 type ItemVisualReplacement {
   Id: BaseItemTypes @unique
@@ -3759,12 +3765,7 @@ type ItemVisualReplacement {
   ItemVisualIdentity: ItemVisualIdentity
 }
 
-type ItemVisualsReplacedWithStat {
-  BaseItemType: BaseItemTypes
-  Stat: Stats
-  VisualIdentity: ItemVisualIdentity
-}
-
+# Added 0.5
 type KalguuranGemLevelCurrency {
   BaseItemType: BaseItemTypes
   GemLevel: i32
@@ -3997,6 +3998,23 @@ type MapCurrencyInventoryLayout {
   _: MapCurrencyInventoryLayout
 }
 
+type MapDevices {
+  Id: string
+  MiscObject: MiscObjects
+  _: i32
+  _: string
+  _: string
+  _: [i32]
+  _: bool
+  _: i32
+  _: bool
+  _: i32
+  _: i32
+  _: i32
+  _: [i32]
+  HideoutDoodad: HideoutDoodads
+}
+
 # Added 0.1
 type MapDeviceRecipes @tags(list: ["item:recipe"]) {
   Id: string @unique
@@ -4014,23 +4032,6 @@ type MapDeviceRecipes @tags(list: ["item:recipe"]) {
   Mods: [Mods]
   _: bool
   _: bool
-}
-
-type MapDevices {
-  Id: string
-  MiscObject: MiscObjects
-  _: i32
-  _: string
-  _: string
-  _: [i32]
-  _: bool
-  _: i32
-  _: bool
-  _: i32
-  _: i32
-  _: i32
-  _: [i32]
-  HideoutDoodad: HideoutDoodads
 }
 
 type MapFragmentMods {
@@ -5086,11 +5087,6 @@ type NPCMaster {
   MasterMissionOnCompletionStat: Stats
 }
 
-type NPCPortraitAOOverrides {
-  Id: string
-  NPCPortrait: NPCPortraits
-}
-
 type NPCPortraits {
   Name: string @unique
   PortraitFile: string
@@ -5100,6 +5096,11 @@ type NPCPortraits {
   _: bool
   _: i32
   _: bool
+}
+
+type NPCPortraitAOOverrides {
+  Id: string
+  NPCPortrait: NPCPortraits
 }
 
 type NPCShopGamblerVisualIdentity {
@@ -5688,15 +5689,6 @@ type PrimalAvatarVarieties {
   _: f32
 }
 
-type ProjectileOverrides {
-  Id: string
-  _: [string] @file(ext: ".ao")
-  _: string @file(ext: ".ao")
-  _: [string] @file(ext: ".ao")
-  ItemVisualIdentity: ItemVisualIdentity
-  _: string @file(ext: ".fmt")
-}
-
 type Projectiles {
   Id: string @unique @files(ext: [".ot", ".otc"])
   AOFiles: [string] @file(ext: ".ao")
@@ -5743,6 +5735,15 @@ type Projectiles {
   _: bool
 }
 
+type ProjectileOverrides {
+  Id: string
+  _: [string] @file(ext: ".ao")
+  _: string @file(ext: ".ao")
+  _: [string] @file(ext: ".ao")
+  ItemVisualIdentity: ItemVisualIdentity
+  _: string @file(ext: ".fmt")
+}
+
 type Quest {
   Id: string @unique
   Act: i32
@@ -5768,14 +5769,6 @@ type QuestFlagVisuals {
   ItemVisualIdentity: ItemVisualIdentity
 }
 
-type QuestItemNPCAudio {
-  QuestItem: QuestItems
-  NPCAudio1: NPCTextAudio
-  NPCAudio2: [NPCTextAudio]
-  QuestFlag: QuestFlags
-}
-
-
 type QuestItems {
   BaseItemType: BaseItemTypes @unique
   TriggeredQuestFlag: QuestFlags
@@ -5795,23 +5788,11 @@ type QuestItems {
   BuffVisual: BuffVisuals
 }
 
-
-type QuestRewardOffers {
-  Id: string
-  QuestKey: Quest
+type QuestItemNPCAudio {
+  QuestItem: QuestItems
+  NPCAudio1: NPCTextAudio
+  NPCAudio2: [NPCTextAudio]
   QuestFlag: QuestFlags
-  _: i32
-  RewardWindowTake: ClientStrings
-  _: bool
-  _: bool
-  RewardWindowTitle: ClientStrings
-  _: bool
-  _: bool
-  _: bool
-  _: bool
-  _: rid # All rows empty
-  _: rid # All rows empty
-  _: i32
 }
 
 # Added 0.1
@@ -5850,6 +5831,23 @@ type QuestRewards @tags(list: ["item:reward"]) {
   _: bool
 }
 
+type QuestRewardOffers {
+  Id: string
+  QuestKey: Quest
+  QuestFlag: QuestFlags
+  _: i32
+  RewardWindowTake: ClientStrings
+  _: bool
+  _: bool
+  RewardWindowTitle: ClientStrings
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+  _: rid # All rows empty
+  _: rid # All rows empty
+  _: i32
+}
 
 type QuestRewardType {
   Id: string @unique
@@ -6025,13 +6023,6 @@ type RitualStashTabLayout {
   MiniIcon: string # mini icon in top left corner
 }
 
-# Added 0.2
-type RogueExileModBonuses {
-  Mod: Mods @unique
-  Stats: [Stats]
-  StatsValues: [i32]
-}
-
 # Added 0.1
 type RogueExiles {
   MonsterVarietiesKey: MonsterVarieties @unique
@@ -6057,6 +6048,13 @@ type RogueExiles {
   _: [_] # All rows empty
   _: rid # All rows empty
   _: i32
+}
+
+# Added 0.2
+type RogueExileModBonuses {
+  Mod: Mods @unique
+  Stats: [Stats]
+  StatsValues: [i32]
 }
 
 type Rulesets {
@@ -6167,14 +6165,6 @@ type ShapeShiftBoneSizes {
   Size: f32
 }
 
-# Added 0.1
-type ShapeShiftFormClones {
-  ShapeShiftForm: ShapeShiftForms @unique
-  MonsterImmobile: MonsterVarieties
-  AfterImageEffect: string
-  PlayerEffect: string
-}
-
 type ShapeShiftForms {
   Id: string @unique
   AOFile: string @file(ext: ".ao")
@@ -6204,6 +6194,13 @@ type ShapeShiftForms {
   Name: string
 }
 
+# Added 0.1
+type ShapeShiftFormClones {
+  ShapeShiftForm: ShapeShiftForms @unique
+  MonsterImmobile: MonsterVarieties
+  AfterImageEffect: string
+  PlayerEffect: string
+}
 
 # Added 0.1
 type ShapeShiftTransformData {
@@ -6498,7 +6495,7 @@ type StrongboxPacks {
   MonsterPack: MonsterPacks @unique
 }
 
-type StrongBoxVarieties {
+type StrongboxVarieties {
   Strongbox: Strongboxes
   _: rid
   AOFile: string
@@ -6527,14 +6524,6 @@ type SocketableStashTabSubGroup {
   FirstPage: bool
 }
 
-# Added 0.3
-type SoulCoreLimits {
-  Id: string @unique
-  Limit: i32
-  Text: string @localized
-  _: bool
-}
-
 # Added 0.1
 type SoulCores {
   BaseItemType: BaseItemTypes @unique
@@ -6551,13 +6540,12 @@ type SoulCores {
   _: bool
 }
 
-
-# Added 0.4
-type SoulCoreStatCategories {
+# Added 0.3
+type SoulCoreLimits {
   Id: string @unique
-  TargetItemClasses: [ItemClasses]
-  Display: string @localized
-  _: i32
+  Limit: i32
+  Text: string @localized
+  _: bool
 }
 
 # Added 0.4
@@ -6568,6 +6556,14 @@ type SoulCoreStats {
   StatsValues: [i32]
   BondedStats: [Stats]
   BondedStatsValues: [i32]
+}
+
+# Added 0.4
+type SoulCoreStatCategories {
+  Id: string @unique
+  TargetItemClasses: [ItemClasses]
+  Display: string @localized
+  _: i32
 }
 
 # Added 0.4
@@ -6735,11 +6731,6 @@ type SurgeEffectPackArtVariations {
   _: bool
 }
 
-type SupportGemFamily {
-  Id: string @unique
-  Text: string @localized
-}
-
 type SupportGems {
   SkillGem: SkillGems @unique
   _: i32
@@ -6750,6 +6741,11 @@ type SupportGems {
   _: rid # All rows empty
   VisualIdentity: SupportGemSocketedVisualIdentity
   _: bool
+}
+
+type SupportGemFamily {
+  Id: string @unique
+  Text: string @localized
 }
 
 type SupportGemSocketedVisualIdentity {
@@ -7244,37 +7240,6 @@ type WieldableClasses {
   _: i32
 }
 
-# Added 0.1
-type WorldAreaLeagueChances {
-  Id: string @unique
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32 # ShrineChance?
-  _: i32 # ShrineChance?
-  _: i32
-  _: i32
-  _: i32
-  _: i32 # EssenceChance?
-  _: i32 # EssenceChance?
-  _: i32
-  AbyssChance: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32 # StrongboxChance?
-  _: i32 # StrongboxChance?
-  StoneCirclesChance: i32
-  VaalTempleChance: i32 # Fate of the Vaal league
-  ExpeditionChance: i32
-}
-
 type WorldAreas {
   Id: string
   Name: string
@@ -7360,6 +7325,36 @@ type WorldAreas {
   _: [i32]
 }
 
+# Added 0.1
+type WorldAreaLeagueChances {
+  Id: string @unique
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32 # ShrineChance?
+  _: i32 # ShrineChance?
+  _: i32
+  _: i32
+  _: i32
+  _: i32 # EssenceChance?
+  _: i32 # EssenceChance?
+  _: i32
+  AbyssChance: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32 # StrongboxChance?
+  _: i32 # StrongboxChance?
+  StoneCirclesChance: i32
+  VaalTempleChance: i32 # Fate of the Vaal league
+  ExpeditionChance: i32
+}
 
 # Added 0.3
 type WorldDescriptionButton {

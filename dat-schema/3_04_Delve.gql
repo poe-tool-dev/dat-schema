@@ -28,11 +28,6 @@ type DelveCatchupDepths {
   Depth: i32
 }
 
-type DelveCraftingModifierDescriptions {
-  Id: string @unique
-  Description: string
-}
-
 type DelveCraftingModifiers @tags(list: ["crafting"]) {
   BaseItemTypesKey: BaseItemTypes
   AddedModsKeys: [Mods]
@@ -56,6 +51,11 @@ type DelveCraftingModifiers @tags(list: ["crafting"]) {
   _: [i32]
   _: [i32]
   _: bool
+}
+
+type DelveCraftingModifierDescriptions {
+  Id: string @unique
+  Description: string
 }
 
 type DelveCraftingTags {

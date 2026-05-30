@@ -53,16 +53,16 @@ type NecropolisPackAdditionalPacks {
   MonsterPack: MonsterPacks
 }
 
-type NecropolisPackImplicitClass {
-  Id: string
-  MoreImplicit: NecropolisPackImplicits
-  LessImplicit: NecropolisPackImplicits
-}
-
 type NecropolisPackImplicits {
   Id: string
   Text: string
   Icon: string
+}
+
+type NecropolisPackImplicitClass {
+  Id: string
+  MoreImplicit: NecropolisPackImplicits
+  LessImplicit: NecropolisPackImplicits
 }
 
 type NecropolisPackMods {

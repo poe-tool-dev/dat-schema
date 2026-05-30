@@ -7,11 +7,6 @@ type ArchnemesisMetaRewards {
   MaxLevel: i32
 }
 
-type ArchnemesisModComboAchievements {
-  Achievement: AchievementItems
-  Mods: [ArchnemesisMods]
-}
-
 type ArchnemesisMods {
   Mod: Mods
   Name: string @localized
@@ -20,6 +15,11 @@ type ArchnemesisMods {
   _: bool
   _: bool
   _: bool
+}
+
+type ArchnemesisModComboAchievements {
+  Achievement: AchievementItems
+  Mods: [ArchnemesisMods]
 }
 
 type ArchnemesisModVisuals {

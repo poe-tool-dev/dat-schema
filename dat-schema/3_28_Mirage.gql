@@ -1,7 +1,3 @@
-type FaridunWishFamilies {
-  Id: string
-}
-
 type FaridunWishes {
   Id: string
   _: i32
@@ -17,6 +13,10 @@ type FaridunWishes {
   _: i32
   _: [_] # All rows empty
   _: i32
+}
+
+type FaridunWishFamilies {
+  Id: string
 }
 
 type FaridunLifeScalingPerLevel {

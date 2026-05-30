@@ -170,15 +170,6 @@ type VillageUniqueDisenchantValues @tags(list: ["item:droptable"]) {
   RuthlessValue: f32
 }
 
-type VillageUpgradeCategories {
-  Id: string
-  ScriptArgs: string
-  Name: string
-  Icon: string
-  Text: string
-  JobType: VillageJobTypes
-}
-
 # Removed 3.28.0h
 type VillageUpgrades {
   Category: VillageUpgradeCategories
@@ -193,6 +184,15 @@ type VillageUpgrades {
   Stats: [Stats]
   StatsValues: [i32]
   UpgradeTextAudio: NPCTextAudio
+}
+
+type VillageUpgradeCategories {
+  Id: string
+  ScriptArgs: string
+  Name: string
+  Icon: string
+  Text: string
+  JobType: VillageJobTypes
 }
 
 type VillageBaseStats {

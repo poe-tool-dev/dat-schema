@@ -39,6 +39,17 @@ type ExpeditionCurrency @tags(list: ["item:def"]) {
   LootSound: SoundEffects
 }
 
+type ExpeditionDeals {
+  Id: i32
+  Function: string @unique
+  Arguments: string
+  TextAudio: NPCTextAudio
+  Description: string @localized
+  BuyAchievements: [AchievementItems]
+  NPCShop: NPCShop
+  DealFamily: ExpeditionDealFamilies
+}
+
 enum ExpeditionDealFamilies @indexing(first: 1) {
   REROLL_PREFIXES_BEST
   REROLL_SUFFIXES_BEST
@@ -62,17 +73,6 @@ enum ExpeditionDealFamilies @indexing(first: 1) {
   ADD_INFLUENCE
   REMOVE_ALL_PREFIXES
   REMOVE_ALL_SUFFIXES
-}
-
-type ExpeditionDeals {
-  Id: i32
-  Function: string @unique
-  Arguments: string
-  TextAudio: NPCTextAudio
-  Description: string @localized
-  BuyAchievements: [AchievementItems]
-  NPCShop: NPCShop
-  DealFamily: ExpeditionDealFamilies
 }
 
 type ExpeditionFactions {
@@ -119,12 +119,6 @@ enum ExpeditionRelicModCategories @indexing(first: 0) {
   REWARD_PACK_SIZE
 }
 
-type ExpeditionRelicMods {
-  Mod: Mods
-  Categories: [ExpeditionRelicModCategories]
-  DestroyAchievements: [AchievementItems]
-}
-
 type ExpeditionRelics {
   Id: string @unique
   Name: string
@@ -132,6 +126,12 @@ type ExpeditionRelics {
   AOFile: string
   MinLevel: i32
   MaxLevel: i32
+}
+
+type ExpeditionRelicMods {
+  Mod: Mods
+  Categories: [ExpeditionRelicModCategories]
+  DestroyAchievements: [AchievementItems]
 }
 
 type ExpeditionStorageLayout {

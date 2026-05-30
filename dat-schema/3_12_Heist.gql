@@ -62,6 +62,13 @@ type HeistBalancePerLevel {
 
 enum HeistBlueprintWindowTypes @indexing(first: 0) { _ }
 
+type HeistChests {
+  ChestsKey: Chests
+  Weight: i32
+  HeistAreasKey: [HeistAreas]
+  HeistChestTypesKey: HeistChestTypes
+}
+
 type HeistChestRewardTypes {
   Id: string @unique
   Art: string
@@ -75,13 +82,6 @@ type HeistChestRewardTypes {
   HeistJobsKey: [HeistJobs]
   _: i32
   _: i32
-}
-
-type HeistChests {
-  ChestsKey: Chests
-  Weight: i32
-  HeistAreasKey: [HeistAreas]
-  HeistChestTypesKey: HeistChestTypes
 }
 
 enum HeistChestTypes @indexing(first: 0) { _ }
@@ -230,6 +230,14 @@ type HeistNPCDialogue {
   _: i32
 }
 
+type HeistNPCStats {
+  StatsKey: Stats
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+}
+
 type HeistNPCs {
   NPCsKey: NPCs
   MonsterVarietiesKey: MonsterVarieties
@@ -251,14 +259,6 @@ type HeistNPCs {
   Equip_AchievementItemsKeys: [AchievementItems]
   AOFile: string @file(ext: ".ao")
   Inventory: Inventories
-}
-
-type HeistNPCStats {
-  StatsKey: Stats
-  _: bool
-  _: bool
-  _: bool
-  _: bool
 }
 
 type HeistObjectives {
