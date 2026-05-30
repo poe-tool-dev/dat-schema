@@ -2385,7 +2385,7 @@ enum ItemClassFlags @indexing(first: 0) {
 
 type ItemConditions {
   Id: string
-  _: [_] # All rows empty
+  ItemClasses: [ItemClasses]
   _: i32
   _: i32
   _: bool
