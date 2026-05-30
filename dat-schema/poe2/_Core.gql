@@ -836,7 +836,7 @@ type BrequelCraftingItems {
 
 type BrequelEncounterSkills {
   Id: string @unique
-  _: rid
+  _: rid # All rows empty
   Description: string
   Art: string
   _: i32
@@ -1348,9 +1348,9 @@ type Chests {
   _: i32
   _: rid # All rows empty
   _: bool
-  _: [_]
-  _: [_]
-  _: [_]
+  _: [_] # All rows empty
+  _: [_] # All rows empty
+  _: [_] # All rows empty
 }
 
 type ChooseOneUniqueNPCs {
@@ -1468,21 +1468,21 @@ type CraftableModTypes @tags(list: ["crafting"]) {
 
 type CraftingBenchOptions @tags(list: ["crafting"]) {
   Id: string @unique
-  _: rid
   _: string
+  _: [_] # All rows empty
   _: string
-  _: rid
+  SortCategory: CraftingBenchSortCategories
   _: i32
   _: [rid]
   _: [rid]
   CraftingCategory: [CraftingItemClassCategories]
-  _: [_]
-  _: [_]
+  _: [_] # All rows empty
+  _: [_] # All rows empty
   _: bool
-  _: [_]
-  _: [_]
-  _: rid
-  _: rid
+  _: [_] # All rows empty
+  _: [_] # All rows empty
+  _: rid # All rows empty
+  _: rid # All rows empty
   _: bool
 }
 
@@ -1849,44 +1849,44 @@ type EndgameExtraMapStatsToDisplayOnAtlas {
 }
 
 type EndgameMapAtlas {
-  _: PassiveSkills
-  _: [EndgameMaps]
+  Passives: PassiveSkills
+  Map: [EndgameMaps]
   _: i32
-  _: [rid]
+  Biome: [EndgameMapBiomes]
   _: i32
   _: rid
   Stats: [Stats]
   StatValues: [i32]
-  _: rid
+  MapPin: EndgameMapPins
   _: i32
-  _: rid
+  BlockedMessage: ClientStrings2
   _: bool
   _: bool
   _: bool
-  _: rid
+  SubTree: AtlasPassiveSkillSubTrees
   _: i32
   _: i32
-  _: rid
+  MapObjective: EndgameMapObjectives
   _: i32
   _: EndgameMapAtlas
-  _: rid
-  _: rid
-  _: rid
-  _: rid
+  BiomeGroundType: EndgameMapBiomeGroundTypes
+  MapDecoration1: EndgameMapDecorations
+  MapDecoration2: EndgameMapDecorations
+  Quest: Quest
   _: i32
   _: i32
   _: bool
   _: bool
-  _: rid
+  ClientString: ClientStrings2
 }
 
 type EndgameMapAtlasTowers {
-  _: rid
+  RevealType: EndgameMapRevealTypes
   _: i32
-  _: [rid]
-  _: rid
-  _: [rid]
-  _: [rid]
+  AtlasNodes: [EndgameMapAtlas]
+  SessionQuestFlag: SessionQuestFlags
+  TowerAtlas: [EndgameMapAtlas]
+  FortressAtlas: [EndgameMapAtlas]
 }
 
 type EndgameMapBiomeGroundTypes {
@@ -1910,8 +1910,8 @@ type EndgameMapBiomes {
   _: f32
   _: i32
   Name: string
-  _: rid
   WorldArea: WorldAreas
+  BossWorldArea: WorldAreas
   _: [i32]
   AreaTag: Tags
   MonsterTag: Tags
@@ -1979,14 +1979,14 @@ type EndgameMapContentVisualIdentity {
   Id: string
   AtlasIcon: string
   PassiveArt: string @file(ext: ".dds")
-  _: rid
+  ContentFamily: EndgameMapContentFrameType
 }
 
 type EndgameMapContentWeightings {
   MapContent: EndgameMapContent
   _: i32
-  _: [rid]
-  _: [i32]
+  MapBiome: [EndgameMapBiomes]
+  Weighting: [i32]
 }
 
 type EndgameMapDecorations {
@@ -2090,7 +2090,7 @@ type EndgameMapTablets {
 
 type EndgameMaps {
   WorldArea: WorldAreas @unique
-  _: [rid]
+  Environment: [Environments]
   FlavourText: string @localized
   _: i32
   _: [i32]
@@ -2112,7 +2112,7 @@ type EndgameMaps {
   _: f32
   _: bool
   _: bool
-  _: [rid]
+  MapContent: [EndgameMapContent]
   _: bool
   _: string
   _: f32
