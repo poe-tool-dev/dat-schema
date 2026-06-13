@@ -19,6 +19,21 @@ type AbyssMonsterModReplacement {
   AbyssMods: [Mods]
 }
 
+# Added 0.5
+type AbyssStashTabLayout {
+  Id: string
+  StoredItem: BaseItemTypes
+  XOffset: i32
+  YOffset: i32
+  SlotSize: i32
+  SlotStyle: StashTabInventorySlotStyle
+  HideIfEmpty: bool
+  FirstSlotIndex: i32
+  _: i32
+  Width: i32
+  Height: i32
+}
+
 # Added 0.2
 type AchievementItemRewards @tags(list: ["mtx:reward"]) {
   AchievementItem: AchievementItems
@@ -886,6 +901,13 @@ type BrequelFruitTypes {
   _: rid # All rows empty
 }
 
+type BrequelPassiveSubTrees {
+  Id: string @unique
+  Wombgift: BaseItemTypes
+  RewardStringSingle: ClientStrings2
+  RewardStringMultiple: ClientStrings2
+}
+
 # Added 0.5
 type BrequelTreePassiveUnlocks {
   Passive: PassiveSkills
@@ -1115,7 +1137,7 @@ type CharacterAudioEvents {
   _: i32
   _: i32
   _: i32
-  NPCAudio: [NPCTextAudio]
+  CharacterAudio: [CharacterTextAudio]
 }
 
 type CharacterCreationButton {
@@ -1554,6 +1576,7 @@ type CurrencyExchange {
   EnabledInChallengeLeague: bool
   GoldPurchaseFee: i32
   _: bool
+  _: bool
 }
 
 type CurrencyItems @tags(list: ["item:def", "item:recipe"]) {
@@ -1718,22 +1741,22 @@ type DefaultMonsterStats {
   Damage: f32
   Evasion: i32
   Accuracy: i32
-  Life: i32
+  MonsterLife: i32
   Experience: i32
   AllyLife: i32
   Armour: i32
   Difficulty: i32
   MinionDamage: f32
-  AltLife1: i32
-  AltDamage1: f32
-  AltDamage2: f32
-  AltLife2: i32
   EvasiveEvasion: i32
   AilmentThreshold: i32
-  StunThreshold: i32
-  _: i32
-  _: i32
-  _: i32
+  PoiseThreshold: i32
+  AltLife2: i32
+  LeechResistance: i32
+  MoreElementalDamage: i32
+  MoreChaosDamage: i32
+  RareUniqueLeechResistance: i32
+  UniqueMonsterDamageTakenFromMinions: i32
+  MoreDamageAgainstNonUnique: i32
   _: i32
 }
 
@@ -2114,7 +2137,7 @@ type EndgameMapTablets {
 
 type EndgameMaps {
   WorldArea: WorldAreas @unique
-  Environment: [Environments]
+  MonsterPacks: [MonsterPacks]
   FlavourText: string @localized
   _: i32
   _: [i32]
@@ -2173,8 +2196,8 @@ type EndgameRegionActionButtonsRequiredQuestFlags {
   _: i32
   _: rid
   _: i32
-  QuestFlag: QuestFlags
-  _: rid
+  QuestItem: BaseItemTypes
+  ErrorDescription: ClientStrings2
   _: bool
   KeywordPopup: KeywordPopups
 }
@@ -2185,8 +2208,11 @@ type EndgameRegionActionCurrencyItems {
   _: i32
   BaseItemTypes: BaseItemTypes
   KeywordPopup: KeywordPopups
-  _: rid # All rows empty
+  ErrorDescription: ClientStrings2
   _: bool
+  _: i32
+  _: i32
+  _: rid # All rows empty
 }
 
 type EndgameSplinterInfoDisplay {
@@ -2368,7 +2394,7 @@ type Expedition2Runes {
   _: i32
   TomeArt: string
   RemnantArt: string
-  HitEffect: Stats
+  ModType: ModType
   EnemyArt: string
   _: string
 }
@@ -2378,12 +2404,11 @@ type Expedition2RunesWeights {
   Id: string
   _: i32
   _: i32
-  Rune: Expedition2Runes
+  HighlightedRune: Expedition2Runes
+  MinAreaLevel: i32
+  MaxAreaLevel: i32
   _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
+  _: string
   _: bool
   _: i32
 }
@@ -3018,7 +3043,7 @@ type GrantedEffectStatSetsPerLevel {
   _: i32
   AdditionalFlags: [Stats]
   FloatStats: [Stats]
-  InterpolationBases: [Stats]
+  InterpolationBases: [EffectivenessCostConstants]
   AdditionalStats: [Stats]
   StatInterpolations: [StatInterpolationTypes]
   FloatStatsValues: [f32]
@@ -3064,6 +3089,7 @@ type GraphicalItemExchangeSlot {
   GlowArt: string
   _: i32
   _: string
+  _: bool
 }
 
 # Added 0.1
@@ -4850,8 +4876,7 @@ type MonsterVarieties {
   _: i32
   _: i32
   _: f32
-  _: i32
-  SinkEffect: i32
+  SinkEffect: string
   _: i32
   MonsterConditionalEffectPack: MonsterConditionalEffectPacks
   _: bool
@@ -5393,7 +5418,7 @@ type PassiveJewelSlots {
   ProxySlot: PassiveSkills
   StartIndices: [i32]
   _: i32
-  _: bool
+  SinisterJewelSocket: bool
 }
 
 # Added 0.5
@@ -5414,7 +5439,7 @@ type PassiveJewelUniqueArt {
   Name: Words @unique
   _: rid # All rows empty
   JewelArt: string
-  _: rid # All rows empty
+  SoundEffect: SoundEffects
   KeystoneArt: string
 }
 
@@ -5920,6 +5945,10 @@ type Rarity {
   Color: string
 }
 
+type RecheckActiveSkillEnabledStats {
+  Stat: Stats
+}
+
 type RecombinableClasses {
   Id: ItemClasses
   _: i32
@@ -6034,20 +6063,13 @@ type RogueExiles {
   _: rid # All rows empty
   _: rid # All rows empty
   _: rid # All rows empty
+   _: [i32]
   AudioCharacter: AudioCharacterClass
   _: rid # All rows empty
   _: rid # All rows empty
   _: rid # All rows empty
   _: rid # All rows empty
   Name: Words
-  SpawnChanceStats: [Stats]
-  _: i32
-  VariationStat1: [Stats]
-  VariationStat2: [Stats]
-  _: [_] # All rows empty
-  _: [_] # All rows empty
-  _: rid # All rows empty
-  _: i32
 }
 
 # Added 0.2
@@ -6170,7 +6192,7 @@ type ShapeShiftForms {
   AOFile: string @file(ext: ".ao")
   StatsKeys: [Stats]
   StatsValues: [i32]
-  _: rid
+  WeaponSound: WeaponSoundTypes
   _: i32
   _: string
   _: i32
@@ -6465,8 +6487,8 @@ type SocketAudioEvents {
 }
 
 type StandaloneOverride {
-  _: rid
-  _: rid
+  BaseMonster: MonsterVarieties
+  Override: MonsterVarieties
   _: bool
 }
 
@@ -6532,7 +6554,7 @@ type SoulCores {
   Description: ClientStrings2
   Type: SoulCoreTypes
   TierHigher: SoulCores
-  _: bool
+  IsSocketBound: bool
   _: bool
   _: bool
   _: bool
@@ -6913,8 +6935,8 @@ type TormentSpirits {
   ModsKeys3: [Mods]
   QuestFlags: [QuestFlags]
   StatsKeys2: Stats
-  _: [rid]
-  _: [i32]
+  SpawnTags: [Tags]
+  SpawnWeights: [i32]
   _: rid # All rows empty
   ModsKeys4: Mods @unique
   DropsBaseItems: [BaseItemTypes]
@@ -6925,6 +6947,7 @@ type TormentSpirits {
   MapEnabledStat: [Stats]
   ChestMod: Mods
   MiscBeam: MiscBeams
+  StrongboxEffect: MiscEffectPacks
 }
 
 type TotemDefenderVarieties {
@@ -7080,9 +7103,9 @@ type UncutGems {
 }
 
 type UncutGemTiers {
-  BaseItemType: BaseItemTypes
+  ItemClass: ItemClasses
   Tier: i32
-  NewBaseItemType: BaseItemTypes
+  BaseItemTypes: BaseItemTypes
 }
 
 type UniqueChests {
@@ -7298,7 +7321,7 @@ type WorldAreas {
   _: i32
   _: i32
   _: [_] # All rows empty
-  _: rid
+  LeagueChances: WorldAreaLeagueChances
   _: rid
   _: i32
   _: rid
