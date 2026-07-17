@@ -1022,12 +1022,11 @@ type BuffVisualOrbTypes {
   _: f32
   _: i32
   _: f32
-  _: bool
   _: f32
   _: bool
   _: string
-  _: bool
   _: [string]
+  _: i32
 }
 
 # Added 0.1
@@ -1468,7 +1467,7 @@ type CoreLeagues {
   _: i32
   MapContent: EndgameMapContent
   _: i32
-  AtlasStat: Stats
+  AtlasStats: [Stats]
 }
 
 type CorpseExplosionGibs {
@@ -5687,8 +5686,7 @@ type Pet {
   HideoutCategory: HideoutDoodadCategory
   GrantedSkill: [GrantedEffectsPerLevel]
   _: i32
-  _: bool
-  _: rid # All rows empty
+  _: rid
   _: bool
   _: bool
   _: bool
