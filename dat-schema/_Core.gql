@@ -418,6 +418,7 @@ type Ascendancy {
   _: i32
   _: i32
   LeagueIcon: string
+  _: bool
 }
 
 type AtlasFavouredMapSlots {
@@ -650,6 +651,9 @@ type BaseItemTypes @tags(list: ["item:def", "item:droptable"]) {
   IgnoreQuantBonus: bool
   _: bool
   ShopTag: ShopTag
+  _: [_]
+  _: [_]
+  _: [_]
 }
 
 type BindableVirtualKeys {
@@ -4470,6 +4474,7 @@ type PassiveSkills {
   IsBrequelStartingNode: bool
   _: bool
   IsBrequelWomb: bool
+  _: bool
 }
 
 enum PassiveSkillTypes @indexing(first: 0) {
