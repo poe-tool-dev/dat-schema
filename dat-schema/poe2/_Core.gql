@@ -5560,8 +5560,8 @@ type PassiveSkills {
   BrequelTree: BrequelPassiveSubTrees
   _: i32
   _: bool
-  StatValue6: i32
-  StatValue7: i32
+  Stat6Value: i32
+  Stat7Value: i32
   _: i32
   _: i32
   _: rid
