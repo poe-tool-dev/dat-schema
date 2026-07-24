@@ -654,6 +654,7 @@ type BaseItemTypes @tags(list: ["item:def", "item:droptable"]) {
   _: [_]
   _: [_]
   _: [_]
+  TalismanEnchants: [Mods]
 }
 
 type BindableVirtualKeys {
@@ -2285,6 +2286,12 @@ type ImpactSoundData {
   _: i32
   _: i32
   _: i32
+}
+
+type IndexableNonActiveSupportGems {
+  Index: i32
+  SupportGem: SkillGems
+  Name: string
 }
 
 type IndexableSkillGems {
@@ -5840,7 +5847,8 @@ type WorldAreas {
   Ruleset: Rulesets
   _: i32
   QuestFlag: QuestFlags
-  _: i32
+  QuestState: i32
+  _: [_]
 }
 
 type WorldAreaLeagueChances {
@@ -7001,7 +7009,7 @@ type TryTheNewLeagueVersions {
 }
 
 # Added 3.23
-type UltimatumLifescalingPerLevel {
+type UltimatumLifeScalingPerLevel {
   _: i32
   _: i32
 }

@@ -1,0 +1,108 @@
+type DeepwaterBalancePerLevel {
+  _: rid
+  _: i32
+}
+
+type DeepwaterBiomes {
+  Id: string
+  _: rid
+}
+
+type DeepwaterCharts {
+  _: rid
+  _: rid
+}
+
+type DeepwaterConnectionStrings {
+  _: i32
+  _: [ClientStrings]
+}
+
+type DeepwaterConstants {
+  Id: string
+  Value: i32
+}
+
+type DeepwaterCraftingClasses {
+  _: rid
+  _: i32
+  _: bool
+}
+
+type DeepwaterCraftingCurrencies {
+  _: rid
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}
+
+type DeepwaterCraftingDialogueByClass {
+  _: rid
+  _: [rid]
+  _: [i32]
+  _: i32
+}
+
+type DeepwaterLifeScalingPerLevel {
+  _: i32
+  _: i32
+}
+
+type DeepwaterLockerLayout {
+  Id: string
+  _: rid
+  _: bool
+  _: string
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: rid
+  _: i32
+  _: string
+}
+
+type DeepwaterLootBottles {
+  Id: string
+  _: i32
+  _: rid
+  _: rid
+  _: bool
+}
+
+type DeepwaterLootBottleUniqueMessages {
+  _: rid
+  _: rid
+}
+
+type DeepwaterRooms {
+  Id: string
+  _: string
+  _: i32
+  _: string
+  _: i32
+  _: i32
+  _: i32
+  _: rid
+  _: i32
+  _: rid
+  _: i32
+  _: i32
+  _: [rid]
+  _: [i32]
+  _: DeepwaterRooms
+  _: bool
+  _: [rid]
+  _: bool
+}
+
+type DeepwaterUpgrades {
+  Id: string
+  QuestState: i32
+  Stats: [Stats]
+  StatsValues: [i32]
+}
