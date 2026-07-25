@@ -256,6 +256,7 @@ type AfflictionQuestFogBankValues {
 type AfflictionSpecialEventVisuals {
   Id: string
   Icon: string @file(ext: ".dds")
+  Icon2: string @file(ext: ".dds")
   IconBright: string @file(ext: ".dds")
 }
 
@@ -906,6 +907,7 @@ type BrequelPassiveSubTrees {
   Wombgift: BaseItemTypes
   RewardStringSingle: ClientStrings2
   RewardStringMultiple: ClientStrings2
+  MaxPoints: i32
 }
 
 # Added 0.5
@@ -2466,7 +2468,7 @@ type ExpeditionBalancePerLevel {
   _: i32
   _: i32
   _: i32
-  _: i32
+  _: f32
   _: i32
   _: i32
 }
@@ -4385,7 +4387,7 @@ type MinionType {
   _: bool
   _: rid
   _: bool
-  _: bool
+  Invulnerable: bool
 }
 
 type MiniQuestStates {
@@ -4495,10 +4497,10 @@ type MobileTutorialGroup {
 type ModEffectStats {
   Stat: Stats
   Tags: [Tags]
-  _: bool
+  ApplyToExplicit: bool
   _: i32
-  _: bool
-  MaxStacks: i32
+  ApplyToImplicit: bool
+  Multiplier: i32
 }
 
 type ModGrantedSkills {
@@ -6554,6 +6556,7 @@ type SoulCores {
   _: bool
   ExtraDescription: ClientStrings2
   _: bool
+  CanSocketInCorruptedSanctified: bool
 }
 
 # Added 0.3
@@ -6595,7 +6598,7 @@ type StandaloneBosses {
   Monster: MonsterVarieties
   _: i32
   _: bool
-  InvisibleMonster: [MonsterVarieties]
+  _: [rid]
   _: [i32]
 }
 
@@ -6670,7 +6673,7 @@ type StatisticTrackingMicrotransactionCounterType {
 
 # Added 0.3
 type StatisticTrackingMicrotransactionOnEnteringArea {
-  _: rid @unique
+  Area: WorldAreas @unique
   _: i32
 }
 
@@ -6686,7 +6689,7 @@ type StatisticTrackingMicrotransactions {
 
 # Added 0.3
 type StatisticTrackingMicrotransactionsOnKill {
-  _: rid @unique
+  Monster: MonsterVarieties @unique
   _: i32
 }
 
@@ -6803,6 +6806,50 @@ type TableCharge {
   _: bool
   _: i32
   _: i32
+}
+
+type TableMonsterSpawners {
+  Metadata: string
+  AreaLevel: i32
+  SpawnsMonsters: [MonsterVarieties]
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+  _: bool
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: rid
+  _: bool
+  _: bool
+  Script1: string
+  _: bool
+  _: bool
+  Script2: string
+  _: [i32]
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+  _: [_]
 }
 
 type TacticianTotemBuffs {
@@ -7112,7 +7159,7 @@ type UniqueChests {
   _: [i32]
   AOFile: string @file(ext: ".ao")
   _: bool
-  _: [i32]
+  DaemonMods: [Mods]
   AppearanceChestsKey: Chests
   ChestsKey: Chests
   Achievement: [AchievementItems]

@@ -284,6 +284,14 @@ type AlternateTreeVersions {
   _: i32
 }
 
+type AnimatedGuardianInventories {
+  Inventory: Inventories
+  _: i32
+  _: [i32]
+  _: [i32]
+  _: i32
+}
+
 type AnimatedObjectFlags {
   AOFile: string @file(ext: ".ao")
   _: i32
@@ -531,6 +539,7 @@ type AtlasNode {
   _: i32
   _: i32
   _: bool
+  _: i32
 }
 
 type AtlasNodeDefinition {
@@ -551,6 +560,7 @@ type AtlasNodeDefinition {
   Area2: WorldAreas
   _: bool
   Header: MapNodeHeader
+  _: i32
 }
 
 type AtlasPositions {
@@ -696,6 +706,16 @@ type BloodTypes {
   EffectFirstBloodSmall: DamageEffectVariations
   EffectFirstBloodLarge: DamageEffectVariations
   EffectFirstBloodCrit: MicrotransactionPortalVariations
+}
+
+type BreachStashTabSubStashGroup {
+  Id: string
+  Name: string
+  Group: BreachStashTabSubStashGroup
+  Icon: string
+  _: string
+  _: bool
+  _: f32
 }
 
 enum BuffCategories @indexing(first: 0) { _ }
@@ -1510,6 +1530,22 @@ type DynamicCraftingBenchTypes {
   SoundEffect: SoundEffects
   _: [rid]
   _: i32
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: bool
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: rid
+  _: string
+  _: bool
+  OpenSound: SoundEffects
+  CloseSound: SoundEffects
 }
 
 type EclipseMods {
@@ -2152,6 +2188,67 @@ type GrantedEffectStatSetsPerLevel {
   FloatStatsValues: [f32]
 }
 
+type GraphicalItemExchange {
+  Id: string
+  BackgroundArt: string
+  Red: i32
+  Green: i32
+  Blue: i32
+  _: i32
+  _: i32
+  _: i32
+  ButtonLabel: ClientStrings2
+  _: rid # All rows empty
+  _: i32
+  _: bool
+}
+
+type GraphicalItemExchangeSlot {
+  Item: GraphicalItemExchange
+  _: i32
+  Inventory: Inventories
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+  _: bool
+  ItemCondition: [ItemConditions]
+  GlowArt: string
+  _: i32
+  _: string
+  _: bool
+  _: bool
+}
+
+type GraphicalItemReceptacle {
+  Id: string @unique
+  BackgroundArt: string
+  HoverMessage: ClientStrings
+  _: bool
+  _: bool
+  SoundEffect: SoundEffects
+  _: string
+  ErrorMessage: ClientStrings
+  Script: string
+  _: bool
+  AreaName: ClientStrings2
+  Icon: string
+  Description: ClientStrings
+  _: f32
+  _: f32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+  SoundEffect1: SoundEffects
+  SoundEffect2: SoundEffects
+}
+
 type GroundEffects {
   GroundEffectTypesKey: GroundEffectTypes
   _: i32
@@ -2339,6 +2436,7 @@ type Inventories {
   _: i32
   _: bool
   _: i32
+  _: rid # All rows empty
 }
 
 enum InventoryType @indexing(first: 0) { _ }
@@ -2402,6 +2500,9 @@ type ItemConditions {
   _: bool
   MinLevel: i32
   MaxLevel: i32
+  _: [_]
+  UniqueName: Words
+  _: rid # All rows empty
 }
 
 type ItemCosts {
@@ -2696,6 +2797,8 @@ type LeagueInfo {
   _: string @localized
   _: [i32]
   _: string
+  _: bool
+  _: f32
 }
 
 type LeagueInfoPanelVersions {
@@ -2791,6 +2894,7 @@ type MapDeviceRecipes @tags(list: ["item:recipe"]) {
   _: bool
   _: [i32]
   AtlasNode: AtlasNode
+  _: bool
 }
 
 type MapDeviceLayouts {
@@ -2807,6 +2911,7 @@ type MapDeviceLayouts {
   _: i32
   _: i32
   _: [i32]
+  _: i32
 }
 
 type MapDevices {
@@ -2823,6 +2928,7 @@ type MapDevices {
   _: i32
   _: i32
   _: [i32]
+  HideoutDoodan: HideoutDoodads
 }
 
 enum MapFragmentFamilies @indexing(first: 0) { _ }
@@ -2980,6 +3086,7 @@ type MapSeriesTiers {
   SecretsTier: i32
   KeepersTier: i32
   MirageTier: i32
+  AbyssalTier: i32
 }
 
 type MapStashSpecialSubStashGroup {
@@ -3092,6 +3199,7 @@ type MicrotransactionCategory {
 
 type MicrotransactionCharacterPortraitVariations {
   MtxTypeGameSpecific: MtxTypeGameSpecific
+  _: i32
 }
 
 type MicrotransactionCombineFormula {
@@ -3199,6 +3307,7 @@ type MinimapIcons {
   MinimapIconPointerMaxDistance: i32
   _: i32
   _: i32
+  _: i32
 }
 
 type MiniQuestStates {
@@ -3270,9 +3379,9 @@ type MiscObjects {
   Id: string @unique
   EffectVirtualPath: string @files(ext: [".ot", ".otc"])
   PreloadGroupsKeys: [PreloadGroups]
+  EffectHASH32: u32
   _: i32
-  _: i32
-  _: i32
+  ObjectHASH32: u32
 }
 
 type MiscObjectsArtVariations {
@@ -3351,12 +3460,13 @@ enum ModDomains @indexing(first: 1) {
 type ModEffectStats {
   StatsKey: Stats
   TagsKeys: [Tags]
-  _: bool
+  ApplyToExplicit: bool
   _: i32
-  _: bool
-  _: bool
-  _: bool
-  _: i32
+  ApplyToImplicit: bool
+  ApplyToPrefix: bool
+  ApplyToSuffix: bool
+  Multiplier: i32
+  ApplyToEnchant: bool
 }
 
 type ModEquivalencies {
@@ -3365,6 +3475,9 @@ type ModEquivalencies {
   ModsKey1: Mods
   ModsKey2: Mods
   _: bool
+  AbyssalMods1: Mods
+  AbyssalMods2: Mods
+  AbyssalMods3: Mods
 }
 
 type ModFamily {
@@ -3498,6 +3611,12 @@ type ModSellPriceTypes {
 
 enum ModSetNames @indexing(first: 0) { _ }
 
+type ModSlotType {
+  Id: string
+  _: string
+  ClientString: ClientStrings
+}
+
 type ModType {
   Name: string @unique
   _: [Stats]
@@ -3594,7 +3713,6 @@ type MonsterDeathConditions {
   _: bool
   Mods: [Mods]
   _: i32
-  _: bool
   Animation: [Animation]
   _: i32
   ActiveSkill1: ActiveSkills
@@ -4134,6 +4252,7 @@ type NPCVendorDialogue {
   DialogueCondition: [NPCVendorDialogueConditions]
   _: i32
   _: i32
+  Script: string
 }
 
 type NPCVendorDialogueConditions {
@@ -4258,6 +4377,7 @@ type NPCTalk {
   _: i32
   _: NPCTalk
   Inventory: Inventories
+  _: string
 }
 
 type NPCTalkCategory {
@@ -4288,6 +4408,7 @@ type NPCTextAudio {
   _: bool
   _: f32
   Cooldown: [MiscCooldowns]
+  _: i32
 }
 
 enum NPCTextAudioInterruptRules @indexing(first: 0) { _ }
@@ -4336,6 +4457,10 @@ type PackSizes {
   _: i32
   _: i32
   _: i32
+}
+
+type Pacts {
+  Id: string
 }
 
 type PassiveJewelRadii {
@@ -4391,6 +4516,7 @@ type PassiveSkillOverrides {
   RequiresAdjacent: i32
   MaxAdjacent: i32
   AllocatedPassiveSkill: PassiveSkills
+  TattooBlockingPassive: [PassiveSkills]
 }
 
 type PassiveSkillOverrideTypes {
@@ -4517,6 +4643,25 @@ type PassiveSkillTrees {
   PassiveSkillGraph: string
 }
 
+type PassiveSkillTreeConnectionArt {
+  Id: string @unique
+  Normal: string
+  Intermediate2: string
+  Intermediate: string
+  Active: string
+  Mask: string
+  Ornament1: string
+  Ornament2: string
+}
+
+type PassiveSkillTreeConnectionArtDescriptions {
+  ConnectionArt: PassiveSkillTreeConnectionArt
+  _: f32
+  _: f32
+  _: i32
+  _: i32
+}
+
 type PassiveSkillTreeTutorial {
   Id: string
   CharactersKey: Characters
@@ -4614,11 +4759,10 @@ type Pet {
   HideoutCategory: HideoutDoodadCategory
   Skills: [GrantedEffectsPerLevel]
   _: i32
+  _: rid
   _: bool
-  _: rid # All rows empty
   _: bool
-  _: bool
-  _: string
+  MiscObject: MiscObjects
   DropEffect: DropEffects
 }
 
@@ -4932,6 +5076,7 @@ type RogueExileGiants {
 type Rulesets {
   Id: string @unique
   _: [Rulesets]
+  _: [_] # All rows empty
 }
 
 type RunicCircles {
@@ -5109,6 +5254,11 @@ type SkillTrapVariations {
   MiscAnimated: MiscAnimated
 }
 
+type SocketedItemArtOverrides {
+  BaseItemType: BaseItemTypes
+  Override: string
+}
+
 type SocketNotches {
   Id: string
   Description: string
@@ -5239,14 +5389,6 @@ type StashType {
   Icon: string
 }
 
-type StaticLifeBarStyle {
-  Id: string @unique
-  FrameLeftArt: string
-  FrameMiddleArt: string
-  FrameRightArt: string
-  BossOrnamentArt: string
-}
-
 type StatDescriptionFunctions {
   Id: string
   TranslationId: string @unique
@@ -5262,6 +5404,14 @@ enum StatInterpolationTypes @indexing(first: 1) {
   CONSTANT
   LINEAR
   EXPONENTIAL
+}
+
+type StaticLifeBarStyle {
+  Id: string @unique
+  FrameLeftArt: string
+  FrameMiddleArt: string
+  FrameRightArt: string
+  BossOrnamentArt: string
 }
 
 type Stats @tags(list: ["crafting"]) {
@@ -5502,6 +5652,12 @@ type Tips {
   Id: string @unique
   Text: string
   TextXBox: string
+  MinLevel: i32
+  MaxLevel: i32
+  _: i32
+  _: i32
+  _: [_] # All rows empty
+  _: i32
 }
 
 type Topologies {
@@ -5606,6 +5762,20 @@ type UIArtAscendancy {
   RespcBGMiddle: string
   RespcBGBottom: string
   _: i32
+}
+
+type UILocation {
+  Id: string
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}
+
+type UISize {
+  Id: string
+  Width: i32
+  Height: i32
 }
 
 enum UITalkCategories @indexing(first: 0) { _ }
@@ -5896,6 +6066,8 @@ type WorldAreaLeagueChances {
   _: i32
   _: i32
   _: i32
+  _: i32
+  _: i32
 }
 
 type WorldObjectDisplayedApplicableItems {
@@ -5962,6 +6134,7 @@ type AlternateTreeArt {
   Circle1: string
   Circle2: string
   Glow: string
+  ConnectionArt: PassiveSkillTreeConnectionArt
 }
 
 # Added 3.21
@@ -6196,6 +6369,8 @@ type DisplayCaseTypes {
   TopRightCorner: string
   BottomLeftCorner: string
   BottomRightCorner: string
+  _: f32
+  _: bool
 }
 
 # Added 3.22
@@ -6584,6 +6759,8 @@ type MicrotransactionAfkEffects {
   _: i32
   FlyingStat: [Stats]
   _: bool
+  EffectPack: MiscEffectPacks
+  _: bool
 }
 
 # Added 3.19
@@ -6698,6 +6875,7 @@ type MicrotransactionObjectEffects {
   _: [string]
   _: f32
   _: bool
+  _: i32
   _: i32
 }
 
@@ -6927,6 +7105,8 @@ type StatisticTrackingMicrotransactionsStatistics {
   _: bool
   Text: ClientStrings
   Type: StatisticTrackingMicrotransactionCounterType
+  _: bool
+  _: bool
 }
 
 # Added 3.20
