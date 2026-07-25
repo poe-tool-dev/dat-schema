@@ -1,17 +1,3 @@
-type MercenaryClasses {
-  Id: string
-  MonsterVariety: MonsterVarieties
-  _: i32
-  TerrainFeature: ExtraTerrainFeatures
-  _: i32
-  _: i32
-  ClassIcon: string
-  HouseIcon: string
-  Attribute: MercenaryAttributes
-  HouseBuffIcon: string
-  MonsterVarietyAllied: MonsterVarieties
-}
-
 type MercenaryAttributes {
   Id: string
   Name: string
@@ -40,12 +26,44 @@ type MercenaryBuilds {
   _: [string]
   Achievements: [AchievementItems]
   WieldableTypes: [MercenaryWieldableTypes]
+  BuildStats: [MercenaryBuildExtraStats]
+}
+
+type MercenaryBuildExtraStats {
+  Id: string
+  Stat: Stats
+  _: i32
+  _: i32
+  _: i32
+  Category: MercenaryBuildStatsCategories
+}
+
+type MercenaryBuildStatsCategories {
+  Id: string
+  Name: string
 }
 
 type MercenaryBuildVisualOverrides {
   Id: MercenaryBuilds
   SlotId: i32
   MtxGameSpecific: MtxTypeGameSpecific
+}
+
+type MercenaryClasses {
+  Id: string
+  MonsterVariety: MonsterVarieties
+  _: i32
+  TerrainFeature: ExtraTerrainFeatures
+  _: i32
+  _: i32
+  ClassIcon: string
+  HouseIcon: string
+  Attribute: MercenaryAttributes
+  HouseBuffIcon: string
+  MonsterVarietyAllied: MonsterVarieties
+  HouseSpawnChanceStats: [Stats]
+  AttributeSpawnChanceStats: [Stats]
+  HouseName: string
 }
 
 type MercenaryFlavourText {
