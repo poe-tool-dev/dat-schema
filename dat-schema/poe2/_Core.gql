@@ -4547,12 +4547,10 @@ type Mods @tags(list: ["crafting"]) {
   MonsterOnDeath: string
   _: i32
   HeistAchievements: [AchievementItems]
-  Heist_SubStatValue1: i32
-  Heist_SubStatValue2: i32
-  Heist_Stat0: Stats
-  Heist_Stat1: Stats
-  Heist_AddStatValue1: i32
-  Heist_AddStatValue2: i32
+  Stat7Value: i32 @interval
+  Stat7: Stats
+  Stat8: Stats
+  Stat8Value: i32 @interval
   InfluenceType: InfluenceTypes
   ImplicitTags: [Tags]
   _: bool
