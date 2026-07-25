@@ -117,33 +117,3 @@ type DeepwaterUpgrades {
   Stats: [Stats]
   StatsValues: [i32]
 }
-
-# Ported from PoE2 in 3.29
-type KeywordPopupItemReference {
-  Id: string
-  BaseItemType: BaseItemTypes
-  UniqueName: Words
-  ItemVisualIdentity: ItemVisualIdentity
-  FlavourText: FlavourText
-  Rarity: Rarity
-  ItemLevel: i32
-  _: bool
-}
-
-# Ported from PoE2 in 3.29
-type KeywordPopupModReference {
-  Id: string
-  Mod: Mods
-  StatDescription: string @file(ext: ".csd")
-}
-
-# Ported from PoE2 in 3.29
-type KeywordPopups {
-  Id: string @unique
-  Term: string
-  Definition: string
-  _: string
-  _: string
-  ItemReference: KeywordPopupItemReference
-  ModReference: KeywordPopupModReference
-}
