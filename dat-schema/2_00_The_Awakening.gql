@@ -1,6 +1,16 @@
 type DivinationCardArt @tags(list: ["item:def"]) {
-  BaseItemTypesKey: BaseItemTypes
-  VirtualFile: string
-  Influences: [InfluenceTypes]
-  _: string
+  BaseItemTypesKey: BaseItemTypes @unique
+  ArtFile: string # Virtual path
+  Effects: [CardAnimatedEffects]
+  MaskFile: string
+}
+
+enum CardAnimatedEffects @indexing(first: 0) {
+  SHAPER
+  ELDER
+  CRUSADER
+  EYRIE
+  BASILISK
+  ADJUDICATOR
+  ZANA
 }
