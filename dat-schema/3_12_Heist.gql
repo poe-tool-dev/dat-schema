@@ -108,7 +108,7 @@ type HeistConstants {
 type HeistContracts {
   BaseItemTypesKey: BaseItemTypes @unique
   HeistAreasKey: HeistAreas
-  _: i32
+  AreaLevel: i32
 }
 
 type HeistDoodadNPCs {
@@ -239,7 +239,7 @@ type HeistNPCStats {
 }
 
 type HeistNPCs {
-  NPCsKey: NPCs
+  NPCsKey: NPCs @unique
   MonsterVarietiesKey: MonsterVarieties
   SkillLevel_HeistJobsKeys: [HeistJobs]
   PortraitFile: string
@@ -263,13 +263,13 @@ type HeistNPCs {
 
 type HeistObjectives {
   BaseItemType: BaseItemTypes @unique
-  Scaling: f32
-  Name: string @localized
+  ValueMulti: f32 # Multiplier to the value in markers
+  Client: string @localized
 }
 
 type HeistObjectiveValueDescriptions {
-  Tier: i32
-  MarkersMultiply: f32
+  Tier: i32 @unique
+  ValueMultiLessThan: f32 # Value multiplier must not exceed this number for the description to apply
   Description: string
 }
 
@@ -284,13 +284,13 @@ type HeistPatrolPacks {
 }
 
 type HeistQuestContracts {
-  HeistContractsKey: HeistContracts
+  HeistContractsKey: HeistContracts @unique
   HeistObjectivesKey: HeistObjectives
   HeistNPCsKey: [HeistNPCs]
   HeistJobsKey: HeistJobs
   _: i32
   _: i32
-  _: i32
+  JobLevel: i32
   _: bool
   HeistRoomsKey1: HeistRooms
   WorldAreasKey: WorldAreas
