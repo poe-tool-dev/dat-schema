@@ -13,10 +13,10 @@ type HarvestCraftOptions @tags(list: ["crafting"]) {
   LifeforceType: i32
   LifeforceCost: i32
   SacredCost: i32
-  _: bool
+  IsProportionalToStackSize: bool
   NecropolisAchievements: [AchievementItems]
-  _: i32
-  _: i32
+  GameMode: GameModes
+  RancourCost: i32
 }
 
 type HarvestCraftOptionIcons {
