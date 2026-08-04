@@ -4692,6 +4692,25 @@ type PassiveSkillTreeConnectionArtDescriptions {
   _: i32
 }
 
+type PassiveSkillTreeGroupBackgroundArt {
+  _: string
+  Small: string
+  SmallBlank: string
+  Medium: string
+  MediumBlank: string
+  Large: string
+  LargeBlank: string
+}
+
+type PassiveSkillTreeNodeFrameArt {
+  Id: string @unique
+  Normal: string
+  CanAllocate: string
+  Active: string
+  Mask: string @file(ext: ".dds")
+  Header: string
+}
+
 type PassiveSkillTreeTutorial {
   Id: string
   CharactersKey: Characters
@@ -4706,24 +4725,13 @@ type PassiveSkillTreeTutorial {
 }
 
 type PassiveSkillTreeUIArt {
-  Id: string
-  GroupBackgroundSmall: string
-  GroupBackgroundMedium: string
-  GroupBackgroundLarge: string
+  Id: string @unique
   _: bool
-  PassiveFrameNormal: string
-  NotableFrameNormal: string
-  KeystoneFrameNormal: string
-  PassiveFrameActive: string
-  NotableFrameActive: string
-  KeystoneFrameActive: string
-  PassiveFrameCanAllocate: string
-  NotableFrameCanAllocate: string
-  KeystoneCanAllocate: string
   Ornament: string
-  GroupBackgroundSmallBlank: string
-  GroupBackgroundMediumBlank: string
-  GroupBackgroundLargeBlank: string
+  BackgroundArt: PassiveSkillTreeGroupBackgroundArt
+  PassiveFrame: PassiveSkillTreeNodeFrameArt
+  NotableFrame: PassiveSkillTreeNodeFrameArt
+  KeystoneFrame: PassiveSkillTreeNodeFrameArt
 }
 
 type PassiveSkillTreeUIArtAscendancy {
