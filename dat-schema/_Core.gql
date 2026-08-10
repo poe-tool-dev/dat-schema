@@ -252,6 +252,7 @@ type AlternatePassiveSkills {
   AchievementItemsKeys: [AchievementItems]
   _: i32
   _: i32
+  NodeSounds: PassiveSkillTreeNodeSounds
 }
 
 enum PassiveSkillSizes @indexing(first: 1) {
@@ -1123,6 +1124,8 @@ type Chests {
   IsHardmode: bool
   StatsHardmode: [Stats]
   _: bool
+  ObjectQuickAction: [WorldObjectQuickActions]
+  _: bool
 }
 
 type ClientStrings {
@@ -1639,7 +1642,7 @@ type EnvironmentTransitions {
   _: i32
   Environment: [Environments]
   _: [string]
-  _: i32
+  _: f32
 }
 
 type EssenceStashTabLayout {
@@ -4506,6 +4509,13 @@ type PassiveJewelRadii {
   ClientString: ClientStrings
 }
 
+type PassiveJewelRadiiArt {
+  Id: string @unique
+  Circle1: string
+  Circle2: string
+  Glow: string
+}
+
 type PassiveJewelSlots {
   Slot: PassiveSkills
   ClusterJewelSize: PassiveTreeExpansionJewelSizes
@@ -4714,6 +4724,14 @@ type PassiveSkillTreeNodeFrameArt {
   Active: string
   Mask: string @file(ext: ".dds")
   Header: string
+}
+
+type PassiveSkillTreeNodeSounds {
+  Id: string
+  _: rid # All rows empty
+  _: rid # All rows empty
+  SoundEffect: SoundEffects
+  _: rid # All rows empty
 }
 
 type PassiveSkillTreeTutorial {
@@ -6118,6 +6136,12 @@ type WorldObjectDisplayedApplicableItems {
   BaseItemType: [BaseItemTypes]
 }
 
+type WorldObjectQuickActions {
+  Id: string
+  UIArt: string
+  String: string
+}
+
 type WorldPopupIconTypes {
   Id: string @unique
   _: string
@@ -6174,10 +6198,11 @@ type AdditionalMonstersFromMapStats {
 # Added 3.19
 type AlternateTreeArt {
   TreeVersion: AlternateTreeVersions @unique
-  Circle1: string
-  Circle2: string
-  Glow: string
   ConnectionArt: PassiveSkillTreeConnectionArt
+  KeystoneFrameArt: PassiveSkillTreeNodeFrameArt
+  RadiiArt: PassiveJewelRadiiArt
+  NotableFrameArt: PassiveSkillTreeNodeFrameArt
+  AscendancyFrameArt: PassiveSkillTreeNodeFrameArt
 }
 
 # Added 3.21
