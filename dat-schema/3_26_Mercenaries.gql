@@ -7,34 +7,34 @@ type MercenaryAttributes {
 type MercenaryBuilds {
   Id: string
   Class: MercenaryClasses
-  Skill1: [MercenarySkills]
-  _: i32
-  Skill2: [MercenarySkills]
+  Skills1: [MercenarySkills]
+  Skills2Count: i32
+  Skills2: [MercenarySkills]
   _: i32
   _: [_] # All rows empty
-  _: i32
-  Skill3: [MercenarySkills]
+  Skills3Count: i32
+  Skills3: [MercenarySkills]
   _: [string]
   Tags: [Tags]
   AIFile: string
   HASH16: u16
-  BuildName: string
+  Name: string
   _: i32
-  Infamous: bool
+  IsInfamous: bool
   IdleSkill: MercenarySkills
   _: string
   _: [string]
   Achievements: [AchievementItems]
   WieldableTypes: [MercenaryWieldableTypes]
-  BuildStats: [MercenaryBuildExtraStats]
+  ExtraStats: [MercenaryBuildExtraStats]
 }
 
 type MercenaryBuildExtraStats {
   Id: string
   Stat: Stats
-  _: i32
-  _: i32
-  _: i32
+  Value1: i32
+  Value2: i32
+  Value3: i32
   Category: MercenaryBuildStatsCategories
 }
 
@@ -82,20 +82,14 @@ type MercenaryInventories {
   _: i32
 }
 
-type MercenaryRenownLevels {
-  RenownLevel: i32
-  _: i32
-  _: i32
-}
-
 type MercenarySkills {
-  Id: GrantedEffects
+  GrantedEffect: GrantedEffects
   SupportCount: MercenarySupportCounts
   PossibleSupports: [MercenarySupports]
-  SecondaryGrantedEffect: GrantedEffects
+  EncounterGrantedEffect: GrantedEffects
   Name: string
   Description: string
-  _: i32
+  RequiredLevel: i32
   _: i32
   SkillFamily: MercenarySkillFamilies
   HASH16: u16
@@ -119,13 +113,13 @@ type MercenarySupports {
   _: i32
   _: i32
   _: i32
-  Stat: [Stats]
+  Stats: [Stats]
   StatValues: [i32]
   Name: string
   SupportFamily: MercenarySupportFamilies
   HASH16: u16
   GemIcon: string
-  Variant: i32
+  Tier: i32
   _: [_] # All rows empty
   _: [_] # All rows empty
 }
