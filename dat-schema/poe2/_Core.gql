@@ -4531,6 +4531,7 @@ type Mods @tags(list: ["crafting"]) {
   Tags: [Tags]
   GrantedEffectsPerLevel: [GrantedEffectsPerLevel]
   AuraFlags: [ModAuraFlags]
+  _: [i32]
   MonsterMetadata: string
   MonsterKillAchievements: [AchievementItems]
   ChestModType: [ModType]
@@ -7363,9 +7364,7 @@ type WorldAreas {
   _: i32
   _: [_] # All rows empty
   LeagueChances: WorldAreaLeagueChances
-  _: rid
   _: i32
-  _: rid
   _: i32
   _: i32
   _: i32
