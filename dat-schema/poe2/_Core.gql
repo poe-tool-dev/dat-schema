@@ -7109,6 +7109,15 @@ type UltimatumModifiers {
   MapStats: [Stats]
   MapStatValues: [i32]
   MapMods: [Mods]
+  _: i32 # All rows 0
+  _: i32 # All rows 0
+  _: i32 # All rows 0
+  PreviousTiers: [UltimatumModifiers]
+  NextTier: UltimatumModifiers
+  _: bool
+  _: [i32]
+  _: i32
+  _: i32
 }
 
 type UltimatumMonsterPackFamily {
