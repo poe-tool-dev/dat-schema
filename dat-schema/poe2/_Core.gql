@@ -7099,7 +7099,6 @@ type UltimatumModifiers {
   Name: string
   Icon: string
   HASH16: u16
-  _: i16
   _: [string]
   BuffTemplates: [BuffTemplates]
   Tier: i32
