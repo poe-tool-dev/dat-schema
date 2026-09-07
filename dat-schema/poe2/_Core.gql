@@ -3950,10 +3950,10 @@ type LiquidEmotionOutcomes {
   RadiusJewel: i32
   RubyPrefix: Mods
   RubySuffix: Mods
-  SapphirePrefix: Mods
-  SapphireSuffix: Mods
   EmeraldPrefix: Mods
   EmeraldSuffix: Mods
+  SapphirePrefix: Mods
+  SapphireSuffix: Mods
   DiamondPrefix: Mods
   DiamondSuffix: Mods
   HASH32: u32
