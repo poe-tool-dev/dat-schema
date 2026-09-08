@@ -55,6 +55,11 @@ type DeepwaterCraftingDialogueByClass {
   _: i32
 }
 
+type DeepwaterCursedDucats {
+  BaseItemType: BaseItemTypes
+  Id: i32
+}
+
 type DeepwaterLifeScalingPerLevel {
   Level: i32
   Life: i32
@@ -111,9 +116,21 @@ type DeepwaterRooms {
   _: bool
 }
 
+type DeepwaterStatsPerCursedDucat {
+  Count: i32
+  Stats: [Stats]
+  StatValues: [i32]
+}
+
 type DeepwaterUpgrades {
   Id: string
   QuestState: i32
   Stats: [Stats]
   StatsValues: [i32]
+}
+
+type GhostItems {
+  Height: i32
+  Width: i32
+  BaseItemType: BaseItemTypes
 }

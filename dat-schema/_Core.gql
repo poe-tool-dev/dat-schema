@@ -66,6 +66,7 @@ enum AchievementSets @indexing(first: 0) { _ }
 type AchievementSetsDisplay {
   Id: i32 @unique
   Title: string
+  Art: string
 }
 
 type ActiveSkills {
