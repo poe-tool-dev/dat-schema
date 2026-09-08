@@ -7257,6 +7257,7 @@ type UltimatumWagerTypes {
   CurrencyItem: CurrencyItems
   Count: i32
   DisplayText: string @localized
+  _: i32
 }
 
 type UncutGems {
@@ -7537,6 +7538,7 @@ type WorldAreaLeagueChances {
   StoneCirclesChance: i32
   VaalTempleChance: i32 # Fate of the Vaal league
   ExpeditionChance: i32
+  RitualChance: i32
 }
 
 # Added 0.3
