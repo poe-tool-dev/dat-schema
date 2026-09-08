@@ -4081,7 +4081,7 @@ type MapDevices {
 type MapDeviceRecipes @tags(list: ["item:recipe"]) {
   Id: string @unique
   RecipeItems: [BaseItemTypes]
-  _: [string]
+  WorldArea: WorldAreas
   MicrotransactionPortalVariation: MicrotransactionPortalVariations
   AreaLevel: i32
   QuestFlag: QuestFlags
@@ -6661,9 +6661,9 @@ type SoulCores {
   Type: SoulCoreTypes
   TierHigher: SoulCores
   IsSocketBound: bool
-  _: bool
-  _: bool
-  _: bool
+  CanSocketInMartialArtistSlots: bool
+  CanSocketInUniqueItems: bool
+  CanSocketInJewellery: bool
   ExtraDescription: ClientStrings2
   _: bool
   CanSocketInCorruptedSanctified: bool
