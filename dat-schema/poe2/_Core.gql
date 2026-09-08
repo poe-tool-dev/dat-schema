@@ -1,3 +1,12 @@
+# Added 0.5.5
+type AbyssAtlasPatterns {
+  Id: string
+  _: i32
+  ContentType: EndgameMapContent
+  Mods: [Mods]
+  Animation: MiscAnimated
+}
+
 type AbyssBenchTicketTypes {
   BaseItemType: BaseItemTypes @unique
   UsableOnItemClasses: [ItemClasses]
@@ -41,6 +50,21 @@ type AchievementItemRewards @tags(list: ["mtx:reward"]) {
   MessagePC: string @localized
   Id: string @unique
   MessageConsole: string @localized
+}
+
+# Added 0.5.5
+type AchievementOmenTypes {
+  BaseItemType: BaseItemTypes
+  Achievement: AchievementItems
+}
+
+type AchievementSetsDisplay {
+  Id: i32 @unique
+  Title: string
+  Art: string
+  Description: string
+  _: bool
+  _: string
 }
 
 type ActionTypes {
@@ -348,7 +372,7 @@ type AlternateQualityTypes @tags(list: ["item:def"]) {
 type AlternateTreeArt {
   TreeVersion: AlternateTreeVersions @unique
   UIArt: PassiveSkillTreeUIArt
-  MasteryArt: PassiveSkillTreeMasteryArt
+  KeystoneFrameArt: PassiveSkillTreeMasteryArt
   JewelRadiiArt: PassiveJewelRadiiArt
 }
 
@@ -1919,6 +1943,7 @@ type EndgameMapAtlas {
   _: bool
   _: bool
   ClientString: ClientStrings2
+  _: i32
 }
 
 type EndgameMapAtlasTowers {
@@ -2111,6 +2136,7 @@ type EndgameMapPins {
   RitualSelectedEPK: string @file(ext: ".epk")
   DeliriumHighlightEPK: string @file(ext: ".epk")
   AudioAnimation: MiscAnimated
+  _: MiscAnimated
 }
 
 type EndgameMapPinIcons {
@@ -2164,6 +2190,8 @@ type EndgameMaps {
   _: bool
   _: string
   _: f32
+  _: bool
+  _: bool
 }
 
 # Added 0.5
@@ -2375,6 +2403,7 @@ type Expedition2Recipes {
   Category: ExpeditionCategory
   RuneWeights: [Expedition2RunesWeights]
   DisabledText: ClientStrings
+  _: [i32]
 }
 
 # Added 0.5
@@ -2471,6 +2500,7 @@ type ExpeditionBalancePerLevel {
   _: f32
   _: i32
   _: i32
+  _: f32
 }
 
 # Added 0.5
@@ -3669,7 +3699,7 @@ type ItemVisualIdentity {
   TemplarShape: string
   ShadowShape: string
   ScionShape: string
-  TwoHandSoundType: WeaponSoundTypes
+  TwoHandSoundType: [WeaponSoundTypes]
   _: i32
   Pickup_AchievementItems: [AchievementItems]
   SMFiles: [string] @file(ext: ".sm")
@@ -3738,6 +3768,7 @@ type ItemVisualIdentity {
   Animation: MiscAnimated
   ShieldHeldAnimatedObject: string @file(ext: ".ao")
   SheathAnimatedObject: string @file(ext: ".ao")
+  _: bool
 }
 
 enum ItemVisualCompositions @indexing(first: 0) {
@@ -4342,6 +4373,7 @@ type MinimapIcons {
   _: i32
   Name: string
   _: i32
+  _: i32
 }
 
 type MinionCommands {
@@ -4504,6 +4536,14 @@ type ModEffectStats {
   Multiplier: i32
 }
 
+type ModEquivalencies {
+  Id: string @unique
+  ModsKey0: Mods
+  ModsKey1: Mods
+  ModsKey2: Mods
+  _: bool
+}
+
 type ModGrantedSkills {
   Mod: Mods
   Skill: SkillGems
@@ -4660,6 +4700,27 @@ type MonsterDeathAchievements {
   _: bool
   _: [_] # All rows empty
   _: bool
+  _: i32
+}
+
+type MonsterDeathConditions {
+  Id: string @unique
+  BuffDefinition: [BuffDefinitions]
+  _: bool
+  _: i32
+  Stat: [Stats]
+  _: bool
+  _: i32
+  Rarity: Rarity
+  _: bool
+  Mods: [Mods]
+  _: i32
+  _: bool
+  Animation: [Animation]
+  _: i32
+  ActiveSkill1: ActiveSkills
+  ActiveSkill2: ActiveSkills
+  _: i32
   _: i32
 }
 
@@ -5965,6 +6026,14 @@ type RelicItemEffectVariations {
   DDSFile: string @file(ext: ".dds")
 }
 
+# Added 0.5.5
+type RelicStashTabSubGroup {
+  Id: string
+  ButtonArt: string
+  Name: string
+  SubTab: bool
+}
+
 type ReservationSkillsAudio {
   ActiveSkill: ActiveSkills
   _: string
@@ -5974,6 +6043,12 @@ type ReservationSkillsAudio {
 type ResistancePenaltyPerAreaLevel {
   AreaLevel: i32
   Penalty: i32
+}
+
+# Added 0.5.5
+type RitualAreaCompletionFlags {
+  WorldArea: WorldAreas
+  QuestFlag: QuestFlags
 }
 
 # Added 0.5
@@ -6000,6 +6075,11 @@ type RitualBalancePerLevel {
   _: i32
   _: i32
   _: f32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
   _: i32
   _: i32
   _: i32
@@ -6051,6 +6131,16 @@ type RitualStashTabLayout {
   SlotSize: i32
   SlotStyle: StashTabInventorySlotStyle
   MiniIcon: string # mini icon in top left corner
+}
+
+# Added 0.5.5
+type RitualWorldAreaGroups {
+  _: WorldAreas
+  _: i32
+  Boss: [MonsterVarieties]
+  CompletionQuestFlag: QuestFlags
+  BossStandalone: [MonsterVarieties]
+  _: bool
 }
 
 # Added 0.1
@@ -6186,6 +6276,13 @@ type ShapeShiftBoneSizes {
   ShapeShiftForm: ShapeShiftForms
   Bone: string
   Size: f32
+}
+
+# Added 0.5.5
+type ShapeShiftCharacterEffectReplacements {
+  VisualIdentity: ItemVisualIdentity
+  ShapeshiftForm: ShapeShiftForms
+  EffectReplacement: string
 }
 
 type ShapeShiftForms {
@@ -6474,6 +6571,8 @@ type SkillSurgeEffects {
   _: bool
   _: [rid]
   _: f32
+  _: rid # All rows empty
+  _: rid # All rows empty
 }
 
 type SkillWeaponEffectsArtVariations {
@@ -6510,6 +6609,7 @@ type Strongboxes {
   BasicSpawnChanceStat: Stats
   RequiredSpawnStat: [Stats]
   BlockingSpawnStat: [Stats]
+  _: bool
 }
 
 type StrongboxPacks {
@@ -6714,6 +6814,7 @@ type StatisticTrackingMicrotransactionsStatistics {
   CounterType: StatisticTrackingMicrotransactionCounterType
   _: i32
   _: i32
+  _: bool
   _: bool
 }
 
@@ -7092,6 +7193,9 @@ type UltimatumEncounterTypes {
   _: bool
   QuestFlag: QuestFlags
   NPCText: NPCTextAudio
+  _: bool
+  _: i32
+  _: i32
 }
 
 type UltimatumModifiers {
