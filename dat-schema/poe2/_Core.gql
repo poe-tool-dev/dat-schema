@@ -652,6 +652,11 @@ type AzmeriWoodsDustType {
   WeatherArt: MiscAnimated
   BeamArt: MiscBeams
   Text: string @localized
+  BuffTemplate: BuffTemplates
+  WispAnimations: [MiscAnimated]
+  ReleaseAnimation: MiscAnimated
+  WeatherAnimation: MiscAnimated
+  DustAnimation: Mods
 }
 
 type BallisticBounceBehaviour {
