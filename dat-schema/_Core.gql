@@ -79,8 +79,8 @@ type ActiveSkills {
   WeaponRestriction_ItemClassesKeys: [ItemClasses]
   WebsiteDescription: string
   WebsiteImage: string
-  _: bool
-  _: string
+  HideOnWebsite: bool
+  GrantedEffect: string
   _: bool
   SkillTotemId: SkillTotems
   IsManuallyCasted: bool
@@ -88,9 +88,9 @@ type ActiveSkills {
   Output_StatKeys: [Stats]
   MinionActiveSkillTypes: [ActiveSkillType]
   _: bool
-  _: bool
-  _: [Stats]
-  _: i32
+  IsGem: bool
+  SecondarySkillSpecificStats: [Stats]
+  SkillMine: i32
   AlternateSkillTargetingBehavioursKey: AlternateSkillTargetingBehaviours
   _: bool
   AIFile: string @file(ext: ".ai")
@@ -264,12 +264,13 @@ enum PassiveSkillSizes @indexing(first: 1) {
 
 type AlternateSkillTargetingBehaviours {
   Id: string @unique
-  _: i32
+  "Maximum targeting distance used when no actor-specific override applies"
+  MaxDistance: i32
   ClientStrings: ClientStrings
-  _: i32
-  _: i32
-  _: i32
-  _: [i32]
+  MaxMineTargetingDistance: i32
+  MaxTrapTargetingDistance: i32
+  MaxTotemTargetingDistance: i32
+  TargetingFlags: [i32]
 }
 
 type AlternateTreeVersions {
@@ -653,8 +654,8 @@ type BaseItemTypes @tags(list: ["item:def", "item:droptable"]) {
   "the item which represents this item in the fragment stash tab"
   FragmentBaseItemTypesKey: BaseItemTypes
   _: bool
-  _: rid # All rows empty
-  _: rid # All rows empty
+  SoundEffect: SoundEffects
+  ItemStance: ItemStances
   _: bool
   Unmodifiable: bool
   Achievement1: [AchievementItems]
@@ -1176,7 +1177,7 @@ type Colours {
 type Commands {
   Id: string @unique
   Command: string
-  _: bool
+  SendsGenericCommandPacket: bool
   EnglishCommand: string
   Description: string
   _: bool
@@ -1234,7 +1235,7 @@ type CostTypes {
   Id: string @unique
   StatsKey: Stats
   FormatText: string
-  _: i32
+  Divisor: i32
 }
 
 enum CraftingBenchCustomActions @indexing(first: 0) {
@@ -1307,9 +1308,9 @@ type CraftingBenchUnlockCategories {
 type CraftingItemClassCategories {
   Id: string @unique
   ItemClasses: [ItemClasses]
-  _: string
+  CategoryCode: string
   Text: string
-  _: [rid]
+  CraftingBenchTypes: [CraftingBenchTypes]
 }
 
 type CurrencyItems @tags(list: ["item:def", "item:recipe"]) {
@@ -2116,21 +2117,22 @@ type GrantedEffects {
   ExcludedActiveSkillTypes: [ActiveSkillType]
   "This support gem only supports active skills that come from gem items"
   SupportsGemsOnly: bool
-  _: i32
+  HASH32: u32
   _: [i32]
   CannotBeSupported: bool
-  _: i32
+  LifeLeechBehaviourCategory: i32
   CastTime: i32
   ActiveSkill: ActiveSkills
   IgnoreMinionTypes: bool
-  _: bool
+  CooldownNotRecoverDuringActive: bool
   AddedMinionActiveSkillTypes: [ActiveSkillType]
   Animation: Animation
   MultiPartAchievement: MultiPartAchievements
   _: bool
   SupportWeaponRestrictions: [ItemClasses]
   RegularVariant: GrantedEffects
-  _: i32
+  "Used as the ID for tables like GeometryAttack"
+  SkillID: i32
   _: i32
   _: i32
   _: bool
@@ -2149,7 +2151,7 @@ type GrantedEffectsPerLevel {
   VaalSouls: i32
   VaalStoredUses: i32
   CooldownGroup: i32
-  _: i32
+  PvPDamageMultiplier: i32
   SoulGainPreventionDuration: i32
   AttackSpeedMultiplier: i32
   _: i32
@@ -3354,7 +3356,7 @@ type MiscAnimated {
   Id: string @unique
   AOFile: string @file(ext: ".ao")
   PreloadGroupsKeys: [PreloadGroups]
-  _: i32
+  EffectCategory: i32
   _: i32
   HASH32: u32
 }
@@ -3363,7 +3365,7 @@ type MiscAnimatedArtVariations {
   Id: string
   Animation: [MiscAnimated]
   _: i32
-  _: i32
+  Variant: i32
   Stats: Stats
 }
 
@@ -3587,7 +3589,7 @@ type Mods @tags(list: ["crafting"]) {
   SpawnWeight_Values: [i32]
   TagsKeys: [Tags]
   GrantedEffectsPerLevelKeys: [GrantedEffectsPerLevel]
-  _: [rid]
+  AuraFlags: [ModAuraFlags]
   MonsterMetadata: string
   MonsterKillAchievements: [AchievementItems]
   ArchnemesisType: [ModType]
@@ -3617,30 +3619,30 @@ type Mods @tags(list: ["crafting"]) {
   Stat8Max: i32
   InfluenceTypes: InfluenceTypes
   ImplicitTagsKeys: [Tags]
-  _: bool
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
+  HasHardmodeStatValues: bool
+  Stat1MinHardmode: i32
+  Stat1MaxHardmode: i32
+  Stat2MinHardmode: i32
+  Stat2MaxHardmode: i32
+  Stat3MinHardmode: i32
+  Stat3MaxHardmode: i32
+  Stat4MinHardmode: i32
+  Stat4MaxHardmode: i32
+  Stat5MinHardmode: i32
+  Stat5MaxHardmode: i32
+  Stat6MinHardmode: i32
+  Stat6MaxHardmode: i32
+  Stat7MinHardmode: i32
+  Stat7MaxHardmode: i32
+  Stat8MinHardmode: i32
+  Stat8MaxHardmode: i32
   BuffTemplate1: BuffTemplates
   ArchnemesisMinionMod: Mods
   HASH32: u32
   BuffTemplate2: [BuffTemplates]
   GameMode: GameModes
   GrantedEffectRuthless: [GrantedEffectsPerLevel]
-  _: bool # 3.28 something related to a few of unique mods
+  IsUnscalable: bool
 }
 
 type ModSellPriceTypes {
@@ -3657,7 +3659,7 @@ type ModSlotType {
 
 type ModType {
   Name: string @unique
-  _: [Stats]
+  Stats: [Stats]
   ModSellPriceTypesKeys: [ModSellPriceTypes]
   _: bool
 }
@@ -3991,7 +3993,7 @@ type MonsterTypes {
 type MonsterVarieties {
   Id: string @unique
   MonsterTypesKey: MonsterTypes
-  _: i32
+  MovementSpeed: i32
   ObjectSize: i32
   MinimumAttackDistance: i32
   MaximumAttackDistance: i32
@@ -4057,7 +4059,7 @@ type MonsterVarieties {
   Part1_ModsKeys: [Mods]
   Part2_ModsKeys: [Mods]
   Endgame_ModsKeys: [Mods]
-  _: rid
+  _: AchievementItems
   _: i32
   _: i32
   Achievement: [AchievementItems]
@@ -4065,7 +4067,7 @@ type MonsterVarieties {
   _: i32
   SinkAnimation_AOFile: string @file(ext: ".ao")
   _: bool
-  _: [rid]
+  _: [i32]
   _: bool
   _: bool
   _: bool
@@ -4874,17 +4876,20 @@ type Projectiles {
   AOFiles: [string] @file(ext: ".ao")
   LoopAnimationIds: [string]
   ImpactAnimationIds: [string]
+  "Raw speed. The client multiplies this by 0.092 to get world units per second"
   ProjectileSpeed: i32
-  _: bool
-  _: i32
-  _: bool
+  "Projectile ends at point where user clicks on the screen"
+  UseTargetLocation: bool
+  CollisionRadius: i32
+  RandomizeVisualRotationOnSpawn: bool
   _: bool
   InheritsFrom: string @files(ext: [".ot", ".otc"])
   _: i32
   MiscAnimated: MiscAnimated
-  _: i32
-  _: bool
-  _: bool
+  "Wider radius used to find collision candidates"
+  CollisionCandidateRadius: i32
+  ApplyProjectileSpeedToAuxiliarySpeed: bool
+  AuxiliarySpeedCannotBeBelowBase: bool
   Stuck_AOFile: [string] @file(ext: ".ao")
   Bounce_AOFile: string @file(ext: ".ao")
   _: i32
@@ -4895,12 +4900,12 @@ type Projectiles {
   MiscAnimatedArrowNova: MiscAnimated
   _: i32
   _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: [string]
-  _: bool
-  _: [i32]
+  VisualScaleMinPercent: i32
+  VisualScaleMaxPercent: i32
+  MiscEffectPackArtVariation: i32
+  FizzleAnimationNames: [string]
+  InheritOwnerVisualScale: bool
+  CollisionBehaviourFlags: [i32]
   _: string
 }
 
@@ -5232,8 +5237,8 @@ type SkillGems @tags(list: ["item:def"]) {
   _: bool
   _: bool
   _: bool
-  _: bool
-  _: bool
+  RegisterPrimaryGrantedEffect: bool
+  RegisterSecondaryGrantedEffect: bool
   AwakenedVariant: SkillGems
   RegularVariant: SkillGems
   GemColour: i32
@@ -5477,23 +5482,24 @@ type StaticLifeBarStyle {
 
 type Stats @tags(list: ["crafting"]) {
   Id: string @unique
-  _: bool
+  "Sends changes to registered external stat listeners"
+  IsPublic: bool
   IsLocal: bool
   IsWeaponLocal: bool
   Semantics: StatSemantics
-  _: bool
+  "Routes changes into the party-visible stat update list"
+  IsParty: bool
   IsVirtual: bool
   MainHandAlias_StatsKey: Stats
   OffHandAlias_StatsKey: Stats
-  _: bool
+  "Propagates changes into child or layered stat containers for recalculation"
+  IsProxied: bool
   HASH32: u32
   BelongsActiveSkillsKey: [ActiveSkills] @ref(column: "Id")
   Category: PassiveSkillStatCategories
   _: bool
-  _: bool
-  """
-  If not, displayed in advanced mod description as " — Unscalable Value"
-  """
+  "Marks stats that are registered by ApplyDamageFunctions"
+  IsApplyDamageFunctionStat: bool
   IsScalable: bool
   ContextFlags: [VirtualStatContextFlags]
   DotFlag: [VirtualStatContextFlags]
@@ -5539,15 +5545,16 @@ type SummonedSpecificBarrels {
 type SummonedSpecificMonsters {
   Id: i32
   MonsterVarietiesKey: MonsterVarieties @unique
-  _: i32
+  "Fallback key used to load game-object resources when MonsterVarietiesKey is null"
+  GameObjectRegisterKey: i32
   SummonEffect: MiscAnimated
   _: bool
   _: bool
   _: i32
   _: i32
   _: bool
-  ModFamily: ModFamily
-  _: rid # All rows empty
+  BuffDefinition: BuffDefinitions
+  BuffVisual: BuffVisuals
   _: i32
   _: bool
   _: i32

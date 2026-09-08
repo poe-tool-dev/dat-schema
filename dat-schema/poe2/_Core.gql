@@ -682,7 +682,7 @@ type BaseItemTypes @tags(list: ["item:def", "item:droptable"]) {
   FragmentBaseItemType: BaseItemTypes
   _: bool
   UncutGemSoundEffect: SoundEffects
-  _: rid
+  ItemStance: ItemStances
   _: bool
   Unmodifiable: bool
   Achievement: [AchievementItems]
@@ -1573,7 +1573,7 @@ type CurrencyExchange {
   Item: BaseItemTypes
   Category: CurrencyExchangeCategories
   SubCategory: CurrencyExchangeCategories
-  _: bool
+  EnabledInStandardLeague: bool
   EnabledInChallengeLeague: bool
   GoldPurchaseFee: i32
   _: bool
@@ -2971,7 +2971,8 @@ type GrantedEffects {
   _: bool
   RegularVariant: GrantedEffects
   _: bool
-  _: i32
+  "Used as the ID for tables like GeometryAttack"
+  SkillID: i32
   _: i32
   _: i32
   _: bool
@@ -4556,23 +4557,23 @@ type Mods @tags(list: ["crafting"]) {
   Stat8Value: i32 @interval
   InfluenceType: InfluenceTypes
   ImplicitTags: [Tags]
-  _: bool
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
+  HasHardmodeStatValues: bool
+  Stat1MinHardmode: i32
+  Stat1MaxHardmode: i32
+  Stat2MinHardmode: i32
+  Stat2MaxHardmode: i32
+  Stat3MinHardmode: i32
+  Stat3MaxHardmode: i32
+  Stat4MinHardmode: i32
+  Stat4MaxHardmode: i32
+  Stat5MinHardmode: i32
+  Stat5MaxHardmode: i32
+  Stat6MinHardmode: i32
+  Stat6MaxHardmode: i32
+  Stat7MinHardmode: i32
+  Stat7MaxHardmode: i32
+  Stat8MinHardmode: i32
+  Stat8MaxHardmode: i32
   BuffTemplate: BuffTemplates
   ArchnemesisMinionMod: Mods
   HASH32: u32
@@ -4859,7 +4860,7 @@ type MonsterVarieties {
   Part1_Mods: [Mods]
   Part2_Mods: [Mods]
   Endgame_Mods: [Mods]
-  _: rid # All rows empty
+  _: AchievementItems
   _: i32
   _: i32
   _: [rid] # All rows empty
@@ -4867,7 +4868,7 @@ type MonsterVarieties {
   _: i32
   SinkAnimation_AOFile: string @file(ext: ".ao")
   _: bool
-  _: [rid] # All rows empty
+  _: [i32] # All rows empty
   _: bool
   _: bool
   _: bool
@@ -5716,16 +5717,19 @@ type Projectiles {
   AOFiles: [string] @file(ext: ".ao")
   LoopAnimationIds: [string]
   ImpactAnimationIds: [string]
+  "Raw speed. The client multiplies this by 0.092 to get world units per second"
   ProjectileSpeed: i32
-  _: bool
-  _: i32
-  _: bool
+  "Projectile ends at point where user clicks on the screen"
+  UseTargetLocation: bool
+  CollisionRadius: i32
+  RandomizeVisualRotationOnSpawn: bool
   _: bool
   InheritsFrom: string @files(ext: [".ot", ".otc"])
   MiscAnimated: MiscAnimated
-  _: i32
-  _: bool
-  _: bool
+  "Wider radius used to find collision candidates"
+  CollisionCandidateRadius: i32
+  ApplyProjectileSpeedToAuxiliarySpeed: bool
+  AuxiliarySpeedCannotBeBelowBase: bool
   Stuck_AOFile: [string] @file(ext: ".ao")
   Bounce_AOFile: string @file(ext: ".ao")
   _: i32
@@ -5736,12 +5740,12 @@ type Projectiles {
   MiscAnimatedArrowNova: MiscAnimated
   _: i32
   _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: [string]
-  _: bool
-  _: [i32]
+  VisualScaleMinPercent: i32
+  VisualScaleMaxPercent: i32
+  MiscEffectPackArtVariation: i32
+  FizzleAnimationNames: [string]
+  InheritOwnerVisualScale: bool
+  CollisionBehaviourFlags: [i32]
   _: string
   MiscAnimatedBounce: MiscAnimated
   MiscAnimatedImpact: MiscAnimated
@@ -6389,8 +6393,8 @@ type SkillGems @tags(list: ["item:def"]) {
   IsVaalVariant: bool
   GlobalSkillLevelStat: Stats
   GemType: i32
-  _: bool
-  _: bool
+  RegisterPrimaryGrantedEffect: bool
+  RegisterSecondaryGrantedEffect: bool
   AwakenedVariant: SkillGems
   RegularVariant: SkillGems
   GemColour: i32
@@ -6715,23 +6719,24 @@ type StatisticTrackingMicrotransactionsStatistics {
 
 type Stats @tags(list: ["crafting"]) {
   Id: string @unique
-  _: bool
+  "Sends changes to registered external stat listeners"
+  IsPublic: bool
   IsLocal: bool
   IsWeaponLocal: bool
   Semantic: StatSemantics
-  _: bool
+  "Routes changes into the party-visible stat update list"
+  IsParty: bool
   IsVirtual: bool
   MainHandAlias_Stat: Stats
   OffHandAlias_Stat: Stats
-  _: bool
+  "Propagates changes into child or layered stat containers for recalculation"
+  IsProxied: bool
   HASH32: u32
   BelongsActiveSkills: [ActiveSkills] @ref(column: "Id")
   Category: PassiveSkillStatCategories
   _: bool
-  _: bool
-  """
-  If not, displayed in advanced mod description as " — Unscalable Value"
-  """
+  "Marks stats that are registered by ApplyDamageFunctions"
+  IsApplyDamageFunctionStat: bool
   IsScalable: bool
   ContextFlags: [VirtualStatContextFlags]
   DotFlag: [VirtualStatContextFlags]

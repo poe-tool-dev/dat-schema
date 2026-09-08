@@ -2,7 +2,7 @@ type CurrencyExchange {
   Item: BaseItemTypes
   Category: CurrencyExchangeCategories
   SubCategory: CurrencyExchangeCategories
-  _: bool
+  EnabledInStandardLeague: bool
   EnabledInChallengeLeague: bool
   GoldPurchaseFee: i32
   _: bool
