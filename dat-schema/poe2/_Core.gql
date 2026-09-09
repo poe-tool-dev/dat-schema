@@ -1695,8 +1695,8 @@ type DamageCalculationTypes {
   Id: string @unique
   PhysicalDamageStats: [Stats]
   FireDamageStats: [Stats]
-  ColdDamageStats: [Stats]
   LightningDamageStats: [Stats]
+  ColdDamageStats: [Stats]
   ChaosDamageStats: [Stats]
   CritChanceStat: Stats
   CritBonusStat: Stats
@@ -1713,34 +1713,34 @@ type DamageCalculationTypes {
   StatContextFlags: VirtualStatContextFlags
   Type: i32
   IsAttack: bool
-  _: Stats
-  _: DamageCalculationTypes
+  PhysicalStunMultiplierStat: Stats
+  FakeHitForAilments: DamageCalculationTypes
+  IsFakeHitForAilments: bool
+  DoubleCritChanceStat: Stats
+  BaseCritChanceStat: Stats
+  PhysicalFreezeMultiplierStat: Stats
+  FireStunMultiplierStat: Stats
+  ColdStunMultiplierStat: Stats
+  LightningStunMultiplierStat: Stats
+  ChaosStunMultiplierStat: Stats
+  FireFreezeMultiplierStat: Stats
+  ColdFreezeMultiplierStat: Stats
+  LightningFreezeMultiplierStat: Stats
+  ChaosFreezeMultiplierStat: Stats
+  PhysicalPinMultiplierStat: Stats
+  FirePinMultiplierStat: Stats
+  ColdPinMultiplierStat: Stats
+  LightningPinMultiplierStat: Stats
+  ChaosPinMultiplierStat: Stats
   _: bool
-  _: Stats
-  _: Stats
-  _: Stats
-  _: Stats
-  _: Stats
-  _: Stats
-  _: Stats
-  _: Stats
-  _: Stats
-  _: Stats
-  _: Stats
-  _: Stats
-  _: Stats
-  _: Stats
-  _: Stats
-  _: Stats
-  _: bool
-  _: Stats
-  _: Stats
-  _: Stats
-  _: Stats
-  _: Stats
-  _: Stats
-  _: Stats
-  _: Stats
+  AccuracyRatingStat: Stats
+  AccuracyRatingIncreasedStat: Stats
+  AccuracyOverrideFromMinionParentStat: Stats
+  AccuracyRatingFinalStat: Stats
+  AccuracyUnaffectedByDistanceStat: Stats
+  AlwaysHitStat: Stats
+  CanEvadeStat: Stats
+  EventualCritStat: Stats
 }
 
 type DamageEffectVariations {
