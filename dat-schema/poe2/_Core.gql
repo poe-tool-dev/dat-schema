@@ -267,13 +267,13 @@ type AfflictionEmotionCraftingAudio {
 
 # Added 0.5
 type AfflictionQuestFogBankValues {
-  _: rid
-  _: [rid]
+  _: NPCs
+  _: [NPCs]
   _: [i32]
   _: [i32]
-  _: rid
+  _: NPCs
   _: i32
-  _: [rid]
+  _: [NPCs]
 }
 
 # Added 0.5
@@ -1337,7 +1337,7 @@ type CharacterStartStates {
   _: [rid]
   _: [_] # All rows empty
   _: [_] # All rows empty
-  _: [rid]
+  SupportGems: [SupportGems]
   _: [rid]
   _: bool
 }
@@ -5275,7 +5275,7 @@ type NPCTalk {
   ConsoleQuickAction: NPCTalkConsoleQuickActions
   Music1: Music
   _: i32
-  _: [rid]
+  Characters: [Characters]
   _: i32
   Music2: Music
   _: i32
@@ -5632,7 +5632,7 @@ type PassiveSkills {
   Stat7Value: i32
   _: i32
   _: i32
-  _: rid
+  VariantType: PassiveSkillVariantTypes
   _: i32
   QuestFlag: QuestFlags
   Requirement: ClientStrings
