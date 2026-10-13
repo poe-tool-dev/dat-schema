@@ -46,7 +46,7 @@ type ExpeditionDeals {
   TextAudio: NPCTextAudio
   Description: string @localized
   BuyAchievements: [AchievementItems]
-  NPCShop: NPCShop
+  SoundEffect: SoundEffects
   DealFamily: ExpeditionDealFamilies
 }
 

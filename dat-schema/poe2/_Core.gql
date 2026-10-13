@@ -267,13 +267,13 @@ type AfflictionEmotionCraftingAudio {
 
 # Added 0.5
 type AfflictionQuestFogBankValues {
-  _: NPCs
-  _: [NPCs]
+  _: EndgameMapAtlas
+  _: [EndgameMapAtlas]
   _: [i32]
   _: [i32]
-  _: NPCs
+  _: EndgameMapAtlas
   _: i32
-  _: [NPCs]
+  _: [EndgameMapAtlas]
 }
 
 # Added 0.5
@@ -1333,12 +1333,12 @@ type CharacterStartStates {
   _: bool
   InfoText: string
   Ascendancy: Ascendancy
-  _: [rid]
-  _: [rid]
+  _: [PassiveSkills]
+  _: [PassiveSkills]
   _: [_] # All rows empty
   _: [_] # All rows empty
-  SupportGems: [SupportGems]
-  _: [rid]
+  AttributePassives: [PassiveSkills]
+  AttributeChoices: [PassiveSkills]
   _: bool
 }
 
@@ -2529,9 +2529,7 @@ type ExpeditionDeals {
   _: i32
   Description: string @localized
   _: [_] # All rows empty
-  _: string
-  _: i32
-  _: i32
+  SoundEffect: SoundEffects
   DealFamily: ExpeditionDealFamilies
 }
 
@@ -4081,7 +4079,7 @@ type MapDevices {
 type MapDeviceRecipes @tags(list: ["item:recipe"]) {
   Id: string @unique
   RecipeItems: [BaseItemTypes]
-  WorldArea: WorldAreas
+  WorldAreas: [WorldAreas]
   MicrotransactionPortalVariation: MicrotransactionPortalVariations
   AreaLevel: i32
   QuestFlag: QuestFlags
@@ -5273,11 +5271,11 @@ type NPCTalk {
   _: bool
   DialogueOption2: string
   ConsoleQuickAction: NPCTalkConsoleQuickActions
-  Music1: Music
+  WorldArea1: WorldAreas
   _: i32
   Characters: [Characters]
   _: i32
-  Music2: Music
+  WorldArea2: WorldAreas
   _: i32
   QuestFlag3: QuestFlags
   _: bool
@@ -6018,10 +6016,7 @@ type RecheckActiveSkillEnabledStats {
 
 type RecombinableClasses {
   Id: ItemClasses
-  _: i32
-  _: i32
-  _: i32
-  _: i32
+  Currency: BaseItemTypes
   _: i32
 }
 
@@ -7372,10 +7367,7 @@ type WeaponClasses {
 
 type WeaponImpactSoundData {
   Id: string @unique
-  _: i32
-  _: i32
-  _: i32
-  _: i32
+  WeaponSoundType: WeaponSoundTypes
   _: i32
   _: i32
   _: i32
