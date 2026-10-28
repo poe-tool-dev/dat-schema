@@ -979,7 +979,7 @@ type BuffDefinitions {
   _: bool
   IsSkillBuff: bool
   _: i32
-  _: [i32]
+  _: [AchievementItems] # All rows empty
   _: bool
   _: bool
   MultiPartAchievement: [MultiPartAchievements]
@@ -2515,7 +2515,7 @@ type ExpeditionCategory {
 # Added 0.1
 type ExpeditionCurrency @tags(list: ["item:def"]) {
   BaseItemType: BaseItemTypes @unique
-  NPC: ExpeditionNPCs
+  Faction: ExpeditionFactions
   LootSound: SoundEffects
 }
 
@@ -2533,7 +2533,7 @@ type ExpeditionDeals {
 # Added 0.1
 type ExpeditionDealsDialogue {
   _: i32
-  ExpeditionCurrency: ExpeditionCurrency
+  NPC: ExpeditionNPCs
   NPCTextAudio: NPCTextAudio
 }
 
@@ -3724,7 +3724,7 @@ type ItemVisualIdentity {
   _: string
   IsAtlasOfWorldsMapIcon: bool
   IsTier16Icon: bool
-  _: [i32]
+  _: [AchievementItems] # All rows empty
   _: bool
   _: [AchievementItems]
   _: [string]
@@ -3841,7 +3841,7 @@ type KeywordPopupItemReference {
   UniqueName: Words
   ItemVisualIdentity: ItemVisualIdentity
   FlavourText: FlavourText
-  Rarity: Rarity
+  ItemFrameType: ItemFrameType
   ItemLevel: i32
   _: bool
 }
@@ -4929,7 +4929,7 @@ type MonsterVarieties {
   _: i32
   SinkAnimation_AOFile: string @file(ext: ".ao")
   _: bool
-  _: [i32] # All rows empty
+  _: [MultiPartAchievements] # All rows empty
   _: bool
   _: bool
   _: bool
@@ -5844,7 +5844,7 @@ type Quest {
   _: bool
   _: bool
   NormalReward: [QuestRewardType]
-  QuestFlag: [QuestFlags]
+  WorldAreas: [WorldAreas]
 }
 
 # Added 0.5
@@ -5968,7 +5968,7 @@ type QuestStaticRewards {
   Message: ClientStrings
   _: i32
   _: bool
-  Achievement: QuestAchievements
+  CompletionNotification: CompletionNotifications
 }
 
 # Added 0.1
@@ -7194,7 +7194,7 @@ type UltimatumModifiers {
   Name: string
   Icon: string
   HASH16: u16
-  _: [string]
+  _: [UltimatumModifierTypes] # All rows empty
   BuffTemplates: [BuffTemplates]
   Tier: i32
   Description: string
@@ -7510,7 +7510,7 @@ type WorldAreas {
   _: rid # All rows empty
   _: string
   _: rid # All rows empty
-  _: [string]
+  _: [AchievementItems] # All rows empty
   IsUniqueMapArea: bool
   _: rid # All rows empty
   _: rid # All rows empty
