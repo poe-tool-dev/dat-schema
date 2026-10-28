@@ -1110,7 +1110,7 @@ type Chests {
   _: rid # All rows empty
   UnlockItem: BaseItemTypes
   Encounter_AchievementItemsKeys: [AchievementItems]
-  Environment: Environments
+  LockedError: BackendErrors
   InheritsFrom: string @files(ext: [".ot", ".otc"])
   _: bool
   MinimapIcons: MinimapIcons
@@ -1679,8 +1679,8 @@ type ExecuteGEAL {
   _: i32
   _: i32
   _: bool
-  _: [_] # All rows empty
   _: bool
+  _: [_] # All rows empty
   _: i32
   _: i32
   _: i32
@@ -4066,7 +4066,7 @@ type MonsterVarieties {
   _: i32
   SinkAnimation_AOFile: string @file(ext: ".ao")
   _: bool
-  _: [i32]
+  _: [MultiPartAchievements]
   _: bool
   _: bool
   _: bool
@@ -5867,7 +5867,7 @@ type UniqueChests {
   AOFile: string @file(ext: ".ao")
   _: bool
   _: [i32]
-  AppearanceChestsKey: Chests
+  LockedError: BackendErrors
   ChestsKey: Chests
   Achievement: [AchievementItems]
 }
@@ -6257,10 +6257,7 @@ type BattlePassRewards {
   _: bool
   RewardTitle: string
   ItemFrameType: ItemFrameType
-  _: i32
-  _: i32
-  _: i32
-  _: i32
+  Track: BattlePassTracks
   BaseItemTypeReward: BaseItemTypes
   _: i32
 }
