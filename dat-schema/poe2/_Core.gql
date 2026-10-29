@@ -827,14 +827,14 @@ type BloodHitEffects {
 # Added 0.1
 type BloodTypes {
   Id: string @unique
-  GroundEffect: [GroundEffects]
+  Gibs: [MiscAnimated]
   Visual: BuffVisuals
   VisualMoving: BuffVisuals
   _: f32
   _: f32
   _: f32
   DeathEffect: [MiscEffectPacks]
-  _: [string]
+  CorpseStain: [MiscEffectPacks]
   CorpseExplodeEffect: MiscEffectPacks
 }
 
@@ -979,7 +979,7 @@ type BuffDefinitions {
   _: bool
   IsSkillBuff: bool
   _: i32
-  _: [i32]
+  _: [AchievementItems] # All rows empty
   _: bool
   _: bool
   MultiPartAchievement: [MultiPartAchievements]
@@ -1104,8 +1104,8 @@ type BuffVisualsArtVariations {
 # Added 0.1
 type BuffVisualShapeShiftOverride {
   BuffVisual: BuffVisuals
+  ShapeShiftForm: ShapeShiftForms
   ShapeShiftVisualIdentity: ShapeShiftVisualIdentity
-  _: rid
   EPKFiles: [string] @file(ext: ".epk")
 }
 
@@ -1217,7 +1217,7 @@ type CharacterPanelStats {
   StatsKeys3: [Stats]
   CharacterPanelTabsKey: CharacterPanelTabs
   _: bool
-  _: [i32]
+  StatDescriptionFunctions: [StatDescriptionFunctions]
   _: i32
   StatsKeys4: [Stats]
   _: bool
@@ -1262,12 +1262,9 @@ type Characters {
   Description: string @localized
   StartSkillGem: BaseItemTypes
   _: rid
-  _: i32
+  WeaponSoundType: WeaponSoundTypes
   _: i32
   CharacterSize: i32
-  _: i32
-  _: i32
-  _: i32
   IntroSoundFile: string @file(ext: ".ogg")
   StartWeapons: [BaseItemTypes]
   Gender: string
@@ -1372,7 +1369,7 @@ type Chests {
   _: rid # All rows empty
   UnlockItem: BaseItemTypes
   Encounter_AchievementItemsKeys: [AchievementItems]
-  Environment: Environments
+  LockedError: BackendErrors # All rows empty
   InheritsFrom: string @files(ext: [".ot", ".otc"])
   _: bool
   MinimapIcons: MinimapIcons
@@ -1638,8 +1635,8 @@ type CurrencyItems @tags(list: ["item:def", "item:recipe"]) {
 }
 
 type CurrencyPerItemClassConditions {
+  Currency: CurrencyItems
   ItemClass: ItemClasses
-  _: rid
   _: i32
   _: rid
 }
@@ -2271,7 +2268,7 @@ type EndgameSplinterRecipes {
 }
 
 type EnvironmentFootprints {
-  Environment: Environments
+  FootstepAudio: FootstepAudio
   _: i32
   AOFile: [string] @file(ext: ".ao")
 }
@@ -2518,7 +2515,7 @@ type ExpeditionCategory {
 # Added 0.1
 type ExpeditionCurrency @tags(list: ["item:def"]) {
   BaseItemType: BaseItemTypes @unique
-  NPC: ExpeditionNPCs
+  Faction: ExpeditionFactions
   LootSound: SoundEffects
 }
 
@@ -2536,7 +2533,7 @@ type ExpeditionDeals {
 # Added 0.1
 type ExpeditionDealsDialogue {
   _: i32
-  ExpeditionCurrency: ExpeditionCurrency
+  NPC: ExpeditionNPCs
   NPCTextAudio: NPCTextAudio
 }
 
@@ -2949,7 +2946,7 @@ type GoldRespecPrices {
 }
 
 type GoldVisualIdentities {
-  Icon: EndgameMapPinIcons
+  Rarity: Rarity
   VisualIdentity: ItemVisualIdentity
 }
 
@@ -3016,7 +3013,7 @@ type GrantedEffects {
   _: bool
   _: [i32]
   _: i32
-  SupportWeaponRestrictions: [ItemClasses]
+  SupportWeaponRestrictions: [WieldableClasses]
   _: string
   MinionType: MinionType
   _: f32
@@ -3727,7 +3724,7 @@ type ItemVisualIdentity {
   _: string
   IsAtlasOfWorldsMapIcon: bool
   IsTier16Icon: bool
-  _: [i32]
+  _: [AchievementItems] # All rows empty
   _: bool
   _: [AchievementItems]
   _: [string]
@@ -3844,7 +3841,7 @@ type KeywordPopupItemReference {
   UniqueName: Words
   ItemVisualIdentity: ItemVisualIdentity
   FlavourText: FlavourText
-  Rarity: Rarity
+  ItemFrameType: ItemFrameType
   ItemLevel: i32
   _: bool
 }
@@ -4932,7 +4929,7 @@ type MonsterVarieties {
   _: i32
   SinkAnimation_AOFile: string @file(ext: ".ao")
   _: bool
-  _: [i32] # All rows empty
+  _: [MultiPartAchievements] # All rows empty
   _: bool
   _: bool
   _: bool
@@ -5117,8 +5114,7 @@ type NPCDialogueStyles {
   _: i32
   _: i32
   _: [i32]
-  _: NPCDialogueStyles
-  _: string
+  _: [i32]
   _: [i32]
   _: [i32]
   _: i32
@@ -5163,7 +5159,7 @@ type NPCMaster {
   _: bool
   SpawnWeight_TagsKeys: [Tags]
   SpawnWeight_Values: [i32]
-  Audio: NPCAudio
+  Currency: CurrencyItems
   _: i32
   AreaDescription: string
   AwardDisplay: AwardDisplay
@@ -5848,7 +5844,7 @@ type Quest {
   _: bool
   _: bool
   NormalReward: [QuestRewardType]
-  QuestFlag: [QuestFlags]
+  WorldAreas: [WorldAreas]
 }
 
 # Added 0.5
@@ -5889,30 +5885,20 @@ type QuestItemNPCAudio {
 type QuestRewards @tags(list: ["item:reward"]) {
   RewardOffer: QuestRewardOffers
   RewardOrder: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
+  Characters: [Characters] # All rows empty
   Reward: BaseItemTypes
   RewardLevel: i32
   RewardRarity: Rarity
   _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
+  _: string
+  _: [Mods] # All rows empty
   RewardStack: i32
   _: bool
   _: bool
   _: [_] # All rows empty
   _: i32
   _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
+  _: [_] # All rows empty
   _: i32
   _: rid
   _: i32
@@ -5982,7 +5968,7 @@ type QuestStaticRewards {
   Message: ClientStrings
   _: i32
   _: bool
-  Achievement: QuestAchievements
+  CompletionNotification: CompletionNotifications
 }
 
 # Added 0.1
@@ -7208,7 +7194,7 @@ type UltimatumModifiers {
   Name: string
   Icon: string
   HASH16: u16
-  _: [string]
+  _: [UltimatumModifierTypes] # All rows empty
   BuffTemplates: [BuffTemplates]
   Tier: i32
   Description: string
@@ -7254,7 +7240,7 @@ type UltimatumTrialLength {
 type UltimatumWagerTypes {
   Id: string @unique
   HASH16: u16
-  CurrencyItem: CurrencyItems
+  BaseItemType: BaseItemTypes
   Count: i32
   DisplayText: string @localized
   _: i32
@@ -7282,7 +7268,7 @@ type UniqueChests {
   AOFile: string @file(ext: ".ao")
   _: bool
   DaemonMods: [Mods]
-  AppearanceChestsKey: Chests
+  LockedError: BackendErrors # All rows empty
   ChestsKey: Chests
   Achievement: [AchievementItems]
   _: i32
@@ -7518,20 +7504,17 @@ type WorldAreas {
   MaxLevel: i32
   _: i32
   IsHideout: bool
-  _: i32
-  _: i32
+  _: string
   Tags: [Tags]
   _: rid # All rows empty
   _: rid # All rows empty
-  _: i32
-  _: i32
+  _: string
   _: rid # All rows empty
-  _: [string]
+  _: [AchievementItems] # All rows empty
   IsUniqueMapArea: bool
   _: rid # All rows empty
   _: rid # All rows empty
-  _: i32
-  _: i32
+  _: string
   _: i32
   Environment: Environments
   _: i32
@@ -7575,10 +7558,7 @@ type WorldAreaLeagueChances {
   _: i32
   _: i32
   _: i32
-  _: i32
-  _: i32
-  _: i32
-  _: i32
+  _: [i32]
   _: i32 # ShrineChance?
   _: i32 # ShrineChance?
   _: i32
