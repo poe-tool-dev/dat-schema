@@ -537,10 +537,7 @@ type AtlasNode {
   _: bool
   _: f32
   _: bool
-  _: i32
-  _: i32
-  _: i32
-  _: i32
+  MapNodeHeader: MapNodeHeader
   _: bool
   _: i32
 }
@@ -4861,7 +4858,7 @@ type PreloadFromStats {
   BuffVisual: [BuffVisuals]
   EffectPack: [MiscEffectPacks]
   _: i32
-  GroundEffect: [GroundEffects]
+  GroundEffectTypes: [GroundEffectTypes]
 }
 
 type PreloadGroups {
@@ -5938,10 +5935,7 @@ type VoteType {
   Text: string
   AcceptText: string
   RejectText: string
-  _: i32
-  _: i32
-  _: i32
-  _: i32
+  QuestFlag: QuestFlags
 }
 
 enum WeaponArmourCommon @indexing(first: 0) { _ }
@@ -6665,9 +6659,9 @@ type HudVisualsFromStat {
   Stat: Stats @unique
   LifeVisual: HudLifeVisuals
   EnergyShieldVisual: HudEnergyShieldVisuals
-  ManaVisual: HudManaVisuals
+  DivinationVisual: DivinationWindowVisuals
   TradeVisual: TradeWindowVisuals
-  ManaFlaskVisual: HudManaVisuals
+  ManaVisual: HudManaVisuals
   _: bool
 }
 

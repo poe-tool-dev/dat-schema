@@ -108,7 +108,7 @@ type AncestralTrialTribes {
   QuestFlagFightLost: QuestFlags
   QuestFlagFightWin: QuestFlags
   Achievement: [AchievementItems]
-  MinimapIcon: MinimapIcons
+  NPCSitting: NPCs
   AchievementRuthless: [AchievementItems]
   _: i32
   _: i32

@@ -1,7 +1,9 @@
 type FaridunWishes {
   Id: string
   _: i32
-  _: [_] # All rows empty
+  _: i32
+  _: i32
+  Description: string
   Icon: string
   _: rid
   _: [_] # All rows empty

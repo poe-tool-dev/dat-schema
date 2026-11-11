@@ -5761,6 +5761,16 @@ type PlayerMinionIntrinsicStats {
   Value: i32
 }
 
+type PreloadFromStats {
+  Stat: Stats @unique
+  Animation: [MiscAnimated]
+  Object: [MiscObjects]
+  BuffVisual: [BuffVisuals]
+  EffectPack: [MiscEffectPacks]
+  _: i32
+  GroundEffect: [GroundEffects]
+}
+
 type PrimalAvatarVarieties {
   Monster: MonsterVarieties
   SkillGem: SkillGems
