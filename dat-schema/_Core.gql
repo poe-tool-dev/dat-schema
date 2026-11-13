@@ -1,6 +1,28 @@
 # noinspection GraphQLMemberRedefinition,GraphQLTypeRedefinition
 enum AccountQuestFlags @indexing(first: 0) { _ }
 
+type AtlasPassiveSkillSubTrees {
+  Id: string @unique
+  UI_Image: string
+  UI_Background: string
+  IllustrationX: i32
+  IllustrationY: i32
+  CounterX: i32
+  CounterY: i32
+  _: ClientStrings
+  _: ClientStrings
+  _: ClientStrings
+  _: string
+  _: string
+  _: f32
+  Description: string
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  Icon: string @file(ext: ".dds")
+}
+
 type AtlasTrees {
   Id: string
   Name: string
@@ -286,6 +308,13 @@ type AlternateTreeVersions {
   _: i32
   _: i32
   _: string
+}
+
+type AlternateTreeVersionKeystones {
+  Version: AlternateTreeVersions
+  _: i32
+  Conqueror: string
+  _: i32
 }
 
 type AnimatedGuardianInventories {
@@ -4668,6 +4697,24 @@ type PassiveSkills {
   _: bool
   IsBrequelWomb: bool
   _: bool
+  _: i32
+  VariantType: PassiveSkillVariantTypes
+  AtlasSubTree: AtlasPassiveSkillSubTrees
+  _: bool
+  _: bool
+  _: bool
+  UIArt: PassiveSkillTreeUIArt
+}
+
+type PassiveSkillVariants {
+  Type: PassiveSkillVariantTypes
+  Variant: PassiveSkills
+}
+
+type PassiveSkillVariantTypes {
+  Id: string @unique
+  _: bool
+  _: bool
 }
 
 enum PassiveSkillTypes @indexing(first: 0) {
@@ -4701,6 +4748,8 @@ type PassiveSkillTrees {
   Name: ClientStrings
   UIArt: PassiveSkillTreeUIArt
   PassiveSkillGraph: string
+  _: PassiveSkillTreeUIArt
+  _: PassiveSkillTreeUIArt
 }
 
 type PassiveSkillTreeConnectionArt {
@@ -6219,11 +6268,9 @@ type AdditionalMonstersFromMapStats {
 # Added 3.19
 type AlternateTreeArt {
   TreeVersion: AlternateTreeVersions @unique
-  ConnectionArt: PassiveSkillTreeConnectionArt
-  KeystoneFrameArt: PassiveSkillTreeNodeFrameArt
   RadiiArt: PassiveJewelRadiiArt
-  NotableFrameArt: PassiveSkillTreeNodeFrameArt
-  AscendancyFrameArt: PassiveSkillTreeNodeFrameArt
+  UIArt: PassiveSkillTreeUIArt
+  _: rid # All rows empty
 }
 
 # Added 3.21
