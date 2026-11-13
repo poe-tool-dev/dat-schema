@@ -4587,6 +4587,13 @@ type PassiveOverrideLimits {
   _: bool
 }
 
+type PassiveSkillMasteryArt {
+  Id: string @unique
+  InactiveIcon: string @file(ext: ".dds")
+  ActiveIcon: string @file(ext: ".dds")
+  ActiveEffectImage: string
+}
+
 type PassiveSkillMasteryEffects {
   Id: string
   HASH16: u16
@@ -4601,12 +4608,10 @@ type PassiveSkillMasteryEffects {
 type PassiveSkillMasteryGroups {
   Id: string @unique
   MasteryEffects: [PassiveSkillMasteryEffects]
-  InactiveIcon: string @file(ext: ".dds")
-  ActiveIcon: string @file(ext: ".dds")
-  ActiveEffectImage: string
   _: bool
   SoundEffect: SoundEffects
   MasteryCountStat: Stats
+  Art: PassiveSkillMasteryArt
 }
 
 type PassiveSkills {
@@ -4760,11 +4765,15 @@ type PassiveSkillTreeTutorial {
 type PassiveSkillTreeUIArt {
   Id: string @unique
   _: bool
-  Ornament: string
   BackgroundArt: PassiveSkillTreeGroupBackgroundArt
   PassiveFrame: PassiveSkillTreeNodeFrameArt
   NotableFrame: PassiveSkillTreeNodeFrameArt
   KeystoneFrame: PassiveSkillTreeNodeFrameArt
+  ConnectionArt: PassiveSkillTreeConnectionArt
+  StartFrame: PassiveSkillTreeNodeFrameArt
+  _: PassiveSkillTreeNodeFrameArt
+  JewelFrame: PassiveSkillTreeNodeFrameArt
+  _: string
 }
 
 type PassiveSkillTreeUIArtAscendancy {
