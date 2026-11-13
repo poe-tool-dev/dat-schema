@@ -4587,6 +4587,13 @@ type PassiveOverrideLimits {
   _: bool
 }
 
+type PassiveSkillMasteryArt {
+  Id: string @unique
+  InactiveIcon: string @file(ext: ".dds")
+  ActiveIcon: string @file(ext: ".dds")
+  ActiveEffectImage: string
+}
+
 type PassiveSkillMasteryEffects {
   Id: string
   HASH16: u16

@@ -76,10 +76,3 @@ type AuguryLifeScalingPerLevel {
   Level: i32
   Scaling: i32
 }
-
-type PassiveSkillMasteryArt {
-  Id: string @unique
-  InactiveIcon: string @file(ext: ".dds")
-  ActiveIcon: string @file(ext: ".dds")
-  ActiveEffectImage: string
-}
