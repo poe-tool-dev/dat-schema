@@ -102,6 +102,7 @@ type BetrayalTargets {
   ScriptArgument: string
   _: [_] # All rows empty
   _: [i32]
+  _: MonsterVarieties
 }
 
 type BetrayalTraitorRewards @tags(list: ["item:droptable"]) {

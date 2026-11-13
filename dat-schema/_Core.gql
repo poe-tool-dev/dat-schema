@@ -285,6 +285,7 @@ type AlternateTreeVersions {
   _: i32
   _: i32
   _: i32
+  _: string
 }
 
 type AnimatedGuardianInventories {
@@ -430,6 +431,7 @@ type Ascendancy {
   _: i32
   LeagueIcon: string
   _: bool
+  _: PassiveSkillTreeUIArt
 }
 
 type AtlasFavouredMapSlots {
@@ -840,6 +842,7 @@ type BuffVisualOrbTypes {
   _: bool
   _: f32
   _: i32
+  _: i32
 }
 
 type BuffVisuals {
@@ -1125,6 +1128,7 @@ type Chests {
   _: bool
   ObjectQuickAction: [WorldObjectQuickActions]
   _: bool
+  _: i32
 }
 
 type ClientStrings {
@@ -2017,6 +2021,8 @@ type GeometryProjectiles {
   _: bool
   _: rid
   _: i32
+  _: string
+  _: string
 }
 
 type GeometryTrigger {
@@ -2136,6 +2142,9 @@ type GrantedEffects {
   _: bool
   StatSet1: GrantedEffectStatSets
   StatSet2: [GrantedEffectStatSets]
+  SupportName: string
+  SupportDescription: string
+  SupportIcon: string
 }
 
 type GrantedEffectsPerLevel {
@@ -2555,6 +2564,7 @@ type ItemFrameType {
   DisplayString: ClientStrings
   ColorMarkup: string
   _: i32
+  _: i32
 }
 
 type ItemisedVisualEffect {
@@ -2591,6 +2601,7 @@ type ItemNoteCode {
   CurrencyItem: CurrencyItems
   Code: string
   # One of these bools was previously called "Show", but unclear which one it is now
+  _: bool
   _: bool
   _: bool
 }
@@ -3118,6 +3129,7 @@ type MapSeriesTiers {
   KeepersTier: i32
   MirageTier: i32
   AbyssalTier: i32
+  _: i32
 }
 
 type MapStashSpecialSubStashGroup {
@@ -4521,6 +4533,7 @@ type PassiveJewelSlots {
   ProxySlot: PassiveSkills
   StartIndices: [i32]
   _: bool
+  _: i32
 }
 
 type PassiveJewelNodeModifyingStats {
@@ -5138,6 +5151,7 @@ type Rulesets {
   Id: string @unique
   _: [Rulesets]
   _: [_] # All rows empty
+  _: string
 }
 
 type RunicCircles {
@@ -5453,6 +5467,8 @@ type StashType {
 type StatDescriptionFunctions {
   Id: string
   TranslationId: string @unique
+  _: i32
+  _: bool
 }
 
 enum StatDescriptionTypes @indexing(first: 0) {
@@ -5808,6 +5824,7 @@ type Tutorial {
   _: bool
   _: bool
   _: i32
+  _: bool
 }
 
 type UIArtAscendancy {
@@ -7136,6 +7153,7 @@ type StatisticTrackingMapDeviceLabels {
   _: i32
   _: i32
   _: i32
+  _: string
 }
 
 # Added 3.23

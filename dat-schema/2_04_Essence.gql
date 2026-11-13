@@ -64,6 +64,8 @@ type Essences @tags(list: ["item:def", "crafting"]) {
   MemoryLines: [Mods]
   _: [i32]
   Level2: [i32]
+  _: rid
+  _: bool
 }
 
 type EssenceType {

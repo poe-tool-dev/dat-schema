@@ -34,6 +34,8 @@ type LegionChestCounts {
   _: i32
   MinLevel: i32
   _: i32
+  _: i32
+  _: i32
 }
 
 type LegionChestTypes {
@@ -68,6 +70,8 @@ type LegionFactions {
 type LegionMonsterCounts {
   LegionFactionsKey: LegionFactions
   LegionRanksKey: LegionRanks
+  _: i32
+  _: i32
   _: i32
   _: i32
   _: i32

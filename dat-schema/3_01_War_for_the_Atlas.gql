@@ -7,6 +7,7 @@ type ElderBossArenas {
 type ElderGuardians {
   Id: string
   MapIcon: string
+  Name: string
 }
 
 type ElderMapBossOverride {
