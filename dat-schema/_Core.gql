@@ -471,12 +471,12 @@ type AtlasFavouredMapSlots {
 
 type AtlasMissionTypes {
   Id: string
-  Stats: [Stats]
-  StatValues: [i32]
   Astrolabe: BaseItemTypes
-  _: i32
-  _: i32
-  _: rid # All rows empty
+  _: NPCTextAudio
+  ThreadType: AtlasThreadTypes
+  _: string
+  _: string
+  _: string
 }
 
 type AtlasFog {
@@ -571,6 +571,7 @@ type AtlasNode {
   MapNodeHeader: MapNodeHeader
   _: bool
   _: i32
+  _: bool
 }
 
 type AtlasNodeDefinition {
@@ -592,6 +593,7 @@ type AtlasNodeDefinition {
   _: bool
   Header: MapNodeHeader
   _: i32
+  _: bool
 }
 
 type AtlasPositions {
@@ -606,6 +608,46 @@ type AtlasRegions {
   MemoryVault: WorldAreas
   _: [_] # All rows empty
   _: [_] # All rows empty
+}
+
+type AtlasThreadDynamicInventorySlots {
+  Id: string @unique
+  ThreadType: AtlasThreadTypes
+  _: i32
+  _: string
+  _: i32
+  _: i32
+  _: i32
+  BaseItemTypes: [BaseItemTypes]
+}
+
+type AtlasThreadsLayout {
+  Id: string @unique
+  _: i32
+  _: string
+}
+
+type AtlasThreadTiers {
+  ThreadType: AtlasThreadTypes
+  Tier: i32
+  _: [_] # All rows empty
+  _: [_] # All rows empty
+  _: [_] # All rows empty
+  _: [_] # All rows empty
+  _: bool
+}
+
+type AtlasThreadTypes {
+  Id: string @unique
+  _: string
+  Stats: [Stats]
+  StatValues: [i32]
+  BaseItemType: BaseItemTypes
+  _: Stats
+  _: Stats
+  _: Stats
+  _: Tags
+  _: string
 }
 
 type AtlasUberMonsterLifeScalingPerLevel {
@@ -1259,6 +1301,7 @@ type CoreLeagues {
   _: [Stats]
   _: bool
   _: Stats
+  SurpassingChanceStat: Stats
 }
 
 type CostTypes {
@@ -1670,6 +1713,23 @@ type EmptyVisualSlotOverrides {
   _: i32
 }
 
+type EndgamePlayerHideoutApplyMods {
+  Id: string @unique
+  _: i16
+  _: bool
+  MissionType: AtlasMissionTypes
+}
+
+type EndgamePlayerHideoutRewards {
+  Id: string @unique
+  _: i16
+  _: rid # All rows empty
+  _: i32
+  _: string
+  _: bool
+  Rarity: ClientStrings2
+}
+
 type EndlessLedgeChests {
   Id: string @unique
   WorldAreasKey: WorldAreas
@@ -1835,6 +1895,16 @@ type ExtraTerrainFeatures {
   _: i32
 }
 
+type FishingHookTypes {
+  _: i32
+  Name: string
+}
+
+type FishingLureTypes {
+  _: i32
+  Name: string
+}
+
 type FixedHideoutDoodadTypes {
   Id: string
   HideoutDoodadsKeys: [HideoutDoodads]
@@ -1844,6 +1914,7 @@ type FixedHideoutDoodadTypes {
   _: bool
   UnlockQuest: Quest
   WorldArea: WorldAreas
+  _: bool
 }
 
 type FixedMissions {
@@ -2937,10 +3008,11 @@ type LeagueStaticRewards {
   _: rid
   _: rid
   _: i32
-  _: i32
   _: bool
   _: [i32]
   _: [rid]
+  _: rid # All rows empty
+  _: i32
 }
 
 type LevelRelativePlayerScaling {
@@ -3020,6 +3092,7 @@ type MapDeviceLayouts {
   _: [i32]
   _: [i32]
   _: i32
+  _: bool
 }
 
 type MapDevices {
@@ -4514,6 +4587,7 @@ type NPCTalk {
   _: NPCTalk
   Inventory: Inventories
   _: string
+  _: i32
 }
 
 type NPCTalkCategory {
@@ -5289,6 +5363,12 @@ type SessionQuestFlags {
   QuestFlag: QuestFlags
 }
 
+type ShaperApparitionAbility {
+  _: i32
+  GrantedEffect: GrantedEffects
+  Name: string
+}
+
 type ShieldTypes @tags(list: ["item:def"]) {
   BaseItemTypesKey: BaseItemTypes @unique
   Block: i32
@@ -5865,6 +5945,7 @@ type Topologies {
   _: i32
   _: [i32]
   _: i32
+  _: bool
 }
 
 type TradeMarketCategory {
@@ -6259,6 +6340,7 @@ type WorldAreaLeagueChances {
   _: i32
   _: i32
   _: i32
+  _: [i32]
 }
 
 type WorldObjectDisplayedApplicableItems {

@@ -3,4 +3,6 @@ type BeyondFactions {
   Boss: MonsterVarieties
   FactionChanceStat: Stats
   BuffTemplate: BuffTemplates
+  _: rid # All rows empty
+  _: rid # All rows empty
 }

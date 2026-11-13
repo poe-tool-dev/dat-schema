@@ -12,4 +12,6 @@ type TormentSpirits {
   ModsKeys1: [Mods]
   PlayerPossessedMod: Mods
   Animation: MiscAnimated
+  _: rid # All rows empty
+  _: Mods
 }
