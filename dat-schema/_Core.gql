@@ -537,10 +537,7 @@ type AtlasNode {
   _: bool
   _: f32
   _: bool
-  _: i32
-  _: i32
-  _: i32
-  _: i32
+  MapNodeHeader: MapNodeHeader
   _: bool
   _: i32
 }
@@ -756,7 +753,7 @@ type BuffDefinitions {
   _: bool
   IsSkillBuff: bool
   _: i32
-  _: [i32]
+  _: [rid] # All rows empty
   _: bool
   _: bool
   MultiPartAchievement: [MultiPartAchievements]
@@ -1258,7 +1255,7 @@ type CraftingBenchOptions @tags(list: ["crafting"]) {
   SocketColours: string
   Sockets: i32
   ItemQuantity: i32
-  _: [i32]
+  _: [ItemClasses] # All rows empty
   Description: string
   IsDisabled: bool
   IsAreaOption: bool
@@ -1387,7 +1384,7 @@ type DamageParticleEffects {
 enum DamageParticleEffectTypes @indexing(first: 0) { _ }
 
 type Dances {
-  MtxTypeKey: MtxTypes
+  MtxTypeKey: MtxTypeGameSpecific
   CharactersKey: Characters
 }
 
@@ -2765,7 +2762,7 @@ type KeywordPopupItemReference {
   UniqueName: Words
   ItemVisualIdentity: ItemVisualIdentity
   FlavourText: FlavourText
-  Rarity: Rarity
+  FrameType: ItemFrameType
   ItemLevel: i32
   _: bool
 }
@@ -4266,8 +4263,7 @@ type NPCDialogueStyles {
   _: i32
   _: i32
   _: [i32]
-  _: NPCDialogueStyles
-  _: string
+  _: [_] # All rows empty
   _: [i32]
   _: [i32]
   _: i32
@@ -4405,11 +4401,11 @@ type NPCTalk {
   _: bool
   DialogueOption2: string
   ConsoleQuickAction: NPCTalkConsoleQuickActions
-  Music1: Music
+  WorldArea1: WorldAreas
   _: i32
   _: [_] # All rows empty
   _: i32
-  Music2: Music
+  WorldArea2: WorldAreas
   _: i32
   _: rid # All rows empty
   _: bool
@@ -4861,7 +4857,7 @@ type PreloadFromStats {
   BuffVisual: [BuffVisuals]
   EffectPack: [MiscEffectPacks]
   _: i32
-  GroundEffect: [GroundEffects]
+  GroundEffectTypes: [GroundEffectTypes]
 }
 
 type PreloadGroups {
@@ -5938,10 +5934,7 @@ type VoteType {
   Text: string
   AcceptText: string
   RejectText: string
-  _: i32
-  _: i32
-  _: i32
-  _: i32
+  QuestFlag: QuestFlags
 }
 
 enum WeaponArmourCommon @indexing(first: 0) { _ }
@@ -6665,9 +6658,9 @@ type HudVisualsFromStat {
   Stat: Stats @unique
   LifeVisual: HudLifeVisuals
   EnergyShieldVisual: HudEnergyShieldVisuals
-  ManaVisual: HudManaVisuals
+  DivinationVisual: DivinationWindowVisuals
   TradeVisual: TradeWindowVisuals
-  ManaFlaskVisual: HudManaVisuals
+  ManaVisual: HudManaVisuals
   _: bool
 }
 
@@ -6961,7 +6954,7 @@ type MicrotransactionOnKillBeams {
 # Added 3.21
 type MicrotransactionOnKillConditions {
   Id: string @unique
-  Rarity: [MicrotransactionRarityDisplay]
+  Rarity: [Rarity]
   _: [_] # All rows empty
   _: [_] # All rows empty
   _: i32

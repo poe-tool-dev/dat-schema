@@ -21,8 +21,9 @@ type MercenaryBuilds {
   Name: string
   _: i32
   IsInfamous: bool
-  IdleSkill: MercenarySkills
-  _: string
+  _: i32
+  _: i32
+  _: [_] # All rows empty
   _: [string]
   Achievements: [AchievementItems]
   WieldableTypes: [MercenaryWieldableTypes]

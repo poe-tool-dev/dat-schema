@@ -73,8 +73,7 @@ type HeistChestRewardTypes {
   Id: string @unique
   Art: string
   RewardTypeName: string
-  _: HeistChestRewardTypes
-  RewardRoomName: string
+  _: [rid] # All rows empty
   MinLevel: i32
   MaxLevel: i32
   Weight: i32

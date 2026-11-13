@@ -94,7 +94,7 @@ type LegionMonsterVarieties {
   _: [i32]
   _: i32
   _: i32
-  _: [i32]
+  Animations: [Animation]
   MonsterVarietiesKey2: MonsterVarieties
 }
 

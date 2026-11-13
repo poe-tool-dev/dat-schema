@@ -20,7 +20,7 @@ type SettlersLifeScalingPerLevel {
 }
 
 type VillageAssignWorkerTextAudio {
-  Job: VillageJobs
+  JobType: VillageJobTypes
   _: NPCTextAudio
   _: NPCTextAudio
   _: NPCTextAudio
@@ -126,7 +126,7 @@ type VillageSharedConstants {
 type VillageShippingFailures {
   Id: string
   Text: string
-  Resource: [VillageResources]
+  Exports: [VillageExports]
   ResourceLostPercent: i32
   PortBonusLostPercent: i32
   _: i32
@@ -161,7 +161,7 @@ type VillageTownLayout {
   Name: string
   PositionX: i32
   PositionY: i32
-  Resource: VillageResources
+  Export: VillageExports
 }
 
 type VillageUniqueDisenchantValues @tags(list: ["item:droptable"]) {
