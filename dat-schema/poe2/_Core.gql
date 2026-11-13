@@ -753,6 +753,21 @@ type BeyondFactions {
   Boss: MonsterVarieties
 }
 
+type BestiaryRecipes @tags(list: ["item:recipe", "crafting"]) {
+  Id: string @unique
+  Description: string
+  BestiaryRecipeComponentKeys: [BestiaryRecipeComponent]
+  Notes: string
+  Category: BestiaryRecipeCategories
+  _: bool
+  Achievements: [AchievementItems]
+  _: bool
+  _: i32
+  _: i32
+  GameMode: GameModes
+  FlaskMod: Mods
+}
+
 type BetrayalJobs {
   Id: string
   Text: string
@@ -3290,6 +3305,12 @@ type HarvestPerLevelValues {
   _: i32
   _: i32
   _: i32
+}
+
+type HarvestSeedItems @tags(list: ["item:def"]) {
+  Id: i32
+  BaseItem: BaseItemTypes
+  DropStat: Stats
 }
 
 # Added 0.1

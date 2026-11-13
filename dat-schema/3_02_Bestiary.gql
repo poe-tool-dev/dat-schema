@@ -77,7 +77,6 @@ type BestiaryRecipes @tags(list: ["item:recipe", "crafting"]) {
   Achievements: [AchievementItems]
   _: bool
   _: i32
-  _: i32
   GameMode: GameModes
   FlaskMod: Mods
 }

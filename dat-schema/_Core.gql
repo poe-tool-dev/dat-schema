@@ -1311,6 +1311,7 @@ type CraftingBenchOptions @tags(list: ["crafting"]) {
   PassiveSkills: [PassiveSkills]
   Tags: [Tags]
   _: [i32]
+  _: bool
 }
 
 type CraftingBenchSortCategories {
@@ -1383,6 +1384,17 @@ type CurrencyStashTabLayout {
 }
 
 enum CurrencyUseTypes @indexing(first: 0) { _ }
+
+type CustomAddModCurrency {
+  BaseItemType: BaseItemTypes
+  ItemClasses: [ItemClasses]
+  BaseItemTypes: [BaseItemTypes]
+  Tags: [Tags]
+  _: bool
+  _: bool
+  Mod: Mods
+  _: i32
+}
 
 type DaemonSpawningData {
   Id: string
@@ -1647,6 +1659,17 @@ type EinharPackFallback {
   MonsterPack: [MonsterPacks]
 }
 
+type EmptyVisualSlotOverrides {
+  Stat: Stats
+  _: i32
+  ItemClass: ItemClasses
+  ItemVisualIdentity: ItemVisualIdentity
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}
+
 type EndlessLedgeChests {
   Id: string @unique
   WorldAreasKey: WorldAreas
@@ -1750,6 +1773,20 @@ type ExpandingPulse {
   _: [f32]
   Animation: [MiscAnimated]
   _: i32
+  _: i32
+  _: bool
+}
+
+type ExpeditionGwennenCraftingOptions {
+  Id: i32
+  Deal: ExpeditionDeals
+  _: i32
+  _: i32
+  ItemConditions: [ItemConditions]
+  _: i32
+  _: i32
+  _: i32
+  _: string
   _: i32
   _: bool
 }
@@ -2655,7 +2692,7 @@ type ItemVisualEffect {
   TwoHandedAxeEPKFile: string @file(ext: ".epk")
   ClawEPKFile: string @file(ext: ".epk")
   PETFile: string @file(ext: ".pet")
-  Shield: [string] @file(ext: ".epk")
+  Shield: string @file(ext: ".epk")
   _: bool
   _: string
 }
@@ -3020,6 +3057,7 @@ type MapFragmentMods {
   MapFragmentLimit: i32
   _: bool
   _: [i32]
+  _: bool
 }
 
 type MapInhabitants {
@@ -3037,6 +3075,12 @@ type MapKeys {
 type MapMissionIcon {
   Mission: string @unique
   Icon: string
+}
+
+type MapModIcons {
+  Mod: Mods
+  Icon: string
+  Description: string
 }
 
 type MapNodeHeader {
@@ -3365,6 +3409,11 @@ type MicrotransactionSocialFrameVariations {
   BK2File: string @file(ext: ".bk2")
 }
 
+type MicrotransactionTiers {
+  _: rid
+  _: [i32]
+}
+
 type MicrotransactionTrackingMapFragmentTypes {
   BaseItemType: BaseItemTypes @unique
   _: i32
@@ -3527,6 +3576,12 @@ enum ModDomains @indexing(first: 1) {
   NECROPOLIS_MONSTER
   IDOL
   GRAFT
+  _
+  _
+  _
+  _
+  HARVEST_TREE
+  LEGION_MONOLITH
 }
 
 type ModEffectStats {
@@ -3629,7 +3684,7 @@ type Mods @tags(list: ["crafting"]) {
   AuraFlags: [ModAuraFlags]
   MonsterMetadata: string
   MonsterKillAchievements: [AchievementItems]
-  ArchnemesisType: [ModType]
+  ArchnemesisType: [AchievementItems]
   Stat5Min: i32
   Stat5Max: i32
   StatsKey5: Stats
@@ -3680,6 +3735,11 @@ type Mods @tags(list: ["crafting"]) {
   GameMode: GameModes
   GrantedEffectRuthless: [GrantedEffectsPerLevel]
   IsUnscalable: bool
+  _: [GrantedEffects]
+  _: [GrantedEffects]
+  _: bool
+  _: i32
+  _: bool
 }
 
 type ModSellPriceTypes {
@@ -7109,6 +7169,7 @@ type MinionDoublingStatTypes {
   Id: i32
   Stat: Stats
   MinionType: MinionType
+  Name: string
 }
 
 # Added 3.23
