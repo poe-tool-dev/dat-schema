@@ -1837,20 +1837,6 @@ type ExpandingPulse {
   _: bool
 }
 
-type ExpeditionGwennenCraftingOptions {
-  Id: i32
-  Deal: ExpeditionDeals
-  _: i32
-  _: i32
-  ItemConditions: [ItemConditions]
-  _: i32
-  _: i32
-  _: i32
-  _: string
-  _: i32
-  _: bool
-}
-
 type ExperienceLevels {
   Id: string
   Level: i32
@@ -3757,7 +3743,7 @@ type Mods @tags(list: ["crafting"]) {
   AuraFlags: [ModAuraFlags]
   MonsterMetadata: string
   MonsterKillAchievements: [AchievementItems]
-  ArchnemesisType: [AchievementItems]
+  ChestOpenAchievements: [AchievementItems]
   Stat5Min: i32
   Stat5Max: i32
   StatsKey5: Stats
