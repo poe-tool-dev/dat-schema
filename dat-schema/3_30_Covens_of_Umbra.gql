@@ -1,0 +1,76 @@
+type AuguryCards {
+  Id: string
+  _: i32
+  _: i32
+  _: i32
+  _: rid
+  Name: string
+  Art: string
+  _: NPCTextAudio
+  _: NPCTextAudio
+  _: i32
+}
+
+type AuguryFactions {
+  Id: string
+  _: i32
+  _: [_]
+  Name: string
+  _: rid
+}
+
+type AuguryCardDialogue {
+  Id: string
+  _: rid
+  _: [NPCTextAudio]
+  _: [NPCTextAudio]
+  _: [NPCTextAudio]
+}
+
+type AuguryCardTiers {
+  Card: AuguryCards
+  Tier: i32
+  Description: string
+  Mod: Mods
+  _: rid
+  Body: string
+}
+
+type AuguryCardTierInfo {
+  Tier: i32
+  Icon: string
+  Frame: string
+}
+
+type AuguryPinnacleCards {
+  Id: string
+  Body1: string
+  Art: string
+  _: rid
+  _: [rid]
+  _: rid
+  Name: string
+  _: rid
+  Body2: string
+}
+
+type AuguryRewardOutcomes {
+  Id: string
+  Tier: i32
+  _: i32
+  Description: string
+  MinLevel: i32
+  MaxLevel: i32
+  _: [_]
+  _: [rid]
+  Icon: string
+  _: [_]
+  _: bool
+  _: i32
+  Achievements: [AchievementItems]
+}
+
+type AuguryLifeScalingPerLevel {
+  Level: i32
+  Scaling: i32
+}
