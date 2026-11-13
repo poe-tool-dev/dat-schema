@@ -471,12 +471,12 @@ type AtlasFavouredMapSlots {
 
 type AtlasMissionTypes {
   Id: string
-  Stats: [Stats]
-  StatValues: [i32]
   Astrolabe: BaseItemTypes
-  _: i32
-  _: i32
-  _: rid # All rows empty
+  _: NPCTextAudio
+  ThreadType: AtlasThreadTypes
+  _: string
+  _: string
+  _: string
 }
 
 type AtlasFog {
@@ -571,6 +571,7 @@ type AtlasNode {
   MapNodeHeader: MapNodeHeader
   _: bool
   _: i32
+  _: bool
 }
 
 type AtlasNodeDefinition {
@@ -592,6 +593,7 @@ type AtlasNodeDefinition {
   _: bool
   Header: MapNodeHeader
   _: i32
+  _: bool
 }
 
 type AtlasPositions {
@@ -606,6 +608,46 @@ type AtlasRegions {
   MemoryVault: WorldAreas
   _: [_] # All rows empty
   _: [_] # All rows empty
+}
+
+type AtlasThreadDynamicInventorySlots {
+  Id: string @unique
+  ThreadType: AtlasThreadTypes
+  _: i32
+  _: string
+  _: i32
+  _: i32
+  _: i32
+  BaseItemTypes: [BaseItemTypes]
+}
+
+type AtlasThreadsLayout {
+  Id: string @unique
+  _: i32
+  _: string
+}
+
+type AtlasThreadTiers {
+  ThreadType: AtlasThreadTypes
+  Tier: i32
+  _: [_] # All rows empty
+  _: [_] # All rows empty
+  _: [_] # All rows empty
+  _: [_] # All rows empty
+  _: bool
+}
+
+type AtlasThreadTypes {
+  Id: string @unique
+  _: string
+  Stats: [Stats]
+  StatValues: [i32]
+  BaseItemType: BaseItemTypes
+  _: Stats
+  _: Stats
+  _: Stats
+  _: Tags
+  _: string
 }
 
 type AtlasUberMonsterLifeScalingPerLevel {
@@ -1259,6 +1301,7 @@ type CoreLeagues {
   _: [Stats]
   _: bool
   _: Stats
+  SurpassingChanceStat: Stats
 }
 
 type CostTypes {
@@ -1311,6 +1354,7 @@ type CraftingBenchOptions @tags(list: ["crafting"]) {
   PassiveSkills: [PassiveSkills]
   Tags: [Tags]
   _: [i32]
+  _: bool
 }
 
 type CraftingBenchSortCategories {
@@ -1383,6 +1427,17 @@ type CurrencyStashTabLayout {
 }
 
 enum CurrencyUseTypes @indexing(first: 0) { _ }
+
+type CustomAddModCurrency {
+  BaseItemType: BaseItemTypes
+  ItemClasses: [ItemClasses]
+  BaseItemTypes: [BaseItemTypes]
+  Tags: [Tags]
+  _: bool
+  _: bool
+  Mod: Mods
+  _: i32
+}
 
 type DaemonSpawningData {
   Id: string
@@ -1647,6 +1702,34 @@ type EinharPackFallback {
   MonsterPack: [MonsterPacks]
 }
 
+type EmptyVisualSlotOverrides {
+  Stat: Stats
+  _: i32
+  ItemClass: ItemClasses
+  ItemVisualIdentity: ItemVisualIdentity
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}
+
+type EndgamePlayerHideoutApplyMods {
+  Id: string @unique
+  _: i16
+  _: bool
+  MissionType: AtlasMissionTypes
+}
+
+type EndgamePlayerHideoutRewards {
+  Id: string @unique
+  _: i16
+  _: rid # All rows empty
+  _: i32
+  _: string
+  _: bool
+  Rarity: ClientStrings2
+}
+
 type EndlessLedgeChests {
   Id: string @unique
   WorldAreasKey: WorldAreas
@@ -1798,6 +1881,16 @@ type ExtraTerrainFeatures {
   _: i32
 }
 
+type FishingHookTypes {
+  _: i32
+  Name: string
+}
+
+type FishingLureTypes {
+  _: i32
+  Name: string
+}
+
 type FixedHideoutDoodadTypes {
   Id: string
   HideoutDoodadsKeys: [HideoutDoodads]
@@ -1807,6 +1900,7 @@ type FixedHideoutDoodadTypes {
   _: bool
   UnlockQuest: Quest
   WorldArea: WorldAreas
+  _: bool
 }
 
 type FixedMissions {
@@ -2655,7 +2749,7 @@ type ItemVisualEffect {
   TwoHandedAxeEPKFile: string @file(ext: ".epk")
   ClawEPKFile: string @file(ext: ".epk")
   PETFile: string @file(ext: ".pet")
-  Shield: [string] @file(ext: ".epk")
+  Shield: string @file(ext: ".epk")
   _: bool
   _: string
 }
@@ -2900,10 +2994,11 @@ type LeagueStaticRewards {
   _: rid
   _: rid
   _: i32
-  _: i32
   _: bool
   _: [i32]
   _: [rid]
+  _: rid # All rows empty
+  _: i32
 }
 
 type LevelRelativePlayerScaling {
@@ -2983,6 +3078,7 @@ type MapDeviceLayouts {
   _: [i32]
   _: [i32]
   _: i32
+  _: bool
 }
 
 type MapDevices {
@@ -3020,6 +3116,7 @@ type MapFragmentMods {
   MapFragmentLimit: i32
   _: bool
   _: [i32]
+  _: bool
 }
 
 type MapInhabitants {
@@ -3037,6 +3134,12 @@ type MapKeys {
 type MapMissionIcon {
   Mission: string @unique
   Icon: string
+}
+
+type MapModIcons {
+  Mod: Mods
+  Icon: string
+  Description: string
 }
 
 type MapNodeHeader {
@@ -3365,6 +3468,11 @@ type MicrotransactionSocialFrameVariations {
   BK2File: string @file(ext: ".bk2")
 }
 
+type MicrotransactionTiers {
+  _: rid
+  _: [i32]
+}
+
 type MicrotransactionTrackingMapFragmentTypes {
   BaseItemType: BaseItemTypes @unique
   _: i32
@@ -3527,6 +3635,12 @@ enum ModDomains @indexing(first: 1) {
   NECROPOLIS_MONSTER
   IDOL
   GRAFT
+  _
+  _
+  _
+  _
+  HARVEST_TREE
+  LEGION_MONOLITH
 }
 
 type ModEffectStats {
@@ -3629,7 +3743,7 @@ type Mods @tags(list: ["crafting"]) {
   AuraFlags: [ModAuraFlags]
   MonsterMetadata: string
   MonsterKillAchievements: [AchievementItems]
-  ArchnemesisType: [ModType]
+  ChestOpenAchievements: [AchievementItems]
   Stat5Min: i32
   Stat5Max: i32
   StatsKey5: Stats
@@ -3680,6 +3794,11 @@ type Mods @tags(list: ["crafting"]) {
   GameMode: GameModes
   GrantedEffectRuthless: [GrantedEffectsPerLevel]
   IsUnscalable: bool
+  _: [GrantedEffects]
+  _: [GrantedEffects]
+  _: bool
+  _: i32
+  _: bool
 }
 
 type ModSellPriceTypes {
@@ -4454,6 +4573,7 @@ type NPCTalk {
   _: NPCTalk
   Inventory: Inventories
   _: string
+  _: i32
 }
 
 type NPCTalkCategory {
@@ -5229,6 +5349,12 @@ type SessionQuestFlags {
   QuestFlag: QuestFlags
 }
 
+type ShaperApparitionAbility {
+  _: i32
+  GrantedEffect: GrantedEffects
+  Name: string
+}
+
 type ShieldTypes @tags(list: ["item:def"]) {
   BaseItemTypesKey: BaseItemTypes @unique
   Block: i32
@@ -5805,6 +5931,7 @@ type Topologies {
   _: i32
   _: [i32]
   _: i32
+  _: bool
 }
 
 type TradeMarketCategory {
@@ -6199,6 +6326,7 @@ type WorldAreaLeagueChances {
   _: i32
   _: i32
   _: i32
+  _: [i32]
 }
 
 type WorldObjectDisplayedApplicableItems {
@@ -7109,6 +7237,7 @@ type MinionDoublingStatTypes {
   Id: i32
   Stat: Stats
   MinionType: MinionType
+  Name: string
 }
 
 # Added 3.23

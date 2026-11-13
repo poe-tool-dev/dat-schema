@@ -61,6 +61,8 @@ type IncursionRooms @tags(list: ["item:itemized"]) {
   ItemisedFlavourText: FlavourText
   _: string
   _: [Mods]
+  _: [Mods]
+  _: [Mods]
 }
 
 type IncursionRoomBossFightEvents {

@@ -10,13 +10,11 @@ type HarvestCraftOptions @tags(list: ["crafting"]) {
   HASH16: u16
   Description: string
   IsEnchant: bool
-  LifeforceType: i32
-  LifeforceCost: i32
-  SacredCost: i32
+  LifeforceTypes: [i32]
+  LifeforceCosts: [i32]
   IsProportionalToStackSize: bool
   NecropolisAchievements: [AchievementItems]
   GameMode: GameModes
-  RancourCost: i32
 }
 
 type HarvestCraftOptionIcons {
@@ -66,11 +64,10 @@ type HarvestSeeds {
   Id: string
   Monster: MonsterVarieties
   Tier: i32
-  _: i32
   _: [i32]
   Achievements: [AchievementItems]
   SeedAnimation: string @file(ext: ".ao")
-  _: i32
+  _: f32
   HatchAnimation: string @file(ext: ".ao")
   SeedType: i32
   _: bool
@@ -79,5 +76,4 @@ type HarvestSeeds {
 type HarvestSeedItems @tags(list: ["item:def"]) {
   Id: i32
   BaseItem: BaseItemTypes
-  DropStat: Stats
 }

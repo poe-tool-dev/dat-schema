@@ -88,6 +88,20 @@ type ExpeditionFactions {
   Tags: Tags
 }
 
+type ExpeditionGwennenCraftingOptions {
+  Id: i32
+  Deal: ExpeditionDeals
+  _: i32
+  _: i32
+  ItemConditions: [ItemConditions]
+  _: i32
+  _: i32
+  _: i32
+  _: string
+  _: i32
+  _: bool
+}
+
 type ExpeditionMarkersCommon {
   Id: string @unique
   AOFile: string

@@ -21,6 +21,7 @@ type Shrines {
   _: bool
   Mods: Mods
   MonsterPacks: [MonsterPacks]
+  _: rid # All rows empty
 }
 
 type ShrineSounds {
