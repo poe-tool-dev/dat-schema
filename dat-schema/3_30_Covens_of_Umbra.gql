@@ -14,9 +14,11 @@ type AuguryCards {
 type AuguryFactions {
   Id: string
   _: i32
-  _: [_]
+  _: i32
+  _: i32
+  Icon: string
   Name: string
-  _: rid
+  _: MiscAnimated
 }
 
 type AuguryCardDialogue {
