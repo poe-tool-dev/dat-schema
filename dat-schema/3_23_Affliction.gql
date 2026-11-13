@@ -60,8 +60,9 @@ type Descendancy {
   SoundEffectOpen: SoundEffects
   SoundEffectAccept: SoundEffects
   _: i32
-  PassiveTreeUIArt: PassiveSkillTreeUIArtAscendancy
   UIArt: UIArtAscendancy
+  _: bool
+  PassiveTreeUIArt: PassiveSkillTreeUIArt
 }
 
 type ItemisedCorpse {

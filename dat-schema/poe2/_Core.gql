@@ -524,6 +524,14 @@ type AtlasClassPassiveClasses {
   Tab: string
 }
 
+type AtlasExiles {
+  Id: string
+  _: i32
+  InfluencedItemIncrStat: Stats
+  MapIcon: string @file(ext: ".dds")
+  MapIcon2: string @file(ext: ".dds")
+}
+
 type AtlasInfluenceData {
   InfluencePack: AtlasInfluenceOutcomes
   MonsterPacks: [MonsterPacks]
@@ -1887,6 +1895,11 @@ type DynamicStashSlots {
   _: i32
 }
 
+type ElderGuardians {
+  Id: string
+  MapIcon: string
+}
+
 type Emote {
   Id: string
   _: i16
@@ -2861,6 +2874,31 @@ type GeometryAttack {
   _: i32
   _: i32
   MonsterVariety: [MonsterVarieties]
+}
+
+type GeometryProjectiles {
+  Id: i32
+  Projectile: Projectiles @unique
+  _: bool
+  _: i32
+  _: bool
+  _: i32
+  _: i32
+  _: bool
+  _: i32
+  _: i32
+  _: i32
+  _: bool
+  _: i32
+  _: i32
+  _: bool
+  _: i32
+  _: bool
+  _: bool
+  GeometryChannel: GeometryChannel
+  _: bool
+  _: rid
+  _: i32
 }
 
 # Added 0.1
@@ -3956,6 +3994,28 @@ type LegionBalancePerLevel {
   _: i32
   _: i32
   _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+}
+
+type LegionChestCounts {
+  LegionFactionsKey: LegionFactions
+  LegionRanksKey: LegionRanks
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  MinLevel: i32
+  _: i32
+}
+
+type LegionMonsterCounts {
+  LegionFactionsKey: LegionFactions
+  LegionRanksKey: LegionRanks
   _: i32
   _: i32
   _: i32
@@ -6592,6 +6652,20 @@ type StatConvertAltAttackContainer {
   AltStat: Stats
   NormalStat: Stats
   ExtraStat: [Stats]
+}
+
+type StatDescriptionFunctions {
+  Id: string
+  TranslationId: string @unique
+}
+
+type StatisticTrackingMapDeviceLabels {
+  MapDevice: StatisticTrackingMapDevices
+  _: i32
+  _: i32
+  _: i32
+  _: i32
+  _: i32
 }
 
 type Strongboxes {
