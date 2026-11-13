@@ -658,7 +658,6 @@ type BaseItemTypes @tags(list: ["item:def", "item:droptable"]) {
   Unmodifiable: bool
   Achievement1: [AchievementItems]
   Achievement2: [AchievementItems]
-  IgnoreQuantBonus: bool
   _: bool
   ShopTag: ShopTag
   _: [_]
@@ -2690,7 +2689,7 @@ type ItemVisualIdentity {
   TemplarShape: string
   ShadowShape: string
   ScionShape: string
-  _: i32
+  _: [i32]
   _: i32
   Pickup_AchievementItemsKeys: [AchievementItems]
   SMFiles: [string] @file(ext: ".sm")
@@ -2724,13 +2723,14 @@ type ItemVisualIdentity {
   UniqueStat2: Stats
   UniqueStat3: Stats
   UniqueStat4: Stats
+  _: [rid] # All rows empty
+  _: [rid] # All rows empty
+  _: string
+  _: string
+  _: string
+  _: [ItemVisualShaderEffect]
+  _: i32
   _: bool
-  _: [rid] # All rows empty
-  _: [rid] # All rows empty
-  _: string
-  _: string
-  _: string
-  _: [rid]
 }
 
 enum ItemVisualCompositions @indexing(first: 0) {
@@ -6073,7 +6073,7 @@ type WorldAreas {
   LeagueChance1: WorldAreaLeagueChances
   _: i32
   LeagueChance2: WorldAreaLeagueChances
-  MusicCategory: MusicCategories
+  Ruleset: Rulesets
   _: i32
   QuestFlag: QuestFlags
   QuestState: i32
