@@ -307,14 +307,14 @@ type AlternateTreeVersions {
   _: i32
   _: i32
   _: i32
-  _: string
+  Name: string
 }
 
 type AlternateTreeVersionKeystones {
   Version: AlternateTreeVersions
-  _: i32
+  StatValue: i32
   Conqueror: string
-  _: i32
+  InternalVersion: i32
 }
 
 type AnimatedGuardianInventories {
