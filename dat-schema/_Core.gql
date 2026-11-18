@@ -865,7 +865,7 @@ type BuffTemplates {
   StatsKey: [Stats]
   _: i32
   _: i32
-  _: bool
+  InPresence: bool
   _: Stats
 }
 
@@ -1882,12 +1882,12 @@ type ExtraTerrainFeatures {
 }
 
 type FishingHookTypes {
-  _: i32
+  Index: i32 @unique
   Name: string
 }
 
 type FishingLureTypes {
-  _: i32
+  Index: i32 @unique
   Name: string
 }
 
@@ -2520,13 +2520,13 @@ type ImpactSoundData {
 }
 
 type IndexableNonActiveSupportGems {
-  Index: i32
+  Index: i32 @unique
   SupportGem: SkillGems
   Name: string
 }
 
 type IndexableSkillGems {
-  Index: i32
+  Index: i32 @unique
   SkillGem1: [SkillGems]
   Name1: string
   SkillGem2: [SkillGems]
@@ -2535,7 +2535,7 @@ type IndexableSkillGems {
 }
 
 type IndexableSupportGems @tags(list: ["crafting"]) {
-  Index: i32
+  Index: i32 @unique
   SupportGem: SkillGems @unique
   Name: string
 }
@@ -3635,10 +3635,10 @@ enum ModDomains @indexing(first: 1) {
   NECROPOLIS_MONSTER
   IDOL
   GRAFT
-  _
-  _
-  _
-  _
+  DEEPWATER_CHART
+  DEEPWATER_BORDER
+  MERCENARY
+  DUCAT_CRAFTED
   HARVEST_TREE
   LEGION_MONOLITH
 }
@@ -3703,10 +3703,11 @@ enum ModGenerationType @indexing(first: 1) {
   _
   WEAPON_TREE
   WEAPON_TREE_RECOMBINED
-  _
+  AZMERI_EMPOWERED_MONSTER
   NECROPOLIS_HAUNTED
   NECROPOLIS_DEVOTED
   MEMORY_ALTAR
+  DEEPWATER_VOYAGE_PLANNER
 }
 
 enum GameModes @indexing(first: 0) {
@@ -5350,7 +5351,7 @@ type SessionQuestFlags {
 }
 
 type ShaperApparitionAbility {
-  _: i32
+  Index: i32 @unique
   GrantedEffect: GrantedEffects
   Name: string
 }
@@ -7234,7 +7235,7 @@ type MinionType {
 }
 
 type MinionDoublingStatTypes {
-  Id: i32
+  Index: i32 @unique
   Stat: Stats
   MinionType: MinionType
   Name: string
