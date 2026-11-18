@@ -128,3 +128,7 @@ type MercenarySupports {
 type MercenaryWieldableTypes {
   ItemClass: ItemClasses
 }
+
+type MercenaryDisabledUniques {
+  UniqueName: Words
+}
